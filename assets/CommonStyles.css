@@ -1,0 +1,55 @@
+﻿* {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	box-sizing: border-box;
+}
+
+p, span {
+	font-size: 12px;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0px;
+}
+
+pre {
+	font-family: 'Courier New', Courier, monospace;
+	margin: 0px;
+}
+
+.vbox {
+	display: flex;
+	flex-direction: column;
+	position: relative
+}
+
+.hbox {
+	display: flex;
+	flex-direction: row;
+	position: relative
+}
+
+.page {
+	width: 1204px;
+	min-height: 100%;
+	margin: 0 auto;
+	border-left: 2px solid brown;
+	border-right: 2px solid brown
+}
+
+.buttonLink {
+	padding: 4px;
+	background-color: aliceblue;
+	margin-left: 16px;
+	font-size: 14px;
+}
+
+.mainMenu {
+	border-bottom: 2px solid brown;
+	background-color:azure;
+}
+

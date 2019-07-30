@@ -66,7 +66,7 @@ Segment pattern definition takes the following form:
 * `+` means that the segment must be repeated one or more times - that is, it can cover one or more consecutive segments of the given part of the actual URL. The value of any field defined within the segment will be an array. This character is only allowed in multi-segment URL parts.
 * `!` means that the segment must be present exactly once. This character is only needed if the segment doesn't specify any additional content (text, regular expressions or fields).
 
-Segment's match pattern is a sequence of one or more strings that contain text, regular expressions and fields. It takes the following form:
+Segment's match pattern is a sequence of one or more elements each of which can be either text or regular expressions or a field. Match pattern takes the following form:
 
 ```
 [text|(RegExp)|{field}]+
