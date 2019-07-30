@@ -1,18 +1,50 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8" />
-	<title></title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/solid.css" integrity="sha384-ioUrHig76ITq4aEJ67dHzTvqjsAP/7IzgwE7lgJcg2r7BRNGYSK0LwSmROzYtgzs" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/fontawesome.css" integrity="sha384-sri+NftO+0hcisDKgr287Y/1LVnInHJ1l+XC7+FOabmTTIK0HnE2ID+xxvJ21c5J" crossorigin="anonymous">
-	<link href="main.css" rel="stylesheet">
-	<link href="mimurl-demo.styles.css" rel="stylesheet">
-	<script src="mimurl.js"></script>
-	<script src="mimbl.js"></script>
-	<script src="mimcl.js"></script>
-	<script src="mimurl-demo.js"></script>
+	<title>MiM - Home</title>
+	<style>
+		* { font-family: Verdana, Geneva, Tahoma, sans-serif; box-sizing: border-box; }
+		p, span { font-size: 12px; }
+		html { height: 100%; }
+		body { height: 100%; margin: 0px;}
+		pre { font-family: 'Courier New', Courier, monospace; margin: 0px;}
+		.vbox { display:flex; flex-direction:column; position: relative}
+		.hbox { display:flex; flex-direction:row; position: relative}
+		.page { width:1204px; min-height:100%; margin: 0 auto; border-left:2px solid brown; border-right:2px solid brown}
+		.buttonLink { padding: 4px; background-color:aliceblue; margin-left: 16px}
+	</style>
 </head>
-<body style="height:100%; margin:0px" onload="main()">
+<body>
+	<div class="vbox page">
+		<img src="assets/MountainStrip.jpg" />
+		<div class="hbox" style="border-bottom: 2px solid brown">
+			<img src="assets/Logo.jpg">
+			<div class="hbox" style="justify-content:flex-end; flex-grow:1; align-items:center">
+				<a class="buttonLink" href="index.html">Home</a>
+				<a class="buttonLink" href="mimurl/demo/index.html">mimurl</a>
+				<a class="buttonLink" href="mimbl/index.html">mimbl</a>
+				<a class="buttonLink" href="mimbl/index.html">Blog</a>
+			</div>
+		</div>
+		<div style="flex-grow:1; padding: 8px">
+			<h3>mimurl - URL Parsing and Matching Library</h3>
+			<p>
+				<strong>mimurl</strong> is a JavaScript/TypeScript library for parsing URLs and URL patterns
+				and matching them. URL pattern can specify a number of fields. When an actual URL is matched
+				against the pattern, the result will contain field values.
+				<a href="mimurl/demo/index.html">...read more</a>
+			</p>
+			<br /><br />
+			<h3>mimbl - UI Authoring Library</h3>
+			<p>
+				<strong>mimbl</strong> is a JavaScript/TypeScript library for creating components and using
+				them to author single page Web applications.
+				<a href="mimbl/index.html">...read more</a>
+			</p>
+			<br /><br />
+		</div>
+	</div>
 </body>
 </html>

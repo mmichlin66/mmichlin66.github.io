@@ -1,0 +1,304 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>mimurl</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">mimurl</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> mimurl</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="mimurl-url-parsing-and-matching-library">mimurl - URL Parsing and Matching Library</h1>
+				<p>Mimurl is a library that allows defining URL patterns and then matching actual URLs with the pattern. URL patterns can describe either a full URL containing protocol, hostname, port, path, query and hash parts, or it can have only a subset of the URL parts; for example, it can only describe a path. The URL pattern can define fields and when an actual URL matches the pattern, the result of the matching operation returns values of the fields; for example:</p>
+				<p><strong>URL pattern:</strong> <code>{prot}://{host}.example.com:?{port%i}/departments/{dep}/*</code></p>
+				<p><strong>Actual URL:</strong> <code>http://www.example.com:8080/departments/finance/payroll</code></p>
+				<p><strong>Matching result:</strong></p>
+				<pre><code class="language-JSON">{ prot: &quot;http&quot;, port: 8080, dep: &quot;finance&quot; }</code></pre>
+				<p><strong>Actual URL:</strong> <code>https://www.example.com/departments/hr</code></p>
+				<p><strong>Matching result:</strong></p>
+				<pre><code class="language-JSON">{ prot: &quot;https&quot;, dep: &quot;hr&quot; }</code></pre>
+				<h2 id="usage">Usage</h2>
+				<pre><code class="language-TypeScript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> mimurl <span class="hljs-keyword">from</span> <span class="hljs-string">"mimurl"</span>
+
+<span class="hljs-keyword">let</span> pattern = <span class="hljs-string">"{prot}://{host}.example.com:?{port%i}/departments/{dep}/*"</span>;
+<span class="hljs-keyword">let</span> url = <span class="hljs-string">"http://www.example.com:8080/departments/finance/payroll"</span>;
+<span class="hljs-keyword">let</span> matchResult = mimurl.match( url, pattern);
+<span class="hljs-keyword">for</span>( <span class="hljs-keyword">let</span> fieldName <span class="hljs-keyword">in</span> matchResult.fields)
+{
+    <span class="hljs-built_in">console</span>.log( <span class="hljs-string">`<span class="hljs-subst">${fieldName}</span> = <span class="hljs-subst">${matchResults.fields[fieldName]}</span>`</span>);
+}</code></pre>
+				<h2 id="features">Features</h2>
+				<p>A URL pattern, just like URL, consists of parts - all of them optional. These parts are: protocol, hostname, port, path, query string and hash. Each part defines one or more segments:</p>
+				<ul>
+					<li>Protocol defines a single segment.</li>
+					<li>Hostname can define multiple segments separated by dots. For example, the hostname <code>www.microsoft.com</code> defines 3 segments.</li>
+					<li>Port defines a single segment.</li>
+					<li>Path can define multiple segments separated by slashes.</li>
+					<li>Query string can define multiple segments per each named query string parameter. For example the query string <code>?p1=abc&amp;p1xyz&amp;p2=123</code> defines two segments for parameter <code>p1</code> and one segment for parameter <code>p2</code>.</li>
+					<li>Hash defines a single segment.</li>
+				</ul>
+				<p>Each segment in the pattern defines whether it is mandatory or optional. For those parts of the URL that can define multiple segments, the segment pattern also indicates whether it can be repeated more than once - those are called &quot;multi&quot; segments. If a segment is marked as both optional and multi, it can be repeated zero or more times. If a segment is not marked as optional but is marked as multi, it can be repeated one or more times.</p>
+				<p>Each segment defines how it should be compared with segments from actual URLs. The comparison can be based either on a simple string comparison or on regular expressions.</p>
+				<p>Within a segment pattern, fields can be defined. Fields have names that should be unique within the entire URL pattern. Fields can specify formats that determine whether the fields should be converted to a number (integer or float), converted to a Boolean or just be a string. If the format is specified, but the field value cannot be converted to the specified format, the matchig will still succeed but the field&#39;s value will be a string.</p>
+				<h2 id="url-pattern-format">URL Pattern Format</h2>
+				<p>URL patterns have the following form:</p>
+				<pre><code>[<span class="hljs-string">[ptotocol://</span>]hostname[<span class="hljs-string">:port</span>]][<span class="hljs-string">/path</span>][<span class="hljs-symbol">?queryString</span>][<span class="hljs-string">#hash</span>]</code></pre><h3 id="segment-pattern-format">Segment Pattern Format</h3>
+				<p>Segment pattern definition takes the following form:</p>
+				<pre><code>[<span class="hljs-string">?|*|+|!</span>][<span class="hljs-symbol">match-pattern</span>]</code></pre><ul>
+					<li><code>?</code> means that the segment is optional</li>
+					<li><code>*</code> means that the segment can be repeated zero or more times - that is, it can cover zero or more consecutive segments of the given part of the actual URL. The value of any field defined within the segment will be an array. This character is only allowed in multi-segment URL parts.</li>
+					<li><code>+</code> means that the segment must be repeated one or more times - that is, it can cover one or more consecutive segments of the given part of the actual URL. The value of any field defined within the segment will be an array. This character is only allowed in multi-segment URL parts.</li>
+					<li><code>!</code> means that the segment must be present exactly once. This character is only needed if the segment doesn&#39;t specify any additional content (text, regular expressions or fields).</li>
+				</ul>
+				<p>Segment&#39;s match pattern is a sequence of one or more strings that contain text, regular expressions and fields. It takes the following form:</p>
+				<pre><code>[text|<span class="hljs-type">(RegExp</span>)|<span class="hljs-type">{field</span>}]+</code></pre><ul>
+					<li>Text is a sequence of characters. Any characters are allowed except <code>(</code>, <code>{</code> and those that otherwise would end the segment (for example, <code>/</code> within the path URL part). Note that although all characters are allowed, the segements are expected to be URL-encoded.</li>
+					<li>Regular expressions are always enclosed in parentheses. Note that these parentheses do not become part of the regular expression - only the content within them.</li>
+					<li>Fields are always enclosed in curly braces.</li>
+					<li>Fields can include regular expressions; however, regular expressions cannot include fields.</li>
+					<li>If match pattern is empty it is interpreted as a segment containing arbitrary number of any characters.</li>
+				</ul>
+				<p>Note that the character <code>?</code> has two uses: first, as an indication of an optional segment, and second, as a start of the URL&#39;s query string. In order to disambiguate the use, the following rules are applied:</p>
+				<ul>
+					<li>If <code>?</code> stands right after <code>.</code>, it is considered an indication of an optional segment in the hostname URL part.</li>
+					<li>If <code>?</code> stands right after <code>:</code>, it is considered an indication of an optional segment in the port URL part.</li>
+					<li>If <code>?</code> stands right after <code>/</code>, it is considered an indication of an optional segment in the path URL part.</li>
+					<li>If <code>?</code> stands right after <code>#</code>, it is considered an indication of an optional segment in the hash URL part.</li>
+					<li>If <code>?</code> is found after an opening curly brace, it is an indication of an optional field.</li>
+					<li>In all other cases, the <code>?</code> character is an indication of the start of the URL&#39;s query string part.</li>
+				</ul>
+				<p>For example:</p>
+				<ul>
+					<li><code>/?users?p=a</code> - the first <code>?</code> indicates that the /user segment is optional; the second <code>?</code> is the start of the query string.</li>
+					<li><code>/users/?</code> - the <code>?</code> character indicates an optional segment with arbitrary content.</li>
+					<li><code>/users?</code> - the `? character indicates the start of query string.</li>
+					<li><code>/??</code> - the first <code>?</code> indicates an optional segment with arbitrary content; the second <code>?</code> is the start of the query string.</li>
+				</ul>
+				<p>If a query string parameter was specified in the URL pattern as a mandatory segment, then an actual URL will not be matched if it doesn&#39;t have this parameter. For example, the URL <code>/path</code> will not match the pattern <code>/path?p={p}</code>. Note, however, that the reverse is, in general, not correct; that is, actual URLs that have some query string parameters not specified in the URL pattern, will still match the pattern (provided, of course, other segments match). For example, the URL <code>/path?p=a</code> will match the pattern <code>/path</code> and will even match the pattern <code>/path?p1={?p1}</code>.</p>
+				<p>There is a special syntax for the query string URL part to prohibit query string parameters that are not specified in the pattern. The query string clause (that is, the text that follows <code>?</code> or <code>&amp;</code> characters) can specify the <code>!</code> character, which means that no query string parameters are allowed except those explicitly specified in the pattern. For example, the pattern <code>/path?p={p}&amp;!</code> prohibits having any query string parameters except <code>p</code> and the pattern <code>/path?!</code> prohibits having any query string parameters at all.</p>
+				<h3 id="field-format">Field Format</h3>
+				<p>Field definition takes the following form:</p>
+				<pre><code>{[<span class="hljs-string">?</span>]name[<span class="hljs-string">(RegExp)</span>][<span class="hljs-symbol">%format</span>]}</code></pre><ul>
+					<li>Fields must be enclosed in curly brackets.</li>
+					<li>If the first symbol is <code>?</code>, then the field is optional.</li>
+					<li>Field name must be specified. It can have any alpha-numeric character in it plus hyphen and underscore. It is an error to use the same field name more than once - not only in a segment but in the entire pattern.</li>
+					<li>If regular expression is specified, its entire value becomes the value of the field regardless of how many capture groups (if any) it has. If regular expression is not specified, it is created implicitly as <code>(.*)</code> for optional fields and <code>(.+)</code> for mandatory ones.</li>
+				</ul>
+				<p>The optional format expression consists of the <code>%</code> character followed by a single character defining the format. The following formats are supported:</p>
+				<ul>
+					<li><code>i</code> - the field value must be convertible to an integer number.</li>
+					<li><code>f</code> - the field value must be convertible to a real number.</li>
+					<li><code>b</code> - the field value must be convertible to a Boolean.</li>
+				</ul>
+				<p>The acceptable values for Boolean fields are:</p>
+				<ul>
+					<li><code>1 | y | t | yes | true</code> (case insensitive) are converted to true.</li>
+					<li><code>0 | n | f | no | false</code> (case insensitive) are converted to false.</li>
+				</ul>
+				<h3 id="field-examples">Field Examples</h3>
+				<ul>
+					<li><code>{uid}</code> - the segment&#39;s string becomes the value of the <code>uid</code> field.</li>
+					<li><code>{uid%i}</code> - the segments string must be converted to an integer value, which becomes the value of the <code>uid</code> field.</li>
+					<li><code>{?uid%i}</code> - the segment&#39;s string must be converted to an integer value, which becomes the value of the <code>uid</code> field. The match will succeed even if the field is not present (optional field).</li>
+					<li><code>{uid([A-Z]{4}\d{3,8})}</code> - the <code>uid</code> field should contain 4 uppercase characters followed by 3 to 8 digits.</li>
+				</ul>
+				<h2 id="pattern-examples">Pattern Examples</h2>
+				<h3 id="example-1">Example 1</h3>
+				<pre><code><span class="xml">/users/profile/usr-</span><span class="hljs-template-variable">{uid%i}</span><span class="xml">?option=+</span><span class="hljs-template-variable">{opt}</span><span class="xml">#?</span><span class="hljs-template-variable">{fragment}</span><span class="xml"></span></code></pre><ul>
+					<li><code>{uid%i}</code> defines a field, which must be an integer number</li>
+					<li><code>+{opt}</code> defines a &quot;one or more&quot; segment in the query string’s &quot;option&quot; parameter.</li>
+					<li><code>?{fragment}</code> defines an optional field in the hash.</li>
+				</ul>
+				<p><strong>The following URLs will match the pattern:</strong></p>
+				<pre><code>/users/profile/usr-123?option=email&amp;option=phone
+uid = 123
+opt = [<span class="hljs-string">"email"</span>, <span class="hljs-string">"phone"</span>]
+fragment = undefined</code></pre><pre><code>/users/profile/usr-6?option=email<span class="hljs-comment">#xyz</span>
+uid = 6
+opt = [<span class="hljs-string">"email"</span>]
+fragment = <span class="hljs-string">"xyz"</span></code></pre><pre><code>/users/profile/usr-abc?<span class="hljs-attribute">option</span>=email&amp;option=phone
+uid = <span class="hljs-string">"abc"</span>,<span class="hljs-built_in"> note </span>that it is a string
+opt = [<span class="hljs-string">"email"</span>, <span class="hljs-string">"phone"</span>]
+fragment = undefined</code></pre><p><strong>The following URLs will NOT match the pattern:</strong></p>
+				<pre><code>/profile/usr-123?<span class="hljs-attribute">option</span>=email&amp;option=phone
+<span class="hljs-built_in">/users </span>path segment is missing</code></pre><pre><code>/users/profile/usr<span class="hljs-number">-6</span><span class="hljs-comment">#xyz</span>
+<span class="hljs-string">"option"</span> query <span class="hljs-built_in">string</span> parameter <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> specified (<span class="hljs-keyword">it</span> must be specified <span class="hljs-keyword">at</span> least once)</code></pre><h3 id="example-2">Example 2</h3>
+				<pre><code><span class="xml">/*</span><span class="hljs-template-variable">{before}</span><span class="xml">/accounts/</span><span class="hljs-template-variable">{?acc%i}</span><span class="xml"></span></code></pre><ul>
+					<li><code>*{before}</code> defines a field, which will be an array (maybe empty) of segments before the &quot;account&quot; segment.</li>
+					<li><code>{?acc%i!}</code> defines an optional field, which must be an integer number.</li>
+				</ul>
+				<p><strong>The following URLs will match the pattern:</strong></p>
+				<pre><code>/accounts/123
+before = []
+acc = 123</code></pre><pre><code>/company/users/accounts/123
+before = [“company”, “users”]
+acc = 123</code></pre><pre><code>/accounts/123.5
+before = []
+acc = <span class="hljs-string">"123.5"</span>.<span class="hljs-built_in"> Note </span>that it is a string.</code></pre><p><strong>The following URLs will NOT match the pattern:</strong></p>
+				<pre><code>/company/users/<span class="hljs-number">123</span>
+/accounts segment <span class="hljs-keyword">is</span> missing</code></pre><p>*** Example 3</p>
+				<pre><code><span class="xml">/*</span><span class="hljs-template-variable">{dir}</span><span class="xml">/?</span><span class="hljs-template-variable">{file}</span><span class="xml">.</span><span class="hljs-template-variable">{?ext}</span><span class="xml">/act-</span><span class="hljs-template-variable">{?action}</span><span class="xml"></span></code></pre><ul>
+					<li><code>*{dir}</code> defines <code>dir</code> field, which will be an array of segments.</li>
+					<li><code>?{file}.{?ext}</code> defines an optional segment, which has mandatory <code>file</code> field followed by the <code>.</code> character and optional <code>ext</code> field.</li>
+					<li><code>act-{?action}</code> defines a segment that must contain the <code>act-</code> text followed by the optional <code>action</code> field.</li>
+				</ul>
+				<p><strong>The following URLs will match the pattern:</strong></p>
+				<pre><code class="language-/path/to/my/dir/work.txt/act-print">dir = [&quot;path&quot;, &quot;to&quot;, &quot;my&quot;, &quot;dir&quot;]
+file = &quot;work&quot;
+ext = &quot;txt&quot;
+action = &quot;print&quot;</code></pre>
+				<pre><code>/work/act-
+dir = [<span class="hljs-string">"work"</span>]
+file = undefined
+ext = undefined
+action = undefined</code></pre><pre><code>/work.txt/act-
+dir = []
+file = <span class="hljs-string">"work"</span>
+ext = <span class="hljs-string">"txt"</span>
+action = undefined</code></pre><pre><code>/act-do-nothing
+dir = []
+file = undefined
+ext = undefined
+action = <span class="hljs-string">"do-nothing"</span></code></pre><p><strong>The following URLs will NOT match the pattern:</strong></p>
+				<pre><code>/<span class="hljs-built_in">do</span>-nothing
+Mandatory <span class="hljs-keyword">segment</span> <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">text</span> <span class="hljs-string">"act-"</span> <span class="hljs-keyword">not</span> found.</code></pre><pre><code>/path/<span class="hljs-keyword">to</span>/<span class="hljs-keyword">my</span>/dir/work.txt/act-print/<span class="hljs-built_in">rest</span>
+Extra segment /<span class="hljs-built_in">rest</span>.</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_api_.html">"api"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
