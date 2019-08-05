@@ -1,0 +1,31 @@
+---
+---
+
+{% include pathToRoot.lqd %}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<title>{{page.title}}</title>
+	<link href="{{pathToRoot}}assets/CommonStyles.css" rel="stylesheet">
+</head>
+<body>
+	<div class="vbox page">
+		<img src="{{pathToRoot}}assets/MountainStrip.jpg" />
+		<div class="hbox mainMenu">
+			<img src="{{pathToRoot}}assets/Logo.jpg">
+			<div class="hbox" style="justify-content:flex-end; flex-grow:1; align-items:center">
+				<a class="buttonLink" href="{{pathToRoot}}home/home.html">Home</a>
+				<a class="buttonLink" href="{{pathToRoot}}mimurl/index.html">mimurl</a>
+				<a class="buttonLink" href="{{pathToRoot}}mimbl/index.html">mimbl</a>
+				<a class="buttonLink" href="{{pathToRoot}}blog/index.html">Blog</a>
+			</div>
+		</div>
+		<div style="display:flex; flex-direction: column; flex-grow:1; padding: 8px">
+			{{ content }}
+		</div>
+	</div>
+</body>
+</html>

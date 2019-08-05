@@ -1,8 +1,3 @@
----
-# front matter for Jekyll
-layout: default
----
-
 # mimurl - URL Parsing and Matching Library
 Mimurl is a library that allows defining URL patterns and then matching actual URLs with the pattern. URL patterns can describe either a full URL containing protocol, hostname, port, path, query and hash parts, or it can have only a subset of the URL parts; for example, it can only describe a path. The URL pattern can define fields and when an actual URL matches the pattern, the result of the matching operation returns values of the fields; for example:
 
@@ -71,7 +66,7 @@ Segment pattern definition takes the following form:
 * `+` means that the segment must be repeated one or more times - that is, it can cover one or more consecutive segments of the given part of the actual URL. The value of any field defined within the segment will be an array. This character is only allowed in multi-segment URL parts.
 * `!` means that the segment must be present exactly once. This character is only needed if the segment doesn't specify any additional content (text, regular expressions or fields).
 
-Segment's match pattern is a sequence of one or more elements each of which can be either text or regular expressions or a field. Match pattern takes the following form:
+Segment's match pattern is a sequence of one or more strings that contain text, regular expressions and fields. It takes the following form:
 
 ```
 [text|(RegExp)|{field}]+
