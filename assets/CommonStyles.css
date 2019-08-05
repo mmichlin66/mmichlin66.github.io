@@ -1,11 +1,16 @@
-﻿* {
+* {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	box-sizing: border-box;
+	font-size: 12px;
+	position: relative
 }
 
-p, span {
-	font-size: 12px;
-}
+h6 { font-size: 12px; font-weight: bold; }
+h5 { font-size: 14px; font-weight: bold; }
+h4 { font-size: 16px; font-weight: bold; }
+h3 { font-size: 18px; font-weight: bold; }
+h2 { font-size: 20px; font-weight: bold; }
+h1 { font-size: 24px; font-weight: bold; }
 
 html {
 	height: 100%;
@@ -24,13 +29,21 @@ pre {
 .vbox {
 	display: flex;
 	flex-direction: column;
-	position: relative
 }
 
 .hbox {
 	display: flex;
 	flex-direction: row;
-	position: relative
+}
+
+.vbox.spacing > a:nth-child(n) {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.hbox.spacing > a:nth-child(n) {
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 .page {
@@ -51,5 +64,14 @@ pre {
 .mainMenu {
 	border-bottom: 2px solid brown;
 	background-color:azure;
+}
+
+a {
+	text-decoration: none;
+	color: maroon
+}
+
+a:hover {
+	text-decoration: underline;
 }
 

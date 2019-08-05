@@ -26,7 +26,10 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
-theme: minima
+highlighter: rouge
+theme: jekyll-theme-slate
+#theme: minima
+
 #plugins:
 #  - jekyll-feed
 
@@ -44,7 +47,7 @@ theme: minima
 
 exclude:
     - .vs
-    - ./*/build.bat
+    - _tools
 
-include: [ 'mimurl/reference/modules/_api_.html' ]
+include: [ '_api_*.html' ]
 
