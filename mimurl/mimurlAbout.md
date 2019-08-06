@@ -11,34 +11,28 @@ Mimurl is a library that allows defining URL patterns and then matching actual U
 **Actual URL:** `http://www.example.com:8080/departments/finance/payroll`
 
 **Matching result:**
-~~~TypeScript
+```typescript
 { prot: "http", port: 8080, dep: "finance" }
-~~~
+```
 
 **Actual URL:** `https://www.example.com/departments/hr`
 
 **Matching result:**
-{% highlight TypeScript %}
+```typescript
 { prot: "https", dep: "hr" }
-{% endhighlight %}
+```
 
 ## Usage
 
-{% highlight TypeScript %}
+```typescript
 import * as mimurl from "mimurl"
 
 let pattern = "{prot}://{host}.example.com:?{port%i}/departments/{dep}/*";
 let url = "http://www.example.com:8080/departments/finance/payroll";
 let matchResult = mimurl.match( url, pattern);
 for( let fieldName in matchResult.fields)
-{
     console.log( `${fieldName} = ${matchResults.fields[fieldName]}`);
-}
-
-class A extends Component implements IPersist
-{
-}
-{% endhighlight %}
+```
 
 ## Features
 A URL pattern, just like URL, consists of parts - all of them optional. These parts are: protocol, hostname, port, path, query string and hash. Each part defines one or more segments:

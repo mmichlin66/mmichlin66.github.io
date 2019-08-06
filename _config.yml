@@ -26,8 +26,8 @@ github_username:  mmichlin66
 
 # Build settings
 markdown: kramdown
-#highlighter: pygments
 highlighter: rouge
+
 #kramdown:
 #  input:          GFM
 #  # https://github.com/jekyll/jekyll/pull/4090

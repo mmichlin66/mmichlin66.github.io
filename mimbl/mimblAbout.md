@@ -31,9 +31,10 @@ In both cases, the componenets participate in the JSX layout. For the instance-b
 ### Hello World in Mimbl
 Let's first see a simple example with two components - parent and child. The child component displays the "Hello World!" string with the text color defined by its public property that can be changed directly by whatever code that has access to its instance - in this example by the parent component.
 
-```TypeScript
+```tsx
 import * as mim from "mimbl"
 
+// Define Child component
 class Child extends mim.Component
 {
     @mim.prop txtColor: string;
@@ -46,7 +47,7 @@ class Child extends mim.Component
     
     render(): any
     {
-        return <span style={{color: this.txtColor}}>Hello World!</span>;
+        return <span style={ {color: this.txtColor} }>Hello World!</span>;
     }
 }
 
@@ -55,6 +56,9 @@ interface ParentProps
 	txtInitColor?: string;
 }
 
+/**
+ * Define Parent component
+ */
 class Parent extends mim.Component<ParentProps>
 {
     child: Child;
@@ -62,7 +66,7 @@ class Parent extends mim.Component<ParentProps>
     constructor( props: ParentProps)
     {
         super( props);
-        this.child = new Child( props.txtInitColor ? props.txtInitColor : "green");
+        this.child = new Child( props.txtInitColor ? props.txtInitColor : 'green');
     }
 
     render(): any
@@ -104,7 +108,7 @@ For example, let's assume that we want to periodically change the border color o
 
 Custom attributes provide an alternative way of implementing the desired functionality with a lot less bolierplate code. With this approach, we can define a new attribute name - let's say `borderBlink` - and indicate that it can be applied on all input elements. This is accomplished via TypeScript's module augmentation:
 
-```TypeScript
+```tsx
 // define the type for the custom attribute values
 type BorderBlinkType = { color?: string; delay?: number };
 
@@ -120,7 +124,7 @@ declare module "mimbl/core/HtmlTypes"
 
 If we want to have the same functionality applied to the `textarea` and `select` elements, we just add the definition of the custom attribute under the corresponding interfaces:
 
-```TypeScript
+```tsx
 declare module "mimbl/core/HtmlTypes"
 {
     interface IHtmlTextareaElementProps
@@ -137,20 +141,20 @@ declare module "mimbl/core/HtmlTypes"
 
 Note that the new `borderBlink` attribute is declared as optional and that the type of this attribute is declared as an object with two properties for color and time delay. Both properties are declared as optional (the implementation will have to provide and document the default values for them). The module augmentation technique allowes using the TypeScript's JSX type-checking mechanism to enforce the correct application of this attribute to the input elements. This will also prohibit applying this attribute to non-input elements:
 
-```TypeScript
+```tsx
 render() : any
 {
     return <div>
-        <input type="text" borderBlink={{color: "blue"}}/>  // correct usage
-        <input type="text" borderBlink={{colour: "blue"}}/> // ERROR!!! incorrect property name
-        <span borderBlink={{color: "blue"}}/>               // ERROR!!! not an input element
+        <input type="text" borderBlink={ {color: "blue"} }/>  // correct usage
+        <input type="text" borderBlink={ {colour: "blue"} }/> // ERROR!!! incorrect property name
+        <span borderBlink={ {color: "blue"} }/>               // ERROR!!! not an input element
     </div>
 }
 ```
 
 Module augmention only makes the new attribute available to the TypeScript type-checking mechanism but to make this attribute available at run-time and to map the executable code to the attribute name, we need to create a factory and register it with this name:
 
-```TypeScript
+```tsx
 class BorderBlickFactory implements mim.ICustomAttributeFactory<BorderBlinkType>
 {
     public createHandler( propName: string): mim.ICustomAttributeHandler<BorderBlinkType>
@@ -164,7 +168,7 @@ mim.registerCustomAttribute( "borderBlink", new BorderBlickFactory());
 
 Finally we need to provide the handler implementation. The handler is a class that derives from the `ICustomAttributeHandler` interface.
 
-```TypeScript
+```tsx
 class BorderBlinkHandler implements mim.ICustomAttributeHandler<BorderBlinkType>
 {
     public initialize( elmVN: mim.IElmVN, propName: string, propVal: BorderBlinkType): void
@@ -197,7 +201,7 @@ Components can publish and subscribe to services. In Mimbl, services are objects
 
 Before a service can be published, the service name and type must be declared. This is acomplished via the module augmentation mechanism. For example, let's imagine a service that provides an image for a progress indicator, so that components don't need to define their own progress indicator but use the one provided by some upper-level component. We can declare a service called "ProgressImage" whose type is a string - the URL of the image:
 
-```TypeScript
+```tsx
 declare module "mimbl/core/mim"
 {
     interface IServiceDefinitions
@@ -211,7 +215,7 @@ Defining the service this way allows type checking when publishing and subscribi
 
 Publishing a service is performed by calling the `publishService` method of the `mim.Component` base class. To publish a service, a component specifies the service name and provides the service value. Publishing a service is usually performed in the `componentWillMount` lifecycle method. Correspondingly, the `unpublisheService` is usually implemented in the `componentWillUnmount` lifecycle metod. For example, the component ContainerWithProgressIndicator can be imlemented the fllowing way:
 
-```TypeScript
+```tsx
 class ContainerWithProgressIndicator extends mim.Component
 {
     componentWillMount()
@@ -228,7 +232,7 @@ class ContainerWithProgressIndicator extends mim.Component
 
 Subscribing to a service is performed by calling the `subscribeService` method of the `mim.Component` base class. To subscribe to a service, a component specifies the service name and provides the reference object. Subscribing to a service is usually performed in the `componentWillMount` lifecycle method. Correspondingly, the `unsubscribeService` is usually implemented in the `componentWillUnmount` lifecycle metod. For example, the component ProgressIndicatorConsumer can be imlemented the fllowing way:
 
-```TypeScript
+```tsx
 class ProgressIndicatorConsumer extends mim.Component
 {
     srvRef = new mim.Ref<string>();
@@ -255,7 +259,7 @@ class ProgressIndicatorConsumer extends mim.Component
 
 Now we can render a hierarchy that includes the ContainerWithProgressIndicator and ProgressIndicatorConsumer components:
 
-```TypeScript
+```tsx
 render(): any
 {
     return <ContainerWithProgressIndicator>
