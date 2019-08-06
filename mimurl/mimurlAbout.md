@@ -24,7 +24,7 @@ Mimurl is a library that allows defining URL patterns and then matching actual U
 
 ## Usage
 
-```TypeScript
+{% highlight TypeScript %}
 import * as mimurl from "mimurl"
 
 let pattern = "{prot}://{host}.example.com:?{port%i}/departments/{dep}/*";
@@ -34,7 +34,7 @@ for( let fieldName in matchResult.fields)
 {
     console.log( `${fieldName} = ${matchResults.fields[fieldName]}`);
 }
-```
+{% endhighlight %}
 
 ## Features
 A URL pattern, just like URL, consists of parts - all of them optional. These parts are: protocol, hostname, port, path, query string and hash. Each part defines one or more segments:

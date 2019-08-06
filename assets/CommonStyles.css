@@ -1,3 +1,6 @@
+---
+---
+
 * {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	box-sizing: border-box;
@@ -21,7 +24,7 @@ body {
 	margin: 0px;
 }
 
-pre {
+pre, code {
 	font-family: 'Courier New', Courier, monospace;
 	margin: 0px;
 }
@@ -47,11 +50,10 @@ pre {
 }
 
 .page {
-	width: 1204px;
-	min-height: 100%;
+	width: 1104px;
 	margin: 0 auto;
-	border-left: 2px solid brown;
-	border-right: 2px solid brown
+	border-left: 2px solid gray;
+	border-right: 2px solid gray
 }
 
 .buttonLink {
