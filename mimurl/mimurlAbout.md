@@ -11,16 +11,16 @@ Mimurl is a library that allows defining URL patterns and then matching actual U
 **Actual URL:** `http://www.example.com:8080/departments/finance/payroll`
 
 **Matching result:**
-```JSON
+~~~TypeScript
 { prot: "http", port: 8080, dep: "finance" }
-```
+~~~
 
 **Actual URL:** `https://www.example.com/departments/hr`
 
 **Matching result:**
-```JSON
+{% highlight TypeScript %}
 { prot: "https", dep: "hr" }
-```
+{% endhighlight %}
 
 ## Usage
 
@@ -33,6 +33,10 @@ let matchResult = mimurl.match( url, pattern);
 for( let fieldName in matchResult.fields)
 {
     console.log( `${fieldName} = ${matchResults.fields[fieldName]}`);
+}
+
+class A extends Component implements IPersist
+{
 }
 {% endhighlight %}
 
