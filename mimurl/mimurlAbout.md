@@ -3,23 +3,20 @@
 layout: default
 ---
 
-# mimurl - URL Parsing and Matching Library
-Mimurl is a library that allows defining URL patterns and then matching actual URLs with the pattern. URL patterns can describe either a full URL containing protocol, hostname, port, path, query and hash parts, or it can have only a subset of the URL parts; for example, it can only describe a path. The URL pattern can define fields and when an actual URL matches the pattern, the result of the matching operation returns values of the fields; for example:
+# Mimurl - URL Parsing and Matching
+Mimurl library allows defining URL patterns and matching actual URLs against them. A patterns can either describe a full URL containing protocol, hostname, port, path, query and hash parts, or describe only a subset of the URL parts; for example, it can only describe a path. The URL pattern can define fields and when an actual URL matches the pattern, the result of the matching operation returns values of the fields; for example:
 
 **URL pattern:** `{prot}://{host}.example.com:?{port%i}/departments/{dep}/*`
 
-**Actual URL:** `http://www.example.com:8080/departments/finance/payroll`
+**Actual URL:** | **Matching result:**
+:---|:---
+`http://www.example.com:8080/departments/finance/payroll` | `{ prot: "http", port: 8080, dep: "finance" }`
+`https://www.example.com/departments/hr` | `{ prot: "https", dep: "hr" }`
 
-**Matching result:**
-```typescript
-{ prot: "http", port: 8080, dep: "finance" }
+## Installation
+
 ```
-
-**Actual URL:** `https://www.example.com/departments/hr`
-
-**Matching result:**
-```typescript
-{ prot: "https", dep: "hr" }
+npm install mimurl -D
 ```
 
 ## Usage
@@ -35,7 +32,7 @@ for( let fieldName in matchResult.fields)
 ```
 
 ## Features
-A URL pattern, just like URL, consists of parts - all of them optional. These parts are: protocol, hostname, port, path, query string and hash. Each part defines one or more segments:
+A URL pattern, just like a URL, consists of parts - all of them optional. These parts are: protocol, hostname, port, path, query string and hash. Each part defines one or more segments:
 
 * Protocol defines a single segment.
 * Hostname can define multiple segments separated by dots. For example, the hostname `www.microsoft.com` defines 3 segments.
@@ -105,23 +102,21 @@ There is a special syntax for the query string URL part to prohibit query string
 Field definition takes the following form:
 
 ```
-{[?]name[(RegExp)][%format]}
+{[?]name[(RegExp)][%format][=defaultValue]}
 ```
 
 * Fields must be enclosed in curly brackets.
 * If the first symbol is `?`, then the field is optional.
 * Field name must be specified. It can have any alpha-numeric character in it plus hyphen and underscore. It is an error to use the same field name more than once - not only in a segment but in the entire pattern.
 * If regular expression is specified, its entire value becomes the value of the field regardless of how many capture groups (if any) it has. If regular expression is not specified, it is created implicitly as `(.*)` for optional fields and `(.+)` for mandatory ones.
-
-The optional format expression consists of the `%` character followed by a single character defining the format. The following formats are supported:
-
-* `i` - the field value must be convertible to an integer number.
-* `f` - the field value must be convertible to a real number.
-* `b` - the field value must be convertible to a Boolean.
-
-The acceptable values for Boolean fields are:
-* `1 | y | t | yes | true` (case insensitive) are converted to true.
-* `0 | n | f | no | false` (case insensitive) are converted to false.
+* The optional format expression consists of the `%` character followed by a single character defining the format. The following formats are supported:
+  * `i` - the field value must be convertible to an integer number. If the field's value cannot be converted to an integer number, `NaN` will be returned.
+  * `f` - the field value must be convertible to a real number. If the field's value cannot be converted to a real number, `NaN` will be returned.
+  * `b` - the field value must be convertible to a Boolean.  If the field's value cannot be converted to a Boolean, `undefined` will be returned. The acceptable values for Boolean fields are:
+    * `1 | y | t | yes | true` (case insensitive) are converted to true.
+    * `0 | n | f | no | false` (case insensitive) are converted to false.
+   
+* The optional default value can be specified and will be returned either if the optional field is not found in the URL or if the value of a non-string field cannot be converted to the specified format. The default value must correspond to the field's format; otherwise, a n exception will be thrown during pattern parsing.
 
 ### Field Examples
 
@@ -129,8 +124,11 @@ The acceptable values for Boolean fields are:
 * `{uid%i}` - the segments string must be converted to an integer value, which becomes the value of the `uid` field.
 * `{?uid%i}` - the segment's string must be converted to an integer value, which becomes the value of the `uid` field. The match will succeed even if the field is not present (optional field).
 * `{uid([A-Z]{4}\d{3,8})}` - the `uid` field should contain 4 uppercase characters followed by 3 to 8 digits.
+* `{ratio%f=3.5}` - the segments string must be converted to a real number value, which becomes the value of the `ratio` field. If the segment cannot be converted to a real number, the field receives the defaut value of 3.5.
 
 ## Pattern Examples
+This section provides several examples of URL pattern and actual URLs that match or don't match the patterns. Also visit the Web page [Mimurl Demo](https://mmichlin66.github.io/mimurl/mimurlDemo.html) where you can define, parse and match your own URL patterns and actual URLs.
+
 ### Example 1
 ```
 /users/profile/usr-{uid%i}?option=+{opt}#?{fragment}
@@ -144,35 +142,35 @@ The acceptable values for Boolean fields are:
 
 ```
 /users/profile/usr-123?option=email&option=phone
-uid = 123
-opt = ["email", "phone"]
-fragment = undefined
+    uid = 123
+    opt = ["email", "phone"]
+    fragment = undefined
 ```
 
 ```
 /users/profile/usr-6?option=email#xyz
-uid = 6
-opt = ["email"]
-fragment = "xyz"
+    uid = 6
+    opt = ["email"]
+    fragment = "xyz"
 ```
 
 ```
 /users/profile/usr-abc?option=email&option=phone
-uid = "abc", note that it is a string
-opt = ["email", "phone"]
-fragment = undefined
+    uid = "abc", note that it is a string
+    opt = ["email", "phone"]
+    fragment = undefined
 ```
 
 **The following URLs will NOT match the pattern:**
 
 ```
 /profile/usr-123?option=email&option=phone
-/users path segment is missing
+    users path segment is missing
 ```
 
 ```
 /users/profile/usr-6#xyz
-"option" query string parameter is not specified (it must be specified at least once)
+    "option" query string parameter is not specified (it must be specified at least once)
 ```
 
 ### Example 2
@@ -186,29 +184,29 @@ fragment = undefined
 **The following URLs will match the pattern:**
 ```
 /accounts/123
-before = []
-acc = 123
+    before = []
+    acc = 123
 ```
 
 ```
 /company/users/accounts/123
-before = [“company”, “users”]
-acc = 123
+    before = [“company”, “users”]
+    acc = 123
 ```
 
 ```
 /accounts/123.5
-before = []
-acc = "123.5". Note that it is a string.
+    before = []
+    acc = NaN (123.5 is not an integer number)
 ```
 
 **The following URLs will NOT match the pattern:**
 ```
 /company/users/123
-/accounts segment is missing
+    accounts segment is missing
 ```
 
-*** Example 3
+### Example 3 
 ```
 /*{dir}/?{file}.{?ext}/act-{?action}
 ```
@@ -219,46 +217,47 @@ acc = "123.5". Note that it is a string.
 
 **The following URLs will match the pattern:**
 
-```/path/to/my/dir/work.txt/act-print
-dir = ["path", "to", "my", "dir"]
-file = "work"
-ext = "txt"
-action = "print"
+```
+/path/to/my/dir/work.txt/act-print
+    dir = ["path", "to", "my", "dir"]
+    file = "work"
+    ext = "txt"
+    action = "print"
 ```
 
 ```
 /work/act-
-dir = ["work"]
-file = undefined
-ext = undefined
-action = undefined
+    dir = ["work"]
+    file = undefined
+    ext = undefined
+    action = undefined
 ```
 
 ```
 /work.txt/act-
-dir = []
-file = "work"
-ext = "txt"
-action = undefined
+    dir = []
+    file = "work"
+    ext = "txt"
+    action = undefined
 ```
 
 ```
 /act-do-nothing
-dir = []
-file = undefined
-ext = undefined
-action = "do-nothing"
+    dir = []
+    file = undefined
+    ext = undefined
+    action = "do-nothing"
 ```
 
 **The following URLs will NOT match the pattern:**
 ```
 /do-nothing
-Mandatory segment with the text "act-" not found.
+    Mandatory segment with the text "act-" not found.
 ```
 
 ```
 /path/to/my/dir/work.txt/act-print/rest
-Extra segment /rest.
+    Extra segment /rest.
 ```
 
 
