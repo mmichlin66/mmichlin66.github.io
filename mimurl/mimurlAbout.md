@@ -13,6 +13,9 @@ Mimurl library allows defining URL patterns and matching actual URLs against the
 `http://www.example.com:8080/departments/finance/payroll` | `{ prot: "http", port: 8080, dep: "finance" }`
 `https://www.example.com/departments/hr` | `{ prot: "https", dep: "hr" }`
 
+To play with mimurl pattern parsing and URL matching capabilities [please visit here](mimurlDemo.html).
+
+
 ## Installation
 
 ```

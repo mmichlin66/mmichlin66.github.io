@@ -71,17 +71,22 @@ p, pre, code, li, span {
 }
 
 .mainMenu {
+	padding: 0.5em 1em;
 	border-bottom: 1px solid gray;
-	background-color:azure;
+	background-color: #F5CBA7;
+}
+
+.mainMenu a {
+	font-size: 1.2em;
 }
 
 a:link, a:visited {
-	color: darkred;
+	color: royalblue;
 	text-decoration: none;
 }
 
 a:hover, a:active {
-	color: crimson;
+	color: mediumblue;
 	text-decoration: underline;
 }
 
