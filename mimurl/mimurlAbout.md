@@ -13,7 +13,7 @@ Mimurl library allows defining URL patterns and matching actual URLs against the
 `http://www.example.com:8080/departments/finance/payroll` | `{ prot: "http", port: 8080, dep: "finance" }`
 `https://www.example.com/departments/hr` | `{ prot: "https", dep: "hr" }`
 
-To play with mimurl pattern parsing and URL matching capabilities [please visit here](mimurlDemo.html).
+To play with mimurl pattern parsing and URL matching capabilities [please visit here](mimurlDemo.html). API reference of the mimurl library is available [here](mimurlReference.html).
 
 
 ## Installation
@@ -23,6 +23,7 @@ npm install mimurl -D
 ```
 
 ## Usage
+The simplest use of the mimurl library is to call the match function and pass URL and pattern as string parameters. The returned object has the Boolean `success` property that determines whether the matching was successful. If yes, the `fields` property will contain names and values of fields parsed out of the URL according to the definitions in the pattern:
 
 ```typescript
 import * as mimurl from "mimurl"
@@ -30,9 +31,27 @@ import * as mimurl from "mimurl"
 let pattern = "{prot}://{host}.example.com:?{port%i}/departments/{dep}/*";
 let url = "http://www.example.com:8080/departments/finance/payroll";
 let matchResult = mimurl.match( url, pattern);
-for( let fieldName in matchResult.fields)
-    console.log( `${fieldName} = ${matchResults.fields[fieldName]}`);
+if (matchResult.success)
+{
+    for( let fieldName in matchResult.fields)
+        console.log( `${fieldName} = ${matchResults.fields[fieldName]}`);
+}
+else
+    console.log( "The URL doesn't match the pattern");
 ```
+
+Parsing the URL pattern is a relatively expensive operation and since, usually, many different URLs are matched to the same pattern, it is possible to perform attern parsing only once and pass the object containing the result of pattern parsing to the match function:
+
+```typescript
+import * as mimurl from "mimurl"
+
+let pattern = "{prot}://{host}.example.com:?{port%i}/departments/{dep}/*";
+let url = "http://www.example.com:8080/departments/finance/payroll";
+let parsedPattern = mimurl.parseUrlPattern( pattern);
+let matchResult = mimurl.match( url, parsedPattern);
+...
+```
+
 
 ## Features
 A URL pattern, just like a URL, consists of parts - all of them optional. These parts are: protocol, hostname, port, path, query string and hash. Each part defines one or more segments:

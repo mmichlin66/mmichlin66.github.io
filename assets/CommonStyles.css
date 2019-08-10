@@ -27,6 +27,7 @@ body {
 pre, code {
 	font-family: 'Courier New', Courier, monospace;
 	margin: 0px;
+	line-height: 1.2;
 }
 
 .vbox {
@@ -59,7 +60,7 @@ pre, code {
 	border-bottom: 1px solid gray;
 }
 
-p, pre, code, li, span {
+p, li, span {
 	line-height: 1.5;
 }
 
