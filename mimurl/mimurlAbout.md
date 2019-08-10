@@ -282,11 +282,3 @@ This section provides several examples of URL pattern and actual URLs that match
     Extra segment /rest.
 ```
 
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@ layout: default
 ---
 
 # Mimbl - Component Authoring Library
-Mimbl is a TypeScript/JavaScript UI authoring library that combines declarative and imperative programming in one package. Mimbl is proposed as an alternative to React. The accompanying document [React Discussion](ReactDiscussion.md) provides more information about aspects of React that this library strives to improve on.
+Mimbl is a TypeScript/JavaScript UI authoring library that combines declarative and imperative programming in one package. Mimbl is proposed as an alternative to React. The accompanying document [React Discussion](../2019/08/10/React-Discussion.html) provides more information about aspects of React that this library strives to improve on.
 
 This document assumes that the reader is somewhat familiar with React and doesn't explain concepts that are similar to those available in React. The full documentation that describes all concepts and references is available separately.
 
@@ -26,7 +26,7 @@ Mimbl components can be leveraged in two differen ways:
 * as React-style components - that is, by specifying the component class name in JSX and letting the infrastructure to decide when to instantiate and when to destroy its instances. These components are also referred to later as JSX components.
 * as instance-based components - that is, by allowing developers to decide when the component should be instantiated and destroyed. In this case the components are created using a standard new operator and developers are in full control as to when to create the components. These components are also referred to later as Mimbl components or as "Mimbl non-JSX components" if it is necessary to distinguish them from JSX compnoents.
 
-In both cases, the componenets participate in the JSX layout. For the instance-based components, the variable holding the reference to the component is used directly within the curly braces. The component's properties and methods can be accessed and invoked directly. Developers are free to create component constructors with whatever parameters they see fit. Developers are encouraged to create component class hierarchies for code reuse.
+In both cases, the components participate in the JSX layout. For the instance-based components, the variable holding the reference to the component is used directly within the curly braces. The component's properties and methods can be accessed and invoked directly. Developers are free to create component constructors with whatever parameters they see fit. Developers are encouraged to create component class hierarchies for code reuse.
 
 ### Hello World in Mimbl
 Let's first see a simple example with two components - parent and child. The child component displays the "Hello World!" string with the text color defined by its public property that can be changed directly by whatever code that has access to its instance - in this example by the parent component.

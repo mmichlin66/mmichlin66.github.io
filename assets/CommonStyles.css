@@ -92,6 +92,10 @@ a:hover, a:active {
 }
 
 
+a.postref {
+	font-size: 1.5em;
+}
+
 /* Code blocks (blocks fenced by 3 backticks or tildes) */
 div.highlighter-rouge {
 	background-color: #efefef;
