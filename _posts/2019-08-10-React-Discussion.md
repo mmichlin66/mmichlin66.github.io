@@ -2,6 +2,7 @@
 layout: post
 title: React Discussion
 author: Michael Michlin
+comments: true
 ---
 
 This post discusses several aspects of React that the author sees as problemmatic.
