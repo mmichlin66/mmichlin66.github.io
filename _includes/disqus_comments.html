@@ -1,4 +1,6 @@
-{%- if page.comments != false -%}
+<div>jekyll.environment = {{jekyll.environment}}</div>
+
+{%- if page.comments != false and jekyll.environment == "production" -%}
 
 <div id="disqus_thread"></div>
 <script>
