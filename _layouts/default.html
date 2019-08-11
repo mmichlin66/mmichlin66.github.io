@@ -6,12 +6,10 @@
 <head>
 	<meta charset="utf-8" />
 	<title>{{page.title}}</title>
-	<!--<link href="{{pathToRoot}}assets/main.css" rel="stylesheet">-->
 	<link href="{{pathToRoot}}assets/CommonStyles.css" rel="stylesheet">
 </head>
 <body>
 	<div class="vbox page">
-		<!--<img src="{{pathToRoot}}assets/MountainStrip.jpg" />-->
 		<div class="hbox mainMenu">
 			<img src="{{pathToRoot}}assets/Logo.png">
 			<div class="hbox spacing" style="justify-content:flex-end; flex-grow:1; align-items:center">
@@ -21,7 +19,7 @@
 				<a href="{{pathToRoot}}blog.html">Blog</a>
 			</div>
 		</div>
-		<div style="display:flex; flex-direction: column; flex-grow:1; padding: 8px">
+		<div style="display: flex; flex-direction:column; flex-grow:1; padding: 8px;">
 			{{ content }}
 		</div>
 	</div>

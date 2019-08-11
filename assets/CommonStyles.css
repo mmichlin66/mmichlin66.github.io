@@ -5,7 +5,7 @@
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	box-sizing: border-box;
 	font-size: 12px;
-	position: relative
+	position: relative;
 }
 
 h6 { font-size: 12px; font-weight: bold; }
@@ -51,9 +51,10 @@ pre, code {
 }
 
 .page {
-	width: 1102px;
-	height: 100%;
-	overflow: auto;
+	min-width: 402px;
+	max-width: 1102px;
+	width: 90%;
+	min-height: 100%;
 	margin: 0 auto;
 	border-left: 1px solid gray;
 	border-right: 1px solid gray;
@@ -72,9 +73,13 @@ p, li, span {
 }
 
 .mainMenu {
+	position: sticky;
+	width: 100%;
+	top: 0px;
 	padding: 0.5em 1em;
 	border-bottom: 1px solid gray;
 	background-color: #F5CBA7;
+	z-index: 1;
 }
 
 .mainMenu a {

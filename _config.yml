@@ -72,5 +72,5 @@ exclude:
     - .vs
     - _tools
 
-include: [ '_api_*.html' ]
+include: [ '_*.html' ]
 
