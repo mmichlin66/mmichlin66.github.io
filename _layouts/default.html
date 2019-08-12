@@ -10,13 +10,27 @@
 </head>
 <body>
 	<div class="vbox page">
-		<div class="hbox mainMenu">
+		<div class="hbox mainHeader">
 			<img src="{{pathToRoot}}assets/Logo.png">
-			<div class="hbox spacing" style="justify-content:flex-end; flex-grow:1; align-items:center">
-				<a href="{{pathToRoot}}home.html">Home</a>
-				<a href="{{pathToRoot}}mimurl/mimurlAbout.html">mimurl</a>
-				<a href="{{pathToRoot}}mimbl/mimblAbout.html">mimbl</a>
-				<a href="{{pathToRoot}}blog.html">Blog</a>
+			<div class="menubar" style="justify-content:flex-end; flex-grow:1; align-items:center">
+				<a class="menuitem" href="{{pathToRoot}}home.html">Home</a>
+				<div class="menuitem">
+					<div class="menuitemContent">Mimurl</div>
+					<div class="menu">
+						<a class="menuitem" href="{{pathToRoot}}mimurl/mimurlAbout.html">About</a>
+						<a class="menuitem" href="{{pathToRoot}}mimurl/mimurlDemo.html">Demo</a>
+						<a class="menuitem" href="{{pathToRoot}}mimurl/mimurlReference.html">Reference</a>
+					</div>
+				</div>
+				<div class="menuitem">
+					<div class="menuitemContent">Mimbl</div>
+					<div class="menu">
+						<a class="menuitem" href="{{pathToRoot}}mimbl/mimblAbout.html">About</a>
+						<a class="menuitem" href="{{pathToRoot}}mimbl/mimblDemo.html">Demo</a>
+						<a class="menuitem" href="{{pathToRoot}}mimbl/mimblReference.html">Reference</a>
+					</div>
+				</div>
+				<a class="menuitem" href="{{pathToRoot}}blog.html">Blog</a>
 			</div>
 		</div>
 		<div style="display: flex; flex-direction:column; flex-grow:1; padding: 8px;">

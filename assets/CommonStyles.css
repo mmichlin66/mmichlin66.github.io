@@ -72,17 +72,17 @@ p, li, span {
 	font-size: 14px;
 }
 
-.mainMenu {
+.mainHeader {
 	position: sticky;
 	width: 100%;
 	top: 0px;
 	padding: 0.5em 1em;
 	border-bottom: 1px solid gray;
-	background-color: #F5CBA7;
+	background-color: rgb(252, 224, 199);
 	z-index: 1;
 }
 
-.mainMenu a {
+.mainHeader a {
 	font-size: 1.2em;
 }
 
@@ -96,10 +96,76 @@ a:hover, a:active {
 	text-decoration: underline;
 }
 
-
 a.postref {
 	font-size: 1.5em;
 }
+
+
+
+/* Menu handling */
+.menubar {
+	display: flex;
+	flex-direction: row;
+}
+
+.menuitem, a.menuitem, a.menuitem:hover, .menuitemContent {
+	cursor: pointer;
+	position: relative;
+}
+
+.menubar > .menuitem, .menubar > a.menuitem, .menubar > a.menuitem:hover {
+	font-size: 16px;
+	color: blue;
+}
+
+.menu > .menuitem, .menu > a.menuitem, .menu > a.menuitem:hover, .menuitem > .menuitemContent {
+	font-size: 14px;
+	color: blue;
+}
+
+.menuitem:hover {
+	background-color: #F5CBA7;
+	text-decoration: none;
+}
+
+.menubar > .menuitem {
+	padding: 0.5em;
+}
+
+.menu {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	width: max-content;
+	max-width: 300px;
+	min-width: 100px;
+	background-color: #f9f9f9;
+	border: 1px solid gray;
+	box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.menu > .menuitem {
+	display: flex;
+	flex-direction: row;
+	padding: 0.2em;
+}
+
+.menuitem:hover > .menu {
+	display: flex;
+	flex-direction: column;
+}
+
+.menubar > .menuitem > .menu {
+	left: 0px;
+	top: 100%;
+}
+
+.menu > .menuitem > .menu {
+	left: 100%;
+	top: 0px;
+}
+
+
 
 /* Code blocks (blocks fenced by 3 backticks or tildes) */
 div.highlighter-rouge {
