@@ -76,9 +76,10 @@ p, li, span {
 	position: sticky;
 	width: 100%;
 	top: 0px;
-	padding: 0.5em 1em;
-	border-bottom: 1px solid gray;
-	background-color: rgb(252, 224, 199);
+	/*padding: 0.5em 1em;*/
+	/*border-bottom: 1px solid gray;*/
+	background-color: #F5CBA7;
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 }
 
@@ -113,23 +114,21 @@ a.postref {
 	position: relative;
 }
 
-.menubar > .menuitem, .menubar > a.menuitem, .menubar > a.menuitem:hover {
+.menubar > .menuitem, .menubar > a.menuitem, .menubar > a.menuitem:hover, .menu > .menuitem, .menu > a.menuitem, .menu > a.menuitem:hover {
 	font-size: 16px;
 	color: blue;
+	padding: 1em;
 }
 
-.menu > .menuitem, .menu > a.menuitem, .menu > a.menuitem:hover, .menuitem > .menuitemContent {
+.menuitem > .menuitemContent {
 	font-size: 14px;
 	color: blue;
 }
 
 .menuitem:hover {
-	background-color: #F5CBA7;
+	background-color: rgb(252, 224, 199);
+	/*background-color: #F5CBA7;*/
 	text-decoration: none;
-}
-
-.menubar > .menuitem {
-	padding: 0.5em;
 }
 
 .menu {
@@ -140,8 +139,8 @@ a.postref {
 	max-width: 300px;
 	min-width: 100px;
 	background-color: #f9f9f9;
-	border: 1px solid gray;
-	box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
+	/*border: 1px solid gray;*/
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
 }
 
 .menu > .menuitem {
