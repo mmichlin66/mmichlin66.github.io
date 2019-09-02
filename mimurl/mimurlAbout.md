@@ -1,5 +1,4 @@
 ---
-# front matter for Jekyll
 layout: default
 ---
 
@@ -13,7 +12,7 @@ Mimurl library allows defining URL patterns and matching actual URLs against the
 `http://www.example.com:8080/departments/finance/payroll` | `{ prot: "http", port: 8080, dep: "finance" }`
 `https://www.example.com/departments/hr` | `{ prot: "https", dep: "hr" }`
 
-To play with mimurl pattern parsing and URL matching capabilities [please visit here](mimurlDemo.html). API reference of the mimurl library is available [here](mimurlReference.html).
+To play with Mimurl pattern parsing and URL matching capabilities [please visit here](mimurlDemo.html). API reference of the Mimurl library is available [here](mimurlReference.html).
 
 
 ## Installation
@@ -23,7 +22,7 @@ npm install mimurl -D
 ```
 
 ## Usage
-The simplest use of the mimurl library is to call the match function and pass URL and pattern as string parameters. The returned object has the Boolean `success` property that determines whether the matching was successful. If yes, the `fields` property will contain names and values of fields parsed out of the URL according to the definitions in the pattern:
+The simplest use of the Mimurl library is to call the match function and pass URL and pattern as string parameters. The returned object has the Boolean `success` property that determines whether the matching was successful. If yes, the `fields` property will contain names and values of fields parsed out of the URL according to the definitions in the pattern:
 
 ```typescript
 import * as mimurl from "mimurl"
@@ -40,7 +39,7 @@ else
     console.log( "The URL doesn't match the pattern");
 ```
 
-Parsing the URL pattern is a relatively expensive operation and since, usually, many different URLs are matched to the same pattern, it is possible to perform attern parsing only once and pass the object containing the result of pattern parsing to the match function:
+Parsing the URL pattern is a relatively expensive operation and since, usually, many different URLs are matched to the same pattern, it is possible to perform pattern parsing only once and pass the object containing the result of pattern parsing to the match function:
 
 ```typescript
 import * as mimurl from "mimurl"
@@ -67,7 +66,7 @@ Each segment in the pattern defines whether it is mandatory or optional. For tho
 
 Each segment defines how it should be compared with segments from actual URLs. The comparison can be based either on a simple string comparison or on regular expressions.
 
-Within a segment pattern, fields can be defined. Fields have names that should be unique within the entire URL pattern. Fields can specify formats that determine whether the fields should be converted to a number (integer or float), converted to a Boolean or just be a string. If the format is specified, but the field value cannot be converted to the specified format, the matchig will still succeed but the field's value will be a string.
+Within a segment pattern, fields can be defined. Fields have names that should be unique within the entire URL pattern. Fields can specify formats that determine whether the fields should be converted to a number (integer or float), converted to a Boolean or just be a string. If the format is specified, but the field value cannot be converted to the specified format, the matching will still succeed but the field's value will be a string.
 
 ## URL Pattern Format
 URL patterns have the following form:
@@ -94,7 +93,7 @@ Segment's match pattern is a sequence of one or more elements each of which can 
 [text|(RegExp)|{field}]+
 ```
 
-* Text is a sequence of characters. Any characters are allowed except `(`, `{` and those that otherwise would end the segment (for example, `/` within the path URL part). Note that although all characters are allowed, the segements are expected to be URL-encoded.
+* Text is a sequence of characters. Any characters are allowed except `(`, `{` and those that otherwise would end the segment (for example, `/` within the path URL part). Note that although all characters are allowed, the segments are expected to be URL-encoded.
 * Regular expressions are always enclosed in parentheses. Note that these parentheses do not become part of the regular expression - only the content within them.
 * Fields are always enclosed in curly braces.
 * Fields can include regular expressions; however, regular expressions cannot include fields.
@@ -146,7 +145,7 @@ Field definition takes the following form:
 * `{uid%i}` - the segments string must be converted to an integer value, which becomes the value of the `uid` field.
 * `{?uid%i}` - the segment's string must be converted to an integer value, which becomes the value of the `uid` field. The match will succeed even if the field is not present (optional field).
 * `{uid([A-Z]{4}\d{3,8})}` - the `uid` field should contain 4 uppercase characters followed by 3 to 8 digits.
-* `{ratio%f=3.5}` - the segments string must be converted to a real number value, which becomes the value of the `ratio` field. If the segment cannot be converted to a real number, the field receives the defaut value of 3.5.
+* `{ratio%f=3.5}` - the segments string must be converted to a real number value, which becomes the value of the `ratio` field. If the segment cannot be converted to a real number, the field receives the default value of 3.5.
 
 ## Pattern Examples
 This section provides several examples of URL pattern and actual URLs that match or don't match the patterns. Also visit the Web page [Mimurl Demo](https://mmichlin66.github.io/mimurl/mimurlDemo.html) where you can define, parse and match your own URL patterns and actual URLs.
