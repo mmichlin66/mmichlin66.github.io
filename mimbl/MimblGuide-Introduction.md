@@ -44,7 +44,7 @@ import * as mim from "Mimbl"
 
 That's how the code in this guide imports the library; however, if you decide to import it under a different name you are free to do so. Just remember to change the `jsxFactory` field in your `tsconfig.json` file to the appropriate value.
 
-In your HTML file use the following URL to reference the Mimbl library (well, when Mimbl becomes popular enopugh we will host it on CDN):
+In your HTML file use the following URL to reference the Mimbl library (well, when Mimbl becomes popular enough we will host it on CDN):
 
 ```html
 <script src="mmichlin66.github.io/scripts/Mimbl.js"></script>
@@ -105,7 +105,7 @@ mim.mount( <HelloWorld/>, document.getElementById( "theApp"));
 
 As we can see the component structure is pretty similar to that of React. The HelloWorld class is a class-based component because it derives from the Mimbl's Component class. It's `render` method uses JSX to lay out the HTML structure.
 
-The component defines a reference object `refName` and passes it on to the `<input>` element. It also defines a `name` field that is used to remember the value from the `<input>` element when the user clicks the button. The button element is passed the event handler method `onSayHelloTo` for the `click` event. The `<span>` element displayes the "Hello to" string combined with the value of the `name` field whenever the component is updated.
+The component defines a reference object `refName` and passes it on to the `<input>` element. It also defines a `name` field that is used to remember the value from the `<input>` element when the user clicks the button. The button element is passed the event handler method `onSayHelloTo` for the `click` event. The `<span>` element displays the "Hello to" string combined with the value of the `name` field whenever the component is updated.
 
 When the user clicks the button, the reference object is used to retrieve the `<input>` element's current value and to store it in the component's `name` field. Then the component requests to be updated by calling the `updateMe` method.
 
@@ -114,7 +114,7 @@ To put the component on the page, the Mimbl's `mount` method is called, which is
 There are several differences - some significant, some subtle - in the component definition compared to React. Among the subtle ones are:
 
 - Events are identified by their DOM names without prefixing them with "on"; that is, "click" instead of "onClick". In general, Mimbl strives to use the original HTML attribute and event names whenever possible. For example, Mimbl uses "class", "for" and "tabindex", while React uses customized "className", "forHtml" and "tabIndex".
-- The value of the reference is retrieved using the `r` property instead of React's `current` property - in the sole interest of brevity; otherwise, the reference concept and functionlity are essentially the same.
+- The value of the reference is retrieved using the `r` property instead of React's `current` property - in the sole interest of brevity; otherwise, the reference concept and functionality are essentially the same.
 - There is no "controlled component" pattern, which is common in and recommended by React: the value of the internal variable `name` isn't kept in sync with the value of the `<input>` element; instead, it is retrieved only when there is a need to use it. Mimbl is fully capable of implementing the control component pattern; however, we don't see it as a good practice. You can read more on this author's view of the controlled components [here]().
 
 Among the significant differences are the following:

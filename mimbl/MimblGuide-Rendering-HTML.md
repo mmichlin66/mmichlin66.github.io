@@ -56,7 +56,7 @@ mim.mount( <Foo/>);
 The above examples demonstrate the rules that Mimbl uses when producing HTML from the content provided to it. The following sections will discuss these rules in more detail and will provide more involved examples.
 
 ## Regular JavaScript Types
-In general, regular JavaScript types are converted to HTML text nodes. In most cases, Mimble uses the built-in `toString` method to perform the conversion; however, there are the following excpetions:
+In general, regular JavaScript types are converted to HTML text nodes. In most cases, Mimbl uses the built-in `toString` method to perform the conversion; however, there are the following exceptions:
 
 - `false`, `null`, `undefined` and functions are ignored - no HTML content is created for them.
 - Arrays are iterated over and HTML content is created separately for each item. If an item is itself an array, the process continues recursively.
@@ -68,7 +68,7 @@ This section provides a brief description of JSX as it pertains to Mimbl. The de
 
 A JSX expression is an HTML-like construct that is type-checked and parsed by the TypeScript compiler into a call to a JSX factory function. A JSX expression consists of a single "root" JSX element with arbitrary number of children. Children can be either JSX expressions or strings or any other JavaScript type. A JSX element has an opening tag in the form `<tag>` and a closing tag in the form `</tag>`. If a JSX element doesn't have children it can use only an opening tag in the form `<tag/>`
 
-A JSX element can have an arbitrary number of *attributes* in the form `<tag name=value>`. Attribute values can be of any type: strings, numbers, booleans, objects or even JSX expressions. Strings can be specified directly, while other types should be enclosed within curly braces. If only a name is specified for an attribute (as in `<tag attr/>`) the attribute's value is set to `true`. As opposed to regular HTML content, `false`, `null` and functions are treated as normal attribute value. Attributes with the `undefined` value, however, are ignored - it is the same as not specifying the attribute at all.
+A JSX element can have an arbitrary number of *attributes* in the form `<tag name=value>`. Attribute values can be of any type: strings, numbers, Booleans, objects or even JSX expressions. Strings can be specified directly, while other types should be enclosed within curly braces. If only a name is specified for an attribute (as in `<tag attr/>`) the attribute's value is set to `true`. As opposed to regular HTML content, `false`, `null` and functions are treated as normal attribute value. Attributes with the `undefined` value, however, are ignored - it is the same as not specifying the attribute at all.
 
 JSX is perfectly suited to laying out HTML structure - here is an example:
 
@@ -133,7 +133,7 @@ mim.mount( <div>
 
 The handler function receives as a parameter an event object with the type corresponding to the event. Mimbl wraps event handler invocations so that it can intercept exceptions, but it doesn't change event parameters in any way.
 
-Specifying an event handler for an event as shown in the example above, attaches to the bubbling phase of the event processing. In most cases this is what developers need. If, however, the developer wants to attach to the capturing phase of the event processing, he must specify an array consisting of two elements: the event handler function and the boolean `true` value:
+Specifying an event handler for an event as shown in the example above, attaches to the bubbling phase of the event processing. In most cases this is what developers need. If, however, the developer wants to attach to the capturing phase of the event processing, he must specify an array consisting of two elements: the event handler function and the Boolean `true` value:
 
 ```typescript
 mim.mount( <div>
@@ -207,7 +207,7 @@ class Counter extends mim.Component
 }
 ```
 
-Instead of creating a new arrow function that calls our `onIncrementClick` function on every call to `render`, we defined `onIncrement` itself as an arrow function. The difference between defining a regular member function and defining an arrow member function is that a regular function is defined on our object's prototype while an arrow function is defined as a property on each object instance. One particular consequence is that arrow functions cannot be overridden in a derived class. If you are creating a component hierarchy and want a base coponent class to react on an event by invoking a function that can be overridden in derived classes, implement the following pattern:
+Instead of creating a new arrow function that calls our `onIncrementClick` function on every call to `render`, we defined `onIncrement` itself as an arrow function. The difference between defining a regular member function and defining an arrow member function is that a regular function is defined on our object's prototype while an arrow function is defined as a property on each object instance. One particular consequence is that arrow functions cannot be overridden in a derived class. If you are creating a component hierarchy and want a base component class to react on an event by invoking a function that can be overridden in derived classes, implement the following pattern:
 
 ```typescript
 class Base extends mim.Component
@@ -259,7 +259,7 @@ class Focus extends mim.Component
 }
 ```
 
-References are usually neeeded when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. References can also be used for components and here they have wider application than with DOM elements. Mimbl promotes using components just as regular JavaScript object and that means communicating with them by direct property manipulation and method invocations. We will be talking more about coponents in the next unit, but here is an example when a Parent component uses a reference to a Child component to tell it what color to use for its text:
+References are usually needed when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. References can also be used for components and here they have wider application than with DOM elements. Mimbl promotes using components just as regular JavaScript object and that means communicating with them by direct property manipulation and method invocations. We will be talking more about components in the next unit, but here is an example when a Parent component uses a reference to a Child component to tell it what color to use for its text:
 
 ```typescript
 class Child extends mim.Component
@@ -293,16 +293,16 @@ class Parent extends mim.Component
 }
 ```
 
-When an element or a component instance to which the reference points is not rendered anymore, the reference object is *cleared*; that is, its `r` property is set to `undefined`. Thre reference is also cleared when a component that created it is unmounted. It is a good practice to check whether the `r` property is defined before using it.
+When an element or a component instance to which the reference points is not rendered anymore, the reference object is *cleared*; that is, its `r` property is set to `undefined`. The reference is also cleared when a component that created it is unmounted. It is a good practice to check whether the `r` property is defined before using it.
 
 The `ref` attribute is applicable to any type of DOM elements as well as any *managed* component (more on this in the next unit).
 
 There are times when a component (or any other code) that created a `mim.Ref` object wants to be notified when the reference is filled in, cleared or its value changes. The `mim.Ref` object allows providing a callback that will be invoked every time the value of the reference changes in any way. The callback can either be provided as a first parameter in the `mim.Ref` constructor or passed in the call to the `addListener` method. When no longer needed, the callback can be removed by calling the `removeListener` method.
 
 ## Element and Component Lists
-It is a common task for Web developers to represent collections of same-type structures. This is modeled by an element having multiple sub-elements or a parent component rendering a list of child components. Such lists change when items are added to or removed from the list or when the order of items in the list changes. In order to properly update DOM when an item list changes, the first task Mimble has to do is to match items from a newly rendered list to those in the existing list. Based on this matching, Mimbl understands what items should be destroyed or inserted or simply updated. The matching algorithm should figure out an item identity for the matching to be accurate and that identity should be unique among the items under the same parent.
+It is a common task for Web developers to represent collections of same-type structures. This is modeled by an element having multiple sub-elements or a parent component rendering a list of child components. Such lists change when items are added to or removed from the list or when the order of items in the list changes. In order to properly update DOM when an item list changes, the first task Mimbl has to do is to match items from a newly rendered list to those in the existing list. Based on this matching, Mimbl understands what items should be destroyed or inserted or simply updated. The matching algorithm should figure out an item identity for the matching to be accurate and that identity should be unique among the items under the same parent.
 
-Mimbl allows developers to specify *keys* when elements and components are rendered. A key is a built-in property (of `any` type) that can be specified for any element as well as managed and functional components (more on this in the next unit). For proper matching, keys for all items under the same parent (another component or DOM element) must be unique. In many cases, choosing a unique key for an item is not difficult because it may reflect some unique property of a data element that the item represents. There are cases, however, when there is no such property and the keys should be actively managed by the Parent component to be created and remain unqiue.
+Mimbl allows developers to specify *keys* when elements and components are rendered. A key is a built-in property (of `any` type) that can be specified for any element as well as managed and functional components (more on this in the next unit). For proper matching, keys for all items under the same parent (another component or DOM element) must be unique. In many cases, choosing a unique key for an item is not difficult because it may reflect some unique property of a data element that the item represents. There are cases, however, when there is no such property and the keys should be actively managed by the Parent component to be created and remain unique.
 
 
 
