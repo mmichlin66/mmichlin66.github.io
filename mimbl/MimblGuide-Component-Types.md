@@ -5,7 +5,7 @@ title: Component Types
 ---
 
 # Mimbl Guide: Component Types
-In the previous unit we discuss the basic mimbl functionality and created a simple *Say Hello To* component. In this unit we will look at the different types of components that mimbl supports and discuss which type is better suited to different circumstances.
+In the previous unit we discuss the basic Mimbl functionality and created a simple *Say Hello To* component. In this unit we will look at the different types of components that Mimbl supports and discuss which type is better suited to different circumstances.
 
 Mimbl supports three types of components:
 - Functional components
@@ -77,9 +77,9 @@ class Parent extends mim.Component
 
 Managed components can implement life-cycle methods so that they will be notified upon certain events in the component's life: `componentWillMount`, `componentDidMount`, `componentWillUnmount`, etc.
 
-Managed components are called "managed" because the mimbl infrastructure manages their instances deciding when to create and when to destroy them. Of course mimbl doesn't do it arbitrarily - during updates, mimbl tries to match components in a newly rendered JSX with that from a previous rendering. Mimbl will destroy existing component instances for which there is no matching component in the new rendering. Mimble will create new instances of components for which there is no matching in the previous rendering. Otherwise, mimbl will update the existing component instance with the new property values from the new rendering. The main point here is that developers never create managed component instances explicitly.
+Managed components are called "managed" because the Mimbl infrastructure manages their instances deciding when to create and when to destroy them. Of course Mimbl doesn't do it arbitrarily - during updates, Mimbl tries to match components in a newly rendered JSX with that from a previous rendering. Mimbl will destroy existing component instances for which there is no matching component in the new rendering. Mimble will create new instances of components for which there is no matching in the previous rendering. Otherwise, Mimbl will update the existing component instance with the new property values from the new rendering. The main point here is that developers never create managed component instances explicitly.
 
-When a managed component wants to update itself it calls the `updateMe` method. The mimbl infrastructure will call the component's `render` method during the next update cycle. Since the functionality of managed components depends on the properties passed to them by their parents, they will be also updated when the parent updates. Thus, if some top-level component updates, the entire tree of managed components underneath it will also be updated. Managed components can opt out of this updating by implementing the `shouldComponentUpdate` method and returning `false` from it.
+When a managed component wants to update itself it calls the `updateMe` method. The Mimbl infrastructure will call the component's `render` method during the next update cycle. Since the functionality of managed components depends on the properties passed to them by their parents, they will be also updated when the parent updates. Thus, if some top-level component updates, the entire tree of managed components underneath it will also be updated. Managed components can opt out of this updating by implementing the `shouldComponentUpdate` method and returning `false` from it.
 
 ## Free Components
 Free components are classes that, like managed components, derive from the `mim.Component` class. The difference is that free components are explicitly created by developers using the `new` operator. Free components are free to accept any parameters in the constructor and they participate in JSX by specifying their instance instead of the class. Here is an example of the Hello World functionality implemented as a free component:
@@ -160,7 +160,7 @@ class Parent extends mim.Component
 }
 ```
 
-Although the level difference is just one `<div>` element, during the update cycle, mimble (like React) will not be able to preserve the `Child` component instance: it will have to destroy the old instance and create a new one. If the `Child` component has any internal state, it will be lost. Note that specifying a `key` property when using the `Child` component will not help: keys work only on the same hierarchy level. Using a reference on the `Child component will not help either: the reference will be cleared upon unmounting the old instance and will be set to the new instance upon mounting.
+Although the level difference is just one `<div>` element, during the update cycle, Mimbl (like React) will not be able to preserve the `Child` component instance: it will have to destroy the old instance and create a new one. If the `Child` component has any internal state, it will be lost. Note that specifying a `key` property when using the `Child` component will not help: keys work only on the same hierarchy level. Using a reference on the `Child component will not help either: the reference will be cleared upon unmounting the old instance and will be set to the new instance upon mounting.
 
 Now let's implement the same functionality using a free child component:
 
@@ -188,7 +188,7 @@ class Parent extends mim.Component
 The free `Child` component instance will go through the *unmount* and *mount* lifecycle events (because the actual parent DOM node changes); however, since the `Parent` component holds the JavaScript reference to the `Child` component, it will not be garbage-collected and will preserve all its internal data.
 
 ## Component Lists
-It is a common task for Web developers to represent collections of same-type structures. This is modeled by a a parent component rendering a list of child components. Such lists change when components are added to or removed from the list or when the order of components in the list changes. In order to properly update DOM when a component list changes, the first task Mimble has to do is to match components from a newly rendered list to those in the existing list. Based on this matching, Mimbl understands what components should be destroyed or inserted or simply updated. The matching algorithm should figure out a component identity and that's where the differences between managed and free components are most pronounced.
+It is a common task for Web developers to represent collections of same-type structures. This is modeled by a parent component rendering a list of child components. Such lists change when components are added to or removed from the list or when the order of components in the list changes. In order to properly update DOM when a component list changes, the first task Mimble has to do is to match components from a newly rendered list to those in the existing list. Based on this matching, Mimbl understands what components should be destroyed or inserted or simply updated. The matching algorithm should figure out a component identity and that's where the differences between managed and free components are most pronounced.
 
 For managed components, the information that Mimble has about each component is just its class (constructor function), which is obviously the same for every component of this class. Therefore, the matching must be based on some extra information, and Mimbl (like React) allows developers to specify *keys* when components are rendered. A key is a built-in property (of `any` type) that can be specified for any managed (and functional) component. The key is only needed to identify components in a list: it is not part of the component's functionality and is not even available to the component. For proper matching, keys for all components under the same parent (another component or HTML element) must be unique. Here is an example of a parent component that displays a child element for every string in an array and allows adding/inserting new items to this array:
 
@@ -268,15 +268,33 @@ class Parent extends mim.Component
 
 Aside from the code being slightly shorter, notice that there are no keys. Indeed, when you are using free components you don't have to deal with keys at all - simply because the instances of the components are the ideal component identities.
 
-Notice also that when a new data item is added, the `Parent` component is updated. When children are implemented as managed components, every `Child` component is updated too (unless it protects itself by implementing the `shouldComponentUpdate` method, which, in real-life components, is notoriously difficult to implement properly). When children are implemented as free components, the `Child` components are not updated when the `Parent` component is  updated.
+Notice also that when a new data item is added, the `Parent` component is updated. When children are implemented as managed components, every `Child` component is updated too (unless it protects itself by implementing the `shouldComponentUpdate` method, which, in real-life components, is notoriously difficult to implement properly). When children are implemented as free components, the `Child` components are not updated when the `Parent` component is  updated. This is a very important advantage of using free components. With managed components, the update propagates from the component that called `updateMe` through the entire component/element tree under that component. When, however, a free component is encountered, this propagation stops.
 
 ## Communication between Components
-Components encapsulate certain functionality but the power of components is when data or commands can be passed on to or invoked from outside - e.g. from other components. React established a pattern that communication between components is a one way street - from the parent to the child - and it is accomplished by the parent passing properties to the child. Mimbl's managed components follow this pattern. There are, however, drawbacks of this aproach and we already noticed some of them before:
+Components encapsulate certain functionality but the power of components is when data or commands can be passed on to or invoked from outside - e.g. from other components. Mimbl's components - both managed and free - allow communication via regular object means, that is via property manipulation and method invocation. In this regard, there is only one difference between managed and free components: while the instance of a free component is immediately available (because it is created via `new`), the instance of the managed component is only available if a reference (`mim.Ref`) is used when the parent component renders the managed component. Since `mim.Ref` is a separate object, this can create some memory problems if a large number of managed components is used.
 
+## Component Hierarchies
+Building a class hierarchy is a perfect way to re-use functionality of existing classes and is one of the corner-stones of object-oriented programming. Mimbl embraces and encourages this practice by allowing building hierarchies of free components; managed components, however, are not suited very well to derive from one another.
 
+The primary reason why building hierarchies with managed components is difficult is that managed components rely on the `props` object, which is passed to the constructor and reference to which is kept in the instance variable `this.props`. When we want to derive one component from another it is quite possible that the sets of properties within the `props` object are very different between the base and the derived components. Since there is only one instance of `this.props`, all the properties from all the components comprizing the hierarchy should be present in the single `this.props` object. This is not impossible but might be quite difficult and cumbersome.
 
+The free components, on the other hand, are perfectly suited for deriving from one another. A constructor of a free component is free to accept any parameters the developer of the components sees fit and the only requirement is that it passes the required parameters to the base component class via the `super()` call.
 
-And this brings us to the conclusion of this unit, which can be summirized as following: free components take less code to write, don't require keys, don't require references and perform better.
+## Summary
+We could have concluded the unit this way:
 
+- Free components take less code to write.
+- Free components don't require references.
+- Free components don't require keys.
+- Free components can form component hierarchies.
+- Free components perform better.
 
+Free components, however, have a drawback too. This single drawback is the extra step of creating the instance of the free component and, probably, the necessity to keep it somewhere. Therefore, our recommendation is as follows:
+
+- Use free compoments whenever possible, especially when:
+  - you have collections of components, or
+  - you want to create component hierarchies, or
+  - your component has many pathways to be updated.
+- Use managed components only when a component is not intended to be updated frequently by the parent.
+- Use functional components only when the component doesn't have any internal state and when updates from the parent are infrequent.
 

@@ -30,11 +30,9 @@ Mimbl provides its own JSX factory function, which should be registered in your 
 
 ```json
     "compilerOptions": {
-        ...
         "jsx": "react",
         "jsxFactory": "mim.jsx",
         "experimentalDecorators": true,
-        ...
     },
 ```
 

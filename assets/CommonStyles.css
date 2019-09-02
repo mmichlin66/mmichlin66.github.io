@@ -107,6 +107,14 @@ a.postref {
 	justify-content: space-between;
 }
 
+.prevlink {
+	margin-right: auto;
+}
+
+.nextlink {
+	margin-left: auto;
+}
+
 
 
 /* Menu handling */
@@ -129,7 +137,6 @@ a.postref {
 .menuitem > .menuitemContent {
 	font-size: 14px;
 	color: blue;
-	padding: 1em;
 }
 
 .menuitem:hover {
