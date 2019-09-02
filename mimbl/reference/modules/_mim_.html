@@ -131,7 +131,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mim_.html#placeholder" class="tsd-kind-icon">Placeholder</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mim_.html#fragment" class="tsd-kind-icon">Fragment</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mim_.html#issvg" class="tsd-kind-icon">is<wbr>Svg</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mim_.html#issvgsvg" class="tsd-kind-icon">is<wbr>Svg<wbr>Svg</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_mim_.html#jsx-1" class="tsd-kind-icon">jsx</a></li>
@@ -155,14 +155,14 @@
 					<div class="tsd-signature tsd-kind-icon">Color<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:859</li>
+							<li>Defined in mim.ts:870</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="compprops" class="tsd-anchor"></a>
 					<h3>Comp<wbr>Props</h3>
-					<div class="tsd-signature tsd-kind-icon">Comp<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
+					<div class="tsd-signature tsd-kind-icon">Comp<wbr>Props&lt;TProps, TChildren&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in mim.ts:40</li>
@@ -173,6 +173,27 @@
 							<p>Type used to define properties that can be passed to a class-based component.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>TProps</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type defining properties that can be passed to the class-based component
+									with these properties. Default type is an empty object (no properties).</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>TChildren</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type defining components, elements or other objects that can be used
+									as children for the class-based component with these properties. Default is <code>any</code>.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="crossoriginproptype" class="tsd-anchor"></a>
@@ -180,41 +201,62 @@
 					<div class="tsd-signature tsd-kind-icon">Crossorigin<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"anonymous"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"use-credentials"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:860</li>
+							<li>Defined in mim.ts:871</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="eventfuncandflagtype" class="tsd-anchor"></a>
 					<h3>Event<wbr>Func<wbr>And<wbr>Flag<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>And<wbr>Flag<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span></div>
+					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>And<wbr>Flag<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:831</li>
+							<li>Defined in mim.ts:840</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Event property value is an event handler function. T is DOM event type,e.g. MouseEvent. All
-							DOM events accept event object and return void.</p>
+							<p>Tuple combining the event handler type and the Boolean flag indicating whether the event
+							handler should be attached to the capture (true) or to the bubble (false) phase.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Event</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>DOM event type, e.g. MouseEvent</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="eventfunctype" class="tsd-anchor"></a>
 					<h3>Event<wbr>Func<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:825</li>
+							<li>Defined in mim.ts:833</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Event property value is an event handler function. T is DOM event type,e.g. MouseEvent. All
-							DOM events accept event object and return void.</p>
+							<p>Type of event handler function for DOM events of type T.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Event</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>DOM event type, e.g. MouseEvent</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -240,18 +282,30 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="eventproptype" class="tsd-anchor"></a>
 					<h3>Event<wbr>Prop<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Event<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_mim_.html#eventfuncandflagtype" class="tsd-signature-type">EventFuncAndFlagType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Event<wbr>Prop<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <a href="_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_mim_.html#eventfuncandflagtype" class="tsd-signature-type">EventFuncAndFlagType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:837</li>
+							<li>Defined in mim.ts:848</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Event property value is an event handler function. T is DOM event type,e.g. MouseEvent. All
-							DOM events accept event object and return void.</p>
+							<p>Union type that can be passed to an Element&#39;s event. It is either an event handler function
+								or a tuple consisting of the handler function and the flag indicating whether the event
+							handler should be attached to the capture (true) or to the bubble (false) phase.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Event</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>DOM event type, e.g. MouseEvent</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="formenctypeproptype" class="tsd-anchor"></a>
@@ -259,7 +313,7 @@
 					<div class="tsd-signature tsd-kind-icon">Formenctype<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"application/x-www-form-urlencoded"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"multipart/form-data"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"text/plain"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:861</li>
+							<li>Defined in mim.ts:872</li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +323,7 @@
 					<div class="tsd-signature tsd-kind-icon">Formmethod<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"get"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"post"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"dialog"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:862</li>
+							<li>Defined in mim.ts:873</li>
 						</ul>
 					</aside>
 				</section>
@@ -279,14 +333,14 @@
 					<div class="tsd-signature tsd-kind-icon">Formtarget<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_self"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_blank"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_parent"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_top"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:863</li>
+							<li>Defined in mim.ts:874</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="funccomptype" class="tsd-anchor"></a>
 					<h3>Func<wbr>Comp<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Func<wbr>Comp<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-signature tsd-kind-icon">Func<wbr>Comp<wbr>Type&lt;TProps, TChildren&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in mim.ts:28</li>
@@ -297,6 +351,27 @@
 							<p>Type of functions representing functional components.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>TProps</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type defining properties that can be passed to this functional component.
+									Default type is an empty object (no properties).</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>TChildren</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type defining components, elements or other objects that can be used
+									as children for this functional component. Default is <code>any</code>.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -322,7 +397,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="funcprops" class="tsd-anchor"></a>
 					<h3>Func<wbr>Props</h3>
-					<div class="tsd-signature tsd-kind-icon">Func<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
+					<div class="tsd-signature tsd-kind-icon">Func<wbr>Props&lt;TProps, TChildren&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in mim.ts:13</li>
@@ -333,11 +408,32 @@
 							<p>Type used to define properties that can be passed to a functional component.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>TProps</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type defining properties that can be passed to the functional component
+									with these properties. Default type is an empty object (no properties).</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>TChildren</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type defining components, elements or other objects that can be used
+									as children for the functional component with these properties. Default is <code>any</code>.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="reffunc" class="tsd-anchor"></a>
 					<h3>Ref<wbr>Func</h3>
-					<div class="tsd-signature tsd-kind-icon">Ref<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<div class="tsd-signature tsd-kind-icon">Ref<wbr>Func&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in mim.ts:347</li>
@@ -345,9 +441,15 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The type RefFunc defines event handler that is invoked when reference value changes.</p>
+							<p>Defines event handler that is invoked when reference value changes.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+					</ul>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -373,7 +475,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
 					<a name="refproptype" class="tsd-anchor"></a>
 					<h3>Ref<wbr>Prop<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Ref<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../classes/_mim_.ref.html" class="tsd-signature-type">Ref</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_mim_.html#reffunc" class="tsd-signature-type">RefFunc</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Ref<wbr>Prop<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <a href="../classes/_mim_.ref.html" class="tsd-signature-type">Ref</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_mim_.html#reffunc" class="tsd-signature-type">RefFunc</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in mim.ts:466</li>
@@ -382,9 +484,15 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Type of ref property that can be passed to JSX elements and components. This can be either the
-							Ref class or RefFunc function.</p>
+							<a href="../classes/_mim_.ref.html">Ref</a> class or <a href="_mim_.html#reffunc">RefFunc</a> function.</p>
 						</div>
 					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+						</li>
+					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
 					<a name="referrerpolicyproptype" class="tsd-anchor"></a>
@@ -392,7 +500,7 @@
 					<div class="tsd-signature tsd-kind-icon">Referrer<wbr>Policy<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"no-referrer"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"no-referrer-when-downgrade"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"origin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"origin-when-cross-origin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unsafe-url"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:864</li>
+							<li>Defined in mim.ts:875</li>
 						</ul>
 					</aside>
 				</section>
@@ -432,7 +540,7 @@
 					<div class="tsd-signature tsd-kind-icon">Style<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CSSStyleDeclaration</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:819</li>
+							<li>Defined in mim.ts:827</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -445,23 +553,23 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="placeholder" class="tsd-anchor"></a>
-					<h3>Placeholder</h3>
+					<a name="fragment" class="tsd-anchor"></a>
+					<h3>Fragment</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">Placeholder<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">__type</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">Fragment<span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">__type</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:557</li>
+									<li>Defined in mim.ts:565</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>An artificial &quot;fragment&quot; component that is only used as a temporary collection of other items
 										in places where JSX only allows a single item. Our JSX factory function creates a virtual node
-										for its children,but later this node is thrown away and only children are used. This component
+										for its children, but later this node is thrown away and only children are used. This component
 										is only needed because currently TypeScript doesn&#39;t alow the &lt;&gt; fragment notation if a custom
 									JSX factory function is used.</p>
 								</div>
@@ -470,11 +578,11 @@
 .....
 render()
 {
-    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">mim.Placeholder</span>&gt;</span>
+    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">mim.Fragment</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div1</span>/&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div2</span>/&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div3</span>/&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">mim.Placeholder</span>&gt;</span></span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mim.Fragment</span>&gt;</span></span>
 }</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -499,7 +607,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:994</li>
+									<li>Defined in mim.ts:1005</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -531,7 +639,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:1005</li>
+									<li>Defined in mim.ts:1016</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -562,7 +670,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:1322</li>
+									<li>Defined in mim.ts:1346</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -605,7 +713,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:1369</li>
+									<li>Defined in mim.ts:1393</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -644,7 +752,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:1343</li>
+									<li>Defined in mim.ts:1367</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -683,7 +791,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:516</li>
+									<li>Defined in mim.ts:524</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -691,17 +799,25 @@ render()
 									<p>Decorator function for defining properties with a set method that calls the updateMe method
 									whenever the property value changes.</p>
 								</div>
-								<pre><code><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Child</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span></span>
+								<pre><code>```tsx
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Child</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span></span>
 {
-    <span class="hljs-meta">@prop</span> text: string = <span class="hljs-string">"Hello!"</span>;
-    render() { <span class="hljs-keyword">return</span> &lt;div ref={myDiv}&gt;{text}&lt;/div&gt;; }
+    <span class="hljs-meta">@mim</span>.prop text: string = <span class="hljs-string">"Hello!"</span>;
+    render()
+    {
+         <span class="hljs-keyword">return</span> &lt;div&gt;{text}&lt;/div&gt;
+    }
 }
 
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Parent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span></span>
 {
     child = <span class="hljs-keyword">new</span> <span class="hljs-type">Child</span>();
-    render() { <span class="hljs-keyword">return</span> &lt;div click={() =&gt; <span class="hljs-keyword">this</span>.child.text += <span class="hljs-string">" again"</span>}&gt;{<span class="hljs-keyword">this</span>.child}&lt;/div&gt;; }
-}</code></pre><p>In the above example,the Child component will be re-rendered whever its text property changes.
+    render()
+    {
+        <span class="hljs-keyword">return</span> &lt;div click={() =&gt; <span class="hljs-keyword">this</span>.child.text += <span class="hljs-string">" again"</span>}&gt;{<span class="hljs-keyword">this</span>.child}&lt;/div&gt;
+    }
+}
+```</code></pre><p>In the above example, the Child component will be re-rendered when its <code>text</code> property changes.
 									The Parent component appends the word &quot;again&quot; to the Child component&#39;s text whenever the user
 								clicks on it.</p>
 							</div>
@@ -730,7 +846,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:590</li>
+									<li>Defined in mim.ts:598</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -779,7 +895,7 @@ render()
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Helper function to set the value of the reference that takes care of the different types of
-										references. The optional onlyIf parameter may specify a value so that only if the reference
+										references. The optional <code>onlyIf</code> parameter may specify a value so that only if the reference
 										currently has the same value it will be replaced. This might be needed to not clear a
 									reference if it already points to a different object.</p>
 								</div>
@@ -795,20 +911,20 @@ render()
 								<li>
 									<h5>ref: <a href="_mim_.html#refproptype" class="tsd-signature-type">RefPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Reference property to be set</p>
+										<p><a href="../classes/_mim_.ref.html">Ref</a> object to which the new value will be set</p>
 									</div>
 								</li>
 								<li>
 									<h5>val: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Reference value to set to the property</p>
+										<p>Reference value to set to the Ref object</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> onlyIf: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>An optional value to which to compare the current (old) value of the reference.
-										The new value will be set only if the old value equals the onlyIf value.</p>
+										The new value will be set only if the old value equals the <code>onlyIf</code> value.</p>
 									</div>
 								</li>
 							</ul>
@@ -826,7 +942,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:1380</li>
+									<li>Defined in mim.ts:1404</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -857,7 +973,7 @@ render()
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:1355</li>
+									<li>Defined in mim.ts:1379</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1020,7 +1136,7 @@ render()
 						<a href="_mim_.html#styleproptype" class="tsd-kind-icon">Style<wbr>Prop<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_mim_.html#placeholder" class="tsd-kind-icon">Placeholder</a>
+						<a href="_mim_.html#fragment" class="tsd-kind-icon">Fragment</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_mim_.html#issvg" class="tsd-kind-icon">is<wbr>Svg</a>
@@ -1069,6 +1185,7 @@ render()
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
@@ -1117,7 +1234,7 @@ render()
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

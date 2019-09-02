@@ -1,0 +1,26 @@
+{
+    "skipTerminateQuickPick": true,
+    "skipSwitchToOutput": false,
+    "skipErrorMessage": true,
+	"commands":
+	[
+        {
+            "text": "github Copy",
+            "tooltip": "Copy material from other places into GitHub project",
+            "color": "white",
+            "commandType": "exec",
+            "command": "node _tools/copyLibraries.js",
+            "alignment": "left",
+            "priority": 1
+        },
+        {
+            "text": "github Build All",
+            "tooltip": "Build all libraries and copy all to GitHub project",
+            "color": "yellow",
+            "commandType": "exec",
+            "command": "node _tools/buildAll.js",
+            "alignment": "left",
+            "priority": 1
+        }
+    ]
+}
