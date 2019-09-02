@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+{% include pathToRoot.lqd %}
+
+
+<link href="{{pathToRoot}}assets/MimblGuide.css" rel="stylesheet">
+<div class="hbox">
+	{% if page.unit > 0 %}
+		{% assign prevUnit = page.unit | minus: 1 %}
+		{% assign prevItem = site.data.mimblGuide[prevUnit] %}
+		<span style="margin-right: auto">Previous Unit: <a href="{{pathToRoot}}mimbl/{{ prevItem.file }}">{{ prevItem.title }}</a></span>
+	{% endif %}
+	{% assign lastUnit = site.data.mimblGuide | size | minus: 1 %}
+	{% if page.unit < lastUnit %}
+		{% assign nextUnit = page.unit | plus: 1 %}
+		{% assign nextItem = site.data.mimblGuide[nextUnit] %}
+		<span style="margin-left: auto">Next Unit: <a href="{{pathToRoot}}mimbl/{{ nextItem.file }}">{{ nextItem.title }}</a></span>
+	{% endif %}
+</div>
+{{ content }}
+<br/>
+<div class="hbox prevnext">
+	{% if page.unit > 0 %}
+		{% assign prevUnit = page.unit | minus: 1 %}
+		{% assign prevItem = site.data.mimblGuide[prevUnit] %}
+		<span style="margin-right: auto">Previous Unit: <a href="{{pathToRoot}}mimbl/{{ prevItem.file }}">{{ prevItem.title }}</a></span>
+	{% endif %}
+	{% assign lastUnit = site.data.mimblGuide | size | minus: 1 %}
+	{% if page.unit < lastUnit %}
+		{% assign nextUnit = page.unit | plus: 1 %}
+		{% assign nextItem = site.data.mimblGuide[nextUnit] %}
+		<span style="margin-left: auto">Next Unit: <a href="{{pathToRoot}}mimbl/{{ nextItem.file }}">{{ nextItem.title }}</a></span>
+	{% endif %}
+</div>
+
+<footer>
+	<h4>Mimbl Guide Units</h4>
+	<ul>
+	{% for item in site.data.mimblGuide %}
+		<li><a href="{{pathToRoot}}mimbl/{{ item.file }}">{{ item.title }}</a></li>
+	{% endfor %}
+	</ul>
+</footer>

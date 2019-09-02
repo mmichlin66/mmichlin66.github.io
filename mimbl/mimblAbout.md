@@ -1,5 +1,4 @@
 ---
-# front matter for Jekyll
 layout: default
 ---
 

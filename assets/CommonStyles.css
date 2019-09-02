@@ -103,6 +103,12 @@ a.postref {
 
 
 
+.prevnext {
+	justify-content: space-between;
+}
+
+
+
 /* Menu handling */
 .menubar {
 	display: flex;
@@ -123,6 +129,7 @@ a.postref {
 .menuitem > .menuitemContent {
 	font-size: 14px;
 	color: blue;
+	padding: 1em;
 }
 
 .menuitem:hover {
