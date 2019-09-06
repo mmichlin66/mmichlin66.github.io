@@ -5,20 +5,34 @@
 	"commands":
 	[
         {
-            "text": "github Copy",
-            "tooltip": "Copy material from other places into GitHub project",
+            "text": "github Build Libs",
             "color": "white",
             "commandType": "exec",
-            "command": "node _tools/copyLibraries.js",
+            "command": "node _tools/buildLibs.js",
             "alignment": "left",
             "priority": 1
         },
         {
-            "text": "github Build All",
-            "tooltip": "Build all libraries and copy all to GitHub project",
-            "color": "yellow",
+            "text": "github Build Refs",
+            "color": "pink",
             "commandType": "exec",
-            "command": "node _tools/buildAll.js",
+            "command": "node _tools/buildRefs.js",
+            "alignment": "left",
+            "priority": 1
+        },
+        {
+            "text": "github Copy Libs",
+            "color": "white",
+            "commandType": "exec",
+            "command": "node _tools/copyLibs.js",
+            "alignment": "left",
+            "priority": 1
+        },
+        {
+            "text": "github Copy Refs",
+            "color": "pink",
+            "commandType": "exec",
+            "command": "node _tools/copyRefs.js",
             "alignment": "left",
             "priority": 1
         }

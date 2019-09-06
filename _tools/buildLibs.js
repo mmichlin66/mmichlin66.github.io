@@ -7,24 +7,18 @@ console.log( "Build mimbl Dev");
 exec( "buildDev.bat");
 console.log( "Build mimbl Prod");
 exec( "buildProd.bat");
-console.log( "Build mimbl Doc");
-exec( "doc.bat");
 
 ps.chdir( p.join( __dirname, "..\\..\\..\\mimcl"));
 console.log( "Build mimcl Dev");
 exec( "buildDev.bat");
 console.log( "Build mimcl Prod");
 exec( "buildProd.bat");
-console.log( "Build mimcl Doc");
-exec( "doc.bat");
 
 ps.chdir( p.join( __dirname, "..\\..\\..\\mimurl"));
 console.log( "Build mimurl Dev");
 exec( "buildDev.bat");
 console.log( "Build mimurl Prod");
 exec( "buildProd.bat");
-console.log( "Build mimurl Doc");
-exec( "doc.bat");
 
 ps.chdir( p.join( __dirname, "..\\..\\..\\mimurl-demo"));
 console.log( "Build mimurl-demo Dev");
@@ -32,10 +26,10 @@ exec( "buildDev.bat");
 console.log( "Build mimurl-demo Prod");
 exec( "buildProd.bat");
 
-ps.chdir( __dirname);
-exec( "node copyLibraries.js")
+// ps.chdir( __dirname);
+// exec( "node copyLibs.js")
 
-console.log( "buildAll.js script has finished");
+console.log( "buildLibs.js script has finished");
 
 
 

@@ -20,15 +20,7 @@ exec( "xcopy ..\\..\\mimurl-demo\\dist\\mimurl-demo.css       mimurl\\ /i /y /d"
 exec( "xcopy ..\\..\\mimurl-demo\\dist\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
 exec( "xcopy ..\\..\\mimurl-demo\\dist\\mimurl-demo.dev.css   mimurl\\ /i /y /d");
 
-console.log( "Copy mimurl reference to " + p.join( ps.cwd(), "mimurl/reference"));
-// rem rmdir /S /Q ..\mimurl\reference
-exec( "xcopy ..\\..\\mimurl\\dist\\reference\\*.*   mimurl\\reference\\*.* /i /y /d /s");
-
-console.log( "Copy mimbl reference to " + p.join( ps.cwd(), "mimbl/reference"));
-// rem rmdir /S /Q ..\\mimbl/reference
-exec( "xcopy ..\\..\\mimbl\\dist\\reference\\*.*   mimbl\\reference\\*.* /i /y /d /s");
-
-console.log( "copyLibraries.js script has finished");
+console.log( "copyLibs.js script has finished");
 
 
 
