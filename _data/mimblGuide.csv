@@ -1,4 +1,5 @@
 unit,title,file
-0,Introduction,MimblGuide-Introduction.html
-1,Rendering HTML Content,MimblGuide-Rendering-HTML.html
-2,Component Types,MimblGuide-Component-Types.html
+0,Introduction,mimbl-guide-introduction.html
+1,Rendering HTML Content,mimbl-guide-rendering-html.html
+2,Component Types,mimbl-guide-component-types.html
+3,Custom Attributes,mimbl-guide-custom-attributes.html
