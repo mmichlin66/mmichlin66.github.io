@@ -36,7 +36,7 @@ import * as mim from "mimbl"
 // Define Child component
 class Child extends mim.Component
 {
-    @mim.prop txtColor: string;
+    @mim.updatable txtColor: string;
 
     constructor( txtColor: string = "black")
     {
@@ -82,7 +82,7 @@ class Parent extends mim.Component<ParentProps>
 mim.mount( <Parent txtInitColor="brown"/>, document.getElementById("root"));
 ```
 
-The `Child` component defines a string property `txtColor` that keeps the current color of the "Hello World!" text that the component displays in its `render` method. The `txtColor` property is defined using the `mim.prop` decorator, which schedules re-rendering of the component whenever the property value changes.
+The `Child` component defines a string property `txtColor` that keeps the current color of the "Hello World!" text that the component displays in its `render` method. The `txtColor` property is defined using the `mim.updatable` decorator, which schedules re-rendering of the component whenever the property value changes.
 
 The `Parent` component creates an instance of the `Child` component and keeps it in its `child` property. The `render` method lays out three `button` elements for changing text color and then specifies the `child` property in the curly braces. When the user clicks one of the color buttons, the `Parent` component sets the corresponding color string to the `Child` component's `txtColor` property. This causes re-rendering of the `child` component with the new text color. Note that the `Parent` component is not re-rendered.
 

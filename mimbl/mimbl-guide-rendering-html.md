@@ -264,7 +264,7 @@ References are usually needed when there is no good way to perform a desired tas
 ```typescript
 class Child extends mim.Component
 {
-    @mim.prop color: string = "black";
+    @mim.updatable color: string = "black";
 
     public render(): any
     {
