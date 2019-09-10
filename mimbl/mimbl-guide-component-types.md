@@ -15,7 +15,7 @@ Mimbl supports three types of components:
 We will briefly describe each component type's main features and then use an example to highlight their differences.
 
 ## Functional Components
-Functional components are just functions that accept a *props* object and returns `any`. A functional component participates in JSX by having the function name specified as a JSX tag - remember to start the name of the functional component from a capital letter. Here is a simple example of a functional component saying "Hello World" in a given color:
+Functional components are just functions that accept a *props* object and return `any`. A functional component participates in JSX by having the function name specified as a JSX tag - remember to start the name of the functional component from a capital letter. Here is a simple example of a functional component saying "Hello World" in a given color:
 
 ```typescript
 interface HelloWorldFuncProps

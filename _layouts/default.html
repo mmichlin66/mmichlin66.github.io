@@ -9,9 +9,9 @@
 	<link href="{{pathToRoot}}assets/CommonStyles.css" rel="stylesheet">
 </head>
 <body>
-	<div class="vbox page">
+	<div class="vbox" style="height: 100%">
 		<div class="hbox mainHeader">
-			<img src="{{pathToRoot}}assets/Logo.png" style="margin: auto 1em">
+			<img src="{{pathToRoot}}assets/Logo.png" style="margin: auto 0.5em">
 			<div class="menubar" style="justify-content:flex-start; flex-grow:1; align-items:center">
 				<a class="menuitem" href="{{pathToRoot}}home.html">Home</a>
 				<div class="menuitem">
@@ -34,7 +34,7 @@
 				<a class="menuitem" href="{{pathToRoot}}blog.html">Blog</a>
 			</div>
 		</div>
-		<div style="display: flex; flex-direction:column; flex-grow:1; padding: 8px;">
+		<div class="main-container">
 			{{ content }}
 		</div>
 	</div>

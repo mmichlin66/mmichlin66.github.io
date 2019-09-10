@@ -24,10 +24,15 @@ body {
 	margin: 0px;
 }
 
-pre, code {
+pre, code, code > span {
 	font-family: 'Courier New', Courier, monospace;
+	font-size: 12px;
 	margin: 0px;
-	line-height: 1.2;
+	line-height: 1.1;
+}
+
+li {
+	line-height: 1.5;
 }
 
 .vbox {
@@ -50,19 +55,74 @@ pre, code {
 	margin-right: 8px;
 }
 
-.page {
-	min-width: 402px;
-	max-width: 1102px;
-	width: 90%;
-	min-height: 100%;
+.main-container {
+	width: 100%;
+	min-width: 400px;
+	display: flex;
+	flex-direction:column;
+	flex-grow:1;
 	margin: 0 auto;
-	border-left: 1px solid gray;
-	border-right: 1px solid gray;
-	border-bottom: 1px solid gray;
 }
 
-p, li, span {
-	line-height: 1.5;
+.simple-container {
+	width: 100%;
+	min-width: 400px;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	padding: 8px;
+	margin: 0 auto;
+	box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+}
+
+.wide-container {
+	width: 100%;
+	min-width: 400px;
+	max-width: 1400px;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	/* align-items: flex-start; */
+	margin: 0 auto;
+}
+
+.left-sidebar {
+	width: 20%;
+	min-width: 100px;
+	max-width: 300px;
+	display: flex;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: 0.5em;
+	margin-top: 1em;
+	margin-bottom: auto;
+	border-radius: 8px;
+	box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+}
+
+.left-sidebar-title {
+	width: 100%;
+	padding: 0.5em 1em;
+	background-color: dodgerblue;
+	font-weight: 900;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.content {
+	width: 80%;
+	min-width: 300px;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	padding: 8px;
+	margin-left: 0.5em;
+	margin-right: auto;
+	box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.2);
 }
 
 .buttonLink {
@@ -128,10 +188,11 @@ a.postref {
 	position: relative;
 }
 
-.menubar > .menuitem, .menubar > a.menuitem, .menubar > a.menuitem:hover, .menu > .menuitem, .menu > a.menuitem, .menu > a.menuitem:hover {
+.menubar > .menuitem, .menubar > a.menuitem, .menubar > a.menuitem:hover,
+.menu > .menuitem, .menu > a.menuitem, .menu > a.menuitem:hover {
 	font-size: 16px;
 	color: blue;
-	padding: 1em;
+	padding: 0.5em 1em;
 }
 
 .menuitem > .menuitemContent {
@@ -148,7 +209,7 @@ a.postref {
 .menu {
 	display: none;
 	position: absolute;
-	z-index: 10;
+	z-index: 1000000;
 	width: max-content;
 	max-width: 300px;
 	min-width: 100px;
@@ -277,3 +338,5 @@ code.highlighter-rouge {
 .css .o,
 .css .o + .nt,
 .css .nt + .nt { color: #999; }
+
+

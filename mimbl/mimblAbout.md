@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: mimbl
 ---
 
 # Mimbl - Web UI Authoring Library

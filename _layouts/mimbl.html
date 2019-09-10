@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+{% include pathToRoot.lqd %}
+
+<link href="{{pathToRoot}}assets/MimblGuide.css" rel="stylesheet">
+<div class="wide-container">
+	<div class="left-sidebar">
+		<div class="left-sidebar-title">
+			Mimbl
+		</div>
+
+
+		<div style="padding: 8px">
+			<a class="menuitem" href="{{pathToRoot}}mimbl/mimblAbout.html">About</a><br/><br/>
+			<b>Guide</b>
+			<ul>
+			{% for item in site.data.mimblGuide %}
+				<li><a href="{{pathToRoot}}mimbl/{{ item.file }}">{{ item.title }}</a></li>
+			{% endfor %}
+			</ul>
+			<a class="menuitem" href="{{pathToRoot}}mimbl/mimblDemo.html">Demo</a><br/>
+			<a class="menuitem" href="{{pathToRoot}}mimbl/mimblReference.html">Reference</a><br/>
+		</div>
+	</div>
+
+	<div class="content">
+		{{ content }}
+	</div>
+</div>
