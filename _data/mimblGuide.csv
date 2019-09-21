@@ -4,3 +4,4 @@ unit,title,file
 2,Component Types,mimbl-guide-component-types.html
 3,Custom Attributes,mimbl-guide-custom-attributes.html
 4,Publishing and Subscribing to Services,mimbl-guide-service-pub-sub.html
+5,Mimbl Tick and Component Life Cycle,mimbl-guide-mimbl-tick-and-component-lifecycle.html

@@ -70,7 +70,7 @@ class UserProfileConsumer extends mim.Component
 
     render()
     {
-        return <span>{srvRef.r}</span>
+        return <span>User e-mail: {srvRef.r.email}</span>
     }
 }
 ```

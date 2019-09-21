@@ -8,7 +8,7 @@ title: Introduction
 
 Mimbl is a Web UI authoring library and this guide will help you get started with building Web UI using Mimbl. If you are familiar with React, you will find many concepts of Mimbl to be very close to those of React. Mimbl builds on the same principles React was built on and then goes further in an attempt to improve in certain areas where React is lacking.
 
-This guide consists of a number of units each explaining a single concept. Each unit is accompanied with a live Web page that demonstrates the concepts discussed in the unit.
+This guide consists of a number of units each explaining a single concept.
 
 ## Installing Mimbl
 Mimbl is available as an NPM package and you can install it using the following command:
@@ -57,7 +57,6 @@ The first Web page we will author will be, of course, a Hello World! program. Th
 ```html
 <html>
     <body>
-        <div id="theApp" />
         <script src="mmichlin66.github.io/scripts/mimbl.js"></script>
         <script src="mimbl-guide-bundle.js"></script>
     </body>
@@ -100,7 +99,7 @@ class HelloWorld extends mim.Component
     };
 }
 
-mim.mount( <HelloWorld/>, document.getElementById( "theApp"));
+mim.mount( new HelloWorld());
 ```
 
 As we can see the component structure is pretty similar to that of React. The HelloWorld class is a class-based component because it derives from the Mimbl's Component class. It's `render` method uses JSX to lay out the HTML structure.
@@ -109,7 +108,7 @@ The component defines a reference object `refName` and passes it on to the `<inp
 
 When the user clicks the button, the reference object is used to retrieve the `<input>` element's current value and to store it in the component's `name` field. Then the component requests to be updated by calling the `updateMe` method.
 
-To put the component on the page, the Mimbl's `mount` method is called, which is passed the JSX with the component's class and the DOM element under which the component should be rendered.
+To put the component on the page, the Mimbl's `mount` method is called, which is passed the the component instance. In our example the component will be rendered right in the `<body>` element; however, we could specify an element, under which the component should be rendered, in the optional second parameter.
 
 There are several differences - some significant, some subtle - in the component definition compared to React. Among the subtle ones are:
 
@@ -119,7 +118,7 @@ There are several differences - some significant, some subtle - in the component
 
 Among the significant differences are the following:
 
-- Mimbl components don't have a `state` object - the component's state is kept in the instance variables. The existence of the `state` object and the React insistence on using it ahs always been a mystery for this author: you can read more on this topic [here]().
+- Mimbl components don't have a `state` object - the component's state is kept in the instance variables. The existence of the `state` object and the React insistence on using it has always been a mystery for this author: you can read more on this topic [here]().
 - Mimbl components don't have the `setState` method (which in React combines the state changing and update requesting). Whenever the component needs to be updated it must call the `updateMe` method (which acts as the React's `forceUpdate`).
 
 
