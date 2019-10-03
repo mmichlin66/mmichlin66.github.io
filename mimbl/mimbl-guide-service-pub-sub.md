@@ -34,36 +34,36 @@ declare module "mimbl/dist/core/mim"
 
 Defining the service this way allows type checking when publishing and subscribing to a service. The service name can only be the name of a property declared in the `mim.IServiceDefinitions` interface and the service value can be only of the type declared for this property.
 
-Publishing a service is performed by calling the `publishService` method of the `mim.Component` base class. To publish a service, a component specifies the service name and provides the service value. Publishing a service is usually performed in the `componentWillMount` lifecycle method. Correspondingly, the `unpublisheService` is usually implemented in the `componentWillUnmount` lifecycle method. For example, the component `ContainerWithUserProfile` can be implemented the following way:
+Publishing a service is performed by calling the `publishService` method of the `mim.Component` base class. To publish a service, a component specifies the service name and provides the service value. Publishing a service is usually performed in the `willMount` lifecycle method. Correspondingly, the `unpublishService` is usually implemented in the `willUnmount` lifecycle method. For example, the component `ContainerWithUserProfile` can be implemented the following way:
 
 ```tsx
 class ContainerWithUserProfile extends mim.Component
 {
-    componentWillMount()
+    willMount()
     {
         this.publishService( "UserProfile", null);
     }
 
-    componentWillUnmount()
+    willUnmount()
     {
         this.unpublishService( "UserProfile");
     }
 }
 ```
 
-Subscribing to a service is performed by calling the `subscribeService` method of the `mim.Component` base class. To subscribe to a service, a component specifies the service name and provides the reference object. Subscribing to a service is usually performed in the `componentWillMount` lifecycle method. Correspondingly, the `unsubscribeService` is usually implemented in the `componentWillUnmount` lifecycle method. For example, the component UserProfileConsumer can be implemented the following way:
+Subscribing to a service is performed by calling the `subscribeService` method of the `mim.Component` base class. To subscribe to a service, a component specifies the service name and provides the reference object. Subscribing to a service is usually performed in the `willMount` lifecycle method. Correspondingly, the `unsubscribeService` is usually implemented in the `willUnmount` lifecycle method. For example, the component UserProfileConsumer can be implemented the following way:
 
 ```tsx
 class UserProfileConsumer extends mim.Component
 {
     srvRef = new mim.Ref<UserProfileService>();
 
-    componentWillMount()
+    willMount()
     {
         this.subscribeService( "UserProfile", this.srvRef);
     }
 
-    componentWillUnmount()
+    willUnmount()
     {
         this.unsubscribeService( "UserProfile");
     }

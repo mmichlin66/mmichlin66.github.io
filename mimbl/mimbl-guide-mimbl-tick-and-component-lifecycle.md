@@ -78,8 +78,8 @@ refers to the process of making the component (more precisely, the elements it r
 When a component was specified in the `render` method of its parent, the following sequence of events occurs:
 
 1. For a managed component, Mimbl creates a component instance and calls the component's constructor.
-1. Mimbl sets the `vn` property of the component to the object implementing the `ICompVNode` interface.
-1. Mimbl calls the `afterCreate` method if the component implements it.
+1. Mimbl sets the `vn` property of the component to the object implementing the `IVNode` interface.
+1. Mimbl calls the `willMount` method if the component implements it.
 1. Mimbl calls the `beforeUpdate` method if the component implements it.
 1. Mimbl calls the `render` method, which all components must implements.
 1. Mimbl calls the `afterUpdate` method if the component implements it.
@@ -87,7 +87,7 @@ When a component was specified in the `render` method of its parent, the followi
 ### Component Unmounting
 When a component is not specified in the `render` method of its parent any longer, the following sequence of events occurs:
 
-1. Mimbl calls the `beforeDestroy` method if the component implements it.
+1. Mimbl calls the `willUnmount` method if the component implements it.
 1. Mimbl sets the `vn` property of the component to `undefined`.
 
 ### Component Update

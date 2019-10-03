@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ElementChildrenAttribute | mimbl</title>
+	<title>ICustomAttributeHandlerClass | mimbl</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,24 +55,42 @@
 					<a href="../modules/_mim_.html">&quot;mim&quot;</a>
 				</li>
 				<li>
-					<a href="../modules/_mim_.jsx.html">JSX</a>
-				</li>
-				<li>
-					<a href="_mim_.jsx.elementchildrenattribute.html">ElementChildrenAttribute</a>
+					<a href="_mim_.icustomattributehandlerclass.html">ICustomAttributeHandlerClass</a>
 				</li>
 			</ul>
-			<h1>Interface ElementChildrenAttribute</h1>
+			<h1>Interface ICustomAttributeHandlerClass&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The ICustomAttributeHandlerClass interface represents a class of handlers of custom attributes
+						that can be applied to intrinsic (HTML or SVG) elements. The requirements on such classes are:</p>
+						<ol>
+							<li>Implement a constructor accepting IElmVN, attribute value and attribute name (this allows
+							the same handler to serve different attributes).</li>
+							<li>Implement the ICustomAttributeHandler interface</li>
+						</ol>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ElementChildrenAttribute</span>
+						<span class="target">ICustomAttributeHandlerClass</span>
 					</li>
 				</ul>
 			</section>
@@ -81,25 +99,68 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_mim_.jsx.elementchildrenattribute.html#children" class="tsd-kind-icon">children</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-interface"><a href="_mim_.icustomattributehandlerclass.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="children" class="tsd-anchor"></a>
-					<h3>children</h3>
-					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in mim.ts:1101</li>
-						</ul>
-					</aside>
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-interface">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">new ICustom<wbr>Attribute<wbr>Handler<wbr>Class<span class="tsd-signature-symbol">(</span>elmVN<span class="tsd-signature-symbol">: </span><a href="_mim_.ielmvn.html" class="tsd-signature-type">IElmVN</a>, attrVal<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, attrName<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_mim_.icustomattributehandler.html" class="tsd-signature-type">ICustomAttributeHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mim.ts:488</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Constructs a new custom attribute handler that will act on the given element and provides
+										the initial value of the attribute. Attribute name is also provided in case the handler
+										supports different attributes. By the time this constructor is called, the DOM element had
+									already been created and standard attributes and event listeners had been applied.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>elmVN: <a href="_mim_.ielmvn.html" class="tsd-signature-type">IElmVN</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Virtual node for this element. The handler can retrieve the DOM element from
+											this interface and also use other methods (e.g. subscribe to services).</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>attrVal: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Initial value of the custom attribute</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> attrName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Name of the custom attribute</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_mim_.icustomattributehandler.html" class="tsd-signature-type">ICustomAttributeHandler</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -109,37 +170,43 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_elmattr_.html">"<wbr>Elm<wbr>Attr"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_eventslot_.html">"<wbr>Event<wbr>Slot"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_htmltypes_.html">"<wbr>Html<wbr>Types"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_localstyles_.html">"<wbr>Local<wbr>Styles"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_svgtypes_.html">"<wbr>Svg<wbr>Types"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/_utils_.html">"<wbr>Utils"</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_mim_.html">"mim"</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_mim_.jsx.elementattributesproperty.html" class="tsd-kind-icon">Element<wbr>Attributes<wbr>Property</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_mim_.jsx.elementchildrenattribute.html" class="tsd-kind-icon">Element<wbr>Children<wbr>Attribute</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_mim_.icustomattributehandlerclass.html" class="tsd-kind-icon">ICustom<wbr>Attribute<wbr>Handler<wbr>Class</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_mim_.jsx.elementchildrenattribute.html#children" class="tsd-kind-icon">children</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-interface">
+								<a href="_mim_.icustomattributehandlerclass.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_mim_.jsx.elementclass.html" class="tsd-kind-icon">Element<wbr>Class</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_mim_.jsx.intrinsicattributes.html" class="tsd-kind-icon">Intrinsic<wbr>Attributes</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_mim_.jsx.intrinsicclassattributes.html" class="tsd-kind-icon">Intrinsic<wbr>Class<wbr>Attributes</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_mim_.jsx.intrinsicelements.html" class="tsd-kind-icon">Intrinsic<wbr>Elements</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
