@@ -27,10 +27,10 @@ type BorderBlinkType = true | string | number | BorderBlinkObjType |
 type BorderBlinkObjType = { color?: string; delay?: number };
 ```
 
-Next, we need to satisfy the TypeScript JSX type-checking mechanism so that it will allow us to specify this attribute on the HTML `<input>` elements. This is accomplished using the TypeScript's module augmentation technique. Mimbl includes interfaces that define properties for all HTML and SVG elements. The module that defines HTML element interfaces is `HtmlTypes.d.ts` that lives under `dist/core/` directory of the `mimbl` directory under `node_modules`. Therefore, the module path we need to use for augmentation is `mimbl/dist/core/HtmlTypes`. The following code adds the new `borderBlink` attribute to the `IHtmlInputElementProps` interface:
+Next, we need to satisfy the TypeScript JSX type-checking mechanism so that it will allow us to specify this attribute on the HTML `<input>` elements. This is accomplished using the TypeScript's module augmentation technique. Mimbl includes interfaces that define properties for all HTML and SVG elements. The module that defines HTML element interfaces is `HtmlTypes.d.ts` that lives under `lib/core/` directory of the `mimbl` directory under `node_modules`. Therefore, the module path we need to use for augmentation is `mimbl/lib/core/HtmlTypes`. The following code adds the new `borderBlink` attribute to the `IHtmlInputElementProps` interface:
 
 ```typescript
-declare module "mimbl/dist/core/HtmlTypes"
+declare module "mimbl/lib/core/HtmlTypes"
 {
     // define the custom attribute as applicable to any input element
     interface IHtmlInputElementProps
@@ -48,7 +48,7 @@ With the above code, TypeScript will allow us to write JSX that specifies `borde
 If we want to have the same functionality applied to the `textarea` and `select` elements, we just add the definition of the custom attribute under the corresponding interfaces:
 
 ```typescript
-declare module "mimbl/dist/core/HtmlTypes"
+declare module "mimbl/lib/core/HtmlTypes"
 {
     interface IHtmlTextareaElementProps
     {

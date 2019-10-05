@@ -6,13 +6,13 @@ ps.chdir( p.join( __dirname, "..\\..\\..\\mimbl"));
 console.log( "Build mimbl Doc");
 exec( "doc.bat");
 
+ps.chdir( p.join( __dirname, "..\\..\\..\\mimurl"));
+console.log( "Build mimurl Doc");
+exec( "doc.bat");
+
 ps.chdir( p.join( __dirname, "..\\..\\..\\mimcl"));
 console.log( "Build mimcl Doc");
 exec( "doc.bat");
-
-// ps.chdir( p.join( __dirname, "..\\..\\..\\mimurl"));
-// console.log( "Build mimurl Doc");
-// exec( "doc.bat");
 
 // ps.chdir( __dirname);
 // exec( "node copyRefs.js")

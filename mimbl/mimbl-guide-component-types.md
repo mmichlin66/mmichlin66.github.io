@@ -44,9 +44,9 @@ interface HelloWorldManagedProps
     color?: string;
 }
 
-class HelloWorldManaged extends mim.Component<HelloWorldFuncProps>
+class HelloWorldManaged extends mim.Component<HelloWorldManagedProps>
 {
-    constructor( props: HelloWorldFuncProps)
+    constructor( props: HelloWorldManagedProps)
     {
         super( props);
     }

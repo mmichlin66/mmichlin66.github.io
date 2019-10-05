@@ -8,14 +8,14 @@ title: Mimbl Tick and Component Life Cycle
 As the user interacts with the Mimbl-based application, components that require change request to be updated by calling the `updateMe` method. As a result, component's `render` method is called and the DOM is updated reflecting the new content. The `render` method, however, isn't called directly from the `updateMe` method; instead, the Mimbl infrastructure schedules the component for update and the actual update happens during the so called *Mimbl Tick*. The tick consists of several phases and components can implement *life cycle methods*, which are called during these phases. This section describes the Mimbl tick process and the life cycle methods.
 
 ## Scheduling Component Updates
-The three types of components that mimbl supports - functional, managed and independent - can be updated as a result of different actions:
+The three types of components that Mimbl supports - functional, managed and independent - can be updated as a result of different actions:
 - A functional component is updated only when its parent is updated and passes a different set of properties to it.
 - A managed component is updated either when its parent is updated and passes a different set of properties to it; or when it calls the `updateMe` method.
 - An independent component is updated only when it calls the `updateMe` method.
 
 Components are scheduled for update when they call the `updateMe` method. Since the functional components can only be updated as a result of their parent being updated, they cannot be scheduled for updates on their own; therefore, this type of components will not be discussed here.
 
-When a component calls the `updateMe` method, Mimbl puts the component into an internal list of components scheduled for update and schedules a new tick. If multiple components call the `updateMe` method before the tick processing begins, all the components will be update during a single tick. If a single component calls the `updateMe` method multiple times before the tick processing begins, the component is scheduled only once. When the tick process runs, all the components are updated in a synchronous way.
+When a component calls the `updateMe` method, Mimbl puts the component into an internal list of components scheduled for update and schedules a new tick. If multiple components call the `updateMe` method before the tick processing begins, all the components will be updated during a single tick. If a single component calls the `updateMe` method multiple times before the tick processing begins, the component is scheduled only once. When the tick process runs, all the components are updated in a synchronous way.
 
 ## Scheduling Functions
 In addition to the `updateMe` method, components can call the `callMe` method to schedule arbitrary functions to run either before or after the components are updated. If a component calls the `callMe` method multiple times for the same function to be scheduled either before or after component updates, the function is called only once for each phase. If the same function is specified in the calls to the `callMe` method once for the "before" phase and once for the "after" phase, the function will be called twice - once in each stage.

@@ -23,7 +23,7 @@ Let's define our *UserProfile* service:
 ```tsx
 type UserProfileService = null | { username: string , fullName: string, email?: string };
 
-declare module "mimbl/dist/core/mim"
+declare module "mimbl/lib/core/mim"
 {
     interface IServiceDefinitions
     {

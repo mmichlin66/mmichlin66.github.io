@@ -8,16 +8,16 @@ exec( "buildDev.bat");
 console.log( "Build mimbl Prod");
 exec( "buildProd.bat");
 
-ps.chdir( p.join( __dirname, "..\\..\\..\\mimcl"));
-console.log( "Build mimcl Dev");
-exec( "buildDev.bat");
-console.log( "Build mimcl Prod");
-exec( "buildProd.bat");
-
 ps.chdir( p.join( __dirname, "..\\..\\..\\mimurl"));
 console.log( "Build mimurl Dev");
 exec( "buildDev.bat");
 console.log( "Build mimurl Prod");
+exec( "buildProd.bat");
+
+ps.chdir( p.join( __dirname, "..\\..\\..\\mimcl"));
+console.log( "Build mimcl Dev");
+exec( "buildDev.bat");
+console.log( "Build mimcl Prod");
 exec( "buildProd.bat");
 
 ps.chdir( p.join( __dirname, "..\\..\\..\\mimurl-demo"));
