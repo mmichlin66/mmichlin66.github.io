@@ -1,6 +1,6 @@
 ---
 layout: mimbl-guide
-unit: 4
+unit: 6
 title: Publishing and Subscribing to Services
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: mimbl-guide
-unit: 1
+unit: 2
 title: Rendering HTML
 ---
 
@@ -10,14 +10,14 @@ The ultimate goal of any Web UI library is to produce HTML content and make it e
 There are several places in Mimbl that accept content to be converted to HTML:
 
 - first parameter of the `mim.mount` function
-- return value of functional components (see next unit)
-- return value of the `render` method of class-based components (see next unit)
+- return value of functional components
+- return value of the `render` method of class-based components
 
 In all these places, developers can use either JSX expressions or any other JavaScript type; in fact these parameters and return values have the TypeScript type of `any`. In this unit we will use the `mim.mount` function for demonstration, but all the concepts are applicable to all other cases where HTML content is produced.
 
 Here are a few examples of producing HTML content:
 
-```typescript
+```tsx
 mim.mount( "Hello World!");
 // produces a single Text node with the "Hello World!" string
 
@@ -72,7 +72,7 @@ A JSX element can have an arbitrary number of *attributes* in the form `<tag nam
 
 JSX is perfectly suited to laying out HTML structure - here is an example:
 
-```typescript
+```tsx
 mim.mount( <div>
     <h1>Title</h1>
     <form>
@@ -84,7 +84,7 @@ mim.mount( <div>
 
 When we use curly braces within a JSX expression, we can put any JavaScript expression within it. The value of this expression will become part of the JSX expression. This can be used to put values of variables or results of function calls into JSX and it can also be used to compose JSX in chunks. For example, we could rewrite the previous example in a more modular form:
 
-```typescript
+```tsx
 function getRandomValue(): number { return Math.round(Math.random()) * 1000};
 
 let title = "Title";
@@ -101,9 +101,9 @@ mim.mount( <div>
 </div>);
 ```
 
-So far we used HTML element names for JSX tag names. Note that we only used lowercase names. If a JSX tag starts with the uppercase letter, Mimbl will treat it as a component. All the JSX rules apply to components just as they apply to HTML elements. For example, we can have a functional component `Sum` (see the next unit for details) and use it in JSX:
+So far we used HTML element names for JSX tag names. Note that we only used lowercase names. If a JSX tag starts with the uppercase letter, Mimbl will treat it as a component. All the JSX rules apply to components just as they apply to HTML elements. For example, we can have a functional component `Sum` and use it in JSX:
 
-```typescript
+```tsx
 type SumProps = { first: number; second: number; }
 
 function Sum( props: SumProps): any { return props.first + props.second; };
@@ -117,128 +117,10 @@ mim.mount( <div>
 </div>);
 ```
 
-## Handling Events
-If we want to attach an event handler to an HTML element's event we specify an attribute with the event's name and pass our handler function as the attribute's value; for example:
-
-```typescript
-function onButtonClick( e: MouseEvent): void
-{
-    console.log( "Button was clicked");
-};
-
-mim.mount( <div>
-    <button click={onButtonClick}>Click Me</button>
-</div>);
-```
-
-The handler function receives as a parameter an event object with the type corresponding to the event. Mimbl wraps event handler invocations so that it can intercept exceptions, but it doesn't change event parameters in any way.
-
-Specifying an event handler for an event as shown in the example above, attaches to the bubbling phase of the event processing. In most cases this is what developers need. If, however, the developer wants to attach to the capturing phase of the event processing, he must specify an array consisting of two elements: the event handler function and the Boolean `true` value:
-
-```typescript
-mim.mount( <div>
-    <button click={[onButtonClick, true]}>Click Me</button>
-</div>);
-```
-
-When an event handler function belongs to a class it needs to have access to the class's members via the `this` pointer. Since regular JavaScript (and, TypeScript) functions have their `this` pointer assigned at the point of invocation, the following code will NOT work:
-
-```typescript
-class Counter extends mim.Component
-{
-    private counter: number = 0;
-
-    public render(): any
-    {
-        return <div>
-            <button click={onIncrement}>Increment Counter</button>
-        </div>
-    }
-
-    private onIncrement( e: MouseEvent): void
-    {
-        // ERROR: this doesn't point to our object!
-        this.counter++;
-    }
-}
-```
-
-Since we are passing our member function to be remembered and invoked as a callback, at the moment of invocation, the `this` pointer will be assigned to something very different from our object. In order for `this` to point to our object, the function should either be bound to `this` before being attached to the event or be implemented as an arrow function. The two methods have very similar effect: they both create a new function object, which when invoked has access to our object via `this`. Although it is a matter of personal preference, we recommend using arrow functions - simply because it saves some typing.
-
-The caveat here is that we want the binding or arrow function creation occur only once and not every time when the `render` method is called. Consider the following implementation:
-
-```typescript
-class Counter extends mim.Component
-{
-    private counter: number = 0;
-
-    public render(): any
-    {
-        return <div>
-            <button click={() => onIncrement()}>Increment Counter</button>
-        </div>
-    }
-
-    private onIncrement( e: MouseEvent): void
-    {
-        this.counter++;
-    }
-}
-```
-
-The above code does work and when the `onIncrementClick` function is called, the `this` pointer properly points to our object; however, every time the render method is called (that is, when the component is updated) Mimbl will see a new event handler and will have to remove the old event handler and attach the new one. These are DOM operations that we want to minimize. And, fortunately there is an easy way to do this:
-
-```typescript
-class Counter extends mim.Component
-{
-    private counter: number = 0;
-
-    public render(): any
-    {
-        return <div>
-            <button click={onIncrement}>Increment Counter</button>
-        </div>
-    }
-
-    private onIncrement = (e: MouseEvent): void =>
-    {
-        this.counter++;
-    };
-}
-```
-
-Instead of creating a new arrow function that calls our `onIncrementClick` function on every call to `render`, we defined `onIncrement` itself as an arrow function. The difference between defining a regular member function and defining an arrow member function is that a regular function is defined on our object's prototype while an arrow function is defined as a property on each object instance. One particular consequence is that arrow functions cannot be overridden in a derived class. If you are creating a component hierarchy and want a base component class to react on an event by invoking a function that can be overridden in derived classes, implement the following pattern:
-
-```typescript
-class Base extends mim.Component
-{
-    private onEvent = (e: Event): void =>
-    {
-        // invoke "virtual" function
-        this.handleEvent(e);
-    };
-
-    protected handleEvent( e: Event): void
-    {
-        // perform event processing
-    }
-}
-
-class Derived extends Base
-{
-    protected handleEvent( e: Event): void
-    {
-        // perform event processing
-    }
-}
-```
-
-Here, the base class defines an event handler as an arrow function, which called the regular function for event processing. Derived classes should override the regular function to provide their own processing.
-
 ## References
 References are objects of types `mim.Ref<T>` holding direct references to either a DOM element or a component instance. The generic type `T` corresponds to the type of the element or the component. References are created using the `new` operator and are initially empty. Reference instances are passed as values of the `ref` attribute in JSX and, after the content is rendered, the reference is filled in. From that moment on, the `r` property of the reference object points to the DOM element or the component instance. Here is an example:
 
-```typescript
+```tsx
 class Focus extends mim.Component
 {
     private inputRef = new mim.Ref<HTMLInputElement>();
@@ -259,9 +141,9 @@ class Focus extends mim.Component
 }
 ```
 
-References are usually needed when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. References can also be used for components and here they have wider application than with DOM elements. Mimbl promotes using components just as regular JavaScript object and that means communicating with them by direct property manipulation and method invocations. We will be talking more about components in the next unit, but here is an example when a Parent component uses a reference to a Child component to tell it what color to use for its text:
+References are usually needed when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. References can also be used for components and here they have wider application than with DOM elements. Mimbl promotes using components just as regular JavaScript object and that means communicating with them by direct property manipulation and method invocations. Here is an example when a Parent component uses a reference to a Child component to tell it what color to use for its text:
 
-```typescript
+```tsx
 class Child extends mim.Component
 {
     @mim.updatable color: string = "black";

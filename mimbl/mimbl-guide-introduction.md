@@ -38,7 +38,7 @@ Mimbl provides its own JSX factory function, which should be registered in your 
 
 TypeScript converts every JSX expression to a call to the JSX factory function and, therefore, the Mimbl's JSX factory should be imported into every .TSX file under a name that matches the name specified in the `tsconfig.json` file. The name `mim.jsx` assumes that you import the Mimbl library using the following statement:
 
-```typescript
+```tsx
 import * as mim from "mimbl"
 ```
 
@@ -65,7 +65,7 @@ The first Web page we will author will be, of course, a Hello World! program. Th
 
 The simplest program you can write with Mimbl is this:
 
-```typescript
+```tsx
 import * as mim from "mimbl"
 
 mim.mount( "Hello World!");
@@ -75,7 +75,7 @@ This program will display the "Hello World!" string right in the HTML's body ele
 
 We will create a `HelloWorld` component that will contain just three HTML elements: a button, an input text field and a `<span>` element. When the user enters a *name* into the text field and clicks the button, the `<span>` element will read: "Hello to *name*!".
 
-```typescript
+```tsx
 import * as mim from "mimbl"
 
 class HelloWorld extends mim.Component

@@ -1,6 +1,6 @@
 ---
 layout: mimbl-guide
-unit: 2
+unit: 1
 title: Component Types
 ---
 
@@ -17,7 +17,7 @@ We will briefly describe each component type's main features and then use an exa
 ## Functional Components
 Functional components are just functions that accept a *props* object and return `any`. A functional component participates in JSX by having the function name specified as a JSX tag - remember to start the name of the functional component with a capital letter. Here is a simple example of a functional component saying "Hello World" in a given color:
 
-```typescript
+```tsx
 interface HelloWorldFuncProps
 {
     color?: string;
@@ -38,7 +38,7 @@ Functional components are the simplest and least powerful type of components ava
 ## Managed Components
 Managed components are classes that derive from the `mim.Component` class and that are used in JSX by specifying their class name as a JSX tag. Managed components can define a `props` type and accept it in the constructor. Here is the same Hello World functionality implemented as a managed component:
 
-```typescript
+```tsx
 interface HelloWorldManagedProps
 {
     color?: string;
@@ -62,7 +62,7 @@ mim.mount( <HelloWorldManaged color="blue" />);
 
 Managed components are stateful - their instance fields constitute their internal state. Managed components can request to be updated by calling the `updateMe` method from the `mim.Component` class. A parent component can obtain a *reference* to the instance of a managed component by using the built-in `ref` property as in the following snippet:
 
-```typescript
+```tsx
 class Parent extends mim.Component
 {
     myRef = new mim.Ref<Child>();
@@ -84,7 +84,7 @@ When a managed component wants to update itself it calls the `updateMe` method. 
 ## Independent Components
 Independent components are classes that, like managed components, derive from the `mim.Component` class. The difference is that independent components are explicitly created by developers using the `new` operator. Independent components are free to accept any parameters in the constructor and they participate in JSX by specifying their instance instead of the class. Here is an example of the Hello World functionality implemented as an independent component:
 
-```typescript
+```tsx
 class HelloWorldIndependent extends mim.Component
 {
     @mim.updatable color: string;
@@ -115,7 +115,7 @@ The `@mim.updatable` decorator makes the `color` field an *updatable property*, 
 
 Let's see how independent components are used by other components. Imagine a *Parent* component that has a mechanism to choose a color and then it uses our `HelloWorldIndependent` component to say "Hello World!" in that color.
 
-```typescript
+```tsx
 class Parent extends mim.Component
 {
     private helloWorldComp = new HelloWorldIndependent( "blue");
@@ -140,7 +140,7 @@ Another significant difference between managed and independent components is tha
 
 Maybe the most significant difference between managed and independent components is that independent components are not destroyed when their location inside the page hierarchy changes. (By "destroyed" we mean "lost to garbage collection".) Imagine a `Parent` component that for whatever reasons (usually styling) places a `Child` component on a different hierarchy level in its HTML structure. First let's implement this functionality using a managed child component:
 
-```typescript
+```tsx
 class Parent extends mim.Component
 {
     @mim.updatable isDeep = false;
@@ -158,7 +158,7 @@ Although the level difference is just one `<div>` element, during the update cyc
 
 Now let's implement the same functionality using an independent child component:
 
-```typescript
+```tsx
 class Parent extends mim.Component
 {
     @mim.updatable isDeep = false;
@@ -180,7 +180,7 @@ It is a common task for Web developers to represent collections of same-type str
 
 For managed components, the information that Mimbl has about each component is just its class (constructor function), which is obviously the same for every component of this class. Therefore, the matching must be based on some extra information, and Mimbl (like React) allows developers to specify *keys* when components are rendered. A key is a built-in property (of `any` type) that can be specified for any managed (and functional) component. The key is only needed to identify components in a list: it is not part of the component's functionality and is not even available to the component. For proper matching, keys for all components under the same parent (another component or HTML element) must be unique. Here is an example of a parent component that displays a child element for every string in an array and allows adding/inserting new items to this array:
 
-```typescript
+```tsx
 interface ChildProps
 {
     s: string;
@@ -220,7 +220,7 @@ In many cases, choosing a unique key for a component is not difficult because it
 
 Let's now implement the same functionality with an independent `Child` component:
 
-```typescript
+```tsx
 class Child extends mim.Component
 {
     private s: string;
