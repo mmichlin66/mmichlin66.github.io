@@ -14,7 +14,7 @@ Mimbl allows developers to attach functions to DOM Element events so that when a
 
 This unit describes the Mimbl's event handling mechanism and answers the above questions.
 
-Note that this unit only discusses handling events of DOM elements created using JSX - usually in the context of a component's `render` method. Mimbl of course allows handling events of other objects (e.g. `window` or `document`) using the standard `addEventListener` function; however, this is discussed separately as part of the unit [Callbacks and this](mimbl-guide-callbacks-and-this.html).
+Note that this unit only discusses handling events of DOM elements created using JSX - usually in the context of a component's `render` method. Mimbl of course allows handling events of other objects (e.g. `window` or `document`) using the standard `addEventListener` function; however, this is discussed separately as part of the next unit [Callbacks and this](mimbl-guide-callbacks-and-this.html).
 
 ### Basic Use Case
 Below is a simple code of a component that has a button and a method that should be invoked when the button is clicked:

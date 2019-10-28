@@ -6,7 +6,7 @@ layout: mimbl
 Mimbl is a TypeScript/JavaScript UI authoring library that combines declarative and imperative programming in one package. Mimbl is proposed as an alternative to React. The accompanying document [React Discussion](../2019/08/10/React-Discussion.html) provides more information about aspects of React that this library strives to improve upon.
 
 ## Features
-Web UIMimbl provides all the standard functionality that developers expect from component authoring libraries: declarative laying out of HTML structure, function- and class-based components, references, error boundaries, lazy-loading, etc. In addition to this functionality Mimbl provides the following unique features:
+Mimbl provides all the standard functionality that developers expect from component authoring libraries: declarative laying out of HTML structure, function- and class-based components, references, error boundaries, lazy-loading, etc. In addition to this functionality Mimbl provides the following unique features:
 
 - Instance-based components whose lifecycle is controlled by developers and which can be accessed via standard property and method invocation.
 - Custom HTML and SVG attributes defined by developers and supported via handler objects.
