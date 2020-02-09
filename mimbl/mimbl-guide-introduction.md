@@ -33,7 +33,7 @@ Mimbl provides its own JSX factory function, which should be registered in your 
         "jsx": "react",
         "jsxFactory": "mim.jsx",
         "experimentalDecorators": true,
-    },
+    }
 ```
 
 TypeScript converts every JSX expression to a call to the JSX factory function and, therefore, the Mimbl's JSX factory should be imported into every .TSX file under a name that matches the name specified in the `tsconfig.json` file. The name `mim.jsx` assumes that you import the Mimbl library using the following statement:
@@ -52,7 +52,7 @@ In your HTML file use the following URL to reference the Mimbl library (well, wh
 ```
 
 ## Hello World!
-The first Web page we will author will be, of course, a Hello World! program. The program consists of a simple HTML file and a simple Mimbl component. Here is the HTML file, which references the Mimbl library and defines a single `<div>` element where all the program content will be rendered. It also references the application bundle created by processing the code with your favorite bundler (e.g. Webpack).
+The first Web page we will author will be, of course, a Hello World! program. The program consists of a simple HTML file and a simple Mimbl component. Here is the HTML file, which references the Mimbl library and also references the application bundle created by processing the code with your favorite bundler (e.g. Webpack).
 
 ```html
 <html>
@@ -71,7 +71,7 @@ import * as mim from "mimbl"
 mim.mount( "Hello World!");
 ```
 
-This program will display the "Hello World!" string right in the HTML's body element. But of course, the power of Mimbl is in the ability to write components and so we will write a simple one that will demonstrate the  basic Mimbl functionality: laying out HTML structure, reacting to events and updating when the internal state changes.
+This program will display the "Hello World!" string right in the HTML's body element. But of course, the power of Mimbl is in the ability to write components and so we will write a simple component that will demonstrate the  basic Mimbl functionality: laying out HTML structure, reacting to events and updating when the internal state changes.
 
 We will create a `HelloWorld` component that will contain just three HTML elements: a button, an input text field and a `<span>` element. When the user enters a *name* into the text field and clicks the button, the `<span>` element will read: "Hello to *name*!".
 
@@ -120,5 +120,6 @@ Among the significant differences are the following:
 
 - Mimbl components don't have a `state` object - the component's state is kept in the instance variables. The existence of the `state` object and the React insistence on using it has always been a mystery for this author: you can read more on this topic [here]().
 - Mimbl components don't have the `setState` method (which in React combines the state changing and update requesting). Whenever the component needs to be updated it must call the `updateMe` method (which acts as the React's `forceUpdate`).
+- The component in our example is instantiated by us (the developers), while in React, the component class is used in JSX and is instantiated by the React library. Mimbl, in fact supports several component types and this will be addressed in the next unit.
 
 

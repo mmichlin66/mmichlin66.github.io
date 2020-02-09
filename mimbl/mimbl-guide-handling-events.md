@@ -44,7 +44,7 @@ class Hello extends mim.Component
 mim.mount( new Hello( "Michael"));
 ```
 
-From the above code, we can immediately answer the question about how events are identified in Mimbl: events are identified by their standard names without prefixing them with *"on"*. Behind the scenes Mimbl calls the `Element.addEventListener` function and event names are passed to it without any string manipulations.
+From the above code, we can immediately answer the question about how events are identified in Mimbl: events are identified by their standard names - without prefixing them with *"on"*. Behind the scenes Mimbl calls the `Element.addEventListener` function and event names are passed to it without any string manipulations.
 
 The handler function receives as a parameter an event object with the type corresponding to the event. Mimbl wraps event handler invocations so that it can intercept exceptions, but it doesn't change event parameters in any way.
 
@@ -57,7 +57,7 @@ public render(): void
 }
 ```
 
-### The Value of this
+### The Value of **this**
 In the example above, the event handler uses the `this` keyword to refer to the instance member `name`. But wait a minute! How can it work? We all know that in JavaScript, in order for callbacks to have a correct value of `this`, they must be either defined as arrow functions or be explicitly bound to `this`. The code above does neither and still it works - how come?!
 
 The answer is simple: Mimbl performs a small trick behind the scenes - it uses the component instance that created the element to call the event handler method. This is almost the same as binding: Mimbl just uses the `Function.apply` method instead of `Function.bind`.
@@ -109,7 +109,7 @@ class Person implements IClickable
 mim.mount( new Hello( new Person( "Michael")));
 ```
 
-If you want your event handler, which belongs to a separate object, to react on the capturing phase of the event processing while, you must specify an array consisting of three elements: the event handler function, the object value and the Boolean `true` value:
+If you want your event handler, which belongs to a separate object, to react on the capturing phase of the event processing, you must specify an array consisting of three elements: the event handler function, the object value and the Boolean `true` value:
 
 ```tsx
 public render(): void
