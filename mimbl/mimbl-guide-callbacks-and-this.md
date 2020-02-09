@@ -73,7 +73,7 @@ class DelayedMessage extends mim.Component
     public render(): any
     {
         return <div>
-            <button disabled={!this.displayedTime} click={this.onClick}>Click Me</button>
+            <button disabled={this.clickedTime && !this.displayedTime} click={this.onClick}>Click Me</button>
             <br/>
             {this.clickedTime && <span>Clicked at {this.clickedTime.toLocaleTimeString()}</span>}
             <br/>

@@ -1,14 +1,14 @@
 ---
 layout: mimbl-guide
 unit: 8
-title: Method Components
+title: Rendering Methods
 ---
 
-# Mimbl Guide: Method Components
+# Mimbl Guide: Rendering Methods
 When discussing component development, the focus is often on reusable components. When developing applications, however, we often deal with creating page-wide components that present complex content and that occupy an entire screen. Such components usually contain multiple sections, which in turn can be divided into sub-sections. Down the line reusable components will ultimately be used to present the pieces of information of course, but the core sections of our complex component are probably only used on this page and are not leveraged in any other part of the application.
 
 ## Complex Component Rendering
-The rendering code of a complex component will often look like the following:
+The rendering code of a complex component often looks like the following:
 
 ```tsx
 public render(): any
@@ -74,25 +74,25 @@ public render(): any
 private setRightSidebarColor( color: string): void
 {
     this.rightSidebarColor = color;
-    mim.FuncProxy.update( this.renderRightSidebar);
+    this.updateMe( this.renderRightSidebar);
 }
 ```
 
 There are two main differences between these two code excerpts:
 
 - In the first excerpt, the *renderSomething* methods are called, while in the second excerpt the methods themselves are provided as content (note the lack of `()`).
-- In the first excerpt, the `updateMe` method is called to re-render the entire component, while in the second excerpt, the `mim.FuncProxy.update` method is called and the `renderMainContent` method is passed to it.
+- In the first excerpt, the `updateMe` method is called to re-render the entire component, while in the second excerpt, the `this.updateMe` method is called and the `renderMainContent` method is passed to it.
 
 The outcome is exactly what we wanted: when a color button is clicked in the header, only the main content area is re-rendered.
 
-There is no magic of course. Behind the scene, whenever Mimbl encounters a function passed as content, it creates a small component (called FuncProxy) and keeps it linked to the function. Whenever the ``mim.FuncProxy.update` method is called, Mimbl finds the FuncProxy component for the given method and updates it. Mimbl also makes sure to pass the reference to our entire component as *this* when it calls the rendering method.
+There is no magic of course. Behind the scene, whenever Mimbl encounters a function passed as content, it creates a small component (called FuncProxy) and keeps it linked to the function. Whenever the ``this.updateMe` method is called, Mimbl finds the FuncProxy component for the given method and updates it. Mimbl also makes sure to pass the reference to our entire component as *this* when it calls the rendering method.
 
 In short, the mechanism converts methods into components - that is, it does automatically what developers would otherwise do by hand.
 
 ## FuncProxy Component
-The above is the simplest scenario where the *renderSomething* functions don't accept any parameters, are instance methods or our component and are called only once each in our component's render method. In real life, this might not be the case and Mimbl provides a solution that covers all these cases.
+The code above is the simplest scenario where the *renderSomething* functions don't accept any parameters, are instance methods of our component and are called only once each in our component's render method. In real life, this might not be the case and Mimbl provides a solution that covers all these cases.
 
-We already saw the use of the `FuncProxy` class's static method `update`. But the `FuncProxy` class can also be used as a Mimbl component in JSX:
+Mimbl has a special component called `FuncProxy` that is used in JSX:
 
 ```tsx
 <FuncProxy func={this.renderSomething} />;
@@ -104,7 +104,7 @@ The above code is the precise equivalent of:
 <FuncProxy func={this.renderSomething} />;
 ```
 
-However, the `FuncProxy` component accepts several properties that allow us to solve the problems listed above.
+The `FuncProxy` component, however, accepts several additional properties that allow us to solve the problems listed above. These are discussed in the sections below.
 
 ## Rendering Methods with Arguments
 While rendering methods that don't accept any parameters are pretty common, rendering methods that do accept parameters are not less common. Imagine a scenario when there is code that calculates a certain value and then passes it on to a rendering function. Why wouldn't the rendering function itself calculate the value? Perhaps the value is used in more than one place or maybe the same rendering function is called more than once with different parameters.
@@ -154,14 +154,13 @@ public render()
 private onSomeStateChanges(): void
 {
     let urgency: number = this.calculateUrgency();
-    mim.FuncProxy.update( this.renderLeftSidebar, undefined, urgency);
-    mim.FuncProxy.update( this.renderRightSidebar, undefined, urgency);
+    this.updateMe( {func: this.renderLeftSidebar, args: [urgency]}, {func: this.renderRightSidebar, args: [urgency]});
 }
 ```
 
-We are using the `FuncProxy` component and specifying not only the function to be called but also an array of arguments to be passed to it. Note that it should always be an array. When the component's state changes, we calculate the urgency value again and pass it to the `mim.FuncProxy.update` calls. The `mim.FuncProxy.update` method accepts variable argument list; therefore, there is no need to wrap the `urgency` variable in an array. Whenever the `mim.FuncProxy.update` method is called, the arguments passed to it are remembered in the instance of the FuncProxy component and are passed to the rendering function when it is called.
+We are using the `FuncProxy` component and specifying not only the function to be called but also an array of arguments to be passed to it. Note that it should always be an array. When the component's state changes, we calculate the urgency value again and pass it to the `this.updateMe` calls. The `this.updateMe` method accepts variable argument list; therefore, there is no need to wrap the `urgency` variable in an array. Whenever the `this.updateMe` method is called, the arguments passed to it are remembered in the instance of the FuncProxy component and are passed to the rendering function when it is called.
 
-We are also using the `replaceArgs` Boolean property of the `FuncProxy` component. This informs the component instance that the arguments passed to it should replace the parameters that are remembered in that instance from the prior renderings or from the `mim.FuncProxy.update` calls. The default value of the `replaceArgs` parameter is `false` (and this is also what's used when it is omitted), which indicates that the arguments passed to it will not replace the arguments already remembered in the component instance. This essentially means that the arguments passed to the `FuncProxy` component will be treated as "initialization" parameters: they will be used in the first rendering (when the component instance is created) and ignored in all subsequent renderings (when the component instance is updated).
+We are also using the `replaceArgs` Boolean property of the `FuncProxy` component. This informs the component instance that the arguments passed to it should replace the parameters that are remembered in that instance from the prior renderings or from the `this.updateMe` calls. The default value of the `replaceArgs` parameter is `false` (and this is also what's used when it is omitted), which indicates that the arguments passed to it will not replace the arguments already remembered in the component instance. This essentially means that the arguments passed to the `FuncProxy` component will be treated as "initialization" parameters: they will be used in the first rendering (when the component instance is created) and ignored in all subsequent renderings (when the component instance is updated).
 
 Omitting the `replaceArgs` property allows for the following code:
 
@@ -179,19 +178,18 @@ public render()
 private onSomeStateChanges(): void
 {
     let urgency: number = this.calculateUrgency();
-    mim.FuncProxy.update( this.renderLeftSidebar, undefined, urgency);
-    mim.FuncProxy.update( this.renderRightSidebar, undefined, urgency);
+    this.updateMe( {func: this.renderLeftSidebar, args: [urgency]}, {func: this.renderRightSidebar, args: [urgency]});
 }
 ```
 
-In the code above, the `FunProxy` instances will be initialize with the initial value of the urgency parameter. During repeated renderings of our component, the `FuncProxy` instance will not be re-rendered. It will be re-rendered only when the `mim.FuncProxy.update` method is called in the `onSomeStateChanges` event handler.
+In the code above, the `FunProxy` instances will be initialize with the initial value of the urgency parameter. During repeated renderings of our component, the `FuncProxy` instance will not be re-rendered. It will be re-rendered only when the `this.updateMe` method is called in the `onSomeStateChanges` event handler.
 
 ## Multiple Uses of Rendering Methods
-We already noticed that when a rendering method is returned as content or when the `FuncProxy` component is used, Mimbl creates an internal structure (a special kind of virtual node) and links it to the function. This linking is what allows the `mim.FuncProxy.update` static method to find the right node to re-render. When the rendering function is used only once by the parent component, the linking is one-to-one. A question arises, however, how the linking works if the rendering method is used more than once. For example, it is common that a similar code is used to render a table's header and footer.
+We already noticed that when a rendering method is returned as content or when the `FuncProxy` component is used, Mimbl creates an internal structure (a special kind of virtual node) and links it to the function. This linking is what allows the `this.updateMe` method to find the right node to re-render. When the rendering function is used only once by the parent component, the linking is one-to-one. A question arises, however, how the linking works if the rendering method is used more than once. For example, it is common that a similar code is used to render a table's header and footer.
 
 A solution might be to have two different very thin methods - say, *renderTableHeader* and *renderTableFooter* - which would call the same method - maybe with different parameters. This will obviously work, although developers would have to create these extra methods - and we don't want developers to do any extra work. But what if the number of times a rendering method is used is not known at development time? For example, what if we need to render a sequence of small objects? We might develop a separate component for rendering such an object, but it might be an overkill.
 
-The problem we are trying to solve is how to uniquely identify each instance of calling the same rendering function so that when we call the `mim.FuncProxy.update` method the right node is re-rendered. The solution Mimbl provides is that the `FuncProxy` component accepts a `key` property, which must be unique every time the same rendering function is used. The key becomes part of the link between the function and the internal node. The same key is then passed to the `mim.FuncProxy.update` call.
+The problem we are trying to solve is how to uniquely identify each instance of calling the same rendering function so that when we call the `this.updateMe` method the right node is re-rendered. The solution Mimbl provides is that the `FuncProxy` component accepts a `key` property, which must be unique every time the same rendering function is used. The key becomes part of the link between the function and the internal node. The same key is then passed to the `this.updateMe` call.
 
 
 

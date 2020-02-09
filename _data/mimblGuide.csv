@@ -7,4 +7,4 @@ unit,title,file
 5,Custom Attributes,mimbl-guide-custom-attributes.html
 6,Publishing and Subscribing to Services,mimbl-guide-service-pub-sub.html
 7,Mimbl Tick and Component Life Cycle,mimbl-guide-mimbl-tick-and-component-lifecycle.html
-8,Method Components,mimbl-guide-method-components.html
+8,Rendering Methods,mimbl-guide-rendering-methods.html

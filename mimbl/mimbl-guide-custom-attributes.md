@@ -42,7 +42,7 @@ declare module "mimbl/lib/core/HtmlTypes"
 With the above code, TypeScript will allow us to write JSX that specifies `borderLink` attribute for `<input>` elements:
 
 ```tsx
-<input type="text" borderBlink={ {color: "blue", delay: 5} }
+<input type="text" borderBlink={ {color: "blue", delay: 5} }></input>
 ```
 
 If we want to have the same functionality applied to the `textarea` and `select` elements, we just add the definition of the custom attribute under the corresponding interfaces:
@@ -65,9 +65,9 @@ declare module "mimbl/lib/core/HtmlTypes"
 Note that the new `borderBlink` attribute is declared as optional; overwise, we would have to specify it for every input element! The module augmentation technique allows using the TypeScript's JSX type-checking mechanism to enforce the correct application of this attribute to the input elements. This will also prohibit applying this attribute to non-input elements:
 
 ```tsx
-<span borderBlink={ {color: "blue"} }                 // ERROR!!! not an input element
-<input type="text" borderBlink={ {colour: "blue"} }   // ERROR!!! incorrect property name in object notation
-<input type="text" borderBlink={ ["red", 5, true] }   // ERROR!!! incorrect number of items in array
+<span borderBlink={ {color: "blue"} } />                // ERROR!!! not an input element
+<input type="text" borderBlink={ {colour: "blue"} } />  // ERROR!!! incorrect property name in object notation
+<input type="text" borderBlink={ ["red", 5, true] } />  // ERROR!!! incorrect number of items in array
 ```
 
 Now we need to write the code that will handle our custom attribute in the form of a handler class that implements the `ICustomAttributeHandler` interface.
