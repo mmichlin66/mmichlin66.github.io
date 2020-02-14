@@ -5,9 +5,9 @@ title: Rendering Methods
 ---
 
 # Mimbl Guide: Rendering Methods
-When discussing component development, the focus is often on reusable components. When developing applications, however, we often deal with creating page-wide components that present complex content and that occupy an entire screen. Such components usually contain multiple sections, which in turn can be divided into sub-sections. Down the line reusable components will ultimately be used to present the pieces of information of course, but the core sections of our complex component are probably only used on this page and are not leveraged in any other part of the application.
+### Complex Component Rendering
+We often deal with creating complex components that contain multiple sections, which in turn can be divided into sub-sections. Having a single `render` method is usually too cumbersome - there is too much JSX for a single method. On the other hand, the sections of our complex components are probably only used on this page and are not leveraged in any other part of the application; therefore, creating a separate component for them is not really worth the time and effort. The standard solution is to use private rendering methods - methods that return JSX content that is ultimately used in the `render` method.
 
-## Complex Component Rendering
 The rendering code of a complex component often looks like the following:
 
 ```tsx
@@ -81,15 +81,15 @@ private setRightSidebarColor( color: string): void
 There are two main differences between these two code excerpts:
 
 - In the first excerpt, the *renderSomething* methods are called, while in the second excerpt the methods themselves are provided as content (note the lack of `()`).
-- In the first excerpt, the `updateMe` method is called to re-render the entire component, while in the second excerpt, the `this.updateMe` method is called and the `renderMainContent` method is passed to it.
+- In the first excerpt, the `updateMe` method is called to re-render the entire component, while in the second excerpt, the `this.updateMe` method is called and the `renderRightSidebar` method is passed to it.
 
-The outcome is exactly what we wanted: when a color button is clicked in the header, only the main content area is re-rendered.
+The outcome is exactly what we wanted: when a color button is clicked in the header, only the right sidebar area is re-rendered.
 
-There is no magic of course. Behind the scene, whenever Mimbl encounters a function passed as content, it creates a small component (called FuncProxy) and keeps it linked to the function. Whenever the ``this.updateMe` method is called, Mimbl finds the FuncProxy component for the given method and updates it. Mimbl also makes sure to pass the reference to our entire component as *this* when it calls the rendering method.
+There is no magic of course. Behind the scene, whenever Mimbl encounters a function passed as content, it creates a small component (called FuncProxy) and keeps it linked to the function. Whenever the `this.updateMe` method is called, Mimbl finds the FuncProxy component for the given method and updates it. Mimbl also makes sure to pass the reference to our entire component as *this* when it calls the rendering method.
 
 In short, the mechanism converts methods into components - that is, it does automatically what developers would otherwise do by hand.
 
-## FuncProxy Component
+### FuncProxy Component
 The code above is the simplest scenario where the *renderSomething* functions don't accept any parameters, are instance methods of our component and are called only once each in our component's render method. In real life, this might not be the case and Mimbl provides a solution that covers all these cases.
 
 Mimbl has a special component called `FuncProxy` that is used in JSX:
@@ -106,7 +106,7 @@ The above code is the precise equivalent of:
 
 The `FuncProxy` component, however, accepts several additional properties that allow us to solve the problems listed above. These are discussed in the sections below.
 
-## Rendering Methods with Arguments
+### Rendering Methods with Arguments
 While rendering methods that don't accept any parameters are pretty common, rendering methods that do accept parameters are not less common. Imagine a scenario when there is code that calculates a certain value and then passes it on to a rendering function. Why wouldn't the rendering function itself calculate the value? Perhaps the value is used in more than one place or maybe the same rendering function is called more than once with different parameters.
 
 Let's have a component where the left and right sidebars use different colors depending on some "urgency" parameter. The idea is that the "urgency" is not part of the state, but is calculated based on other state parameters. Here is an example of the rendering code - first using an old approach:
@@ -184,7 +184,7 @@ private onSomeStateChanges(): void
 
 In the code above, the `FunProxy` instances will be initialize with the initial value of the urgency parameter. During repeated renderings of our component, the `FuncProxy` instance will not be re-rendered. It will be re-rendered only when the `this.updateMe` method is called in the `onSomeStateChanges` event handler.
 
-## Multiple Uses of Rendering Methods
+### Multiple Uses of Rendering Methods
 We already noticed that when a rendering method is returned as content or when the `FuncProxy` component is used, Mimbl creates an internal structure (a special kind of virtual node) and links it to the function. This linking is what allows the `this.updateMe` method to find the right node to re-render. When the rendering function is used only once by the parent component, the linking is one-to-one. A question arises, however, how the linking works if the rendering method is used more than once. For example, it is common that a similar code is used to render a table's header and footer.
 
 A solution might be to have two different very thin methods - say, *renderTableHeader* and *renderTableFooter* - which would call the same method - maybe with different parameters. This will obviously work, although developers would have to create these extra methods - and we don't want developers to do any extra work. But what if the number of times a rendering method is used is not known at development time? For example, what if we need to render a sequence of small objects? We might develop a separate component for rendering such an object, but it might be an overkill.
