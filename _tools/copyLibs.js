@@ -6,6 +6,8 @@ ps.chdir( p.join( __dirname, ".."));
 console.log( "Current directory: " + ps.cwd());
 
 console.log( "Copy scripts to " + p.join( ps.cwd(), "scripts"));
+exec( "xcopy ..\\..\\mimurl\\lib\\mimcss.js     scripts\\ /i /y /d");
+exec( "xcopy ..\\..\\mimurl\\lib\\mimcss.dev.js scripts\\ /i /y /d");
 exec( "xcopy ..\\..\\mimurl\\lib\\mimurl.js     scripts\\ /i /y /d");
 exec( "xcopy ..\\..\\mimurl\\lib\\mimurl.dev.js scripts\\ /i /y /d");
 exec( "xcopy ..\\..\\mimbl\\lib\\mimbl.js       scripts\\ /i /y /d");
