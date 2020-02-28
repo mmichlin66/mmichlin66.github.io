@@ -99,6 +99,7 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#displayname" class="tsd-kind-icon">display<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#props" class="tsd-kind-icon">props</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#vn" class="tsd-kind-icon">vn</a></li>
 							</ul>
@@ -106,7 +107,8 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#getdisplayname" class="tsd-kind-icon">get<wbr>Display<wbr>Name</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#afterupdate" class="tsd-kind-icon">after<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#beforeupdate" class="tsd-kind-icon">before<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#getupdatestrategy" class="tsd-kind-icon">get<wbr>Update<wbr>Strategy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_mim_.jsx.elementclass.html#render" class="tsd-kind-icon">render</a></li>
@@ -121,18 +123,37 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="props" class="tsd-anchor"></a>
-					<h3>props</h3>
-					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="../modules/_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="displayname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> display<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#props">props</a></p>
+						<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#displayname">displayName</a></p>
 						<ul>
-							<li>Defined in mim.ts:70</li>
+							<li>Defined in mim.ts:80</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Component properties passed to the constructor</p>
+							<p>Components can define display name for tracing purposes; if they don&#39;t the default name
+								used is the component&#39;s class constructor name. Note that this method can be called before
+							the virtual node is attached to the component.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="props" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> props</h3>
+					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="../modules/_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#props">props</a></p>
+						<ul>
+							<li>Defined in mim.ts:73</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Component properties passed to the constructor. For managed components, the properties
+							can also be set (changed) when the component&#39;s parent is updated.</p>
 						</div>
 					</div>
 				</section>
@@ -143,7 +164,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#vn">vn</a></p>
 						<ul>
-							<li>Defined in mim.ts:86</li>
+							<li>Defined in mim.ts:89</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -162,27 +183,54 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="getdisplayname" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> get<wbr>Display<wbr>Name</h3>
+					<a name="afterupdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> after<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Display<wbr>Name<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">after<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#getdisplayname">getDisplayName</a></p>
+								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#afterupdate">afterUpdate</a></p>
 								<ul>
-									<li>Defined in mim.ts:77</li>
+									<li>Defined in mim.ts:121</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Components can define display name for tracing purposes; if they don&#39;t the default name
-										is the component&#39;s class constructor name. Note that this method can be called before
-									the virtual node is attached to the component.</p>
+									<p>Optional method that is called after al components that are scheduled to be updated in
+										a Mimbl tick, are updated. If implemented, this method will be called every time the
+										component is scheduled to be updated. This method is called after all modifications to
+									DOM resulting from updaing components have been already done.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="beforeupdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> before<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">before<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#beforeupdate">beforeUpdate</a></p>
+								<ul>
+									<li>Defined in mim.ts:113</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Optional method that is called before any components that are scheduled to be updated in
+										a Mimbl tick, are updated. If implemented, this method will be called every time the
+										component is scheduled to be updated. This method can read DOM layout information (e.g.
+									element measurements) without the risk of causing forced layouts.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -197,7 +245,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#getupdatestrategy">getUpdateStrategy</a></p>
 								<ul>
-									<li>Defined in mim.ts:135</li>
+									<li>Defined in mim.ts:156</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,7 +269,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#handleerror">handleError</a></p>
 								<ul>
-									<li>Defined in mim.ts:129</li>
+									<li>Defined in mim.ts:150</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,7 +314,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#render">render</a></p>
 								<ul>
-									<li>Defined in mim.ts:96</li>
+									<li>Defined in mim.ts:92</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,19 +337,20 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#shouldupdate">shouldUpdate</a></p>
 								<ul>
-									<li>Defined in mim.ts:109</li>
+									<li>Defined in mim.ts:136</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Informs the component that new properties have been specified. At the time of the call
-										this.props refers to the &quot;old&quot; properties. If the component returns true,then its render
-										method will be called. At that time,the original props object that was passed into the
-										component&#39;s constructor will have these new properties. If the component doesn&#39;t implement
-										the shouldUpdate method it is as though true is returned. If the component returns
-										false, the render method is not called and the DOM tree of the component remains unchanged.
-									The properties of the component, however, still change.</p>
+									<p>This method is only used by managed components.</p>
 								</div>
+								<p>Informs the component that new properties have been specified. At the time of the call
+									this.props refers to the &quot;old&quot; properties. If the component returns true,then its render
+									method will be called. At that time,the original props object that was passed into the
+									component&#39;s constructor will have these new properties. If the component doesn&#39;t implement
+									the shouldUpdate method it is as though true is returned. If the component returns
+									false, the render method is not called and the DOM tree of the component remains unchanged.
+								The properties of the component, however, still change.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -328,7 +377,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#willmount">willMount</a></p>
 								<ul>
-									<li>Defined in mim.ts:93</li>
+									<li>Defined in mim.ts:99</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -353,7 +402,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_mim_.icomponent.html">IComponent</a>.<a href="_mim_.icomponent.html#willunmount">willUnmount</a></p>
 								<ul>
-									<li>Defined in mim.ts:115</li>
+									<li>Defined in mim.ts:105</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,13 +439,19 @@
 						<a href="_mim_.jsx.elementclass.html" class="tsd-kind-icon">Element<wbr>Class</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_mim_.jsx.elementclass.html#displayname" class="tsd-kind-icon">display<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_mim_.jsx.elementclass.html#props" class="tsd-kind-icon">props</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_mim_.jsx.elementclass.html#vn" class="tsd-kind-icon">vn</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_mim_.jsx.elementclass.html#getdisplayname" class="tsd-kind-icon">get<wbr>Display<wbr>Name</a>
+								<a href="_mim_.jsx.elementclass.html#afterupdate" class="tsd-kind-icon">after<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_mim_.jsx.elementclass.html#beforeupdate" class="tsd-kind-icon">before<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_mim_.jsx.elementclass.html#getupdatestrategy" class="tsd-kind-icon">get<wbr>Update<wbr>Strategy</a>

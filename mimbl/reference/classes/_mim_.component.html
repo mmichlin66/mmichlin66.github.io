@@ -94,7 +94,7 @@
 								<a href="_mim_.funcproxy.html" class="tsd-signature-type">FuncProxy</a>
 							</li>
 							<li>
-								<a href="_mim_.waiting.html" class="tsd-signature-type">Waiting</a>
+								<a href="_mim_.promiseproxy.html" class="tsd-signature-type">PromiseProxy</a>
 							</li>
 							<li>
 								<a href="_localstyles_.componentwithlocalstyles.html" class="tsd-signature-type">ComponentWithLocalStyles</a>
@@ -129,9 +129,11 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_mim_.component.html#callme" class="tsd-kind-icon">call<wbr>Me</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_mim_.component.html#callmeafterupdate" class="tsd-kind-icon">call<wbr>MeAfter<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_mim_.component.html#callmebeforeupdate" class="tsd-kind-icon">call<wbr>MeBefore<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_mim_.component.html#render" class="tsd-kind-icon">render</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_mim_.component.html#updateme" class="tsd-kind-icon">update<wbr>Me</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected"><a href="_mim_.component.html#wrapcallback" class="tsd-kind-icon">wrap<wbr>Callback</a></li>
 							</ul>
 						</section>
 					</div>
@@ -149,7 +151,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:218</li>
+									<li>Defined in mim.ts:1461</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -172,12 +174,13 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_mim_.icomponent.html#props">props</a></p>
 						<ul>
-							<li>Defined in mim.ts:215</li>
+							<li>Defined in mim.ts:1454</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Component properties passed to the constructor</p>
+							<p>Component properties passed to the constructor. This is normally used only by managed
+							components and is usually undefined for independent coponents.</p>
 						</div>
 					</div>
 				</section>
@@ -188,12 +191,14 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_mim_.icomponent.html#vn">vn</a></p>
 						<ul>
-							<li>Defined in mim.ts:218</li>
+							<li>Defined in mim.ts:1461</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Remembered vn object through which component can request services.</p>
+							<p>Remembered virtual node object through which the component can request services. This
+								is undefined in the component&#39;s costructor but will be defined before the call to the
+							(optional) willMount method.</p>
 						</div>
 					</div>
 				</section>
@@ -201,22 +206,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-					<a name="callme" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> call<wbr>Me</h3>
+					<a name="callmeafterupdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> call<wbr>MeAfter<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">call<wbr>Me<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, beforeUpdate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">call<wbr>MeAfter<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:242</li>
+									<li>Defined in mim.ts:1529</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>This method is called by the component to schedule a function to be invoked on the next
-									update cycle either before or after the scheduled components are updated.</p>
+									<p>Schedules the given function to be called after all components scheduled to be updated in
+									the Mimbl tick have already been updated.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -228,10 +233,53 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> beforeUpdate: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Flag indicating whether the function should be called before (true)
-										or after (false) the update cycle.</p>
+										<p>Object that will be used as &quot;this&quot; value when the function is called. If this
+											parameter is undefined, the component instance will be used (which allows scheduling
+											regular unbound components&#39; methods). This parameter will be ignored if the the function
+										is already bound or is an arrow function.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="callmebeforeupdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> call<wbr>MeBefore<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">call<wbr>MeBefore<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mim.ts:1514</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Schedules the given function to be called before any components scheduled to be updated in
+									the Mimbl tick are updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>func: <a href="../modules/_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Function to be called</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Object that will be used as &quot;this&quot; value when the function is called. If this
+											parameter is undefined, the component instance will be used (which allows scheduling
+											regular unbound components&#39; methods). This parameter will be ignored if the function
+										is already bound or is an arrow function.</p>
 									</div>
 								</li>
 							</ul>
@@ -250,7 +298,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_mim_.icomponent.html#render">render</a></p>
 								<ul>
-									<li>Defined in mim.ts:227</li>
+									<li>Defined in mim.ts:1470</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,21 +314,96 @@
 					<a name="updateme" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> update<wbr>Me</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Me<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Me<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>updateRequests<span class="tsd-signature-symbol">: </span><a href="../modules/_mim_.html#componentupdaterequest" class="tsd-signature-type">ComponentUpdateRequest</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mim.ts:230</li>
+									<li>Defined in mim.ts:1478</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>This method is called by the component to request to be updated.</p>
+									<p>This method is called by the component to request to be updated. If no arguments are
+										provided, the entire component is requested to be updated. If argument are provided, they
+									indicate what rendering functions should be updated.</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>updateRequests: <a href="../modules/_mim_.html#componentupdaterequest" class="tsd-signature-type">ComponentUpdateRequest</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
+					<a name="wrapcallback" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> wrap<wbr>Callback</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">wrap<wbr>Callback&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mim.ts:1569</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a wrapper function with the same signature as the given callback so that if the original
+										callback throws an exception, it is processed by the Mimbl error handling mechanism so that the
+										exception bubbles from this component up the hierarchy until a component that knows to
+									handle errors is found.</p>
+								</div>
+								<p>Use this method before passing callbacks to document and window event handlers as well as
+								non-DOM objects that use callbacks, e.g. promises. For example:</p>
+								<pre><code class="language-typescript">    <span class="hljs-keyword">class</span> ResizeMonitor
+    {
+        <span class="hljs-keyword">private</span> onWindowResize(e: Event): <span class="hljs-built_in">void</span> {};
+
+        wrapper: (e: Event): <span class="hljs-built_in">void</span>;
+
+        <span class="hljs-keyword">public</span> startResizeMonitoring( vn: IVNode)
+        {
+            <span class="hljs-keyword">this</span>.wrapper = vn.wrapCallback( <span class="hljs-keyword">this</span>.onWindowResize, <span class="hljs-keyword">this</span>);
+            <span class="hljs-built_in">window</span>.addEventListener( <span class="hljs-string">"resize"</span>, <span class="hljs-keyword">this</span>.wrapper);
+        }
+
+        <span class="hljs-keyword">public</span> stopResizeMonitoring()
+        {
+            <span class="hljs-built_in">window</span>.removeEventListener( <span class="hljs-string">"resize"</span>, <span class="hljs-keyword">this</span>.wrapper);
+            <span class="hljs-keyword">this</span>.wrapper = <span class="hljs-literal">undefined</span>;
+        }
+    }</code></pre>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Callback to be wrapped</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+							<p>Function that has the same signature as the given callback and that should be used
+							instead of the original callback</p>
 						</li>
 					</ul>
 				</section>
@@ -323,13 +446,19 @@
 								<a href="_mim_.component.html#vn" class="tsd-kind-icon">vn</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
-								<a href="_mim_.component.html#callme" class="tsd-kind-icon">call<wbr>Me</a>
+								<a href="_mim_.component.html#callmeafterupdate" class="tsd-kind-icon">call<wbr>MeAfter<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="_mim_.component.html#callmebeforeupdate" class="tsd-kind-icon">call<wbr>MeBefore<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_mim_.component.html#render" class="tsd-kind-icon">render</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_mim_.component.html#updateme" class="tsd-kind-icon">update<wbr>Me</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-protected">
+								<a href="_mim_.component.html#wrapcallback" class="tsd-kind-icon">wrap<wbr>Callback</a>
 							</li>
 						</ul>
 					</li>

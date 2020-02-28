@@ -81,8 +81,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#elm" class="tsd-kind-icon">Elm</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#funccomp" class="tsd-kind-icon">Func<wbr>Comp</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#funcproxy" class="tsd-kind-icon">Func<wbr>Proxy</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#independentcomp" class="tsd-kind-icon">Independent<wbr>Comp</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#managedcomp" class="tsd-kind-icon">Managed<wbr>Comp</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#promiseproxy" class="tsd-kind-icon">Promise<wbr>Proxy</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#root" class="tsd-kind-icon">Root</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_mim_.vntype.html#text" class="tsd-kind-icon">Text</a></li>
 							</ul>
@@ -98,9 +100,14 @@
 					<div class="tsd-signature tsd-kind-icon">Elm<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:638</li>
+							<li>Defined in mim.ts:527</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>DOM element (HTML or SVG) laid out using JSX.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="funccomp" class="tsd-anchor"></a>
@@ -108,9 +115,29 @@
 					<div class="tsd-signature tsd-kind-icon">Func<wbr>Comp<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:635</li>
+							<li>Defined in mim.ts:524</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Stateless component (simple rendering function accepting props)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="funcproxy" class="tsd-anchor"></a>
+					<h3>Func<wbr>Proxy</h3>
+					<div class="tsd-signature tsd-kind-icon">Func<wbr>Proxy<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in mim.ts:533</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Wrapper around a function/method that can be updated independently.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="independentcomp" class="tsd-anchor"></a>
@@ -118,9 +145,14 @@
 					<div class="tsd-signature tsd-kind-icon">Independent<wbr>Comp<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:629</li>
+							<li>Defined in mim.ts:518</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Class-based (state-full) component created via new</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="managedcomp" class="tsd-anchor"></a>
@@ -128,9 +160,29 @@
 					<div class="tsd-signature tsd-kind-icon">Managed<wbr>Comp<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:632</li>
+							<li>Defined in mim.ts:521</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Class-based (state-full) component laid out using JSX</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="promiseproxy" class="tsd-anchor"></a>
+					<h3>Promise<wbr>Proxy</h3>
+					<div class="tsd-signature tsd-kind-icon">Promise<wbr>Proxy<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in mim.ts:536</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Node that waits for a promise to be settled and then displays the resolved value as content.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="root" class="tsd-anchor"></a>
@@ -138,9 +190,14 @@
 					<div class="tsd-signature tsd-kind-icon">Root<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:626</li>
+							<li>Defined in mim.ts:515</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Top-level node</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="text" class="tsd-anchor"></a>
@@ -148,9 +205,14 @@
 					<div class="tsd-signature tsd-kind-icon">Text<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mim.ts:641</li>
+							<li>Defined in mim.ts:530</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Text node</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -188,10 +250,16 @@
 								<a href="_mim_.vntype.html#funccomp" class="tsd-kind-icon">Func<wbr>Comp</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_mim_.vntype.html#funcproxy" class="tsd-kind-icon">Func<wbr>Proxy</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_mim_.vntype.html#independentcomp" class="tsd-kind-icon">Independent<wbr>Comp</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_mim_.vntype.html#managedcomp" class="tsd-kind-icon">Managed<wbr>Comp</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_mim_.vntype.html#promiseproxy" class="tsd-kind-icon">Promise<wbr>Proxy</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_mim_.vntype.html#root" class="tsd-kind-icon">Root</a>
