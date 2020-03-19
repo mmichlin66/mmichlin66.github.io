@@ -18,7 +18,7 @@ To play with Mimurl pattern parsing and URL matching capabilities [please visit 
 ## Installation
 
 ```
-npm install mimurl -D
+npm install mimurl
 ```
 
 ## Usage
