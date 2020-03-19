@@ -150,7 +150,7 @@ The default mode is Scoped. In order to switch to the Unique mode, the applicati
 ### Reusing Styles
 With CSS pre-processors, the idea of a style rule re-using (a.k.a. extending) other rules became very popular. Mimcss also has this capability and it uses the TypeScript's type-safety features to eliminate errors. Here is an example:
 
-```typescript
+```tsx
 class MyStyles
 {
     vbox = $class({ display: "flex", flexDirection: "column", });
@@ -174,7 +174,7 @@ The `"sidebar"`class extends the `"vbox"` class, while the `"rightbar"` class ex
 
 It is possible to derive from classes defined in different scopes - whether from the same project or from a different (e.g. 3rd-party) library. We can redo the above example using two style scopes:
 
-```typescript
+```tsx
 /* LibStyles.ts */
 class LibStyles
 {
@@ -212,7 +212,7 @@ So far we have been playing with mostly class and ID styling rules. CSS has many
 
 Mimcss supports these types with a syntax similar to that of classes. There are two distinct kinds of rules that Mimcss recognizes: those that produce names and those that don't. Rules that produce names are: classes, IDs, animations and custom properties. The names that these rules produce are accessed as properties under the `classes`, `ids`, `animations` and `vars` objects respectively. In order to properly produce a name, the rules should be used as an assignment to a class member:
 
-```typescript
+```tsx
 export let MyStyles = $activate( class
 {
     vbox = $class({ display: "flex", flexDirection: "column", });
@@ -226,7 +226,7 @@ export let MyStyles = $activate( class
 
 The other kind of rules are those that don't produce names. For example, a selector based rule doesn't produce a name of its own (although it usually uses names produced by other rules e.g. classes). Such rules can be created in two different ways:
 
-```typescript
+```tsx
 export let MyStyles = $activate( class
 {
     hr = $rule( "hr", { width: "100%" });
@@ -256,7 +256,7 @@ The second aspect of style activation is that the `$activate` function inserts t
 
 Mimcss provides the `$use` function that also accepts a "rule definition" class and returns an object with `classes`, `ids` and other; however, the CSS rules are not inserted into the DOM. They can be inserted later, when the `$activate` function is called. The `$use` function can be utilized by library developers that want their style definitions to be re-used but not inserted into the DOM immediately. Here is an example:
 
-```typescript
+```tsx
 /* MyStyles.ts */
 export class BasicStyles
 {
@@ -301,13 +301,13 @@ render()
    </div>
 ```
 
-The style rule definitions are described by regular TypeScript classes. The `SidebarStyles` class *uses* the `BasicStyles` class by calling the `$use` function and assigning the return value to its `basic` property. When this is done, the `basic` property references the object that can refer to all the rules (and their names) defined in the `BasicStyles` class.
+The style rule definitions are described by regular TypeScript classes. The `SidebarStyles` class uses the `BasicStyles` class by calling the `$use` function and assigning the return value to its `basic` property. When this is done, the `basic` property references the object that can refer to all the rules (and their names) defined in the `BasicStyles` class.
 
-Before our component references properties defining the CSS class names, the rules must be *activated*; that is, inserted into the DOM. This is accomplished by calling the `$activate` function and passing the `SidebarStyles` class to it. We don't need to call the `$activate` function for the `BasicStyles` class: it will be activate along with the `SidebarStyles` class because the latter uses the former. (There is no harm in calling the `$activate` function for the `BasicStyles` class too - this is described later.)
+Before our component references properties defining the CSS class names, the rules must be activated; that is, inserted into the DOM. This is accomplished by calling the `$activate` function and passing the `SidebarStyles` class to it. We don't need to call the `$activate` function for the `BasicStyles` class: it will be activated along with the `SidebarStyles` class because the latter uses the former. (There is no harm in calling the `$activate` function for the `BasicStyles` class too - this is described later.)
 
-Note that we could have used a variable definition outside of the `SidebarStyles` class to *use* the `BasicStyles` class, like in this example:
+Note that we could have used a variable definition outside of the `SidebarStyles` class to use the `BasicStyles` class, like in this example:
 
-```typescript
+```tsx
 /* MyStyles.ts */
 export class BasicStyles
 {
@@ -327,7 +327,7 @@ export class SidebarStyles
 }
 ```
 
-The advantage of *using* a class from within another class versus defining a global variable is that the `$use` function would not be invoked until the class calling it is instantiated. Note also that Mimcss ensures that even if multiple classes *use* some class `A`, only a single instance of `A` will be created and the CSS rules defined by `A` will be inserted into DOM only once.
+The advantage of using a class from within another class versus defining a global variable is that the `$use` function would not be invoked until the class calling it is instantiated. Note also that Mimcss ensures that even if multiple classes *use* some class `A`, only a single instance of `A` will be created and the CSS rules defined by `A` will be inserted into DOM only once.
 
 
 
