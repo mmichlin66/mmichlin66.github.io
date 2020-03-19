@@ -14,7 +14,7 @@ This guide consists of a number of units each explaining a single concept.
 Mimbl is available as an NPM package and you can install it using the following command:
 
 ```shell
-npm i Mimbl
+npm i mimbl
 ```
 
 Although Mimbl can be used for pure JavaScript development, it has many features that make it shine when used with TypeScript. Mimbl is heavily based on JSX and the samples in this guide were all built using TypeScript and JSX; therefore, go ahead and install TypeScript (`npm i type-script -g -D`).
@@ -47,7 +47,7 @@ That's how the code in this guide imports the library; however, if you decide to
 In your HTML file use the following URL to reference the Mimbl library (well, when Mimbl becomes popular enough we will host it on CDN):
 
 ```html
-<script src="mmichlin66.github.io/scripts/Mimbl.js"></script>
+<script src="mmichlin66.github.io/scripts/mimbl.js"></script>
 
 ```
 
