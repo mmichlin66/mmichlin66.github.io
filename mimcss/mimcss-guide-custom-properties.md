@@ -79,5 +79,9 @@ TypeScript powerful typing system allows the tools to enforce the typing rules a
 
 In the `specialContainer` rule, the developer will be similarly prompted with the correct color names because, the system understands what type is allowed in the second parameter of the `tsh.custom` function based on the first parameter.
 
+In the `special` rule, a compile time error will be generated if the developer incorrectly assigns a previously defined custom property to a Styleset property of a wrong type.
+
+Thus, all three problems mentioned above are solved with Mimcss.
+
 
 

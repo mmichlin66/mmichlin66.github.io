@@ -71,7 +71,7 @@
 						<p>The msh class contains static helper functions that are used whenever there is a need to produce
 							CSS string value based on more complicated type(s). The majority of these functions return
 						StringProxy object so that they can be used in styleset properties assignments, for example:</p>
-						<pre><code class="language-tsx">&lt;div style={{ color: tsh.rgb( 255, 128, 64) }}</code></pre>
+						<pre><code class="language-typescript">&lt;div style={{ color: tsh.rgb( <span class="hljs-number">255</span>, <span class="hljs-number">128</span>, <span class="hljs-number">64</span>) }}</code></pre>
 					</div>
 				</div>
 			</section>
@@ -95,7 +95,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#angle" class="tsd-kind-icon">angle</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#ch" class="tsd-kind-icon">ch</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#cm" class="tsd-kind-icon">cm</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#colorsep" class="tsd-kind-icon">color<wbr>Sep</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_helpers_tsh_.tsh.html#custom" class="tsd-kind-icon">custom</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#deg" class="tsd-kind-icon">deg</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#dpcm" class="tsd-kind-icon">dpcm</a></li>
@@ -127,8 +126,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#s" class="tsd-kind-icon">s</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#time" class="tsd-kind-icon">time</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#turn" class="tsd-kind-icon">turn</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_helpers_tsh_.tsh.html#units" class="tsd-kind-icon">units</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#val" class="tsd-kind-icon">val</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_helpers_tsh_.tsh.html#val" class="tsd-kind-icon">val</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="_helpers_tsh_.tsh.html#var" class="tsd-kind-icon">var</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#vb" class="tsd-kind-icon">vb</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_helpers_tsh_.tsh.html#vh" class="tsd-kind-icon">vh</a></li>
@@ -153,9 +151,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:102</li>
+									<li>Defined in helpers/tsh.ts:138</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in quaters of an inch</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -176,9 +179,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:74</li>
+									<li>Defined in helpers/tsh.ts:108</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the given color and an optional alpha mask to the CSS Color representation. This
+										method should be used when defining CSS color values in styleset properties.
+									The color can be specified as a numeric value or as a string color name.</p>
+								</div>
+								<p>The alpha mask can be one of the following:</p>
+								<ul>
+									<li>Number 0 to 1 inclusive, which is treated as percentage.</li>
+									<li>String which is used as is.</li>
+								</ul>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -186,6 +201,8 @@
 								</li>
 								<li>
 									<h5>a: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.stringproxy.html" class="tsd-signature-type">StringProxy</a></h4>
@@ -202,7 +219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:155</li>
+									<li>Defined in helpers/tsh.ts:231</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -234,9 +251,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:103</li>
+									<li>Defined in helpers/tsh.ts:141</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in ch units</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -257,9 +279,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:104</li>
+									<li>Defined in helpers/tsh.ts:144</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in cantimeters</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -270,73 +297,50 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="colorsep" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> color<wbr>Sep</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">color<wbr>Sep<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in helpers/tsh.ts:59</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>c: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
 					<a name="custom" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> custom</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">custom&lt;K&gt;<span class="tsd-signature-symbol">(</span>varDef<span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, varValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PureStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.icustomval.html" class="tsd-signature-type">ICustomVal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">custom&lt;T&gt;<span class="tsd-signature-symbol">(</span>varDef<span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, varValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_styletypes_.icustomval.html" class="tsd-signature-type">ICustomVal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:247</li>
+									<li>Defined in helpers/tsh.ts:339</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Defines a custom CSS property as part of a Styleset. Use it as in the following example:</p>
-									<pre><code class="language-tsx">let myStyles = $scope( class
-{
-    mainColor = $custom( &quot;color&quot;, &quot;black&quot;);
-    div = $tag( &quot;div&quot;, { $custom: [ tsh.custom( this.mainColor, &quot;brown&quot;) ] })
-});</code></pre>
-									<p>This is equivalent to the following CSS:</p>
-									<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> { <span class="hljs-attribute">--mainColor</span>: <span class="hljs-string">"black"</span>; }
-<span class="hljs-selector-tag">div</span> { <span class="hljs-attribute">--mainColor</span>: <span class="hljs-string">"brown"</span>; }</code></pre>
-									<p>The <code>tsh.custom</code> method will produce a compilation error if an invalid type is used for the
-									property value.</p>
 								</div>
+								<pre><code class="language-typescript"><span class="hljs-keyword">let</span> myStyles = $scope( <span class="hljs-keyword">class</span>
+{
+    mainColor = $custom( <span class="hljs-string">"color"</span>, <span class="hljs-string">"black"</span>);
+    div = $tag( <span class="hljs-string">"div"</span>, { $custom: [ tsh.custom( <span class="hljs-keyword">this</span>.mainColor, <span class="hljs-string">"brown"</span>) ] })
+});</code></pre>
+								<p>This is equivalent to the following CSS:</p>
+								<pre><code class="language-css"><span class="hljs-selector-pseudo">:root</span> { <span class="hljs-attribute">--mainColor</span>: <span class="hljs-string">"black"</span>; }
+<span class="hljs-selector-tag">div</span> { <span class="hljs-attribute">--mainColor</span>: <span class="hljs-string">"brown"</span>; }</code></pre>
+								<p>The <code>tsh.custom</code> method will produce a compilation error if an invalid type is used for the
+								property value.</p>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../modules/_styles_styletypes_.html#purestyleset" class="tsd-signature-type">PureStyleset</a></h4>
+									<h4>T</h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>varDef: <a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>varDef: <a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>varValue: <span class="tsd-signature-type">PureStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h5>
+									<h5>varValue: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.icustomval.html" class="tsd-signature-type">ICustomVal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styles_styletypes_.icustomval.html" class="tsd-signature-type">ICustomVal</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -350,7 +354,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:140</li>
+									<li>Defined in helpers/tsh.ts:216</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -378,9 +382,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:201</li>
+									<li>Defined in helpers/tsh.ts:285</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates resolution value in DPCM</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -401,9 +410,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:200</li>
+									<li>Defined in helpers/tsh.ts:282</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates resolution value in DPI</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -424,9 +438,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:202</li>
+									<li>Defined in helpers/tsh.ts:288</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates resolution value in DPPX</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -447,9 +466,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:105</li>
+									<li>Defined in helpers/tsh.ts:147</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in calculated font-sizes of the element</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -470,9 +494,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:106</li>
+									<li>Defined in helpers/tsh.ts:150</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in heights of lowercase letter &#39;x&#39; in the font</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -493,9 +522,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:220</li>
+									<li>Defined in helpers/tsh.ts:308</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates fraction value for flex</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -516,7 +550,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:146</li>
+									<li>Defined in helpers/tsh.ts:222</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -544,22 +578,46 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:69</li>
+									<li>Defined in helpers/tsh.ts:91</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the color specified as hue-saturation-lightness components and an optional alpha
+										mask to a CSS color representation. This method should be used when defining CSS color
+									values in styleset properties.</p>
+								</div>
+								<p>The alpha mask can be one of the following:</p>
+								<ul>
+									<li>Number 0 to 1 inclusive, which is treated as percentage.</li>
+									<li>String which is used as is.</li>
+								</ul>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>h: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Hue component as an angle value.</p>
+									</div>
 								</li>
 								<li>
 									<h5>s: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Saturation as a percentage value.</p>
+									</div>
 								</li>
 								<li>
 									<h5>l: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Lightness component as a percentage value.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional alpha mask as a percentage value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.stringproxy.html" class="tsd-signature-type">StringProxy</a></h4>
@@ -576,9 +634,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:190</li>
+									<li>Defined in helpers/tsh.ts:268</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates frequency value in Hertz</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -599,9 +662,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:107</li>
+									<li>Defined in helpers/tsh.ts:153</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in ic units</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -622,9 +690,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:108</li>
+									<li>Defined in helpers/tsh.ts:156</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in inches</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -639,22 +712,27 @@
 					<a name="khz" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> khz</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">khz<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">khz<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:191</li>
+									<li>Defined in helpers/tsh.ts:271</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates frequency value in Kilo-Hertz</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>n: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -668,7 +746,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:126</li>
+									<li>Defined in helpers/tsh.ts:202</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -699,9 +777,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:109</li>
+									<li>Defined in helpers/tsh.ts:159</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in line-heights of the element</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -722,9 +805,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:110</li>
+									<li>Defined in helpers/tsh.ts:162</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in millimeters</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -745,7 +833,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:172</li>
+									<li>Defined in helpers/tsh.ts:248</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -773,9 +861,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:111</li>
+									<li>Defined in helpers/tsh.ts:165</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in picas</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -796,7 +889,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:90</li>
+									<li>Defined in helpers/tsh.ts:124</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -824,9 +917,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:112</li>
+									<li>Defined in helpers/tsh.ts:168</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in points</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -847,9 +945,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:113</li>
+									<li>Defined in helpers/tsh.ts:171</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in pixels</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -870,7 +973,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:143</li>
+									<li>Defined in helpers/tsh.ts:219</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -898,7 +1001,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:31</li>
+									<li>Defined in helpers/tsh.ts:30</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -926,9 +1029,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:118</li>
+									<li>Defined in helpers/tsh.ts:188</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in fontsizes of the root element (<html>)</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -949,7 +1057,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:208</li>
+									<li>Defined in helpers/tsh.ts:294</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -981,22 +1089,52 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:64</li>
+									<li>Defined in helpers/tsh.ts:72</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the color specified as red, green, blue separation values and an optional alpha
+										mask to a CSS color representation. This method should be used when defining CSS color
+										values in styleset properties. Each color separation cna be represented as a number or a
+									string with the following meaning:</p>
+									<ul>
+										<li>Integer number 0 to 255.</li>
+										<li>Floating number 0.0 to 1.0 non-inclusive, which is treated as percentage.</li>
+										<li>String which is used as is.</li>
+									</ul>
+								</div>
+								<p>The alpha mask can be one of the following:</p>
+								<ul>
+									<li>Number 0 to 1 inclusive, which is treated as percentage.</li>
+									<li>String which is used as is.</li>
+								</ul>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>r: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Red separation value.</p>
+									</div>
 								</li>
 								<li>
 									<h5>g: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Green separation vaue.</p>
+									</div>
 								</li>
 								<li>
 									<h5>b: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Blue separation value.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional alpha mask as a percentage value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.stringproxy.html" class="tsd-signature-type">StringProxy</a></h4>
@@ -1013,9 +1151,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:119</li>
+									<li>Defined in helpers/tsh.ts:191</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in line-heights of the root element (<html>)</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1036,7 +1179,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:169</li>
+									<li>Defined in helpers/tsh.ts:245</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1064,7 +1207,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:178</li>
+									<li>Defined in helpers/tsh.ts:254</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1096,7 +1239,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:149</li>
+									<li>Defined in helpers/tsh.ts:225</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1115,66 +1258,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-					<a name="units" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> units</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">units&lt;T&gt;<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, unit<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in helpers/tsh.ts:47</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>n: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>unit: <span class="tsd-signature-type">T</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="val" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> val</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">val<span class="tsd-signature-symbol">(</span>stylePropName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, stylePropValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">val&lt;K&gt;<span class="tsd-signature-symbol">(</span>stylePropName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, stylePropValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PureStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:42</li>
+									<li>Defined in helpers/tsh.ts:41</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the given value corresponding to the given style property to string.</p>
+									<p>Converts the given value corresponding to the given style property to a CSS string.</p>
 								</div>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../modules/_styles_styletypes_.html#purestyleset" class="tsd-signature-type">PureStyleset</a></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>stylePropName: <span class="tsd-signature-type">string</span></h5>
+									<h5>stylePropName: <span class="tsd-signature-type">K</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Style property name that determines how the value should be converted
 										to a CSS compliant string.</p>
 									</div>
 								</li>
 								<li>
-									<h5>stylePropValue: <span class="tsd-signature-type">any</span></h5>
+									<h5>stylePropValue: <span class="tsd-signature-type">PureStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Value to convert.</p>
 									</div>
@@ -1188,45 +1305,43 @@
 					<a name="var" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> var</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">var&lt;K&gt;<span class="tsd-signature-symbol">(</span>varDef<span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, fallbackValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PureStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_styles_utiltypes_.stringproxy.html" class="tsd-signature-type">StringProxy</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_helpers_tsh_.varvalue.html" class="tsd-signature-type">VarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">var&lt;T&gt;<span class="tsd-signature-symbol">(</span>varDef<span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#extendedproptype" class="tsd-signature-type">ExtendedPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, fallbackValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#extendedproptype" class="tsd-signature-type">ExtendedPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.varvalue.html" class="tsd-signature-type">VarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:268</li>
+									<li>Defined in helpers/tsh.ts:357</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns the string representation of the CSS var() function for the given custom property.
 									Use it as in the following example:</p>
-									<p>```tsx
-										let myStyles = $scope( class
-										{
-									defaultColor = $custom( &quot;color&quot;, &quot;blue&quot;);</p>
 								</div>
-								<pre><code>sidebar = <span class="hljs-constructor">$<span class="hljs-keyword">class</span>( { <span class="hljs-params">color</span>: <span class="hljs-params">tsh</span>.<span class="hljs-params">var</span>( <span class="hljs-params">this</span>.<span class="hljs-params">defaultColor</span>, <span class="hljs-string">"black"</span>)</span> })</code></pre><p>});</p>
-								<pre><code>The <span class="hljs-keyword">var</span> <span class="hljs-function"><span class="hljs-keyword">method</span> <span class="hljs-title">can</span> <span class="hljs-title">also</span> <span class="hljs-title">be</span> <span class="hljs-title">used</span> <span class="hljs-title">with</span> <span class="hljs-title">simple</span> <span class="hljs-title">string</span> <span class="hljs-title">values</span>:</span>
-```tsx
-&lt;<span class="hljs-keyword">div</span> style=<span class="hljs-comment">{{ color: tsh.var( "default-color", "black") }</span>}</code></pre>
+								<pre><code class="language-typescript"><span class="hljs-keyword">let</span> myStyles = $scope( <span class="hljs-keyword">class</span>
+{
+    defaultColor = $custom( <span class="hljs-string">"color"</span>, <span class="hljs-string">"blue"</span>);
+
+    sidebar = $<span class="hljs-keyword">class</span>( { color: tsh.var( <span class="hljs-keyword">this</span>.defaultColor) })
+});</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../modules/_styles_styletypes_.html#purestyleset" class="tsd-signature-type">PureStyleset</a></h4>
+									<h4>T</h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>varDef: <a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<h5>varDef: <a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#extendedproptype" class="tsd-signature-type">ExtendedPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fallbackValue: <span class="tsd-signature-type">PureStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_styles_utiltypes_.stringproxy.html" class="tsd-signature-type">StringProxy</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fallbackValue: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.icustomvar.html" class="tsd-signature-type">ICustomVar</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#extendedproptype" class="tsd-signature-type">ExtendedPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_helpers_tsh_.varvalue.html" class="tsd-signature-type">VarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.varvalue.html" class="tsd-signature-type">VarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1240,9 +1355,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:114</li>
+									<li>Defined in helpers/tsh.ts:175</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in 1% of the size of the initial containing block, in the direction
+									of the root element’s block axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1263,9 +1384,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:115</li>
+									<li>Defined in helpers/tsh.ts:178</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in 1% of the height of the viewport&#39;s initial containing block</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1286,9 +1412,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:116</li>
+									<li>Defined in helpers/tsh.ts:182</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in 1% of the size of the initial containing block, in the direction
+									of the root element’s inline axis</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1309,9 +1441,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:120</li>
+									<li>Defined in helpers/tsh.ts:194</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in the units which are a smaller value between vw and vh</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1332,9 +1469,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:121</li>
+									<li>Defined in helpers/tsh.ts:197</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in the units which are a larger value between vw and vh</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1355,9 +1497,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in helpers/tsh.ts:117</li>
+									<li>Defined in helpers/tsh.ts:185</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates length value in 1% of the width of the viewport&#39;s initial containing block</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1407,9 +1554,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_helpers_tsh_.varvalue.html" class="tsd-kind-icon">Var<wbr>Value</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
@@ -1429,9 +1573,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_helpers_tsh_.tsh.html#cm" class="tsd-kind-icon">cm</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="_helpers_tsh_.tsh.html#colorsep" class="tsd-kind-icon">color<wbr>Sep</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
 								<a href="_helpers_tsh_.tsh.html#custom" class="tsd-kind-icon">custom</a>
@@ -1527,9 +1668,6 @@
 								<a href="_helpers_tsh_.tsh.html#turn" class="tsd-kind-icon">turn</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-								<a href="_helpers_tsh_.tsh.html#units" class="tsd-kind-icon">units</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_helpers_tsh_.tsh.html#val" class="tsd-kind-icon">val</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">

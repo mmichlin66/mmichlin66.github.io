@@ -58,7 +58,7 @@
 					<a href="_rules_ruletypes_.icustomvar.html">ICustomVar</a>
 				</li>
 			</ul>
-			<h1>Interface ICustomVar&lt;K&gt;</h1>
+			<h1>Interface ICustomVar&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -76,7 +76,7 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../modules/_styles_styletypes_.html#purestyleset" class="tsd-signature-type">PureStyleset</a></h4>
+						<h4>T</h4>
 					</li>
 				</ul>
 			</section>
@@ -107,6 +107,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_rules_ruletypes_.icustomvar.html#templatepropname" class="tsd-kind-icon">template<wbr>Prop<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_rules_ruletypes_.icustomvar.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_rules_ruletypes_.icustomvar.html#varname" class="tsd-kind-icon">var<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_rules_ruletypes_.icustomvar.html#varvalue" class="tsd-kind-icon">var<wbr>Value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -121,7 +122,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_rules_ruletypes_.inamedrule.html">INamedRule</a>.<a href="_rules_ruletypes_.inamedrule.html#cssname">cssName</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:109</li>
+							<li>Defined in rules/RuleTypes.ts:112</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -139,7 +140,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_scope_scopetypes_.istylescope.html">IStyleScope</a>.<a href="_scope_scopetypes_.istylescope.html#cssrule">cssRule</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:86</li>
+							<li>Defined in rules/RuleTypes.ts:89</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -155,7 +156,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_rules_ruletypes_.inamedrule.html">INamedRule</a>.<a href="_rules_ruletypes_.inamedrule.html#name">name</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:102</li>
+							<li>Defined in rules/RuleTypes.ts:105</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -173,7 +174,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_scope_scopetypes_.istylescope.html">IStyleScope</a>.<a href="_scope_scopetypes_.istylescope.html#rulename">ruleName</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:80</li>
+							<li>Defined in rules/RuleTypes.ts:83</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,7 +186,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="templatepropname" class="tsd-anchor"></a>
 					<h3>template<wbr>Prop<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">template<wbr>Prop<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">K</span></div>
+					<div class="tsd-signature tsd-kind-icon">template<wbr>Prop<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in rules/RuleTypes.ts:254</li>
@@ -193,8 +194,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Name of a non-custom CSS property whose type determines the type of the custom property
-							value.</p>
+							<p>Name of a non-custom CSS property whose type determines the type of the custom property value.</p>
 						</div>
 					</div>
 				</section>
@@ -205,7 +205,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_scope_scopetypes_.istylescope.html">IStyleScope</a>.<a href="_scope_scopetypes_.istylescope.html#type">type</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:83</li>
+							<li>Defined in rules/RuleTypes.ts:86</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -226,6 +226,21 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Name of the CSS custom property</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="varvalue" class="tsd-anchor"></a>
+					<h3>var<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">var<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in rules/RuleTypes.ts:260</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Value of the custom CSS property.</p>
 						</div>
 					</div>
 				</section>
@@ -277,9 +292,6 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="_rules_ruletypes_.iclassrule.html" class="tsd-kind-icon">IClass<wbr>Rule</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.icustomval.html" class="tsd-kind-icon">ICustom<wbr>Val</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
@@ -305,6 +317,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_rules_ruletypes_.icustomvar.html#varname" class="tsd-kind-icon">var<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_rules_ruletypes_.icustomvar.html#varvalue" class="tsd-kind-icon">var<wbr>Value</a>
 							</li>
 						</ul>
 					</li>

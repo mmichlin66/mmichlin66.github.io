@@ -253,13 +253,14 @@
 					<div class="tsd-signature tsd-kind-icon">Media<wbr>Query<span class="tsd-signature-symbol">:</span> <a href="_styles_mediatypes_.html#singlemediaquery" class="tsd-signature-type">SingleMediaQuery</a><span class="tsd-signature-symbol"> | </span><a href="_styles_mediatypes_.html#singlemediaquery" class="tsd-signature-type">SingleMediaQuery</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in styles/MediaTypes.ts:93</li>
+							<li>Defined in styles/MediaTypes.ts:95</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Interface representing the type of objects that can be assigned to the style property of HTML
-							and SVG elements.</p>
+							<p>Type representing one or more queries as part of the @media rule. While multiple queries in
+								an array are combined with the &quot;,&quot; operator, the styles within each styleset are combined with
+							the &quot;and&quot; operator.</p>
 						</div>
 					</div>
 				</section>
@@ -294,13 +295,14 @@
 					<div class="tsd-signature tsd-kind-icon">Single<wbr>Media<wbr>Query<span class="tsd-signature-symbol">:</span> <a href="_styles_mediatypes_.html#mediafeatureset" class="tsd-signature-type">MediaFeatureset</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>$mediaType<span class="tsd-signature-symbol">?: </span><a href="_styles_mediatypes_.html#mediatype" class="tsd-signature-type">MediaType</a><span class="tsd-signature-symbol">; </span>$negate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>$only<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in styles/MediaTypes.ts:80</li>
+							<li>Defined in styles/MediaTypes.ts:81</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Interface representing the type of objects that can be assigned to the style property of HTML
-							and SVG elements.</p>
+							<p>Type representing a single set of styles as part of the @media rules. The styles in the
+								styleset are combined with the &quot;and&quot; operator. The entire styleset can be negated, which will
+							result in placing the &quot;not&quot; operator that will act on all styles in the query.</p>
 						</div>
 					</div>
 				</section>
