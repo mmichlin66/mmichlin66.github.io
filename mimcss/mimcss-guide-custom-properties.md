@@ -7,7 +7,7 @@ title: Custom Properties
 # Mimcss Guide: Custom Properties
 
 ### Custom Properties in CSS Files
-CSS custom properties are properties with arbitrary names beginning with two dashes. The properties are defined as having arbitrary values and then they are used in the values of the style properties, so that the custom property value becomes the value of the style property. Here is an example:
+CSS custom properties are properties with arbitrary names beginning with two dashes. The properties are defined as having arbitrary values and they are used as values of the style properties. Here is an example:
 
 ```css
 :root {
@@ -31,18 +31,18 @@ One downside of custom properties is that no restrictions are put on their value
 
 ```css
 :root {
-    --special-color: bluue; /* incorrect color value */
+    --special-color: bluue; /* misspelled color value */
     --special-font-weight: 600;
 }
 
 .special-container {
-    --special-color: bold; /* incorrect color value */
-    --special-font-weight: green; /* incorrect font-weight value */
+    --special-color: bold; /* mixed up value */
+    --special-font-weight: green; /* mixed up value */
 }
 
 .special {
     color: var(--special-color);
-    font-weight: var(--special-color); /* wrong property assignment */
+    font-weight: var(--special-color); /* incorrect property assignment - wrong type */
 }
 ```
 

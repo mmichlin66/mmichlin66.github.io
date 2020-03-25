@@ -26,7 +26,7 @@ class MyStyles
 		[ "to", { top: "100%" } ]
 	]);
 
-    defaultColor = $custom({ color: "black", });
+    defaultColor = $custom({ color: "black" });
 }
 ```
 
@@ -36,8 +36,8 @@ The other kind of rules are those that don't produce names. For example, a selec
 ```tsx
 class MyStyles
 {
-    hr = $rule( "hr", { width: "100%" });
-    firstRowInTable = $rule( "table row:first-of-type" , { color: "blue", });
+    hr = $style( "hr", { width: "100%" });
+    firstRowInTable = $style( "table row:first-of-type", { color: "blue" });
 }
 
 // OR
@@ -45,8 +45,8 @@ class MyStyles
 class MyStyles
 {
     $unnamed = [
-        $rule( "hr", { width: "100%" }),
-        $rule( "table row:first-of-type" , { color: "blue", }),
+        $style( "hr", { width: "100%" }),
+        $style( "table row:first-of-type", { color: "blue" }),
     ]
 }
 
