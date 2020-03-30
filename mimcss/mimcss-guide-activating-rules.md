@@ -1,6 +1,6 @@
 ---
 layout: mimcss-guide
-unit: 3
+unit: 2
 title: Activating Rules
 ---
 

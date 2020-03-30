@@ -1,10 +1,10 @@
 ---
 layout: mimcss-guide
-unit: 4
-title: Rule Types
+unit: 1
+title: Defining Rules
 ---
 
-# Mimcss Guide: Rule Types
+# Mimcss Guide: Defining Rules
 
 So far we have been playing with mostly class and ID styling rules. CSS has many different types of rules in addition to classes and IDs: tag-based, selector-based, custom properties, animations (@keyframes), @media, @supports, etc.
 

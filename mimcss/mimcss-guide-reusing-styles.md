@@ -1,6 +1,6 @@
 ---
 layout: mimcss-guide
-unit: 2
+unit: 4
 title: Reusing Styles
 ---
 

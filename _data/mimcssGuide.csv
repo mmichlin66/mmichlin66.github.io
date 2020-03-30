@@ -1,7 +1,7 @@
 unit,title,file
 0,Introduction,mimcss-guide-introduction.html
-1,Assigning Names,mimcss-guide-names.html
-2,Reusing Styles,mimcss-guide-reusing-styles.html
-3,Activating Rules,mimcss-guide-activation.html
-4,Rule Types,mimcss-guide-rule-types.html
+1,Defining Rules,mimcss-guide-defining-rules.html
+2,Activating Rules,mimcss-guide-activating-rules.html
+3,Assigning Names,mimcss-guide-assigning-names.html
+4,Reusing Styles,mimcss-guide-reusing-styles.html
 5,Custom Properties,mimcss-guide-custom-properties.html
