@@ -1,7 +1,7 @@
 ---
 layout: mimcss-guide
-unit: 4
-title: Reusing Styles
+unit: 5
+title: "Mimcss Guide: Reusing Styles"
 ---
 
 # Mimcss Guide: Reusing Styles
@@ -30,7 +30,7 @@ class MyStyles
 ```
 The `"sidebar"`class extends the `"vbox"` class, while the `"rightbar"` class extends two classes: `"sidebar"` and `"standout"`. Note how we reuse the previously defined classes by referring to them via the property names (e.g. `this.vbox`). These are not just strings, but strongly types objects, which prevents misspelling errors.
 
-It is possible to derive from classes defined in different scopes - whether from the same project or from a different (e.g. 3rd-party) library. We can re-write the above example using two style scopes:
+It is possible to derive from classes defined in different scopes - whether from the same project or from a different (e.g. 3rd-party) library. We can re-write the above example using two stylesheets:
 
 ```tsx
 /* LibStyles.ts */
@@ -45,23 +45,23 @@ class LibStyles
 /* MyStyles.ts */
 import {LibStyles} from "./LibStyles"
 
-let libStyles = $activate( LibStyles);
-
 class MyStyles
 {
+    libStyles = $use( LibStyles);
+
     sidebar = $class({
-        $extends: libStyles.rules.vbox,
+        $extends: this.libStyles.rules.vbox,
         position: "absolute",
         width: "15em",
         height: "50em"
     });
 
     rightbar = $class({
-        $extends: [this.sidebar, libStyles.rules.standout],
+        $extends: [this.sidebar, this.libStyles.rules.standout],
         left: "1em",
     });
 }
 ```
 
-The `rules` property (in our example, of the `libStyles` object) contains class rules defined in that scope. Note, again, that these are not strings, but strongly types objects.
+The `rules` property (in our example, of the `libStyles` object) contains class rules defined in that stylesheet. Note, again, that these are not strings, but strongly types objects.
 

@@ -45,7 +45,30 @@ li {
 	flex-direction: row;
 }
 
-.vbox.spacing > a:nth-child(n) {
+.vbox > *,
+.hbox > *
+{
+	flex: 0 0 auto; /* will not grow or shrink and will stay their set size or the size of their content  */
+}
+
+.vbox > .elastic,
+.hbox > .elastic
+{
+	flex: 1 1 0; /* will grow and shrink to occupy all available space between non-elastic items */
+	overflow: auto; /* without this it will still growbeyond the box if content is big enough */
+}
+
+.vbox.spacing > * {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.hbox.spacing > * {
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+/* .vbox.spacing > a:nth-child(n) {
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
@@ -53,14 +76,13 @@ li {
 .hbox.spacing > a:nth-child(n) {
 	margin-left: 8px;
 	margin-right: 8px;
-}
+} */
 
 .main-container {
 	width: 100%;
 	min-width: 400px;
 	display: flex;
 	flex-direction:column;
-	flex-grow:1;
 	margin: 0 auto;
 }
 
@@ -82,7 +104,6 @@ li {
 	max-width: 1400px;
 	display: flex;
 	flex-direction: row;
-	flex-grow: 1;
 	/* align-items: flex-start; */
 	margin: 0 auto;
 }
@@ -114,6 +135,8 @@ li {
 }
 
 .content {
+	height: 100%;
+	overflow: auto;
 	width: 80%;
 	min-width: 300px;
 	max-width: 900px;

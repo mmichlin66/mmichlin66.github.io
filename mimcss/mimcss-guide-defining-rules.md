@@ -1,61 +1,114 @@
 ---
 layout: mimcss-guide
 unit: 1
-title: Defining Rules
+title: "Mimcss Guide: Defining Rules"
 ---
 
 # Mimcss Guide: Defining Rules
 
-So far we have been playing with mostly class and ID styling rules. CSS has many different types of rules in addition to classes and IDs: tag-based, selector-based, custom properties, animations (@keyframes), @media, @supports, etc.
+In regular CSS a unit of style definition is a rule. There are regular style rules that define a selector followed by a styleset, and at-rules: @import, @font-face, @keyframes, @media, @supports and others. Rules such as @media and @support are conditional grouping rules; that is, they define a condition and a set of nested rules, which, in turn, might be style rules or at-rules. Multiple rules are combined into a CSS file, which is sometimes called a stylesheet.
 
-Mimcss supports these types with a syntax similar to that of classes. There are two distinct kinds of rules that Mimcss recognizes: those that produce names and those that don't. Rules that produce names are: classes, IDs, animations and custom properties. The names that these rules produce are accessed as properties under the `classes`, `ids`, `animations` and `vars` objects respectively.
+In Mimcss, a stylesheet is represented by a class - called a Style Definition class. Individual rules are defined as properties of a style definition class. More precisely, a property of a style definition class can either define a single rule or be an array of rules. If the property defines a single rule, it is called a named rule because the property name allows referring to the rule by the property name. If a property is an array of rules, those rules are called unnamed rules because there is no property by which individual rules can be addressed.
 
-### Named Rules
-In order to properly produce a name, the rules should be used as an assignment to a class member:
+There are four rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names to which these rules are attached become the names by which these rules are referred to from the HTML rendering code.
+
+## Style Definitions
+Let's create a simple style definition class:
 
 ```tsx
+import {$style, $class, $id, $animation, $custom} from "mimcss";
+
 class MyStyles
 {
-    vbox = $class({ display: "flex", flexDirection: "column", });
+    init = [
+        $style( "*", { boxSizing: "border-box" }),
+        $tag( "body", { height: "100%", margin: 0 }),
+    ]
 
-    standout = $id({ boxShadow: "10px 5px 5px red", });
+    vbox = $class({ display: "flex", flexDirection: "column" })
 
-	move = $animation([
-		[ "from", { top: 0} ],
-		[ 50, { top: "50%" } ],
-		[ "to", { top: "100%" } ]
-	]);
+    standout = $id({ boxShadow: "10px 5px 5px red" });
+
+    move = $animation([
+        [ "from", { top: 0} ],
+        [ 50, { top: "50%" } ],
+        [ "to", { top: "100%" } ]
+    ])
 
     defaultColor = $custom({ color: "black" });
 }
 ```
 
-### Unnamed Rules
-The other kind of rules are those that don't produce names. For example, a selector based rule doesn't produce a name of its own (although it usually uses names produced by other rules e.g. classes). Such rules can be created in two different ways:
+Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$tag`, `$class`, `$id` and `$custom` functions define style rules where the selector is a tag, a class, an element ID or a custom CSS property respectively. The `$animation` function defines a @keyframes rule.
+
+The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is not used in any way.
+
+Note that we didn't specify the name of the class (nor of the ID, animation or custom property). This is because we will never use the actual name; instead, we will use the property to refer to the class. This is a fundamental aspect of Mimcss: names are hidden from the developers, so that the latter never have a chance of misspelling the former.
+
+## Rules Activation
+By now we have defined our rules with a TypeScript class; however, how do we insert the rules into the DOM so that they start applying to the HTML? This process is called "activation" and is accomplished using the `$activate` function.
 
 ```tsx
-class MyStyles
-{
-    hr = $style( "hr", { width: "100%" });
-    firstRowInTable = $style( "table row:first-of-type", { color: "blue" });
-}
-
-// OR
-
-class MyStyles
-{
-    $unnamed = [
-        $style( "hr", { width: "100%" }),
-        $style( "table row:first-of-type", { color: "blue" }),
-    ]
-}
-
+let myStyles = $activate( MyStyles);
 ```
 
-The first form creates a property in the style definition class and makes the rule object accessible via this property in the `rules` object (e.g. `MyStyles.rules.firstRowInTable`). This allows manipulating the rule programmatically. The second form doesn't create any property and doesn't make the rule available for programmatic manipulation and is suitable for rules that remain unchanged forever.
+Notice that we passed the class object to the `$activate` function - we didn't need to create an instance of the class by ourselves.
 
-### Group Rules
-CSS defines several group rules: @supports, @media, @document and @page. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; however, instead of a TypeScript class, we use an object to describe the rules. Here is an example of the @media rule:
+The result of the above call is two-fold: first, the rules defined in the class are inserted into the DOM, and second, the `myStyles` variable can now be used to refer to rule names. Here is how we do it in a hypothetical HTML rendering code:
+
+```tsx
+render()
+{
+    return <div class={myStyles.classes.vbox}>
+        <div id={myStyles.ids.standout}>Hello!</div>
+    </div>
+}
+```
+
+As we can see, the `myStyles` variable contains properties `classes` and `ids`, which in turn contain properties with the same names that appear for classes and IDs in the MyStyles class. The values of these properties are the actual names of classes and IDs that were generated by Mimcss. The `myStyles` variable also contains properties `animations` and `vars` that contain properties with names of animation and custom CSS property rules. The names are distributed into these buckets in order to lessen the chances that developers mix up names of different kinds: say, use an animation name for a class.
+
+The magic of the TypeScript typing system makes properties defining names of classes, IDs, animations and custom properties appear in the `myStyle` variable as soon as we define appropriate rule in the MyStyles class. No code generation and no pre-processor is required!
+
+The return value of the `$activate` method implements the `IStylesheet` interface. In addition to the properties that give access to names of the CSS entities, it also contains properties that provide access to the rule objects, which in turn expose the Style Object Model objects such as CSSStyleRule. These can be used to manipulate SOM programmatically.
+
+If the `$activate` function inserts the rules into the DOM, the `$deactivate` function removes the rules from the DOM:
+
+```tsx
+$deactivate( myStyles);
+```
+
+In many cases, the rules don't need to be removed from the DOM and should stay active for the lifetime of the application. There are, however, situations when a set of CSS rules is only used by a specific component. In this case, it is desirable that the styles will be inserted into DOM only when the component is mounted. Moreover, when the component is unmounted, it is desirable to remove the rules from the DOM. In Mimcss, this can be accomplished by placing the calls to the `$activate` and `$deactivate` functions into the mounting and unmounting code respectively, for example:
+
+```tsx
+class MyComponent
+{
+    private styles;
+
+    willMount()
+    {
+        this.styles = $activate( MyStyles);
+    }
+
+    willUnmount()
+    {
+         $deactivate( this.styles);
+    }
+
+    render()
+    {
+        return <div class={this.styles.classes.vbox}>
+            <div id={this.styles.ids.standout}>Hello!</div>
+        </div>
+    }
+}
+```
+
+What if multiple instances of the component are used at the same time? No problem! The activation infrastructure keeps the reference count of how many times each style definition class has been activated and deactivated. The rules are inserted only upon first activation and removed only upon last deactivation. And, obviously, only a single instance of the style definition class is created.
+
+There are more sophisticated activation strategies possible and they are discussed in [Activation Strategies](mimcss-guide-activation-strategies.html) unit.
+
+## CSS Grouping Rules
+CSS defines several grouping rules: @supports, @media, @document and @page. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; however, instead of a TypeScript class, we use an object to describe the rules. Here is an example of the @media rule:
 
 ```tsx
 class MyStyles
@@ -68,24 +121,35 @@ class MyStyles
 }
 ```
 
-The `$media` function accepts an object that defines rules - often called *nested* rules. For the named rules (classes, IDs, animations and custom properties), Mimcss will create names that would be actually inserted into DOM. There is a significant caveat here though: if a nested rule is assigned to a property with the name that already exists in the enclosing class, the actual name for the nested rule will be the same as the actual name for the existing property. This is done because the group rules such as @supports, @media and @document are conditional rules and the rules defined within them are supposed to override the styles defined outside of the conditions.
+The `$media` function accepts an object that defines rules - often called *nested* rules. The syntax is pretty similar to that of the top-level style definition - the differences are first, that we must use colon (':') instead of assignment ('='), and second, that rules must be separated by a comma.
 
-The `box` property in our above example is used to define a CSS class in two places: as a property of the MyStyles class and as a property of the object passed to the `$media` function. Mimcss will generate a single actual class name for the `box` property and the `margin` value of 4 pixels will be used on smaller devices while the value of 8 pixels will be used on the larger ones.
+For the named rules (classes, IDs, animations and custom properties), Mimcss will create names that would be actually inserted into DOM. There is a significant caveat here though: if a nested rule is assigned to a property with the name that already exists in the enclosing class, the actual name for the nested rule will be the same as the actual name for the existing property. This is done because the group rules such as @supports, @media and @document are conditional rules and the styles defined by them are supposed to override the styles defined outside of the conditions.
 
-### Import Rules
-CSS has the @import rule that allows bringing in an external CSS sheet from a given URL. Mimcss supports the @import rule via the `$import` function. Since the @import rule doesn't have a name, these rules are usually placed under the `$unnamed` property (although you can use a named property if you wish to):
+The `box` property in our example is used to define a CSS class in two places: as a property of the MyStyles class and as a property of the object passed to the `$media` function. Mimcss will generate a single actual class name for the `box` property and the `margin` value of 4 pixels will be used on smaller devices while the value of 8 pixels will be used on the larger ones.
+
+## Other CSS Rules
+Mimcss supports all CSS rules except @charset - the latter is not needed because developers don't actually write text-based CSS files. We already covered style and grouping rules. What's left are rules like @import and @font-face.
+
+The @import rule allows bringing in an external CSS sheet from a given URL. Mimcss is not "all or nothing" library: it allows peaceful coexistence with regular CSS files - whether defined in the same project or as external resources.
+
+Mimcss supports the @import rule via the `$import` function and @font-face rules via the `$fontface` function. Since these rules don't have names, they can be placed in an array along with each other and with other "unnamed" rules:
 
 ```tsx
 class MyStyles
 {
-    $unnamed = [
-        $import( "http://3rd.party.com/stylesheet.css")
+    unnamed = [
+        $import( "http://3rd.party.com/stylesheet.css"),
+
+        $fontface({
+            fontFamily: "Roboto",
+            fontWeight: 700,
+            src: [ {url: "roboto.woff", format: "woff"} ]
+        }
     ]
 }
 ```
 
-Under the CSS specification, the @import rules should precede all style rules in the style sheet. Mimcss doesn't impose such requirements. Behind the scenes, Mimcss creates a separate `<style>` element in the `<head>` of the document and puts all the @import statements there.
-
+Under the CSS specification, @import rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first - regardless of their position in the style definition class.
 
 
 
