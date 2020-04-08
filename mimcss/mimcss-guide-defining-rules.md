@@ -16,7 +16,7 @@ There are four rule types that are almost always defined as named rules: classes
 Let's create a simple style definition class:
 
 ```tsx
-import {$style, $class, $id, $animation, $custom} from "mimcss";
+import {$style, $class, $id, $animation, $var} from "mimcss";
 
 class MyStyles
 {
@@ -35,11 +35,11 @@ class MyStyles
         [ "to", { top: "100%" } ]
     ])
 
-    defaultColor = $custom({ color: "black" });
+    defaultColor = $var({ color: "black" });
 }
 ```
 
-Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$tag`, `$class`, `$id` and `$custom` functions define style rules where the selector is a tag, a class, an element ID or a custom CSS property respectively. The `$animation` function defines a @keyframes rule.
+Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$tag`, `$class`, `$id` and `$var` functions define style rules where the selector is a tag, a class, an element ID or a custom CSS property respectively. The `$animation` function defines a @keyframes rule.
 
 The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is not used in any way.
 

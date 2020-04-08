@@ -46,12 +46,37 @@ render()
     return <div>
         <p className={myStyles.classes.emphasized}>Hello!</p>
         <p className={otherStyles.classes.emphasized}>Hello!</p>
-   </div>
+    </div>
 ```
 
 Although the names of the properties defining the CSS classes are the same, Mimcss will use different names when creating CSS rules and inserting them into the DOM.
 
 Under the Scoped mode, the string value of the `myStyles.classNames.emphasized` property will be `".MyStyles_emphasized"`, while the string value of the `otherStyles.classNames.emphasized` property will be `".OtherStyles_emphasized"`. Under the Unique mode, the names might be created as `n25` and `n73`. This would be obviously much more difficult to debug.
+
+## Explicit Names
+There are situations when we need to bypass the Mimmcss's name auto-generation. One use case is when we want to override a name that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
+
+```tsx
+class MyStyles
+{
+    box = $class( { margin: 8 }, "box-class-name")
+}
+```
+
+Another use case is when we have an external style definition class and we want to override one of the named rules defined there. To accomplish this, we use the same optional parameter - but this time we pass the rule object to it:
+
+```tsx
+// the 'LibStyles' class from the 'lib' library has a class assigned to property 'box'
+import {LibStyles} from "lib"
+
+class MyStyles
+{
+    lib = $use(LibStyles)
+
+    box = $class( { margin: 8 }, this.lib.box)
+
+}
+```
 
 ## Names in Grouping Rules
 Conditional grouping rules such as @media and @supports posit a different problem. Names of classes defined under these grouping rules are supposed to match those defined outside the conditions, so that style values defined within the grouping rules will take effect when the conditions evaluate to true. Consider the following example:
@@ -79,31 +104,114 @@ We have two properties named `box`: the first one is defined at the top level of
 
 In the example above, when Mimcss processes the `MyStyle` the `box` property gets assigned a name first. When the second `box` property is encountered, Mimcss finds this name at the top level and assigns it to the second property too.
 
-## Explicit Names
-There are situations when we need to bypass the Mimmcss's name auto-generation. One use case is when we want to override a name that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$custom` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
+## Style Definition Class Inheritance
+
+Style definition classes are regular classes and thus support inheritance. Mimcss uses the inheritance mechanism to achieve style virtualization, which allows changing entire style theme with very little code.
+
+Let's look at a simple example and see what Mimcss does in the presence of inheritance:
 
 ```tsx
-class MyStyles
+class Base
 {
-    box = $class( { margin: 8 }, "box-class-name")
+    textInput = $class({ padding: 4 })
 }
+
+class Derived extends Base
+{
+    button = $class({ padding: 8 })
+}
+
+let derived = $activate(Base);
 ```
 
-Another use case is when we have an external style definition class and we want to override one of the named rules defined there. To accomplish this, we use the same optional parameter - but this time we pass the rule object to it:
+Nothing surprising will happen when we activate the `Derived` class: the `derived` variable will provide access to both the `textInput` and the `button` CSS classes. For each of these properties Mimcss will generate a unique CSS class name. If you don't use the Unique mode for name generation, the names of the classes will be `Base_textInput` and `Derived_button`.
+
+Interesting things start happening when the derived class overrides a property from the base class:
 
 ```tsx
-// the 'LibStyles' class from the 'lib' library has a class assigned to property 'box'
-import {LibStyles} from "lib"
-
-class MyStyles
+class Base
 {
-    lib = $use(LibStyles)
-
-    box = $class( { margin: 8 }, this.lib.box)
-
+    textInput = $class({ padding: 4 })
 }
+
+class Derived extends Base
+{
+    textInput = $class({ padding: 8 })
+}
+
+let derived = $activate(Derived);
 ```
 
+There will be a single name generated for the `derived.classes.textInput` variable. The name will be `Base_textInput`; however, the style will be `{ padding: 8 }`. Thus, the name is generated based on the class where the rule is defined, while the style is taken from the class that has the override.
+
+Let's now have another style definition class that derives from the same `Base` class:
+
+```tsx
+class AnotherDerived extends Base
+{
+    textInput = $class({ padding: 16 })
+}
+
+let anotherDerived = $activate(AnotherDerived);
+```
+
+As is probably expected, the `anotherDerived.classes.textInput` will have the name `Base_textInput` and the style `{ padding: 16 }`. Thus no matter how many different derived classes we may have, they will all use the same name for the inherited properties but different styles assigned to them. This is actually in full conformance with Object-Oriented Programming paradigm and this allows us to achieve what we call "style virtualization".
+
+The idea is to have a base "interface" that "declares" several CSS style rules and have multiple "implementations" of this interface that "implement" this rules by providing actual styles. When we need CSS classes IDs, animations and custom properties in our code, we will use the names provided by the "interface". Then we can activate either this or that "implementation" and, voila - we can completely change the styling of our application with very little code.
+
+Here is how we do it:
+
+```tsx
+abstract class Theme
+{
+    abstract bgColor = $var( "color")
+    abstract frColor = $var( "color")
+
+    abstract label = $class();
+
+    input = $tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
+}
+
+let theme: IStylesheet<Theme> = null;
+
+...
+
+render()
+{
+    return <form>
+        <label for="favFood" class={theme.classes.label}>Type your favorite food:</label>
+        <input type="text" id="favFood" name="favFood" />
+    </form>
+}
+
+...
+
+class BlueTheme extends Theme
+{
+    bgColor = $var( "color", Colors.cyan)
+    frColor = $var( "color", Colors.navy)
+    label = $class({ color: Colors.darkblue})
+}
+
+class BeigeTheme extends Theme
+{
+    bgColor = $var( "color", Colors.beige)
+    frColor = $var( "color", Colors.brown)
+    label = $class({ color: Colors.darkorange})
+}
+
+theme = $activate( BlueTheme);
+```
+
+As our "interface" we defined an abstract style definition class `Theme`. It has three abstract properties: two for custom CSS properties and one for a CSS class. Note that we didn't specify any styles for them. We are using them only to define types and names. We also created a non-abstract rule that applies for all `<input>` tags, which uses our abstract custom CSS properties to specify background and foreground colors.
+
+> We don't really need the 'abstract' modifier; however, it is very useful because it forces the derived classes to override these properties.
+
+We then declared a variable `theme` of the type `IStylesheet<Theme>`. This is the same type that is returned from the `$activate` function. Although we didn't activate any styles, declaring a variable of this type tells the TypeScript compiler that it will have access to all the names and rules defined in `Theme`. So, we can now write our rendering code and use `theme.classes.label` as a CSS class name.
+
+We then defined two classes - `BlueTheme` and `BeigeTheme` - which derived from the abstract `Theme` class and override the abstract properties with different styles. Then we activates the `BlueTheme` class as our initial theme.
+
+All what is left to write is the code that allows the user to choose one of the two themes, deactivate the current theme and activate the new one.
 
 
 
