@@ -108,20 +108,23 @@ What if multiple instances of the component are used at the same time? No proble
 There are more sophisticated activation strategies possible and they are discussed in [Activation Strategies](mimcss-guide-activation-strategies.html) unit.
 
 ## CSS Grouping Rules
-CSS defines several grouping rules: @supports, @media, @document and @page. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; however, instead of a TypeScript class, we use an object to describe the rules. Here is an example of the @media rule:
+CSS defines several grouping rules: @supports, @media, @document and @page. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; the only difference is that the class defining nested rules must extend the `NestedGroup` generic class. Here is an example of the @media rule:
 
 ```tsx
 class MyStyles
 {
     box = $class( { margin: 8 })
 
-    ifSmallScreen = $media( { maxWidth: 600 }, {
-        box: $class({ margin: 4 })
-    })
+    ifSmallScreen = $media( { maxWidth: 600 },
+        class extends NestedGroup<MyStyles>
+        {
+            box: $class({ margin: 4 })
+        }
+    )
 }
 ```
 
-The `$media` function accepts an object that defines rules - often called *nested* rules. The syntax is pretty similar to that of the top-level style definition - the differences are first, that we must use colon (':') instead of assignment ('='), and second, that rules must be separated by a comma.
+The `$media` function accepts a style definition class that extends the `NestedGroup` class with the generic type parameter set to the top-level style definition class.
 
 For the named rules (classes, IDs, animations and custom properties), Mimcss will create names that would be actually inserted into DOM. There is a significant caveat here though: if a nested rule is assigned to a property with the name that already exists in the enclosing class, the actual name for the nested rule will be the same as the actual name for the existing property. This is done because the group rules such as @supports, @media and @document are conditional rules and the styles defined by them are supposed to override the styles defined outside of the conditions.
 
@@ -149,7 +152,7 @@ class MyStyles
 }
 ```
 
-Under the CSS specification, @import rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first - regardless of their position in the style definition class.
+Under the CSS specification, @import rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first - regardless of their position in the style definition class. Mimcss will ignore any @import rules specified under the nested grouping rules, such as @media and @supports - also in accordance with the CSS specification.
 
 
 

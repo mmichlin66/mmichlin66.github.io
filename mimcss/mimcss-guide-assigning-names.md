@@ -157,7 +157,7 @@ let anotherDerived = $activate(AnotherDerived);
 
 As is probably expected, the `anotherDerived.classes.textInput` will have the name `Base_textInput` and the style `{ padding: 16 }`. Thus no matter how many different derived classes we may have, they will all use the same name for the inherited properties but different styles assigned to them. This is actually in full conformance with Object-Oriented Programming paradigm and this allows us to achieve what we call "style virtualization".
 
-The idea is to have a base "interface" that "declares" several CSS style rules and have multiple "implementations" of this interface that "implement" this rules by providing actual styles. When we need CSS classes IDs, animations and custom properties in our code, we will use the names provided by the "interface". Then we can activate either this or that "implementation" and, voila - we can completely change the styling of our application with very little code.
+The idea of "style virtualization" is to have a base "interface" that "declares" several CSS style rules and have multiple "implementations" of this interface that "implement" these rules by providing actual styles. When we need CSS classes IDs, animations and custom properties in our code, we will use the names provided by the interface. Then we can activate either this or that implementation and, voila - we can completely change the styling of our application with very little code.
 
 Here is how we do it:
 
