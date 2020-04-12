@@ -108,7 +108,7 @@ What if multiple instances of the component are used at the same time? No proble
 There are more sophisticated activation strategies possible and they are discussed in [Activation Strategies](mimcss-guide-activation-strategies.html) unit.
 
 ## CSS Grouping Rules
-CSS defines several grouping rules: @supports, @media, @document and @page. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; the only difference is that the class defining nested rules must extend the `NestedGroup` generic class. Here is an example of the @media rule:
+CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; the only difference is that the class defining nested rules must extend the `NestedGroup` generic class. Here is an example of the @media rule:
 
 ```tsx
 class MyStyles
