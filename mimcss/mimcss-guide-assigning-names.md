@@ -14,7 +14,7 @@ The first mode is called **Scoped**. It creates names that combine the name of t
 
 The second method of assigning names is called **Unique**. It creates names by appending an incrementally increasing number to a prefix. The default prefix is `"n"` but it can be changed programmatically. This method produces short names without a real possibility to relate back to the place in the code where they were defined; therefore, this method should be used for release builds.
 
-The default mode is **Scoped**. In order to switch to the Unique mode, the application should call the Mimcss's `useOptimizedStyleNames` function. This function accepts an optional `prefix` parameter that can specify the prefix to be used for generating unique names. The `useOptimizedStyleNames` function must be called very early in the application life because the mode must be set before any style definition classes are processed.
+The default mode is **Scoped**. In order to switch to the Unique mode, the application should call the Mimcss's `$enableOptimizedStyleNames` function. This function accepts an optional `prefix` parameter that can specify the prefix to be used for generating unique names. The `$enableOptimizedStyleNames` function must be called very early in the application life because the mode must be set before any style definition classes are processed.
 
 ## Name Scoping
 Different classes can define properties with identical names and they will be unique when applied to HTML. We call it *name scoping*, which means that names are scoped to the style definition classes.
