@@ -23,13 +23,13 @@ Consider the following example, where we have two classes (that might be coming 
 
 ```tsx
 /* MyStyles.ts */
-export class MyStyles
+export class MyStyles extends StyleDefinition
 {
     emphasized = $class({ color: "red", fontWeight: 700 });
 });
 
 /* OtherStyles.ts */
-export class OtherStyles
+export class OtherStyles extends StyleDefinition
 {
     emphasized = $class({ color: "orange", fontStyle: "italic" });
 });
@@ -44,8 +44,8 @@ let otherStyles = $activate(OtherStyles);
 render()
 {
     return <div>
-        <p className={myStyles.classes.emphasized}>Hello!</p>
-        <p className={otherStyles.classes.emphasized}>Hello!</p>
+        <p className={myStyles.emphasized.name}>Hello!</p>
+        <p className={otherStyles.emphasized.name}>Hello!</p>
     </div>
 ```
 
@@ -57,7 +57,7 @@ Under the Scoped mode, the string value of the `myStyles.classNames.emphasized` 
 There are situations when we need to bypass the Mimmcss's name auto-generation. One use case is when we want to override a name that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
 
 ```tsx
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     box = $class( { margin: 8 }, "box-class-name")
 }
@@ -69,7 +69,7 @@ Another use case is when we have an external style definition class and we want 
 // the 'LibStyles' class from the 'lib' library has a class assigned to property 'box'
 import {LibStyles} from "lib"
 
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     lib = $use(LibStyles)
 
@@ -82,13 +82,16 @@ class MyStyles
 Conditional grouping rules such as @media and @supports posit a different problem. Names of classes defined under these grouping rules are supposed to match those defined outside the conditions, so that style values defined within the grouping rules will take effect when the conditions evaluate to true. Consider the following example:
 
 ```tsx
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     box = $class( { margin: 8 })
 
-    ifSmallScreen = $media( { maxWidth: 600 }, {
-        box: $class({ margin: 4 })
-    })
+    ifSmallScreen = $media( { maxWidth: 600 },
+        class extends extends StyleDefinition
+        {
+            box: $class({ margin: 4 })
+        }
+    )
 }
 
 let myStyles = $activate(MyStyles);
@@ -96,7 +99,7 @@ let myStyles = $activate(MyStyles);
 render()
 {
     return <div>
-        <p className={myStyles.classes.box}>Hello!</p>
+        <p className={myStyles.box.name}>Hello!</p>
    </div>
 ```
 
@@ -111,7 +114,7 @@ Style definition classes are regular classes and thus support inheritance. Mimcs
 Let's look at a simple example and see what Mimcss does in the presence of inheritance:
 
 ```tsx
-class Base
+class Base extends StyleDefinition
 {
     textInput = $class({ padding: 4 })
 }
@@ -129,7 +132,7 @@ Nothing surprising will happen when we activate the `Derived` class: the `derive
 Interesting things start happening when the derived class overrides a property from the base class:
 
 ```tsx
-class Base
+class Base extends StyleDefinition
 {
     textInput = $class({ padding: 4 })
 }
@@ -162,7 +165,7 @@ The idea of "style virtualization" is to have a base "interface" that "declares"
 Here is how we do it:
 
 ```tsx
-abstract class Theme
+abstract class Theme extends StyleDefinition
 {
     abstract bgColor = $var( "color")
     abstract frColor = $var( "color")
@@ -172,14 +175,14 @@ abstract class Theme
     input = $tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
 }
 
-let theme: IStylesheet<Theme> = null;
+let theme: Theme = null;
 
 ...
 
 render()
 {
     return <form>
-        <label for="favFood" class={theme.classes.label}>Type your favorite food:</label>
+        <label for="favFood" class={theme.label.name}>Type your favorite food:</label>
         <input type="text" id="favFood" name="favFood" />
     </form>
 }
@@ -207,7 +210,7 @@ As our "interface" we defined an abstract style definition class `Theme`. It has
 
 > We don't really need the 'abstract' modifier; however, it is very useful because it forces the derived classes to override these properties.
 
-We then declared a variable `theme` of the type `IStylesheet<Theme>`. This is the same type that is returned from the `$activate` function. Although we didn't activate any styles, declaring a variable of this type tells the TypeScript compiler that it will have access to all the names and rules defined in `Theme`. So, we can now write our rendering code and use `theme.classes.label` as a CSS class name.
+We then declared a variable `theme` of the type `Theme`. This is the same type that is returned from the `$activate` function. Although we didn't activate any styles, declaring a variable of this type tells the TypeScript compiler that it will have access to all the names and rules defined in `Theme`. So, we can now write our rendering code and use `theme.label.name` as a CSS class name.
 
 We then defined two classes - `BlueTheme` and `BeigeTheme` - which derived from the abstract `Theme` class and override the abstract properties with different styles. Then we activates the `BlueTheme` class as our initial theme.
 

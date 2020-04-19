@@ -22,7 +22,7 @@ The `Styleset` type might look similar to the built-in `CSSStyleDeclaration` typ
 Here are a few examples of how such styles are used for defining style rules:
 
 ```tsx
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     button1 = $class({
         backgroundColor: Colors.blue,   // built-in color property
@@ -60,7 +60,7 @@ These features are discussed in details in the following sections.
 With CSS pre-processors, the idea of a style rule re-using other rules (a.k.a. style extending/composing/inheriting) became very popular. Mimcss also has this capability and it uses the TypeScript's type-safety features to eliminate errors. Here is an example:
 
 ```tsx
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     vbox = $class({
         display: "flex",
@@ -151,7 +151,7 @@ td > .mydiv, li > .mydiv {
 Mimcss supports such dependent and related rules via an easy-to-use construct using special properties of the `ExtendedStyleset` type. Here is how the above CSS would be implemented in Mimcss:
 
 ```tsx
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     myspan = $class({ padding: 4 })
 
@@ -190,7 +190,7 @@ a:first-child:visited:hover { color: maroon; }
 Here is the Mimcss code:
 
 ```tsx
-class MyClass
+class MyClass extends StyleDefinition
 {
     anchor = $tag( "a", { color: "blue",
         ":first-child": { color: "green",
@@ -206,7 +206,7 @@ class MyClass
 CSS allows adding the `!important` flag to any style property to increase its specificity. Since for many style properties Mimcss doesn't include the `string` type, there is no easy way to specify the `!important` flag in the property value. Instead, Mimcss provides a special property `"!"` in the `ExtendedStyleset` type, which allows specifying names of properties for which the `!important` flag should be added.
 
 ```tsx
-class MyClass
+class MyClass extends StyleDefinition
 {
     widthIsImportant = $class({
         minWidth: 20,
@@ -231,7 +231,7 @@ Mimcss allows one style definition class to reference another one via the `$use`
 
 ```tsx
 // CommonStyles.ts
-class CommonStyles
+class CommonStyles extends StyleDefinition
 {
     vbox = $class({
         display: "flex",
@@ -246,7 +246,7 @@ class CommonStyles
 // MyStyles.ts
 import {CommonStyles} from "./CommonStyles"
 
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     common = $use( CommonStyles)
 
@@ -263,7 +263,7 @@ class MyStyles
 }
 ```
 
-The `$use` function returns an object implementing the `IStylesheet` interface - the same one that is returned by the `$activate` function. This object has the `rules` property, which contains all the rules that are defined in the referenced class. The difference between the `$use` and `$activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
+The `$use` function returns the same object that is returned by the `$activate` function. The difference between the `$use` and `$activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
 
 It is possible to call the `$use` function outside of any style definition class - it can be assigned to a variable and then used wherever this variable is visible. There is a significant advantage, however, of calling the `$use` function from inside a style definition class: when the style definition class is activated and deactivated, all the referenced classes will be activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
 

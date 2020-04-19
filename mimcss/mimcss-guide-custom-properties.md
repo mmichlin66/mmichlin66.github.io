@@ -57,7 +57,7 @@ These errors will only manifest themselves at run time: since custom properties 
 Mimcss allows defining and using custom properties while helping developers avoid the above problems at compile time. First, here is an example of how custom properties are defined and used:
 
 ```tsx
-class MyStyles
+class MyStyles extends StyleDefinition
 {
     specialColor = $var( "color", "blue")
 
