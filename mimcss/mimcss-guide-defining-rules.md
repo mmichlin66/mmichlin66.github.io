@@ -16,26 +16,26 @@ There are four rule types that are almost always defined as named rules: classes
 Let's create a simple style definition class:
 
 ```tsx
-import {$style, $class, $id, $animation, $var, StyleDefinition} from "mimcss";
+import * as css from "mimcss";
 
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
     init = [
-        $style( "*", { boxSizing: "border-box" }),
-        $tag( "body", { height: "100%", margin: 0 }),
+        css.$style( "*", { boxSizing: "border-box" }),
+        css.$tag( "body", { height: "100%", margin: 0 }),
     ]
 
-    vbox = $class({ display: "flex", flexDirection: "column" })
+    vbox = css.$class({ display: "flex", flexDirection: "column" })
 
-    standout = $id({ boxShadow: "10px 5px 5px red" });
+    standout = css.$id({ boxShadow: "10px 5px 5px red" });
 
-    move = $animation([
+    move = css.$animation([
         [ "from", { top: 0} ],
         [ 50, { top: "50%" } ],
         [ "to", { top: "100%" } ]
     ])
 
-    defaultColor = $var({ color: "black" });
+    defaultColor = css.$var({ color: "black" });
 }
 ```
 
@@ -49,7 +49,7 @@ Note that we didn't specify the name of the class (nor of the ID, animation or c
 By now we have defined our rules with a TypeScript class; however, how do we insert the rules into the DOM so that they start applying to the HTML? This process is called "activation" and is accomplished using the `$activate` function.
 
 ```tsx
-let myStyles = $activate( MyStyles);
+let myStyles = css.$activate( MyStyles);
 ```
 
 Notice that we passed the class object to the `$activate` function - we didn't need to create an instance of the class by ourselves.
@@ -70,7 +70,7 @@ The return value of the `$activate` method is the instance of the style definiti
 If the `$activate` function inserts the rules into the DOM, the `$deactivate` function removes the rules from the DOM:
 
 ```tsx
-$deactivate( myStyles);
+css.$deactivate( myStyles);
 ```
 
 In many cases, the rules don't need to be removed from the DOM and should stay active for the lifetime of the application. There are, however, situations when a set of CSS rules is only used by a specific component. In this case, it is desirable that the styles will be inserted into DOM only when the component is mounted. Moreover, when the component is unmounted, it is desirable to remove the rules from the DOM. In Mimcss, this can be accomplished by placing the calls to the `$activate` and `$deactivate` functions into the mounting and unmounting code respectively, for example:
@@ -82,12 +82,12 @@ class MyComponent
 
     willMount()
     {
-        this.styles = $activate( MyStyles);
+        this.styles = css.$activate( MyStyles);
     }
 
     willUnmount()
     {
-         $deactivate( this.styles);
+         css.$deactivate( this.styles);
     }
 
     render()
@@ -107,14 +107,14 @@ There are more sophisticated activation strategies possible and they are discuss
 CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; the only difference is that the class defining nested rules must extend the `NestedGroup` generic class. Here is an example of the @media rule:
 
 ```tsx
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    box = $class( { margin: 8 })
+    box = css.$class( { margin: 8 })
 
-    ifSmallScreen = $media( { maxWidth: 600 },
-        class extends StyleDefinition<MyStyles>
+    ifSmallScreen = css.$media( { maxWidth: 600 },
+        class extends css.StyleDefinition<MyStyles>
         {
-            box: $class({ margin: 4 })
+            box = css.$class({ margin: 4 })
         }
     )
 }
@@ -134,12 +134,12 @@ The @import rule allows bringing in an external CSS sheet from a given URL. Mimc
 Mimcss supports the @import rule via the `$import` function and @font-face rules via the `$fontface` function. Since these rules don't have names, they can be placed in an array along with each other and with other "unnamed" rules:
 
 ```tsx
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
     unnamed = [
-        $import( "http://3rd.party.com/stylesheet.css"),
+        css.$import( "http://3rd.party.com/stylesheet.css"),
 
-        $fontface({
+        css.$fontface({
             fontFamily: "Roboto",
             fontWeight: 700,
             src: [ {url: "roboto.woff", format: "woff"} ]

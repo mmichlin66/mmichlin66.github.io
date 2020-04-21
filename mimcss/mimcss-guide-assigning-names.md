@@ -23,23 +23,23 @@ Consider the following example, where we have two classes (that might be coming 
 
 ```tsx
 /* MyStyles.ts */
-export class MyStyles extends StyleDefinition
+export class MyStyles extends css.StyleDefinition
 {
-    emphasized = $class({ color: "red", fontWeight: 700 });
+    emphasized = css.$class({ color: "red", fontWeight: 700 });
 });
 
 /* OtherStyles.ts */
-export class OtherStyles extends StyleDefinition
+export class OtherStyles extends css.StyleDefinition
 {
-    emphasized = $class({ color: "orange", fontStyle: "italic" });
+    emphasized = css.$class({ color: "orange", fontStyle: "italic" });
 });
 
 /* MyComponent.tsx */
 import {MyStyles} from "./MyStyles"
 import {OtherStyles} from "./OtherStyles"
 
-let myStyles = $activate(MyStyles);
-let otherStyles = $activate(OtherStyles);
+let myStyles = css.$activate(MyStyles);
+let otherStyles = css.$activate(OtherStyles);
 
 render()
 {
@@ -57,9 +57,9 @@ Under the Scoped mode, the string value of the `myStyles.classNames.emphasized` 
 There are situations when we need to bypass the Mimmcss's name auto-generation. One use case is when we want to override a name that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
 
 ```tsx
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    box = $class( { margin: 8 }, "box-class-name")
+    box = css.$class( { margin: 8 }, "box-class-name")
 }
 ```
 
@@ -69,11 +69,11 @@ Another use case is when we have an external style definition class and we want 
 // the 'LibStyles' class from the 'lib' library has a class assigned to property 'box'
 import {LibStyles} from "lib"
 
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    lib = $use(LibStyles)
+    lib = css.$use(LibStyles)
 
-    box = $class( { margin: 8 }, this.lib.box)
+    box = css.$class( { margin: 8 }, this.lib.box)
 
 }
 ```
@@ -82,19 +82,19 @@ class MyStyles extends StyleDefinition
 Conditional grouping rules such as @media and @supports posit a different problem. Names of classes defined under these grouping rules are supposed to match those defined outside the conditions, so that style values defined within the grouping rules will take effect when the conditions evaluate to true. Consider the following example:
 
 ```tsx
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    box = $class( { margin: 8 })
+    box = css.$class( { margin: 8 })
 
-    ifSmallScreen = $media( { maxWidth: 600 },
-        class extends extends StyleDefinition
+    ifSmallScreen = css.$media( { maxWidth: 600 },
+        class extends extends css.StyleDefinition<MyStyles>
         {
-            box: $class({ margin: 4 })
+            box = css.$class({ margin: 4 })
         }
     )
 }
 
-let myStyles = $activate(MyStyles);
+let myStyles = css.$activate(MyStyles);
 
 render()
 {
@@ -114,17 +114,17 @@ Style definition classes are regular classes and thus support inheritance. Mimcs
 Let's look at a simple example and see what Mimcss does in the presence of inheritance:
 
 ```tsx
-class Base extends StyleDefinition
+class Base extends css.StyleDefinition
 {
-    textInput = $class({ padding: 4 })
+    textInput = css.$class({ padding: 4 })
 }
 
 class Derived extends Base
 {
-    button = $class({ padding: 8 })
+    button = css.$class({ padding: 8 })
 }
 
-let derived = $activate(Base);
+let derived = css.$activate(Base);
 ```
 
 Nothing surprising will happen when we activate the `Derived` class: the `derived` variable will provide access to both the `textInput` and the `button` CSS classes. For each of these properties Mimcss will generate a unique CSS class name. If you don't use the Unique mode for name generation, the names of the classes will be `Base_textInput` and `Derived_button`.
@@ -132,17 +132,17 @@ Nothing surprising will happen when we activate the `Derived` class: the `derive
 Interesting things start happening when the derived class overrides a property from the base class:
 
 ```tsx
-class Base extends StyleDefinition
+class Base extends css.StyleDefinition
 {
-    textInput = $class({ padding: 4 })
+    textInput = css.$class({ padding: 4 })
 }
 
 class Derived extends Base
 {
-    textInput = $class({ padding: 8 })
+    textInput = css.$class({ padding: 8 })
 }
 
-let derived = $activate(Derived);
+let derived = css.$activate(Derived);
 ```
 
 There will be a single name generated for the `derived.classes.textInput` variable. The name will be `Base_textInput`; however, the style will be `{ padding: 8 }`. Thus, the name is generated based on the class where the rule is defined, while the style is taken from the class that has the override.
@@ -152,10 +152,10 @@ Let's now have another style definition class that derives from the same `Base` 
 ```tsx
 class AnotherDerived extends Base
 {
-    textInput = $class({ padding: 16 })
+    textInput = css.$class({ padding: 16 })
 }
 
-let anotherDerived = $activate(AnotherDerived);
+let anotherDerived = css.$activate(AnotherDerived);
 ```
 
 As is probably expected, the `anotherDerived.classes.textInput` will have the name `Base_textInput` and the style `{ padding: 16 }`. Thus no matter how many different derived classes we may have, they will all use the same name for the inherited properties but different styles assigned to them. This is actually in full conformance with Object-Oriented Programming paradigm and this allows us to achieve what we call "style virtualization".
@@ -165,14 +165,14 @@ The idea of "style virtualization" is to have a base "interface" that "declares"
 Here is how we do it:
 
 ```tsx
-abstract class Theme extends StyleDefinition
+abstract class Theme extends css.StyleDefinition
 {
-    abstract bgColor = $var( "color")
-    abstract frColor = $var( "color")
+    abstract bgColor = css.$var( "color")
+    abstract frColor = css.$var( "color")
 
-    abstract label = $class();
+    abstract label = css.$class();
 
-    input = $tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
+    input = css.$tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
 }
 
 let theme: Theme = null;
@@ -191,19 +191,19 @@ render()
 
 class BlueTheme extends Theme
 {
-    bgColor = $var( "color", Colors.cyan)
-    frColor = $var( "color", Colors.navy)
-    label = $class({ color: Colors.darkblue})
+    bgColor = css.$var( "color", Colors.cyan)
+    frColor = css.$var( "color", Colors.navy)
+    label = css.$class({ color: Colors.darkblue})
 }
 
 class BeigeTheme extends Theme
 {
-    bgColor = $var( "color", Colors.beige)
-    frColor = $var( "color", Colors.brown)
-    label = $class({ color: Colors.darkorange})
+    bgColor = css.$var( "color", Colors.beige)
+    frColor = css.$var( "color", Colors.brown)
+    label = css.$class({ color: Colors.darkorange})
 }
 
-theme = $activate( BlueTheme);
+theme = css.$activate( BlueTheme);
 ```
 
 As our "interface" we defined an abstract style definition class `Theme`. It has three abstract properties: two for custom CSS properties and one for a CSS class. Note that we didn't specify any styles for them. We are using them only to define types and names. We also created a non-abstract rule that applies for all `<input>` tags, which uses our abstract custom CSS properties to specify background and foreground colors.

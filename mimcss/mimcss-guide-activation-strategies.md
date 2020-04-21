@@ -20,12 +20,12 @@ The general approach is, as usual, a trade off: the styles that are used through
 The first approach is probably the simplest and it is as close to the behavior of the CSS files as possible. In this approach, the activation is performed as soon as the style definition class is written:
 
 ```tsx
-class CommonStyles
+class CommonStyles extends css.StyleDefinition
 {
-    vbox = $class({ display: "flex", flexDirection: "column" })
+    vbox = css.$class({ display: "flex", flexDirection: "column" })
 }
 
-export let commonStyles = $activate( CommonStyles);
+export let commonStyles = css.$activate( CommonStyles);
 ```
 
 The style definition class does not even have to be exported - we only export the activated stylesheet object. The rules are activated as soon as the code is loaded. This is similar in behavior to loading CSS files using the `<link>` element in HTML - the rules are loaded and activated by the browser at the application start up.
@@ -42,7 +42,7 @@ This approach is also suitable for applications that employ themes. Switching th
 ## Just-in-time Activation
 In this approach, the style rules are activated only when needed and deactivated as soon as they become not needed. This approach is suitable for large components that present complex UI structure, occupy the entire or a significant part of the page and stay on the screen for a while. This approach is NOT suitable for components that represent widgets.
 
-In the just-in-time approach, the style definition class becomes and essential part of the component. It is activated when the component is mounted and deactivated when the component is unmounted.
+In the just-in-time approach, the style definition class becomes an essential part of the component. It is activated when the component is mounted and deactivated when the component is unmounted.
 
 
 

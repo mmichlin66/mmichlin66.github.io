@@ -11,7 +11,7 @@ Styles are defined using style rules, which usually accept some kind of selector
 
 The `Styleset` type contains every short-hand and long-hand style property defined by the CSS standard and, if there are omissions or the Mimcss library hasn't caught up with the latest standard yet, there is a ways to add properties using the TypeScript's module augmentation technique.
 
-The `Styleset` type might look similar to the built-in `CSSStyleDeclaration` type; however, while in `CSSStyleDeclaration`, all properties have the `string` type, in `Styleset`, each property has its own type. This provides to the developers an easier and more powerful way to specify values for the properties. Moreover, specifying invalid values will be detected as a compile-time error. Let's see several examples:
+The `Styleset` type might look similar to the built-in `CSSStyleDeclaration` type; however, while in `CSSStyleDeclaration` all properties have the `string` type, in `Styleset`, each property has its own type. This provides to the developers an easier and more powerful way to specify values for the properties. Moreover, specifying invalid values will be detected as a compile-time error. Let's see several examples:
 
 1. The `color` property. Mimcss provides names of all the built-in colors in the `Colors` type. You can either use its properties, e.g. `Colors.dodgerblue`, or directly type `"dodgerblue"`. When you start typing color names as strings, the autocomplete feature of your IDE will prompt you with the suitable names. If you misspell the color name, it will be immediately detected. You can add new named colors using the module augmentation technique. You can also specify colors as numbers, e.g. 0xFF0000 for red, which is similar to the CSS notation `"#FF0000"` but allows you to calculate the color value programmatically without the need to convert it to string. There are also special color functions such as `Colors.rgb()` or `Colors.alpha()` that allow manipulating color values. All of these methods are of course applicable not only for the `color` property but to any property that uses color.
 
@@ -22,21 +22,21 @@ The `Styleset` type might look similar to the built-in `CSSStyleDeclaration` typ
 Here are a few examples of how such styles are used for defining style rules:
 
 ```tsx
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    button1 = $class({
-        backgroundColor: Colors.blue,   // built-in color property
+    button1 = css.$class({
+        backgroundColor: css.Colors.blue,   // built-in color property
         padding: 4,                     // 4px for all sides
         border: 2                       // 2px width with default style and color
     })
 
-    button2 = $class({
+    button2 = css.$class({
         backgroundColor: "yellow",      // built-in color constant
         padding: [4, 0.3],              // 4px top and bottom, 0.3em left and right
         border: "1px solid brown"       // defined as a string
     })
 
-    button3 = $class({
+    button3 = css.$class({
         backgroundColor: 0xFF00,        // green
         padding: [4, "0.1in"],          // 4px top and bottom, 0.1in left and right
         border: [1, "solid", "brown"]   // defined as an array
@@ -60,24 +60,24 @@ These features are discussed in details in the following sections.
 With CSS pre-processors, the idea of a style rule re-using other rules (a.k.a. style extending/composing/inheriting) became very popular. Mimcss also has this capability and it uses the TypeScript's type-safety features to eliminate errors. Here is an example:
 
 ```tsx
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    vbox = $class({
+    vbox = css.$class({
         display: "flex",
         flexDirection: "column"
     })
 
-    sidebar = $class({ "+": this.vbox,
+    sidebar = css.$class({ "+": this.vbox,
         position: "absolute",
         width: "15em",
         height: "50em"
     })
 
-    standout = $class({
+    standout = css.$class({
         boxShadow: "10px 5px 5px red"
     })
 
-    rightbar = $class({ "+": [this.sidebar, this.standout],
+    rightbar = css.$class({ "+": [this.sidebar, this.standout],
         width: "10em",
         left: "1em"
     })
@@ -151,17 +151,17 @@ td > .mydiv, li > .mydiv {
 Mimcss supports such dependent and related rules via an easy-to-use construct using special properties of the `ExtendedStyleset` type. Here is how the above CSS would be implemented in Mimcss:
 
 ```tsx
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    myspan = $class({ padding: 4 })
+    myspan = css.$class({ padding: 4 })
 
-    mydiv = $class({
+    mydiv = css.$class({
         backgroundColor: "white",
         padding: 4,
         ":hover": { backgroundColor: "pink" },
         "&": [
             [ "tr > &, li > &", { padding: 0 }],
-            [ $selector("& > {0}", this.myspan), { border: "dashed" }]
+            [ css.$selector("& > {0}", this.myspan), { border: "dashed" }]
         ]
     })
 }
@@ -190,9 +190,9 @@ a:first-child:visited:hover { color: maroon; }
 Here is the Mimcss code:
 
 ```tsx
-class MyClass extends StyleDefinition
+class MyClass extends css.StyleDefinition
 {
-    anchor = $tag( "a", { color: "blue",
+    anchor = css.$tag( "a", { color: "blue",
         ":first-child": { color: "green",
             ":visited": { color: "pink",
                 ":hover" { color: "maroon" }
@@ -206,15 +206,15 @@ class MyClass extends StyleDefinition
 CSS allows adding the `!important` flag to any style property to increase its specificity. Since for many style properties Mimcss doesn't include the `string` type, there is no easy way to specify the `!important` flag in the property value. Instead, Mimcss provides a special property `"!"` in the `ExtendedStyleset` type, which allows specifying names of properties for which the `!important` flag should be added.
 
 ```tsx
-class MyClass extends StyleDefinition
+class MyClass extends css.StyleDefinition
 {
-    widthIsImportant = $class({
+    widthIsImportant = css.$class({
         minWidth: 20,
         maxWidth: 120,
         "!": ["minWidth", "maxWidth"]
     })
 
-    onlyMinHeightIsImportant = $class({
+    onlyMinHeightIsImportant = css.$class({
         minHeight: 20,
         maxHeight: 120,
         "!": "minHeight"
@@ -231,14 +231,14 @@ Mimcss allows one style definition class to reference another one via the `$use`
 
 ```tsx
 // CommonStyles.ts
-class CommonStyles extends StyleDefinition
+class CommonStyles extends css.StyleDefinition
 {
-    vbox = $class({
+    vbox = css.$class({
         display: "flex",
         flexDirection: "column"
     })
 
-    standout = $class({
+    standout = css.$class({
         boxShadow: "10px 5px 5px red"
     })
 }
@@ -246,17 +246,17 @@ class CommonStyles extends StyleDefinition
 // MyStyles.ts
 import {CommonStyles} from "./CommonStyles"
 
-class MyStyles extends StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
-    common = $use( CommonStyles)
+    common = css.$use( CommonStyles)
 
-    sidebar = $class({ "+": this.common.rules.vbox,
+    sidebar = css.$class({ "+": this.common.vbox,
         position: "absolute",
         width: "15em",
         height: "50em"
     })
 
-    rightbar = $class({ "+": [this.sidebar, this.common.rules.standout],
+    rightbar = css.$class({ "+": [this.sidebar, this.common.standout],
         width: "10em",
         left: "1em"
     })
