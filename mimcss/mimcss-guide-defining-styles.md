@@ -9,11 +9,11 @@ title: "Mimcss Guide: Defining Styles"
 ## Style Rules and Styleset
 Styles are defined using style rules, which usually accept some kind of selector and an object that gives values to a set of standard CSS style properties - such as `color`, `margin`, etc. This object is called a *styleset* and is defined by Mimcss using the `Styleset` type.
 
-The `Styleset` type contains every short-hand and long-hand style property defined by the CSS standard and, if there are omissions or the Mimcss library hasn't caught up with the latest standard yet, there is a ways to add properties using the TypeScript's module augmentation technique.
+The `Styleset` type contains every short-hand and long-hand style property defined by the CSS standard and, if there are omissions or the Mimcss library hasn't caught up with the latest standard yet, there is a way to add the missing properties using the TypeScript's module augmentation technique.
 
 The `Styleset` type might look similar to the built-in `CSSStyleDeclaration` type; however, while in `CSSStyleDeclaration` all properties have the `string` type, in `Styleset`, each property has its own type. This provides to the developers an easier and more powerful way to specify values for the properties. Moreover, specifying invalid values will be detected as a compile-time error. Let's see several examples:
 
-1. The `color` property. Mimcss provides names of all the built-in colors in the `Colors` type. You can either use its properties, e.g. `Colors.dodgerblue`, or directly type `"dodgerblue"`. When you start typing color names as strings, the autocomplete feature of your IDE will prompt you with the suitable names. If you misspell the color name, it will be immediately detected. You can add new named colors using the module augmentation technique. You can also specify colors as numbers, e.g. 0xFF0000 for red, which is similar to the CSS notation `"#FF0000"` but allows you to calculate the color value programmatically without the need to convert it to string. There are also special color functions such as `Colors.rgb()` or `Colors.alpha()` that allow manipulating color values. All of these methods are of course applicable not only for the `color` property but to any property that uses color.
+1. The `color` property. Mimcss provides names of all the built-in colors in the `Colors` type. You can either use its properties, e.g. `Colors.dodgerblue`, or directly type `"dodgerblue"`. When you start typing color names as strings, the autocomplete feature of your IDE will prompt you with the suitable names. If you misspell the color name, it will be immediately detected. You can add new named colors using the module augmentation technique. You can also specify colors as numbers, e.g. 0xFF0000 for red, which is similar to the CSS notation `"#FF0000"` but allows you to calculate the color value programmatically without the need to convert it to string. There are also special color functions such as `rgb()` or `alpha()` that allow manipulating color values. All of these methods are of course applicable not only for the `color` property but to any property that uses color.
 
 1. The `padding` property. CSS allows specifying 1 to 4 values for the `padding` property where each of the values must specify dimension units (except for 0). In Mimcss,  the `padding` property value can be specified as a string or a number or an array of strings or numbers with 2, 3, or 4 elements. Integer numbers will be considered as `px` units, while floating point numbers will be considered as `em` units.
 
@@ -50,7 +50,7 @@ Mimcss strives to avoid defining `string` as property type, especially for those
 The functions that create style rules - such as `$style`, `$class`, `$id` and `$tag`, accept not just the `Styleset` type described above, but an extended variant of it called `ExtendedStyleset`. The `ExtendedStyleset` type adds a number of properties to the `Styleset` type, which allow for the following features:
 
 - A styleset can specify that it *extends* (*composites*, *inherits*, *derives from*) one or more stylesets defined by other style rules.
-- A styleset can have *dependent* (a.k.a. *nested*) stylesets for pseudo styles, pseudo entities and other kinds of selectors related to the CSS entity for which the style rule is defined.
+- A styleset can have *dependent* (a.k.a. *nested*) stylesets for pseudo classes, pseudo elements and other kinds of selectors related to the CSS entity for which the style rule is defined.
 - A styleset can specify that some properties should have the `!important` flag.
 
 These features are discussed in details in the following sections.
@@ -117,7 +117,7 @@ The above code is equivalent to the following CSS (except that actual names woul
 }
 ```
 
-Reusing another style rule simply means that Mimcss copies all style properties from the rules being reused and then applying our own style properties. Notice, how the `width` property from the `rightbar` class overrode the value of this property defined in the `sidebar` class.
+Reusing another style rule simply means that Mimcss copies all style properties from the rules being reused and then applies our own style properties. Notice, how the `width` property from the `rightbar` class overrode the value of this property defined in the `sidebar` class.
 
 > We considered implementing a different model of re-using class names, in which the resultant CSS would only list non-inherited style properties for each class, but the actual name created for the derived class would contain names of both classes, e.g. "vbox sidebar". The advantage of this approach is in smaller code; however, the big obstacle (and as we decided - unsurmountable) is that there would be no reliable way to override classes in grouping conditional rules such as @media and @supports. Classes inside the conditional rules usually have the same names as the classes declared outside but provide different styles. There is no way to ensure, however, that the inheritance chains of the classes inside the conditional rules would be exactly the same as the chains outside; therefore, the names would be different and the overriding will not work.
 
@@ -172,7 +172,7 @@ Here is what's happening here:
 1. The class `myspan` is defined with a regular style property `padding`.
 1. The class `mydiv` is defined with two regular style properties: `backgroundColor` and `padding`.
 1. A special property `":hover"` specifies a styleset that will be assigned to a selector that is obtained by appending the string `":hover"` to the class name. Mimcss allows names of all pseudo styles and pseudo elements as properties in the `ExtendedStyleset`.
-1. A special property `"&"` specifies an array of two-element tuples, where the first element is a selector and the second element is a styleset assigned to this selector. Every occurrence of the ampersand symbol in the selector string will be replace with the selector one level above - in our case the actual class name behind the `mydiv` property.
+1. A special property `"&"` specifies an array of two-element tuples, where the first element is a selector and the second element is a styleset assigned to this selector. Every occurrence of the ampersand symbol in the selector string will be replaced with the selector one level above - in our case the actual class name behind the `mydiv` property.
 1. The second tuple uses the `$selector` function to create a selector that combines two classes. As in the first tuple, the ampersand symbol stands for the class name behind the `mydiv` property. The placeholder `{0}` will be replaced by the class name behind the `myspan` class. The `$selector` function allows specifying multiple placeholders; therefore, it is possible to create arbitrary complex selectors that involve multiple classes, IDs, tags, pseudo classes and pseudo elements.
 
 The `ExtendedStyleset` type allows creating hierarchical structures with unlimited nesting levels so that expressing the following CSS is quite easy:

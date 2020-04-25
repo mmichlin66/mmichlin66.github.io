@@ -27,19 +27,19 @@ class MyStyles extends css.StyleDefinition
 
     vbox = css.$class({ display: "flex", flexDirection: "column" })
 
-    standout = css.$id({ boxShadow: "10px 5px 5px red" });
+    standout = css.$id({ boxShadow: {color: "red", blur: 4} });
+
+    defaultColor = css.$var({ "color", "black" });
 
     move = css.$animation([
         [ "from", { top: 0} ],
         [ 50, { top: "50%" } ],
         [ "to", { top: "100%" } ]
     ])
-
-    defaultColor = css.$var({ color: "black" });
 }
 ```
 
-Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$tag`, `$class`, `$id` and `$var` functions define style rules where the selector is a tag, a class, an element ID or a custom CSS property respectively. The `$animation` function defines a @keyframes rule.
+Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$tag`, `$class`, `$id` functions define style rules where the selector is a tag, a class and an element ID respectively. The `$var` function defines a custom CSS property. The `$animation` function defines a @keyframes rule.
 
 The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is not used in any way.
 
@@ -73,6 +73,8 @@ If the `$activate` function inserts the rules into the DOM, the `$deactivate` fu
 css.$deactivate( myStyles);
 ```
 
+The `$activate` and `$deactivate` functions  use internal reference count. If you call the `$activate` function several times on the same style definition class, the styles will only be inserted once into the DOM. However, in order to remove them from the DOM, the `$deactivate` function has to be called the same number of times.
+
 In many cases, the rules don't need to be removed from the DOM and should stay active for the lifetime of the application. There are, however, situations when a set of CSS rules is only used by a specific component. In this case, it is desirable that the styles will be inserted into DOM only when the component is mounted. Moreover, when the component is unmounted, it is desirable to remove the rules from the DOM. In Mimcss, this can be accomplished by placing the calls to the `$activate` and `$deactivate` functions into the mounting and unmounting code respectively, for example:
 
 ```tsx
@@ -104,7 +106,7 @@ What if multiple instances of the component are used at the same time? No proble
 There are more sophisticated activation strategies possible and they are discussed in [Activation Strategies](mimcss-guide-activation-strategies.html) unit.
 
 ## CSS Grouping Rules
-CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled very similarly to the top-level styling scope; the only difference is that the class defining nested rules must extend the `NestedGroup` generic class. Here is an example of the @media rule:
+CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled in the same way as the top-level style definition class. The only difference is that for the grouping rules it is beneficial (but optional) to pass the class name of the parent as a generic parameter. Here is an example of the @media rule:
 
 ```tsx
 class MyStyles extends css.StyleDefinition
@@ -125,6 +127,25 @@ The `$media` function accepts a style definition class that extends the `StyleDe
 For the named rules (classes, IDs, animations and custom properties), Mimcss will create names that would be actually inserted into DOM. There is a significant caveat here though: if a nested rule is assigned to a property with the name that already exists in the enclosing class, the actual name for the nested rule will be the same as the actual name for the existing property. This is done because the group rules such as @supports, @media and @document are conditional rules and the styles defined by them are supposed to override the styles defined outside of the conditions.
 
 The `box` property in our example is used to define a CSS class in two places: as a property of the MyStyles class and as a property of the object passed to the `$media` function. Mimcss will generate a single actual class name for the `box` property and the `margin` value of 4 pixels will be used on smaller devices while the value of 8 pixels will be used on the larger ones.
+
+Every style definition has the `owner` property inherited from the StyleDefinition class. The type of this property is the type of the generic parameter passed to the StyleDefinition class. The `owner` property is the pointer to the top-level class. For the top-level class itself the value of the `owner` property is the same as `this` - it essentially points to itself - and, therefore, there is no real case for using the `owner` property in the top-level classes. For the grouping rules, however, the `owner` property allows referencing rules defined in the top-level class and that's why it is important to specify the generic parameter as the name of the top-level class. Here is how we can use the `owner` property from the @media rule:
+
+```tsx
+class MyStyles extends css.StyleDefinition
+{
+    defaultColor = css.$var( "color", "blue")
+
+    ifSmallScreen = css.$media( { maxWidth: 600 },
+        class extends css.StyleDefinition<MyStyles>
+        {
+            p = css.$tag( "p", { color: this.owner.defultColor })
+        }
+    )
+}
+```
+
+In the top-level class, we defined a custom CSS variable that defines font color and in the @media rule, we referred to it using the `this.owner.defaultColor` notation. Since we defined `MyStyles` class as a generic parameter for the StyleDefinition, the TypeScript compiler knows the type of the `owner` property and will help us with the autocomplete feature.
+
 
 ## Other CSS Rules
 Mimcss supports all CSS rules except @charset - the latter is not needed because developers don't actually write text-based CSS files. We already covered style and grouping rules. What's left are rules like @import and @font-face.
@@ -149,6 +170,8 @@ class MyStyles extends css.StyleDefinition
 ```
 
 Under the CSS specification, @import rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first - regardless of their position in the style definition class. Mimcss will ignore any @import rules specified under the nested grouping rules, such as @media and @supports - also in accordance with the CSS specification.
+
+Mimcss also supports the @page and @namespace rules in a similar manner.
 
 
 

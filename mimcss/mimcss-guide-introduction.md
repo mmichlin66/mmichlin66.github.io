@@ -87,25 +87,16 @@ class MyStyles  extends css.StyleDefinition
     });
 }
 
+// Activate styles - insert them into DOM
+let styles = css.$activate( MyStyle);
+
 // Component definition
 class MyComponent
 {
-    private styles;
-
-    willMount()
-    {
-        this.styles = css.$activate( MyStyle);
-    }
-
-    willUnmount()
-    {
-         css.$deactivate( this.styles);
-    }
-
     render()
     {
-        return <div class={this.styles.vbox.name}>
-            <span id={this.styles.importantElement.name}>Hello!</span>
+        return <div class={styles.vbox.name}>
+            <span id={styles.importantElement.name}>Hello!</span>
         </div>
     }
 }
