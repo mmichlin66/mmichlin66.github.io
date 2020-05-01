@@ -18,9 +18,7 @@ exec( "xcopy ..\\..\\mimcl\\lib\\mimcl.dev.js   scripts\\ /i /y /d");
 
 console.log( "Copy mimurl-demo to " + p.join( ps.cwd(), "mimurl"));
 exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.js        mimurl\\ /i /y /d");
-exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.css       mimurl\\ /i /y /d");
 exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
-exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.dev.css   mimurl\\ /i /y /d");
 
 console.log( "copyLibs.js script has finished");
 
