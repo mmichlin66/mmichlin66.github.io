@@ -67,6 +67,7 @@ class MyStyles extends css.StyleDefinition
         flexDirection: "column"
     })
 
+    // extend the vbox class
     sidebar = css.$class({ "+": this.vbox,
         position: "absolute",
         width: "15em",
@@ -74,9 +75,10 @@ class MyStyles extends css.StyleDefinition
     })
 
     standout = css.$class({
-        boxShadow: "10px 5px 5px red"
+        boxShadow: { blur: 4, color: "red" }
     })
 
+    // extend two clases: sidebar and standout
     rightbar = css.$class({ "+": [this.sidebar, this.standout],
         width: "10em",
         left: "1em"
@@ -112,7 +114,7 @@ The above code is equivalent to the following CSS (except that actual names woul
     position: absolute;
     width: 10em;
     height: 50em;
-    box-shadow: 10px 5px 5px red;
+    box-shadow: 0 0 4px red;
     left: 1em;
 }
 ```
@@ -143,47 +145,38 @@ td > .mydiv, li > .mydiv {
     padding: 0;
 }
 
+.mydiv#solid {
+    border: solid;
+}
+
 .mydiv > .myspan {
     border: dashed;
 }
 ```
 
-Mimcss supports such dependent and related rules via an easy-to-use construct using special properties of the `ExtendedStyleset` type. Here is how the above CSS would be implemented in Mimcss:
+Mimcss supports such dependent and related rules via an easy-to-use construct using special properties of the `ExtendedStyleset` type. First let's see how pseudo styles and pseudo elements are specified.
+
+
+#### Pseudo Classes and Pseudo Elements
+Mimcss allows names of all pseudo entities as properties in the `ExtendedStyleset`. The value of these properties is another `ExtendedStyleset`, so that the process of defining dependent rules is recursive. Here is how the `:hover` pseudo class from the example above is defined:
 
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    myspan = css.$class({ padding: 4 })
-
     mydiv = css.$class({
         backgroundColor: "white",
         padding: 4,
-        ":hover": { backgroundColor: "pink" },
-        "&": [
-            [ "tr > &, li > &", { padding: 0 }],
-            [ css.$selector("& > {0}", this.myspan), { border: "dashed" }]
-        ]
+        ":hover": { backgroundColor: "pink" }
     })
 }
 ```
-
-Here is what's happening here:
-
-1. The class `myspan` is defined with a regular style property `padding`.
-1. The class `mydiv` is defined with two regular style properties: `backgroundColor` and `padding`.
-1. A special property `":hover"` specifies a styleset that will be assigned to a selector that is obtained by appending the string `":hover"` to the class name. Mimcss allows names of all pseudo styles and pseudo elements as properties in the `ExtendedStyleset`.
-1. A special property `"&"` specifies an array of two-element tuples, where the first element is a selector and the second element is a styleset assigned to this selector. Every occurrence of the ampersand symbol in the selector string will be replaced with the selector one level above - in our case the actual class name behind the `mydiv` property.
-1. The second tuple uses the `$selector` function to create a selector that combines two classes. As in the first tuple, the ampersand symbol stands for the class name behind the `mydiv` property. The placeholder `{0}` will be replaced by the class name behind the `myspan` class. The `$selector` function allows specifying multiple placeholders; therefore, it is possible to create arbitrary complex selectors that involve multiple classes, IDs, tags, pseudo classes and pseudo elements.
 
 The `ExtendedStyleset` type allows creating hierarchical structures with unlimited nesting levels so that expressing the following CSS is quite easy:
 
 ```css
 a { color: blue; }
-
 a:first-child { color: green; }
-
 a:first-child:visited { color: pink; }
-
 a:first-child:visited:hover { color: maroon; }
 ```
 
@@ -192,7 +185,7 @@ Here is the Mimcss code:
 ```tsx
 class MyClass extends css.StyleDefinition
 {
-    anchor = css.$tag( "a", { color: "blue",
+    anchor = css.$style( "a", { color: "blue",
         ":first-child": { color: "green",
             ":visited": { color: "pink",
                 ":hover" { color: "maroon" }
@@ -201,6 +194,70 @@ class MyClass extends css.StyleDefinition
     })
 }
 ```
+
+#### Complex Dependent Selectors
+To support complex selectors, Mimcss uses a special property `"&"`, which specifies an array of two-element tuples, where the first element is a selector and the second element is a styleset assigned to this selector. Every occurrence of the ampersand symbol in the selector string will be replaced with the selector one level above - a.k.a. parent selector.
+
+The selector in the first element of each tuple can be of several types: all of them are used to produce a selector string within which any occurrence of the ampersand symbol will be replaced with the parent selector.
+
+- String.
+- Class rule object. The selector string is obtained by taking the class name and prefixing it with the dot symbol.
+- ID rule object. The selector string is obtained by taking the ID name and prefixing it with the pound sign.
+- Style rule object. The selector string is the rule's selector.
+- `$selector` function - allows composing selectors from many components in the `printf` style.
+- Array of the above. The selector string is obtained by getting selector strings of the array items and concatenating them.
+
+Here is how the second part of our CSS example above is expressed in Mimcss:
+```tsx
+class MyStyles extends css.StyleDefinition
+{
+    myspan = css.$class({ padding: 4 })
+    solid = css.$id();
+
+    mydiv = css.$class({
+        backgroundColor: "white",
+        padding: 4,
+        "&": [
+            [ "tr > &, li > &", { padding: 0 }],
+            [this.solid, { border: "solid" }],
+            [ css.$selector("& > {0}", this.myspan), { border: "dashed" }]
+        ]
+    })
+}
+```
+
+The second tuple specifies the ID rule object. The selector string obtained for this object is `"#solid` and it doesn't specify any ampersand symbols. In this case, this string is simply appended to the parent selector.
+
+The third tuple uses the `$selector` function to create a selector that combines two classes. As in the first tuple, the ampersand symbol stands for the class name behind the `mydiv` property. The placeholder `{0}` will be replaced by the class name behind the `myspan` class. The `$selector` function allows specifying multiple placeholders; therefore, it is possible to create arbitrary complex selectors that involve multiple classes, IDs, tags, pseudo classes and pseudo elements.
+
+#### Selector Combinators
+The `$selector` function allows building very complex selectors; however, it is quite verbose. For simpler cases, the `ExtendedStyleset` type provides several *combinator* properties that make it easy to combine the "parent" selector with another selector. These combinator properties are named using the ampersand symbol prefixed or followed by one of the CSS selector combinator symbols:
+
+- `"& "` and `" &"` for descendants
+- `"&>"` and `">&"` for immediate children
+- `"&+"` and `"+&"` for adjacent siblings
+- `"&~"` and `"~&"` for general siblings
+- `"&,"` and `",&"` for selector lists
+
+With these properties, it is easy to specify selectors that combine the parent selector with a single class or element ID without using the `$selector` function.
+
+```tsx
+class MyStyles extends css.StyleDefinition
+{
+    cls1 = css.$class({})
+
+    cls2 = css.$class({
+        // will produce selector .cls2.cls1
+        "&": [[ this.cls1, { color: "red" } ]]
+
+        // will produce selector .cls2 > .cls1
+        "&>": [[ this.cls1, { color: "green" } ]]
+
+        // will produce selector .cls1 + .cls2
+        "+&": [[ this.cls1, { color: "blue" } ]]
+    })
+```
+
 
 ### "!important" Style Properties
 CSS allows adding the `!important` flag to any style property to increase its specificity. Since for many style properties Mimcss doesn't include the `string` type, there is no easy way to specify the `!important` flag in the property value. Instead, Mimcss provides a special property `"!"` in the `ExtendedStyleset` type, which allows specifying names of properties for which the `!important` flag should be added.

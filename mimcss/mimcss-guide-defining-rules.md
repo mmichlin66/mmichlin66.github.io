@@ -10,7 +10,7 @@ In regular CSS a unit of style definition is a rule. There are regular style rul
 
 In Mimcss, a stylesheet is represented by a class - called a Style Definition class. Individual rules are defined as properties of a style definition class. More precisely, a property of a style definition class can either define a single rule or be an array of rules. If the property defines a single rule, it is called a named rule because the property name allows referring to the rule by the property name. If a property is an array of rules, those rules are called unnamed rules because there is no property by which individual rules can be addressed.
 
-There are four rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names to which these rules are attached become the names by which these rules are referred to from the HTML rendering code.
+There are some rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names to which these rules are attached become the names by which these rules are referred to from the HTML rendering code.
 
 ## Style Definitions
 Let's create a simple style definition class:
@@ -22,7 +22,7 @@ class MyStyles extends css.StyleDefinition
 {
     init = [
         css.$style( "*", { boxSizing: "border-box" }),
-        css.$tag( "body", { height: "100%", margin: 0 }),
+        css.$style( "body", { height: "100%", margin: 0 }),
     ]
 
     vbox = css.$class({ display: "flex", flexDirection: "column" })
@@ -39,7 +39,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$tag`, `$class`, `$id` functions define style rules where the selector is a tag, a class and an element ID respectively. The `$var` function defines a custom CSS property. The `$animation` function defines a @keyframes rule.
+Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$class` and `$id` functions define style rules where the selector is a class and an element ID respectively. The `$var` function defines a custom CSS property. The `$animation` function defines a @keyframes rule.
 
 The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is not used in any way.
 
@@ -52,9 +52,11 @@ By now we have defined our rules with a TypeScript class; however, how do we ins
 let myStyles = css.$activate( MyStyles);
 ```
 
-Notice that we passed the class object to the `$activate` function - we didn't need to create an instance of the class by ourselves.
+Notice that we passed the class object to the `$activate` function - we didn't create an instance of the class by ourselves. There are special situations in which you will want to create instances of the style definition class (see Styled Components later in this guide); however, normally you pass the class object to the `$activate` function and Mimcss creates an instance of it.
 
-The result of the above call is two-fold: first, the rules defined in the class are inserted into the DOM, and second, the `myStyles` variable can now be used to refer to rule names. Here is how we do it in a hypothetical HTML rendering code:
+The `$ctivate` function can be invoked multiple times for the same class - Mimcss makes sure that only a single instance is created and the rules are inserted into the DOM only once.
+
+The result of the `$activate` call is two-fold: first, the rules defined in the class are inserted into the DOM, and second, the `myStyles` variable can now be used to refer to rule names. Here is how we do it in a hypothetical HTML rendering code:
 
 ```tsx
 render()
@@ -73,7 +75,7 @@ If the `$activate` function inserts the rules into the DOM, the `$deactivate` fu
 css.$deactivate( myStyles);
 ```
 
-The `$activate` and `$deactivate` functions  use internal reference count. If you call the `$activate` function several times on the same style definition class, the styles will only be inserted once into the DOM. However, in order to remove them from the DOM, the `$deactivate` function has to be called the same number of times.
+The `$activate` and `$deactivate` functions use the reference counting mechanism. If you call the `$activate` function several times on the same style definition class, the styles will only be inserted once into the DOM. However, in order to remove them from the DOM, the `$deactivate` function has to be called the same number of times.
 
 In many cases, the rules don't need to be removed from the DOM and should stay active for the lifetime of the application. There are, however, situations when a set of CSS rules is only used by a specific component. In this case, it is desirable that the styles will be inserted into DOM only when the component is mounted. Moreover, when the component is unmounted, it is desirable to remove the rules from the DOM. In Mimcss, this can be accomplished by placing the calls to the `$activate` and `$deactivate` functions into the mounting and unmounting code respectively, for example:
 
@@ -94,8 +96,8 @@ class MyComponent
 
     render()
     {
-        return <div class={this.styles.classes.vbox}>
-            <div id={this.styles.ids.standout}>Hello!</div>
+        return <div class={this.styles.vbox.name}>
+            <div id={this.styles.standout.name}>Hello!</div>
         </div>
     }
 }
@@ -148,11 +150,11 @@ In the top-level class, we defined a custom CSS variable that defines font color
 
 
 ## Other CSS Rules
-Mimcss supports all CSS rules except @charset - the latter is not needed because developers don't actually write text-based CSS files. We already covered style and grouping rules. What's left are rules like @import and @font-face.
+Mimcss supports all CSS rules except @charset - the latter is not needed because developers don't actually write text-based CSS files. We already covered style and grouping rules. What's left are rules like @import, @namespace, @font-face and @page.
 
-The @import rule allows bringing in an external CSS sheet from a given URL. Mimcss is not "all or nothing" library: it allows peaceful coexistence with regular CSS files - whether defined in the same project or as external resources.
+The @import rule allows bringing in an external CSS sheet from a given URL. Mimcss is not "all or nothing" library: it can coexist with regular CSS files - whether defined in the same project or as external resources.
 
-Mimcss supports the @import rule via the `$import` function and @font-face rules via the `$fontface` function. Since these rules don't have names, they can be placed in an array along with each other and with other "unnamed" rules:
+Mimcss supports the @import , @namespace, @font-face and @page via the `$import`, `$namespace`, `$fontface` and `$page` functions respectively. Since these rules don't produce names, they can be placed in an array along with each other and with other "unnamed" rules:
 
 ```tsx
 class MyStyles extends css.StyleDefinition
@@ -160,18 +162,24 @@ class MyStyles extends css.StyleDefinition
     unnamed = [
         css.$import( "http://3rd.party.com/stylesheet.css"),
 
+		css.$namespace( css.WebNamespaces.SVG, "svg"),
+
         css.$fontface({
             fontFamily: "Roboto",
             fontWeight: 700,
             src: [ {url: "roboto.woff", format: "woff"} ]
-        }
+        })
+
+        css.$page( ":first", {
+            margin: ["3in", "1in"]
+        })
     ]
 }
 ```
 
-Under the CSS specification, @import rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first - regardless of their position in the style definition class. Mimcss will ignore any @import rules specified under the nested grouping rules, such as @media and @supports - also in accordance with the CSS specification.
+Under the CSS specification, @import and $namespace rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first and the @namespace rules second, followed by other rules - regardless of their position in the style definition class. Mimcss will ignore any @import and @namespace rules specified under the nested grouping rules, such as @media and @supports - also in accordance with the CSS specification.
 
-Mimcss also supports the @page and @namespace rules in a similar manner.
+The majority of CSS rules require specifying values for the style properties and that's what the next unit will cover.
 
 
 

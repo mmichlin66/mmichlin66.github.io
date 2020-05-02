@@ -17,7 +17,7 @@ The second method of assigning names is called **Unique**. It creates names by a
 The default mode is **Scoped**. In order to switch to the Unique mode, the application should call the Mimcss's `$enableOptimizedStyleNames` function. This function accepts an optional `prefix` parameter that can specify the prefix to be used for generating unique names. The `$enableOptimizedStyleNames` function must be called very early in the application life because the mode must be set before any style definition classes are processed.
 
 ## Name Scoping
-Different classes can define properties with identical names and they will be unique when applied to HTML. We call it *name scoping*, which means that names are scoped to the style definition classes.
+Different style definition classes can define properties with identical names and they will be unique when applied to HTML. We call it *name scoping*, which means that names are scoped to the style definition classes.
 
 Consider the following example, where we have two classes (that might be coming from different libraries):
 
@@ -51,10 +51,10 @@ render()
 
 Although the names of the properties defining the CSS classes are the same, Mimcss will use different names when creating CSS rules and inserting them into the DOM.
 
-Under the Scoped mode, the string value of the `myStyles.classNames.emphasized` property will be `".MyStyles_emphasized"`, while the string value of the `otherStyles.classNames.emphasized` property will be `".OtherStyles_emphasized"`. Under the Unique mode, the names might be created as `n25` and `n73`. This would be obviously much more difficult to debug.
+Under the Scoped mode, the string value of the `myStyles.emphasized.name` property will be `".MyStyles_emphasized"`, while the string value of the `otherStyles.emphasized.name` property will be `".OtherStyles_emphasized"`. Under the Unique mode, the names might be created as `n25` and `n73`. This would be obviously much more difficult to debug.
 
 ## Explicit Names
-There are situations when we need to bypass the Mimmcss's name auto-generation. One use case is when we want to override a name that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
+There are situations when we need to bypass the Mimmcss name auto-generation. One use case is when we want to override a clas that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
 
 ```tsx
 class MyStyles extends css.StyleDefinition
@@ -103,13 +103,15 @@ render()
    </div>
 ```
 
-We have two properties named `box`: the first one is defined at the top level of the class definition, and the second one - inside the @media rule. The names assigned by Mimcss must be the same for both properties. Mimcss solves this problem with a simple convention: within the same style definition class, if a grouping rule is assigned to a property with the same name as the property at the top level, the same actual name will be assigned to them.
+We have two properties named `box`: the first one is defined at the top level of the class definition, and the second one - inside the @media rule. The names assigned by Mimcss must be the same for both properties.
 
-In the example above, when Mimcss processes the `MyStyle` the `box` property gets assigned a name first. When the second `box` property is encountered, Mimcss finds this name at the top level and assigns it to the second property too.
+Mimcss solves this problem with a simple convention: within the same style definition class, if a rule inside a grouping rule is assigned to a property with the same name as the property at the top level, the same actual name will be assigned to them.
+
+In the example above, when Mimcss processes the `MyStyle` class the `box` property gets assigned a name first. When the second `box` property is encountered, Mimcss finds this name at the top level and assigns it to the second property too.
 
 ## Style Definition Class Inheritance
 
-Style definition classes are regular classes and thus support inheritance. Mimcss uses the inheritance mechanism to achieve style virtualization, which allows changing entire style theme with very little code.
+Style definition classes are regular TypeScript classes and thus support inheritance. Mimcss uses the inheritance mechanism to achieve style virtualization, which allows changing entire style theme with very little code.
 
 Let's look at a simple example and see what Mimcss does in the presence of inheritance:
 
@@ -145,7 +147,7 @@ class Derived extends Base
 let derived = css.$activate(Derived);
 ```
 
-There will be a single name generated for the `derived.classes.textInput` variable. The name will be `Base_textInput`; however, the style will be `{ padding: 8 }`. Thus, the name is generated based on the class where the rule is defined, while the style is taken from the class that has the override.
+There will be a single name generated for the `derived.textInput.name` variable. The name will be `Base_textInput`; however, the style will be `{ padding: 8 }`. That is, the name is generated based on the class where the rule is defined, while the style is taken from the class that has the override.
 
 Let's now have another style definition class that derives from the same `Base` class:
 
@@ -158,7 +160,7 @@ class AnotherDerived extends Base
 let anotherDerived = css.$activate(AnotherDerived);
 ```
 
-As is probably expected, the `anotherDerived.classes.textInput` will have the name `Base_textInput` and the style `{ padding: 16 }`. Thus no matter how many different derived classes we may have, they will all use the same name for the inherited properties but different styles assigned to them. This is actually in full conformance with Object-Oriented Programming paradigm and this allows us to achieve what we call "style virtualization".
+As is probably expected, the `anotherDerived.textInput.name` will have the name `Base_textInput` and the style `{ padding: 16 }`. Thus no matter how many different derived classes we may have, they will all use the same name for the inherited properties but different styles assigned to them. This is actually in full conformance with Object-Oriented Programming paradigm and this allows us to achieve what we call "style virtualization".
 
 The idea of "style virtualization" is to have a base "interface" that "declares" several CSS style rules and have multiple "implementations" of this interface that "implement" these rules by providing actual styles. When we need CSS classes IDs, animations and custom properties in our code, we will use the names provided by the interface. Then we can activate either this or that implementation and, voila - we can completely change the styling of our application with very little code.
 
@@ -206,16 +208,17 @@ class BeigeTheme extends Theme
 theme = css.$activate( BlueTheme);
 ```
 
-As our "interface" we defined an abstract style definition class `Theme`. It has three abstract properties: two for custom CSS properties and one for a CSS class. Note that we didn't specify any styles for them. We are using them only to define types and names. We also created a non-abstract rule that applies for all `<input>` tags, which uses our abstract custom CSS properties to specify background and foreground colors.
+As our "interface", we defined an abstract style definition class `Theme`. It has three abstract properties: two for custom CSS properties and one for a CSS class. Note that we didn't specify any styles for them. We are using them only to define types and names. We also created a non-abstract rule that applies for all `<input>` tags, which uses our abstract custom CSS properties to specify background and foreground colors.
 
-> We don't really need the 'abstract' modifier; however, it is very useful because it forces the derived classes to override these properties.
+> We don't have to use the 'abstract' modifier; however, it is very useful because it forces the derived classes to override these properties.
 
-We then declared a variable `theme` of the type `Theme`. This is the same type that is returned from the `$activate` function. Although we didn't activate any styles, declaring a variable of this type tells the TypeScript compiler that it will have access to all the names and rules defined in `Theme`. So, we can now write our rendering code and use `theme.label.name` as a CSS class name.
+We then declared a variable `theme` of the type `Theme`. Although we didn't activate any styles, declaring a variable of this type tells the TypeScript compiler that it will have access to all the names and rules defined in `Theme`. So, we can now write our rendering code and use `theme.label.name` as a CSS class name.
 
-We then defined two classes - `BlueTheme` and `BeigeTheme` - which derived from the abstract `Theme` class and override the abstract properties with different styles. Then we activates the `BlueTheme` class as our initial theme.
+We then defined two classes - `BlueTheme` and `BeigeTheme` - which derived from the abstract `Theme` class and override the abstract properties with different styles. Then we activated the `BlueTheme` class as our initial theme.
 
 All what is left to write is the code that allows the user to choose one of the two themes, deactivate the current theme and activate the new one.
 
+Note that a theme is just a TypeScript class that derives from the `Theme` class. This opens a door to easily "externalize" creation of themes - they can be created by 3rd-party vendors and delivered as regular JavaScript package.
 
 
 
