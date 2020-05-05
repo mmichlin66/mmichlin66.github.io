@@ -55,7 +55,7 @@ li {
 .hbox > .elastic
 {
 	flex: 1 1 0; /* will grow and shrink to occupy all available space between non-elastic items */
-	overflow: auto; /* without this it will still growbeyond the box if content is big enough */
+	overflow: auto; /* without this it will still grow beyond the box if content is big enough */
 }
 
 .vbox.spacing > * {
@@ -83,13 +83,13 @@ li {
 	min-width: 400px;
 	display: flex;
 	flex-direction:column;
-	margin: 0 auto;
+	margin: 0 auto 0 0;
 }
 
 .simple-container {
 	width: 100%;
 	min-width: 400px;
-	max-width: 900px;
+	max-width: 1000px;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -105,17 +105,17 @@ li {
 	display: flex;
 	flex-direction: row;
 	/* align-items: flex-start; */
-	margin: 0 auto;
+	margin: 0 auto 0 0;
 }
 
 .left-sidebar {
 	width: 20%;
-	min-width: 100px;
+	min-width: 200px;
 	max-width: 300px;
 	display: flex;
 	flex-direction: column;
-	margin-left: auto;
-	margin-right: 0.5em;
+	margin-left: 1em;
+	margin-right: 1em;
 	margin-top: 1em;
 	margin-bottom: auto;
 	border-radius: 8px;
@@ -139,7 +139,7 @@ li {
 	overflow: auto;
 	width: 80%;
 	min-width: 300px;
-	max-width: 900px;
+	max-width: 1000px;
 	display: flex;
 	flex-direction: column;
 	padding: 8px;

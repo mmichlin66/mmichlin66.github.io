@@ -174,7 +174,7 @@ abstract class Theme extends css.StyleDefinition
 
     abstract label = css.$class();
 
-    input = css.$tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
+    input = css.$style( "input", { backgroundColor: this.bgColor, color: this.frColor })
 }
 
 let theme: Theme = null;

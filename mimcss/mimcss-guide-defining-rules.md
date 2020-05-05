@@ -140,7 +140,7 @@ class MyStyles extends css.StyleDefinition
     ifSmallScreen = css.$media( { maxWidth: 600 },
         class extends css.StyleDefinition<MyStyles>
         {
-            p = css.$tag( "p", { color: this.owner.defultColor })
+            p = css.$style( "p", { color: this.owner.defultColor })
         }
     )
 }

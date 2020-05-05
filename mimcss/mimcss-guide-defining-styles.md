@@ -6,7 +6,7 @@ title: "Mimcss Guide: Defining Styles"
 
 # Mimcss Guide: Defining Styles
 
-## Style Rules and Styleset
+## Styleset
 Styles are defined using style rules, which usually accept some kind of selector and an object that gives values to a set of standard CSS style properties - such as `color`, `margin`, etc. This object is called a *styleset* and is defined by Mimcss using the `Styleset` type.
 
 The `Styleset` type contains every short-hand and long-hand style property defined by the CSS standard and, if there are omissions or the Mimcss library hasn't caught up with the latest standard yet, there is a way to add the missing properties using the TypeScript's module augmentation technique.
@@ -46,12 +46,40 @@ class MyStyles extends css.StyleDefinition
 
 Mimcss strives to avoid defining `string` as property type, especially for those properties that have a lot of keyword values such as `justify-items`, `cursor`, `list-style-type`, `border-style`, etc. If `string` is among the possible property types, then first, the autocomplete feature doesn't work, and second, misspellings are not detected at compile time. Ultimately, the decision whether or not to have `string` for a property type is a trade-off between the above considerations and the developer's convenience. For example, specifying the `border` property value as a string in `button2` is arguably easier than using an array as in `button3` even though the autocomplete works for the `"solid"` and `"brown"` strings. Similarly, since there are so many different units for specifying lengths, Mimcss allows the `string` type for properties such as `padding`, `width`, `line-height`, etc.
 
-## Extended Styleset
-The functions that create style rules - such as `$style`, `$class`, `$id` and `$tag`, accept not just the `Styleset` type described above, but an extended variant of it called `ExtendedStyleset`. The `ExtendedStyleset` type adds a number of properties to the `Styleset` type, which allow for the following features:
+### Styleset Special Properties
+The `Styleset` type defines several properties that do not correspond to any CSS style, which means they don't have counterparts in the `CSSStyleDeclaration` type. These properties are used to provide special functionality:
 
-- A styleset can specify that it *extends* (*composites*, *inherits*, *derives from*) one or more stylesets defined by other style rules.
-- A styleset can have *dependent* (a.k.a. *nested*) stylesets for pseudo classes, pseudo elements and other kinds of selectors related to the CSS entity for which the style rule is defined.
-- A styleset can specify that some properties should have the `!important` flag.
+- The `"--"` property allows specifying defining CSS custom properties.
+- The `"!"` property allows specifying that some properties should have the `!important` flag.
+
+The `"--"` property will be explained in the [Custom Properties](mimcss-guide-custom-properties.html) unit.
+
+CSS allows adding the `!important` flag to any style property to increase its specificity. Since for many style properties Mimcss doesn't include the `string` type, there is no easy way to specify the `!important` flag in the property value. Instead, Mimcss provides a special property `"!"` in the `ExtendedStyleset` type, which allows specifying names of properties for which the `!important` flag should be added.
+
+```tsx
+class MyClass extends css.StyleDefinition
+{
+    widthIsImportant = css.$class({
+        minWidth: 20,
+        maxWidth: 120,
+        "!": ["minWidth", "maxWidth"]
+    })
+
+    onlyMinHeightIsImportant = css.$class({
+        minHeight: 20,
+        maxHeight: 120,
+        "!": "minHeight"
+    })
+}
+```
+
+The value of the `"!"` property is either a single name or an array of names of CSS properties. Note that Mimcss only allows valid names of CSS properties and not just arbitrary strings, so that misspellings are caught at compile time.
+
+## Extended Styleset
+The functions that create style rules - such as `$style`, `$class` and `$id` - accept not just the `Styleset` type described above, but an extended variant of it called `ExtendedStyleset`. The `ExtendedStyleset` type adds a number of properties to the `Styleset` type, which allow for the following features:
+
+- Extended styleset can specify that it *extends* (*composites*, *inherits*, *derives from*) one or more stylesets defined by other style rules.
+- Extended styleset can have *dependent* (a.k.a. *nested*) stylesets for pseudo classes, pseudo elements and other kinds of selectors related to the CSS entity for which the style rule is defined.
 
 These features are discussed in details in the following sections.
 
@@ -258,28 +286,6 @@ class MyStyles extends css.StyleDefinition
     })
 ```
 
-
-### "!important" Style Properties
-CSS allows adding the `!important` flag to any style property to increase its specificity. Since for many style properties Mimcss doesn't include the `string` type, there is no easy way to specify the `!important` flag in the property value. Instead, Mimcss provides a special property `"!"` in the `ExtendedStyleset` type, which allows specifying names of properties for which the `!important` flag should be added.
-
-```tsx
-class MyClass extends css.StyleDefinition
-{
-    widthIsImportant = css.$class({
-        minWidth: 20,
-        maxWidth: 120,
-        "!": ["minWidth", "maxWidth"]
-    })
-
-    onlyMinHeightIsImportant = css.$class({
-        minHeight: 20,
-        maxHeight: 120,
-        "!": "minHeight"
-    })
-}
-```
-
-The value of the `"!"` property is either a single name or an array of names of CSS properties. Note that Mimcss only allows valid names of CSS properties and not just arbitrary strings, so that misspellings are caught at compile time.
 
 ## Referencing External Style Definitions
 So far we used a single style definition class in our examples. In practice, it is usually desirable to divide application styles into several areas and use a separate style definition class for each of them. The styles defined by these classes are not usually completely isolated from one another though; that is, rules from one definition class may need to use the rules from another one. For example, a rule in class *A* may need to extend the rule from class *B* or a selector may need to combine CSS classes from two or more style definition classes.

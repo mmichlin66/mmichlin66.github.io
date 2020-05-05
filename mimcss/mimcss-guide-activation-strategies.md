@@ -17,7 +17,7 @@ These two factors are contradictory: the first factor calls for having only thos
 The general approach is, as usual, a trade off: the styles that are used throughout your application should be inserted once and never removed, while the styles that are only used by a certain component should be inserted only when the component is mounted and removed immediately (or soon) after the component is unmounted.
 
 ## Immediate Activation
-The first approach is probably the simplest and it is as close to the behavior of the CSS files as possible. In this approach, the activation is performed as soon as the style definition class is written:
+The first approach is probably the simplest and is as close to the behavior of the CSS files as possible. In this approach, the activation is performed as soon as the style definition class is written:
 
 ```tsx
 class CommonStyles extends css.StyleDefinition
@@ -28,12 +28,12 @@ class CommonStyles extends css.StyleDefinition
 export let commonStyles = css.$activate( CommonStyles);
 ```
 
-The style definition class does not even have to be exported - we only export the activated stylesheet object. The rules are activated as soon as the code is loaded. This is similar in behavior to loading CSS files using the `<link>` element in HTML - the rules are loaded and activated by the browser at the application start up.
+The rules are activated as soon as the code is loaded. This is similar in behavior to loading CSS files using the `<link>` element in HTML - the rules are loaded and activated by the browser at the application start up.
 
-This approach is suitable for the shared styles that are used throughout the application. These can include definitions of custom CSS properties with application-wide defaults and most common layout and styling rules. Although the stylesheet can be deactivated it is usually not needed.
+This approach is suitable for the shared styles that are used throughout the application. These can include definitions of custom CSS properties with application-wide defaults and most common layout and styling rules. Although the stylesheet can be deactivated, this is usually not needed.
 
 ## Explicit Activation
-In this approach, the style definition classes are exported but the `$activate` function is called only at certain points in the application - usually when the user navigates to a relevant part of the application. Depending on the application needs styles can be deactivated when navigating to the part of the application that doesn't need them.
+In this approach, the `$activate` function is called only at certain points in the application - usually when the user navigates to a relevant part of the application. Depending on the application needs styles can be deactivated when navigating to the part of the application that doesn't need them.
 
 Imagine an application that allows users to enter data into forms and also see reports and charts. It is conceivable that styles for input controls would be rather different from the styles needed to format tables and from the styles needed for charts.
 
