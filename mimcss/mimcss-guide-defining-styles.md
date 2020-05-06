@@ -6,6 +6,16 @@ title: "Mimcss Guide: Defining Styles"
 
 # Mimcss Guide: Defining Styles
 
+* [Styleset](#styleset)
+* [Styleset Special Properties](#styleset-special-properties)
+* [Extended Styleset](#extended-styleset)
+* [Reusing Styles](#reusing-styles)
+* [Dependent Styles](#dependent-styles)
+* [Pseudo Classes and Pseudo Elements](#pseudo-classes-and-pseudo-elements)
+* [Complex Dependent Selectors](#complex-dependent-selectors)
+* [Selector Combinators](#selector-combinators)
+* [Referencing External Style Definitions](#referencing-external-style-definitions)
+
 ## Styleset
 Styles are defined using style rules, which usually accept some kind of selector and an object that gives values to a set of standard CSS style properties - such as `color`, `margin`, etc. This object is called a *styleset* and is defined by Mimcss using the `Styleset` type.
 

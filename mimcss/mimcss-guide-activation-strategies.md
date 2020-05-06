@@ -6,6 +6,10 @@ title: "Mimcss Guide: Activation Strategies"
 
 # Mimcss Guide: Activation Strategies
 
+* [Immediate Activation](#immediate-aActivation)
+* [Explicit Activation](#explicit-activation)
+* [Just-in-time Activation](#just-in-time-activation)
+
 In the previous sections, we saw that rules are defined using rule definition classes and that the `$activate` function is called to insert the CSS rules into the DOM. The `$deactivate` function can be called at a later moment to remove the rules from the DOM. The question arises when we should call these functions. There is no a single answer that is good for all situations and this unit lists several of these situations and suggest an activation strategy for them.
 
 We should consider the following factors of the activation process:

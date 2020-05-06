@@ -6,6 +6,13 @@ title: "Mimcss Guide: Defining Rules"
 
 # Mimcss Guide: Defining Rules
 
+* [Rule Definitions](#rule-definitions)
+* [Style Definitions](#style-definitions)
+* [Rules Activation](#rules-activation)
+* [Grouping Rules](#grouping-rules)
+* [Other Rules](#other-rules)
+
+## Rule Definitions
 In regular CSS a unit of style definition is a rule. There are regular style rules that define a selector followed by a styleset, and at-rules: @import, @font-face, @keyframes, @media, @supports and others. Rules such as @media and @support are conditional grouping rules; that is, they define a condition and a set of nested rules, which, in turn, might be style rules or at-rules. Multiple rules are combined into a CSS file, which is sometimes called a stylesheet.
 
 In Mimcss, a stylesheet is represented by a class - called a Style Definition class. Individual rules are defined as properties of a style definition class. More precisely, a property of a style definition class can either define a single rule or be an array of rules. If the property defines a single rule, it is called a named rule because the property name allows referring to the rule by the property name. If a property is an array of rules, those rules are called unnamed rules because there is no property by which individual rules can be addressed.
@@ -107,7 +114,7 @@ What if multiple instances of the component are used at the same time? No proble
 
 There are more sophisticated activation strategies possible and they are discussed in [Activation Strategies](mimcss-guide-activation-strategies.html) unit.
 
-## CSS Grouping Rules
+## Grouping Rules
 CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled in the same way as the top-level style definition class. The only difference is that for the grouping rules it is beneficial (but optional) to pass the class name of the parent as a generic parameter. Here is an example of the @media rule:
 
 ```tsx
@@ -149,7 +156,7 @@ class MyStyles extends css.StyleDefinition
 In the top-level class, we defined a custom CSS variable that defines font color and in the @media rule, we referred to it using the `this.owner.defaultColor` notation. Since we defined `MyStyles` class as a generic parameter for the StyleDefinition, the TypeScript compiler knows the type of the `owner` property and will help us with the autocomplete feature.
 
 
-## Other CSS Rules
+## Other Rules
 Mimcss supports all CSS rules except @charset - the latter is not needed because developers don't actually write text-based CSS files. We already covered style and grouping rules. What's left are rules like @import, @namespace, @font-face and @page.
 
 The @import rule allows bringing in an external CSS sheet from a given URL. Mimcss is not "all or nothing" library: it can coexist with regular CSS files - whether defined in the same project or as external resources.
