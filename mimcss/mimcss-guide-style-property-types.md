@@ -64,7 +64,7 @@ The goal of Mimcss is to boost the developers' productivity by increasing conven
     }
     ```
 
-- All properties accept the result of the `css.raw()` function, which serves as an escape hatch when there is a need to specify a string value for a property that normally doesn't accept the `string` type.
+- All properties accept the result of the `css.raw()` function, which serves as an escape hatch when there is a need to specify a string value for a property that normally doesn't accept the `string` type. Note that the `raw()` function is a *tag* function and must be invoked with the template string without parentheses.
 
 ## Numeric Types
 CSS defines the `<number>` type for unitless numbers and several numeric types which require unit specification, e.g. `<length>`, `<angle>`, `<percent>`, etc. For each of these types, Mimcss defines a TypeScript type, which serves dual purpose:
@@ -133,20 +133,20 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-The `calc()` function accepts arbitrary number of parameters where the first one is a string template that contains placeholders and the rest are the parameters of the corresponding numeric type that will substitutes the placeholders. The return value can only be assigned to the property of the compatible type.
+The `calc()` function accepts arbitrary number of parameters where the first one is a string template that contains placeholders and the rest are the parameters of the corresponding numeric type that will substitutes the placeholders. The return value can only be assigned to the property of the compatible type. Note that the `calc()` function is a *tag* function and must be invoked with the template string without parentheses.
 
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
     // This will work because the 'Len.calc()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.Len.calc( "(100% - {0} - {1}) / 2", 100, css.Len.cm(2)) })
+    cls1 = css.$class({ left: css.Len.calc`(100% - ${100} - ${css.Len.cm(2)}) / 2` })
 
     // This will NOT work because the type of the second parameter is not compatible with the 'Len.calc()'
     // function parameter type
-    cls2 = css.$class({ left: css.Len.calc( "(100% - {0} - {1}) / 2", 100, css.Angle.deg(30)) })
+    cls2 = css.$class({ left: css.Len.calc`(100% - ${100} - ${css.Angle.deg(30)}) / 2` })
 
     // This will NOT compile because the 'Angle.calc()' function returns type incompatible with the 'left' property
-    cls3 = css.$class({ left: css.Angle.calc( "(100% - {0} - {1}) / 2", 100, css.Angle.deg(30)) })
+    cls3 = css.$class({ left: css.Angle.calc`(100% - ${100} - ${css.Angle.deg(30)}) / 2` })
 }
 ```
 
@@ -182,7 +182,7 @@ class MyStyles extends css.StyleDefinition
     cls5 = css.$class({ color: css.alpha( "red", 0.5) })
 
     // raw() function
-    cls6 = css.$class({ color: css.raw( "#CCC") })
+    cls6 = css.$class({ color: css.raw`#CCC` })
 }
 ```
 
@@ -279,7 +279,12 @@ The following list gives a brief description of the complex properties:
 
     In addition to the object notaion, Mimcss implements functions, for example `animation()`, which accept the same parameters as the object types and provide convenient default values. As with object notation, developers can use any allowed methods for the parameter values.
     
+- For properties using images such as `background-image`, `list-style-image`, `cursor`, etc., Mimcss provides implementations of the functions listed under the `<image>` CSS type. This includes `url()`, `linearGradient()` `conicGradient()` and their variants.
 
+- For the `transform` property, Mimcss provides implementations of the functions listed under the `<transform-function>` CSS type. This includes `matrix()`, `perspective()` `rotate()`, `scale()`, `skew()`, `translate()` and their variants.
 
+- For the `filter` and `backdrop-filter` properties, Mimcss provides implementations of the functions listed under the `<filter-function>` CSS type. This includes `blur()`, `brightness()` `contrast()`, `dropShadow()`, `grayscale()`, `hueRotate()`, `invert()`, `opacity()`, `saturate()` and `sepia()`.
+
+- For the `clip-path`, `shape-outside` and `offset-path` properties, Mimcss provides implementations of the functions listed under the `<basic-shape>` CSS type. This includes `inset()`, `circle()` `ellipse()` and `polygon()`.
 
 

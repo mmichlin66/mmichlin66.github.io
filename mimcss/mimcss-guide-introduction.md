@@ -6,7 +6,7 @@ title: "Mimcss Guide: Introduction"
 
 # Mimcss Guide: Introduction
 
-Mimcss is a TypeScript library that allows authoring CSS styles without creating CSS files. Instead, the styles are created via TypeScript programming. You code your styling rules including CSS classes, selectors, animations, media etc. by creating TypeScript classes. The Mimcss library processes these classes and creates the rules that are inserted into `<style>` elements in the `<head>` of your HTML document. As a result, your application or library bundle is self contained and doesn't require a separate CSS bundle.
+Mimcss is a TypeScript library that allows authoring CSS styles without creating CSS files. Instead, the styles are created via TypeScript programming. You code your styling rules including CSS classes, animations, media etc. by creating TypeScript classes. The Mimcss library processes these classes and creates the rules that are inserted into `<style>` elements in the `<head>` of your HTML document. As a result, your application or library bundle is self contained and doesn't require a separate CSS bundle.
 
 * [Features](#features)
 * [Installation](#installation)

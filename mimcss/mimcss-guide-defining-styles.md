@@ -242,7 +242,7 @@ The selector in the first element of each tuple can be of several types: all of 
 - Class rule object. The selector string is obtained by taking the class name and prefixing it with the dot symbol.
 - ID rule object. The selector string is obtained by taking the ID name and prefixing it with the pound sign.
 - Style rule object. The selector string is the rule's selector.
-- `$selector` function - allows composing selectors from many components in the `printf` style.
+- `selector()` function - allows composing selectors from many components using a template string with embedded parameters.
 - Array of the above. The selector string is obtained by getting selector strings of the array items and concatenating them.
 
 Here is how the second part of our CSS example above is expressed in Mimcss:
@@ -258,7 +258,7 @@ class MyStyles extends css.StyleDefinition
         "&": [
             [ "tr > &, li > &", { padding: 0 }],
             [this.solid, { border: "solid" }],
-            [ css.$selector("& > {0}", this.myspan), { border: "dashed" }]
+            [ css.selector`& > ${this.myspan}`, { border: "dashed" }]
         ]
     })
 }
@@ -266,10 +266,10 @@ class MyStyles extends css.StyleDefinition
 
 The second tuple specifies the ID rule object. The selector string obtained for this object is `"#solid` and it doesn't specify any ampersand symbols. In this case, this string is simply appended to the parent selector.
 
-The third tuple uses the `$selector` function to create a selector that combines two classes. As in the first tuple, the ampersand symbol stands for the class name behind the `mydiv` property. The placeholder `{0}` will be replaced by the class name behind the `myspan` class. The `$selector` function allows specifying multiple placeholders; therefore, it is possible to create arbitrary complex selectors that involve multiple classes, IDs, tags, pseudo classes and pseudo elements.
+The third tuple uses the `selector` function to create a selector that combines two classes. As in the first tuple, the ampersand symbol stands for the class name behind the `mydiv` property. The `selector` function allows specifying multiple placeholders; therefore, it is possible to create arbitrary complex selectors that involve multiple classes, IDs, tags, pseudo classes and pseudo elements.
 
 #### Selector Combinators
-The `$selector` function allows building very complex selectors; however, it is quite verbose. For simpler cases, the `ExtendedStyleset` type provides several *combinator* properties that make it easy to combine the "parent" selector with another selector. These combinator properties are named using the ampersand symbol prefixed or followed by one of the CSS selector combinator symbols:
+The `selector()` function allows building very complex selectors; however, it is quite verbose. For simpler cases, the `ExtendedStyleset` type provides several *combinator* properties that make it easy to combine the "parent" selector with another selector. These combinator properties are named using the ampersand symbol prefixed or followed by one of the CSS selector combinator symbols:
 
 - `"& "` and `" &"` for descendants
 - `"&>"` and `">&"` for immediate children
@@ -277,7 +277,7 @@ The `$selector` function allows building very complex selectors; however, it is 
 - `"&~"` and `"~&"` for general siblings
 - `"&,"` and `",&"` for selector lists
 
-With these properties, it is easy to specify selectors that combine the parent selector with a single class or element ID without using the `$selector` function.
+With these properties, it is easy to specify selectors that combine the parent selector with a single class or element ID without using the `selector()` function.
 
 ```tsx
 class MyStyles extends css.StyleDefinition

@@ -19,9 +19,9 @@ Mimcss has two modes of assigning names and both ensure that they are unique wit
 
 The first mode is called **Scoped**. It creates names that combine the name of the class that defines the property and the name of the property itself. This method produces names that clearly refer to the place where they were defined and, therefore, this method should be used during development.
 
-The second method of assigning names is called **Unique**. It creates names by appending an incrementally increasing number to a prefix. The default prefix is `"n"` but it can be changed programmatically. This method produces short names without a real possibility to relate back to the place in the code where they were defined; therefore, this method should be used for release builds.
+The second method of assigning names is called **Unique**. It creates names by appending an incrementally increasing number to a prefix. The default prefix is `"n"` but it can be changed programmatically. This method produces short names without a real possibility to relate back to the place in the code where they were defined; therefore, this method should be used only for production builds.
 
-The default mode is **Scoped**. In order to switch to the Unique mode, the application should call the Mimcss's `$enableOptimizedStyleNames` function. This function accepts an optional `prefix` parameter that can specify the prefix to be used for generating unique names. The `$enableOptimizedStyleNames` function must be called very early in the application life because the mode must be set before any style definition classes are processed.
+The default mode is **Scoped**. In order to switch to the **Unique** mode, the application should call the Mimcss's `$enableShortNames` function. This function accepts an optional `prefix` parameter that can specify the prefix to be used when generating unique names. The `$enableShortNames` function must be called very early in the application life because the mode must be set before any style definition classes are processed.
 
 ## Name Scoping
 Different style definition classes can define properties with identical names and they will be unique when applied to HTML. We call it *name scoping*, which means that names are scoped to the style definition classes.
@@ -61,7 +61,7 @@ Although the names of the properties defining the CSS classes are the same, Mimc
 Under the Scoped mode, the string value of the `myStyles.emphasized.name` property will be `".MyStyles_emphasized"`, while the string value of the `otherStyles.emphasized.name` property will be `".OtherStyles_emphasized"`. Under the Unique mode, the names might be created as `n25` and `n73`. This would be obviously much more difficult to debug.
 
 ## Explicit Names
-There are situations when we need to bypass the Mimmcss name auto-generation. One use case is when we want to override a clas that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
+There are situations when we need to bypass the Mimcss name auto-generation. One use case is when we want to override a class that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
 
 ```tsx
 class MyStyles extends css.StyleDefinition
