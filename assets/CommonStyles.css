@@ -8,12 +8,12 @@
 	position: relative;
 }
 
-h6 { font-size: 12px; font-weight: bold; }
-h5 { font-size: 14px; font-weight: bold; }
-h4 { font-size: 16px; font-weight: bold; }
-h3 { font-size: 18px; font-weight: bold; }
-h2 { font-size: 20px; font-weight: bold; }
-h1 { font-size: 24px; font-weight: bold; }
+h6 { font-size: 12px; font-weight: bold; margin-bottom: 6px; }
+h5 { font-size: 14px; font-weight: bold; margin-bottom: 6px; }
+h4 { font-size: 16px; font-weight: bold; margin-bottom: 6px; }
+h3 { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
+h2 { font-size: 20px; font-weight: bold; margin-bottom: 8px; }
+h1 { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
 
 html {
 	height: 100%;
@@ -33,6 +33,11 @@ pre, code, code > span {
 
 li {
 	line-height: 1.5;
+}
+
+p {
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 .vbox {
@@ -270,6 +275,8 @@ div.highlighter-rouge {
 	background-color: #f8f8f8;
 	margin-left: 16px;
 	margin-right: 16px;
+	margin-top: 8px;
+	margin-bottom: 8px;
 	padding: 8px;
 	border: 1px solid blue;
 }
@@ -277,9 +284,10 @@ div.highlighter-rouge {
 /* Inline code elements (fenced by a single backtick) */
 code.highlighter-rouge {
 	/* background-color: #efefef; */
-	color: #ff2200;
+	color: #0000cc;
 	padding-left: 2px;
 	padding-right: 2px;
+	font-size: 14px;
 }
 
 /* Code blocks and syntax highlighting */
@@ -306,7 +314,7 @@ code.highlighter-rouge {
 
 .highlight .s  { color: coral }		/* Literal.String */
 .highlight .s1 { color: coral }		/* Literal.String.Single */
-.highlight .s2 { color: coral }		/* Literal.String.Double */
+.highlight .s2 { color: crimson }		/* Literal.String.Double */
 .highlight .sb { color: coral }		/* Literal.String.Backtick */
 .highlight .sc { color: coral }		/* Literal.String.Char */
 .highlight .sd { color: coral }		/* Literal.String.Doc */
