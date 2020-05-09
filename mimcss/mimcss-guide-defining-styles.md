@@ -78,12 +78,12 @@ class MyClass extends css.StyleDefinition
     onlyMinHeightIsImportant = css.$class({
         minHeight: 20,
         maxHeight: 120,
-        "!": "minHeight"
+        "!": ["minHeight"]
     })
 }
 ```
 
-The value of the `"!"` property is either a single name or an array of names of CSS properties. Note that Mimcss only allows valid names of CSS properties and not just arbitrary strings, so that misspellings are caught at compile time.
+The value of the `"!"` property is an array of names of CSS properties. Note that Mimcss only allows valid names of CSS properties and not just arbitrary strings, so that misspellings are caught at compile time.
 
 ## Extended Styleset
 The functions that create style rules - such as `$style`, `$class` and `$id` - accept not just the `Styleset` type described above, but an extended variant of it called `ExtendedStyleset`. The `ExtendedStyleset` type adds a number of properties to the `Styleset` type, which allow for the following features:
@@ -159,7 +159,7 @@ The above code is equivalent to the following CSS (except that actual names woul
 
 Reusing another style rule simply means that Mimcss copies all style properties from the rules being reused and then applies our own style properties. Notice, how the `width` property from the `rightbar` class overrode the value of this property defined in the `sidebar` class.
 
-> We considered implementing a different model of re-using class names, in which the resultant CSS would only list non-inherited style properties for each class, but the actual name created for the derived class would contain names of both classes, e.g. "vbox sidebar". The advantage of this approach is in smaller code; however, the big obstacle (and as we decided - unsurmountable) is that there would be no reliable way to override classes in grouping conditional rules such as @media and @supports. Classes inside the conditional rules usually have the same names as the classes declared outside but provide different styles. There is no way to ensure, however, that the inheritance chains of the classes inside the conditional rules would be exactly the same as the chains outside; therefore, the names would be different and the overriding will not work.
+> We considered implementing a different model of re-using class names, in which the resultant CSS would only list non-inherited style properties for each class, but the actual name created for the derived class would contain names of both classes, e.g. "vbox sidebar". The advantage of this approach is in smaller code; however, the big obstacle (and as we decided - unsurmountable) is that there would be no reliable way to override classes in grouping conditional rules such as @media and @supports. Classes inside the conditional rules usually have the same names as the classes declared outside but provide different styles. There is no way to ensure, however, that the inheritance chains of the classes inside the conditional rules would be exactly the same as the chains outside; therefore, the names would be different and the overriding will not work. In addition, it is quite convenient that rules within a grouping rule "extend" the same rules from the top-level class overriding only several of the properties. And, of course, creating a name like "sidebar sidebar" wouldn't make any sense.
 
 ### Dependent Styles
 

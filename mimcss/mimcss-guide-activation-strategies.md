@@ -9,6 +9,7 @@ title: "Mimcss Guide: Activation Strategies"
 * [Immediate Activation](#immediate-aActivation)
 * [Explicit Activation](#explicit-activation)
 * [Just-in-time Activation](#just-in-time-activation)
+* [Styled Components](#styled-components)
 
 In the previous sections, we saw that rules are defined using rule definition classes and that the `$activate` function is called to insert the CSS rules into the DOM. The `$deactivate` function can be called at a later moment to remove the rules from the DOM. The question arises when we should call these functions. There is no a single answer that is good for all situations and this unit lists several of these situations and suggest an activation strategy for them.
 
@@ -47,6 +48,11 @@ This approach is also suitable for applications that employ themes. Switching th
 In this approach, the style rules are activated only when needed and deactivated as soon as they become not needed. This approach is suitable for large components that present complex UI structure, occupy the entire or a significant part of the page and stay on the screen for a while. This approach is NOT suitable for components that represent widgets.
 
 In the just-in-time approach, the style definition class becomes an essential part of the component. It is activated when the component is mounted and deactivated when the component is unmounted.
+
+## Styled Components
+In all the other methods discussed so far we pass the style definition class to the `$activate` function and Mimcss creates a single instance of this class regardless of how many times the `$activate` function is called. With styled components, we create an instance of the style definition class by ourselves and pass this instance to the `$activate` function. We can create and activate as many instances of the style definition class as we want and for each instance a separate set of CSS rules is created and is inserted into the DOM, while Mimcss ensures that the names of classes, IDs, etc. used by these rules are unique.
+
+Style components provide reach and flexible functionality and they are discussed in details in the [Styled Components](mimcss-guide-styled-components.html) unit.
 
 
 

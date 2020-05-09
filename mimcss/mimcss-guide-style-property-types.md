@@ -39,7 +39,7 @@ The goal of Mimcss is to boost the developers' productivity by increasing conven
     export type Visibility_StyleType = "visible" | "hidden" | "collapse";
     ```
 
-- For number-based types (such as `<length>`, `<angle>`, etc.) the type is defined as a union of `number` and `string`. The `string` type is included only because writing `100%` or `0.5in` is much more convenient than using a construct such as `Len.percent(100)` or `Len.in(0.5)` (these functions are also part of Mimcss). The exception to this rule is that the type used for unitless numeric properties such as `orhans` or `order` only allows `number`.
+- For number-based types (such as `<length>`, `<angle>`, etc.) the type is defined as a union of `number` and `string`. The `string` type is included only because writing `"100%"` or `"0.5in"` is much more convenient than using a construct such as `css.Len.percent(100)` or `css.Len.in(0.5)` (these functions are also part of Mimcss). The exception to this rule is that the type used for unitless numeric properties such as `orphans` or `order` only allows `number`.
 
 - For color properties, the `CssColor` type includes string literals for all the named colors. It also allows specifying colors as numbers and provides `css.rgb()` and `css.hsl()` functions. The `string` type is not part of the `CssColor` type definition.
 

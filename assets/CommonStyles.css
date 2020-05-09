@@ -266,7 +266,8 @@ a.postref {
 
 /* Code blocks (blocks fenced by 3 backticks or tildes) */
 div.highlighter-rouge {
-	background-color: #efefef;
+	/* background-color: #efefef; */
+	background-color: #f8f8f8;
 	margin-left: 16px;
 	margin-right: 16px;
 	padding: 8px;
@@ -275,7 +276,8 @@ div.highlighter-rouge {
 
 /* Inline code elements (fenced by a single backtick) */
 code.highlighter-rouge {
-	background-color: #efefef;
+	/* background-color: #efefef; */
+	color: #ff2200;
 	padding-left: 2px;
 	padding-right: 2px;
 }
