@@ -6,7 +6,7 @@ title: "Mimcss Guide: Activation Strategies"
 
 # Mimcss Guide: Activation Strategies
 
-* [Immediate Activation](#immediate-aActivation)
+* [Immediate Activation](#immediate-activation)
 * [Explicit Activation](#explicit-activation)
 * [Just-in-time Activation](#just-in-time-activation)
 * [Styled Components](#styled-components)

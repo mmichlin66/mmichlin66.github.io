@@ -1,0 +1,35 @@
+---
+layout: mimcss
+---
+
+{% include pathToRoot.lqd %}
+
+
+<div class="hbox">
+	{% if page.unit > 0 %}
+		{% assign prevUnit = page.unit | minus: 1 %}
+		{% assign prevItem = site.data.mimcssReference[prevUnit] %}
+		<span class="prevlink">Previous: <a href="{{pathToRoot}}mimcss/ref/{{ prevItem.file }}">{{ prevItem.title }}</a></span>
+	{% endif %}
+	{% assign lastUnit = site.data.mimcssReference | size | minus: 1 %}
+	{% if page.unit < lastUnit %}
+		{% assign nextUnit = page.unit | plus: 1 %}
+		{% assign nextItem = site.data.mimcssReference[nextUnit] %}
+		<span class="nextlink">Next: <a href="{{pathToRoot}}mimcss/ref/{{ nextItem.file }}">{{ nextItem.title }}</a></span>
+	{% endif %}
+</div>
+{{ content }}
+<br/>
+<div class="hbox prevnext">
+	{% if page.unit > 0 %}
+		{% assign prevUnit = page.unit | minus: 1 %}
+		{% assign prevItem = site.data.mimcssReference[prevUnit] %}
+		<span class="prevlink">Previous: <a href="{{pathToRoot}}mimcss/ref/{{ prevItem.file }}">{{ prevItem.title }}</a></span>
+	{% endif %}
+	{% assign lastUnit = site.data.mimcssReference | size | minus: 1 %}
+	{% if page.unit < lastUnit %}
+		{% assign nextUnit = page.unit | plus: 1 %}
+		{% assign nextItem = site.data.mimcssReference[nextUnit] %}
+		<span class="nextlink">Next: <a href="{{pathToRoot}}mimcss/ref/{{ nextItem.file }}">{{ nextItem.title }}</a></span>
+	{% endif %}
+</div>

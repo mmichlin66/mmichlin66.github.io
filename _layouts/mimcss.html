@@ -16,7 +16,13 @@ layout: default
 			<b>Guide</b>
 			<ul>
 			{% for item in site.data.mimcssGuide %}
-				<li><a href="{{pathToRoot}}mimcss/{{ item.file }}">{{ item.title }}</a></li>
+				<li><a href="{{pathToRoot}}mimcss/guide/{{ item.file }}">{{ item.title }}</a></li>
+			{% endfor %}
+			</ul>
+			<b>Reference</b>
+			<ul>
+			{% for item in site.data.mimcssReference %}
+				<li><a href="{{pathToRoot}}mimcss/ref/{{ item.file }}">{{ item.title }}</a></li>
 			{% endfor %}
 			</ul>
 			<!-- <a class="menuitem" href="{{pathToRoot}}mimcss/mimcssDemo.html">Demo</a><br/>
@@ -26,11 +32,5 @@ layout: default
 
 	<div class="content">
 		{{ content }}
-
-		{%- if site.disqus.shortname -%}
-		{%- include disqus_comments.html -%}
-		{%- endif -%}
-
-		<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 	</div>
 </div>
