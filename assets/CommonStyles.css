@@ -284,10 +284,11 @@ div.highlighter-rouge {
 /* Inline code elements (fenced by a single backtick) */
 code.highlighter-rouge {
 	/* background-color: #efefef; */
-	color: #0000cc;
-	padding-left: 2px;
-	padding-right: 2px;
-	font-size: 14px;
+	/* color: darkgreen; */
+	background-color: #f8f8f8;
+	padding: 0px 2px;
+	font-size: 13px;
+	border: 1px dotted lightgrey;
 }
 
 /* Code blocks and syntax highlighting */

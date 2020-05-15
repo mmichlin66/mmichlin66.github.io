@@ -114,16 +114,18 @@ The `animation-direction` property can be specified as a single keyword or an ar
 export type AnimationDuration_StyleType = CssMultiTime;
 ```
 
-The `animation-duraton` property can be specified as a single time value or an array of time values. Each time value can be specified as one of the following types:
+The `animation-duraton` property can be specified as a single vale or an array of values of the [Time](mimcss-reference-numeric-types.html#time-values) type.
 
-| Type | Example | CSS |
-| :--- | :--- | :--- |
-| number | 0.5 | `animation-duraton: 0.5s` |
-| string | "2s" | `animation-duraton: 2s` |
-| `TimeProxy` | css.Time.ms(1000) | `animation-duraton: 1000ms` |
-| `StringProxy` | css.raw\`2s\` | `animation-duraton: 2s` |
-| Custom Property | this.defaultDuration | `animation-duraton: var(--defaultDuration)` |
-| Global | "initial" | `animation-duraton: initial` |
+```tsx
+{ animationDuration: 700 }  // animation-duration: 700ms;
+{ animationDuration: 0.5 }  // animation-duration: 0.5s;
+{ animationDuration: "2s" }  // animation-duration: 2s;
+{ animationDuration: css.Time.ms(1300) }  // animation-duration: 1300ms;
+{ animationDuration: this.defaultDuration }  // animation-duration: var(--defaultDuration);
+
+// Multiple values: animation-duration: 700ms 0.5s 2s 1300ms var(--defaultDuration);
+{ animationDuration: [700, 0.5, "2s", css.Time.ms(1300), this.defaultDuration }
+```
 
 #### animation-fill-mode
 

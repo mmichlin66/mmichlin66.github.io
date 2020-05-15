@@ -1,9 +1,9 @@
 unit,title,file
-0,Rules,mimcss-reference-rules.html
-1,Activation,mimcss-reference-activation.html
-2,Extended Styleset,mimcss-reference-extended-styleset.html
-3,Utilities and Proxies,mimcss-reference-utilities-and-proxies.html
-4,Numbers and Units,mimcss-reference-numbers-and-units.html
+0,Overview,mimcss-reference-overview.html
+1,Rules and Activation,mimcss-reference-rules-and-activation.html
+2,Stylesets,mimcss-reference-stylesets.html
+3,Common Types,mimcss-reference-common-types.html
+4,Numeric Types,mimcss-reference-numeric-types.html
 5,Colors,mimcss-reference-colors.html
 6,Images,mimcss-reference-images.html
 7,Filters,mimcss-reference-filters.html
