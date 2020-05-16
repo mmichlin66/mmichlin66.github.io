@@ -64,7 +64,7 @@ export interface IStyleRule extends IRule
 
     /**
      * Object containing dependent rules. Property names are taken from special properties
-     * of the ExtendedStyleset. This object allows callers to access dependent rules to change
+     * of the CombinedStyleset. This object allows callers to access dependent rules to change
      * style property values programmatically.
      */
     readonly dependentRules: DependentRules;
@@ -76,7 +76,7 @@ export interface IStyleRule extends IRule
      * is removed from the rule's styleset.
      * @param important Flag indicating whether to set the "!important" flag on the property value.
      */
-    setProp<K extends keyof IStyleset>( name: K, value: IStyleset[K], important?: boolean): void;
+    setProp<K extends keyof ExtendedStyleset>( name: K, value: ExtendedStyleset[K], important?: boolean): void;
 
     /**
      * Adds/replaces/removes the value of the given custmom CSS property in this rule.
@@ -93,7 +93,7 @@ export interface IStyleRule extends IRule
 
 The `cssRule` property overrides the property with the same name from the `IRule` interface to specify the `CSSStyleRule` type (which derives from the `CSSRule` type).
 
-The `dependentRules` property contains any dependent (a.k.a as nested) style rules that were specified in the `ExtendedStyleset` object based on which the style rule object was created. The `DependentRules` type is specified as follows:
+The `dependentRules` property contains any dependent (a.k.a as nested) style rules that were specified in the `CombinedStyleset` object based on which the style rule object was created. The `DependentRules` type is specified as follows:
 
 ```tsx
 export type DependentRules =
@@ -109,7 +109,7 @@ The methods `setProp` and `setCustomProp` can be used to change values of style 
 #### $abstract() Function
 
 ```tsx
-export function $abstract( style: ExtendedStyleset): IStyleRule
+export function $abstract( style: CombinedStyleset): IStyleRule
 ```
 
 The `$abstract` function creates a new abstract style rule, which defines a styleset that can be extended by other style rules. Abstract rules don't have selectors and are not inserted into DOM.
@@ -130,7 +130,7 @@ class MyStyles extends css.StyleDefinition
 #### $class() Function
 
 ```tsx
-export function $class( style?: ExtendedStyleset, nameOverride?: string | IClassRule): IClassRule
+export function $class( style?: CombinedStyleset, nameOverride?: string | IClassRule): IClassRule
 ```
 
 The `$class` function creates a new class rule. The class name will be created when the rule is processed as part of the style definition class. The name can also be overridden by providing either an explicit name or another class rule. The function can be called without parameters just to "declare" the class. Such class can be later used either in conditional grouping rules or in derived style definition classes.
@@ -156,7 +156,7 @@ render()
 #### $id() Function
 
 ```tsx
-export function $id( style?: ExtendedStyleset, nameOverride?: string | IIDRule): IIDRule
+export function $id( style?: CombinedStyleset, nameOverride?: string | IIDRule): IIDRule
 ```
 
 The `$id` function creates a new ID rule. The ID name will be created when the rule is processed as part of the style definition class. The name can also be overridden by providing either an explicit name or another ID rule. The function can be called without parameters just to "declare" the ID. Such ID can be later used either in conditional grouping rules or in derived style definition classes.
@@ -182,7 +182,7 @@ render()
 #### $style() Function
 
 ```tsx
-export function $style( selector: CssSelector, style: RuleTypes.ExtendedStyleset): RuleTypes.IStyleRule
+export function $style( selector: CssSelector, style: RuleTypes.CombinedStyleset): RuleTypes.IStyleRule
 ```
 
 The `$style` function creates a CSS style rule for an arbitrary complex selectors. The selector can be specified as a regular string or as a template string with parameters using the `selector` function.

@@ -9,7 +9,7 @@ title: "Mimcss Reference: Stylesets"
 This page describes the different types of stylesets Mimcss uses.
 
 - [ICssStyleset Interface](#icssstyleset-interface)
-- [IStyleset Interface](#icsstyleset-interface)
+- [ExtendedStyleset Type](#extendedstyleset-type)
 
 In Mimcss, the term *styleset* describes an object with style properties. Stylesets are used to sets values to style properties when defining style rules; therefore, the basic styleset described by the `ICssStyleset` interface contains properties corresponding to the CSS properties. In order to make the life of developers easier, Mimcss defines a number of additional stylesets described by interfaces extending or using the `ICssStyleset` interface. The additional properties or property types defined in these interfaces provide for the following features:
 
@@ -22,10 +22,10 @@ In Mimcss, the term *styleset* describes an object with style properties. Styles
 
 The `ICssStyleset` interface is the basic interface that defines names and types of the CSS style properties. All properties are optional and each property has its own type, which is described in the [Style Properties](mimcss-reference-style-properties.html) document. We don't list its properties here because there is a lot of them. You can find the interface defined in the file `StyleTypes.d.ts`, which is included with the Mimcss NPM package.
 
-## IStyleset Interface
+## ExtendedStyleset Type
 
 ```tsx
-export type IStyleset = { [K in keyof ICssStyleset]: Extended<ICssStyleset[K]> | Global_StyleType }
+export type ExtendedStyleset = { [K in keyof ICssStyleset]: Extended<ICssStyleset[K]> | Global_StyleType }
 
 /**
  * Type that extends the given type with the following types:
@@ -51,4 +51,4 @@ export type Global_StyleType = "inherit" | "initial" | "unset" | "revert";
 export type StringProxy = (p?: "string") => string;
 ```
 
-The `IStyleset` interface extends the `ICssStyleset` interface and changes the type of each style property to include additional types.
+The `ExtendedStyleset` interface extends the `ICssStyleset` interface and changes the type of each style property to include additional types.

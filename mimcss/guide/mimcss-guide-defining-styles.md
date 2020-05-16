@@ -56,37 +56,26 @@ class MyStyles extends css.StyleDefinition
 
 Mimcss strives to avoid defining `string` as property type, especially for those properties that have a lot of keyword values such as `justify-items`, `cursor`, `list-style-type`, `border-style`, etc. If `string` is among the possible property types, then first, the autocomplete feature doesn't work, and second, misspellings are not detected at compile time. Ultimately, the decision whether or not to have `string` for a property type is a trade-off between the above considerations and the developer's convenience. For example, specifying the `border` property value as a string in `button2` is arguably easier than using an array as in `button3` even though the autocomplete works for the `"solid"` and `"brown"` strings. Similarly, since there are so many different units for specifying lengths, Mimcss allows the `string` type for properties such as `padding`, `width`, `line-height`, etc.
 
-### Styleset Special Properties
-The `Styleset` type defines several properties that do not correspond to any CSS style, which means they don't have counterparts in the `CSSStyleDeclaration` type. These properties are used to provide special functionality:
+The `Styleset` type allows specifying defining CSS custom properties using the special `"--"` property, which will be explained in the [Custom Properties](mimcss-guide-custom-properties.html) unit.
 
-- The `"--"` property allows specifying defining CSS custom properties.
-- The `"!"` property allows specifying that some properties should have the `!important` flag.
-
-The `"--"` property will be explained in the [Custom Properties](mimcss-guide-custom-properties.html) unit.
-
-CSS allows adding the `!important` flag to any style property to increase its specificity. Since for many style properties Mimcss doesn't include the `string` type, there is no easy way to specify the `!important` flag in the property value. Instead, Mimcss provides a special property `"!"` in the `ExtendedStyleset` type, which allows specifying names of properties for which the `!important` flag should be added.
+### Specifying !important flag
+CSS allows adding the `!important` flag to any style property to increase its specificity. For many style properties, Mimcss doesn't include the `string` type; however, for any property, Mimcss allows specifying an object with a single property "!", which contains the property value.
 
 ```tsx
 class MyClass extends css.StyleDefinition
 {
-    widthIsImportant = css.$class({
-        minWidth: 20,
-        maxWidth: 120,
-        "!": ["minWidth", "maxWidth"]
-    })
+    // .isNotImportant { min-width: 20; }
+    isNotImportant = css.$class({ minWidth: 20 })
 
-    onlyMinHeightIsImportant = css.$class({
-        minHeight: 20,
-        maxHeight: 120,
-        "!": ["minHeight"]
-    })
+    // .isNotImportant { min-width: 20 !important }
+    issImportant = css.$class({ minWidth: { "!": 20 } })
 }
 ```
 
 The value of the `"!"` property is an array of names of CSS properties. Note that Mimcss only allows valid names of CSS properties and not just arbitrary strings, so that misspellings are caught at compile time.
 
 ## Extended Styleset
-The functions that create style rules - such as `$style`, `$class` and `$id` - accept not just the `Styleset` type described above, but an extended variant of it called `ExtendedStyleset`. The `ExtendedStyleset` type adds a number of properties to the `Styleset` type, which allow for the following features:
+The functions that create style rules - such as `$style`, `$class` and `$id` - accept not just the `Styleset` type described above, but an extended variant of it called `CombinedStyleset`. The `CombinedStyleset` type adds a number of properties to the `Styleset` type, which allow for the following features:
 
 - Extended styleset can specify that it *extends* (*composites*, *inherits*, *derives from*) one or more stylesets defined by other style rules.
 - Extended styleset can have *dependent* (a.k.a. *nested*) stylesets for pseudo classes, pseudo elements and other kinds of selectors related to the CSS entity for which the style rule is defined.
@@ -124,7 +113,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-The special property `"+"` of the `ExtendedStyleset` type allows specifying one or more style rules whose styles will be re-used. The `"sidebar"`class extends the `"vbox"` class, while the `"rightbar"` class extends two classes: `"sidebar"` and `"standout"`. Note how we reuse the previously defined classes by referring to them via the property names (e.g. `this.vbox`). These are not just strings, but strongly types objects, which prevents misspelling errors.
+The special property `"+"` of the `CombinedStyleset` type allows specifying one or more style rules whose styles will be re-used. The `"sidebar"`class extends the `"vbox"` class, while the `"rightbar"` class extends two classes: `"sidebar"` and `"standout"`. Note how we reuse the previously defined classes by referring to them via the property names (e.g. `this.vbox`). These are not just strings, but strongly types objects, which prevents misspelling errors.
 
 The above code is equivalent to the following CSS (except that actual names would be auto-generated by Mimcss):
 
@@ -192,11 +181,11 @@ td > .mydiv, li > .mydiv {
 }
 ```
 
-Mimcss supports such dependent and related rules via an easy-to-use construct using special properties of the `ExtendedStyleset` type. First let's see how pseudo styles and pseudo elements are specified.
+Mimcss supports such dependent and related rules via an easy-to-use construct using special properties of the `CombinedStyleset` type. First let's see how pseudo styles and pseudo elements are specified.
 
 
 #### Pseudo Classes and Pseudo Elements
-Mimcss allows names of all pseudo entities as properties in the `ExtendedStyleset`. The value of these properties is another `ExtendedStyleset`, so that the process of defining dependent rules is recursive. Here is how the `:hover` pseudo class from the example above is defined:
+Mimcss allows names of all pseudo entities as properties in the `CombinedStyleset`. The value of these properties is another `CombinedStyleset`, so that the process of defining dependent rules is recursive. Here is how the `:hover` pseudo class from the example above is defined:
 
 ```tsx
 class MyStyles extends css.StyleDefinition
@@ -209,7 +198,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-The `ExtendedStyleset` type allows creating hierarchical structures with unlimited nesting levels so that expressing the following CSS is quite easy:
+The `CombinedStyleset` type allows creating hierarchical structures with unlimited nesting levels so that expressing the following CSS is quite easy:
 
 ```css
 a { color: blue; }
@@ -269,7 +258,7 @@ The second tuple specifies the ID rule object. The selector string obtained for 
 The third tuple uses the `selector` function to create a selector that combines two classes. As in the first tuple, the ampersand symbol stands for the class name behind the `mydiv` property. The `selector` function allows specifying multiple placeholders; therefore, it is possible to create arbitrary complex selectors that involve multiple classes, IDs, tags, pseudo classes and pseudo elements.
 
 #### Selector Combinators
-The `selector()` function allows building very complex selectors; however, it is quite verbose. For simpler cases, the `ExtendedStyleset` type provides several *combinator* properties that make it easy to combine the "parent" selector with another selector. These combinator properties are named using the ampersand symbol prefixed or followed by one of the CSS selector combinator symbols:
+The `selector()` function allows building very complex selectors; however, it is quite verbose. For simpler cases, the `CombinedStyleset` type provides several *combinator* properties that make it easy to combine the "parent" selector with another selector. These combinator properties are named using the ampersand symbol prefixed or followed by one of the CSS selector combinator symbols:
 
 - `"& "` and `" &"` for descendants
 - `"&>"` and `">&"` for immediate children

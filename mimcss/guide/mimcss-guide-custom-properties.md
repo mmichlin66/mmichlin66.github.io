@@ -73,7 +73,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-The `$var` function defines a custom property of the type determined by the first parameter, which is a name of a CSS style property. The second parameter is the value of the custom property and it must be of the type corresponding to the first parameter. More precisely, the type of the second parameter is the type of the property of the `IStyleset` interface whose name is given by the first parameter. In our example, the second parameter will only accept the correct color values.
+The `$var` function defines a custom property of the type determined by the first parameter, which is a name of a CSS style property. The second parameter is the value of the custom property and it must be of the type corresponding to the first parameter. More precisely, the type of the second parameter is the type of the property of the `ExtendedStyleset` type whose name is given by the first parameter. In our example, the second parameter will only accept the correct color values.
 
 The `specialContainer` property defines a CSS class, which re-defines the `specialColor` custom property using the `"--"` property of the `Styleset` class. The `"--"` property value is an array of two-element tuples. The first element is a reference to the custom property rule - in our case `specialColor` property. The second element is the property value. The first element informs us of two things: first, what custom property is being re-defined, and second, what types are valid for the second parameters. In our example, only valid color values will be accepted.
 

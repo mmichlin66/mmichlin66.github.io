@@ -10,7 +10,7 @@ Mimcss exposes an API that consists of numerous types, interfaces, classes and f
 
 
 - [Rules and Activation](mimcss-reference-rules-and-activation.html) - this section defines the `StyleDefinition` class, the functions that are used to create CSS rules and the functions that are used to activate and deactivate the rules.
-- [Stylesets](mimcss-reference-stylesets.html) - this section describes the `Styleset` and `ExtendedStyleset` types along with other types used to define style properties.
+- [Stylesets](mimcss-reference-stylesets.html) - this section describes the `Styleset` and `CombinedStyleset` types along with other types used to define style properties.
 - [Common Types](mimcss-reference-common-types.html) - this section describes common types and functions used throughout Mimcss.
 - [Numeric Types](mimcss-reference-numeric-types.html) - this section describes types and functions used for working with numeric CSS types such as `<number>`, `<length>`, `<percentage>`, etc.
 - [Colors](mimcss-reference-colors.html) - this section describes types and functions used for working with CSS colors.
