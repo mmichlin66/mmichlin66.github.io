@@ -1,12 +1,36 @@
 ---
 layout: mimcss-reference
-unit: 1
+unit: 2
 title: "Mimcss Reference: Rules and Activation"
 ---
 
 # Mimcss Reference: Rules and Activation
 
 This page describes types and functions that are used to create rules and activate and deactivate Style Definition classes.
+
+- [Style Definition Classes](#style-definition-classes)
+  - [StyleDefinition Class](#styledefinition-class)
+  - [IRule Interface](#irule-interface)
+- [Style Rules](#style-rules)
+  - [IStyleRule Interface](#istylerule-interface)
+  - [$abstract Function](#abstract-function)
+  - [$class Function](#class-function)
+  - [$id Function](#id-function)
+  - [$style Function](#style-function)
+- [At-Rules](#at-rules)
+- [Special Rules](#special-rules)
+  - [$var Function](#var-function)
+- [Activation Functions](#activation-functions)
+- [Selector Types](#selector-types)
+  - [$SelectorProxy Type](#selectorproxy-type)
+  - [$SelectorItem Type](#selectoritem-type)
+  - [$CssSelector Type](#cssselector-type)
+  - [$PagePseudoClass Type](#pagepseudoclass-type)
+  - [$PseudoClass Type](#pseudoclass-type)
+  - [$PseudoElement Type](#pseudoelement-type)
+  - [$PseudoEntity Type](#pseudoentity-type)
+  - [$NthChildExpression Type](#nthchildexpression-type)
+  - [$IParameterizedPseudoEntity Interface](#iparameterizedpseudoentity-interface)
 
 ## Style Definition Classes
 
@@ -237,4 +261,100 @@ class MyStyles extends StyleDefinition
 
 ## Activation Functions
 
+## Selector Types
+
+#### SelectorProxy Type
+
+```tsx
+export type SelectorProxy = (p?: "selector") => string;
+```
+
+The SelectorProxy function returns a CSS selector string. This type is returned from the `selector` function.
+
+#### SelectorItem Type
+
+```tsx
+export type SelectorItem = string | IStyleRule | StringProxy | SelectorProxy;
+```
+
+The `SelectorItem` type describes a single selector token that can be used as an argument to the `selector` function.
+
+#### CssSelector Type
+
+```tsx
+export type CssSelector = SelectorItem | SelectorItem[];
+```
+
+The `CssSelector` type is used to specify a selector in a style rule.
+
+#### PagePseudoClass Type
+
+```tsx
+export type PagePseudoClass = ":blank" | ":first" | ":left" | ":right";
+```
+
+The `PagePseudoClass` type represents print-related pseudo classes - those that can be specified with the @page CSS rule */
+
+#### PseudoClass Type
+
+```tsx
+export type PseudoClass = PagePseudoClass |
+	":active" | ":any-link" | ":blank" | ":checked" | ":default" | ":defined" | ":disabled" |
+	":empty" | ":enabled" | ":first-child" | ":first-of-type" | ":fullscreen" | ":focus" |
+	":focus-visible" | ":focus-Within" | ":hover" | ":indeterminate" | ":in-range" | ":invalid" |
+	":last-child" | ":last-of-type" | ":link" | ":only-child" | ":only-of-type" | ":optional" |
+	":out-of-range" | ":placeholder-shown" | ":read-only" | ":read-write" | ":required" | ":root" |
+	":scope" | ":target" | ":valid" | ":visited" | ":dir(rtl)" | ":dir(ltr)";
+```
+
+The `PseudoClass` type lists all pseudo classes that don't require parameters.
+
+#### PseudoElement Type
+
+```tsx
+export type PseudoElement = "::after" | "::backdrop" | "::before" | "::cue" | "::firstLetter" |
+	"::firstLine" | "::grammarError" | "::marker" | "::placeholder" | "::selection" | "::spellingError";
+```
+
+The `PseudoElement` type lists pseudo elements that don't require parameters.
+
+#### PseudoEntity Type
+
+```tsx
+export type PseudoEntity = PseudoClass | PseudoElement;
+```
+
+The `PseudoEntity` type combines names of non-parameterized pseudo classes and pseudo elements.
+
+#### NthChildExpression Type
+
+```tsx
+export type NthChildExpression = "odd" | "even" | number | [number, number?] | string | StringProxy;
+```
+
+The `NthChildExpression` type describes an expression that is used for parameterized pseudo classes like `nth-child`. It can be a string, a single number or a tuple with one or two numbers. If it is a single number, the 'n' in An+B will not be used - as in `nth-child(2)`. If it is a tuple, the `n` character will be used even if the second tuple's element is not provided.
+
+#### IParameterizedPseudoEntity Interface
+
+```tsx
+export interface IParameterizedPseudoEntity
+{
+	":has": string;
+	":host": string;
+	":host-context": string;
+	":is": string;
+	":lang": string;
+	":not": string;
+	":nth-child": NthChildExpression;
+	":nth-of-type": NthChildExpression;
+	":nth-last-child": NthChildExpression;
+	":nth-last-of-type": NthChildExpression;
+	":where": string;
+	"::part": string;
+	"::slotted": string;
+}
+```
+
+The `IParameterizedPseudoEntity` interface maps names of pseudo classes and pseudo elements that require parameters to the type that can be used to specify these parameters.
+ 
 

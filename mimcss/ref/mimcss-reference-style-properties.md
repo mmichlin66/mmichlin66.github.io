@@ -9,11 +9,13 @@ title: "Mimcss Reference: Style Properties"
 This page describes types of CSS style properties in alphabetical order.
 
 <style>
-.hdr { font-size: 24px; font-weight: bold; }
+.capital { font-size: 24px; font-weight: bold; }
+table { display: block; }
+th, td { padding: 2px 6px }
 </style>
 
 <br/>
-&nbsp;<span id="a" class="hdr">A</span>&nbsp;  [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+&nbsp;<span id="a" class="capital">A</span>&nbsp;  [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### align-content
 
@@ -55,14 +57,14 @@ export type Animation_StyleType = string | OneOrMany<Animation_Single>;
 /** Type for single animation */
 export type Animation_Single =
     {
-        name?: Extended<AnimationName_Single>;
-        duration?: Extended<CssTime>;
-        func?: Extended<TimingFunction_Single>;
-        delay?: Extended<CssTime>;
-        count?: Extended<AnimationIterationCount_Single>;
-        direction?: Extended<AnimationDirection_Single>;
-        mode?: Extended<AnimationFillMode_Single>;
-        state?: Extended<AnimationPlayState_Single>;
+        name?: ExtendedProp<AnimationName_Single>;
+        duration?: ExtendedProp<CssTime>;
+        func?: ExtendedProp<TimingFunction_Single>;
+        delay?: ExtendedProp<CssTime>;
+        count?: ExtendedProp<AnimationIterationCount_Single>;
+        direction?: ExtendedProp<AnimationDirection_Single>;
+        mode?: ExtendedProp<AnimationFillMode_Single>;
+        state?: ExtendedProp<AnimationPlayState_Single>;
     };
 ```
 
@@ -85,16 +87,7 @@ The `animation` property can be specified as a string, as a single `Animation_Si
 export type AnimationDelay_StyleType = CssMultiTime;
 ```
 
-The `animation-delay` property can be specified as a single time value or an array of time values. Each time value can be specified as one of the following types:
-
-| Type | Example | CSS |
-| :--- | :--- | :--- |
-| number | 0.5 | `animation-delay: 0.5s` |
-| string | "2s" | `animation-delay: 2s` |
-| `TimeProxy` | css.Time.ms(1000) | `animation-delay: 1000ms` |
-| `StringProxy` | css.raw\`2s\` | `animation-delay: 2s` |
-| Custom Property | this.defaultDelay | `animation-delay: var(--defaultDelay)` |
-| Global | "initial" | `animation-delay: initial` |
+The `animation-delay` property can be specified as a single vale or an array of values of the [Time](mimcss-reference-numeric-types.html#time-values) type.
 
 #### animation-direction
 
@@ -115,17 +108,6 @@ export type AnimationDuration_StyleType = CssMultiTime;
 ```
 
 The `animation-duraton` property can be specified as a single vale or an array of values of the [Time](mimcss-reference-numeric-types.html#time-values) type.
-
-```tsx
-{ animationDuration: 700 }  // animation-duration: 700ms;
-{ animationDuration: 0.5 }  // animation-duration: 0.5s;
-{ animationDuration: "2s" }  // animation-duration: 2s;
-{ animationDuration: css.Time.ms(1300) }  // animation-duration: 1300ms;
-{ animationDuration: this.defaultDuration }  // animation-duration: var(--defaultDuration);
-
-// Multiple values: animation-duration: 700ms 0.5s 2s 1300ms var(--defaultDuration);
-{ animationDuration: [700, 0.5, "2s", css.Time.ms(1300), this.defaultDuration }
-```
 
 #### animation-fill-mode
 
@@ -194,11 +176,11 @@ A Bezier function is represented as a four element tuple where each element is a
 
 
 <br/><br/>
-[A](#a) &nbsp;<span id="b" class="hdr">B</span>&nbsp; [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+[A](#a) &nbsp;<span id="b" class="capital">B</span>&nbsp; [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 
 
 <br/><br/>
-[A](#a) [B](#b) <span id="c" class="hdr">C</span> [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+[A](#a) [B](#b) <span id="c" class="capital">C</span> [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 
