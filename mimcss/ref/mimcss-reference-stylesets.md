@@ -8,23 +8,32 @@ title: "Mimcss Reference: Stylesets"
 
 This page describes the different types of stylesets Mimcss uses.
 
-- [Common Property Types](#common-property-types)
+- [ICssStyleset Interface](#icssstyleset-interface)
+- [ExtendedStyleset Type](#extendedstyleset-type)
   - [Global_StyleType Type](#global_styletype-type)
   - [ICustomVar Interface](#icustomvar-interface)
   - [StringProxy Type](#stringproxy-type)
   - [Extended Type](#extended-type)
   - [ImportantProp Type](#importantprop-type)
   - [ExtendedProp Type](#extendedprop-type)
-- [Custom Property Types](#custom-property-types)
+- [Styleset Type](#styleset-type)
   - [ICssVarTemplates Interface](#icssvartemplates-interface)
   - [CustomVar_StyleType Type](#customvar_styletype-type)
   - [VarTemplateName Type](#vartemplatename-type)
   - [VarValueType Type](#varvaluetype-type)
   - [VarTemplates Type](#vartemplates-type)
-- [ICssStyleset Interface](#icssstyleset-interface)
-- [ExtendedStyleset Type](#extendedstyleset-type)
-- [Styleset Type](#styleset-type)
 - [CombinedStyleset Type](#combinedstyleset-type)
+  - [SelectorProxy Type](#selectorproxy-type)
+  - [SelectorItem Type](#selectoritem-type)
+  - [CssSelector Type](#cssselector-type)
+  - [PagePseudoClass Type](#pagepseudoclass-type)
+  - [PseudoClass Type](#pseudoclass-type)
+  - [PseudoElement Type](#pseudoelement-type)
+  - [PseudoEntity Type](#pseudoentity-type)
+  - [NthChildExpression Type](#nthchildexpression-type)
+  - [IParameterizedPseudoClass Interface](#iparameterizedpseudoclass-interface)
+  - [IParameterizedPseudoElement Interface](#iparameterizedpseudoelement-interface)
+  - [IParameterizedPseudoEntity Interface](#iparameterizedpseudoentity-interface)
 
 In Mimcss, the term *styleset* describes an object with style properties. Stylesets are used to set values to style properties when defining style rules; therefore, the basic styleset described by the `ICssStyleset` interface contains properties corresponding to the CSS properties. In order to make the life of developers easier, Mimcss defines a number of additional stylesets described by interfaces extending or using the `ICssStyleset` interface. The additional properties or property types defined in these interfaces provide for the following features:
 
@@ -33,15 +42,32 @@ In Mimcss, the term *styleset* describes an object with style properties. Styles
 - Defining *dependent* style rules.
 - Reusing style rules (a.k.a. extending or inheriting or composing or deriving from).
 
-In most cases, developers using Mimcss don't directly use the types described in this document. These types are mostly act "behind the scene" as IDEs enforce the rules defined by these types as developers write the code setting values to style properties. In some advanced scenarios, however, these types can be used directly.
+In most cases, developers using Mimcss don't directly use the types described in this document. These types are mostly act "behind the scenes" making IDEs to enforce the rules defined by these types as developers write the code setting values to style properties. In some advanced scenarios, however, these types can be used directly.
 
-## Common Property Types
+## ICssStyleset Interface
+
+The `ICssStyleset` interface is the basic interface that defines names and types of the CSS style properties. Each property has its own type, which are described in the [Style Properties](mimcss-reference-style-properties.html) document. We don't list its properties here because there is a lot of them. You can find the interface defined in the file `StyleTypes.d.ts`, which is included with the Mimcss NPM package.
+
+## ExtendedStyleset Type
+
+```tsx
+export type ExtendedStyleset = { [K in keyof ICssStyleset]: ExtendedProp<ICssStyleset[K]> }
+```
 
 In CSSOM, style properties are part of the `CSSStyleDeclaration` type, where each property is defined as having the `string` type. In Mimcss, the `ICssStyleset` defines different types for different properties so that it is easier and less error-prone for developers to set their values. There are, however, some values that are common to all style properties, for example:
 
 - All style properties can have one of the *global* values: `inherit`, `initial`, `unset`, or `revert`.
 - All style properties can be set using a custom CSS property via the `var()` function.
 - All style properties can have the `!important` flag set.
+
+The `ExtendedStyleset` interface extends the `ICssStyleset` interface and changes the type of each style property to include additional types. As a result, if a style property was defined in the `ICssStyleset` interface as having the type `T`, this property can be specified as one of the following types in the `ExtendedStyleset` object:
+
+- `T` - the original type as declared in the `ICssInterface`.
+- `ICustomVar<T>` - a custom CSS property that yields type `T`.
+- `StringProxy` - a function returning a string such as `raw()`, which allows assigning strings even to the properties whose type declared in the `ICssStyleset` interface doesn't allow strings.
+- `undefined` - allows to omit the property.
+- `ImportantProp<T>` - adds the `!important` flag to the property value.
+- One of the global keywords: `inherit`, `initial`, `unset`, or `revert`.
 
 #### Global_StyleType Type
 
@@ -66,7 +92,7 @@ The `ICustomVar` generic interface represents a CSS custom property object with 
 export type StringProxy = (p?: "string") => string;
 ```
 
-The `StringProxy` type represents a function that returns a string. This function is part of type definition for all CSS properties - even for those that don't have `string` as part of their type. This function is returned from the `raw()` function, which allows by-passing the property typing rules and specifying a string directly. This might be useful, when a string value is obtained from some external calculations.
+The `StringProxy` type represents a function that returns a string. This function is part of type definition for all CSS properties - even for those that don't have `string` as part of their type. The `StringProxy` type is returned from the `raw()` function, which allows by-passing the property typing rules and specifying a string directly. This might be useful, when a string value is obtained from some external code.
 
 #### Extended Type 
 
@@ -102,9 +128,13 @@ The `ExtendedProp` generic type extends the given type with the following types:
 - `ImportantProp` type that allows flagging the property as `!important`.
 - `Global_StyleType` type that allows specifying global property values.
 
-## Custom Property Types
+## Styleset Type
 
-In CSSOM, custom properties are not part of the `CSSStyleDeclaration` type (although the `setProperty` method is used to add them to the style definition). In Mimcss, we do want them to be specified declaratively in the stylesets when defining rules; therefore, we introduce several helper types that are used by the `Styleset` type.
+```tsx
+export type Styleset = ExtendedStyleset & { "--"?: CustomVarStyleType[] };
+```
+
+The `Styleset` type extends the `ExtendedStyleset` type adding to it the `"--"` property, which is an array of `CustomVarStyleType` objects. In CSSOM, custom properties are not part of the `CSSStyleDeclaration` type (although the `setProperty` method is used to add them to the style definition). In Mimcss, we do want them to be specified declaratively in the stylesets when defining rules; therefore, we introduce several helper types that are used by the `Styleset` type.
 
 #### ICssVarTemplates Interface
 
@@ -229,33 +259,6 @@ This is equivalent to the following CSS:
 .blue { --different-color: "blue"; }
 ```
 
-## ICssStyleset Interface
-
-The `ICssStyleset` interface is the basic interface that defines names and types of the CSS style properties. Each property has its own type, which is described in the [Style Properties](mimcss-reference-style-properties.html) document. We don't list its properties here because there is a lot of them. You can find the interface defined in the file `StyleTypes.d.ts`, which is included with the Mimcss NPM package.
-
-## ExtendedStyleset Type
-
-```tsx
-export type ExtendedStyleset = { [K in keyof ICssStyleset]: ExtendedProp<ICssStyleset[K]> }
-```
-
-The `ExtendedStyleset` interface extends the `ICssStyleset` interface and changes the type of each style property to include additional types. As a result, if a style property was defined in the `ICssStyleset` interface as having the type `T`, this property can be specified as one of the following types in the `ExtendedStyleset` object:
-
-- `T` - the original type as declared in the `ICssInterface`.
-- `ICustomVar<T>` - a custom CSS property that yields type `T`.
-- `StringProxy` - a function returning a string such as `raw()`, which allows assigning strings even to the properties whose type declared in the `ICssStyleset` interface doesn't allow strings.
-- `undefined` - allows to omit the property.
-- `ImportantProp<T>` - adds the `!important` flag to the property value.
-- One of the global keywords: `inherit`, `initial`, `unset`, or `revert`.
-
-## Styleset Type
-
-```tsx
-export type Styleset = ExtendedStyleset & { "--"?: CustomVarStyleType[] };
-```
-
-The `Styleset` type extends the `ExtendedStyleset` type adding to it the `"--"` property, which is an array of `CustomVarStyleType` objects:
-
 ## CombinedStyleset Type
 
 ```tsx
@@ -310,4 +313,129 @@ li > .class2 { backgroundColor: yellow; }
 .class2.class1 { backgroundColor: orange; }
 ```
 
+
+#### SelectorProxy Type
+
+```tsx
+export type SelectorProxy = (p?: "selector") => string;
+```
+
+The SelectorProxy function returns a CSS selector string. This type is returned from the `selector` function.
+
+#### SelectorItem Type
+
+```tsx
+export type SelectorItem = string | IStyleRule | StringProxy | SelectorProxy;
+```
+
+The `SelectorItem` type describes a single selector token that can be used as an argument to the `selector` function.
+
+#### CssSelector Type
+
+```tsx
+export type CssSelector = SelectorItem | SelectorItem[];
+```
+
+The `CssSelector` type is used to specify a selector in a style rule.
+
+#### PagePseudoClass Type
+
+```tsx
+export type PagePseudoClass = ":blank" | ":first" | ":left" | ":right";
+```
+
+The `PagePseudoClass` type represents print-related pseudo classes - those that can be specified with the @page CSS rule */
+
+#### PseudoClass Type
+
+```tsx
+export type PseudoClass = PagePseudoClass |
+	":active" | ":any-link" | ":blank" | ":checked" | ":default" | ":defined" | ":disabled" |
+	":empty" | ":enabled" | ":first-child" | ":first-of-type" | ":fullscreen" | ":focus" |
+	":focus-visible" | ":focus-Within" | ":hover" | ":indeterminate" | ":in-range" | ":invalid" |
+	":last-child" | ":last-of-type" | ":link" | ":only-child" | ":only-of-type" | ":optional" |
+	":out-of-range" | ":placeholder-shown" | ":read-only" | ":read-write" | ":required" | ":root" |
+	":scope" | ":target" | ":valid" | ":visited" | ":dir(rtl)" | ":dir(ltr)";
+```
+
+The `PseudoClass` type lists all pseudo classes that don't require parameters.
+
+#### PseudoElement Type
+
+```tsx
+export type PseudoElement = "::after" | "::backdrop" | "::before" | "::cue" | "::firstLetter" |
+	"::firstLine" | "::grammarError" | "::marker" | "::placeholder" | "::selection" | "::spellingError";
+```
+
+The `PseudoElement` type lists pseudo elements that don't require parameters.
+
+#### PseudoEntity Type
+
+```tsx
+export type PseudoEntity = PseudoClass | PseudoElement;
+```
+
+The `PseudoEntity` type combines names of non-parameterized pseudo classes and pseudo elements.
+
+#### NthChildExpression Type
+
+```tsx
+export type NthChildExpression = "odd" | "even" | number | [number, number?] | string | StringProxy;
+```
+
+The `NthChildExpression` type describes an expression that is used for parameterized pseudo classes like `nth-child`. It can be a string, a single number or a tuple with one or two numbers. If it is a single number, the 'n' in An+B will not be used - as in `nth-child(2)`. If it is a tuple, the `n` character will be used even if the second tuple's element is not provided.
+
+#### IParameterizedPseudoClass Interface
+
+```tsx
+export interface IParameterizedPseudoClass
+{
+	":has": string;
+	":host": string;
+	":host-context": string;
+	":is": string;
+	":lang": string;
+	":not": string;
+	":nth-child": NthChildExpression;
+	":nth-of-type": NthChildExpression;
+	":nth-last-child": NthChildExpression;
+	":nth-last-of-type": NthChildExpression;
+	":where": string;
+	"::part": string;
+	"::slotted": string;
+}
+```
+
+The `IParameterizedPseudoClass` interface maps names of pseudo classes that require parameters to the type that can be used to specify these parameters.
+ 
+#### IParameterizedPseudoElement Interface
+
+```tsx
+export interface IParameterizedPseudoElement
+{
+	"::part": string;
+	"::slotted": string;
+}
+```
+
+The `IParameterizedPseudoElement` interface maps names of pseudo elements that require parameters to the type that can be used to specify these parameters.
+ 
+#### IParameterizedPseudoEntity Interface
+
+```tsx
+export interface IParameterizedPseudoEntity extends IParameterizedPseudoClass, IParameterizedPseudoElement
+{
+}
+```
+
+The `IParameterizedPseudoEntity` interface combines `IParameterizedPseudoClass` and `IParameterizedPseudoElement` interfaces.
+ 
+
+#### SelectorCombinator Type
+
+```tsx
+export type SelectorCombinator = "&" | "&," | "& " | "&>" | "&+" | "&~" | ",&" | " &" | ">&" | "+&" | "~&";
+```
+
+The `SelectorCombinator` type represents properties used in the `CombinedStyleset` to define dependent rules.
 
