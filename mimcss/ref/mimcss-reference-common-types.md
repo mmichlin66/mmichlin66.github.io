@@ -10,17 +10,6 @@ This page describes utility types and functions used to set values of style prop
 
 - [Common Property Types](#common-property-types)
   - [Global_StyleType Type](#global_styletype-type)
-  - [ICustomVar Interface](#icustomvar-interface)
-  - [StringProxy Type](#stringproxy-type)
-  - [Extended Type](#extended-type)
-  - [ImportantProp Type](#importantprop-type)
-  - [ExtendedProp Type](#extendedprop-type)
-- [Custom Property Types](#custom-property-types)
-  - [ICssVarTemplates Interface](#icssvartemplates-interface)
-  - [CustomVar_StyleType Type](#customvar_styletype-type)
-  - [VarTemplateName Type](#vartemplatename-type)
-  - [VarValueType Type](#varvaluetype-type)
-  - [VarTemplates Type](#vartemplates-type)
 
 
 ## Common Property Types

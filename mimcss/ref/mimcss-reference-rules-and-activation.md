@@ -10,7 +10,6 @@ This page describes types and functions that are used to create rules and activa
 
 - [Style Definition Classes](#style-definition-classes)
   - [StyleDefinition Class](#styledefinition-class)
-  - [IRule Interface](#irule-interface)
 - [Rule Functions](#rule-functions)
   - [$abstract Function](#abstract-function)
   - [$class Function](#class-function)
@@ -24,7 +23,17 @@ This page describes types and functions that are used to create rules and activa
   - [$supports Function](#supports-function)
   - [$media Function](#media-function)
   - [$var Function](#var-function)
+  - [$use Function](#use-function)
+  - [$embed Function](#embed-function)
+- [Activation Functions](#activation-functions)
+  - [$activate Function](#activate-function)
+  - [$deactivate Function](#deactivate-function)
+- [Helper Functions](#helper-functions)
+  - [enableShortNames Function](#enableshortnames-function)
+  - [selector Function](#selector-function)
+  - [classes Function](#classes-function)
 - [Rule Types](#rule-types)
+  - [IRule Interface](#irule-interface)
   - [IStyleRule Interface](#istylerule-interface)
   - [DependentRules Type](#dependentrules-type)
   - [INamedEntity Interface](#inamedentity-interface)
@@ -41,7 +50,6 @@ This page describes types and functions that are used to create rules and activa
   - [IMediaRule Interface](#imediarule-interface)
   - [IVarRule Interface](#ivarrule-interface)
   - [ICounterRule Interface](#icounterrule-interface)
-- [Activation Functions](#activation-functions)
 
 ## Style Definition Classes
 
@@ -69,20 +77,6 @@ export abstract class StyleDefinition<O extends StyleDefinition = any>
 ```
 
 The `StyleDefinition` class is the base class that all styAle definition classes must derive from.
-
-#### IRule Interface
-
-```tsx
-export interface IRule
-{
-    /** SOM rule */
-    readonly cssRule: CSSRule | null;
-}
-```
-
-The `IRule` interface is implemented by both style and at-rules and contains the basic properties that are common for all Mimcss objects implementing CSS rules:
-
-- The `cssRule` property points to the `CSSRule` object inserted into DOM when the style definition class containing the Mimcss rule is activated.
 
 ### Rule Functions
 
@@ -193,7 +187,7 @@ class MyStyles extends StyleDefinition
 #### $keyframes() Function
 
 ```tsx
-export function $keyframes( frames?: AnimationFrame[], nameOverride?: string | IAnimationRule): IAnimationRule;
+export function $keyframes( frames?: AnimationFrame[], nameOverride?: string | IAnimationRule): IAnimationRule
 ```
 
 The `$keyframes` function creates a new `@keyframes` CSS rule. The animation name will be created when the rule is processed as part of the style definition class. The name can be also overridden by providing either an explicit name or another animation rule. The function can be called without parameters just to "declare" the animation. Such animation can be later used either in conditional grouping rules or in derived style definition classes.
@@ -394,28 +388,267 @@ Counters are not real CSS rules, but since they are named objects they can be de
 class MyStyles extends StyleDefinition
 {
     // Define a counter object.
-	counter = css.$counter();
+    counter = css.$counter();
 
     // Each <ol> element will reset the corresponding level of the counter to 0.
     ol = css.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
     
     // Each <li> element will increment the corresponding level of the counter and
-    // use it in the `::before` pseudo element.
-	li = css.$style( "li", {
-		counterIncrement: this.counter,
-		"::before": { content: css.counters( this.counter, ".", "hebrew") }
-	})
+    // use it in the `::before` pseudo element. The numbers corresponding to different
+    // levels within the counter will be separated by ".".
+    li = css.$style( "li", {
+        counterIncrement: this.counter,
+        "::before": { content: css.counters( this.counter, ".", "hebrew") }
+    })
+}
+```
+
+#### $use() Function
+
+```tsx
+export function $use<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
+```
+
+The `$use` function returns a processed instance of the style definition class, whose properties can be accessed by the callers. The input parameter can be one of the following three things:
+
+1. A style definition class. The `$use` function checks whether there is already an instance of this class associated with the class. This condition is true if either the `$use` or `$activate` function has already been called for this style definition class. If this is the case, the associated instance is returned; otherwise, a new instance is created and is associated with the class. This ensures, that a single instance is ever associated with the style definition class and that a single set of CSS rules is created for the style definition class. In other words, the class is *shared* between the callers.
+1. An unprocessed instance of a style definition class. The `$use` function processes the instance and creates unique names for the named entities. This use case is suitable for so called *styled components*, where all component instances use the same style definition class but create separate instances of it for each component instance. Styled components can programmatically change the style properties and having separate instances of the style definition class isolates different instances of the component from each other.
+1. A processed instance of a style definition class. The `$use` function simply returns this instance.
+
+The `$use` function is a convenient means of dividing style definitions into separate classes and referencing them from other style definition classes. When a style definition class that uses the `$use` function to reference other style definition classes is activated, the referenced classes are activated as well.
+
+**Example.** The following example defines two separate style definition classes, where the second class uses a property from the first class.
+
+```tsx
+class SharedStyles extends StyleDefinition
+{
+    anchor = css.$style( "a", { color: "blue" })
+}
+
+class MyStyles extends StyleDefinition
+{
+    shared = css.$use( SharedStyles)
+
+    myAnchor = css.style( "a", {
+        "+": this.shared.anchor,
+        ":hover": { color: "navy" }
+    })
+}
+```
+
+#### $embed() Function
+
+```tsx
+export function $embed<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
+```
+
+The `$embed` function makes the given style definition class an "owned" part of the "owner" style definition object. When activated, the embedded object doesn't create its own `<style>` element but uses that of its owner. This allows creating many small style definition classes instead of one huge one without incurring the overhead of many `<style>` elements.
+
+Note that as opposed to the `$use` function, the `$embed` function always creates a new instance of the given class and doesn't associate the class with the created instance. That means that if a class is embedded into more than one "owner", two separate instances of each CSS rule will be created with different unique names.
+
+The input parameter can be one of the following two things:
+
+1. A style definition class. The `$embed` function will create and return a new instance of the class.
+1. An unprocessed instance of a style definition class. The `$embed` function will simply return this instance.
+
+Note that if an already processed instance of a style definition class is passed to the `$embed` function it will simply return this instance and will behave identically to the `$use` function.
+
+The `$embed` function is a convenient means of dividing style definitions into separate small classes that conceptually comprise a single stylesheet.
+
+**Example.** The following example defines two separate style definition classes, which are combined into a single class, which will be the one that is activated.
+
+```tsx
+class InputStyles extends StyleDefinition
+{
+    input = css.$style( "input", { border: "1 solid blue" })
+}
+
+class AnchorStyles extends StyleDefinition
+{
+    anchor = css.$style( "a", { color: "blue" })
+}
+
+class MyStyles extends StyleDefinition
+{
+    inputs = css.$embed( InputStyles)
+    anchors = css.$embed( AnchorStyles)
+}
+
+// A single <style> element  will be created that will include rules from all
+// the embedded style definition classes.
+let myStyles = css.$activate( MyStyles);
+```
+
+## Activation Functions
+
+#### $activate() Function
+
+```tsx
+export function $activate<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
+```
+
+The `$activate` function inserts CSS rules into the DOM and returns an instance of the style definition class whose properties can be accessed by the callers. The input parameter can be one of the following three things:
+
+1. A style definition class. The `$activate` function checks whether there is already an instance of this class associated with the class. This condition is true if either the `$use` or `$activate` function has already been called for this style definition class. If this is the case, the associated instance is returned; otherwise, a new instance is created and is associated with the class. This ensures, that a single instance is ever associated with the style definition class and that a single set of CSS rules is created for the style definition class. In other words, the class is *shared* between the callers.
+1. An unprocessed instance of a style definition class. The `$activate` function processes the instance and creates unique names for the named entities. This use case is suitable for so called *styled components*, where all component instances use the same style definition class but create separate instances of it for each component instance. Styled components can programmatically change the style properties and having separate instances of the style definition class isolates different instances of the component from each other.
+1. A processed instance of a style definition class. The `$activate` function simply returns this instance.
+
+The `$activate` function can be called many time on the same style definition class. Upon the first call, the CSS rules are inserted into the DOM; upon the consequent calls, the internal reference count is simply incremented. To remove the rules from the DOM, the `$deactivate` function should called as many times as the `$activate` function was.
+
+**Example.** The following example defines a style definition class with a CSS class, then uses it in HTML element.
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    red = css.$class({ color: "red" })
+}
+
+let myStyles = css.$activate( MyStyles);
+
+render()
+{
+    return <p className={myStyles.red.name}>This is a red paragraph</p>;
+}
+```
+
+#### $deactivate() Function
+
+```tsx
+export function $deactivate( instance: StyleDefinition): void
+```
+
+The `$deactivate` function deactivates the given style definition instance by removing its rules from DOM. Note that each style definition instance maintains a reference counter of how many times it was activated and
+ * deactivated. The rules are removed from DOM only when this reference counter goes down to 0.
+
+**Example.** The following example defines a style definition class to be used with a certain component. The component activates the styles upon mounting and deactivates them upon unmounting.
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    red = css.$class({ color: "red" })
+}
+
+class MyComponent
+{
+    private myStyles: MyStyles;
+
+    componentWillMount()
+    {
+        this.myStyles = css.$activate( MyStyles);
+    }
+
+    componentWillUnmount()
+    {
+        css.$deactivate( this.myStyles);
+    }
+
+    render()
+    {
+        return <p className={myStyles.red.name}>This is a red paragraph</p>;
+    }
+}
+```
+
+### Helper Functions
+
+#### enableShortNames() Function
+
+```tsx
+export function enableShortNames( enable: boolean, prefix?: string): void
+```
+
+The `enableShortNames` function sets the flag indicating whether to use optimized (short) rule names. If yes, the names will be created by appending a unique number to the given prefix. If prefix is not specified, the standard prefix `"n"` will be used.
+
+**Example.** The following example shows the difference between the short names and the regular ones.
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    myClass = css.$class({ color: "red" })
+}
+
+if (optimize)
+    css.enableShortNames( true, "abc");
+
+this.myStyles = css.$activate( MyStyles);
+
+render()
+{
+    // the actual class name applied to the HTML element will be:
+    //  - non- optimaized: "MyStyles_myClass"
+    //  - optimaized: "abc1"
+    return <p className={myStyles.myClass.name}>This is a red paragraph</p>;
+}
+```
+
+#### selector() Function
+
+```tsx
+export function selector( parts: TemplateStringsArray, ...params: SelectorItem[]): SelectorProxy
+```
+
+The `selector` function returns a string representation of a selector. This function is a tag function and must be invoked with the template string without parentheses.
+
+**Example.** The following example use the `selector` function to create complex selector.
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    dataTable = css.$class({ borderCollapse: "collapse" })
+    mainTableHeader = css.$style(css.selector`article table${this.dataTable} tr > th`, {
+        backgroundColor: "lightgrey"
+    })
+}
+```
+
+#### classes() Function
+
+```tsx
+export function classes( ...classes: (INamedStyleRule | Extended<string>)[]): string;
+```
+
+The `classes` function concatenates the names of the given classes into a single string that can be assigned to a `class` property of an HTML classes.
+
+**Example.** The following example defines two CSS classes and assigns them both to an HTML element.
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    red = css.$class({ color: "red" })
+
+    bold = css.$class({ fontWeight: 700 })
+}
+
+this.myStyles = css.$activate( MyStyles);
+
+render()
+{
+    return <p className={css.classes( myStyles.red, myStyles.bold)}>This is a bold, red paragraph</p>;
 }
 ```
 
 ### Rule Types
+
+#### IRule Interface
+
+```tsx
+export interface IRule
+{
+    /** CSSOM rule */
+    readonly cssRule: CSSRule | null;
+}
+```
+
+The `IRule` interface is implemented by both style and at-rules and contains the basic properties that are common for all Mimcss objects implementing CSS rules:
+
+- The `cssRule` property points to the `CSSRule` object inserted into DOM when the style definition class containing the Mimcss rule is activated.
 
 #### IStyleRule Interface
 
 ```tsx
 export interface IStyleRule extends IRule
 {
-    /** SOM style rule */
+    /** CSSOM style rule */
     readonly cssRule: CSSStyleRule | null;
 
     /** CSS rule selector string */
@@ -534,7 +767,7 @@ The IIDRule interface represents a style rule where the selector is a single ele
 ```tsx
 export interface IAnimationRule extends IRule, INamedEntity
 {
-    /** SOM keyframes rule */
+    /** CSSOM keyframes rule */
     readonly cssRule: CSSKeyframesRule | null;
 
     /** List of style rules representing animation frames */
@@ -552,7 +785,7 @@ export interface IAnimationFrameRule extends IStyleRule
     /** Identifier of the waypoint */
     readonly waypoint: AnimationWaypoint;
 
-    /** SOM keyframe rule */
+    /** CSSOM keyframe rule */
     readonly cssKeyframeRule: CSSKeyframeRule;
 }
 ```
@@ -588,11 +821,11 @@ The `AnimationStyles` type defines a object containing style properties for an a
 ```tsx
 export interface IPageRule extends IStyleRule
 {
-	/** Optional name of the page pseudo style (e.g. "":first") */
-	readonly pseudoClass: PagePseudoClass | undefined;
+    /** Optional name of the page pseudo style (e.g. "":first") */
+    readonly pseudoClass: PagePseudoClass | undefined;
 
-	/** SOM page rule */
-	readonly cssRule: CSSPageRule | null;
+    /** CSSOM page rule */
+    readonly cssRule: CSSPageRule | null;
 }
 ```
 
@@ -603,8 +836,8 @@ The `IPageRule` interface represents the `@page` CSS rule. Objects implementing 
 ```tsx
 export interface IImportRule extends IRule
 {
-	/** SOM import rule */
-	readonly cssRule: CSSImportRule | null;
+    /** CSSOM import rule */
+    readonly cssRule: CSSImportRule | null;
 }
 ```
 
@@ -615,14 +848,14 @@ The `IImportRule` interface represents the CSS `@import` rule. Objects implement
 ```tsx
 export interface INamespaceRule extends IRule
 {
-	/** Namespace string for the rule */
-	readonly namespace: string;
+    /** Namespace string for the rule */
+    readonly namespace: string;
 
-	/** Optional prefix for the rule */
-	readonly prefix: string | undefined;
+    /** Optional prefix for the rule */
+    readonly prefix: string | undefined;
 
-	/** SOM namespace rule */
-	readonly cssRule: CSSNamespaceRule | null;
+    /** CSSOM namespace rule */
+    readonly cssRule: CSSNamespaceRule | null;
 }
 ```
 
@@ -633,8 +866,8 @@ The `INamespaceRule` interface represents the CSS `@namespace` rule. Objects imp
 ```tsx
 export interface IFontFaceRule extends IRule
 {
-	/** SOM font-face rule */
-	readonly cssRule: CSSFontFaceRule | null;
+    /** CSSOM font-face rule */
+    readonly cssRule: CSSFontFaceRule | null;
 }
 ```
 
@@ -645,11 +878,11 @@ The `IFontFaceRule` interface represents the CSS `@font-face` rule. Objects impl
 ```tsx
 export interface IGroupRule<T extends StyleDefinition = any> extends IRule
 {
-	// Instance of the style definition class defining the rules under this grouping rule
-	readonly rules: T;
+    // Instance of the style definition class defining the rules under this grouping rule
+    readonly rules: T;
 
-	/** SOM supports rule */
-	readonly cssRule: CSSGroupingRule | null;
+    /** CSSOM supports rule */
+    readonly cssRule: CSSGroupingRule | null;
 }
 ```
 
@@ -660,8 +893,8 @@ The `IGroupRule` interface represents a grouping CSS rule. The `rules` property 
 ```tsx
 export interface ISupportsRule<T extends StyleDefinition = any> extends IGroupRule<T>
 {
-	/** SOM supports rule */
-	readonly cssRule: CSSSupportsRule | null;
+    /** CSSOM supports rule */
+    readonly cssRule: CSSSupportsRule | null;
 }
 ```
 
@@ -672,8 +905,8 @@ The `ISupportsRule` interface represents the `@supports` CSS rule. Objects imple
 ```tsx
 export interface IMediaRule<T extends StyleDefinition = any> extends IGroupRule<T>
 {
-	/** SOM media rule */
-	readonly cssRule: CSSMediaRule | null;
+    /** CSSOM media rule */
+    readonly cssRule: CSSMediaRule | null;
 }
 ```
 
@@ -684,8 +917,8 @@ The `IMediaRule` interface represents the `@media` CSS rule. Objects implementin
 ```tsx
 export interface IVarRule<K extends VarTemplateName = any> extends INamedEntity, ICustomVar<VarValueType<K>>
 {
-	/** Name of a non-custom CSS property whose type determines the type of the custom property value. */
-	readonly template: K;
+    /** Name of a non-custom CSS property whose type determines the type of the custom property value. */
+    readonly template: K;
 }
 ```
 
@@ -698,13 +931,10 @@ The `template` property specifies the name of the property of the `ICssVarTempla
 ```tsx
 export interface ICounterRule extends INamedEntity
 {
-	/** Name of the counter */
-	readonly counterName: string;
-}
+    /** Name of the counter */
+    readonly counterName: string;
 }
 ```
 
 The `ICounterRule` interface represents a named counter definition. Use this rule to create counter objects that can be used in counter-increment, counter-reset and counter-set style properties. No CSS rule is created for counters - they are needed only to provide type-safe counter definitions. Objects implementing this interface are returned from the `$counter` function.
-
-## Activation Functions
 
