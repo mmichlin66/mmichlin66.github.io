@@ -56,7 +56,7 @@ class MyStyles extends css.StyleDefinition
 
 Mimcss strives to avoid defining `string` as property type, especially for those properties that have a lot of keyword values such as `justify-items`, `cursor`, `list-style-type`, `border-style`, etc. If `string` is among the possible property types, then first, the autocomplete feature doesn't work, and second, misspellings are not detected at compile time. Ultimately, the decision whether or not to have `string` for a property type is a trade-off between the above considerations and the developer's convenience. For example, specifying the `border` property value as a string in `button2` is arguably easier than using an array as in `button3` even though the autocomplete works for the `"solid"` and `"brown"` strings. Similarly, since there are so many different units for specifying lengths, Mimcss allows the `string` type for properties such as `padding`, `width`, `line-height`, etc.
 
-The `Styleset` type allows specifying defining CSS custom properties using the special `"--"` property, which will be explained in the [Custom Properties](mimcss-guide-custom-properties.html) unit.
+The `Styleset` type allows specifying custom CSS properties using the special `"--"` property, which will be explained in the [Custom Properties](mimcss-guide-custom-properties.html) unit.
 
 ### Specifying !important flag
 CSS allows adding the `!important` flag to any style property to increase its specificity. For many style properties, Mimcss doesn't include the `string` type; however, for any property, Mimcss allows specifying an object with a single property "!", which contains the property value.
@@ -72,13 +72,11 @@ class MyClass extends css.StyleDefinition
 }
 ```
 
-The value of the `"!"` property is an array of names of CSS properties. Note that Mimcss only allows valid names of CSS properties and not just arbitrary strings, so that misspellings are caught at compile time.
-
-## Extended Styleset
+## Combined Styleset
 The functions that create style rules - such as `$style`, `$class` and `$id` - accept not just the `Styleset` type described above, but an extended variant of it called `CombinedStyleset`. The `CombinedStyleset` type adds a number of properties to the `Styleset` type, which allow for the following features:
 
-- Extended styleset can specify that it *extends* (*composites*, *inherits*, *derives from*) one or more stylesets defined by other style rules.
-- Extended styleset can have *dependent* (a.k.a. *nested*) stylesets for pseudo classes, pseudo elements and other kinds of selectors related to the CSS entity for which the style rule is defined.
+- Combined styleset can specify that it *extends* (*composites*, *inherits*, *derives from*) one or more stylesets defined by other style rules.
+- Combined styleset can have *dependent* (a.k.a. *nested*) stylesets for pseudo classes, pseudo elements and other kinds of selectors related to the CSS entity for which the style rule is defined.
 
 These features are discussed in details in the following sections.
 

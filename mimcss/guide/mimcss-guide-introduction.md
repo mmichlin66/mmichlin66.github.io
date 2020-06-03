@@ -20,11 +20,12 @@ The goal of the Mimcss library is to support all CSS features in a type-safe and
 - Stylesheets are defined as TypeScript classes.
 - Names of classes, IDs, animations and custom CSS properties are auto-generated, while developers use properties that return these names.
 - Stylesheets can be dynamically activated and deactivated.
+- Stylesheets support inheritance - elegant way to implement theming.
+- Support for styled components where each component instance gets its individual set of CSS rules isolated from other instances.
 - All CSS rule types are supported including style rules and at-rules.
 - Custom CSS properties are supported in a type safe manner.
 - Style rules can be nested and can extend other style rules.
 - All pseudo styles and pseudo elements are supported using convenient and compact notation.
-- Stylesheet classes support inheritance - elegant way to implement theming.
 - Type safety and autocomplete support for CSS property values to eliminate misspellings.
 - Using numbers for default units of length, angle, percent and other CSS property types.
 - Using Booleans, numbers, tuples, arrays, objects and functions (in addition to strings) when specifying CSS property values to increase convenience and eliminate misspellings.

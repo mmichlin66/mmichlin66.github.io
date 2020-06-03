@@ -1,6 +1,6 @@
 ---
 layout: mimcss-guide
-unit: 7
+unit: 8
 title: "Mimcss Guide: Styled Components"
 ---
 
@@ -22,7 +22,7 @@ There are many attempts to try to minimize the possibility of conflicts between 
 So far in this guide we have only seen global styles in Mimcss. A Style Definition class was instantiated only once - no matter how many times the `$activate` (or `$use`) function was called for it. This unit describes how Mimcss can create "local" styles and thus support styled components.
 
 ## Style Definition Instance
-A style definition class is a regular TypeScript class and can have multiple instances. When we call the `$activate` function and pass the class to it, Mimcss first looks whether there is already an instance of this class. If not, the instance is created; if yes, the existing instance is used. The names for the classes, IDs and other named entities are generated when the instance is created - that is, when the `$activate` function is called for the first time for the style definition class. The instance remains associated with the class even after we call the `$deactivate` function and the rules are removed from the DOM.
+A style definition class is a regular TypeScript class and can have multiple instances. When we call the `$activate` or `$use` function and pass the class to it, Mimcss first looks whether there is already an instance of this class. If not, the instance is created; if yes, the existing instance is used. The names for the classes, IDs and other named entities are generated when the instance is created - that is, when the `$activate` function is called for the first time for the style definition class. The instance remains associated with the class even after we call the `$deactivate` function and the rules are removed from the DOM.
 
 Let's now look at the definition of the `$activate` and `$use` functions:
 

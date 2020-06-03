@@ -5,8 +5,5 @@ unit,title,file
 3,Common Types,mimcss-reference-common-types.html
 4,Numeric Types,mimcss-reference-numeric-types.html
 5,Colors,mimcss-reference-colors.html
-6,Images,mimcss-reference-images.html
-7,Filters,mimcss-reference-filters.html
-8,Shapes,mimcss-reference-shapes.html
-9,Transforms,mimcss-reference-transforms.html
-10,Style Properties,mimcss-reference-style-properties.html
+6,Helper Functions,mimcss-reference-helper-functions.html
+7,Style Properties,mimcss-reference-style-properties.html

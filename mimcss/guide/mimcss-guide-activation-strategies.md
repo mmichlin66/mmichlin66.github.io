@@ -52,7 +52,7 @@ In the just-in-time approach, the style definition class becomes an essential pa
 ## Styled Components
 In all the other methods discussed so far we pass the style definition class to the `$activate` function and Mimcss creates a single instance of this class regardless of how many times the `$activate` function is called. With styled components, we create an instance of the style definition class by ourselves and pass this instance to the `$activate` function. We can create and activate as many instances of the style definition class as we want and for each instance a separate set of CSS rules is created and is inserted into the DOM, while Mimcss ensures that the names of classes, IDs, etc. used by these rules are unique.
 
-Style components provide reach and flexible functionality and they are discussed in details in the [Styled Components](mimcss-guide-styled-components.html) unit.
+Styled components provide reach and flexible functionality and they are discussed in details in the [Styled Components](mimcss-guide-styled-components.html) unit.
 
 
 

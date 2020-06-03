@@ -31,10 +31,10 @@ The `CssColor` type is used to set values of properties that accept the CSS `<co
 
 - keywords:
   - `"transparent"` and `"currentcolor"`
-  - Name of a property in the `INamedColors` interface.
+  - Names of the properties in the `INamedColors` interface, which correspond to the standard Web color names.
   - One of the values from the `SystemColors` type.
 - numbers:
-  - The first 3 bytes are treated as specifying the RGB colors as in 0xRRGGBB.
+  - The first 3 bytes are treated as specifying the RGB color separations as in 0xRRGGBB.
   - Negative numbers are treated as inverted colors.
   - Integer part of the number must be less than or equal to 0xFFFFFF - everything else is ignored.
   - Floating point part of the number is treated as a percent of alpha channel. If there is no floating part, alpha is 1.
@@ -44,7 +44,6 @@ The `CssColor` type is used to set values of properties that accept the CSS `<co
 **Example.**
  
 ```tsx
- */
 class MyStyles extends css.StyleDefinition
 {
     // color name
@@ -53,7 +52,7 @@ class MyStyles extends css.StyleDefinition
     // positive number
     red = css.$class({ color: 0xFF0000 })
 
-    // negative number - inverted color
+    // negative number - inverted color (same as 0x00FFFF)
     cyan = css.$class({ color: -0xFF0000 })
 
     // floating point number - alpha channel
@@ -77,7 +76,6 @@ The `INamedColors` interface contains properties named after the standard Web co
 #### Colors Object
 
 ```tsx
- */
 export let Colors: INamedColors =
 {
     aliceblue: 0xf0f8ff,
@@ -93,7 +91,6 @@ Since the properties of the `Colors` object are numbers, they can be used in any
 **Example.**
  
 ```tsx
- */
 class MyStyles extends css.StyleDefinition
 {
     // the following two classes have identical effect

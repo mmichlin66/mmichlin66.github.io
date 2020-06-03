@@ -45,17 +45,24 @@ class MyStyle extends css.StyleDefinition
 #### url() Function
 
 ```tsx
-export function url( val: Extended<string>): UrlProxy
+export function url( val: Extended<string | IIDRule>): UrlProxy
 ```
 
 The `url()` function returns a `UrlProxy` type representing the CSS `url()` function. URLs and CSS `url()` function are used in several places in CSS to link to images, fonts, imported stylesheets and counter symbols. The `url()` function mimics the CSS function.
 
-**Example.** The following example uses the `url()` function to reference an image.
+The CSS `url()` function also allows specifying an ID of an element within the document using the syntax `url(#elmID)`. Mimcss allows passing an ID rule object defined in the style definition class to use this feature. This eliminates misspelling errors when referencing element IDs.
+
+**Example.**
 
 ```tsx
 class MyStyle extends css.StyleDefinition
 {
+    // link to an image
     startListItem = css.$style( "li::after", { content: css.url("assets/star.gif") })
+
+    // define ID for an SVG element and use it for setting background-image property
+    svgID = css.$id()
+    svgRef = css.$class({ backgroundImage: css.url(this.svgID) })
 }
 ```
 
@@ -73,7 +80,7 @@ The `UrlProxy` type represents an invocation of the CSS `url()` function. This t
 
 ```tsx
 export function attr( attrName: Extended<string>, typeOrUnit?: Extended<AttrTypeKeyword | AttrUnitKeyword>,
-	fallback?: Extended<string>): StringProxy
+    fallback?: Extended<string>): StringProxy
 ```
 
 The `attr()` function returns the StringProxy type representing the `attr()` CSS function. It theoretically can be used in any style property; however, its use by browsers is currently limited to the `content` property. Also no browser currently support type, units or fallback values.
@@ -95,8 +102,8 @@ class MyStyle extends css.StyleDefinition
 
 ```tsx
 export function counter( counterObj: Extended<ICounterRule | string>,
-	style?: Extended<ListStyleType_StyleType>,
-	textAfter?: Extended<string>, textBefore?: Extended<string>): StringProxy
+    style?: Extended<ListStyleType_StyleType>,
+    textAfter?: Extended<string>, textBefore?: Extended<string>): StringProxy
 ```
 
 The `counter()` function returns the StringProxy type representing the CSS `counter()` function with additional optional strings added after and/or before the counter.
@@ -107,14 +114,14 @@ The `counter()` function returns the StringProxy type representing the CSS `coun
 class MyStyle extends css.StyleDefinition
 {
     // define counter object
-	counter1 = css.$counter();
+    counter1 = css.$counter();
 
     ol = css.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
     
-	li = css.$style( "li", {
-		counterIncrement: this.counter,
-		"::before": { content: css.counter( this.counter, "upper-roman", " ") }
-	})
+    li = css.$style( "li", {
+        counterIncrement: this.counter,
+        "::before": { content: css.counter( this.counter, "upper-roman", " ") }
+    })
 }
 ```
 
@@ -122,8 +129,8 @@ class MyStyle extends css.StyleDefinition
 
 ```tsx
 export function counters( counterObj: Extended<ICounterRule | string>,
-	separator: Extended<string>, style?: Extended<ListStyleType_StyleType>,
-	textAfter?: Extended<string>, textBefore?: Extended<string>): StringProxy
+    separator: Extended<string>, style?: Extended<ListStyleType_StyleType>,
+    textAfter?: Extended<string>, textBefore?: Extended<string>): StringProxy
 ```
 
 The `counters()` function returns a StringProxy function representing the CSS `countesr()` function with the given separator string and additional optional strings added after and/or before the counter.
@@ -133,14 +140,14 @@ The `counters()` function returns a StringProxy function representing the CSS `c
 ```tsx
 class MyStyle extends css.StyleDefinition
 {
-	counter = css.$counter();
+    counter = css.$counter();
 
     ol = css.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
     
-	li = css.$style( "li", {
-		counterIncrement: this.counter,
-		"::before": { content: css.counters( this.counter, ".", "hebrew", " ") }
-	})
+    li = css.$style( "li", {
+        counterIncrement: this.counter,
+        "::before": { content: css.counters( this.counter, ".", "hebrew", " ") }
+    })
 }
 ```
 

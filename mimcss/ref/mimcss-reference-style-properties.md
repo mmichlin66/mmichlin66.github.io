@@ -1,6 +1,6 @@
 ---
 layout: mimcss-reference
-unit: 10
+unit: 7
 title: "Mimcss Reference: Style Properties"
 ---
 

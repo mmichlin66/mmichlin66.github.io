@@ -6,4 +6,5 @@ unit,title,file
 4,Assigning Names,mimcss-guide-assigning-names.html
 5,Activation Strategies,mimcss-guide-activation-strategies.html
 6,Style Property Types,mimcss-guide-style-property-types.html
-7,Styled Components,mimcss-guide-styled-components.html
+7,Style Definition Inheritance,mimcss-guide-style-definition-inheritance.html
+8,Styled Components,mimcss-guide-styled-components.html
