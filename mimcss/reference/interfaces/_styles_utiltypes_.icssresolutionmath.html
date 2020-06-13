@@ -77,13 +77,19 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_styles_utiltypes_.inumbermath.html" class="tsd-signature-type">INumberMath</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_styles_utiltypes_.inumbermath.html" class="tsd-signature-type">INumberMath</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">ICssResolutionMath</span>
 							</li>
 						</ul>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_styles_utilfuncs_.cssresolutionmath.html" class="tsd-signature-type">CssResolutionMath</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -98,13 +104,17 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_styles_utiltypes_.icssresolutionmath.html#styletostring" class="tsd-kind-icon">style<wbr>ToString</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_styles_utiltypes_.icssresolutionmath.html#calc" class="tsd-kind-icon">calc</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_styles_utiltypes_.icssresolutionmath.html#clamp" class="tsd-kind-icon">clamp</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_styles_utiltypes_.icssresolutionmath.html#dpcm" class="tsd-kind-icon">dpcm</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_styles_utiltypes_.icssresolutionmath.html#dpi" class="tsd-kind-icon">dpi</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_styles_utiltypes_.icssresolutionmath.html#dppx" class="tsd-kind-icon">dppx</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_styles_utiltypes_.icssresolutionmath.html#max" class="tsd-kind-icon">max</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_styles_utiltypes_.icssresolutionmath.html#min" class="tsd-kind-icon">min</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_styles_utiltypes_.icssresolutionmath.html#x" class="tsd-kind-icon">x</a></li>
 							</ul>
 						</section>
 					</div>
@@ -115,11 +125,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="multistyletostring" class="tsd-anchor"></a>
 					<h3>multi<wbr>Style<wbr>ToString</h3>
-					<div class="tsd-signature tsd-kind-icon">multi<wbr>Style<wbr>ToString<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#multinumberbase" class="tsd-signature-type">MultiNumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, separator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">multi<wbr>Style<wbr>ToString<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#multinumberbase" class="tsd-signature-type">MultiNumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, separator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_styles_utiltypes_.inumbermath.html">INumberMath</a>.<a href="_styles_utiltypes_.inumbermath.html#multistyletostring">multiStyleToString</a></p>
 						<ul>
-							<li>Defined in styles/UtilTypes.ts:163</li>
+							<li>Defined in styles/UtilTypes.ts:136</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -132,14 +142,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#multinumberbase" class="tsd-signature-type">MultiNumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, separator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#multinumberbase" class="tsd-signature-type">MultiNumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, separator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>val: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#multinumberbase" class="tsd-signature-type">MultiNumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+												<h5>val: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#multinumberbase" class="tsd-signature-type">MultiNumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 											</li>
 											<li>
 												<h5>separator: <span class="tsd-signature-type">string</span></h5>
@@ -159,7 +169,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_styles_utiltypes_.inumbermath.html">INumberMath</a>.<a href="_styles_utiltypes_.inumbermath.html#numbertostring">numberToString</a></p>
 						<ul>
-							<li>Defined in styles/UtilTypes.ts:157</li>
+							<li>Defined in styles/UtilTypes.ts:130</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -192,11 +202,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="styletostring" class="tsd-anchor"></a>
 					<h3>style<wbr>ToString</h3>
-					<div class="tsd-signature tsd-kind-icon">style<wbr>ToString<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">style<wbr>ToString<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_styles_utiltypes_.inumbermath.html">INumberMath</a>.<a href="_styles_utiltypes_.inumbermath.html#styletostring">styleToString</a></p>
 						<ul>
-							<li>Defined in styles/UtilTypes.ts:160</li>
+							<li>Defined in styles/UtilTypes.ts:133</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,14 +219,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>val: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+												<h5>val: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -227,49 +237,45 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a name="calc" class="tsd-anchor"></a>
 					<h3>calc</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">calc<span class="tsd-signature-symbol">(</span>formula<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">calc<span class="tsd-signature-symbol">(</span>formulaParts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TemplateStringsArray</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_styles_utiltypes_.inumbermath.html">INumberMath</a>.<a href="_styles_utiltypes_.inumbermath.html#calc">calc</a></p>
 								<ul>
-									<li>Defined in styles/UtilTypes.ts:196</li>
+									<li>Defined in styles/UtilTypes.ts:161</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates property value using the CSS calc() function. This function accepts a formular
-										string and an arbitrary number of parameters. The formular string can contain placeholders
-									that will be replaced by the parameters. Placeholders have the following format:</p>
+									<p>Creates property value using the CSS calc() function. This method is a tag function and must
+									be invoked with a template string without parentheses.</p>
 								</div>
-								<pre><code>{<span class="hljs-tag">&lt;<span class="hljs-name">index</span>&gt;</span> [| <span class="hljs-tag">&lt;<span class="hljs-name">unit</span>&gt;</span>]}</code></pre><p>The <code>&lt;index&gt;</code> token is a zero-based index in the parameter array. The optional <code>&lt;unit&gt;</code> token is
-									a measurement unit (length, percent, angle, etc.) and is used if the corresponding parameter
-								is a number.</p>
 								<pre><code class="language-typescript"><span class="hljs-keyword">class</span> MyStyles
 {
     wallGap = $<span class="hljs-keyword">var</span>( <span class="hljs-string">"width"</span>, <span class="hljs-number">16</span>);
-    myClass = $<span class="hljs-keyword">class</span>({ maxWidth: Len.calc(<span class="hljs-string">"100% - 2*{0}"</span>, <span class="hljs-keyword">this</span>.wallGap)})
+    myClass = $<span class="hljs-keyword">class</span>({ maxWidth: css.Len.calc <span class="hljs-string">`100% - 2 * {this.wallGap}`</span> })
 }</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>formula: <span class="tsd-signature-type">string</span></h5>
+									<h5>formulaParts: <span class="tsd-signature-type">TemplateStringsArray</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -277,14 +283,14 @@
 					<a name="clamp" class="tsd-anchor"></a>
 					<h3>clamp</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">clamp<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, pref<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, max<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">clamp<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, pref<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, max<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_styles_utiltypes_.inumbermath.html">INumberMath</a>.<a href="_styles_utiltypes_.inumbermath.html#clamp">clamp</a></p>
 								<ul>
-									<li>Defined in styles/UtilTypes.ts:172</li>
+									<li>Defined in styles/UtilTypes.ts:145</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -295,16 +301,100 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>min: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>min: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>pref: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>pref: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>max: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>max: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="dpcm" class="tsd-anchor"></a>
+					<h3>dpcm</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">dpcm<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in styles/UtilTypes.ts:463</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates resolution value in DPCM</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="dpi" class="tsd-anchor"></a>
+					<h3>dpi</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">dpi<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in styles/UtilTypes.ts:460</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates resolution value in DPI</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="dppx" class="tsd-anchor"></a>
+					<h3>dppx</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">dppx<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in styles/UtilTypes.ts:466</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates resolution value in DPPX</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -312,14 +402,14 @@
 					<a name="max" class="tsd-anchor"></a>
 					<h3>max</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_styles_utiltypes_.inumbermath.html">INumberMath</a>.<a href="_styles_utiltypes_.inumbermath.html#max">max</a></p>
 								<ul>
-									<li>Defined in styles/UtilTypes.ts:169</li>
+									<li>Defined in styles/UtilTypes.ts:142</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -330,10 +420,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -341,14 +431,14 @@
 					<a name="min" class="tsd-anchor"></a>
 					<h3>min</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_styles_utiltypes_.inumbermath.html">INumberMath</a>.<a href="_styles_utiltypes_.inumbermath.html#min">min</a></p>
 								<ul>
-									<li>Defined in styles/UtilTypes.ts:166</li>
+									<li>Defined in styles/UtilTypes.ts:139</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,10 +449,38 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#numberbase" class="tsd-signature-type">NumberBase</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_styles_utiltypes_.inumberproxy.html" class="tsd-signature-type">INumberProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"Resolution"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Percent"</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#numberproxy" class="tsd-signature-type">NumberProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_styles_utiltypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="x" class="tsd-anchor"></a>
+					<h3>x</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in styles/UtilTypes.ts:469</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates resolution value in X</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../modules/_styles_utiltypes_.html#resolutionproxy" class="tsd-signature-type">ResolutionProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -373,36 +491,6 @@
 				<ul>
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_rules_.html">&quot;api/rules&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_sh_.html">&quot;api/sh&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_utils_.html">&quot;api/utils&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
@@ -431,11 +519,23 @@
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_styles_utiltypes_.icssresolutionmath.html#clamp" class="tsd-kind-icon">clamp</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_styles_utiltypes_.icssresolutionmath.html#dpcm" class="tsd-kind-icon">dpcm</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_styles_utiltypes_.icssresolutionmath.html#dpi" class="tsd-kind-icon">dpi</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_styles_utiltypes_.icssresolutionmath.html#dppx" class="tsd-kind-icon">dppx</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_styles_utiltypes_.icssresolutionmath.html#max" class="tsd-kind-icon">max</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_styles_utiltypes_.icssresolutionmath.html#min" class="tsd-kind-icon">min</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_styles_utiltypes_.icssresolutionmath.html#x" class="tsd-kind-icon">x</a>
 							</li>
 						</ul>
 					</li>
@@ -461,13 +561,11 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

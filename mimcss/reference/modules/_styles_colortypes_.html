@@ -62,6 +62,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This module contains types for working with CSS colors.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -69,13 +76,13 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_styles_colortypes_.icolorproxy.html" class="tsd-kind-icon">IColor<wbr>Proxy</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_styles_colortypes_.inamedcolors.html" class="tsd-kind-icon">INamed<wbr>Colors</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_styles_colortypes_.html#colorproxy" class="tsd-kind-icon">Color<wbr>Proxy</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_styles_colortypes_.html#csscolor" class="tsd-kind-icon">Css<wbr>Color</a></li>
 							</ul>
 						</section>
@@ -91,12 +98,49 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="csscolor" class="tsd-anchor"></a>
-					<h3>Css<wbr>Color</h3>
-					<div class="tsd-signature tsd-kind-icon">Css<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"transparent"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"currentcolor"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_styles_colortypes_.inamedcolors.html" class="tsd-signature-type">INamedColors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_styles_colortypes_.icolorproxy.html" class="tsd-signature-type">IColorProxy</a></div>
+					<a name="colorproxy" class="tsd-anchor"></a>
+					<h3>Color<wbr>Proxy</h3>
+					<div class="tsd-signature tsd-kind-icon">Color<wbr>Proxy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"color"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in styles/ColorTypes.ts:187</li>
+							<li>Defined in styles/ColorTypes.ts:169</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The ColorProxy type represents an invocation of one of CSS functions that are used for
+							secifying colors. This interface is returned from functions like: rgb(), alpha(), etc.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"color"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagOptional">Optional</span> p: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"color"</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="csscolor" class="tsd-anchor"></a>
+					<h3>Css<wbr>Color</h3>
+					<div class="tsd-signature tsd-kind-icon">Css<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"transparent"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"currentcolor"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/_styles_colortypes_.inamedcolors.html" class="tsd-signature-type">INamedColors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="_styles_colortypes_.html#colorproxy" class="tsd-signature-type">ColorProxy</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in styles/ColorTypes.ts:181</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -123,7 +167,7 @@
 					<div class="tsd-signature tsd-kind-icon">Colors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in styles/ColorTypes.ts:195</li>
+							<li>Defined in styles/ColorTypes.ts:189</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -138,7 +182,7 @@
 						<div class="tsd-signature tsd-kind-icon">aliceblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15792383</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:214</li>
+								<li>Defined in styles/ColorTypes.ts:208</li>
 							</ul>
 						</aside>
 					</section>
@@ -148,7 +192,7 @@
 						<div class="tsd-signature tsd-kind-icon">antiquewhite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16444375</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:215</li>
+								<li>Defined in styles/ColorTypes.ts:209</li>
 							</ul>
 						</aside>
 					</section>
@@ -158,7 +202,7 @@
 						<div class="tsd-signature tsd-kind-icon">aqua<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 65535</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:212</li>
+								<li>Defined in styles/ColorTypes.ts:206</li>
 							</ul>
 						</aside>
 					</section>
@@ -168,7 +212,7 @@
 						<div class="tsd-signature tsd-kind-icon">aquamarine<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8388564</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:216</li>
+								<li>Defined in styles/ColorTypes.ts:210</li>
 							</ul>
 						</aside>
 					</section>
@@ -178,7 +222,7 @@
 						<div class="tsd-signature tsd-kind-icon">azure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15794175</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:217</li>
+								<li>Defined in styles/ColorTypes.ts:211</li>
 							</ul>
 						</aside>
 					</section>
@@ -188,7 +232,7 @@
 						<div class="tsd-signature tsd-kind-icon">beige<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16119260</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:218</li>
+								<li>Defined in styles/ColorTypes.ts:212</li>
 							</ul>
 						</aside>
 					</section>
@@ -198,7 +242,7 @@
 						<div class="tsd-signature tsd-kind-icon">bisque<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16770244</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:219</li>
+								<li>Defined in styles/ColorTypes.ts:213</li>
 							</ul>
 						</aside>
 					</section>
@@ -208,7 +252,7 @@
 						<div class="tsd-signature tsd-kind-icon">black<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:197</li>
+								<li>Defined in styles/ColorTypes.ts:191</li>
 							</ul>
 						</aside>
 					</section>
@@ -218,7 +262,7 @@
 						<div class="tsd-signature tsd-kind-icon">blanchedalmond<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16772045</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:220</li>
+								<li>Defined in styles/ColorTypes.ts:214</li>
 							</ul>
 						</aside>
 					</section>
@@ -228,7 +272,7 @@
 						<div class="tsd-signature tsd-kind-icon">blue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 255</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:210</li>
+								<li>Defined in styles/ColorTypes.ts:204</li>
 							</ul>
 						</aside>
 					</section>
@@ -238,7 +282,7 @@
 						<div class="tsd-signature tsd-kind-icon">blueviolet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9055202</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:221</li>
+								<li>Defined in styles/ColorTypes.ts:215</li>
 							</ul>
 						</aside>
 					</section>
@@ -248,7 +292,7 @@
 						<div class="tsd-signature tsd-kind-icon">brown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10824234</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:222</li>
+								<li>Defined in styles/ColorTypes.ts:216</li>
 							</ul>
 						</aside>
 					</section>
@@ -258,7 +302,7 @@
 						<div class="tsd-signature tsd-kind-icon">burlywood<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14596231</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:223</li>
+								<li>Defined in styles/ColorTypes.ts:217</li>
 							</ul>
 						</aside>
 					</section>
@@ -268,7 +312,7 @@
 						<div class="tsd-signature tsd-kind-icon">cadetblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 6266528</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:224</li>
+								<li>Defined in styles/ColorTypes.ts:218</li>
 							</ul>
 						</aside>
 					</section>
@@ -278,7 +322,7 @@
 						<div class="tsd-signature tsd-kind-icon">chartreuse<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8388352</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:225</li>
+								<li>Defined in styles/ColorTypes.ts:219</li>
 							</ul>
 						</aside>
 					</section>
@@ -288,7 +332,7 @@
 						<div class="tsd-signature tsd-kind-icon">chocolate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 13789470</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:226</li>
+								<li>Defined in styles/ColorTypes.ts:220</li>
 							</ul>
 						</aside>
 					</section>
@@ -298,7 +342,7 @@
 						<div class="tsd-signature tsd-kind-icon">coral<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16744272</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:227</li>
+								<li>Defined in styles/ColorTypes.ts:221</li>
 							</ul>
 						</aside>
 					</section>
@@ -308,7 +352,7 @@
 						<div class="tsd-signature tsd-kind-icon">cornflowerblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 6591981</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:228</li>
+								<li>Defined in styles/ColorTypes.ts:222</li>
 							</ul>
 						</aside>
 					</section>
@@ -318,7 +362,7 @@
 						<div class="tsd-signature tsd-kind-icon">cornsilk<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16775388</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:229</li>
+								<li>Defined in styles/ColorTypes.ts:223</li>
 							</ul>
 						</aside>
 					</section>
@@ -328,7 +372,7 @@
 						<div class="tsd-signature tsd-kind-icon">crimson<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14423100</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:230</li>
+								<li>Defined in styles/ColorTypes.ts:224</li>
 							</ul>
 						</aside>
 					</section>
@@ -338,7 +382,7 @@
 						<div class="tsd-signature tsd-kind-icon">cyan<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 65535</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:231</li>
+								<li>Defined in styles/ColorTypes.ts:225</li>
 							</ul>
 						</aside>
 					</section>
@@ -348,7 +392,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 139</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:232</li>
+								<li>Defined in styles/ColorTypes.ts:226</li>
 							</ul>
 						</aside>
 					</section>
@@ -358,7 +402,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkcyan<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 35723</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:233</li>
+								<li>Defined in styles/ColorTypes.ts:227</li>
 							</ul>
 						</aside>
 					</section>
@@ -368,7 +412,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkgoldenrod<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 12092939</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:234</li>
+								<li>Defined in styles/ColorTypes.ts:228</li>
 							</ul>
 						</aside>
 					</section>
@@ -378,7 +422,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkgray<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11119017</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:235</li>
+								<li>Defined in styles/ColorTypes.ts:229</li>
 							</ul>
 						</aside>
 					</section>
@@ -388,7 +432,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkgreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 25600</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:236</li>
+								<li>Defined in styles/ColorTypes.ts:230</li>
 							</ul>
 						</aside>
 					</section>
@@ -398,7 +442,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkgrey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11119017</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:237</li>
+								<li>Defined in styles/ColorTypes.ts:231</li>
 							</ul>
 						</aside>
 					</section>
@@ -408,7 +452,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkkhaki<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 12433259</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:238</li>
+								<li>Defined in styles/ColorTypes.ts:232</li>
 							</ul>
 						</aside>
 					</section>
@@ -418,7 +462,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkmagenta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9109643</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:239</li>
+								<li>Defined in styles/ColorTypes.ts:233</li>
 							</ul>
 						</aside>
 					</section>
@@ -428,7 +472,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkolivegreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 5597999</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:240</li>
+								<li>Defined in styles/ColorTypes.ts:234</li>
 							</ul>
 						</aside>
 					</section>
@@ -438,7 +482,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkorange<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16747520</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:241</li>
+								<li>Defined in styles/ColorTypes.ts:235</li>
 							</ul>
 						</aside>
 					</section>
@@ -448,7 +492,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkorchid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10040012</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:242</li>
+								<li>Defined in styles/ColorTypes.ts:236</li>
 							</ul>
 						</aside>
 					</section>
@@ -458,7 +502,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkred<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9109504</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:243</li>
+								<li>Defined in styles/ColorTypes.ts:237</li>
 							</ul>
 						</aside>
 					</section>
@@ -468,7 +512,7 @@
 						<div class="tsd-signature tsd-kind-icon">darksalmon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15308410</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:244</li>
+								<li>Defined in styles/ColorTypes.ts:238</li>
 							</ul>
 						</aside>
 					</section>
@@ -478,7 +522,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkseagreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9419919</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:245</li>
+								<li>Defined in styles/ColorTypes.ts:239</li>
 							</ul>
 						</aside>
 					</section>
@@ -488,7 +532,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkslateblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 4734347</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:246</li>
+								<li>Defined in styles/ColorTypes.ts:240</li>
 							</ul>
 						</aside>
 					</section>
@@ -498,7 +542,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkslategray<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3100495</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:247</li>
+								<li>Defined in styles/ColorTypes.ts:241</li>
 							</ul>
 						</aside>
 					</section>
@@ -508,7 +552,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkslategrey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3100495</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:248</li>
+								<li>Defined in styles/ColorTypes.ts:242</li>
 							</ul>
 						</aside>
 					</section>
@@ -518,7 +562,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkturquoise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 52945</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:249</li>
+								<li>Defined in styles/ColorTypes.ts:243</li>
 							</ul>
 						</aside>
 					</section>
@@ -528,7 +572,7 @@
 						<div class="tsd-signature tsd-kind-icon">darkviolet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9699539</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:250</li>
+								<li>Defined in styles/ColorTypes.ts:244</li>
 							</ul>
 						</aside>
 					</section>
@@ -538,7 +582,7 @@
 						<div class="tsd-signature tsd-kind-icon">deeppink<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16716947</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:251</li>
+								<li>Defined in styles/ColorTypes.ts:245</li>
 							</ul>
 						</aside>
 					</section>
@@ -548,7 +592,7 @@
 						<div class="tsd-signature tsd-kind-icon">deepskyblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 49151</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:252</li>
+								<li>Defined in styles/ColorTypes.ts:246</li>
 							</ul>
 						</aside>
 					</section>
@@ -558,7 +602,7 @@
 						<div class="tsd-signature tsd-kind-icon">dimgray<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 6908265</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:253</li>
+								<li>Defined in styles/ColorTypes.ts:247</li>
 							</ul>
 						</aside>
 					</section>
@@ -568,7 +612,7 @@
 						<div class="tsd-signature tsd-kind-icon">dimgrey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 6908265</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:254</li>
+								<li>Defined in styles/ColorTypes.ts:248</li>
 							</ul>
 						</aside>
 					</section>
@@ -578,7 +622,7 @@
 						<div class="tsd-signature tsd-kind-icon">dodgerblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 2003199</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:255</li>
+								<li>Defined in styles/ColorTypes.ts:249</li>
 							</ul>
 						</aside>
 					</section>
@@ -588,7 +632,7 @@
 						<div class="tsd-signature tsd-kind-icon">firebrick<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11674146</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:256</li>
+								<li>Defined in styles/ColorTypes.ts:250</li>
 							</ul>
 						</aside>
 					</section>
@@ -598,7 +642,7 @@
 						<div class="tsd-signature tsd-kind-icon">floralwhite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16775920</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:257</li>
+								<li>Defined in styles/ColorTypes.ts:251</li>
 							</ul>
 						</aside>
 					</section>
@@ -608,7 +652,7 @@
 						<div class="tsd-signature tsd-kind-icon">forestgreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 2263842</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:258</li>
+								<li>Defined in styles/ColorTypes.ts:252</li>
 							</ul>
 						</aside>
 					</section>
@@ -618,7 +662,7 @@
 						<div class="tsd-signature tsd-kind-icon">fuchsia<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16711935</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:204</li>
+								<li>Defined in styles/ColorTypes.ts:198</li>
 							</ul>
 						</aside>
 					</section>
@@ -628,7 +672,7 @@
 						<div class="tsd-signature tsd-kind-icon">gainsboro<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14474460</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:259</li>
+								<li>Defined in styles/ColorTypes.ts:253</li>
 							</ul>
 						</aside>
 					</section>
@@ -638,7 +682,7 @@
 						<div class="tsd-signature tsd-kind-icon">ghostwhite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16316671</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:260</li>
+								<li>Defined in styles/ColorTypes.ts:254</li>
 							</ul>
 						</aside>
 					</section>
@@ -648,7 +692,7 @@
 						<div class="tsd-signature tsd-kind-icon">gold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16766720</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:261</li>
+								<li>Defined in styles/ColorTypes.ts:255</li>
 							</ul>
 						</aside>
 					</section>
@@ -658,7 +702,7 @@
 						<div class="tsd-signature tsd-kind-icon">goldenrod<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14329120</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:262</li>
+								<li>Defined in styles/ColorTypes.ts:256</li>
 							</ul>
 						</aside>
 					</section>
@@ -668,7 +712,7 @@
 						<div class="tsd-signature tsd-kind-icon">gray<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8421504</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:199</li>
+								<li>Defined in styles/ColorTypes.ts:193</li>
 							</ul>
 						</aside>
 					</section>
@@ -678,7 +722,7 @@
 						<div class="tsd-signature tsd-kind-icon">green<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 32768</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:205</li>
+								<li>Defined in styles/ColorTypes.ts:199</li>
 							</ul>
 						</aside>
 					</section>
@@ -688,7 +732,7 @@
 						<div class="tsd-signature tsd-kind-icon">greenyellow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11403055</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:263</li>
+								<li>Defined in styles/ColorTypes.ts:257</li>
 							</ul>
 						</aside>
 					</section>
@@ -698,7 +742,7 @@
 						<div class="tsd-signature tsd-kind-icon">grey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8421504</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:264</li>
+								<li>Defined in styles/ColorTypes.ts:258</li>
 							</ul>
 						</aside>
 					</section>
@@ -708,7 +752,7 @@
 						<div class="tsd-signature tsd-kind-icon">honeydew<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15794160</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:265</li>
+								<li>Defined in styles/ColorTypes.ts:259</li>
 							</ul>
 						</aside>
 					</section>
@@ -718,7 +762,7 @@
 						<div class="tsd-signature tsd-kind-icon">hotpink<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16738740</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:266</li>
+								<li>Defined in styles/ColorTypes.ts:260</li>
 							</ul>
 						</aside>
 					</section>
@@ -728,7 +772,7 @@
 						<div class="tsd-signature tsd-kind-icon">indianred<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 13458524</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:267</li>
+								<li>Defined in styles/ColorTypes.ts:261</li>
 							</ul>
 						</aside>
 					</section>
@@ -738,7 +782,7 @@
 						<div class="tsd-signature tsd-kind-icon">indigo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 4915330</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:268</li>
+								<li>Defined in styles/ColorTypes.ts:262</li>
 							</ul>
 						</aside>
 					</section>
@@ -748,7 +792,7 @@
 						<div class="tsd-signature tsd-kind-icon">ivory<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16777200</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:269</li>
+								<li>Defined in styles/ColorTypes.ts:263</li>
 							</ul>
 						</aside>
 					</section>
@@ -758,7 +802,7 @@
 						<div class="tsd-signature tsd-kind-icon">khaki<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15787660</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:270</li>
+								<li>Defined in styles/ColorTypes.ts:264</li>
 							</ul>
 						</aside>
 					</section>
@@ -768,7 +812,7 @@
 						<div class="tsd-signature tsd-kind-icon">lavender<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15132410</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:271</li>
+								<li>Defined in styles/ColorTypes.ts:265</li>
 							</ul>
 						</aside>
 					</section>
@@ -778,7 +822,7 @@
 						<div class="tsd-signature tsd-kind-icon">lavenderblush<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16773365</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:272</li>
+								<li>Defined in styles/ColorTypes.ts:266</li>
 							</ul>
 						</aside>
 					</section>
@@ -788,7 +832,7 @@
 						<div class="tsd-signature tsd-kind-icon">lawngreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8190976</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:273</li>
+								<li>Defined in styles/ColorTypes.ts:267</li>
 							</ul>
 						</aside>
 					</section>
@@ -798,7 +842,7 @@
 						<div class="tsd-signature tsd-kind-icon">lemonchiffon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16775885</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:274</li>
+								<li>Defined in styles/ColorTypes.ts:268</li>
 							</ul>
 						</aside>
 					</section>
@@ -808,7 +852,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11393254</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:275</li>
+								<li>Defined in styles/ColorTypes.ts:269</li>
 							</ul>
 						</aside>
 					</section>
@@ -818,7 +862,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightcoral<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15761536</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:276</li>
+								<li>Defined in styles/ColorTypes.ts:270</li>
 							</ul>
 						</aside>
 					</section>
@@ -828,7 +872,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightcyan<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14745599</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:277</li>
+								<li>Defined in styles/ColorTypes.ts:271</li>
 							</ul>
 						</aside>
 					</section>
@@ -838,7 +882,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightgoldenrodyellow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16448210</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:278</li>
+								<li>Defined in styles/ColorTypes.ts:272</li>
 							</ul>
 						</aside>
 					</section>
@@ -848,7 +892,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightgray<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 13882323</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:279</li>
+								<li>Defined in styles/ColorTypes.ts:273</li>
 							</ul>
 						</aside>
 					</section>
@@ -858,7 +902,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightgreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9498256</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:280</li>
+								<li>Defined in styles/ColorTypes.ts:274</li>
 							</ul>
 						</aside>
 					</section>
@@ -868,7 +912,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightgrey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 13882323</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:281</li>
+								<li>Defined in styles/ColorTypes.ts:275</li>
 							</ul>
 						</aside>
 					</section>
@@ -878,7 +922,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightpink<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16758465</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:282</li>
+								<li>Defined in styles/ColorTypes.ts:276</li>
 							</ul>
 						</aside>
 					</section>
@@ -888,7 +932,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightsalmon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16752762</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:283</li>
+								<li>Defined in styles/ColorTypes.ts:277</li>
 							</ul>
 						</aside>
 					</section>
@@ -898,7 +942,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightseagreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 2142890</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:284</li>
+								<li>Defined in styles/ColorTypes.ts:278</li>
 							</ul>
 						</aside>
 					</section>
@@ -908,7 +952,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightskyblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8900346</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:285</li>
+								<li>Defined in styles/ColorTypes.ts:279</li>
 							</ul>
 						</aside>
 					</section>
@@ -918,7 +962,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightslategray<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 7833753</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:286</li>
+								<li>Defined in styles/ColorTypes.ts:280</li>
 							</ul>
 						</aside>
 					</section>
@@ -928,7 +972,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightslategrey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 7833753</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:287</li>
+								<li>Defined in styles/ColorTypes.ts:281</li>
 							</ul>
 						</aside>
 					</section>
@@ -938,7 +982,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightsteelblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11584734</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:288</li>
+								<li>Defined in styles/ColorTypes.ts:282</li>
 							</ul>
 						</aside>
 					</section>
@@ -948,7 +992,7 @@
 						<div class="tsd-signature tsd-kind-icon">lightyellow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16777184</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:289</li>
+								<li>Defined in styles/ColorTypes.ts:283</li>
 							</ul>
 						</aside>
 					</section>
@@ -958,7 +1002,7 @@
 						<div class="tsd-signature tsd-kind-icon">lime<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 65280</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:206</li>
+								<li>Defined in styles/ColorTypes.ts:200</li>
 							</ul>
 						</aside>
 					</section>
@@ -968,7 +1012,7 @@
 						<div class="tsd-signature tsd-kind-icon">limegreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3329330</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:290</li>
+								<li>Defined in styles/ColorTypes.ts:284</li>
 							</ul>
 						</aside>
 					</section>
@@ -978,7 +1022,7 @@
 						<div class="tsd-signature tsd-kind-icon">linen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16445670</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:291</li>
+								<li>Defined in styles/ColorTypes.ts:285</li>
 							</ul>
 						</aside>
 					</section>
@@ -988,7 +1032,7 @@
 						<div class="tsd-signature tsd-kind-icon">magenta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16711935</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:292</li>
+								<li>Defined in styles/ColorTypes.ts:286</li>
 							</ul>
 						</aside>
 					</section>
@@ -998,7 +1042,7 @@
 						<div class="tsd-signature tsd-kind-icon">maroon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8388608</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:201</li>
+								<li>Defined in styles/ColorTypes.ts:195</li>
 							</ul>
 						</aside>
 					</section>
@@ -1008,7 +1052,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumaquamarine<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 6737322</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:293</li>
+								<li>Defined in styles/ColorTypes.ts:287</li>
 							</ul>
 						</aside>
 					</section>
@@ -1018,7 +1062,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 205</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:294</li>
+								<li>Defined in styles/ColorTypes.ts:288</li>
 							</ul>
 						</aside>
 					</section>
@@ -1028,7 +1072,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumorchid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 12211667</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:295</li>
+								<li>Defined in styles/ColorTypes.ts:289</li>
 							</ul>
 						</aside>
 					</section>
@@ -1038,7 +1082,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumpurple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9662683</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:296</li>
+								<li>Defined in styles/ColorTypes.ts:290</li>
 							</ul>
 						</aside>
 					</section>
@@ -1048,7 +1092,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumseagreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3978097</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:297</li>
+								<li>Defined in styles/ColorTypes.ts:291</li>
 							</ul>
 						</aside>
 					</section>
@@ -1058,7 +1102,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumslateblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8087790</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:298</li>
+								<li>Defined in styles/ColorTypes.ts:292</li>
 							</ul>
 						</aside>
 					</section>
@@ -1068,7 +1112,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumspringgreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 64154</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:299</li>
+								<li>Defined in styles/ColorTypes.ts:293</li>
 							</ul>
 						</aside>
 					</section>
@@ -1078,7 +1122,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumturquoise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 4772300</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:300</li>
+								<li>Defined in styles/ColorTypes.ts:294</li>
 							</ul>
 						</aside>
 					</section>
@@ -1088,7 +1132,7 @@
 						<div class="tsd-signature tsd-kind-icon">mediumvioletred<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 13047173</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:301</li>
+								<li>Defined in styles/ColorTypes.ts:295</li>
 							</ul>
 						</aside>
 					</section>
@@ -1098,7 +1142,7 @@
 						<div class="tsd-signature tsd-kind-icon">midnightblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1644912</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:302</li>
+								<li>Defined in styles/ColorTypes.ts:296</li>
 							</ul>
 						</aside>
 					</section>
@@ -1108,7 +1152,7 @@
 						<div class="tsd-signature tsd-kind-icon">mintcream<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16121850</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:303</li>
+								<li>Defined in styles/ColorTypes.ts:297</li>
 							</ul>
 						</aside>
 					</section>
@@ -1118,7 +1162,7 @@
 						<div class="tsd-signature tsd-kind-icon">mistyrose<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16770273</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:304</li>
+								<li>Defined in styles/ColorTypes.ts:298</li>
 							</ul>
 						</aside>
 					</section>
@@ -1128,7 +1172,7 @@
 						<div class="tsd-signature tsd-kind-icon">moccasin<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16770229</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:305</li>
+								<li>Defined in styles/ColorTypes.ts:299</li>
 							</ul>
 						</aside>
 					</section>
@@ -1138,7 +1182,7 @@
 						<div class="tsd-signature tsd-kind-icon">navajowhite<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16768685</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:306</li>
+								<li>Defined in styles/ColorTypes.ts:300</li>
 							</ul>
 						</aside>
 					</section>
@@ -1148,7 +1192,7 @@
 						<div class="tsd-signature tsd-kind-icon">navy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 128</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:209</li>
+								<li>Defined in styles/ColorTypes.ts:203</li>
 							</ul>
 						</aside>
 					</section>
@@ -1158,7 +1202,7 @@
 						<div class="tsd-signature tsd-kind-icon">oldlace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16643558</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:307</li>
+								<li>Defined in styles/ColorTypes.ts:301</li>
 							</ul>
 						</aside>
 					</section>
@@ -1168,7 +1212,7 @@
 						<div class="tsd-signature tsd-kind-icon">olive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8421376</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:207</li>
+								<li>Defined in styles/ColorTypes.ts:201</li>
 							</ul>
 						</aside>
 					</section>
@@ -1178,7 +1222,7 @@
 						<div class="tsd-signature tsd-kind-icon">olivedrab<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 7048739</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:308</li>
+								<li>Defined in styles/ColorTypes.ts:302</li>
 							</ul>
 						</aside>
 					</section>
@@ -1188,7 +1232,7 @@
 						<div class="tsd-signature tsd-kind-icon">orange<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16753920</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:213</li>
+								<li>Defined in styles/ColorTypes.ts:207</li>
 							</ul>
 						</aside>
 					</section>
@@ -1198,7 +1242,7 @@
 						<div class="tsd-signature tsd-kind-icon">orangered<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16729344</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:309</li>
+								<li>Defined in styles/ColorTypes.ts:303</li>
 							</ul>
 						</aside>
 					</section>
@@ -1208,7 +1252,7 @@
 						<div class="tsd-signature tsd-kind-icon">orchid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14315734</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:310</li>
+								<li>Defined in styles/ColorTypes.ts:304</li>
 							</ul>
 						</aside>
 					</section>
@@ -1218,7 +1262,7 @@
 						<div class="tsd-signature tsd-kind-icon">palegoldenrod<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15657130</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:311</li>
+								<li>Defined in styles/ColorTypes.ts:305</li>
 							</ul>
 						</aside>
 					</section>
@@ -1228,7 +1272,7 @@
 						<div class="tsd-signature tsd-kind-icon">palegreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10025880</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:312</li>
+								<li>Defined in styles/ColorTypes.ts:306</li>
 							</ul>
 						</aside>
 					</section>
@@ -1238,7 +1282,7 @@
 						<div class="tsd-signature tsd-kind-icon">paleturquoise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11529966</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:313</li>
+								<li>Defined in styles/ColorTypes.ts:307</li>
 							</ul>
 						</aside>
 					</section>
@@ -1248,7 +1292,7 @@
 						<div class="tsd-signature tsd-kind-icon">palevioletred<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14381203</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:314</li>
+								<li>Defined in styles/ColorTypes.ts:308</li>
 							</ul>
 						</aside>
 					</section>
@@ -1258,7 +1302,7 @@
 						<div class="tsd-signature tsd-kind-icon">papayawhip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16773077</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:315</li>
+								<li>Defined in styles/ColorTypes.ts:309</li>
 							</ul>
 						</aside>
 					</section>
@@ -1268,7 +1312,7 @@
 						<div class="tsd-signature tsd-kind-icon">peachpuff<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16767673</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:316</li>
+								<li>Defined in styles/ColorTypes.ts:310</li>
 							</ul>
 						</aside>
 					</section>
@@ -1278,7 +1322,7 @@
 						<div class="tsd-signature tsd-kind-icon">peru<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 13468991</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:317</li>
+								<li>Defined in styles/ColorTypes.ts:311</li>
 							</ul>
 						</aside>
 					</section>
@@ -1288,7 +1332,7 @@
 						<div class="tsd-signature tsd-kind-icon">pink<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16761035</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:318</li>
+								<li>Defined in styles/ColorTypes.ts:312</li>
 							</ul>
 						</aside>
 					</section>
@@ -1298,7 +1342,7 @@
 						<div class="tsd-signature tsd-kind-icon">plum<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14524637</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:319</li>
+								<li>Defined in styles/ColorTypes.ts:313</li>
 							</ul>
 						</aside>
 					</section>
@@ -1308,7 +1352,7 @@
 						<div class="tsd-signature tsd-kind-icon">powderblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 11591910</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:320</li>
+								<li>Defined in styles/ColorTypes.ts:314</li>
 							</ul>
 						</aside>
 					</section>
@@ -1318,7 +1362,7 @@
 						<div class="tsd-signature tsd-kind-icon">purple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8388736</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:203</li>
+								<li>Defined in styles/ColorTypes.ts:197</li>
 							</ul>
 						</aside>
 					</section>
@@ -1328,7 +1372,7 @@
 						<div class="tsd-signature tsd-kind-icon">rebeccapurple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 6697881</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:344</li>
+								<li>Defined in styles/ColorTypes.ts:338</li>
 							</ul>
 						</aside>
 					</section>
@@ -1338,7 +1382,7 @@
 						<div class="tsd-signature tsd-kind-icon">red<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16711680</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:202</li>
+								<li>Defined in styles/ColorTypes.ts:196</li>
 							</ul>
 						</aside>
 					</section>
@@ -1348,7 +1392,7 @@
 						<div class="tsd-signature tsd-kind-icon">rosybrown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 12357519</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:321</li>
+								<li>Defined in styles/ColorTypes.ts:315</li>
 							</ul>
 						</aside>
 					</section>
@@ -1358,7 +1402,7 @@
 						<div class="tsd-signature tsd-kind-icon">royalblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 4286945</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:322</li>
+								<li>Defined in styles/ColorTypes.ts:316</li>
 							</ul>
 						</aside>
 					</section>
@@ -1368,7 +1412,7 @@
 						<div class="tsd-signature tsd-kind-icon">saddlebrown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 9127187</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:323</li>
+								<li>Defined in styles/ColorTypes.ts:317</li>
 							</ul>
 						</aside>
 					</section>
@@ -1378,7 +1422,7 @@
 						<div class="tsd-signature tsd-kind-icon">salmon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16416882</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:324</li>
+								<li>Defined in styles/ColorTypes.ts:318</li>
 							</ul>
 						</aside>
 					</section>
@@ -1388,7 +1432,7 @@
 						<div class="tsd-signature tsd-kind-icon">sandybrown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16032864</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:325</li>
+								<li>Defined in styles/ColorTypes.ts:319</li>
 							</ul>
 						</aside>
 					</section>
@@ -1398,7 +1442,7 @@
 						<div class="tsd-signature tsd-kind-icon">seagreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 3050327</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:326</li>
+								<li>Defined in styles/ColorTypes.ts:320</li>
 							</ul>
 						</aside>
 					</section>
@@ -1408,7 +1452,7 @@
 						<div class="tsd-signature tsd-kind-icon">seashell<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16774638</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:327</li>
+								<li>Defined in styles/ColorTypes.ts:321</li>
 							</ul>
 						</aside>
 					</section>
@@ -1418,7 +1462,7 @@
 						<div class="tsd-signature tsd-kind-icon">sienna<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10506797</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:328</li>
+								<li>Defined in styles/ColorTypes.ts:322</li>
 							</ul>
 						</aside>
 					</section>
@@ -1428,7 +1472,7 @@
 						<div class="tsd-signature tsd-kind-icon">silver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 12632256</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:198</li>
+								<li>Defined in styles/ColorTypes.ts:192</li>
 							</ul>
 						</aside>
 					</section>
@@ -1438,7 +1482,7 @@
 						<div class="tsd-signature tsd-kind-icon">skyblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 8900331</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:329</li>
+								<li>Defined in styles/ColorTypes.ts:323</li>
 							</ul>
 						</aside>
 					</section>
@@ -1448,7 +1492,7 @@
 						<div class="tsd-signature tsd-kind-icon">slateblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 6970061</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:330</li>
+								<li>Defined in styles/ColorTypes.ts:324</li>
 							</ul>
 						</aside>
 					</section>
@@ -1458,7 +1502,7 @@
 						<div class="tsd-signature tsd-kind-icon">slategray<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 7372944</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:331</li>
+								<li>Defined in styles/ColorTypes.ts:325</li>
 							</ul>
 						</aside>
 					</section>
@@ -1468,7 +1512,7 @@
 						<div class="tsd-signature tsd-kind-icon">slategrey<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 7372944</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:332</li>
+								<li>Defined in styles/ColorTypes.ts:326</li>
 							</ul>
 						</aside>
 					</section>
@@ -1478,7 +1522,7 @@
 						<div class="tsd-signature tsd-kind-icon">snow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16775930</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:333</li>
+								<li>Defined in styles/ColorTypes.ts:327</li>
 							</ul>
 						</aside>
 					</section>
@@ -1488,7 +1532,7 @@
 						<div class="tsd-signature tsd-kind-icon">springgreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 65407</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:334</li>
+								<li>Defined in styles/ColorTypes.ts:328</li>
 							</ul>
 						</aside>
 					</section>
@@ -1498,7 +1542,7 @@
 						<div class="tsd-signature tsd-kind-icon">steelblue<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 4620980</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:335</li>
+								<li>Defined in styles/ColorTypes.ts:329</li>
 							</ul>
 						</aside>
 					</section>
@@ -1508,7 +1552,7 @@
 						<div class="tsd-signature tsd-kind-icon">tan<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 13808780</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:336</li>
+								<li>Defined in styles/ColorTypes.ts:330</li>
 							</ul>
 						</aside>
 					</section>
@@ -1518,7 +1562,7 @@
 						<div class="tsd-signature tsd-kind-icon">teal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 32896</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:211</li>
+								<li>Defined in styles/ColorTypes.ts:205</li>
 							</ul>
 						</aside>
 					</section>
@@ -1528,7 +1572,7 @@
 						<div class="tsd-signature tsd-kind-icon">thistle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 14204888</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:337</li>
+								<li>Defined in styles/ColorTypes.ts:331</li>
 							</ul>
 						</aside>
 					</section>
@@ -1538,7 +1582,7 @@
 						<div class="tsd-signature tsd-kind-icon">tomato<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16737095</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:338</li>
+								<li>Defined in styles/ColorTypes.ts:332</li>
 							</ul>
 						</aside>
 					</section>
@@ -1548,7 +1592,7 @@
 						<div class="tsd-signature tsd-kind-icon">turquoise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 4251856</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:339</li>
+								<li>Defined in styles/ColorTypes.ts:333</li>
 							</ul>
 						</aside>
 					</section>
@@ -1558,7 +1602,7 @@
 						<div class="tsd-signature tsd-kind-icon">violet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 15631086</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:340</li>
+								<li>Defined in styles/ColorTypes.ts:334</li>
 							</ul>
 						</aside>
 					</section>
@@ -1568,7 +1612,7 @@
 						<div class="tsd-signature tsd-kind-icon">wheat<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16113331</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:341</li>
+								<li>Defined in styles/ColorTypes.ts:335</li>
 							</ul>
 						</aside>
 					</section>
@@ -1578,7 +1622,7 @@
 						<div class="tsd-signature tsd-kind-icon">white<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16777215</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:200</li>
+								<li>Defined in styles/ColorTypes.ts:194</li>
 							</ul>
 						</aside>
 					</section>
@@ -1588,7 +1632,7 @@
 						<div class="tsd-signature tsd-kind-icon">whitesmoke<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16119285</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:342</li>
+								<li>Defined in styles/ColorTypes.ts:336</li>
 							</ul>
 						</aside>
 					</section>
@@ -1598,7 +1642,7 @@
 						<div class="tsd-signature tsd-kind-icon">yellow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 16776960</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:208</li>
+								<li>Defined in styles/ColorTypes.ts:202</li>
 							</ul>
 						</aside>
 					</section>
@@ -1608,7 +1652,7 @@
 						<div class="tsd-signature tsd-kind-icon">yellowgreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10145074</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in styles/ColorTypes.ts:343</li>
+								<li>Defined in styles/ColorTypes.ts:337</li>
 							</ul>
 						</aside>
 					</section>
@@ -1621,48 +1665,18 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="_api_rules_.html">&quot;api/rules&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_api_sh_.html">&quot;api/sh&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_api_utils_.html">&quot;api/utils&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_styles_colortypes_.icolorproxy.html" class="tsd-kind-icon">IColor<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_styles_colortypes_.inamedcolors.html" class="tsd-kind-icon">INamed<wbr>Colors</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_styles_colortypes_.html#colorproxy" class="tsd-kind-icon">Color<wbr>Proxy</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_styles_colortypes_.html#csscolor" class="tsd-kind-icon">Css<wbr>Color</a>
@@ -1694,9 +1708,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

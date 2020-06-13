@@ -86,15 +86,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_styles_utiltypes_.ivalueproxy.html" class="tsd-signature-type">IValueProxy</a>
+						<span class="target">IVarProxy</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IVarProxy</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="_rules_ruletypes_.ivarrule.html" class="tsd-signature-type">IVarRule</a>
-									</li>
-								</ul>
+								<a href="_rules_ruletypes_.ivarrule.html" class="tsd-signature-type">IVarRule</a>
 							</li>
 						</ul>
 					</li>
@@ -107,8 +102,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_styles_utiltypes_.ivarproxy.html#isvarproxy" class="tsd-kind-icon">is<wbr>Var<wbr>Proxy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_styles_utiltypes_.ivarproxy.html#valuetostring" class="tsd-kind-icon">value<wbr>ToString</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_styles_utiltypes_.ivarproxy.html#setvalue" class="tsd-kind-icon">set<wbr>Value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,55 +111,39 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="isvarproxy" class="tsd-anchor"></a>
-					<h3>is<wbr>Var<wbr>Proxy</h3>
+					<a name="setvalue" class="tsd-anchor"></a>
+					<h3>set<wbr>Value</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Var<wbr>Proxy<span class="tsd-signature-symbol">(</span>o<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Value<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, important<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in styles/UtilTypes.ts:84</li>
+									<li>Defined in styles/UtilTypes.ts:67</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns true - this is only needed to indicate that this object implements the IVarProxy
-										interface for the given type so that custom properties of different types cannot be
-									mistakenly assigned to wrong types.</p>
+									<p>Sets new value of this custom CSS property.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>o: <span class="tsd-signature-type">T</span></h5>
+									<h5>value: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>New value for the CSS property.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> important: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Flag indicating whether to set the &quot;!important&quot; flag on the property value.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="valuetostring" class="tsd-anchor"></a>
-					<h3>value<wbr>ToString</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">value<wbr>ToString<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="_styles_utiltypes_.ivalueproxy.html">IValueProxy</a>.<a href="_styles_utiltypes_.ivalueproxy.html#valuetostring">valueToString</a></p>
-								<ul>
-									<li>Defined in styles/UtilTypes.ts:43</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Converts internally held value(s) to string</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -176,36 +154,6 @@
 				<ul>
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_rules_.html">&quot;api/rules&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_sh_.html">&quot;api/sh&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_utils_.html">&quot;api/utils&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
@@ -220,10 +168,7 @@
 						<a href="_styles_utiltypes_.ivarproxy.html" class="tsd-kind-icon">IVar<wbr>Proxy</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_styles_utiltypes_.ivarproxy.html#isvarproxy" class="tsd-kind-icon">is<wbr>Var<wbr>Proxy</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_styles_utiltypes_.ivarproxy.html#valuetostring" class="tsd-kind-icon">value<wbr>ToString</a>
+								<a href="_styles_utiltypes_.ivarproxy.html#setvalue" class="tsd-kind-icon">set<wbr>Value</a>
 							</li>
 						</ul>
 					</li>
@@ -254,9 +199,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

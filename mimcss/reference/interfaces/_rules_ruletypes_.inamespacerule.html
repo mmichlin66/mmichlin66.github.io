@@ -69,7 +69,7 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>The INamespaceRule interface represents the CSS @namespace rule.
-						Objects implementing this interface are returned from the <a href="../modules/_api_rules_.html#_namespace">$namespace</a> function.</p>
+						Objects implementing this interface are returned from the <a href="../modules/_api_ruleapi_.html#_namespace">$namespace</a> function.</p>
 					</div>
 				</div>
 			</section>
@@ -86,6 +86,12 @@
 					</li>
 				</ul>
 			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_rules_miscrules_.namespacerule.html" class="tsd-signature-type">NamespaceRule</a></li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -93,12 +99,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_rules_ruletypes_.inamespacerule.html#cssnamespacerule" class="tsd-kind-icon">css<wbr>Namespace<wbr>Rule</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_rules_ruletypes_.inamespacerule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="_rules_ruletypes_.inamespacerule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_rules_ruletypes_.inamespacerule.html#namespace" class="tsd-kind-icon">namespace</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_rules_ruletypes_.inamespacerule.html#prefix" class="tsd-kind-icon">prefix</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_rules_ruletypes_.inamespacerule.html#rulename" class="tsd-kind-icon">rule<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_rules_ruletypes_.inamespacerule.html#ruletype" class="tsd-kind-icon">rule<wbr>Type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,34 +109,19 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="cssnamespacerule" class="tsd-anchor"></a>
-					<h3>css<wbr>Namespace<wbr>Rule</h3>
-					<div class="tsd-signature tsd-kind-icon">css<wbr>Namespace<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSNamespaceRule</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+					<a name="cssrule" class="tsd-anchor"></a>
+					<h3>css<wbr>Rule</h3>
+					<div class="tsd-signature tsd-kind-icon">css<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSNamespaceRule</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
+						<p>Overrides <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#cssrule">cssRule</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:290</li>
+							<li>Defined in rules/RuleTypes.ts:232</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>SOM namespace rule</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="cssrule" class="tsd-anchor"></a>
-					<h3>css<wbr>Rule</h3>
-					<div class="tsd-signature tsd-kind-icon">css<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSRule</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#cssrule">cssRule</a></p>
-						<ul>
-							<li>Defined in rules/RuleTypes.ts:113</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>SOM rule</p>
 						</div>
 					</div>
 				</section>
@@ -143,7 +131,7 @@
 					<div class="tsd-signature tsd-kind-icon">namespace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:284</li>
+							<li>Defined in rules/RuleTypes.ts:226</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -158,44 +146,12 @@
 					<div class="tsd-signature tsd-kind-icon">prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:287</li>
+							<li>Defined in rules/RuleTypes.ts:229</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Optional prefix for the rule</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="rulename" class="tsd-anchor"></a>
-					<h3>rule<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">rule<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#rulename">ruleName</a></p>
-						<ul>
-							<li>Defined in rules/RuleTypes.ts:107</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Name of the property on the rule definition object to which this rule is assigned.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="ruletype" class="tsd-anchor"></a>
-					<h3>rule<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">rule<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/_rules_ruletypes_.ruletype.html" class="tsd-signature-type">RuleType</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#ruletype">ruleType</a></p>
-						<ul>
-							<li>Defined in rules/RuleTypes.ts:110</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type of the rule</p>
 						</div>
 					</div>
 				</section>
@@ -207,48 +163,15 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_rules_.html">&quot;api/rules&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_sh_.html">&quot;api/sh&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_utils_.html">&quot;api/utils&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_rules_ruletypes_.ruletype.html" class="tsd-kind-icon">Rule<wbr>Type</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/_rules_ruletypes_.nestedgroup.html" class="tsd-kind-icon">Nested<wbr>Group</a>
+						<a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.iabstractrule.html" class="tsd-kind-icon">IAbstract<wbr>Rule</a>
@@ -261,6 +184,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.ifontfacerule.html" class="tsd-kind-icon">IFont<wbr>Face<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_rules_ruletypes_.igrouprule.html" class="tsd-kind-icon">IGroup<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.iidrule.html" class="tsd-kind-icon">IIDRule</a>
@@ -279,10 +205,7 @@
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.inamespacerule.html" class="tsd-kind-icon">INamespace<wbr>Rule</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_rules_ruletypes_.inamespacerule.html#cssnamespacerule" class="tsd-kind-icon">css<wbr>Namespace<wbr>Rule</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 								<a href="_rules_ruletypes_.inamespacerule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -291,45 +214,27 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_rules_ruletypes_.inamespacerule.html#prefix" class="tsd-kind-icon">prefix</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_rules_ruletypes_.inamespacerule.html#rulename" class="tsd-kind-icon">rule<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_rules_ruletypes_.inamespacerule.html#ruletype" class="tsd-kind-icon">rule<wbr>Type</a>
-							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.inestedgroupclass.html" class="tsd-kind-icon">INested<wbr>Group<wbr>Class</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.ipagerule.html" class="tsd-kind-icon">IPage<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.irule.html" class="tsd-kind-icon">IRule</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.irulecontainer.html" class="tsd-kind-icon">IRule<wbr>Container</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.iselectorrule.html" class="tsd-kind-icon">ISelector<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_rules_ruletypes_.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.istylerule.html" class="tsd-kind-icon">IStyle<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.istylesheet.html" class="tsd-kind-icon">IStylesheet</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.istylesheetclass.html" class="tsd-kind-icon">IStylesheet<wbr>Class</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_rules_ruletypes_.isupportsrule.html" class="tsd-kind-icon">ISupports<wbr>Rule</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_rules_ruletypes_.itagrule.html" class="tsd-kind-icon">ITag<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_rules_ruletypes_.ivarrule.html" class="tsd-kind-icon">IVar<wbr>Rule</a>
@@ -340,11 +245,8 @@
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/_rules_ruletypes_.html#extendedstyleset" class="tsd-kind-icon">Extended<wbr>Styleset</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/_rules_ruletypes_.html#namesofpropsoftype" class="tsd-kind-icon">Names<wbr>OfProps<wbr>OfType</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/_rules_ruletypes_.html#propsoftype" class="tsd-kind-icon">Props<wbr>OfType</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#symowner" class="tsd-kind-icon">sym<wbr>Owner</a>
 					</li>
 				</ul>
 			</nav>
@@ -371,9 +273,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

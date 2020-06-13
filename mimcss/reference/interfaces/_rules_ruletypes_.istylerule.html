@@ -89,9 +89,6 @@
 										<a href="_rules_ruletypes_.iabstractrule.html" class="tsd-signature-type">IAbstractRule</a>
 									</li>
 									<li>
-										<a href="_rules_ruletypes_.itagrule.html" class="tsd-signature-type">ITagRule</a>
-									</li>
-									<li>
 										<a href="_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a>
 									</li>
 									<li>
@@ -109,6 +106,17 @@
 					</li>
 				</ul>
 			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_rules_stylerules_.abstractrule.html" class="tsd-signature-type">AbstractRule</a></li>
+					<li><a href="../classes/_rules_stylerules_.classrule.html" class="tsd-signature-type">ClassRule</a></li>
+					<li><a href="../classes/_rules_stylerules_.idrule.html" class="tsd-signature-type">IDRule</a></li>
+					<li><a href="../classes/_rules_miscrules_.pagerule.html" class="tsd-signature-type">PageRule</a></li>
+					<li><a href="../classes/_rules_stylerules_.selectorrule.html" class="tsd-signature-type">SelectorRule</a></li>
+					<li><a href="../classes/_rules_stylerules_.stylerule.html" class="tsd-signature-type">StyleRule</a></li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -116,10 +124,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_rules_ruletypes_.istylerule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_rules_ruletypes_.istylerule.html#cssstylerule" class="tsd-kind-icon">css<wbr>Style<wbr>Rule</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_rules_ruletypes_.istylerule.html#rulename" class="tsd-kind-icon">rule<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_rules_ruletypes_.istylerule.html#ruletype" class="tsd-kind-icon">rule<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="_rules_ruletypes_.istylerule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -134,66 +139,19 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="cssrule" class="tsd-anchor"></a>
 					<h3>css<wbr>Rule</h3>
-					<div class="tsd-signature tsd-kind-icon">css<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSRule</span></div>
+					<div class="tsd-signature tsd-kind-icon">css<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSStyleRule</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#cssrule">cssRule</a></p>
+						<p>Overrides <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#cssrule">cssRule</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:113</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>SOM rule</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="cssstylerule" class="tsd-anchor"></a>
-					<h3>css<wbr>Style<wbr>Rule</h3>
-					<div class="tsd-signature tsd-kind-icon">css<wbr>Style<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSStyleRule</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in rules/RuleTypes.ts:151</li>
+							<li>Defined in rules/RuleTypes.ts:105</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>SOM style rule</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="rulename" class="tsd-anchor"></a>
-					<h3>rule<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">rule<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#rulename">ruleName</a></p>
-						<ul>
-							<li>Defined in rules/RuleTypes.ts:107</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Name of the property on the rule definition object to which this rule is assigned.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="ruletype" class="tsd-anchor"></a>
-					<h3>rule<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">rule<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/_rules_ruletypes_.ruletype.html" class="tsd-signature-type">RuleType</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#ruletype">ruleType</a></p>
-						<ul>
-							<li>Defined in rules/RuleTypes.ts:110</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type of the rule</p>
 						</div>
 					</div>
 				</section>
@@ -204,13 +162,13 @@
 					<a name="setcustomprop" class="tsd-anchor"></a>
 					<h3>set<wbr>Custom<wbr>Prop</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Custom<wbr>Prop&lt;K&gt;<span class="tsd-signature-symbol">(</span>customVar<span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.ivarrule.html" class="tsd-signature-type">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span>, important<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Custom<wbr>Prop&lt;K&gt;<span class="tsd-signature-symbol">(</span>customVar<span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.ivarrule.html" class="tsd-signature-type">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, value<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_styletypes_.html#varvaluetype" class="tsd-signature-type">VarValueType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, important<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in rules/RuleTypes.ts:167</li>
+									<li>Defined in rules/RuleTypes.ts:121</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,7 +179,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../modules/_styles_styletypes_.html#istyleset" class="tsd-signature-type">IStyleset</a></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><a href="../modules/_styles_styletypes_.html#vartemplatename" class="tsd-signature-type">VarTemplateName</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -233,13 +191,13 @@
 									</div>
 								</li>
 								<li>
-									<h5>value: <span class="tsd-signature-type">IStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h5>
+									<h5>value: <a href="../modules/_styles_styletypes_.html#varvaluetype" class="tsd-signature-type">VarValueType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>New value of the custom CSS property.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> important: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> important: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Flag indicating whether to set the &quot;!important&quot; flag on the property value.</p>
 									</div>
@@ -253,13 +211,13 @@
 					<a name="setprop" class="tsd-anchor"></a>
 					<h3>set<wbr>Prop</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Prop&lt;K&gt;<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span>, important<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Prop&lt;K&gt;<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IStyleset</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span>, important<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in rules/RuleTypes.ts:159</li>
+									<li>Defined in rules/RuleTypes.ts:113</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -288,7 +246,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> important: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> important: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Flag indicating whether to set the &quot;!important&quot; flag on the property value.</p>
 									</div>
@@ -306,48 +264,15 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_rules_.html">&quot;api/rules&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_sh_.html">&quot;api/sh&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_api_utils_.html">&quot;api/utils&quot;</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_rules_ruletypes_.ruletype.html" class="tsd-kind-icon">Rule<wbr>Type</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/_rules_ruletypes_.nestedgroup.html" class="tsd-kind-icon">Nested<wbr>Group</a>
+						<a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.iabstractrule.html" class="tsd-kind-icon">IAbstract<wbr>Rule</a>
@@ -360,6 +285,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.ifontfacerule.html" class="tsd-kind-icon">IFont<wbr>Face<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_rules_ruletypes_.igrouprule.html" class="tsd-kind-icon">IGroup<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.iidrule.html" class="tsd-kind-icon">IIDRule</a>
@@ -376,37 +304,25 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.inamespacerule.html" class="tsd-kind-icon">INamespace<wbr>Rule</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.inestedgroupclass.html" class="tsd-kind-icon">INested<wbr>Group<wbr>Class</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.ipagerule.html" class="tsd-kind-icon">IPage<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.irule.html" class="tsd-kind-icon">IRule</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.irulecontainer.html" class="tsd-kind-icon">IRule<wbr>Container</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.iselectorrule.html" class="tsd-kind-icon">ISelector<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_rules_ruletypes_.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.istylerule.html" class="tsd-kind-icon">IStyle<wbr>Rule</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 								<a href="_rules_ruletypes_.istylerule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_rules_ruletypes_.istylerule.html#cssstylerule" class="tsd-kind-icon">css<wbr>Style<wbr>Rule</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_rules_ruletypes_.istylerule.html#rulename" class="tsd-kind-icon">rule<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_rules_ruletypes_.istylerule.html#ruletype" class="tsd-kind-icon">rule<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
 								<a href="_rules_ruletypes_.istylerule.html#setcustomprop" class="tsd-kind-icon">set<wbr>Custom<wbr>Prop</a>
@@ -419,16 +335,7 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.istylesheet.html" class="tsd-kind-icon">IStylesheet</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_rules_ruletypes_.istylesheetclass.html" class="tsd-kind-icon">IStylesheet<wbr>Class</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_rules_ruletypes_.isupportsrule.html" class="tsd-kind-icon">ISupports<wbr>Rule</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_rules_ruletypes_.itagrule.html" class="tsd-kind-icon">ITag<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_rules_ruletypes_.ivarrule.html" class="tsd-kind-icon">IVar<wbr>Rule</a>
@@ -439,11 +346,8 @@
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/_rules_ruletypes_.html#extendedstyleset" class="tsd-kind-icon">Extended<wbr>Styleset</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/_rules_ruletypes_.html#namesofpropsoftype" class="tsd-kind-icon">Names<wbr>OfProps<wbr>OfType</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/_rules_ruletypes_.html#propsoftype" class="tsd-kind-icon">Props<wbr>OfType</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#symowner" class="tsd-kind-icon">sym<wbr>Owner</a>
 					</li>
 				</ul>
 			</nav>
@@ -470,9 +374,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>

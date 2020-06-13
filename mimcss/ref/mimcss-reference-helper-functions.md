@@ -14,8 +14,8 @@ This page describes types and functions that are used to work with images, filte
         - [Radial Gradients](#radial-gradients)
         - [Conic Gradients](#conic-gradients)
 - [Filters](#filters)
-- [Basic Shapes](#basic-shapes)
 - [Transforms](#transforms)
+- [Basic Shapes](#basic-shapes)
 
 ## Images
 
@@ -210,6 +210,182 @@ class MyStyles extends css.StyleDefinition
         backgroundImage: css.gradient.conic.from(30).at(["right", "center"])
             ("red", ["yellow", 50], ["red", 90])
     })
+}
+```
+
+## Filters
+
+Mimcss provides types and functions that mimic the functions of the `<filter-function>` CSS type:
+
+```tsx
+export function brightness( amount: Extended<CssPercent>): FilterProxy;
+
+export function contrast( amount: Extended<CssPercent>): FilterProxy;
+
+export function grayscale( amount: Extended<CssPercent>): FilterProxy;
+
+export function invert( amount: Extended<CssPercent>): FilterProxy;
+
+export function opacity( amount: Extended<CssPercent>): FilterProxy;
+
+export function saturate( amount: Extended<CssPercent>): FilterProxy;
+
+export function sepia( amount: Extended<CssPercent>): FilterProxy;
+
+export function blur( radius: Extended<CssLength>): FilterProxy;
+
+export function dropShadow( x: Extended<CssLength>, y: Extended<CssLength>,
+    color?: Extended<CssColor>, blur?: Extended<CssLength>,
+    spread?: Extended<CssLength>): FilterProxy
+```
+
+## Transforms
+
+Mimcss provides types and functions that mimic the functions of the `<transform-function>` CSS type:
+
+```tsx
+export function matrix( a: Extended<CssNumber>, b: Extended<CssNumber>, c: Extended<CssNumber>,
+    d: Extended<CssNumber>, tx: Extended<CssNumber>, ty: Extended<CssNumber>): TransformProxy;
+
+export function matrix3d(
+    a1: Extended<CssNumber>, b1: Extended<CssNumber>, c1: Extended<CssNumber>, d1: Extended<CssNumber>,
+    a2: Extended<CssNumber>, b2: Extended<CssNumber>, c2: Extended<CssNumber>, d2: Extended<CssNumber>,
+    a3: Extended<CssNumber>, b3: Extended<CssNumber>, c3: Extended<CssNumber>, d3: Extended<CssNumber>,
+    a4: Extended<CssNumber>, b4: Extended<CssNumber>, c4: Extended<CssNumber>, d4: Extended<CssNumber>,
+): TransformProxy;
+
+export function perspective( d: Extended<CssLength>): TransformProxy;
+
+export function rotate( a: Extended<CssAngle>): TransformProxy;
+
+export function rotateX( a: Extended<CssAngle>): TransformProxy;
+
+export function rotateY( a: Extended<CssAngle>): TransformProxy;
+
+export function rotateZ( a: Extended<CssAngle>): TransformProxy;
+
+export function rotate3d(
+    x: Extended<CssNumber>, y: Extended<CssNumber>, z: Extended<CssNumber>,
+    a: Extended<CssAngle>): TransformProxy;
+
+export function scale( cx: Extended<CssNumber>, sy?: Extended<CssNumber>): TransformProxy;
+
+export function scaleX( s: Extended<CssNumber>): TransformProxy;
+
+export function scaleY( s: Extended<CssNumber>): TransformProxy;
+
+export function scaleZ( s: Extended<CssNumber>): TransformProxy;
+
+export function scale3d( sx: Extended<CssNumber>, sy: Extended<CssNumber>,
+    sz: Extended<CssNumber>): TransformProxy;
+
+export function skew( ax: Extended<CssAngle>, ay?: Extended<CssAngle>): TransformProxy;
+
+export function skewX( ax: Extended<CssAngle>): TransformProxy;
+
+export function skewY( ay: Extended<CssAngle>): TransformProxy;
+
+export function translate( x: Extended<CssLength>, y?: Extended<CssLength>): TransformProxy;
+
+export function translateX( x: Extended<CssLength>): TransformProxy;
+
+export function translateY( y: Extended<CssLength>): TransformProxy;
+
+export function translateZ( z: Extended<CssLength>): TransformProxy;
+
+export function translate3d( x: Extended<CssLength>, y: Extended<CssLength>,
+    z: Extended<CssLength>): TransformProxy;
+```
+
+## Basic Shapes
+
+Mimcss provides types and functions that mimic the functions of the `<basic-shape>` CSS type:
+
+```tsx
+export function inset( offset: Extended<OneOrBox<CssLength>>,
+    radius?: Extended<BorderRadius_StyleType>): BasicShapeProxy;
+
+export type ShapeRadius = Extended<CssLength | "closest-side" | "farthest-side">;
+
+export function circle( center?: ShapeRadius, position?: Extended<CssPosition>): BasicShapeProxy;
+
+export function ellipse( rx?: ShapeRadius, ry?: ShapeRadius,
+    position?: Extended<CssPosition>): BasicShapeProxy;
+
+export function polygon( pointOrRule: CssPoint | FillRule_StyleType,
+    ...points: CssPoint[]): BasicShapeProxy;
+
+export function ray( angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>,
+    contain?: boolean): RayProxy;
+
+export function path( fillRule?: FillRule_StyleType): IPathBuilder;
+```
+
+The `IPathBuilder` interface allows building a path using successive convenient methods:
+
+```tsx
+export interface IPathBuilder
+{
+    // Move-to command with absolute coordinates.
+    M( first: [number,number], ...next: [number,number][]): IPathBuilder;
+
+    // Move-to command with relative coordinates.
+    m( first: [number,number], ...next: [number,number][]): IPathBuilder;
+
+    // Line-to command with absolute coordinates.
+	L( first: [number,number], ...next: [number,number][]): IPathBuilder;
+
+    // Line-to command with relative coordinates.
+    l( first: [number,number], ...next: [number,number][]): IPathBuilder;
+
+    // Horizontal line-to command with absolute coordinates.
+	H( first: number, ...next: number[]): IPathBuilder;
+
+    // Horizontal line-to command with relative coordinates.
+    h( first: number, ...next: number[]): IPathBuilder;
+
+    // Vertical line-to command with absolute coordinates.
+	V( first: number, ...next: number[]): IPathBuilder;
+
+    // Vertical line-to command with relative coordinates.
+    v( first: number, ...next: number[]): IPathBuilder;
+
+    // Cubic bezier curve command with absolute coordinates.
+	C( first: [number,number,number,number,number,number],
+		...next: [number,number,number,number,number,number][]): IPathBuilder;
+
+    // Cubic bezier curve command with relative coordinates.
+	c( first: [number,number,number,number,number,number],
+		...next: [number,number,number,number,number,number][]): IPathBuilder;
+
+    // Smooth cubic bezier curve command with absolute coordinates.
+	S( first: [number,number,number,number], ...next: [number,number,number,number][]): IPathBuilder;
+
+    // Smooth cubic bezier curve command with relative coordinates.
+	s( first: [number,number,number,number], ...next: [number,number,number,number][]): IPathBuilder;
+
+    // Quadratic bezier curve command with absolute coordinates.
+	Q( first: [number,number,number,number], ...next: [number,number,number,number][]): IPathBuilder;
+
+    // Quadratic bezier curve command with relative coordinates.
+	q( first: [number,number,number,number], ...next: [number,number,number,number][]): IPathBuilder;
+
+    // Smooth quadratic bezier curve command with absolute coordinates.
+	T( first: [number,number], ...next: [number,number][]): IPathBuilder;
+
+    // Smooth quadratic bezier curve command with relative coordinates.
+	t( first: [number,number], ...next: [number,number][]): IPathBuilder;
+
+    // Elliptical arc curve command with absolute coordinates.
+	A( first: [number,number,number,0|1,0|1,number,number],
+		...next: [number,number,number,0|1,0|1,number,number][]): IPathBuilder;
+
+    // Elliptical arc curve command with relative coordinates.
+	a( first: [number,number,number,0|1,0|1,number,number],
+		...next: [number,number,number,0|1,0|1,number,number][]): IPathBuilder;
+
+    // Close-path command.
+    z(): IPathBuilder;
 }
 ```
 
