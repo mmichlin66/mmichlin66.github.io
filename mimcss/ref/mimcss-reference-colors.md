@@ -24,7 +24,7 @@ This page describes types and functions that are used to work with color in CSS 
 #### CssColor Type
 
 ```tsx
-export type CssColor = "transparent" | "currentcolor" | keyof INamedColors | number | ColorProxy | SystemColors
+export type CssColor = "transparent" | "currentcolor" | keyof INamedColors | number | IColorProxy | SystemColors
 ```
 
 The `CssColor` type is used to set values of properties that accept the CSS `<color>` type. Color can be represented using the following types:
@@ -86,7 +86,7 @@ export let Colors: INamedColors =
 
 The `Colors` object implements the `INamedColors` interface and thus contains properties named after the standard Web colors. The property values are set to the numeric representation of the corresponding color (in the form 0xRRGGBB). The object's properties can be used anywhere the color value is expected and the effect is identical to using the corresponding color name.
 
-Since the properties of the `Colors` object are numbers, they can be used in any mathematical operations - some thing that cannot be done with color names.
+Since the properties of the `Colors` object are numbers, they can be used in any mathematical operations - something that cannot be done with color names.
 
 **Example.**
  
@@ -102,20 +102,20 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-#### ColorProxy Type
+#### IColorProxy Interface
 
 ```tsx
-export type ColorProxy = (p?: "color") => string;
+export interface IColorProxy extends IGenericProxy<"color"> {};
 ```
 
-The `ColorProxy` type represents an invocation of one of CSS functions that are used for specifying colors. This interface is returned from functions like: `rgb()`, `alpha()`, etc.
+The `ColorProxy` interface represents an invocation of one of CSS functions that are used for specifying colors. This interface is returned from functions like: `rgb()`, `alpha()`, etc.
 
 ## Color Functions
 
 #### rgb() Function
 
 ```tsx
-export function rgb( r: number, g: number, b: number, a?: number): ColorProxy
+export function rgb( r: number, g: number, b: number, a?: number): IColorProxy
 ```
 
 The `rgb()` function converts the color specified as red, green and blue separation values and an optional alpha mask to a CSS color representation. Each color separation is represented as a number:
@@ -132,7 +132,7 @@ The alpha mask can be one of the following:
 #### hsl() Function
 
 ```tsx
-export function hsl( h: number | string, s: number, l: number, a?: number): ColorProxy
+export function hsl( h: number | string, s: number, l: number, a?: number): IColorProxy
 ```
 
 The `hsl()` function converts the color specified as hue-saturation-lightness components and an optional alpha mask to a CSS color representation. This method should be used when defining CSS color values in styleset properties.
@@ -154,7 +154,7 @@ The alpha mask can be one of the following:
 #### alpha() Function
 
 ```tsx
-export function alpha( c: number | keyof ColorTypes.INamedColors, a: number): ColorProxy
+export function alpha( c: number | keyof ColorTypes.INamedColors, a: number): IColorProxy
 ```
 
 The `hsl()` function converts the given color and the alpha mask to the CSS Color representation. This method should be used when defining CSS color values in styleset properties.

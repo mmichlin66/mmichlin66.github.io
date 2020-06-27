@@ -127,8 +127,8 @@ export type CssPercent = NumberBase<PercentType>;
 /** Type for multi-part style property of the `<percent>` CSS type */
 export type CssMultiPercent = OneOrMany<CssPercent>;
 
-/** Proxy type that represents values of the `<percent>` CSS type */
-export type PercentProxy = NumberProxy<PercentType>;
+/** Proxy interface that represents values of the `<percent>` CSS type */
+export interface IPercentProxy extends IGenericProxy<PercentType> {};
 
 /**
  * The IFractionMath interface contains methods that implement CSS mathematic functions on the
@@ -139,7 +139,7 @@ export interface ICssPercentMath extends INumberMath<PercentType>
     /**
      * Converts the given number to a percent string. Numbers between -1 and 1 are multiplyed by 100.
      */
-    percent( n: number): PercentProxy;
+    percent( n: number): IPercentProxy;
 }
 
 /**
@@ -194,8 +194,8 @@ export type CssMultiLength = OneOrMany<CssLength>;
 /** Type for 1-to-four-part style property of the `<length>` CSS type */
 export type CssLengthBox = OneOrBox<CssLength>;
 
-/** Proxy type that represents values of the `<length>` CSS type */
-export type LengthProxy = NumberProxy<LengthType>;
+/** Proxy interface that represents values of the `<length>` CSS type */
+export interface ILengthProxy extends IGenericProxy<LengthType> {};
 
 /**
  * The ICssLengthMath interface contains methods that implement CSS mathematic functions on the
@@ -204,78 +204,78 @@ export type LengthProxy = NumberProxy<LengthType>;
 export interface ICssLengthMath extends INumberMath<LengthType>
 {
     /** Creates property value using the CSS minmax() function. */
-    minmax( min: Extended<CssLength>, max: Extended<CssLength>): NumberProxy<LengthType>;
+    minmax( min: Extended<CssLength>, max: Extended<CssLength>): ILengthProxy;
 
     /** Creates length value in quaters of an inch */
-    Q( n: number): LengthProxy;
+    Q( n: number): ILengthProxy;
 
     /** Creates length value in ch units */
-    ch( n: number): LengthProxy;
+    ch( n: number): ILengthProxy;
 
     /** Creates length value in cantimeters */
-    cm( n: number): LengthProxy;
+    cm( n: number): ILengthProxy;
 
     /** Creates length value in calculated font-sizes of the element */
-    em( n: number): LengthProxy;
+    em( n: number): ILengthProxy;
 
     /** Creates length value in heights of lowercase letter 'x' in the font */
-    ex( n: number): LengthProxy;
+    ex( n: number): ILengthProxy;
 
     /** Creates length value in ic units */
-    ic( n: number): LengthProxy;
+    ic( n: number): ILengthProxy;
 
     /** Creates length value in inches */
-    in( n: number): LengthProxy;
+    in( n: number): ILengthProxy;
 
     /** Creates length value in line-heights of the element */
-    lh( n: number): LengthProxy;
+    lh( n: number): ILengthProxy;
 
     /** Creates length value in millimeters */
-    mm( n: number): LengthProxy;
+    mm( n: number): ILengthProxy;
 
     /** Creates length value in picas */
-    pc( n: number): LengthProxy;
+    pc( n: number): ILengthProxy;
 
     /** Creates length value in points */
-    pt( n: number): LengthProxy;
+    pt( n: number): ILengthProxy;
 
     /** Creates length value in pixels */
-    px( n: number): LengthProxy;
+    px( n: number): ILengthProxy;
 
     /** Creates length value in 1% of the size of the initial containing block, in the direction
      * of the root element’s block axis */
-    vb( n: number): LengthProxy;
+    vb( n: number): ILengthProxy;
 
     /** Creates length value in 1% of the height of the viewport's initial containing block */
-    vh( n: number): LengthProxy;
+    vh( n: number): ILengthProxy;
 
     /** Creates length value in 1% of the size of the initial containing block, in the direction
      * of the root element’s inline axis */
-    vi( n: number): LengthProxy;
+    vi( n: number): ILengthProxy;
 
     /** Creates length value in 1% of the width of the viewport's initial containing block */
-    vw( n: number): LengthProxy;
+    vw( n: number): ILengthProxy;
 
     /** Creates length value in fontsizes of the root element (<html>) */
-    rem( n: number): LengthProxy;
+    rem( n: number): ILengthProxy;
 
     /** Creates length value in line-heights of the root element (<html>) */
-    rlh( n: number): LengthProxy;
+    rlh( n: number): ILengthProxy;
 
     /** Creates length value in the units which are a smaller value between vw and vh */
-    vmax( n: number): LengthProxy;
+    vmax( n: number): ILengthProxy;
 
     /** Creates length value in the units which are a larger value between vw and vh */
-    vmin( n: number): LengthProxy;
+    vmin( n: number): ILengthProxy;
 
     /** Creates length value for flex */
-    fr( n: number): LengthProxy;
+    fr( n: number): ILengthProxy;
 
     /**
      * Converts the given number into percents. Values between -1.0 and 1.0 non-inclusive are
      * multiplied by 100.
      */
-    percent( n: number): LengthProxy;
+    percent( n: number): ILengthProxy;
 }
 
 /**
@@ -338,8 +338,8 @@ export type CssMultiTime = OneOrMany<CssTime>;
 /** Type for 1-to-four-part style property of the `<time>` CSS type */
 export type CssTimeBox = OneOrBox<CssTime>;
 
-/** Proxy type that represents values of the `<time>` CSS type*/
-export type TimeProxy = NumberProxy<TimeType>;
+/** Proxy interface that represents values of the `<time>` CSS type*/
+export interface ITimeProxy extends IGenericProxy<TimeType> {};
 
 /**
  * The ICssTimeMath interface contains methods that implement CSS mathematic functions on the
@@ -348,10 +348,10 @@ export type TimeProxy = NumberProxy<TimeType>;
 export interface ICssTimeMath extends INumberMath<TimeType>
 {
     /** Creates time value in milliseconds */
-    ms( n: number): TimeProxy;
+    ms( n: number): ITimeProxy;
 
     /** Creates time value in seconds */
-    s( n: number): TimeProxy;
+    s( n: number): ITimeProxy;
 }
 
 /**
@@ -409,8 +409,8 @@ export type CssAngle = NumberBase<AngleType>;
 /** Type for multi-part style property of the `<angle>` CSS type */
 export type CssMultiAngle = OneOrMany<CssAngle>;
 
-/** Proxy type that represents values of the `<angle>` CSS type */
-export type AngleProxy = NumberProxy<AngleType>;
+/** Proxy interface that represents values of the `<angle>` CSS type */
+export interface IAngleProxy extends IGenericProxy<AngleType> {};
 
 /**
  * The ICssAngleMath interface contains methods that implement CSS mathematic functions on the
@@ -419,22 +419,22 @@ export type AngleProxy = NumberProxy<AngleType>;
 export interface ICssAngleMath extends INumberMath<AngleType>
 {
     /** Creates angle value in degrees */
-    deg( n: number): AngleProxy;
+    deg( n: number): IAngleProxy;
 
     /** Creates angle value in radians */
-    rad( n: number): AngleProxy;
+    rad( n: number): IAngleProxy;
 
     /** Creates angle value in gradians */
-    grad( n: number): AngleProxy;
+    grad( n: number): IAngleProxy;
 
     /** Creates angle value in turns */
-    turn( n: number): AngleProxy;
+    turn( n: number): IAngleProxy;
 
     /**
      * Converts the given number into percents. Values between -1.0 and 1.0 non-inclusive are
      * multiplied by 100.
      */
-    percent( n: number): AngleProxy;
+    percent( n: number): IAngleProxy;
 }
 
 /**

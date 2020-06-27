@@ -86,24 +86,24 @@ export interface ICustomVar<T = any>
 
 The `ICustomVar` generic interface represents a CSS custom property object with values of the given type. This interface is needed because every style property can accept value in the form of the `var()` CSS function.
 
-#### StringProxy Type 
+#### IStringProxy Interface 
 
 ```tsx
-export type StringProxy = (p?: "string") => string;
+export interface IStringProxy extends IGenericProxy<"string"> {};
 ```
 
-The `StringProxy` type represents a function that returns a string. This function is part of type definition for all CSS properties - even for those that don't have `string` as part of their type. The `StringProxy` type is returned from the `raw()` function, which allows by-passing the property typing rules and specifying a string directly. This might be useful, when a string value is obtained from some external code.
+The `IStringProxy` interface represents a function that returns a string. This function is part of type definition for all CSS properties - even for those that don't have `string` as part of their type. The `StringProxy` type is returned from the `raw()` function, which allows by-passing the property typing rules and specifying a string directly. This might be useful, when a string value is obtained from some external code.
 
 #### Extended Type 
 
 ```tsx
-export type Extended<T> = T | ICustomVar<T> | StringProxy | undefined;
+export type Extended<T> = T | ICustomVar<T> | IStringProxy | undefined;
 ```
 
 The `Extended` generic type extends the given type with the following types:
 
-- `ICustomVar` object that allows using a CSS custom property.
-- `StringProxy` type that allows specifying raw string value.
+- `ICustomVar` interface that allows using a CSS custom property.
+- `IStringProxy` interface that allows specifying raw string value.
 - `undefined` type that allows omit property value.
 
 #### ImportantProp Type 
@@ -314,18 +314,18 @@ li > .class2 { backgroundColor: yellow; }
 ```
 
 
-#### SelectorProxy Type
+#### ISelectorProxy Interface
 
 ```tsx
-export type SelectorProxy = (p?: "selector") => string;
+export interface ISelectorProxy extends IGenericProxy<"selector"> {};
 ```
 
-The SelectorProxy function returns a CSS selector string. This type is returned from the `selector` function.
+The ISelectorProxy function returns a CSS selector string. This type is returned from the `selector` function.
 
 #### SelectorItem Type
 
 ```tsx
-export type SelectorItem = string | IStyleRule | StringProxy | SelectorProxy;
+export type SelectorItem = string | IStyleRule | IStringProxy | ISelectorProxy;
 ```
 
 The `SelectorItem` type describes a single selector token that can be used as an argument to the `selector` function.
@@ -380,7 +380,7 @@ The `PseudoEntity` type combines names of non-parameterized pseudo classes and p
 #### NthChildExpression Type
 
 ```tsx
-export type NthChildExpression = "odd" | "even" | number | [number, number?] | string | StringProxy;
+export type NthChildExpression = "odd" | "even" | number | [number, number?] | string | IStringProxy;
 ```
 
 The `NthChildExpression` type describes an expression that is used for parameterized pseudo classes like `nth-child`. It can be a string, a single number or a tuple with one or two numbers. If it is a single number, the 'n' in An+B will not be used - as in `nth-child(2)`. If it is a tuple, the `n` character will be used even if the second tuple's element is not provided.

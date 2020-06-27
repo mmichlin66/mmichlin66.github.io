@@ -14,10 +14,7 @@ Mimcss exposes an API that consists of numerous types, interfaces, classes and f
 - [Common Types](mimcss-reference-common-types.html) - this section describes common types used to define style properties.
 - [Numeric Types](mimcss-reference-numeric-types.html) - this section describes types and functions used for working with numeric CSS types such as `<number>`, `<length>`, `<percentage>`, etc.
 - [Colors](mimcss-reference-colors.html) - this section describes types and functions used for working with CSS colors.
-- [Images](mimcss-reference-images.html) - this section describes types and functions used for working with CSS images.
-- [Filters](mimcss-reference-filters.html) - this section describes types and functions used for working with CSS filters.
-- [Shapes](mimcss-reference-shapes.html) - this section describes types and functions used for working with CSS basic shapes.
-- [Transforms](mimcss-reference-transforms.html) - this section describes types and functions used for working with CSS transformations.
+- [Helper Functions](mimcss-reference-helper-functions.html) - this section describes types and functions used for working with CSS images, filters, transforms and basic shapes.
 - [Style Properties](mimcss-reference-style-properties.html) - this section describes all style properties and their types.
 
 

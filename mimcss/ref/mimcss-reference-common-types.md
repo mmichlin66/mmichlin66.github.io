@@ -19,7 +19,7 @@ This page describes utility types and functions used to set values of style prop
 #### raw() Function
 
 ```tsx
-export function raw( parts: TemplateStringsArray, ...params: any[]): StringProxy
+export function raw( parts: TemplateStringsArray, ...params: any[]): IStringProxy
 ```
 
 The `raw()` function returns the `StringProxy` type encapsulating the given string-like parameter. This function allows specifying arbitrary text for properties whose type normally doesn't allow strings. This is used as an "escape hatch" when a string value already exists and there is no sense to convert it to a proper type. This function is a tag function and must be invoked with the template string without parentheses.
@@ -45,10 +45,10 @@ class MyStyle extends css.StyleDefinition
 #### url() Function
 
 ```tsx
-export function url( val: Extended<string | IIDRule>): UrlProxy
+export function url( val: Extended<string | IIDRule>): IUrlProxy
 ```
 
-The `url()` function returns a `UrlProxy` type representing the CSS `url()` function. URLs and CSS `url()` function are used in several places in CSS to link to images, fonts, imported stylesheets and counter symbols. The `url()` function mimics the CSS function.
+The `url()` function returns a `IUrlProxy` interface representing the CSS `url()` function. URLs and CSS `url()` function are used in several places in CSS to link to images, fonts, imported stylesheets and counter symbols. The `url()` function mimics the CSS function.
 
 The CSS `url()` function also allows specifying an ID of an element within the document using the syntax `url(#elmID)`. Mimcss allows passing an ID rule object defined in the style definition class to use this feature. This eliminates misspelling errors when referencing element IDs.
 
@@ -66,13 +66,13 @@ class MyStyle extends css.StyleDefinition
 }
 ```
 
-#### UrlProxy Type 
+#### IUrlProxy Interface 
 
 ```tsx
-export type UrlProxy = (p?: "url") => string;
+export interface IUrlProxy extends IGenericProxy<"url"> {};
 ```
 
-The `UrlProxy` type represents an invocation of the CSS `url()` function. This type is returned from the Mimcss `url()` function.
+The `UrlProxy` interface represents an invocation of the CSS `url()` function. This interface is returned from the Mimcss `url()` function.
 
 ## Using Element Attributes
 
@@ -80,10 +80,10 @@ The `UrlProxy` type represents an invocation of the CSS `url()` function. This t
 
 ```tsx
 export function attr( attrName: Extended<string>, typeOrUnit?: Extended<AttrTypeKeyword | AttrUnitKeyword>,
-    fallback?: Extended<string>): StringProxy
+    fallback?: Extended<string>): IStringProxy
 ```
 
-The `attr()` function returns the StringProxy type representing the `attr()` CSS function. It theoretically can be used in any style property; however, its use by browsers is currently limited to the `content` property. Also no browser currently support type, units or fallback values.
+The `attr()` function returns the IStringProxy interface representing the `attr()` CSS function. It theoretically can be used in any style property; however, its use by browsers is currently limited to the `content` property. Also no browser currently support type, units or fallback values.
 
 **Example.** The following example uses the `attr()` function to display a tooltip for elements that specify it using the "data-tooltip" attribute.
 
@@ -103,10 +103,10 @@ class MyStyle extends css.StyleDefinition
 ```tsx
 export function counter( counterObj: Extended<ICounterRule | string>,
     style?: Extended<ListStyleType_StyleType>,
-    textAfter?: Extended<string>, textBefore?: Extended<string>): StringProxy
+    textAfter?: Extended<string>, textBefore?: Extended<string>): IStringProxy
 ```
 
-The `counter()` function returns the StringProxy type representing the CSS `counter()` function with additional optional strings added after and/or before the counter.
+The `counter()` function returns the IStringProxy interface representing the CSS `counter()` function with additional optional strings added after and/or before the counter.
 
 **Example.** The following example uses the `counter()` function to display ordered list items with Roman numbers.
 
@@ -130,10 +130,10 @@ class MyStyle extends css.StyleDefinition
 ```tsx
 export function counters( counterObj: Extended<ICounterRule | string>,
     separator: Extended<string>, style?: Extended<ListStyleType_StyleType>,
-    textAfter?: Extended<string>, textBefore?: Extended<string>): StringProxy
+    textAfter?: Extended<string>, textBefore?: Extended<string>): IStringProxy
 ```
 
-The `counters()` function returns a StringProxy function representing the CSS `countesr()` function with the given separator string and additional optional strings added after and/or before the counter.
+The `counters()` function returns a IStringProxy interface representing the CSS `countesr()` function with the given separator string and additional optional strings added after and/or before the counter.
 
 **Example.** The following example uses the `counters()` function to display a hierarchical list of items with Hebrew numbers.
 

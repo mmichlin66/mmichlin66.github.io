@@ -11,6 +11,7 @@ title: "Mimcss Guide: Style Property Types"
 * [Numeric Types](#numeric-types)
 * [Working with Colors](#working-with-colors)
 * [Complex Property Types](#complex-property-types)
+* [Proxy Interfaces](#proxy-interfaces)
 
 As we already mentioned earlier, the `Styleset` type, which is used to specify style property values in Mimcss, resembles the `CSSStyleDeclaration` type in that it has properties with the same names: the camel-cased names of all CSS shorthand and longhand properties. The difference is that while the `CSSStyleDeclaration` type defines all the properties to have the type `string`, the `Styleset` type defines a different type for each property with the goal of making it easier and less error-prone for developers to assign values to them. This unit describes the different types of the properties in the `Styleset` type.
 
@@ -80,7 +81,7 @@ Mimcss supports the following types:
 - `CssAngle`. This type corresponds to the CSS `<angle> | <percent>` type. This type allow specifying values as strings or as numbers. Integer numbers will be considered as specifying the `deg` units; floating numbers - the `turn` units. An example of a property that uses this type is `font-style`. `CssAngle` can also be used as a parameter to several transform, filter and image functions.
 - `CssTime`. This type corresponds to the CSS `<time>` type. This type allow specifying values as strings or as numbers. Integer numbers will be considered as specifying the `ms` units; floating numbers - the `s` units. An example of a property that uses this type is `transition-duration`.
 - `CssResolution`. This type corresponds to the CSS `<resolution>` type. This type allow specifying values as strings or as numbers. Integer numbers will be considered as specifying the `dpi` units; floating numbers - the `x` units. An example of a property that uses this type is `resolution` property of a media query.
-- `CssFraction`. This type corresponds to the CSS `<fraction>` type. This type allow specifying values as strings or as numbers. Both integer and floating numbers numbers will be considered as specifying the `fr` units. An example of a property that uses this type is `resolution` property of a media query.
+- `CssFrequency`. This type corresponds to the CSS `<frequency>` type. This type allow specifying values as strings or as numbers. Integer numbers will be considered as specifying the `Hz` units; floating numbers - the `kHz` units.
 
 For each of the above numeric types, Mimcss also provides an object that implements "mathematical" functions `min()`, `max()`, `clamp()` and `calc()`. These objects are:
 
@@ -89,7 +90,7 @@ For each of the above numeric types, Mimcss also provides an object that impleme
 - `Angle` for working with the `CssAngle` type.
 - `Time` for working with the `CssTime` type.
 - `Resolution` for working with the `CssResolution` type.
-- `Fraction` for working with the `CssFraction` type.
+- `Frequency` for working with the `CssFrequency` type.
 
 The above objects (except `Num`) also implement functions named after every unit allowed for the corresponding CSS type. For example, the `Len` object implements functions `rem()`, `in()`, `cm()`, etc. Similarly, the `Angle` objects implements functions `deg()`, `rad()`, etc. The types returned from these functions make it impossible to assign a value of the wrong type to a property.
 
@@ -251,7 +252,7 @@ The following list gives a brief description of the complex properties:
     }
     ```
 
-- Properties like `animation`, `background`, `box-shadow`, `font`, `text-decoration`, `text-shadow`, `transition`. These are shorthand properties, with multiple elements of different types. For the majority of these properties, the `string` type is allowed. Mimcss also defines object types where the object's fields correspond to the different parts of the CSS property value. For example, the `animation` property has the object type as part its type definition that defines fields `name`, `duration`, `func`, `delay`, `count`, `direction`, `mode` and `state`. All these fields are declared as optional; therefore, developers can only specify those that they need to.
+- Properties like `animation`, `background`, `box-shadow`, `font`, `text-decoration`, `text-shadow`, `transition`. These are shorthand properties, with multiple elements of different types. For the majority of these properties, the `string` type is allowed. Mimcss also defines object types where the object's fields correspond to the different parts of the CSS property value. For example, the `animation` property has the object type as part of its type definition that defines fields `name`, `duration`, `func`, `delay`, `count`, `direction`, `mode` and `state`. All these fields are declared as optional; therefore, developers can only specify those that they need to.
 
     In CSS, in most cases, the order of the elements in the shorthand properties is not important; however, sometimes it is and that can create confusion and errors. For example, in the string for the `animation` property, the first time value is always the duration and the second is the delay. In Mimcss, with the object notation, there is no confusion because the field names unambiguously convey the meaning of the parameters. Object notation for the shorthand properties in some sence is similar to using longhand properties; however, it is different in two aspects:
 
@@ -277,14 +278,64 @@ The following list gives a brief description of the complex properties:
     }
     ```
 
-    In addition to the object notaion, Mimcss implements functions, for example `animation()`, which accept the same parameters as the object types and provide convenient default values. As with object notation, developers can use any allowed methods for the parameter values.
-    
-- For properties using images such as `background-image`, `list-style-image`, `cursor`, etc., Mimcss provides implementations of the functions listed under the `<image>` CSS type. This includes `url()`, `linearGradient()` `conicGradient()` and their variants.
+- For properties using images such as `background-image`, `list-style-image`, `cursor`, etc., Mimcss provides implementations of the functions listed under the `<image>` CSS type. This includes `url()`, `gradient()` and their variants.
 
 - For the `transform` property, Mimcss provides implementations of the functions listed under the `<transform-function>` CSS type. This includes `matrix()`, `perspective()` `rotate()`, `scale()`, `skew()`, `translate()` and their variants.
 
 - For the `filter` and `backdrop-filter` properties, Mimcss provides implementations of the functions listed under the `<filter-function>` CSS type. This includes `blur()`, `brightness()` `contrast()`, `dropShadow()`, `grayscale()`, `hueRotate()`, `invert()`, `opacity()`, `saturate()` and `sepia()`.
 
-- For the `clip-path`, `shape-outside` and `offset-path` properties, Mimcss provides implementations of the functions listed under the `<basic-shape>` CSS type. This includes `inset()`, `circle()` `ellipse()` and `polygon()`.
+- For the `clip-path`, `shape-outside` and `offset-path` properties, Mimcss provides implementations of the functions listed under the `<basic-shape>` CSS type. This includes `inset()`, `circle()` `ellipse()`, `polygon()` and `path()`.
+
+## Proxy Interfaces
+Mimcss provides a number of *Proxy* interfaces such as `IFilterProxy`, `ITransformProxy`, etc. These are *callable* interface, which means that entities that implement them are functions and not classes. All these interfaces derive from the `IGenericProxy` interface, which is defined as follows:
+
+```tsx
+export interface IGenericProxy<T extends string>
+{
+    (p?: T): string;
+}
+```
+
+The derived proxy interfaces are derived as follows:
+
+```tsx
+export interface IFilterProxy extends IGenericProxy<"filter"> {}
+
+export interface ITransformProxy extends IGenericProxy<"transform"> {}
+```
+
+The main purpose of the proxy interfaces is to provide type safety. Let's take, for example, two style properties: `filter` and `transform`. The `filter` property accepts strings according to the CSS `<filter-function>` type, for example `filter: blur(5px)`. The `transform` property accepts strings according to the CSS `<transform-function>` type, for example `transform: scale(0.5)`.
+
+What if a developer makes a mistake of incorrectly assigning the style properties in a regular CSS file? For example:
+
+```css
+/* INCORRECT !!! */
+.my-class {
+    filter: scale(0.5);
+    transform: blur(0.5);
+}
+```
+
+The error will only be found at run time when the browser understands that the style values are invalid.
+
+The goal of Mimcss is to catch errors like this at compile time and that's where proxy interfaces come to help. Mimcss uses the `IFilterProxy` interface as one of the types for the `filter` property and the `ITransformProxy` interface as one of the types for the `transform` property. The `blur()` and `scale()` functions are declared as follows:
+
+```tsx
+export function blur( radius: Extended<CssLength>): IFilterProxy
+
+export function scale( cx: Extended<CssNumber>, sy?: Extended<CssNumber>): ITransformProxy
+```
+
+Since the `IFilterProxy` and `ITransformProxy` interfaces are incompatible due to the different values of the generic type, the following code will not compile:
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    myClass = css.$class({
+        filter: css.scale(0.5);     // COMPILATION ERROR !!!
+        transform: css.blur(0.5);   // COMPILATION ERROR !!!
+    })
+}
+```
 
 

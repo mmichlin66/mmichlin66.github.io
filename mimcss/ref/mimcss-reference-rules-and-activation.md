@@ -76,7 +76,7 @@ export abstract class StyleDefinition<O extends StyleDefinition = any>
 }
 ```
 
-The `StyleDefinition` class is the base class that all styAle definition classes must derive from.
+The `StyleDefinition` class is the base class that all style definition classes must derive from.
 
 ### Rule Functions
 
@@ -584,7 +584,7 @@ render()
 #### selector() Function
 
 ```tsx
-export function selector( parts: TemplateStringsArray, ...params: SelectorItem[]): SelectorProxy
+export function selector( parts: TemplateStringsArray, ...params: SelectorItem[]): ISelectorProxy
 ```
 
 The `selector` function returns a string representation of a selector. This function is a tag function and must be invoked with the template string without parentheses.
