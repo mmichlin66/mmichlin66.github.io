@@ -149,9 +149,9 @@ export class ColorBox extends Component
 
 We don't actually need to perform any rendering because we are not changing any HTML structure - that's why we return `false`. For complex components, this can be an efficient way to handle style changes - changing the styles directly instead of re-rendering with different style rules. Using the styles this way makes then "dynamic" - the feature that all browsers support but which is rarely used in the standard CSS approach where the style rules are seen as static.
 
-There is a fundamental flaw with the above code though: setting a style property isn't different from other DOM-writing operations and without the proper care it can have adverse effects such as layout thrashing. Since Mimcss is library-agnostic, it doesn't provide its own means of synchronizing DOM-writing activities. Developers should use whatever methods their library provides for this purpose.
+There is a caveat in the above code though: setting a style property isn't different from other DOM-writing operations and without the proper care it can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling* that work for both style activation and style property setting. The `setProp` method has an optional parameter `activatorType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the `setDefaultActivatorType` function.
 
-> Some CSS in JS libraries use either `setTimeout` or `requestAnimationFrame` functions internally to accumulate and schedule style updates but our thinking is that it doesn't necessarily solves the problem. Component authoring libraries can also use these methods and thus clash with style writing.
+Mimcss supports several built-in activator types and allows the library users to create their own activators. For more information see the [Activation Scheduling](mimcss-guide-activation-scheduling.html) unit.
 
 ## Referencing External Style Definitions
 We have seen in this guide how we can reference rules defined in a different style definition class using the `$use` function:

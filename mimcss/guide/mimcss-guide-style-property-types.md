@@ -287,7 +287,7 @@ The following list gives a brief description of the complex properties:
 - For the `clip-path`, `shape-outside` and `offset-path` properties, Mimcss provides implementations of the functions listed under the `<basic-shape>` CSS type. This includes `inset()`, `circle()` `ellipse()`, `polygon()` and `path()`.
 
 ## Proxy Interfaces
-Mimcss provides a number of *Proxy* interfaces such as `IFilterProxy`, `ITransformProxy`, etc. These are *callable* interface, which means that entities that implement them are functions and not classes. All these interfaces derive from the `IGenericProxy` interface, which is defined as follows:
+Mimcss provides a number of *Proxy* interfaces such as `IFilterProxy`, `ITransformProxy`, etc. These are *callable* interfaces, which means that entities that implement them are functions and not classes. All these interfaces derive from the `IGenericProxy` interface, which is defined as follows:
 
 ```tsx
 export interface IGenericProxy<T extends string>
@@ -296,7 +296,7 @@ export interface IGenericProxy<T extends string>
 }
 ```
 
-The derived proxy interfaces are derived as follows:
+The derived proxy interfaces are defined as follows:
 
 ```tsx
 export interface IFilterProxy extends IGenericProxy<"filter"> {}
@@ -332,8 +332,8 @@ Since the `IFilterProxy` and `ITransformProxy` interfaces are incompatible due t
 class MyStyles extends StyleDefinition
 {
     myClass = css.$class({
-        filter: css.scale(0.5);     // COMPILATION ERROR !!!
-        transform: css.blur(0.5);   // COMPILATION ERROR !!!
+        filter: css.scale(0.5),     // COMPILATION ERROR !!!
+        transform: css.blur(0.5)    // COMPILATION ERROR !!!
     })
 }
 ```
