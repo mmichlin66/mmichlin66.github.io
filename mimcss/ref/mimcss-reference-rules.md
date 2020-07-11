@@ -1,12 +1,12 @@
 ---
 layout: mimcss-reference
 unit: 2
-title: "Mimcss Reference: Rules and Activation"
+title: "Mimcss Reference: Rules"
 ---
 
-# Mimcss Reference: Rules and Activation
+# Mimcss Reference: Rules
 
-This page describes types and functions that are used to create rules and activate and deactivate Style Definition classes.
+This page describes types and functions that are used to create Style Definition classes and specify style rules and at-rules.
 
 - [Style Definition Classes](#style-definition-classes)
   - [StyleDefinition Class](#styledefinition-class)
@@ -25,9 +25,6 @@ This page describes types and functions that are used to create rules and activa
   - [$var Function](#var-function)
   - [$use Function](#use-function)
   - [$embed Function](#embed-function)
-- [Activation Functions](#activation-functions)
-  - [$activate Function](#activate-function)
-  - [$deactivate Function](#deactivate-function)
 - [Helper Functions](#helper-functions)
   - [enableShortNames Function](#enableshortnames-function)
   - [selector Function](#selector-function)
@@ -51,7 +48,7 @@ This page describes types and functions that are used to create rules and activa
   - [IVarRule Interface](#ivarrule-interface)
   - [ICounterRule Interface](#icounterrule-interface)
 
-## Style Definition Classes
+### Style Definition Classes
 
 #### StyleDefinition Class
 
@@ -479,76 +476,6 @@ class MyStyles extends StyleDefinition
 let myStyles = css.$activate( MyStyles);
 ```
 
-## Activation Functions
-
-#### $activate() Function
-
-```tsx
-export function $activate<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
-```
-
-The `$activate` function inserts CSS rules into the DOM and returns an instance of the style definition class whose properties can be accessed by the callers. The input parameter can be one of the following three things:
-
-1. A style definition class. The `$activate` function checks whether there is already an instance of this class associated with the class. This condition is true if either the `$use` or `$activate` function has already been called for this style definition class. If this is the case, the associated instance is returned; otherwise, a new instance is created and is associated with the class. This ensures, that a single instance is ever associated with the style definition class and that a single set of CSS rules is created for the style definition class. In other words, the class is *shared* between the callers.
-1. An unprocessed instance of a style definition class. The `$activate` function processes the instance and creates unique names for the named entities. This use case is suitable for so called *styled components*, where all component instances use the same style definition class but create separate instances of it for each component instance. Styled components can programmatically change the style properties and having separate instances of the style definition class isolates different instances of the component from each other.
-1. A processed instance of a style definition class. The `$activate` function simply returns this instance.
-
-The `$activate` function can be called many time on the same style definition class. Upon the first call, the CSS rules are inserted into the DOM; upon the consequent calls, the internal reference count is simply incremented. To remove the rules from the DOM, the `$deactivate` function should called as many times as the `$activate` function was.
-
-**Example.** The following example defines a style definition class with a CSS class, then uses it in HTML element.
-
-```tsx
-class MyStyles extends StyleDefinition
-{
-    red = css.$class({ color: "red" })
-}
-
-let myStyles = css.$activate( MyStyles);
-
-render()
-{
-    return <p className={myStyles.red.name}>This is a red paragraph</p>;
-}
-```
-
-#### $deactivate() Function
-
-```tsx
-export function $deactivate( instance: StyleDefinition): void
-```
-
-The `$deactivate` function deactivates the given style definition instance by removing its rules from DOM. Note that each style definition instance maintains a reference counter of how many times it was activated and
- * deactivated. The rules are removed from DOM only when this reference counter goes down to 0.
-
-**Example.** The following example defines a style definition class to be used with a certain component. The component activates the styles upon mounting and deactivates them upon unmounting.
-
-```tsx
-class MyStyles extends StyleDefinition
-{
-    red = css.$class({ color: "red" })
-}
-
-class MyComponent
-{
-    private myStyles: MyStyles;
-
-    componentWillMount()
-    {
-        this.myStyles = css.$activate( MyStyles);
-    }
-
-    componentWillUnmount()
-    {
-        css.$deactivate( this.myStyles);
-    }
-
-    render()
-    {
-        return <p className={myStyles.red.name}>This is a red paragraph</p>;
-    }
-}
-```
-
 ### Helper Functions
 
 #### enableShortNames() Function
@@ -641,7 +568,7 @@ export interface IRule
 
 The `IRule` interface is implemented by both style and at-rules and contains the basic properties that are common for all Mimcss objects implementing CSS rules:
 
-- The `cssRule` property points to the `CSSRule` object inserted into DOM when the style definition class containing the Mimcss rule is activated.
+- The `cssRule` property points to the `CSSRule` object inserted into DOM when the style definition class containing the Mimcss rule is activated. The type of this property is overridden in the derived classes to reflect the proper CSS rule object type.
 
 #### IStyleRule Interface
 
@@ -667,8 +594,10 @@ export interface IStyleRule extends IRule
      * @param value New value of the CSS property. If this value is undefined or null, the property
      * is removed from the rule's styleset.
      * @param important Flag indicating whether to set the "!important" flag on the property value.
+     * @param schedulerType Optional scheduler type identifier.
      */
-    setProp<K extends keyof ExtendedStyleset>( name: K, value: ExtendedStyleset[K], important?: boolean): void;
+    setProp<K extends keyof ExtendedStyleset>( name: K, value: ExtendedStyleset[K],
+        important?: boolean, schedulerType?: number): void;
 
     /**
      * Adds/replaces/removes the value of the given custmom CSS property in this rule.
@@ -676,8 +605,10 @@ export interface IStyleRule extends IRule
      * @param value New value of the custom CSS property. If this value is undefined or null, the property
      * is removed from the rule's styleset.
      * @param important Flag indicating whether to set the "!important" flag on the property value.
+     * @param schedulerType Optional scheduler type identifier.
      */
-    setCustomProp<K extends VarTemplateName>( customVar: IVarRule<K>, value: VarValueType<K>, important?: boolean): void;
+    setCustomProp<K extends VarTemplateName>( customVar: IVarRule<K>, value: VarValueType<K>,
+        important?: boolean, schedulerType?: number): void;
 }
 ```
 
@@ -687,7 +618,7 @@ The `cssRule` property overrides the property with the same name from the `IRule
 
 The `dependentRules` property contains any dependent (a.k.a as nested) style rules that were specified in the `CombinedStyleset` object based on which the style rule object was created.
 
-The methods `setProp` and `setCustomProp` can be used to change values of style properties programmatically.
+The methods `setProp` and `setCustomProp` can be used to change values of style properties programmatically. The optional `schedulerType` parameter can be set to designate the scheduler type to be used for scheduling the actual writing of style property values to the DOM. If this parameter is left undefined, the current default scheduler type is used.
 
 #### DependentRules Type
 

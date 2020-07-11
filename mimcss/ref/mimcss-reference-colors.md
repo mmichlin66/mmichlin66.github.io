@@ -1,6 +1,6 @@
 ---
 layout: mimcss-reference
-unit: 5
+unit: 6
 title: "Mimcss Reference: Colors"
 ---
 

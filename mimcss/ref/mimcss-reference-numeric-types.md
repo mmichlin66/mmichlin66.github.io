@@ -1,6 +1,6 @@
 ---
 layout: mimcss-reference
-unit: 4
+unit: 5
 title: "Mimcss Reference: Numeric Types"
 ---
 
