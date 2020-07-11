@@ -12,7 +12,7 @@ This page describes the different types of stylesets Mimcss uses.
 - [ExtendedStyleset Type](#extendedstyleset-type)
   - [Global_StyleType Type](#global_styletype-type)
   - [ICustomVar Interface](#icustomvar-interface)
-  - [StringProxy Type](#stringproxy-type)
+  - [IStringProxy Interface](#istringproxy-interface)
   - [Extended Type](#extended-type)
   - [ImportantProp Type](#importantprop-type)
   - [ExtendedProp Type](#extendedprop-type)
@@ -80,7 +80,7 @@ export type Global_StyleType = "inherit" | "initial" | "unset" | "revert";
 ```tsx
 export interface ICustomVar<T = any>
 {
-    setValue( value: T, important?: boolean): void;
+    setValue( value: T, important?: boolean, schedulerType?: number): void;
 }
 ```
 
@@ -92,7 +92,7 @@ The `ICustomVar` generic interface represents a CSS custom property object with 
 export interface IStringProxy extends IGenericProxy<"string"> {};
 ```
 
-The `IStringProxy` interface represents a function that returns a string. This function is part of type definition for all CSS properties - even for those that don't have `string` as part of their type. The `StringProxy` type is returned from the `raw()` function, which allows by-passing the property typing rules and specifying a string directly. This might be useful, when a string value is obtained from some external code.
+The `IStringProxy` interface represents a function that returns a string. This function is part of type definition for all CSS properties - even for those that don't have `string` as part of their type. The `IStringProxy` interface is returned from the `raw()` function, which allows bypassing the property typing rules and specifying a string directly. This might be useful, when a string value is obtained from some external code.
 
 #### Extended Type 
 
