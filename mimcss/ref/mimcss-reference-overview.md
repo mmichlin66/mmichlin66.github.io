@@ -18,4 +18,3 @@ Mimcss exposes an API that consists of numerous types, interfaces, classes and f
 - [Helper Functions](mimcss-reference-helper-functions.html) - this section describes types and functions used for working with CSS images, filters, transforms and basic shapes.
 - [Style Properties](mimcss-reference-style-properties.html) - this section describes all style properties and their types.
 
-

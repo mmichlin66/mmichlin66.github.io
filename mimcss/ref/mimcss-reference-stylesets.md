@@ -94,7 +94,7 @@ export interface IStringProxy extends IGenericProxy<"string"> {};
 
 The `IStringProxy` interface represents a function that returns a string. This function is part of type definition for all CSS properties - even for those that don't have `string` as part of their type. The `IStringProxy` interface is returned from the `raw()` function, which allows bypassing the property typing rules and specifying a string directly. This might be useful, when a string value is obtained from some external code.
 
-#### Extended Type 
+#### Extended Type
 
 ```tsx
 export type Extended<T> = T | ICustomVar<T> | IStringProxy | undefined;
