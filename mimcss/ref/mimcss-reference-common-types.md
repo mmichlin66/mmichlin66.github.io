@@ -72,7 +72,7 @@ class MyStyle extends css.StyleDefinition
 export interface IUrlProxy extends IGenericProxy<"url"> {};
 ```
 
-The `UrlProxy` interface represents an invocation of the CSS `url()` function. This interface is returned from the Mimcss `url()` function.
+The `IUrlProxy` interface represents an invocation of the CSS `url()` function. This interface is returned from the Mimcss `url()` function.
 
 ## Using Element Attributes
 

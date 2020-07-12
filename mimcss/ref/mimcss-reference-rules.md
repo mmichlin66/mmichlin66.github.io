@@ -23,6 +23,7 @@ This page describes types and functions that are used to create Style Definition
   - [$supports Function](#supports-function)
   - [$media Function](#media-function)
   - [$var Function](#var-function)
+  - [$counter Function](#counter-function)
   - [$use Function](#use-function)
   - [$embed Function](#embed-function)
 - [Helper Functions](#helper-functions)

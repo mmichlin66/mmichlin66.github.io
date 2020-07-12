@@ -21,6 +21,23 @@ This page describes types and functions that are used to work with images, filte
 
 Mimcss provides types and functions that mimic the signatures of the CSS `<image>` functions:
 
+```tsx
+/**
+ * The ImageProxy interface represents an invocation of one of CSS functions that are used for
+ * secifying images. This interface is returned from functions like: linearGradient(), paint(),
+ * element(), etc.
+ */
+export interface IImageProxy extends IGenericProxy<"image"> {};
+
+/**
+ * The CssImage type represents a type used for CSS properties that accept the `<image>` type.
+ */
+export type CssImage = IUrlProxy | IImageProxy;
+
+
+
+```
+
 ### Gradients
 The `gradient` object implements the `IGradient` interface that contains properties named after the CSS functions defined in the `<gradient>` CSS type:
 
@@ -218,6 +235,11 @@ class MyStyles extends css.StyleDefinition
 Mimcss provides types and functions that mimic the functions of the `<filter-function>` CSS type:
 
 ```tsx
+/**
+ * The IFilterProxy function represents an invocation of one the CSS `<filter>` functions.
+ */
+export interface IFilterProxy extends IGenericProxy<"filter"> {};
+
 export function brightness( amount: Extended<CssPercent>): IFilterProxy;
 
 export function contrast( amount: Extended<CssPercent>): IFilterProxy;
@@ -246,6 +268,11 @@ export function hueRotate( amount: Extended<CssAngle>): IFilterProxy;
 Mimcss provides types and functions that mimic the functions of the `<transform-function>` CSS type:
 
 ```tsx
+/**
+ * The ITransformProxy function represents an invocation of one the CSS `<basic-shape>` functions.
+ */
+export interface ITransformProxy extends IGenericProxy<"transform">;
+
 export function matrix( a: Extended<CssNumber>, b: Extended<CssNumber>, c: Extended<CssNumber>,
     d: Extended<CssNumber>, tx: Extended<CssNumber>, ty: Extended<CssNumber>): ITransformProxy;
 
@@ -304,6 +331,23 @@ export function translate3d( x: Extended<CssLength>, y: Extended<CssLength>,
 Mimcss provides types and functions that mimic the functions of the `<basic-shape>` CSS type:
 
 ```tsx
+/**
+ * The BasicShapeType represents an invocation of one the CSS `<basic-shape>` functions including
+ * the `path()` function.
+ */
+export type BasicShape = IBasicShapeProxy | IPathBuilder;
+
+/**
+ * The IBasicShapeProxy function represents an invocation of one the CSS `<basic-shape>` functions
+ * except the `path()` function.
+ */
+export interface IBasicShapeProxy extends IGenericProxy<"basic-shape">;
+
+/**
+ * The IRayProxy function represents an invocation of one the CSS `ray()` functions.
+ */
+export interface IRayProxy extends IGenericProxy<"ray">;
+
 export function inset( offset: Extended<OneOrBox<CssLength>>,
     radius?: Extended<BorderRadius_StyleType>): IBasicShapeProxy;
 
