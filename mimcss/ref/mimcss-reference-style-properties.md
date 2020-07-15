@@ -9,31 +9,41 @@ title: "Mimcss Reference: Style Properties"
 This page describes types of CSS style properties used in Mimcss in alphabetical order. Note that in addition to the type specified for the property, all properties accept the following types:
 
 - `undefined` - the type that means that the style property should not be considered a part of the style rule.
+
 - `export type Global_StyleType = "inherit" | "initial" | "unset" | "revert"` - global CSS style property values.
+
 - `export interface IStringProxy extends IGenericProxy<"string"> {}` - a function that returns a `string`. This can be either the Mimcss `raw()` function or any custom function that returns a string. Note that the custom function will be called without any parameters.
+
 - `export interface ICustomVar<T = any>` - the interface that is implemented by the custom CSS property rules. This allows using custom CSS properties as values of style properties provided the type of the custom CSS property is compatible with the type of the style property.
+
 - `export type ImportantProp<T> = { "!": T | ICustomVar<T> | IStringProxy }` - allows specifying any of the above types while indicating that the property must be marked `"!important"`.
 
 <style>
 .capital { font-size: 24px; font-weight: bold; }
 table { display: block; }
 th, td { padding: 2px 6px }
-.searchContainer {
+h4 { color: teal }
+#searchContainer {
     border: 1px solid blue;
     background-color: beige;
     padding: 16px;
 }
+#lookup {
+    padding: 4px;
+    color: blue;
+}
 </style>
 
-<div id="search" class="searchContainer">
+### Search Style Properties
+<div id="searchContainer">
     <label for="lookup">Lookup Style Properties:</label>
     <select id="lookup" onchange="gotoStyleProperty();">
         <option value="">--Please choose a property--</option>
     </select>
 </div>
 
-<br/>
-<span id="a" class="capital">A</span> [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+<br/><br/>
+<span id="a" class="capital">A</span> [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### align-content
 
@@ -241,7 +251,7 @@ A Bezier function is represented as a four element tuple where each element is a
 **See Also:** [Extended](mimcss-reference-stylesets.html#extended-type)
 
 <br/><br/>
-[A](#a) <span id="b" class="capital">B</span> [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+[A](#a) <span id="b" class="capital">B</span> [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### backdrop-filter
 
@@ -485,14 +495,14 @@ class MyStyles extends css.StyleDefinition
     cls3 = css.$class({ border: "red" })
 
     // border as a string
-    cls3 = css.$class({ border: "3px dashed red" })
+    cls4 = css.$class({ border: "3px dashed red" })
 
     // border as an array
-    cls3 = css.$class({ border: [3, "dashed", "red"] })
+    cls5 = css.$class({ border: [3, "dashed", "red"] })
 }
 ```
 
-**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [CssLength](mimcss-reference-numeric-types.html#length-values)
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 #### border-block-end
 
@@ -535,7 +545,7 @@ See the [`border`](#border) style property for type definition and examples.
 #### border-block-start-color
 
 ```tsx
-borderBlockeStartColor: CssColor;
+borderBlockStartColor: CssColor;
 ```
 
 **See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
@@ -633,15 +643,15 @@ export type BorderImage_StyleType = string | CssImage | BorderImage_Object;
 /** Type for border-image style property expressed as an object. */
 export type BorderImage_Object =
     {
-        source: ExtendedProp<BorderImageSource_StyleType>,
-        slice?: ExtendedProp<BorderImageSlice_StyleType>,
-        width?: ExtendedProp<BorderImageWidth_StyleType>,
-        outset?: ExtendedProp<BorderImageOutset_StyleType>,
-        repeat?: ExtendedProp<BorderImageRepeat_StyleType>,
+        source: Extended<BorderImageSource_StyleType>,
+        slice?: Extended<BorderImageSlice_StyleType>,
+        width?: Extended<BorderImageWidth_StyleType>,
+        outset?: Extended<BorderImageOutset_StyleType>,
+        repeat?: Extended<BorderImageRepeat_StyleType>,
     };
 ```
 
-**See Also:** [CssImage](mimcss-reference-helper-functions.html#images)
+**See Also:** [CssImage](mimcss-reference-helper-functions.html#images), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 #### border-image-outset
 
@@ -1004,7 +1014,7 @@ export type BreakInside_StyleType = "auto" | "avoid" | "avoid-page" | "avoid-col
 ```
 
 <br/><br/>
-[A](#a) [B](#b) <span id="c" class="capital">C</span> [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+[A](#a) [B](#b) <span id="c" class="capital">C</span> [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### caption-side
 
@@ -1275,7 +1285,82 @@ export type Cursor_Keyword = "auto" | "default" | "none" | "context-menu" | "hel
 **See Also:** [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 <br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) <span id="f" class="capital">F</span> [G](#g) [H](#h) [I](#i) [J](#j) [K](#k) [L](#l) [M](#m) [N](#n) [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+[A](#a) [B](#b) [C](#c) <span id="d" class="capital">D</span> [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### direction
+
+```tsx
+direction: Direction_StyleType;
+
+/** Type for direction style property */
+export type Direction_StyleType = "ltr" | "rtl";
+```
+
+#### display
+
+```tsx
+display: Display_StyleType;
+
+/** Type for display style property */
+export type Display_StyleType = "block" | "inline" | "run-in" | "contents" | "none" |
+    "inline-block" | "inline-list-item" | "inline-table" | "inline-flex" | "inline-grid" |
+    "flow" | "flow-root" | "table" | "flex" | "grid" | "ruby" |
+    "table-row-group" | "table-header-group" | "table-footer-group" | "table-row" | "table-cell" |
+        "table-column-group" | "table-column" | "table-caption" | "ruby-base" | "ruby-text" |
+        "ruby-base-container" | "ruby-text-container" |
+    "list-item" | "list-item block" | "list-item inline" | "list-item flow" | "list-item flow-root" |
+        "list-item block flow" | "list-item block flow-root" | "flow list-item block";
+```
+
+#### dominant-baseline
+
+```tsx
+dominantBaseline: DominantBaseline_StyleType;
+
+/** Type for dominant-baseline style property */
+export type DominantBaseline_StyleType = "auto" | "text-bottom" | "alphabetic" | "ideographic" | "middle" |
+    "central" | "mathematical" | "hanging" | "text-top";
+```
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) <span id="e" class="capital">E</span> [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### empty-cells
+
+```tsx
+emptyCells: DominantBaseline_StyleType;
+
+/** Type for empty-cells style property */
+export type EmptyCells_StyleType = "show" | "hide";
+```
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) <span id="f" class="capital">F</span> [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### fill
+
+```tsx
+fill: CssColor;
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+
+#### fill-opacity
+
+```tsx
+fillOpacity: CssPercent;
+```
+
+**See Also:** [CssPercent](mimcss-reference-numeric-types.html#percent-values)
+
+#### fill-rule
+
+```tsx
+fillRule: CssColor;
+
+/** Type for fill-rule style property */
+export type FillRule_StyleType = "nonzero" | "evenodd";
+```
 
 #### filter
 
@@ -1289,7 +1374,7 @@ export type Filter_StyleType = OneOrMany<Filter_Single>;
 export type Filter_Single = string | IUrlProxy | IFilterProxy;
 ```
 
-The `filter` property can be specified either as a string or using the Mimcss `url()` function or using one of the Mimcss [filter functions](mimcss-reference-helper-functions.html#filters) that return the `FilterProxy` type.
+The `filter` property can be specified either as a string or using the Mimcss `url()` function or using one of the Mimcss [filter functions](mimcss-reference-helper-functions.html#filters) that return the `IFilterProxy` type.
 
 **Examples**
 
@@ -1302,32 +1387,1254 @@ class MyStyles extends css.StyleDefinition
     // brightness of 70%
     cls2 = css.$class({ filter: css.brightness(70) })
 
-    // multiple backdrop filters
+    // multiple filters
     cls3 = css.$class({ filter: [css.dropShadow(16, 16, "red", 10), invert(75)] })
 }
 ```
 
 **See Also:** [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface), [IFilterProxy](mimcss-reference-helper-functions.html#filters)
 
+#### flex
+
+```tsx
+flex: Flex_StyleType;
+
+/** Type for flex style property */
+export type Flex_StyleType = FlexBasis_StyleType | [Extended<number>, Extended<number>] |
+    [Extended<number>, Extended<number>, Extended<FlexBasis_StyleType>];
+```
+
+**See Also:** [flex-basis](#flex-basis), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### flex-basis
+
+```tsx
+flexBasis: FlexBasis_StyleType;
+
+/** Type for flex-basis style property */
+export type FlexBasis_StyleType = "auto" | "content" | CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### flex-direction
+
+```tsx
+flexDirection: FlexDirection_StyleType;
+
+/** Type for flex-direction style property */
+export type FlexDirection_StyleType = "row" | "row-reverse" | "column" | "column-reverse";
+```
+
+#### flex-flow
+
+```tsx
+flexFlow: FlexFlow_StyleType;
+
+/** Type for flex-flow style property */
+export type FlexFlow_StyleType = FlexDirection_StyleType | FlexWrap_StyleType |
+    [Extended<FlexDirection_StyleType>, Extended<FlexWrap_StyleType>];
+```
+
+**See Also:** [flex-direction](#flex-direction), [flex-wrap](#flex-wrap), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### flex-grow
+
+```tsx
+flexGrow: CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### flex-shrink
+
+```tsx
+flexShrink: CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### flex-wrap
+
+```tsx
+flexWrap: FlexWrap_StyleType;
+
+/** Type for flex-wrap style property */
+export type FlexWrap_StyleType = "nowrap" | "wrap" | "wrap-reverse";
+```
+
+#### float
+
+```tsx
+float: Float_StyleType;
+
+/** Type for float style property */
+export type Float_StyleType = "left" | "right" | "none" | "inline-start" | "inline-end";
+```
+
+#### flood-color
+
+```tsx
+floodColor: CssColor;
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+
+#### flood-opacity
+
+```tsx
+floodOpacity: CssPercent;
+```
+
+**See Also:** [CssPercent](mimcss-reference-numeric-types.html#percent-values)
+
+#### font
+
+```tsx
+font: Font_StyleType;
+
+/** Type for font style property */
+export type Font_StyleType = string | Font_SystemKeyword |
+    {
+        size: ExtendedProp<CssLength>;
+        family: ExtendedProp<string>;
+        style?: ExtendedProp<FontStyle_StyleType>;
+        variant?: ExtendedProp<string>;
+        weight?: ExtendedProp<FontWeight_StyleType>;
+        stretch?: ExtendedProp<Exclude<FontStretch_Single,number>>;
+        lineHeight?: ExtendedProp<CssNumber>
+    };
+
+/** Keywords for font style property */
+export type Font_SystemKeyword = "caption" | "icon" | "menu" | "message-box" | "small-caption" | "status-bar";
+```
+
+The `font` property can be specified as a string, as a keyword or as an object. The fields of the object correspond to the extended types of the following longhand properties:
+
+| Field | CSS longhand property |
+| :--- | :--- |
+| size | [font-size](#font-size) |
+| family | [font-family](#font-family) |
+| style | [font-style](#font-style) |
+| variant | [font-variant](#font-variant) |
+| weight | [font-weight](#font-weight) |
+| stretch | [font-stretch](#font-stretch) |
+| lineHeight | [lineHeight](#lineHeight) |
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [CssNumber](mimcss-reference-numeric-types.html#number-values), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### font-family
+
+```tsx
+fontFamily: string;
+```
+
+#### font-feature-settings
+
+```tsx
+fontFeatureSettings: string;
+```
+
+#### font-kerning
+
+```tsx
+fontKerning: FontKerning_StyleType;
+
+/** Type for font-kerning style property */
+export type FontKerning_StyleType = "auto" | "normal" | "none";
+```
+
+#### font-optical-sizing
+
+```tsx
+fontOpticalSizing: FontOpticalSizing_StyleType;
+
+/** Type for font-optical-sizing style property */
+export type FontOpticalSizing_StyleType = "auto" | "none";
+```
+
+#### font-size
+
+```tsx
+fontSize: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### font-size-adjust
+
+```tsx
+fontSizeAdjust: number;
+```
+
+#### font-stretch
+
+```tsx
+fontStretch: FontStretch_Single;
+
+/** Type of font-stretch property */
+export type FontStretch_StyleType = FontStretch_Single;
+
+export type FontStretch_Single = "normal" | "ultra-condensed" | "extra-condensed" | "condensed" |
+    "semi-condensed" | "semi-expanded" | "expanded" | "extra-expanded" | "ultra-expanded" | number;
+```
+
+#### font-style
+
+```tsx
+fontStyle: FontStyle_StyleType;
+
+/** Type for font-style style property */
+export type FontStyle_StyleType = "normal" | "italic" | "oblique" | CssAngle;
+```
+
+**See Also:** [CssAngle](mimcss-reference-numeric-types.html#angle-values)
+
+#### font-synthesis
+
+```tsx
+fontSynthesis: FontSynthesis_StyleType;
+
+/** Type for font-synthesis style property */
+export type FontSynthesis_StyleType = "none" | "weight" | "style" | "weight style";
+```
+
+#### font-variant
+
+```tsx
+fontVariant: string;
+```
+
+#### font-variant-caps
+
+```tsx
+fontVariantCaps: FontVariantCaps_StyleType;
+
+/** Type for font-variant-caps style property */
+export type FontVariantCaps_StyleType = "normal" | "small-caps" | "all-small-caps" |
+    "petite-caps" | "all-petite-caps" | "unicase" | "titling-caps";
+```
+
+#### font-variant-east-asian
+
+```tsx
+fontVariantEastAsian: string;
+```
+
+#### font-variant-east-ligatures
+
+```tsx
+fontVariantLigatures: string;
+```
+
+#### font-variant-east-numeric
+
+```tsx
+fontVariantNumeric: string;
+```
+
+#### font-variant-position
+
+```tsx
+fontVariantPosition: FontVariantPosition_StyleType;
+
+/** Type for font-variant-position style property */
+export type FontVariantPosition_StyleType = "normal" | "sub" | "super";
+```
+
+#### font-variation-settings
+
+```tsx
+fontVariationSettings: string;
+```
+
+#### font-weight
+
+```tsx
+fontWeight: FontWeight_StyleType;
+
+/** Type for font-weight style property */
+export type FontWeight_StyleType = "normal" | "bold" | "bolder" | "lighter" | number;
+```
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) <span id="g" class="capital">G</span> [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### gap
+
+```tsx
+gap: Gap_StyleType;
+
+/** Type for a gap or grid-gap style property */
+export type Gap_StyleType = RowGap_StyleType | [RowGap_StyleType, ColumnGap_StyleType];
+```
+
+**See Also:** [row-gap](#row-gap), [column-gap](#column-gap)
+
+#### grid
+
+```tsx
+grid: string;
+```
+
+#### grid-gap
+
+```tsx
+gridGap: Gap_StyleType;
+
+/** Type for a gap or grid-gap style property */
+export type Gap_StyleType = RowGap_StyleType | [RowGap_StyleType, ColumnGap_StyleType];
+```
+
+**See Also:** [row-gap](#row-gap), [column-gap](#column-gap)
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) <span id="h" class="capital">H</span> [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### height
+
+```tsx
+height: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### hyphens
+
+```tsx
+hyphens: Hyphens_StyleType;
+
+/** Type for hyphens style property */
+export type Hyphens_StyleType = "none" | "manual" | "auto";
+```
+
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) <span id="i" class="capital">I</span> [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### image-rendering
+
+```tsx
+imageRendering: ImageRendering_StyleType;
+
+/** Type for image-rendering style property */
+export type ImageRendering_StyleType = "auto" | "crisp-edges" | "pixelated";
+```
+
+#### inline-size
+
+```tsx
+inlineSize: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### isolation
+
+```tsx
+isolation: Isolation_StyleType;
+
+/** Type for isolation style property */
+export type Isolation_StyleType = "auto" | "isolate";
+```
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) <span id="j" class="capital">J</span> K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### justify-content
+
+```tsx
+justifyContent: JustifyContent_StyleType;
+
+/** Type for justify-content style property */
+export type JustifyContent_StyleType = "normal" | "space-between" | "space-around" | "space-evenly" | "stretch" |
+    "center" | "start" | "end" | "flex-start" | "flex-end" | "left" | "right" |
+    "safe center" | "safe start" | "safe end" | "safe flex-start" | "safe flex-end" | "safe left" | "safe right" |
+    "unsafe center" | "unsafe start" | "unsafe end" | "unsafe flex-start" | "unsafe flex-end" | "unsafe left" | "unsafe right";
+```
+
+#### justify-items
+
+```tsx
+justifyItems: JustifyItems_StyleType;
+
+/** Type for justify-items style property */
+export type JustifyItems_StyleType = "normal" | "stretch" | "baseline" | "first baseline" | "last baseline" |
+    "center" | "start" | "end" | "self-start" | "self-end" | "flex-start" | "flex-end" | "left" | "right" |
+    "safe center" | "safe start" | "safe end" | "safe self-start" | "safe self-end" | "safe flex-start" | "safe flex-end" | "safe left" | "safe right" |
+    "unsafe center" | "unsafe start" | "unsafe end" | "unsafe self-start" | "unsafe self-end" | "unsafe flex-start" | "unsafe flex-end" | "unsafe left" | "unsafe right" |
+    "legacy" | "legacy left" | "legacy right" | "legacy center";
+```
+
+#### justify-self
+
+```tsx
+justifySelf: JustifySelf_StyleType;
+
+/** Type for justify-self style property */
+export type JustifySelf_StyleType = "auto" | "normal" | "stretch" | "baseline" | "first baseline" | "last baseline" |
+    "center" | "start" | "end" | "self-start" | "self-end" | "flex-start" | "flex-end" | "left" | "right" |
+    "safe center" | "safe start" | "safe end" | "safe self-start" | "safe self-end" | "safe flex-start" | "safe flex-end" | "safe left" | "safe right" |
+    "unsafe center" | "unsafe start" | "unsafe end" | "unsafe self-start" | "unsafe self-end" | "unsafe flex-start" | "unsafe flex-end" | "unsafe left" | "unsafe right";
+```
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K <span id="l" class="capital">L</span> [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### left
+
+```tsx
+left: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### letter-spacing
+
+```tsx
+letterSpacing: LetterSpacing_StyleType;
+
+/** Type for letter-spacing style property */
+export type LetterSpacing_StyleType = "normal" | CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### lighting-color
+
+```tsx
+lightingColor: CssColor;
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+
+#### line-break
+
+```tsx
+lineBreak: LineBreak_StyleType;
+
+/** Type for line-break style property */
+export type LineBreak_StyleType = "auto" | "loose" | "normal" | "strict" | "anywhere";
+```
+
+#### line-height
+
+```tsx
+lineHeight: LineHeight_StyleType;
+
+/** Type for line-height style property */
+export type LineHeight_StyleType = CssNumber | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### list-style
+
+```tsx
+listStyle: ListStyle_StyleType;
+
+/** Type for list-style style property */
+export type ListStyle_StyleType = ListStyleType_StyleType | ListStylePosition_StyleType | ListStyleImage_StyleType |
+    [Extended<ListStyleImage_StyleType>, Extended<ListStylePosition_StyleType>] |
+    [Extended<ListStyleImage_StyleType>, Extended<ListStyleType_StyleType>?] |
+    [Extended<ListStyleType_StyleType>, Extended<ListStylePosition_StyleType>] |
+    [Extended<ListStyleImage_StyleType>, Extended<ListStylePosition_StyleType>, Extended<ListStyleType_StyleType>?];
+```
+
+The `list-style` property is a shorthand for properties: [list-style-image](#list-style-image), [list-style-position](#list-style-position), [list-style-type](#list-style-type). The value can be specified as either a single value of any of these properties, or a two-element tuple of combinations of these properties or a three-element tuple of all three of these properties.
+
+**See Also:** [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### line-style-image
+
+```tsx
+lineStyleImage: ListStyleImage_StyleType;
+
+/** Type for line-style-image style property */
+export type ListStyleImage_StyleType = "none" | IUrlProxy;
+```
+
+**See Also:** [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface)
+
+#### line-style-position
+
+```tsx
+lineStylePosition: ListStylePosition_StyleType;
+
+/** Type for list-style-position style property */
+export type ListStylePosition_StyleType = "inside" | "outside";
+```
+
+#### line-style-type
+
+```tsx
+lineStyleType: ListStyleType_StyleType;
+
+/** Type for list-style-type style property */
+export type ListStyleType_StyleType = "none" | "disc" | "circle" | "square" | "decimal" | "decimal-leading-zero" |
+    "cjk-decimal" | "cjk-earthly-branch" | "cjk-heavenly-stem" | "cjk-ideographic" |
+    "lower-roman" | "upper-roman" | "lower-greek" | "lower-alpha" | "lower-latin" | "upper-alpha" | "upper-latin" |
+    "arabic-indic" | "armenian" | "bengali" | "cambodian" | "devanagari" | "georgian" | "gujarati" | "gurmukhi" | "hebrew" |
+    "hiragana" | "hiragana-iroha" | "japanese-formal" | "japanese-informal" | "kannada" | "katakana" | "katakana-iroha" |
+    "khmer" | "korean-hangul-formal" | "korean-hanja-formal" | "korean-hanja-informal" | "lao" | "lower-armenian" |
+    "malayalam" | "mongolian" | "myanmar" | "oriya" | "persian" | "simp-chinese-formal" | "simp-chinese-informal" |
+    "tamil" | "telugu" | "thai" | "tibetan" | "trad-chinese-formal" | "trad-chinese-informal" | "upper-armenian" |
+    "disclosure-open" | "disclosure-closed";
+```
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) <span id="m" class="capital">M</span> N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### margin
+
+```tsx
+margin: CssLengthBox;
+```
+
+The `margin` property can be specified as a single `<length>` value or two-, three- or four-element tuple of `<length>` values.
+
+**See Also:** [CssLengthBox](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-block-end
+
+```tsx
+marginBlockEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-block-start
+
+```tsx
+marginBlockStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-bottom
+
+```tsx
+marginBottom: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-inline-end
+
+```tsx
+marginInlineEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-inline-start
+
+```tsx
+margIninlineStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-left
+
+```tsx
+marginLeft: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-right
+
+```tsx
+marginRight: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### margin-top
+
+```tsx
+marginTop: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### marker-end
+
+```tsx
+markerEnd: Marker_StyleType;
+
+/** Type for the marker-start, marker-mid and marker-end style properties */
+export type Marker_StyleType = "none" | IIDRule;
+```
+
+**See Also:** [IIDRule](mimcss-reference-rules.html#iidrule-interface)
+
+#### marker-mid
+
+```tsx
+markerMid: Marker_StyleType;
+
+/** Type for the marker-start, marker-mid and marker-end style properties */
+export type Marker_StyleType = "none" | IIDRule;
+```
+
+**See Also:** [IIDRule](mimcss-reference-rules.html#iidrule-interface)
+
+#### marker-start
+
+```tsx
+markerStart: Marker_StyleType;
+
+/** Type for the marker-start, marker-mid and marker-end style properties */
+export type Marker_StyleType = "none" | IIDRule;
+```
+
+**See Also:** [IIDRule](mimcss-reference-rules.html#iidrule-interface)
+
+#### max-block-size
+
+```tsx
+maxBlockSize: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### max-height
+
+```tsx
+maxHeight: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### max-inline-size
+
+```tsx
+maxInlineSize: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### max-width
+
+```tsx
+maxWidth: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### min-block-size
+
+```tsx
+minBlockSize: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### min-height
+
+```tsx
+minHeight: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### min-inline-size
+
+```tsx
+minInlineSize: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### min-width
+
+```tsx
+minWidth: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N <span id="o" class="capital">O</span> [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### object-fit
+
+```tsx
+objectFit: ObjectFit_StyleType;
+
+/** Type for the object-fit style property */
+export type ObjectFit_StyleType = "fill" | "contain" | "cover" | "none" | "scale-down";
+```
+
+#### object-position
+
+```tsx
+objectPosition: CssPosition;
+```
+
+**See Also:** [CssPosition](mimcss-reference-numeric-types.html#cssposition-type)
+
+#### offset
+
+```tsx
+offset: CssPosition;
+
+/** Type for the offset style property */
+export type Offset_StyleType = string | OffsetPath_StyleType |
+{
+    anchor?: OffsetAnchor_StyleType,
+    distance?: CssLength,
+    path?: OffsetPath_StyleType,
+    position?: CssPosition,
+    rotate?: OffsetRotate_StyleType,
+}
+```
+
+The `offset` property can be specified as a string, as a keyword or as an object. The fields of the object correspond to the extended types of the following longhand properties:
+
+| Field | CSS longhand property |
+| :--- | :--- |
+| anchor | [offset-anchor](#offset-anchor) |
+| distance | [offset-distance](#offset-distance) |
+| path | [offset-path](#offset-path) |
+| position | [offset-position](#offset-position) |
+| rotate | [offset-rotate](#offset-rotate) |
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [CssPosition](mimcss-reference-numeric-types.html#cssposition-type)
+
+#### offset-anchor
+
+```tsx
+offseAnchor: OffsetAnchor_StyleType;
+
+/** Type for the offset-anchor style property */
+export type OffsetAnchor_StyleType = "auto" | CssPosition;
+```
+
+**See Also:** [CssPosition](mimcss-reference-numeric-types.html#cssposition-type)
+
+#### offset-distance
+
+```tsx
+offsetDistance: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### offset-path
+
+```tsx
+offsePath: OffsetPath_StyleType;
+
+/** Type for offset-path style property */
+export type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape | GeometryBoxKeyword |
+    [GeometryBoxKeyword, BasicShape];
+```
+
+**See Also:** [IRayProxy](mimcss-reference-helper-functions.html#basic-shapes), [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface), [BasicShape](mimcss-reference-helper-functions.html#basic-shapes), [GeometryBoxKeyword](mimcss-reference-helper-functions.html#basic-shapes)
+
+#### offset-position
+
+```tsx
+offsetPosition: CssPosition;
+```
+
+**See Also:** [CssPosition](mimcss-reference-numeric-types.html#cssposition-type)
+
+#### offset-rotate
+
+```tsx
+offsetRotate: CssPosition;
+
+/** Type for the offset-rotate style property */
+export type OffsetRotate_StyleType = "auto" | "reverse" | CssAngle | ["auto" | "reverse", CssAngle];
+```
+
+**See Also:** [CssAngle](mimcss-reference-numeric-types.html#angle-values)
+
+#### opacity
+
+```tsx
+opacity: CssPercent;
+```
+
+**See Also:** [CssPercent](mimcss-reference-numeric-types.html#percent-values)
+
+#### order
+
+```tsx
+order: CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### orphans
+
+```tsx
+orphans: CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### outline
+
+```tsx
+outline: Border_StyleType;
+```
+
+**See Also:** [border property](#border)
+
+#### outline-color
+
+```tsx
+outlineColor: CssColor;
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+
+#### outline-offset
+
+```tsx
+outlineOffset: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### outline-style
+
+```tsx
+outlineStyle: BorderStyle_StyleType;
+```
+
+**See Also:** [border-style property](#border-style)
+
+#### outline-width
+
+```tsx
+outlineWidth: BorderWidth_StyleType;
+```
+
+**See Also:** [border-width property](#border-width)
+
+#### overflow
+
+```tsx
+overflow: Overflow_StyleType;
+
+/** Type for the overflow style property */
+export type Overflow_StyleType = OneOrPair<Overflow_Single_StyleType>;
+
+/** Type for the overflow-x/y style property */
+export type Overflow_Single_StyleType = "visible" | "hidden" | "clip" | "scroll" | "auto";
+```
+
+#### overflow-anchor
+
+```tsx
+overflowAnchor: OverflowAnchor_StyleType;
+
+/** Type for the overflow-anchor style property */
+export type OverflowAnchor_StyleType = "auto" | "none";
+```
+
+#### overflow-block
+
+```tsx
+overflowBlock: Overflow_Single_StyleType;
+```
+
+**See Also:** [overflow property](#overflow)
+
+#### overflow-inline
+
+```tsx
+overflowInline: Overflow_Single_StyleType;
+```
+
+**See Also:** [overflow property](#overflow)
+
+#### overflow-wrap
+
+```tsx
+overflowWrap: OverflowWrap_StyleType;
+
+/** Type for the overflow-wrap style property */
+export type OverflowWrap_StyleType = "normal" | "break-word" | "anywhere";
+```
+
+#### overflow-x
+
+```tsx
+overflowX: Overflow_Single_StyleType;
+```
+
+**See Also:** [overflow property](#overflow)
+
+#### overflow-y
+
+```tsx
+overflowY: Overflow_Single_StyleType;
+```
+
+**See Also:** [overflow property](#overflow)
+
+#### overscroll-behavior
+
+```tsx
+overscrollBehavior: OverscrollBehavior_StyleType;
+
+/** Type for the overscroll-behavior style property */
+export type OverscrollBehavior_StyleType = OneOrPair<OverscrollBehavior_Single_StyleType>;
+
+/** Type for the overscroll-behavior-x/y style property */
+export type OverscrollBehavior_Single_StyleType = "contain" | "none" | "auto";
+```
+
+#### overscroll-behavior-block
+
+```tsx
+overscrollBehaviorBlock: OverscrollBehavior_Single_StyleType;
+```
+
+**See Also:** [overscroll-behavior property](#overscroll-behavior)
+
+#### overscroll-behavior-inline
+
+```tsx
+overscrollBehaviorInline: OverscrollBehavior_Single_StyleType;
+```
+
+**See Also:** [overscroll-behavior property](#overscroll-behavior)
+
+#### overscroll-behavior-x
+
+```tsx
+overscrollBehaviorX: OverscrollBehavior_Single_StyleType;
+```
+
+**See Also:** [overscroll-behavior property](#overscroll-behavior)
+
+#### overscroll-behavior-y
+
+```tsx
+overscrollBehaviorY: OverscrollBehavior_Single_StyleType;
+```
+
+**See Also:** [overscroll-behavior property](#overscroll-behavior)
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) <span id="p" class="capital">P</span> [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### padding
+
+```tsx
+padding: CssLengthBox;
+```
+
+The `padding` property can be specified as a single `<length>` value or two-, three- or four-element tuple of `<length>` values.
+
+**See Also:** [CssLengthBox](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-block-end
+
+```tsx
+paddingBlockEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-block-start
+
+```tsx
+paddingBlockStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-bottom
+
+```tsx
+paddingBottom: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-inline-end
+
+```tsx
+paddingInlineEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-inline-start
+
+```tsx
+margIninlineStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-left
+
+```tsx
+paddingLeft: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-right
+
+```tsx
+paddingRight: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### padding-top
+
+```tsx
+paddingTop: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### paint-order
+
+```tsx
+paintOrder: PaintOrder_StyleType;
+
+/** Type for the paint-order style property */
+export type PaintOrder_StyleType = "normal" | PaintOrder_Keyword |
+    [PaintOrder_Keyword, PaintOrder_Keyword?, PaintOrder_Keyword?];
+
+/** Type for the paint-order style property */
+export type PaintOrder_Keyword = "fill" | "stroke" | "markers";
+```
+
+#### page-break-after
+
+```tsx
+pageBreakAfter: BreakAfter_StyleType;
+```
+
+**See Also:** [break-after](#break-after)
+
+#### page-break-before
+
+```tsx
+pageBreakBefore: BreakBefore_StyleType;
+```
+
+**See Also:** [break-before](#break-before)
+
+#### page-break-inside
+
+```tsx
+pageBreakInside: BreakInside_StyleType;
+```
+
+**See Also:** [break-inside](#break-inside)
+
+#### perspective
+
+```tsx
+perspective: Perspective_StyleType;
+
+/** Type for the perspective style property */
+export type Perspective_StyleType = "none" | CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### perspective-origin
+
+```tsx
+perspectiveOrigin: PerspectiveOrigin_StyleType;
+
+/** Type for the perspective-origin style property */
+export type PerspectiveOrigin_StyleType = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength |
+    [Extended<HorizontalPositionKeyword | CssLength>, Extended<VerticalPositionKeyword | CssLength>];
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [CssPosition](mimcss-reference-numeric-types.html#cssposition-type), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### place-content
+
+```tsx
+placeContent: PlaceContent_StyleType;
+
+/** Type for the place-content style property */
+export type PlaceContent_StyleType = AlignContent_StyleType | [Extended<AlignContent_StyleType>, Extended<JustifyContent_StyleType>];
+```
+
+**See Also:** [align-content](#align-content), [justify-content](#justify-content), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### place-items
+
+```tsx
+placeItems: PlaceItems_StyleType;
+
+/** Type for the place-items style property */
+export type PlaceItems_StyleType = AlignItems_StyleType | [Extended<AlignItems_StyleType>, Extended<JustifyItems_StyleType>];
+```
+
+**See Also:** [align-items](#align-items), [justify-items](#justify-items), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### place-self
+
+```tsx
+placeSelf: PlaceSelf_StyleType;
+
+/** Type for the place-self style property */
+export type PlaceSelf_StyleType = AlignSelf_StyleType | [Extended<AlignSelf_StyleType>, Extended<JustifySelf_StyleType>];
+```
+
+**See Also:** [align-self](#align-self), [justify-self](#justify-self), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### pointer-events
+
+```tsx
+pointerEvents: PointerEvents_StyleType;
+
+/** Type for the pointer-events style property */
+export type PointerEvents_StyleType = "auto" | "none" | "visiblePainted" | "visibleFill" | "visibleStroke" | "visible" |
+    "painted" | "fill" | "stroke" | "all";
+```
+
+#### position
+
+```tsx
+position: Position_StyleType;
+
+/** Type for the position style property */
+export type Position_StyleType = "static" | "relative" | "absolute" | "sticky" | "fixed";
+```
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) <span id="q" class="capital">Q</span> [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### quotes
+
+```tsx
+quotes: Quotes_StyleType;
+
+/** Type for the quotes style property */
+export type Quotes_StyleType = "none" | "auto" | Extended<string>[];
+```
+
+**See Also:** [Extended](mimcss-reference-stylesets.html#extended-type)
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) <span id="r" class="capital">R</span> [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### resize
+
+```tsx
+resize: Resize_StyleType;
+
+/** Type for the resize style property */
+export type Resize_StyleType = "none" | "both" | "horizontal" | "vertical" | "block" | "inline";
+```
+
+#### right
+
+```tsx
+right: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### rotate
+
+```tsx
+rotate: Rotate_StyleType;
+
+/** Type for rotate style property */
+export type Rotate_StyleType = "none" | ["x" | "y" | "z", Extended<CssAngle>] |
+    [Extended<CssNumber>, Extended<CssNumber>, Extended<CssNumber>, Extended<CssAngle>];
+```
+
+**See Also:** [CssAngle](mimcss-reference-numeric-types.html#angle-values), [CssNumber](mimcss-reference-numeric-types.html#number-values), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### row-gap
+
+```tsx
+rowGap: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) <span id="s" class="capital">S</span> [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### scale
+
+```tsx
+scale: Scale_StyleType;
+
+/** Type for the scale style property */
+export type Scale_StyleType = "none" | CssNumber |
+    [Extended<CssNumber>, Extended<CssNumber>?, Extended<CssNumber>?];
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+<br/><br/>
+[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) <span id="t" class="capital">T</span> [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### top
+
+```tsx
+top: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
 
 
 
 <script>
-// find all <h4> elements
-var elms = Array.from( document.getElementsByTagName( "h4"));
-elms.forEach( elm => 
-{
-    var elmOption = document.createElement( "option")
-    elmOption.innerText = elm.innerText;
-    lookup.appendChild( elmOption);
-});
+    // find all <h4> elements
+    var allPropElms = Array.from( document.getElementsByTagName( "h4"));
 
-function gotoStyleProperty()
-{
-    var val = lookup.value;
-    if (val)
-        window.location.hash = val;
-}
+    // prepare array of all style property names
+    var allPropNames = [];
+
+    allPropElms.forEach( elmProp => 
+    {
+        var name = elmProp.innerText;
+        allPropNames.push( name);
+
+        // add options to the search dropdown
+        var elmOption = document.createElement( "option")
+        elmOption.innerText = name;
+        lookup.appendChild( elmOption);
+
+        // add "to top" link
+        var elmToTop = document.createElement( "a");
+        elmToTop.href = "#mimcss-reference-style-properties";
+        elmToTop.innerText = "to top";
+        elmToTop.style = "margin-left: 16px; font-weight: normal";
+        elmProp.appendChild( elmToTop);
+
+        // add "MDN" link
+        var elmMDN = document.createElement( "a");
+        elmMDN.href = "https://developer.mozilla.org/en-US/docs/Web/CSS/" + name;
+        elmMDN.target = "mdn";
+        elmMDN.innerText = "MDN";
+        elmMDN.style = "margin-left: 16px; font-weight: normal";
+        elmProp.appendChild( elmMDN);
+    });
+
+    function gotoStyleProperty()
+    {
+        var val = lookup.value;
+        if (val)
+            window.location.hash = val;
+    }
 </script>
 
 

@@ -151,7 +151,7 @@ We don't actually need to perform any rendering because we are not changing any 
 
 There is a caveat in the above code though: setting a style property isn't different from other DOM-writing operations and without the proper care it can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling* that work for both style activation and style property setting. The `setProp` method has an optional parameter `schedulerType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the `setDefaultSchedulerType` function.
 
-Mimcss supports several built-in scheduler types and allows the library users to create their own activators. For more information see the [Activation Scheduling](mimcss-guide-activation-scheduling.html) unit.
+Mimcss supports several built-in scheduler types and allows the library users to create their own schedulers. For more information see the [Activation Scheduling](mimcss-guide-activation-scheduling.html) unit.
 
 ## Referencing External Style Definitions
 We have seen in this guide how we can reference rules defined in a different style definition class using the `$use` function:

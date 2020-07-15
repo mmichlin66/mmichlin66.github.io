@@ -116,7 +116,7 @@ There are more sophisticated activation strategies possible and they are discuss
 
 Activating and deactivating style definitions is a DOM writing activity. Without the proper care writing to the DOM can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling*. The `$activate` and `$deactivate` functions have an optional parameter `schedulerType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the `setDefaultSchedulerType` function.
 
-Mimcss supports several built-in scheduler types and allows the library users to create their own activators. For more information see the [Activation Scheduling](mimcss-guide-activation-scheduling.html) unit.
+Mimcss supports several built-in scheduler types and allows the library users to create their own schedulers. For more information see the [Activation Scheduling](mimcss-guide-activation-scheduling.html) unit.
 
 ## Grouping Rules
 CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled in the same way as the top-level style definition class. The only difference is that for the grouping rules it is beneficial (but optional) to pass the class name of the parent as a generic parameter. Here is an example of the @media rule:

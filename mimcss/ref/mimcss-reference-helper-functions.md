@@ -348,6 +348,10 @@ export interface IBasicShapeProxy extends IGenericProxy<"basic-shape">;
  */
 export interface IRayProxy extends IGenericProxy<"ray">;
 
+/** Type used for several properties */
+export type GeometryBoxKeyword = "margin-box" | "border-box" | "padding-box" | "content-box" |
+    "fill-box" | "stroke-box" | "view-box";
+
 export function inset( offset: Extended<OneOrBox<CssLength>>,
     radius?: Extended<BorderRadius_StyleType>): IBasicShapeProxy;
 

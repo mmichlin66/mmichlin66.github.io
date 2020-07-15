@@ -8,7 +8,7 @@ title: "Mimcss Reference: Activation"
 
 This page describes types and functions that are used to create rules and activate and deactivate Style Definition classes.
 
-- [SchedulerType Enumeration](#activatortype-enumeration)
+- [SchedulerType Enumeration](#schedulertype-enumeration)
 - [$activate Function](#activate-function)
 - [$deactivate Function](#deactivate-function)
 - [$forceActivation Function](#forceactivation-function)
@@ -183,7 +183,7 @@ catch( err)
 export function setDefaultSchedulerType( schedulerType: number): number
 ```
 
-The `setDefaultSchedulerType` function sets the default scheduler type that is used by `$activate`, `$deactivate` and `IStyleRule.setProp` functions if called without explicitly providing value to the scheduler type parameter. Returns the type of the previous default activator or 0 if an error occurs (e.g. the given scheduler type ID is not registered).
+The `setDefaultSchedulerType` function sets the default scheduler type that is used by `$activate`, `$deactivate` and `IStyleRule.setProp` functions if called without explicitly providing value to the scheduler type parameter. Returns the type of the previous default scheduler or 0 if an error occurs (e.g. the given scheduler type ID is not registered).
 
 #### getDefaultSchedulerType() Function
 
