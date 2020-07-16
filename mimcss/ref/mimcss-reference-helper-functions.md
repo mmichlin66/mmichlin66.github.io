@@ -1,6 +1,6 @@
 ---
 layout: mimcss-reference
-unit: 7
+unit: 6
 title: "Mimcss Reference: Helper Functions"
 ---
 

@@ -12,10 +12,12 @@ This page describes the different types of stylesets Mimcss uses.
 - [ExtendedStyleset Type](#extendedstyleset-type)
   - [Global_StyleType Type](#global_styletype-type)
   - [ICustomVar Interface](#icustomvar-interface)
+  - [IGenericProxy Interface](#igenericproxy-interface)
   - [IStringProxy Interface](#istringproxy-interface)
   - [Extended Type](#extended-type)
   - [ImportantProp Type](#importantprop-type)
   - [ExtendedProp Type](#extendedprop-type)
+  - [Utility Types](#utility-types)
 - [Styleset Type](#styleset-type)
   - [ICssVarTemplates Interface](#icssvartemplates-interface)
   - [CustomVar_StyleType Type](#customvar_styletype-type)
@@ -86,6 +88,17 @@ export interface ICustomVar<T = any>
 
 The `ICustomVar` generic interface represents a CSS custom property object with values of the given type. This interface is needed because every style property can accept value in the form of the `var()` CSS function.
 
+#### IGenericProxy Interface 
+
+```tsx
+export interface IGenericProxy<T extends string>
+{
+    (p?: T): string;
+}
+```
+
+The `IGenericProxy` interface represents a callable interface implemented using functions that accept an optional parameter of a generic type and return a string. This interface is used as a base for proxy interfaces defining types acceptable by certain style properties. The type parameter helps differentiate these interfaces so that functions that can be assigned to one type of style properties (e.g. "transform") cannot be assigned to an incompatible style property (e.g. clip-path).
+
 #### IStringProxy Interface 
 
 ```tsx
@@ -127,6 +140,21 @@ The `ExtendedProp` generic type extends the given type with the following types:
 - `undefined` type that allows omit property value.
 - `ImportantProp` type that allows flagging the property as `!important`.
 - `Global_StyleType` type that allows specifying global property values.
+
+#### Utility Types
+
+The following utility generic types are frequently used when defining style properties:
+
+```tsx
+/** Type for pair-like property that can have 1 to 2 values of the given type */
+export type OneOrPair<T> = T | [Extended<T>, Extended<T>];
+
+/** Type for box-like property that can have 1 to 4 values of the given type */
+export type OneOrBox<T> = T | [Extended<T>, Extended<T>, Extended<T>?, Extended<T>?];
+
+/** Type for a property that can have 1 or more values of the given type */
+export type OneOrMany<T> = T | Extended<T>[];
+```
 
 ## Styleset Type
 

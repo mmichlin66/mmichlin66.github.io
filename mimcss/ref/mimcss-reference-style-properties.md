@@ -95,14 +95,14 @@ export type Animation_StyleType = string | OneOrMany<Animation_Single>;
 /** Type for single animation */
 export type Animation_Single =
     {
-        name?: ExtendedProp<AnimationName_Single>;
-        duration?: ExtendedProp<CssTime>;
-        func?: ExtendedProp<TimingFunction_Single>;
-        delay?: ExtendedProp<CssTime>;
-        count?: ExtendedProp<AnimationIterationCount_Single>;
-        direction?: ExtendedProp<AnimationDirection_Single>;
-        mode?: ExtendedProp<AnimationFillMode_Single>;
-        state?: ExtendedProp<AnimationPlayState_Single>;
+        name?: Extended<AnimationName_Single>;
+        duration?: Extended<CssTime>;
+        func?: Extended<TimingFunction_Single>;
+        delay?: Extended<CssTime>;
+        count?: Extended<AnimationIterationCount_Single>;
+        direction?: Extended<AnimationDirection_Single>;
+        mode?: Extended<AnimationFillMode_Single>;
+        state?: Extended<AnimationPlayState_Single>;
     };
 ```
 
@@ -119,7 +119,7 @@ The `animation` property can be specified as a string, as a single `Animation_Si
 | mode | [animation-fill-mode](#animation-fill-mode) |
 | state | [animation-play-state](#animation-play-state) |
 
-**See Also:** [CssTime](mimcss-reference-numeric-types.html#time-values)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssTime](mimcss-reference-numeric-types.html#time-values)
 
 #### animation-delay
 
@@ -148,6 +148,8 @@ export type AnimationDirection_Single = "normal" | "reverse" | "alternate" | "al
 
 The `animation-direction` property can be specified as a single keyword or an array of keywords.
 
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
+
 #### animation-duration
 
 ```tsx
@@ -174,6 +176,8 @@ export type AnimationFillMode_Single = "none" | "forwards" | "backwards" | "both
 
 The `animation-fill-mode` property can be specified as a single keyword or an array of keywords.
 
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
+
 #### animation-iteration-count
 
 ```tsx
@@ -188,7 +192,7 @@ export type AnimationIterationCount_Single = "infinite" | CssNumber;
 
 The `animation-iteration-count` property can be specified as a single item or an array of items where each item is either a keyword or a number.
 
-**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssNumber](mimcss-reference-numeric-types.html#number-values)
 
 #### animation-name
 
@@ -204,6 +208,8 @@ export type AnimationName_StyleType = OneOrMany<AnimationName_Single>;
 
 The `animation-name` property can be specified as a single string or animation rule object or as an array of strings and/or animation rule objects.
 
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
+
 #### animation-play-state
 
 ```tsx
@@ -217,6 +223,8 @@ export type AnimationPlayState_Single = "paused" | "running";
 ```
 
 The `animation-play-state` property can be specified as a single keyword or an array of keywords.
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
 
 #### animation-timing-function
 
@@ -248,7 +256,7 @@ A step function is represented either as a single number or as a two-element tup
 
 A Bezier function is represented as a four element tuple where each element is a number.
 
-**See Also:** [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 <br/><br/>
 [A](#a) <span id="b" class="capital">B</span> [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
@@ -267,6 +275,8 @@ export type Filter_Single = string | IUrlProxy | IFilterProxy;
 
 The `backdrop-filter` property can be specified either as a string or using the Mimcss `url()` function or using one of the Mimcss [filter functions](mimcss-reference-helper-functions.html#filters) that return the `IFilterProxy` type.
 
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [IUrlProxy](mimcss-reference-miscellaneous.html#iurlproxy-interface), [IFilterProxy](mimcss-reference-helper-functions.html#filters)
+
 **Example**
 
 ```tsx
@@ -282,8 +292,6 @@ class MyStyles extends css.StyleDefinition
     cls3 = css.$class({ bacdropFilter: [css.dropShadow(16, 16, "red", 10), invert(75)] })
 }
 ```
-
-**See Also:** [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface), [IFilterProxy](mimcss-reference-helper-functions.html#filters)
 
 #### backface-visibility
 
@@ -304,14 +312,14 @@ export type Background_StyleType = OneOrMany<Background_Single>;
 /** Type for single background value */
 export type Background_Single = string | CssColor |
     {
-        color?: ExtendedProp<CssColor>,
-        image?: ExtendedProp<CssImage | string>,
-        position?: ExtendedProp<CssPosition>,
-        size?: ExtendedProp<BackgroundSize_Single>,
-        repeat?: ExtendedProp<BackgroundRepeat_Single>,
-        attachment?: ExtendedProp<BackgroundAttachment_Single>,
-        origin?: ExtendedProp<BackgroundOrigin_Single>,
-        clip?: ExtendedProp<BackgroundClip_Single>,
+        color?: Extended<CssColor>,
+        image?: Extended<CssImage | string>,
+        position?: Extended<CssPosition>,
+        size?: Extended<BackgroundSize_Single>,
+        repeat?: Extended<BackgroundRepeat_Single>,
+        attachment?: Extended<BackgroundAttachment_Single>,
+        origin?: Extended<BackgroundOrigin_Single>,
+        clip?: Extended<BackgroundClip_Single>,
     };
 ```
 
@@ -328,9 +336,7 @@ The `background` property can be specified as a string, as a single `Background_
 | origin | [background-origin](#background-origin) |
 | clip | [background-clip](#background-clip) |
 
-**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [CssImage](mimcss-reference-helper-functions.html#images), [Extended](mimcss-reference-stylesets.html#extended-type)
-
-
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssColor](mimcss-reference-colors.html#csscolor-type), [CssImage](mimcss-reference-helper-functions.html#images), [Extended](mimcss-reference-stylesets.html#extended-type), [CssPosition](mimcss-reference-numeric-types.html#cssposition-type)
 
 #### background-attachment
 
@@ -343,6 +349,8 @@ export type BackgroundAttachment_StyleType = OneOrMany<BackgroundAttachment_Sing
 /** Type for single background attachment */
 export type BackgroundAttachment_Single = "scroll" | "fixed" | "local";
 ```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
 
 #### background-blend-mode
 
@@ -358,6 +366,8 @@ export type BackgroundBlendMode_Single = "normal" | "multiply" | "screen" | "ove
     "exclusion" | "hue" | "saturation" | "color" | "luminosity";
 ```
 
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
+
 #### background-clip
 
 ```tsx
@@ -369,6 +379,8 @@ export type BackgroundClip_StyleType = OneOrMany<BackgroundClip_Single>;
 /** Type for single background clip */
 export type BackgroundClip_Single = "border-box" | "padding-box" | "content-box" | "text";
 ```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
 
 #### background-color
 
@@ -387,7 +399,7 @@ backgroundImage: BackgroundImage_StyleType;
 export type BackgroundImage_StyleType = "none" | OneOrMany<CssImage | string>;
 ```
 
-**See Also:** [CssImage](mimcss-reference-helper-functions.html#images)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssImage](mimcss-reference-helper-functions.html#images)
 
 #### background-origin
 
@@ -401,6 +413,8 @@ export type BackgroundOrigin_StyleType = OneOrMany<BackgroundOrigin_Single>;
 export type BackgroundOrigin_Single = "border-box" | "padding-box" | "content-box" | "text";
 ```
 
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
+
 #### background-position
 
 ```tsx
@@ -409,6 +423,8 @@ backgroundPosition: BackgroundPosition_StyleType;
 /** Type for background-position style property */
 export type BackgroundPosition_StyleType = MultiCssPosition;
 ```
+
+**See Also:** [MultiCssPosition](mimcss-reference-numeric-types.html#cssposition-type)
 
 #### background-repeat
 
@@ -423,8 +439,9 @@ export type BackgroundRepeat_Single = "repeat-x" | "repeat-y" | OneOrPair<Backgr
 
 /** Type for single background repeat */
 export type BackgroundRepeatKeyword_Single = "repeat" | "space" | "round" | "no-repeat";
-
 ```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [OneOrPair](mimcss-reference-stylesets.html#utility-types)
 
 #### background-size
 
@@ -447,7 +464,7 @@ define two sizes each with a width instead of one size with both width and heigh
 to specify both width and height you must use array within array - even for a single size:
 `[[100,200]]` will be interpreted as `"100px 200px"`.
 
-**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [OneOrPair](mimcss-reference-stylesets.html#utility-types), [CssLength](mimcss-reference-numeric-types.html#length-values)
 
 #### baseline-shift
 
@@ -475,10 +492,12 @@ border: Border_StyleType;
 
 /** Type for border style property */
 export type Border_StyleType = CssLength | BorderStyle_Keyword | CssColor |
-    [ExtendedProp<CssLength>?, ExtendedProp<BorderStyle_Keyword>?, ExtendedProp<CssColor>?];
+    [Extended<CssLength>?, Extended<BorderStyle_Keyword>?, Extended<CssColor>?];
 ```
 
 The `border` style property can be specified as either a string, a border width value, a border style keyword, a border color or a three element tuple where the first element is the border width value, the second element is the border style keyword and the third element is the border color.
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 **Examples**
 
@@ -501,8 +520,6 @@ class MyStyles extends css.StyleDefinition
     cls5 = css.$class({ border: [3, "dashed", "red"] })
 }
 ```
-
-**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 #### border-block-end
 
@@ -630,7 +647,7 @@ borderColor: BorderColor_StyleType;
 export type BorderColor_StyleType = OneOrBox<CssColor>;
 ```
 
-**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+**See Also:** [OneOrBox](mimcss-reference-stylesets.html#utility-types), [CssColor](mimcss-reference-colors.html#csscolor-type)
 
 #### border-image
 
@@ -665,7 +682,7 @@ borderImageOutset: BorderImageOutset_StyleType;
 export type BorderImageOutset_StyleType = OneOrBox<CssNumber | string>;
 ```
 
-**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+**See Also:** [OneOrBox](mimcss-reference-stylesets.html#utility-types), [CssNumber](mimcss-reference-numeric-types.html#number-values)
 
 #### border-image-repeat
 
@@ -678,6 +695,8 @@ export type BorderImageRepeat_StyleType = OneOrPair<BorderImageRepeat_Keyword>;
 /** Type for border-image-repeat keywords */
 export type BorderImageRepeat_Keyword = "stretch" | "repeat" | "round" | "space";
 ```
+
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types)
 
 #### border-image-slice
 
@@ -692,7 +711,7 @@ export type BorderImageSlice_StyleType = OneOrBox<CssNumber | string> |
     [Extended<CssNumber | string>, Extended<CssNumber | string>, Extended<CssNumber | string>, Extended<CssNumber | string>, true];
 ```
 
-**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [OneOrBox](mimcss-reference-stylesets.html#utility-types), [CssNumber](mimcss-reference-numeric-types.html#number-values), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 
 #### border-image-source
@@ -704,7 +723,7 @@ borderImageSource: BorderImageSource_StyleType;
 export type BorderImageSource_StyleType = OneOrBox<CssImage | string>;
 ```
 
-**See Also:** [CssImage](mimcss-reference-helper-functions.html#images)
+**See Also:** [OneOrBox](mimcss-reference-stylesets.html#utility-types), [CssImage](mimcss-reference-helper-functions.html#images)
 
 #### border-image-width
 
@@ -718,7 +737,7 @@ borderImageWidth: BorderImageWidth_StyleType;
 export type BorderImageWidth_StyleType = OneOrBox<CssNumber | "auto" | string>;
 ```
 
-**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+**See Also:** [OneOrBox](mimcss-reference-stylesets.html#utility-types), [CssNumber](mimcss-reference-numeric-types.html#number-values)
 
 #### border-inline-end
 
@@ -825,7 +844,7 @@ borderRadius: BorderRadius_StyleType;
 export type BorderRadius_StyleType = OneOrPair<CssLengthBox>;
 ```
 
-**See Also:** [CssLengthBox](mimcss-reference-numeric-types.html#length-values)
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types), [CssLengthBox](mimcss-reference-numeric-types.html#length-values)
 
 #### border-right
 
@@ -868,7 +887,7 @@ borderSpacing: BorderSpacing_StyleType;
 export type BorderSpacing_StyleType = OneOrPair<CssLength>;
 ```
 
-**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types), [CssLength](mimcss-reference-numeric-types.html#length-values)
 
 #### border-style
 
@@ -882,6 +901,8 @@ export type BorderStyle_StyleType = OneOrBox<BorderStyle_Keyword>;
 export type BorderStyle_Keyword = "none" | "hidden" | "dotted" | "dashed" | "solid" | "double" |
     "groove" | "ridge" | "inset" | "outset";
 ```
+
+**See Also:** [OneOrBox](mimcss-reference-stylesets.html#utility-types)
 
 #### border-top
 
@@ -939,7 +960,7 @@ export type BorderWidth_StyleType = OneOrBox<BorderWidth_Single>;
 export type BorderWidth_Single = "thin" | "medium" | "thick" | CssLength;
 ```
 
-**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+**See Also:** [OneOrBox](mimcss-reference-stylesets.html#utility-types), [CssLength](mimcss-reference-numeric-types.html#length-values)
 
 #### bottom
 
@@ -969,7 +990,7 @@ export type BoxShadow_Single = "none" | string |
     };
 ```
 
-**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssColor](mimcss-reference-colors.html#csscolor-type), [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 
 
@@ -1071,7 +1092,7 @@ export type GeometryBoxKeyword = "margin-box" | "border-box" | "padding-box" | "
     "fill-box" | "stroke-box" | "view-box";
 ```
 
-**See Also:** [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface), [BasicShape](mimcss-reference-helper-functions.html#basic-shapes)
+**See Also:** [IUrlProxy](mimcss-reference-miscellaneous.html#iurlproxy-interface), [BasicShape](mimcss-reference-helper-functions.html#basic-shapes)
 
 #### clip-rule
 
@@ -1221,9 +1242,9 @@ export type Content_StyleType = string | "none" | "normal" | OneOrMany<CssImage 
     "open-quote" | "close-quote" | "no-open-quote" | "no-close-quote">;
 ```
 
-The `content` property can also use the [attr()](mimcss-reference-common-types.html#attr-function), [counter()](mimcss-reference-common-types.html#counter-function) and [counters()](mimcss-reference-common-types.html#counters-function) functions (which can potentially be used for any style property, but most browsers only support them for the `content` property).
+The `content` property can also use the [attr()](mimcss-reference-miscellaneous.html#attr-function), [counter()](mimcss-reference-miscellaneous.html#counter-function) and [counters()](mimcss-reference-miscellaneous.html#counters-function) functions (which can potentially be used for any style property, but most browsers only support them for the `content` property).
 
-**See Also:** [CssImage](mimcss-reference-helper-functions.html#images)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssImage](mimcss-reference-helper-functions.html#images)
 
 #### counter-increment
 
@@ -1235,7 +1256,7 @@ export type Counter_StyleType = "none" | OneOrMany<ICounterRule | string |
     [ICounterRule | string, Extended<number>]>;
 ```
 
-**See Also:** [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 #### counter-reset
 
@@ -1247,7 +1268,7 @@ export type Counter_StyleType = "none" | OneOrMany<ICounterRule | string |
     [ICounterRule | string, Extended<number>]>;
 ```
 
-**See Also:** [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 #### counter-set
 
@@ -1259,7 +1280,7 @@ export type Counter_StyleType = "none" | OneOrMany<ICounterRule | string |
     [ICounterRule | string, Extended<number>]>;
 ```
 
-**See Also:** [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 #### cursor
 
@@ -1282,7 +1303,7 @@ export type Cursor_Keyword = "auto" | "default" | "none" | "context-menu" | "hel
     "zoom-out" | "grab" | "grabbing";
 ```
 
-**See Also:** [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 <br/><br/>
 [A](#a) [B](#b) [C](#c) <span id="d" class="capital">D</span> [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
@@ -1376,6 +1397,8 @@ export type Filter_Single = string | IUrlProxy | IFilterProxy;
 
 The `filter` property can be specified either as a string or using the Mimcss `url()` function or using one of the Mimcss [filter functions](mimcss-reference-helper-functions.html#filters) that return the `IFilterProxy` type.
 
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [IUrlProxy](mimcss-reference-miscellaneous.html#iurlproxy-interface), [IFilterProxy](mimcss-reference-helper-functions.html#filters)
+
 **Examples**
 
 ```tsx
@@ -1391,8 +1414,6 @@ class MyStyles extends css.StyleDefinition
     cls3 = css.$class({ filter: [css.dropShadow(16, 16, "red", 10), invert(75)] })
 }
 ```
-
-**See Also:** [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface), [IFilterProxy](mimcss-reference-helper-functions.html#filters)
 
 #### flex
 
@@ -1496,13 +1517,13 @@ font: Font_StyleType;
 /** Type for font style property */
 export type Font_StyleType = string | Font_SystemKeyword |
     {
-        size: ExtendedProp<CssLength>;
-        family: ExtendedProp<string>;
-        style?: ExtendedProp<FontStyle_StyleType>;
-        variant?: ExtendedProp<string>;
-        weight?: ExtendedProp<FontWeight_StyleType>;
-        stretch?: ExtendedProp<Exclude<FontStretch_Single,number>>;
-        lineHeight?: ExtendedProp<CssNumber>
+        size: Extended<CssLength>;
+        family: Extended<string>;
+        style?: Extended<FontStyle_StyleType>;
+        variant?: Extended<string>;
+        weight?: Extended<FontWeight_StyleType>;
+        stretch?: Extended<Exclude<FontStretch_Single,number>>;
+        lineHeight?: Extended<CssNumber>
     };
 
 /** Keywords for font style property */
@@ -1854,7 +1875,7 @@ lineStyleImage: ListStyleImage_StyleType;
 export type ListStyleImage_StyleType = "none" | IUrlProxy;
 ```
 
-**See Also:** [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface)
+**See Also:** [IUrlProxy](mimcss-reference-miscellaneous.html#iurlproxy-interface)
 
 #### line-style-position
 
@@ -2133,7 +2154,7 @@ export type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape |
     [GeometryBoxKeyword, BasicShape];
 ```
 
-**See Also:** [IRayProxy](mimcss-reference-helper-functions.html#basic-shapes), [IUrlProxy](mimcss-reference-common-types.html#iurlproxy-interface), [BasicShape](mimcss-reference-helper-functions.html#basic-shapes), [GeometryBoxKeyword](mimcss-reference-helper-functions.html#basic-shapes)
+**See Also:** [IRayProxy](mimcss-reference-helper-functions.html#basic-shapes), [IUrlProxy](mimcss-reference-miscellaneous.html#iurlproxy-interface), [BasicShape](mimcss-reference-helper-functions.html#basic-shapes), [GeometryBoxKeyword](mimcss-reference-helper-functions.html#basic-shapes)
 
 #### offset-position
 
@@ -2230,6 +2251,8 @@ export type Overflow_StyleType = OneOrPair<Overflow_Single_StyleType>;
 export type Overflow_Single_StyleType = "visible" | "hidden" | "clip" | "scroll" | "auto";
 ```
 
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types)
+
 #### overflow-anchor
 
 ```tsx
@@ -2291,6 +2314,8 @@ export type OverscrollBehavior_StyleType = OneOrPair<OverscrollBehavior_Single_S
 /** Type for the overscroll-behavior-x/y style property */
 export type OverscrollBehavior_Single_StyleType = "contain" | "none" | "auto";
 ```
+
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types)
 
 #### overscroll-behavior-block
 
@@ -2582,8 +2607,546 @@ export type Scale_StyleType = "none" | CssNumber |
 
 **See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [Extended](mimcss-reference-stylesets.html#extended-type)
 
+#### scroll-behavior
+
+```tsx
+scrollBehavior: ScrollBehavior_StyleType;
+
+/** Type for the scroll-behavior style property */
+export type ScrollBehavior_StyleType = "auto" | "smooth";
+```
+
+#### scroll-margin
+
+```tsx
+scrollMargin: CssLengthBox;
+```
+
+**See Also:** [CssLengthBox](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-block
+
+```tsx
+scrollMarginBlock: CssLengthPair;
+```
+
+**See Also:** [CssLengthPair](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-block-end
+
+```tsx
+scrollMarginBlockEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-block-start
+
+```tsx
+scrollMarginBlockStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-bottom
+
+```tsx
+scrollMarginBottom: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-inline
+
+```tsx
+scrollMarginInline: CssLengthPair;
+```
+
+**See Also:** [CssLengthPair](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-inline-end
+
+```tsx
+scrollMarginInlineEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-inline-start
+
+```tsx
+scrollMarginInlineStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-left
+
+```tsx
+scrollMarginLeft: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-right
+
+```tsx
+scrollMarginRight: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-margin-top
+
+```tsx
+scrollMarginTop: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding
+
+```tsx
+scrollPadding: CssLengthBox;
+```
+
+**See Also:** [CssLengthBox](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-block
+
+```tsx
+scrollPaddingBlock: CssLengthPair;
+```
+
+**See Also:** [CssLengthPair](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-block-end
+
+```tsx
+scrollPaddingBlockEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-block-start
+
+```tsx
+scrollPaddingBlockStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-bottom
+
+```tsx
+scrollPaddingBottom: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-inline
+
+```tsx
+scrollPaddingInline: CssLengthPair;
+```
+
+**See Also:** [CssLengthPair](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-inline-end
+
+```tsx
+scrollPaddingInlineEnd: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-inline-start
+
+```tsx
+scrollPaddingInlineStart: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-left
+
+```tsx
+scrollPaddingLeft: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-right
+
+```tsx
+scrollPaddingRight: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-padding-top
+
+```tsx
+scrollPaddingTop: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### scroll-snap-align
+
+```tsx
+scrollSnapAlign: ScrollSnapAlign_StyleType;
+
+/** Type for the scroll-snap-align style property */
+export type ScrollSnapAlign_StyleType = OneOrPair<"none" | "start" | "end" | "center">;
+```
+
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types)
+
+#### scroll-snap-stop
+
+```tsx
+scrollSnapStop: ScrollSnapStop_StyleType;
+
+/** Type for the scroll-snap-stop style property */
+export type ScrollSnapStop_StyleType = "normal" | "always";
+```
+
+#### scroll-snap-type
+
+```tsx
+scrollSnapType: ScrollSnapType_StyleType;
+
+/** Type for the scroll-snap-type style property */
+export type ScrollSnapType_StyleType = "none" |
+    [Extended<"x" | "y" | "block" | "inline" | "both">, Extended<"mandatory" | "proximity">];
+```
+
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### shape-image-threshold
+
+```tsx
+shapeImageThreshold: CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### shape-margin
+
+```tsx
+shapeMargin: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### shape-outside
+
+```tsx
+shapeOutside: ShapeOutside_StyleType;
+
+/** Type for shape-outside style property */
+export type ShapeOutside_StyleType = IUrlProxy | BasicShape | GeometryBoxKeyword | CssImage;
+```
+
+**See Also:** [IUrlProxy](mimcss-reference-miscellaneous.html#iurlproxy-interface), [BasicShape](mimcss-reference-helper-functions.html#basic-shapes), [GeometryBoxKeyword](mimcss-reference-helper-functions.html#basic-shapes), [CssImage](mimcss-reference-helper-functions.html#images)
+
+#### shape-rendering
+
+```tsx
+shapeRendering: ShapeOutside_StyleType;
+
+/** Type for the shape-rendering style property */
+export type ShapeRendering_StyleType = "auto" | "optimizeSpeed" | "crispEdges" | "geometricPrecision";
+```
+
+#### stop-color
+
+```tsx
+stopColor: CssColor;
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+
+#### stop-opacity
+
+```tsx
+stopOpacity: CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### stroke
+
+```tsx
+stroke: CssColor;
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+
 <br/><br/>
 [A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) <span id="t" class="capital">T</span> [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+
+#### tab-size
+
+```tsx
+tabSize: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### table-layout
+
+```tsx
+tableLayout: TableLayout_StyleType;
+
+/** Type for the table-layout style property */
+export type TableLayout_StyleType = "auto" | "fixed";
+```
+
+#### text-align
+
+```tsx
+textAlign: TextAlign_StyleType;
+
+/** Type for the text-align style property */
+export type TextAlign_StyleType = "start" | "end" | "left" | "right" | "center" | "justify" | "match-parent";
+```
+
+#### text-align-last
+
+```tsx
+textLast: TextAlignLast_StyleType;
+
+/** Type for the text-align-last style property */
+export type TextAlignLast_StyleType = "auto" | "start" | "end" | "left" | "right" | "center" | "justify";
+```
+
+#### text-anchor
+
+```tsx
+textAnchor: TextAnchor_StyleType;
+
+/** Type for the text-anchor style property */
+export type TextAnchor_StyleType = "start" | "middle" | "end";
+```
+
+#### text-combine-upright
+
+```tsx
+textCombineUpright: TextCombineUpright_StyleType;
+
+/** Type for the text-combine-upright style property */
+export type TextCombineUpright_StyleType = "none" | "all" | "digits" | number;
+```
+
+#### text-decoration
+
+```tsx
+textDecoration: TextDecoration_StyleType;
+
+/**
+ * Type for the text-decoration style property. If a number is specified, it will be interpreted
+ * as color - not as thickness.
+ */
+export type TextDecoration_StyleType = TextDecorationLine_StyleType | TextDecorationStyle_StyleType |
+    CssColor | TextDecorationThickness_StyleType |
+    {
+        line?: Extended<TextDecorationLine_StyleType>,
+        style?: Extended<TextDecorationStyle_StyleType>,
+        color?: Extended<CssColor>,
+        thickness?: Extended<TextDecorationThickness_StyleType>,
+    };
+```
+
+The `text-decoration` property can be specified as a string, as a number or as an object. The fields of the object correspond to the extended types of the following longhand properties:
+
+| Field | CSS longhand property |
+| :--- | :--- |
+| line | [text-decoration-line](#text-decoration-line) |
+| style | [text-decoration-style](#text-decoration-style) |
+| color | [text-decoration-color](#text-decoration-color) |
+| thickness | [text-decoration-thickness](#text-decoration-thickness) |
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### text-decoration-color
+
+```tsx
+textDecorationColor: CssColor;
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
+
+#### text-decoration-line
+
+```tsx
+textDecorationLine: TextDecorationLine_StyleType;
+
+/** Type for the text-decoration-line style property */
+export type TextDecorationLine_StyleType = "none" | "spelling-error" | "grammar-error" |
+    OneOrMany<"underline" | "overline" | "line-through">; 
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types)
+
+#### text-decoration-style
+
+```tsx
+textDecorationStyle: TextDecorationStyle_StyleType;
+
+/** Type for the text-decoration-style style property */
+export type TextDecorationStyle_StyleType = "solid" | "double" | "dotted" | "dashed" | "wavy";
+```
+
+#### text-decoration-skip-ink
+
+```tsx
+textDecorationSkipInk: TextDecorationSkipInk_StyleType;
+
+/** Type for the text-decoration-skip-ink style property */
+export type TextDecorationSkipInk_StyleType = "none" | "auto" | "all";
+```
+
+#### text-decoration-thickness
+
+```tsx
+textDecorationThickness: TextDecorationThickness_StyleType;
+
+/** Type for the text-decoration-thickness style property */
+export type TextDecorationThickness_StyleType = "auto" | "from-font" | CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### text-emphasis
+
+```tsx
+textEmphasis: TextEmphasis_StyleType;
+
+// /** Type for the text-emphasis style property */
+export type TextEmphasis_StyleType = TextEmphasisStyle_StyleType | CssColor |
+    [Extended<TextEmphasisStyle_StyleType>, Extended<CssColor>];
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [text-emphasis-style](text-emphasis-style), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### text-emphasis-position
+
+```tsx
+textEmphasisPosition: TextEmphasisPosition_StyleType;
+
+/** Type for the text-emphasis-position style property */
+export type TextEmphasisPosition_StyleType = "over left" | "over right" | "under left" | "under right";
+```
+
+#### text-emphasis-style
+
+```tsx
+textEmphasisStyle: TextEmphasisStyle_StyleType;
+
+/** Type for the text-emphasis-style style property */
+export type TextEmphasisStyle_StyleType = "none" | TextEmphasisShape | TextEmphasisFill |
+    [Extended<TextEmphasisFill>, Extended<TextEmphasisShape>];
+
+/** Shape for the text-emphasis-style style property */
+export type TextEmphasisShape = "dot" | "circle" | "double-circle" | "triangle" | "sesame" | string;
+
+/** Fill option for the text-emphasis-style style property */
+export type TextEmphasisFill = "filled" | "open";
+```
+
+**See Also:** [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### text-indent
+
+```tsx
+textIndent: TextIndent_StyleType;
+
+/** Type for the text-indent style property */
+export type TextIndent_StyleType = CssLength |
+    [Extended<CssLength>, Extended<OneOrMany<"each-line" | "hanging" | "each-line hanging">>];
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type), [OneOrMany](mimcss-reference-stylesets.html#utility-types)
+
+#### text-justify
+
+```tsx
+textJustify: TextJustify_StyleType;
+
+/** Type for the text-justify style property */
+export type TextJustify_StyleType = "auto" | "inter-character" | "inter-word" | "none";
+```
+
+#### text-orientation
+
+```tsx
+textOrientation: TextOrientation_StyleType;
+
+/** Type for the text-orientation style property */
+export type TextOrientation_StyleType = "mixed" | "upright" | "sideways";
+```
+
+#### text-overflow
+
+```tsx
+textOverflow: TextOverflow_StyleType;
+
+/** Type for the text-overflow style property */
+export type TextOverflow_StyleType = OneOrPair<"clip" | "ellipsis" | "fade" | string>;
+```
+
+**See Also:** [OneOrPair](mimcss-reference-stylesets.html#utility-types)
+
+#### text-shadow
+
+```tsx
+textShadow: TextShadow_StyleType;
+
+/** Type for the text-shadow style property */
+export type TextShadow_StyleType = OneOrMany<TextShadow_Single>;
+
+/** Type for the single value of the text-shadow style property */
+export type TextShadow_Single = "none" | string |
+    {
+        x: Extended<CssLength>,
+        y: Extended<CssLength>,
+        blur?: Extended<CssLength>,
+        color?: Extended<CssColor>,
+    };
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type), [CssLength](mimcss-reference-numeric-types.html#length-values), [CssColor](mimcss-reference-colors.html#csscolor-type)
+
+#### text-size-adjust
+
+```tsx
+textSizeAdjust: TextSizeAdjust_StyleType;
+
+/** Type for the text-size-adjust style property */
+export type TextSizeAdjust_StyleType = "none" | "auto" | CssPercent;
+```
+
+**See Also:** [CssPercent](mimcss-reference-numeric-types.html#percent-values)
+
+#### text-transform
+
+```tsx
+textTransform: TextTransform_StyleType;
+
+/** Type for the text-transform style property */
+export type TextTransform_StyleType = "none" | "capitalize" | "uppercase" | "lowercase" | "full-width" | "full-size-kana";
+```
+
+#### text-underline-position
+
+```tsx
+textUnderlinePosition: TextUnderlinePosition_StyleType;
+
+/** Type for the text-underline-position style property */
+export type TextUnderlinePosition_StyleType = "auto" | "under" | "left" | "right" | "auto-pos" | "above" | "below";
+```
 
 #### top
 
@@ -2592,6 +3155,162 @@ top: CssLength;
 ```
 
 **See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### touch-action
+
+```tsx
+touchAction: TouchAction_StyleType;
+
+/** Type for the touch-action style property */
+export type TouchAction_StyleType = "auto" | "none" | "manipulation" |
+    "pan-x" | "pan-left" | "pan-right" | "pan-y" | "pan-up" | "pan-down" | "pinch-zoom" |
+    "pan-x pinch-zoom" | "pan-left pinch-zoom" | "pan-right pinch-zoom" | "pan-y pinch-zoom" | "pan-up pinch-zoom" | "pan-down pinch-zoom" |
+    "pan-x pan-y" | "pan-x pan-y pinch-zoom" | "pan-x pan-up" | "pan-x pan-up pinch-zoom" | "pan-x pan-down" | "pan-x pan-down pinch-zoom" |
+    "pan-y pan-left" | "pan-y pan-left pinch-zoom" | "pan-y pan-right" | "pan-y pan-right pinch-zoom" |
+    "pan-left pan-up" | "pan-left pan-up pinch-zoom" | "pan-left pan-down" | "pan-left pan-down pinch-zoom" |
+    "pan-right pan-up" | "pan-right pan-up pinch-zoom" | "pan-right pan-down" | "pan-right pan-down pinch-zoom" |
+    "pan-up pan-left" | "pan-up pan-left pinch-zoom" | "pan-up pan-right" | "pan-up pan-right pinch-zoom" |
+    "pan-down pan-left" | "pan-down pan-left pinch-zoom" | "pan-down pan-right" | "pan-down pan-right pinch-zoom";
+```
+
+#### transform
+
+```tsx
+transform: Transform_StyleType;
+
+/** Type for transform style property */
+export type Transform_StyleType = "none" | string | OneOrMany<ITransformProxy>;
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ITransformProxy](mimcss-reference-helper-functions.html#transforms)
+
+#### transform-box
+
+```tsx
+transformBox: TransformBox_StyleType;
+
+/** Type for transform-box style property */
+export type TransformBox_StyleType = "content-box" | "border-box" | "fill-box" | "stroke-box" | "view-box";
+```
+
+#### transform-origin
+
+```tsx
+transformOrigin: TransformOrigin_StyleType;
+
+/** Type for transform-origin style property */
+export type TransformOrigin_StyleType = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength |
+    [Extended<HorizontalPositionKeyword | CssLength>, Extended<VerticalPositionKeyword | CssLength>, Extended<CssLength>?];
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [CssPosition](mimcss-reference-numeric-types.html#cssposition-type), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### transform-style
+
+```tsx
+transformStyle: TransformStyle_StyleType;
+
+/** Type for transform-style style property */
+export type TransformStyle_StyleType = "flat" | "preserve-3d";
+```
+
+#### transition
+
+```tsx
+transition: Transition_StyleType;
+
+/** Type for transition style property */
+export type Transition_StyleType = OneOrMany<Transition_Single>;
+
+/** Type for single transition */
+export type Transition_Single = string |
+    {
+        property?: Extended<TransitionProperty_Single>;
+        duration?: Extended<CssTime>;
+        func?: Extended<TimingFunction_Single>;
+        delay?: Extended<CssTime>;
+    };
+```
+
+The `transition` property can be specified as a string or as an object. The fields of the object correspond to the extended types of the following longhand properties:
+
+| Field | CSS longhand property |
+| :--- | :--- |
+| property | [transition-property](#transition-property) |
+| duration | [transition-duration](#transition-duration) |
+| func | [transition-func](#transition-func) |
+| delay | [transition-delay](#transition-delay) |
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type), [CssTime](mimcss-reference-numeric-types.html#time-values)
+
+#### transition-delay
+
+```tsx
+transitionDelay: OneOrMany<CssTime>;
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssTime](mimcss-reference-numeric-types.html#time-values)
+
+#### transition-duration
+
+```tsx
+transitionDuration: OneOrMany<CssTime>;
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [CssTime](mimcss-reference-numeric-types.html#time-values)
+
+#### transition-property
+
+```tsx
+transitionProperty: TransitionProperty_StyleType;
+
+/** Type for transition-property style property */
+export type TransitionProperty_StyleType = OneOrMany<TransitionProperty_Single>;
+
+/** Type for single transition-property */
+export type TransitionProperty_Single = "none" | "all" | keyof ICssStyleset;
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICssStyleset](mimcss-reference-stylesets.html#icssstyleset-interface)
+
+#### transition-timing-function
+
+```tsx
+transitionTimingFunction: TransitionTimingFunction_StyleType;
+
+/** Type for simple animation timing functions - those that don't have parameters */
+export type TimingFunction_Simple = "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out" | "step-start" | "step-end";
+
+/** Type for step animation timing function position */
+export type TimingFunction_StepPosition = "jump-start" | "jump-end" | "jump-none" | "jump-both" | "start" | "end";
+
+/** Type for step animation timing function */
+export type TimingFunction_Step = number | [Extended<number>, Extended<TimingFunction_StepPosition>?];
+
+/** Type for Bezier animation timing function */
+export type TimingFunction_Bezier = [Extended<number>, Extended<number>, Extended<number>, Extended<number>];
+
+/** Type for transition-timing-function style property */
+export type TransitionTimingFunction_StyleType = OneOrMany<TimingFunction_Single>;
+
+/** Type for single animation timing function */
+export type TimingFunction_Single = TimingFunction_Simple | TimingFunction_Step | TimingFunction_Bezier;
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICssStyleset](mimcss-reference-stylesets.html#icssstyleset-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### translate
+
+```tsx
+translate: Translate_StyleType;
+
+/** Type for the translate style property */
+export type Translate_StyleType = "none" | CssLength |
+    [Extended<CssLength>, Extended<CssLength>, Extended<CssLength>?];
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type)
+
 
 
 

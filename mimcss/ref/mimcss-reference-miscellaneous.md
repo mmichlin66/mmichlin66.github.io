@@ -1,12 +1,12 @@
 ---
 layout: mimcss-reference
-unit: 4
-title: "Mimcss Reference: Common Types"
+unit: 7
+title: "Mimcss Reference: Miscellaneous"
 ---
 
-# Mimcss Reference: Common Types
+# Mimcss Reference: Miscellaneous
 
-This page describes utility types and functions used to set values of style properties.
+This page describes miscellaneous types and functions used to set values of style properties.
 
 - [Using Raw CSS](#using-raw-css)
 - [Using URLs](#using-urls)
@@ -34,7 +34,7 @@ Sometimes, however, there is a need to use strings even for properties that don'
 class MyStyle extends css.StyleDefinition
 {
     defaultBorderWidth = css.$var( "CssLength", 1)
-    defaultBorderStyle = css.$var( "border-style", "solid")
+    defaultBorderStyle = css.$var( "borderStyle", "solid")
 
     blueBorder = css.$class({ border: css.raw`${this.defaultBorderWidth} ${this.defaultBorderStyle} blue` })
 }

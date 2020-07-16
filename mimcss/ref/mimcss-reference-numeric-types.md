@@ -1,6 +1,6 @@
 ---
 layout: mimcss-reference
-unit: 5
+unit: 4
 title: "Mimcss Reference: Numeric Types"
 ---
 
@@ -22,23 +22,17 @@ This page describes types and functions that are used to set numeric values of C
 CSS defines several numeric types, which can be specified either as unitless numbers or as numbers accompanied by a unit symbol. Mimcss defines TypeScript types for all these CSS types and they are based on the generic `NumberBase<>` and related types.
 
 ```tsx
-/**
- * The NumberProxy function represents a string value can be assigned to properties of the CSS
- * numeric types. This function is returned from functions like min(), max() and calc().
- */
-export type NumberProxy<T extends string> = (p?: T) => string;
-
 /** Type for single numeric style property */
-export type NumberBase<T extends string> = number | string | NumberProxy<T>;
+export type NumberBase<T extends string> = number | string | IGenericProxy<T>;
 
 /** Type for multi-part numeric style property */
 export type MultiNumberBase<T extends string> = OneOrMany<NumberBase<T>>;
 
 /**
- * The INumberMath interface contains methods that implement CSS mathematic functions on the
+ * The INumberBaseMath interface contains methods that implement CSS mathematic functions on the
  * numeric CSS types.
  */
-export interface INumberMath<T extends string>
+export interface INumberBaseMath<T extends string>
 {
     /** Creates property value using the CSS min() function. */
     min( ...params: Extended<NumberBase<T>>[]): NumberProxy<T>;
@@ -56,6 +50,8 @@ export interface INumberMath<T extends string>
     calc( formulaParts: TemplateStringsArray, ...params: Extended<NumberBase<T>>[]): NumberProxy<T>;
 }
 ```
+
+**See Also:** [IGenericProxy](mimcss-reference-stylesets.html#igenericproxy-interface), [OneOrMany](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 [Go to top](#mimcss-reference-numeric-types)
 
@@ -76,7 +72,7 @@ export type CssMultiNumber = OneOrMany<CssNumber>;
  * The ICssNumberMath interface contains methods that implement CSS mathematic functions on the
  * `<number>` CSS types.
  */
-export interface ICssNumberMath extends INumberMath<NumberType> {}
+export interface ICssNumberMath extends INumberBaseMath<NumberType> {}
 
 /**
  * The Num object contains static methods that implement CSS mathematic functions on the `<number>`
@@ -112,7 +108,7 @@ let num: CssNumber = Num.raw`20`; // "20"
 [Go to top](#mimcss-reference-numeric-types)
 
 ### Percent Values
-Number values are used to represent the CSS `<number>` type. Since it is a unitless number, the `string` type is not part of the definition for the `CssNumber` Mimcss type.
+Percent values are used to represent the CSS `<percentage>` type.
 
 ```tsx
 /** Units of percent */
@@ -131,10 +127,10 @@ export type CssMultiPercent = OneOrMany<CssPercent>;
 export interface IPercentProxy extends IGenericProxy<PercentType> {};
 
 /**
- * The IFractionMath interface contains methods that implement CSS mathematic functions on the
+ * The ICssPercentMath interface contains methods that implement CSS mathematic functions on the
  * `<percent>` CSS types.
  */
-export interface ICssPercentMath extends INumberMath<PercentType>
+export interface ICssPercentMath extends INumberBaseMath<PercentType>
 {
     /**
      * Converts the given number to a percent string. Numbers between -1 and 1 are multiplyed by 100.
@@ -166,10 +162,10 @@ defaultZoom = $var( "CssPercent", 0.85); // :root { --defaultZoom: 85% }
 let percent: CssPercent = this.defaultZoom; // "var(--defaultZoom)"
 
 // Percent can be specified using the min/max/clamp function
-let percent: CssPercent = Num.min( 80, this.defaultZoom); // "min( 80%, var(defaultZoom))"
+let percent: CssPercent = Percent.min( 80, this.defaultZoom); // "min( 80%, var(defaultZoom))"
 
 // Percent can be specified using the calc function
-let percent: CssPercent = Num.calc`1.1 * ${this.defaultZoom}`; // "calc(1.1 * var(--defaultZoom))"
+let percent: CssPercent = Percent.calc`1.1 * ${this.defaultZoom}`; // "calc(1.1 * var(--defaultZoom))"
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
@@ -191,7 +187,10 @@ export type CssLength = NumberBase<LengthType>;
 /** Type for multi-part style property of the `<length>` CSS type */
 export type CssMultiLength = OneOrMany<CssLength>;
 
-/** Type for 1-to-four-part style property of the `<length>` CSS type */
+/** Type for 1-to-2-part style property of the `<length>` CSS type */
+export type CssLengthPair = OneOrPair<CssLength>;
+
+/** Type for 1-to-4-part style property of the `<length>` CSS type */
 export type CssLengthBox = OneOrBox<CssLength>;
 
 /** Proxy interface that represents values of the `<length>` CSS type */
@@ -201,7 +200,7 @@ export interface ILengthProxy extends IGenericProxy<LengthType> {};
  * The ICssLengthMath interface contains methods that implement CSS mathematic functions on the
  * `<length>` CSS types.
  */
-export interface ICssLengthMath extends INumberMath<LengthType>
+export interface ICssLengthMath extends INumberBaseMath<LengthType>
 {
     /** Creates property value using the CSS minmax() function. */
     minmax( min: Extended<CssLength>, max: Extended<CssLength>): ILengthProxy;
@@ -345,7 +344,7 @@ export interface ITimeProxy extends IGenericProxy<TimeType> {};
  * The ICssTimeMath interface contains methods that implement CSS mathematic functions on the
  * `<time>` CSS types.
  */
-export interface ICssTimeMath extends INumberMath<TimeType>
+export interface ICssTimeMath extends INumberBaseMath<TimeType>
 {
     /** Creates time value in milliseconds */
     ms( n: number): ITimeProxy;
@@ -416,7 +415,7 @@ export interface IAngleProxy extends IGenericProxy<AngleType> {};
  * The ICssAngleMath interface contains methods that implement CSS mathematic functions on the
  * `<angle>` CSS types.
  */
-export interface ICssAngleMath extends INumberMath<AngleType>
+export interface ICssAngleMath extends INumberBaseMath<AngleType>
 {
     /** Creates angle value in degrees */
     deg( n: number): IAngleProxy;
