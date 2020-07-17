@@ -40,7 +40,7 @@ The goal of Mimcss is to boost the developers' productivity by increasing conven
     export type Visibility_StyleType = "visible" | "hidden" | "collapse";
     ```
 
-- For number-based types (such as `<length>`, `<angle>`, etc.) the type is defined as a union of `number` and `string`. The `string` type is included only because writing `"100%"` or `"0.5in"` is much more convenient than using a construct such as `css.Len.percent(100)` or `css.Len.in(0.5)` (these functions are also part of Mimcss). The exception to this rule is that the type used for unitless numeric properties such as `orphans` or `order` only allows `number`.
+- For number-based types (such as `<length>`, `<angle>`, etc.) the type is defined as a union of `number` and `string`. The `string` type is included only because writing `"100%"` or `"0.5in"` is much more convenient than using a construct such as `css.percent(100)` or `css.inch(0.5)` (these functions are also part of Mimcss). The exception to this rule is that the type used for unitless numeric properties such as `orphans` or `order` only allows `number`.
 
 - For color properties, the `CssColor` type includes string literals for all the named colors. It also allows specifying colors as numbers and provides `css.rgb()` and `css.hsl()` functions. The `string` type is not part of the `CssColor` type definition.
 
@@ -92,16 +92,16 @@ For each of the above numeric types, Mimcss also provides an object that impleme
 - `Resolution` for working with the `CssResolution` type.
 - `Frequency` for working with the `CssFrequency` type.
 
-The above objects (except `Num`) also implement functions named after every unit allowed for the corresponding CSS type. For example, the `Len` object implements functions `rem()`, `in()`, `cm()`, etc. Similarly, the `Angle` objects implements functions `deg()`, `rad()`, etc. The types returned from these functions make it impossible to assign a value of the wrong type to a property.
+Mimcss also implements functions named after every unit allowed for the above CSS types. For example, the functions `rem()`, `inch()` and `cm()` work with the `<length>` CSS type. Similarly, the functions `deg()` and `rad()` work with the `<angle>` CSS type. The types returned from these functions make it impossible to assign a value of the wrong type to a property.
 
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    // This will work because the 'Len.cm()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.Len.cm(1.5) })
+    // This will work because the 'cm()' function returns type compatible with the 'left' property
+    cls1 = css.$class({ left: css.cm(1.5) })
 
-    // This will NOT compile because the 'Angle.rad()' function returns type incompatible with the 'left' property
-    cls2 = css.$class({ left: css.Angle.rad(1) })
+    // This will NOT compile because the 'rad()' function returns type incompatible with the 'left' property
+    cls2 = css.$class({ left: css.rad(1) })
 }
 ```
 

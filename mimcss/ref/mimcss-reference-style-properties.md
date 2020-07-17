@@ -1590,7 +1590,6 @@ fontStretch: FontStretch_Single;
 export type FontStretch_StyleType = "normal" | "ultra-condensed" | "extra-condensed" | "condensed" |
 "semi-condensed" | "semi-expanded" | "expanded" | "extra-expanded" | "ultra-expanded" | CssNumber;
 ```
-```
 
 **See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
 
@@ -2567,6 +2566,27 @@ export type Scale_StyleType = "none" | CssNumber |
 ```
 
 **See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### scrollbar-color
+
+```tsx
+scrollbarColor: ScrollbarColor_StyleType;
+
+/** Type for the scrollbar-color style property */
+export type ScrollbarColor_StyleType = "auto" | "dark" | "light" |
+    [Extended<CssColor>, Extended<CssColor>];
+```
+
+**See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### scrollbar-width
+
+```tsx
+scrollbarWidth: ScrollbarColor_StyleType;
+
+/** Type for the scrollbar-width style property */
+export type ScrollbarWidth_StyleType = "auto" | "thin" | "none";
+```
 
 #### scroll-behavior
 

@@ -85,24 +85,27 @@ export let Num: ICssNumberMath;
 ##### Number Value Examples
 
 ```tsx
-// Both integer and floating point numbers are simply converted to strings
-let num: CssNumber = 100; // "100"
-let num: CssNumber = 1.5; // "1.5"
+class MyStyles extends css.StyleDefinition
+{
+    // Both integer and floating point numbers are simply converted to strings
+    cls1 = css.$class({ flexGrow: 3 }) // "3"
+    cls2 = css.$class({ flexGrow: 1.5 }) // "1.5"
 
-// Number can be specified using a custom CSS variable
-let num: CssNumber = this.defaultOrphans; // "var(--defaultOrphans)"
+    // A custom CSS variable can be declared to have the CssNumber type
+    defaultFlexGrow = css.$var( "CssNumber", 2) }) // :root { --defaultFlexGrow: 2 }
 
-// A custom CSS variable can be declared to have the CssNumber type (within style definition class)
-defaultOrphans = $var( "CssNumber", 2); // :root { --defaultOrphans: 2 }
+    // Number can be specified using a custom CSS variable
+    cls3 = css.$class({ flexGrow: this.defaultFlexGrow }) // "var(--defaultFlexGrow)"
 
-// Number can be specified using the min/max/clamp function
-let num: CssNumber = Num.min( 4, this.defaultOrphans); // "min( 4, var(defaultOrphans))"
+    // Number can be specified using the min/max/clamp function
+    cls4 = css.$class({ flexGrow: css.Num.min( 4, this.defaultFlexGrow) }) // "min( 4, var(defaultFlexGrow))"
 
-// Number can be specified using the calc function
-let num: CssNumber = Num.calc`2 * ${this.defaultOrphans}`; // "calc(2 * var(--defaultOrphans))"
+    // Number can be specified using the calc function
+    cls5 = css.$class({ flexGrow: css.Num.calc`2 * ${this.defaultFlexGrow}` }) // "calc(2 * var(--defaultFlexGrow))"
 
-// Number cannot be specified as a string but you can use the `raw` function to wrap a string
-let num: CssNumber = Num.raw`20`; // "20"
+    // Number cannot be specified as a string but you can use the `raw` function to wrap a string
+    cls6 = css.$class({ flexGrow: css.raw`20` }) // "20"
+}
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
@@ -132,10 +135,6 @@ export interface IPercentProxy extends IGenericProxy<PercentType> {};
  */
 export interface ICssPercentMath extends INumberBaseMath<PercentType>
 {
-    /**
-     * Converts the given number to a percent string. Numbers between -1 and 1 are multiplyed by 100.
-     */
-    percent( n: number): IPercentProxy;
 }
 
 /**
@@ -145,27 +144,41 @@ export interface ICssPercentMath extends INumberBaseMath<PercentType>
 export let Percent: ICssPercentMath;
 ```
 
+Mimcss provides the following function to create `<percent>` units:
+
+```tsx
+/** Creates angle value in degrees */
+export function percent( n: number): IPercentProxy;
+```
+
 ##### Percent Value Examples
 
 ```tsx
-// Both integer and floating point numbers are converted to strings by uppending `"%"`. Numbers between -1 and 1 (not inclusive) are first multiplied by 100.
-let percent: CssPercent = 100; // "100%"
-let percent: CssPercent = 0.75; // "75%"
+class MyStyles extends css.StyleDefinition
+{
+    // Integer numbers are converted to strings by appending the 'px' units
+    cls1 = css.$class({ zoom: 100 }) // "100px"
 
-// Percent can be specified as a string
-let percent: CssPercent = "30%"; // "30%"
+    // Both integer and floating point numbers are converted to strings by uppending `"%"`.
+    // Numbers between -1 and 1 (not inclusive) are first multiplied by 100.
+    cls2 = css.$class({ zoom: 100 }) // "100%"
+    cls3 = css.$class({ zoom: 0.75 }) // "75%"
 
-// A custom CSS variable can be declared to have the CssPercent type (within style definition class)
-defaultZoom = $var( "CssPercent", 0.85); // :root { --defaultZoom: 85% }
+    // Percent can be specified as a string
+    cls4 = css.$class({ zoom: "30%" }) // "30%"
 
-// Percent can be specified using a custom CSS variable
-let percent: CssPercent = this.defaultZoom; // "var(--defaultZoom)"
+    // A custom CSS variable can be declared to have the CssPercent type
+    defaultZoom = css.$var( "CssPercent", 0.85) // :root { --defaultZoom: 85% }
 
-// Percent can be specified using the min/max/clamp function
-let percent: CssPercent = Percent.min( 80, this.defaultZoom); // "min( 80%, var(defaultZoom))"
+    // Percent can be specified using a custom CSS variable
+    cls5 = css.$class({ zoom: this.defaultZoom }) // "var(--defaultZoom)"
 
-// Percent can be specified using the calc function
-let percent: CssPercent = Percent.calc`1.1 * ${this.defaultZoom}`; // "calc(1.1 * var(--defaultZoom))"
+    // Percent can be specified using the min/max/clamp function
+    cls6 = css.$class({ zoom: css.min( 80, this.defaultZoom) }) // "min( 80%, var(--defaultZoom))"
+
+    // Percent can be specified using the calc function
+    cls7 = css.$class({ zoom: css.Percent.calc`1.1 * ${this.defaultZoom}` }) // "calc(1.1 * var(--defaultZoom))"
+}
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
@@ -204,116 +217,116 @@ export interface ICssLengthMath extends INumberBaseMath<LengthType>
 {
     /** Creates property value using the CSS minmax() function. */
     minmax( min: Extended<CssLength>, max: Extended<CssLength>): ILengthProxy;
-
-    /** Creates length value in quaters of an inch */
-    Q( n: number): ILengthProxy;
-
-    /** Creates length value in ch units */
-    ch( n: number): ILengthProxy;
-
-    /** Creates length value in cantimeters */
-    cm( n: number): ILengthProxy;
-
-    /** Creates length value in calculated font-sizes of the element */
-    em( n: number): ILengthProxy;
-
-    /** Creates length value in heights of lowercase letter 'x' in the font */
-    ex( n: number): ILengthProxy;
-
-    /** Creates length value in ic units */
-    ic( n: number): ILengthProxy;
-
-    /** Creates length value in inches */
-    in( n: number): ILengthProxy;
-
-    /** Creates length value in line-heights of the element */
-    lh( n: number): ILengthProxy;
-
-    /** Creates length value in millimeters */
-    mm( n: number): ILengthProxy;
-
-    /** Creates length value in picas */
-    pc( n: number): ILengthProxy;
-
-    /** Creates length value in points */
-    pt( n: number): ILengthProxy;
-
-    /** Creates length value in pixels */
-    px( n: number): ILengthProxy;
-
-    /** Creates length value in 1% of the size of the initial containing block, in the direction
-     * of the root element’s block axis */
-    vb( n: number): ILengthProxy;
-
-    /** Creates length value in 1% of the height of the viewport's initial containing block */
-    vh( n: number): ILengthProxy;
-
-    /** Creates length value in 1% of the size of the initial containing block, in the direction
-     * of the root element’s inline axis */
-    vi( n: number): ILengthProxy;
-
-    /** Creates length value in 1% of the width of the viewport's initial containing block */
-    vw( n: number): ILengthProxy;
-
-    /** Creates length value in fontsizes of the root element (<html>) */
-    rem( n: number): ILengthProxy;
-
-    /** Creates length value in line-heights of the root element (<html>) */
-    rlh( n: number): ILengthProxy;
-
-    /** Creates length value in the units which are a smaller value between vw and vh */
-    vmax( n: number): ILengthProxy;
-
-    /** Creates length value in the units which are a larger value between vw and vh */
-    vmin( n: number): ILengthProxy;
-
-    /** Creates length value for flex */
-    fr( n: number): ILengthProxy;
-
-    /**
-     * Converts the given number into percents. Values between -1.0 and 1.0 non-inclusive are
-     * multiplied by 100.
-     */
-    percent( n: number): ILengthProxy;
 }
 
 /**
  * The Len object contains static methods that implement CSS mathematic functions on the `<length>`
- * CSS type by appending a length unit suffix.
+ * CSS type.
  * Integer numbers use "px"; floating point numbers use "em".
  */
 export let Len: ICssLengthMath;
 ```
 
+Mimcss provides the following functions to create `<length>` units:
+
+```tsx
+/** Creates length value in quarters of an inch */
+export function Q( n: number): ILengthProxy;
+
+/** Creates length value in ch units */
+export function ch( n: number): ILengthProxy;
+
+/** Creates length value in cantimeters */
+export function cm( n: number): ILengthProxy;
+
+/** Creates length value in calculated font-sizes of the element */
+export function em( n: number): ILengthProxy;
+
+/** Creates length value in heights of lowercase letter 'x' in the font */
+export function ex( n: number): ILengthProxy;
+
+/** Creates length value in ic units */
+export function ic( n: number): ILengthProxy;
+
+/** Creates length value in inches */
+export function inch( n: number): ILengthProxy;
+
+/** Creates length value in line-heights of the element */
+export function lh( n: number): ILengthProxy;
+
+/** Creates length value in millimeters */
+export function mm( n: number): ILengthProxy;
+
+/** Creates length value in picas */
+export function pc( n: number): ILengthProxy;
+
+/** Creates length value in points */
+export function pt( n: number): ILengthProxy;
+
+/** Creates length value in pixels */
+export function px( n: number): ILengthProxy;
+
+/** Creates length value in 1% of the size of the initial containing block, in the direction
+    * of the root element’s block axis */
+export function vb( n: number): ILengthProxy;
+
+/** Creates length value in 1% of the height of the viewport's initial containing block */
+export function vh( n: number): ILengthProxy;
+
+/** Creates length value in 1% of the size of the initial containing block, in the direction
+    * of the root element’s inline axis */
+export function vi( n: number): ILengthProxy;
+
+/** Creates length value in 1% of the width of the viewport's initial containing block */
+export function vw( n: number): ILengthProxy;
+
+/** Creates length value in fontsizes of the root element (<html>) */
+export function rem( n: number): ILengthProxy;
+
+/** Creates length value in line-heights of the root element (<html>) */
+export function rlh( n: number): ILengthProxy;
+
+/** Creates length value in the units which are a smaller value between vw and vh */
+export function vmax( n: number): ILengthProxy;
+
+/** Creates length value in the units which are a larger value between vw and vh */
+export function vmin( n: number): ILengthProxy;
+
+/** Creates length value for flex */
+export function fr( n: number): ILengthProxy;
+```
+
 ##### Length Value Examples
 
 ```tsx
-// Integer numbers are converted to strings by appending the 'px' units
-let len: CssLength = 100; // "100px"
+class MyStyles extends css.StyleDefinition
+{
+    // Integer numbers are converted to strings by appending the 'px' units
+    cls1 = css.$class({ width: 100 }) // "100px"
 
-// Floating point numbers are converted to strings by appending the 'em' units
-let len: CssLength = 0.5; // "0.5em"
+    // Floating point numbers are converted to strings by appending the 'em' units
+    cls2 = css.$class({ width:  0.5 }) // "0.5em"
 
-// Length can be specified as a string
-let len: CssLength = "3rem"; // "3rem"
+    // Length can be specified as a string
+    cls3 = css.$class({ width: "3rem" }) // "3rem"
 
-// Length can be specified using one of the "unit" methods
-let len: CssLength = Len.in(2); // "2in"
-let len: CssLength = Len.vmax(2); // "2vmax"
-let len: CssLength = Len.percent(80); // "80%"
-let len: CssLength = Len.percent(0.8); // "80%"
+    // Length can be specified using one of the "unit" methods
+    cls4 = css.$class({ width: css.inch(2) }) // "2in"
+    cls5 = css.$class({ width: css.vmax(2) }) // "2vmax"
+    cls6 = css.$class({ width: css.percent(80) }) // "80%"
 
-// A custom CSS variable can be declared to have the CssLength type (within style definition class)
-defaultLength = $var( "CssLength", 400); // :root { --defaultLength: 400px }
+    // A custom CSS variable can be declared to have the CssLength type
+    defaultLength = css.$var( "CssLength", 400) // :root { --defaultLength: 400px }
 
-// Length can be specified using a custom CSS variable
-let len: CssLength = this.defaultLength; // "var(--defaultLength)"
+    // Length can be specified using a custom CSS variable
+    cls7 = css.$class({ width: this.defaultLength }) // "var(--defaultLength)"
 
-// Length can be specified using the min/max/clamp function
-let len: CssLength = Len.min( 200, 15.5, this.defaultLength, "60%"); // "min( 200px, 15em, var(defaultLength), 60%)"
+    // Length can be specified using the min/max/clamp function
+    cls8 = css.$class({ width: css.Len.min( 200, 15.5, this.defaultLength, "60%") }) // "min( 200px, 15em, var(--defaultLength), 60%)"
 
-// Length can be specified using the calc function
-let len: CssLength = Len.calc`(100% - ${this.defaultLength}) / 2`; // "calc((100% - var(--defaultLength)) / 2)"
+    // Length can be specified using the calc function
+    cls9 = css.$class({ width: css.Len.calc`(100% - ${this.defaultLength}) / 2` }) // "calc((100% - var(--defaultLength)) / 2)"
+}
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
@@ -346,11 +359,6 @@ export interface ITimeProxy extends IGenericProxy<TimeType> {};
  */
 export interface ICssTimeMath extends INumberBaseMath<TimeType>
 {
-    /** Creates time value in milliseconds */
-    ms( n: number): ITimeProxy;
-
-    /** Creates time value in seconds */
-    s( n: number): ITimeProxy;
 }
 
 /**
@@ -361,33 +369,46 @@ export interface ICssTimeMath extends INumberBaseMath<TimeType>
 export let Time: ICssTimeMath;
 ```
 
+Mimcss provides the following functions to create `<time>` units:
+
+```tsx
+/** Creates time value in milliseconds */
+export function ms( n: number): ITimeProxy;
+
+/** Creates time value in seconds */
+export function s( n: number): ITimeProxy;
+```
+
 ##### Time Value Examples
 
 ```tsx
-// Integer numbers are converted to strings by appending the 'ms' units
-let time: CssTime = 700; // "700s"
+class MyStyles extends css.StyleDefinition
+{
+    // Integer numbers are converted to strings by appending the 'px' units
+    cls1 = css.$class({ animationDuration: 700 }) // "700ms"
 
-// Floating point numbers are converted to strings by appending the 's' units
-let time: CssTime = 2.5; // "2.5s"
+    // Floating point numbers are converted to strings by appending the 's' units
+    cls2 = css.$class({ animationDuration: 2.5 }) // "2.5s"
 
-// Time can be specified as a string
-let time: CssTime = "1300ms"; // "1300ms"
+    // Time can be specified as a string
+    cls3 = css.$class({ animationDuration: "1300ms" }) // "1300ms"
 
-// Time can be specified using one of the "unit" methods
-let time: CssTime = Time.s(2); // "2s"
-let time: CssTime = Time.ms(200); // "200ms"
+    // Time can be specified using one of the "unit" methods
+    cls4 = css.$class({ animationDuration: css.s(2) }) // "2s"
+    cls5 = css.$class({ animationDuration: css.ms(200) }) // "200ms"
 
-// A custom CSS variable can be declared to have the CssTime type (within style definition class)
-defaultTime = $var( "CssTime", 300); // :root { --defaultTime: 300ms }
+    // A custom CSS variable can be declared to have the CssTime type
+    defaultTime = css.$var( "CssTime", 300); // :root { --defaultTime: 300ms }
 
-// Time can be specified using a custom CSS variable
-let time: CssTime = this.defaultTime; // "var(--defaultTime)"
+    // Time can be specified using a custom CSS variable
+    cls6 = css.$class({ animationDuration: this.defaultTime }) // "var(--defaultTime)"
 
-// Time can be specified using the min/max/clamp function
-let time: CssTime = Time.min( 700, this.defaultTime); // "min( 700ms, var(defaultTime))"
+    // Time can be specified using the min/max/clamp function
+    cls7 = css.$class({ animationDuration: css.Time.min( 700, this.defaultTime) }) // "min( 700ms, var(--defaultTime))"
 
-// Time can be specified using the calc function
-let time: CssTime = Time.calc`1300ms - ${700} + ${this.defaultTime}`; // "calc(1300ms - 700ms + var(--defaultTime))"
+    // Time can be specified using the calc function
+    cls8 = css.$class({ animationDuration: css.Time.calc`1300ms - ${700} + ${this.defaultTime}` }) // "calc(1300ms - 700ms + var(--defaultTime))"
+}
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
@@ -428,12 +449,6 @@ export interface ICssAngleMath extends INumberBaseMath<AngleType>
 
     /** Creates angle value in turns */
     turn( n: number): IAngleProxy;
-
-    /**
-     * Converts the given number into percents. Values between -1.0 and 1.0 non-inclusive are
-     * multiplied by 100.
-     */
-    percent( n: number): IAngleProxy;
 }
 
 /**
@@ -444,33 +459,52 @@ export interface ICssAngleMath extends INumberBaseMath<AngleType>
 export let Angle: ICssAngleMath;
 ```
 
+Mimcss provides the following functions to create `<angle>` units:
+
+```tsx
+/** Creates angle value in degrees */
+export function deg( n: number): IAngleProxy;
+
+/** Creates angle value in radians */
+export function rad( n: number): IAngleProxy;
+
+/** Creates angle value in gradians */
+export function grad( n: number): IAngleProxy;
+
+/** Creates angle value in turns */
+export function turn( n: number): IAngleProxy;
+```
+
 ##### Angle Value Examples
 
 ```tsx
-// Integer numbers are converted to strings by appending the 'deg' units
-let angle: CssAngle = 45; // "45deg"
+class MyStyles extends css.StyleDefinition
+{
+    // Integer numbers are converted to strings by appending the 'deg' units
+    cls1 = css.$class({ fontStyle: 45 }) // "45deg"
 
-// Floating point numbers are converted to strings by appending the 'turn' units
-let angle: CssAngle = 0.5; // "0.5turn"
+    // Floating point numbers are converted to strings by appending the 'turn' units
+    cls2 = css.$class({ fontStyle: 0.5 }) // "0.5turn"
 
-// Angle can be specified as a string
-let angle: CssAngle = "1.3rad"; // "1.3rad"
+    // Angle can be specified as a string
+    cls3 = css.$class({ fontStyle: "1.3rad" }) // "1.3rad"
 
-// Angle can be specified using one of the "unit" methods
-let angle: CssAngle = Angle.deg(30); // "30deg"
-let angle: CssAngle = Angle.rad(1.5); // "1.5rad"
+    // Angle can be specified using one of the "unit" methods
+    cls4 = css.$class({ fontStyle: css.deg(30) }) // "30deg"
+    cls5 = css.$class({ fontStyle: css.rad(1.5) }) // "1.5rad"
 
-// A custom CSS variable can be declared to have the CssAngle type (within style definition class)
-defaultAngle = $var( "CssAngle", 45); // :root { --defaultAngle: 45deg }
+    // A custom CSS variable can be declared to have the CssAngle type
+    defaultAngle = css.$var( "CssAngle", 45); // :root { --defaultAngle: 45deg }
 
-// Angle can be specified using a custom CSS variable
-let angle: CssAngle = this.defaultAngle; // "var(--defaultAngle)"
+    // Angle can be specified using a custom CSS variable
+    cls6 = css.$class({ fontStyle: this.defaultAngle }) // "var(--defaultAngle)"
 
-// Angle can be specified using the min/max/clamp function
-let angle: CssAngle = Angle.min( 45, this.defaultAngle); // "min( 45deg, var(defaultAngle))"
+    // Angle can be specified using the min/max/clamp function
+    cls7 = css.$class({ fontStyle: css.Angle.min( 45, this.defaultAngle) }) // "min( 45deg, var(--defaultAngle))"
 
-// Angle can be specified using the calc function
-let angle: CssAngle = Angle.calc`0.4 - ${30} + ${this.defaultAngle}`; // "calc(0.4turn - 30deg + var(--defaultAngle))"
+    // Angle can be specified using the calc function
+    cls8 = css.$class({ fontStyle: css.Angle.calc`0.4 - ${30} + ${this.defaultAngle}` }) // "calc(0.4turn - 30deg + var(--defaultAngle))"
+}
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
@@ -491,7 +525,7 @@ let point: CssPoint = [2,2]; // "2px 2px"
 // Floating point numbers are converted to strings by appending the 'em' units
 let point: CssPoint = [0.5, 0.5]; // "0.5em 0.5em"
 
-// A custom CSS variable can be declared to have the CssPoint type (within style definition class)
+// A custom CSS variable can be declared to have the CssPoint type
 startPoint = $var( "CssPoint", [1, 1]); // :root { --startPoint: 1px 1px }
 
 // Point can be specified using a custom CSS variable
@@ -527,25 +561,28 @@ export type SimpleCssPosition = HorizontalPositionKeyword | VerticalPositionKeyw
 ##### CssPosition Examples
 
 ```tsx
-// Single keyword value
-let pos: CssPosition = "center"; // "center"
-let pos: CssPosition = "top"; // "top"
+class MyStyles extends css.StyleDefinition
+{
+    // Single keyword value
+    cls1 = css.$class({ offsetPosition: "center" }) // "center"
+    cls2 = css.$class({ offsetPosition: "top" }) // "top"
 
-// Single numeric value
-let pos: CssPosition = 25; // "25px"
-let pos: CssPosition = 0.7; // "0.7em"
+    // Single numeric value
+    cls3 = css.$class({ offsetPosition: 25 }) // "25px"
+    cls4 = css.$class({ offsetPosition: 0.7 }) // "0.7em"
 
-// Multiple values
-let pos: CssPosition = ["left", "top"]; // "left top"
-let pos: CssPosition = ["left", 25, "top"]; // "left 25px top"
-let pos: CssPosition = ["right", "bottom", 1.5]; // "left top 1.5em"
-let pos: CssPosition = ["center", 25, "top", "10%"]; // "center 25px top 10%"
+    // Multiple values
+    cls5 = css.$class({ offsetPosition: ["left", "top"] }) // "left top"
+    cls6 = css.$class({ offsetPosition: ["left", 25, "top"] }) // "left 25px top"
+    cls7 = css.$class({ offsetPosition: ["right", "bottom", 1.5] }) // "left top 1.5em"
+    cls8 = css.$class({ offsetPosition: ["center", 25, "top", "10%"] }) // "center 25px top 10%"
 
-// A custom CSS variable can be declared to have the CssPosition type (within style definition class)
-startPos = $var( "CssPosition", ["center", 25, "top", "10%"]); // :root { --startPos: center 25px top 10% }
+    // A custom CSS variable can be declared to have the CssPosition type
+    startPos = css.$var( "CssPosition", ["center", 25, "top", "10%"]) }) // :root { --startPos: center 25px top 10% }
 
-// Point can be specified using a custom CSS variable
-let point: CssPosition = this.startPos; // "var(--startPos)"
+    // Position can be specified using a custom CSS variable
+    cls9 = css.$class({ offsetPosition: this.startPos }) // "var(--startPos)"
+}
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
@@ -560,19 +597,22 @@ export type CssRadius = OneOrPair<CssLength>;
 ##### CssRadius Examples
 
 ```tsx
-// Single value
-let radius: CssRadius = 4; // "4px"
-let radius: CssRadius = 0.3; // "0.3em"
+class MyStyles extends css.StyleDefinition
+{
+    // Single value
+    cls1 = css.$class({ borderTopLeftRadius: 4 }) // "4px"
+    cls2 = css.$class({ borderTopLeftRadius: 0.3 }) // "0.3em"
 
-// Two values
-let radius: CssRadius = [2, 4]; // "2px 4px"
-let radius: CssRadius = [0.3, 0.5]; // "0.3em 0.5em"
+    // Two values
+    cls3 = css.$class({ borderTopLeftRadius: [2, 4] }) // "2px 4px"
+    cls4 = css.$class({ borderTopLeftRadius: [0.3, 0.5] }) // "0.3em 0.5em"
 
-// A custom CSS variable can be declared to have the CssRadius type (within style definition class)
-defaultRadius = $var( "CssRadius", [2, 4]); // :root { --defaultRadius: 2, 4 }
+    // A custom CSS variable can be declared to have the CssRadius type (within style definition class)
+    defaultRadius = css.$var( "CssRadius", [2, 4]); // :root { --defaultRadius: 2, 4 }
 
-// Radius can be specified using a custom CSS variable
-let radius: CssRadius = this.defaultRadius; // "var(--defaultRadius)"
+    // Radius can be specified using a custom CSS variable
+    cls5 = css.$class({ borderTopLeftRadius: this.defaultRadius }) // "var(--defaultRadius)"
+}
 ```
 
 [Go to top](#mimcss-reference-numeric-types)
