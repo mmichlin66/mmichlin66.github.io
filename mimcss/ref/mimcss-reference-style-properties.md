@@ -32,18 +32,20 @@ h4 { color: teal }
     padding: 4px;
     color: blue;
 }
+.linkFromProp {
+    margin-left: 10px;
+    font-weight: normal;
+}
 </style>
 
 ### Search Style Properties
 <div id="searchContainer">
     <label for="lookup">Lookup Style Properties:</label>
-    <select id="lookup" onchange="gotoStyleProperty();">
+    <select id="lookup" onchange="gotoSelectedStyleProperty();">
         <option value="">--Please choose a property--</option>
     </select>
 </div>
-
-<br/><br/>
-<span id="a" class="capital">A</span> [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
+<br/>
 
 #### align-content
 
@@ -257,9 +259,6 @@ A step function is represented either as a single number or as a two-element tup
 A Bezier function is represented as a four element tuple where each element is a number.
 
 **See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type)
-
-<br/><br/>
-[A](#a) <span id="b" class="capital">B</span> [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### backdrop-filter
 
@@ -1034,9 +1033,6 @@ breakInside: BreakInside_StyleType;
 export type BreakInside_StyleType = "auto" | "avoid" | "avoid-page" | "avoid-column" | "avoid-region";
 ```
 
-<br/><br/>
-[A](#a) [B](#b) <span id="c" class="capital">C</span> [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
-
 #### caption-side
 
 ```tsx
@@ -1305,9 +1301,6 @@ export type Cursor_Keyword = "auto" | "default" | "none" | "context-menu" | "hel
 
 **See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICounterRule](mimcss-reference-rules.html#icounterrule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
-<br/><br/>
-[A](#a) [B](#b) [C](#c) <span id="d" class="capital">D</span> [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
-
 #### direction
 
 ```tsx
@@ -1343,9 +1336,6 @@ export type DominantBaseline_StyleType = "auto" | "text-bottom" | "alphabetic" |
     "central" | "mathematical" | "hanging" | "text-top";
 ```
 
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) <span id="e" class="capital">E</span> [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
-
 #### empty-cells
 
 ```tsx
@@ -1354,9 +1344,6 @@ emptyCells: DominantBaseline_StyleType;
 /** Type for empty-cells style property */
 export type EmptyCells_StyleType = "show" | "hide";
 ```
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) <span id="f" class="capital">F</span> [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### fill
 
@@ -1377,7 +1364,7 @@ fillOpacity: CssPercent;
 #### fill-rule
 
 ```tsx
-fillRule: CssColor;
+fillRule: FillRule_StyleType;
 
 /** Type for fill-rule style property */
 export type FillRule_StyleType = "nonzero" | "evenodd";
@@ -1577,7 +1564,11 @@ export type FontOpticalSizing_StyleType = "auto" | "none";
 #### font-size
 
 ```tsx
-fontSize: CssLength;
+fontSize: FontSize_StyleType;
+
+/** Type for font-size style property */
+export type FontSize_StyleType = "xx-small" | "x-small" | "small" | "medium" | "large" |
+    "x-large" | "xx-large" | "xxx-large" | "larger" | "smaller" | CssLength;
 ```
 
 **See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
@@ -1585,20 +1576,23 @@ fontSize: CssLength;
 #### font-size-adjust
 
 ```tsx
-fontSizeAdjust: number;
+fontSizeAdjust: CssNumber;
 ```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
 
 #### font-stretch
 
 ```tsx
 fontStretch: FontStretch_Single;
 
-/** Type of font-stretch property */
-export type FontStretch_StyleType = FontStretch_Single;
-
-export type FontStretch_Single = "normal" | "ultra-condensed" | "extra-condensed" | "condensed" |
-    "semi-condensed" | "semi-expanded" | "expanded" | "extra-expanded" | "ultra-expanded" | number;
+/** Type for font-stretch style property */
+export type FontStretch_StyleType = "normal" | "ultra-condensed" | "extra-condensed" | "condensed" |
+"semi-condensed" | "semi-expanded" | "expanded" | "extra-expanded" | "ultra-expanded" | CssNumber;
 ```
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
 
 #### font-style
 
@@ -1678,9 +1672,6 @@ fontWeight: FontWeight_StyleType;
 export type FontWeight_StyleType = "normal" | "bold" | "bolder" | "lighter" | number;
 ```
 
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) <span id="g" class="capital">G</span> [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
-
 #### gap
 
 ```tsx
@@ -1709,9 +1700,6 @@ export type Gap_StyleType = RowGap_StyleType | [RowGap_StyleType, ColumnGap_Styl
 
 **See Also:** [row-gap](#row-gap), [column-gap](#column-gap)
 
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) <span id="h" class="capital">H</span> [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
-
 #### height
 
 ```tsx
@@ -1729,9 +1717,6 @@ hyphens: Hyphens_StyleType;
 export type Hyphens_StyleType = "none" | "manual" | "auto";
 ```
 
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) <span id="i" class="capital">I</span> [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### image-rendering
 
@@ -1758,9 +1743,6 @@ isolation: Isolation_StyleType;
 /** Type for isolation style property */
 export type Isolation_StyleType = "auto" | "isolate";
 ```
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) <span id="j" class="capital">J</span> K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### justify-content
 
@@ -1798,9 +1780,6 @@ export type JustifySelf_StyleType = "auto" | "normal" | "stretch" | "baseline" |
     "safe center" | "safe start" | "safe end" | "safe self-start" | "safe self-end" | "safe flex-start" | "safe flex-end" | "safe left" | "safe right" |
     "unsafe center" | "unsafe start" | "unsafe end" | "unsafe self-start" | "unsafe self-end" | "unsafe flex-start" | "unsafe flex-end" | "unsafe left" | "unsafe right";
 ```
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K <span id="l" class="capital">L</span> [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### left
 
@@ -1902,9 +1881,6 @@ export type ListStyleType_StyleType = "none" | "disc" | "circle" | "square" | "d
     "tamil" | "telugu" | "thai" | "tibetan" | "trad-chinese-formal" | "trad-chinese-informal" | "upper-armenian" |
     "disclosure-open" | "disclosure-closed";
 ```
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) <span id="m" class="capital">M</span> N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### margin
 
@@ -2076,9 +2052,6 @@ minWidth: CssLength;
 ```
 
 **See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N <span id="o" class="capital">O</span> [P](#p) [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### object-fit
 
@@ -2349,9 +2322,6 @@ overscrollBehaviorY: OverscrollBehavior_Single_StyleType;
 
 **See Also:** [overscroll-behavior property](#overscroll-behavior)
 
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) <span id="p" class="capital">P</span> [Q](#q) [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
-
 #### padding
 
 ```tsx
@@ -2538,9 +2508,6 @@ position: Position_StyleType;
 export type Position_StyleType = "static" | "relative" | "absolute" | "sticky" | "fixed";
 ```
 
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) <span id="q" class="capital">Q</span> [R](#r) [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
-
 #### quotes
 
 ```tsx
@@ -2551,9 +2518,6 @@ export type Quotes_StyleType = "none" | "auto" | Extended<string>[];
 ```
 
 **See Also:** [Extended](mimcss-reference-stylesets.html#extended-type)
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) <span id="r" class="capital">R</span> [S](#s) [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### resize
 
@@ -2591,9 +2555,6 @@ rowGap: CssLength;
 ```
 
 **See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) <span id="s" class="capital">S</span> [T](#t) [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### scale
 
@@ -2883,9 +2844,6 @@ stroke: CssColor;
 ```
 
 **See Also:** [CssColor](mimcss-reference-colors.html#csscolor-type)
-
-<br/><br/>
-[A](#a) [B](#b) [C](#c) [D](#d) [E](#e) [F](#f) [G](#g) [H](#h) [I](#i) [J](#j) K [L](#l) [M](#m) N [O](#o) [P](#p) [Q](#q) [R](#r) [S](#s) <span id="t" class="capital">T</span> [U](#u) [V](#v) [W](#w) [X](#x) [Y](#y) [Z](#z)
 
 #### tab-size
 
@@ -3238,7 +3196,7 @@ The `transition` property can be specified as a string or as an object. The fiel
 | :--- | :--- |
 | property | [transition-property](#transition-property) |
 | duration | [transition-duration](#transition-duration) |
-| func | [transition-func](#transition-func) |
+| func | [transition-timing-function](#transition-func) |
 | delay | [transition-delay](#transition-delay) |
 
 **See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type), [CssTime](mimcss-reference-numeric-types.html#time-values)
@@ -3311,48 +3269,247 @@ export type Translate_StyleType = "none" | CssLength |
 
 **See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [Extended](mimcss-reference-stylesets.html#extended-type)
 
+#### unicode-bidi
+
+```tsx
+unicodeBidi: UnicodeBidi_StyleType;
+
+/** Type for the unicode-bidi style property */
+export type UnicodeBidi_StyleType = "normal" | "embed" | "isolate" | "bidi-override" | "isolate-override" | "plaintext";
+```
+
+#### user-select
+
+```tsx
+userSelect: UserSelect_StyleType;
+
+/** Type for the user-select style property */
+export type UserSelect_StyleType = "auto" | "text" | "none" | "contain" | "all";
+```
+
+#### vertical-align
+
+```tsx
+verticalAlign: VerticalAlign_StyleType;
+
+/** Type for the vertical-align style property */
+export type VerticalAlign_StyleType = "baseline" | "sub" | "super" | "text-top" | "text-bottom" |
+    "middle" | "top" | "bottom" | CssLength;
+```
+
+#### visibility
+
+```tsx
+visibility: Visibility_StyleType;
+
+/** Type for the visibility style property */
+export type Visibility_StyleType = "visible" | "hidden" | "collapse";
+```
+
+#### vector-effect
+
+```tsx
+vectorEffect: VectorEffect_StyleType;
+
+/** Type for the vector-effect style property */
+export type VectorEffect_StyleType = "none" | "non-scaling-stroke" | "non-scaling-size" | "non-rotation" | "fixed-position";
+```
+
+#### white-space
+
+```tsx
+whiteSpace: WhiteSpace_StyleType;
+
+/** Type for the white-space style property */
+export type WhiteSpace_StyleType = "normal" | "pre" | "nowrap" | "pre-wrap" | "pre-line" | "break-spaces";
+```
+
+#### widows
+
+```tsx
+widows: CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### width
+
+```tsx
+width: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### will-change
+
+```tsx
+willChange: WillChange_StyleType;
+
+/** Type for will-change style property */
+export type WillChange_StyleType = "auto" | OneOrMany<"scroll-position" | "contents" | Exclude<keyof ICssStyleset,"willChange">>;
+```
+
+**See Also:** [OneOrMany](mimcss-reference-stylesets.html#utility-types), [ICssStyleset](mimcss-reference-stylesets.html#icssstyleset-interface)
+
+#### word-break
+
+```tsx
+wordBreak: WordBreak_StyleType;
+
+/** Type for the word-break style property */
+export type WordBreak_StyleType = "normal" | "break-all" | "keep-all" | "break-word";
+```
+
+#### word-spacing
+
+```tsx
+wordSpacing: WordSpacing_StyleType;
+
+/** Type for the word-spacing style property */
+export type WordSpacing_StyleType = "normal" | CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### writing-mode
+
+```tsx
+writingMode: WritingMode_StyleType;
+
+/** Type for the writing-mode style property */
+export type WritingMode_StyleType = "horizontal-tb" | "vertical-rl" | "vertical-lr" | "sideways-rl" | "sideways-lr";
+```
+
+#### z-index
+
+```tsx
+zIndex: ZIndex_StyleType;
+
+/** Type for the z-index style property */
+export type ZIndex_StyleType = "auto" | CssNumber;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values)
+
+#### zoom
+
+```tsx
+zoom: Zoom_StyleType;
+
+/** Type for the zoom style property */
+export type Zoom_StyleType = "normal" | "reset" | CssPercent;
+```
+
+**See Also:** [CssPercent](mimcss-reference-numeric-types.html#percent-values)
+
 
 
 
 
 <script>
+    // prepare array of all letters
+    var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    // prepare set of letters for which we don't have style properties starting with this letter
+    var noPropLetters = new Set();
+    noPropLetters.add( "K");
+    noPropLetters.add( "N");
+    noPropLetters.add( "X");
+    noPropLetters.add( "Y");
+
     // find all <h4> elements
     var allPropElms = Array.from( document.getElementsByTagName( "h4"));
 
-    // prepare array of all style property names
-    var allPropNames = [];
+    // prepare map of all style property names to their elements
+    var allPropNames = new Map();
 
+    var currFirstLetter = "";
+
+    // allPropNames.forEach( (elmProp, name) => 
+    // {
     allPropElms.forEach( elmProp => 
     {
-        var name = elmProp.innerText;
-        allPropNames.push( name);
+        var name = elmProp.id;
+        allPropNames.set( name, elmProp);
 
         // add options to the search dropdown
         var elmOption = document.createElement( "option")
         elmOption.innerText = name;
         lookup.appendChild( elmOption);
 
+        // check if we have a new first letter
+        var firstLetter = name.substr( 0, 1);
+        if (firstLetter !== currFirstLetter)
+        {
+            currFirstLetter = firstLetter;
+            createAlphabet( firstLetter.toUpperCase(), elmProp);
+        }
+
         // add "to top" link
-        var elmToTop = document.createElement( "a");
-        elmToTop.href = "#mimcss-reference-style-properties";
-        elmToTop.innerText = "to top";
-        elmToTop.style = "margin-left: 16px; font-weight: normal";
-        elmProp.appendChild( elmToTop);
+        var elmTop = document.createElement( "a");
+        elmTop.href = "#mimcss-reference-style-properties";
+        elmTop.innerText = "top";
+        // elmTop.style = "margin-left: 10px; font-weight: normal";
+        elmTop.className = "linkFromProp";
+        elmProp.appendChild( elmTop);
 
         // add "MDN" link
         var elmMDN = document.createElement( "a");
         elmMDN.href = "https://developer.mozilla.org/en-US/docs/Web/CSS/" + name;
         elmMDN.target = "mdn";
         elmMDN.innerText = "MDN";
-        elmMDN.style = "margin-left: 16px; font-weight: normal";
+        // elmMDN.style = "margin-left: 10px; font-weight: normal";
+        elmMDN.className = "linkFromProp";
         elmProp.appendChild( elmMDN);
     });
 
-    function gotoStyleProperty()
+    function createAlphabet( selectedLetter, elm)
+    {
+        var elmAlphabet = document.createElement( "div");
+        elmAlphabet.style = "font-weight: bold; background-color: blue; padding: 6px; margin-top: 1.2em";
+        elm.parentNode.insertBefore( elmAlphabet, elm);
+
+        for( let letter of allLetters)
+        {
+            var elmLetter;
+            var letterLower = letter.toLowerCase();
+            if (noPropLetters.has( letter))
+            {
+                elmLetter = document.createElement( "span");
+                elmLetter.style.fontSize = "large";
+                elmLetter.style.color = "lightgrey";
+            }
+            else if (letter === selectedLetter)
+            {
+                elmLetter = document.createElement( "span");
+                elmLetter.id = letterLower;
+                elmLetter.style.fontSize = "xx-large";
+                elmLetter.style.color = "yellow";
+            }
+            else
+            {
+                elmLetter = document.createElement( "a");
+                elmLetter.href = "#" + letterLower;
+                elmLetter.style.fontSize = "large";
+                elmLetter.style.color = "orange";
+            }
+
+            elmLetter.innerText = letter;
+            elmLetter.style.marginRight = "0.6rem";
+            elmAlphabet.appendChild( elmLetter);
+        }
+    }
+
+    function gotoSelectedStyleProperty()
     {
         var val = lookup.value;
         if (val)
-            window.location.hash = val;
+            gotoStyleProperty( val);
+    }
+
+    function gotoStyleProperty( prop)
+    {
+       window.location.hash = prop;
     }
 </script>
 
