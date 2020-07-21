@@ -24,6 +24,8 @@ This page describes types and functions that are used to create Style Definition
   - [$media Function](#media-function)
   - [$var Function](#var-function)
   - [$counter Function](#counter-function)
+  - [$gridline Function](#gridline-function)
+  - [$gridarea Function](#gridarea-function)
   - [$use Function](#use-function)
   - [$embed Function](#embed-function)
 - [Helper Functions](#helper-functions)
@@ -48,6 +50,8 @@ This page describes types and functions that are used to create Style Definition
   - [IMediaRule Interface](#imediarule-interface)
   - [IVarRule Interface](#ivarrule-interface)
   - [ICounterRule Interface](#icounterrule-interface)
+  - [IGridLineRule Interface](#igridlinerule-interface)
+  - [IGridAreaRule Interface](#igridarearule-interface)
 
 ### Style Definition Classes
 
@@ -397,6 +401,86 @@ class MyStyles extends StyleDefinition
     li = css.$style( "li", {
         counterIncrement: this.counter,
         "::before": { content: css.counters( this.counter, ".", "hebrew") }
+    })
+}
+```
+
+#### $gridline() Function
+
+```tsx
+export function $gridline( nameOverride?: string | IGridLineRule, isStartEndOrNone?: boolean): IGridLineRule
+```
+
+The `$gridline` function creates a new grid line object. The line name will be created when the rule is processed as part of the style definition class. The name can be also overridden by providing either an explicit name or another grid line rule.
+
+Grid lines are not real CSS rules, but since they are named objects they can be defined in a manner similar to CSS rules so that they can be accessed using properties defined via the `$gridLine` function. Grid lines are used in several `grid-` style properties.
+
+Whether the `$gridline` function creates a *start* or *end* line depends on the arguments:
+- **No arguments at all.** The line is created with the Mimcss-generated name without the `"-start"` or `"-end"` suffix.
+
+- **`nameOverride` parameter is `undefined` and `isStartEndOrNone` parameter is `true`.** The line is created with the Mimcss-generated name with the `"-start"` suffix.
+
+- **`nameOverride` parameter is `undefined` and `isStartEndOrNone` parameter is `false`.** The line is created with the Mimcss-generated name with the `"-end"` suffix.
+
+- **`nameOverride` parameter is specified as a string and `isStartEndOrNone` parameter is `undefined`.** The line name is set to the value of the `nameOverride` parameter without the `"-start"` or `"-end"` suffix.
+
+- **`nameOverride` parameter is specified as a string and `isStartEndOrNone` parameter is `true`.** The line name is set to the value of the `nameOverride` parameter with the `"-start"` suffix.
+
+- **`nameOverride` parameter is specified as a string and `isStartEndOrNone` parameter is `false`.** The line name is set to the value of the `nameOverride` parameter with the `"-end"` suffix.
+
+- **`nameOverride` parameter is specified as a string and already has `"-start"` or `"-end"` suffix**. The line name is set to the value of the `nameOverride` parameter and the `isStartEndOrNone` parameter is ignored.
+
+- **`nameOverride` parameter is specified as an `IGridLineRule` object.** The line name is copied from the IGridLineRule object and the `isStartEndOrNone` parameter is ignored.
+
+**Example.**
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    // Define a simple grid line object with auto-generated name.
+    line = css.$gridline();
+
+    // Define grid line objects that can be used as start and end lines for the "header" grid area.
+    headerStart = css.$gridline( "header", true);
+    headerEnd = css.$gridline( "header", false);
+
+    // Use the above grid lines to define grid template columns. Note that line names should be
+    // specified as array elements
+    grid = css.$class({
+        gridTemplateColumns: [ [this.headerStart], 200, "2fr", [this.headerEnd], "1fr", [this.line] ]
+    })
+}
+```
+
+#### $gridarea() Function
+
+```tsx
+export function $gridarea( nameOverride?: string | IGridAreaRule): IGridAreaRule
+```
+
+The `$gridarea` function creates a new grid line object. The line name will be created when the rule is processed as part of the style definition class. The name can be also overridden by providing either an explicit name or another grid line rule.
+
+Grid areas are not real CSS rules, but since they are named objects they can be defined in a manner similar to CSS rules so that they can be accessed using properties defined via the `$gridarea` function. Grid areas are used in several `grid-` style properties.
+
+Each grid area object defines two lines - start of the area and end of the area - which are accessible via the `startLine` and `endLine` properties of the `IGridAreaRule` interface.
+
+**Example.**
+
+```tsx
+class MyStyles extends StyleDefinition
+{
+    // Define a simple grid line object with auto-generated name.
+    main = css.$gridarea();
+
+    // Define grid area with the given name.
+    header = css.$gridarea( "header");
+
+    // Use the start and end lines of the above grid area to define grid template rows.
+    grid = css.$class({
+        gridTemplateRowss: [
+            [this.header.startLine], 100, [this.header.endLine, this.main.startLine],
+            "1fr", [this.main.endLine]
+        ]
     })
 }
 ```
@@ -869,4 +953,41 @@ export interface ICounterRule extends INamedEntity
 ```
 
 The `ICounterRule` interface represents a named counter definition. Use this rule to create counter objects that can be used in counter-increment, counter-reset and counter-set style properties. No CSS rule is created for counters - they are needed only to provide type-safe counter definitions. Objects implementing this interface are returned from the `$counter` function.
+
+#### IGridLineRule Interface
+
+```tsx
+export interface IGridLineRule extends INamedEntity
+{
+    /**
+     * Flag indicating whether the line is a start or end line of a grid area. The value is true
+     * if this is the start line; false if this is the end line; and undefined if the line is
+     * not related to any area.
+     */
+    readonly isStartEndOrNone?: boolean;
+
+    /**
+     * Name of the grid area of which the line is either a start or an end line. It is defined
+     * only if the line name ends with "-start" or "-end".
+     */
+    readonly areaName: string;
+}
+```
+
+The `IGridLineRule` interface represents a definition of a named grid line. Objects implementing this interface are returned from the `$gridline` function or created when a grid area is defined using the `$gridarea` function.
+
+#### IGridAreaRule Interface
+
+```tsx
+export interface IGridAreaRule extends INamedEntity
+{
+    /** Start line of the area. */
+    readonly startLine: IGridLineRule;
+
+    /** End line of the area. */
+    readonly endLine: IGridLineRule;
+}
+```
+
+The `IGridAreaRule` interface represents a definition of a named grid are. Grid area rule defines two line rules: for its start and end lines. Objects implementing this interface are returned from the `$gridarea` function.
 
