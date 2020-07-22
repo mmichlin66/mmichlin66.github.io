@@ -1688,6 +1688,118 @@ export type Gap_StyleType = RowGap_StyleType | [RowGap_StyleType, ColumnGap_Styl
 grid: string;
 ```
 
+#### grid-area
+
+```tsx
+gridArea: GridArea_StyleType;
+
+/** Type for grid-area style property */
+export type GridArea_StyleType = OneOrBox<GridAxisSide_StyleType>;
+
+/** Type for grid-column-start/end and grid-row-start/end style properties */
+export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+
+/** Type for specifying either number of grid lines or name of grid line or area */
+export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [IGridAreaRule](mimcss-reference-rules.html#igridarearule-interface), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [ISpanProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-auto-columns
+
+```tsx
+gridAutoColumns: GridAutoAxis_StyleType;
+
+/** Type for grid-auto-columns and grid-auto-rows style properties */
+export type GridAutoAxis_StyleType = OneOrMany<GridTrackSize>;
+
+/** Type for a single element defining track size in grid layout */
+export type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" |
+    IMinMaxProxy | IFitContentProxy | IRepeatProxy;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [IMinMaxProxy](mimcss-reference-helper-functions.html#grids), [IFitContentProxy](mimcss-reference-helper-functions.html#grids), [IRepeatProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-auto-flow
+
+```tsx
+gridAutoFlow: GridAutoFlow_StyleType;
+
+/** Type for grid-auto-flow style property */
+export type GridAutoFlow_StyleType = "row" | "column" | "dense" | "row dense" | "column dense";
+```
+
+#### grid-auto-rows
+
+```tsx
+gridAutoRows: GridAutoAxis_StyleType;
+
+/** Type for grid-auto-columns and grid-auto-rows style properties */
+export type GridAutoAxis_StyleType = OneOrMany<GridTrackSize>;
+
+/** Type for a single element defining track size in grid layout */
+export type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" |
+    IMinMaxProxy | IFitContentProxy | IRepeatProxy;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [IMinMaxProxy](mimcss-reference-helper-functions.html#grids), [IFitContentProxy](mimcss-reference-helper-functions.html#grids), [IRepeatProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-column
+
+```tsx
+gridColumn: GridAxis_StyleType;
+
+/** Type for grid-column and grid-row style properties */
+export type GridAxis_StyleType = OneOrPair<GridAxisSide_StyleType>;
+
+/** Type for grid-column-start/end and grid-row-start/end style properties */
+export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+
+/** Type for specifying either number of grid lines or name of grid line or area */
+export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [IGridAreaRule](mimcss-reference-rules.html#igridarearule-interface), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [ISpanProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-column-end
+
+```tsx
+gridColumnEnd: GridAxisSide_StyleType;
+
+/** Type for grid-column-start/end and grid-row-start/end style properties */
+export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+
+/** Type for specifying either number of grid lines or name of grid line or area */
+export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [IGridAreaRule](mimcss-reference-rules.html#igridarearule-interface), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [ISpanProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-column-gap
+
+```tsx
+gridColumnGap: ColumnGap_StyleType;
+
+/** Type for column-gap style property */
+export type ColumnGap_StyleType = "normal" | CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### grid-column-start
+
+```tsx
+gridColumnStart: GridAxisSide_StyleType;
+
+/** Type for grid-column-start/end and grid-row-start/end style properties */
+export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+
+/** Type for specifying either number of grid lines or name of grid line or area */
+export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [IGridAreaRule](mimcss-reference-rules.html#igridarearule-interface), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [ISpanProxy](mimcss-reference-helper-functions.html#grids)
+
 #### grid-gap
 
 ```tsx
@@ -1698,6 +1810,191 @@ export type Gap_StyleType = RowGap_StyleType | [RowGap_StyleType, ColumnGap_Styl
 ```
 
 **See Also:** [row-gap](#row-gap), [column-gap](#column-gap)
+
+#### grid-row
+
+```tsx
+gridRow: GridAxis_StyleType;
+
+/** Type for grid-column and grid-row style properties */
+export type GridAxis_StyleType = OneOrPair<GridAxisSide_StyleType>;
+
+/** Type for grid-column-start/end and grid-row-start/end style properties */
+export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+
+/** Type for specifying either number of grid lines or name of grid line or area */
+export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [IGridAreaRule](mimcss-reference-rules.html#igridarearule-interface), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [ISpanProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-row-end
+
+```tsx
+gridRowEnd: GridAxisSide_StyleType;
+
+/** Type for grid-column-start/end and grid-row-start/end style properties */
+export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+
+/** Type for specifying either number of grid lines or name of grid line or area */
+export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [IGridAreaRule](mimcss-reference-rules.html#igridarearule-interface), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [ISpanProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-row-gap
+
+```tsx
+gridRowGap: CssLength;
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values)
+
+#### grid-row-start
+
+```tsx
+gridRowStart: GridAxisSide_StyleType;
+
+/** Type for grid-column-start/end and grid-row-start/end style properties */
+export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+
+/** Type for specifying either number of grid lines or name of grid line or area */
+export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+```
+
+**See Also:** [CssNumber](mimcss-reference-numeric-types.html#number-values), [IGridAreaRule](mimcss-reference-rules.html#igridarearule-interface), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [ISpanProxy](mimcss-reference-helper-functions.html#grids)
+
+#### grid-template
+
+```tsx
+gridTemplate: string;
+```
+
+#### grid-template-areas
+
+```tsx
+gridTemplateAreas: GridTemplateAreas_StyleType;
+
+/** Type for grid-template-areas style property */
+export type GridTemplateAreas_StyleType = "none" | OneOrMany<IQuotedProxy> |
+    GridTemplateArea_Definition[];
+
+/**
+ * Type for defining a single grid area position. The numbers are 1-based indices of the lines in
+ * the following sequence: start row, start column, end row, end column.
+ */
+export type GridTemplateArea_Definition = [IGridAreaRule | Extended<string>,
+    number, number, number, number];
+```
+
+**Example**
+
+```tsx
+class MyStyles extends css.StyleDefinition
+{
+    // define grid areas on the page
+    header = css.$gridarea();
+    main = css.$gridarea();
+    footer = css.$gridarea();
+    left = css.$gridarea();
+    right = css.$gridarea();
+
+	grid = css.$class({
+        // define grid of 5 rows by 5 columns
+        display: "grid",
+        gridTemplateColumns: css.repeat( 5, "1fr"),
+        gridTemplateRows: css.repeat(5, "1fr"),
+
+        // place areas on the grid using coordinates 1 to 5 for rows and columns
+        gridTemplateAreas: [
+            [this.header, 1,1, 1,5],
+            [this.main, 2,2, 4,4],
+            [this.footer, 5,2, 5,4],
+            [this.left, 2,1, 5,1],
+            [this.right, 2,5, 5,5],
+        ],
+    })
+}
+```
+
+**See Also:** [IQuotedProxy](mimcss-reference-miscellaneous.html#using-raw-css), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### grid-template-columns
+
+```tsx
+gridTemplateColumns: GridTemplateAxis_StyleType;
+
+/** Type for grid-template-columns and grid-template-rows style properties */
+export type GridTemplateAxis_StyleType = "none" | OneOrMany<GridTrack> | "subgrid";
+
+/** Type for a single track element of grid template axis */
+export type GridTrack = GridTrackSize | GridTrackLine;
+
+/** Type for a single element defining track size in grid layout */
+export type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" |
+    IMinMaxProxy | IFitContentProxy | IRepeatProxy;
+
+/**
+ * Type for a single template element defining name or names for a grid line in grid template.
+ * This is always an array - even if a single name is given.
+ */
+export type GridTrackLine = (IGridLineRule | Extended<string>)[];
+```
+
+**Examples**
+
+```tsx
+class MyStyles extends css.StyleDefinition
+{
+    // 100px 1fr 10%
+	grid1 = css.$class({
+        gridTemplateColumns: 100, "1fr", css.percent(10)),
+    })
+
+    // repeat(3, 1fr)
+	grid2 = css.$class({
+        gridTemplateColumns: css.repeat( 3, "1fr"),
+    })
+
+    // use explicit and line names and defined line rules
+    lastLine = css.$gridline();
+	grid3 = css.$class({
+        gridTemplateColumns: [ ["first-line"], "1fr", "2fr", [this.lastLine] ]
+    })
+
+    // use lines defined by a grid area
+    mainArea = css.$gridarea();
+	grid4 = css.$class({
+        gridTemplateColumns: [ "10%", [this.mainArea.startLine], css.repeat(4, "1fr"), [this.mainArea.lastLine], "10%"]
+    })
+}
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [IMinMaxProxy](mimcss-reference-helper-functions.html#grids), [IFitContentProxy](mimcss-reference-helper-functions.html#grids), [IRepeatProxy](mimcss-reference-helper-functions.html#grids), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
+
+#### grid-template-rows
+
+```tsx
+gridTemplateRows: GridTemplateAxis_StyleType;
+
+/** Type for grid-template-columns and grid-template-rows style properties */
+export type GridTemplateAxis_StyleType = "none" | OneOrMany<GridTrack> | "subgrid";
+
+/** Type for a single track element of grid template axis */
+export type GridTrack = GridTrackSize | GridTrackLine;
+
+/** Type for a single element defining track size in grid layout */
+export type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" |
+    IMinMaxProxy | IFitContentProxy | IRepeatProxy;
+
+/**
+ * Type for a single template element defining name or names for a grid line in grid template.
+ * This is always an array - even if a single name is given.
+ */
+export type GridTrackLine = (IGridLineRule | Extended<string>)[];
+```
+
+**See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [IMinMaxProxy](mimcss-reference-helper-functions.html#grids), [IFitContentProxy](mimcss-reference-helper-functions.html#grids), [IRepeatProxy](mimcss-reference-helper-functions.html#grids), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
 #### height
 

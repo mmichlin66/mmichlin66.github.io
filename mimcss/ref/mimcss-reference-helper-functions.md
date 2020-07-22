@@ -16,6 +16,7 @@ This page describes types and functions that are used to work with images, filte
 - [Filters](#filters)
 - [Transforms](#transforms)
 - [Basic Shapes](#basic-shapes)
+- [Grids](#grids)
 
 ## Images
 
@@ -437,6 +438,56 @@ export interface IPathBuilder
     // Close-path command.
     z(): IPathBuilder;
 }
+```
+
+## Grids
+
+Mimcss provides types and functions that mimic the functions used for defining grid layouts:
+
+```tsx
+/**
+ * The IMinMaxProxy function represents an invocation of the minmax() function
+ */
+export interface IMinMaxProxy extends IGenericProxy<"minmax"> {}
+
+/**
+ * The IFitContentProxy function represents an invocation of the fit-content() function
+ */
+export interface IFitContentProxy extends IGenericProxy<"fit-content"> {}
+
+/**
+ * The IRepeatProxy function represents an invocation of the repeat() function
+ */
+export interface IRepeatProxy extends IGenericProxy<"repeat"> {}
+
+/**
+ * The ISpanProxy function produces the span expression for grid layouts
+ */
+export interface ISpanProxy extends IGenericProxy<"span"> {}
+
+/**
+ * Returns an IFitContentProxy function representing the `fit-content()` CSS function.
+ */
+export function fitContent( size: Extended<CssLength>): IFitContentProxy;
+
+/**
+ * Returns an IMinMaxProxy function representing the `minmax()` CSS function.
+ */
+export function minmax( min: GridTrackSize, max: GridTrackSize): IMinMaxProxy;
+
+/**
+ * Returns an IRepeatProxy function representing the `repeat()` CSS function.
+ */
+export function repeat( count: Extended<CssNumber> | "auto-fill" | "auto-fill",
+    ...tracks: GridTrack[]): IRepeatProxy;
+
+/**
+ * Returns an ISpanProxy function representing the span expression for grid layouts. If the first
+ * parameter is a number, the second parameter (if defined) must be a name; if the first parameter
+ * is a name, the second parameter (if defined) must be a number.
+ */
+export function span( countOrName: Extended<GridLineCountOrName>,
+    nameOrCount?: Extended<GridLineCountOrName>): ISpanProxy;
 ```
 
 

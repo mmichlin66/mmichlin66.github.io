@@ -40,6 +40,36 @@ class MyStyle extends css.StyleDefinition
 }
 ```
 
+#### IQuotedProxy Interface
+
+```tsx
+export interface IQuotedProxy extends IGenericProxy<"quoted"> {};
+```
+
+The `IQuotedProxy` interface represents a string in quotation marks.
+
+#### quoted() Function
+
+```tsx
+export function quoted( val: any): IQuotedProxy
+```
+
+The `quoted()` function returns a `IUrlProxy` interface representing a string in quotation marks.
+
+**Example.**
+
+```tsx
+class MyStyle extends css.StyleDefinition
+{
+    // link to an image
+    startListItem = css.$style( "li::after", { content: css.url("assets/star.gif") })
+
+    // define ID for an SVG element and use it for setting background-image property
+    svgID = css.$id()
+    svgRef = css.$class({ backgroundImage: css.url(this.svgID) })
+}
+```
+
 ## Using URLs
 
 #### url() Function
@@ -66,7 +96,7 @@ class MyStyle extends css.StyleDefinition
 }
 ```
 
-#### IUrlProxy Interface 
+#### IUrlProxy Interface
 
 ```tsx
 export interface IUrlProxy extends IGenericProxy<"url"> {};
