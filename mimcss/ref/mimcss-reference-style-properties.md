@@ -1887,6 +1887,13 @@ export type GridTemplateArea_Definition = [IGridAreaRule | Extended<string>,
     number, number, number, number];
 ```
 
+The CSS structure of the `grid-template-areas` property is as a sequence of quoted strings representing a matrix of grid areas names separated by spaces. Each grid area name can be repeated multiple times forming a rectangular area. Mimcss supports this structure directly via the array of `IQuotedProxy` objects; however it also supports and even prefers a different approach. Developers can specify an array of tuples (`GridTemplateArea_Definition` types) where each tuple consists of the following elements:
+
+- Grid area name specified as either an `IGridAreaRule` object or a string.
+- Coordinates of the area as four numbers: start row, start column, end row, end column.
+
+The coordinates correspond to track numbers occupied by the area within the grid.
+
 **Example**
 
 ```tsx
@@ -1993,6 +2000,8 @@ export type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" |
  */
 export type GridTrackLine = (IGridLineRule | Extended<string>)[];
 ```
+
+The usage of the `grid-template-rows` property is identical to that of the [grid-template-columns](#grid-template-columns) property.
 
 **See Also:** [CssLength](mimcss-reference-numeric-types.html#length-values), [IMinMaxProxy](mimcss-reference-helper-functions.html#grids), [IFitContentProxy](mimcss-reference-helper-functions.html#grids), [IRepeatProxy](mimcss-reference-helper-functions.html#grids), [IGridLineRule](mimcss-reference-rules.html#igridlinerule-interface), [Extended](mimcss-reference-stylesets.html#extended-type)
 
