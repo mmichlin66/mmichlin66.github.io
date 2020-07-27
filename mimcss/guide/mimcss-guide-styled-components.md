@@ -208,7 +208,7 @@ class ColorBoxStyles extends css.StyleDefinition
         new class extends css.StyleDefinition<ColorBoxStyles>
         {
             box = css.$class({
-                "+": this.owner.box,
+                "+": this.$parent.box,
                 width: 100,
                 height: 100,
             })
@@ -222,7 +222,7 @@ class ColorBoxStyles extends css.StyleDefinition
 }
 ```
 
-We still use anonymous class; however, we directly create an instance of it. Note that we pass `this` to its constructor. In this context, `this` is the reference to the instance of the `ColorBoxStyles` class. The value passed to the constructor of the grouping definition class becomes the value of the `owner` property whose type is defined by the generic parameter. This allows us to refer to properties of the top-level class like `this.owner.box`.
+We still use anonymous class; however, we directly create an instance of it. Note that we pass `this` to its constructor. In this context, `this` is the reference to the instance of the `ColorBoxStyles` class. The value passed to the constructor of the grouping definition class becomes the value of the `$parent` property whose type is defined by the generic parameter. This allows us to refer to properties of the top-level class like `this.$parent.box`.
 
 ## When to Use
 Styled components is a powerful tool in the developers' arsenal; however, as any tool, it is suitable more to some tasks than to others. The main differentiator of the style components' functionality is twofold:

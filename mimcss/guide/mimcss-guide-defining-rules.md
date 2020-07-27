@@ -141,7 +141,11 @@ For the named rules (classes, IDs, animations and custom properties), Mimcss wil
 
 The `box` property in our example is used to define a CSS class in two places: as a property of the MyStyles class and as a property of the object passed to the `$media` function. Mimcss will generate a single actual class name for the `box` property and the `margin` value of 4 pixels will be used on smaller devices while the value of 8 pixels will be used on the larger ones.
 
-Every style definition has the `owner` property inherited from the StyleDefinition class. The type of this property is the type of the generic parameter passed to the StyleDefinition class. The `owner` property is the pointer to the top-level class. For the top-level class itself the value of the `owner` property is the same as `this` - it essentially points to itself - and, therefore, there is no real case for using the `owner` property in the top-level classes. For the grouping rules, however, the `owner` property allows referencing rules defined in the top-level class and that's why it is important to specify the generic parameter as the name of the top-level class. Here is how we can use the `owner` property from the @media rule:
+Every style definition has two special properties: `$parent` and `$owner`. The `$parent` property points to the style definition object that is the parent of the current style definition object in the chain of grouping rules. The type of the `$parent` property is the type of the first generic parameter passed to the StyleDefinition class. For the top-level class itself the value of the `$parent` property is `undefined`.
+
+The type of the `$owner` property is the type of the second generic parameter passed to the StyleDefinition class. The `$owner` property is the pointer to the top-level class. For the top-level class itself the value of the `$owner` property is the same as `this` - it essentially points to itself - and, therefore, there is no real case for using the `$owner` property in the top-level classes.
+
+For the grouping rules, the `$parent` and the `$owner` properties allow referencing rules defined anywhere in the chain of grouping rules. Here is an example of how we can use the `$parent` property from the @media rule:
 
 ```tsx
 class MyStyles extends css.StyleDefinition
@@ -151,13 +155,13 @@ class MyStyles extends css.StyleDefinition
     ifSmallScreen = css.$media( { maxWidth: 600 },
         class extends css.StyleDefinition<MyStyles>
         {
-            p = css.$style( "p", { color: this.owner.defultColor })
+            p = css.$style( "p", { color: this.$parent.defultColor })
         }
     )
 }
 ```
 
-In the top-level class, we defined a custom CSS variable that defines font color and in the @media rule, we referred to it using the `this.owner.defaultColor` notation. Since we defined `MyStyles` class as a generic parameter for the StyleDefinition, the TypeScript compiler knows the type of the `owner` property and will help us with the autocomplete feature.
+In the top-level class, we defined a custom CSS variable that defines font color and in the @media rule, we referred to it using the `this.$parent.defaultColor` notation. Since we defined `MyStyles` class as a generic parameter for the StyleDefinition, the TypeScript compiler knows the type of the `$parent` property and will help us with the autocomplete feature. Note that since we only use the `$parent` property, we don't need to define the second generic type.
 
 
 ## Other Rules

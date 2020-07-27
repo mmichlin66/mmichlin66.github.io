@@ -58,23 +58,24 @@ This page describes types and functions that are used to create Style Definition
 #### StyleDefinition Class
 
 ```tsx
-export abstract class StyleDefinition<O extends StyleDefinition = any>
+export abstract class StyleDefinition<P extends StyleDefinition = any, O extends StyleDefinition = any>
 {
-    /**
-     * Style definition classes are created directly only by the *styled components* - that is,
-     * components that use different styles for each instance. Otherwise, style definition
-     * class instances are created when either the [[$use]] or [[$activate]] function is called.
-     * @param owner Reference to the top-level style definition class
-     */
-    public constructor( owner: O | null = null);
+	public constructor( parent?: P);
 
-    /**
-     * Refers to the instance of the style definition class which is the *owner* of
-     * this style definition object. The owner is the top-level class in the chain of style
-     * definition classes. Through this member, all rules and other members defined in the owner
-     * definition class can be accessed.
-     */
-    public get owner(): O | null;
+	/**
+	 * Refers to the instance of the style definition class which is the parnt of this style
+     * definition object in the chain of style definition classes. Through this member, all rules
+     * and other members defined in the parent definition class can be accessed.
+	 */
+	public get $parent(): P | undefined;
+
+	/**
+	 * Refers to the instance of the style definition class which is the owner of
+	 * this style definition object. The owner is the top-level class in the chain of style
+	 * definition classes. Through this member, all rules and other members defined in the owner
+	 * definition class can be accessed.
+	 */
+	public get $owner(): O | undefined;
 }
 ```
 
@@ -292,15 +293,13 @@ class MyStyles extends StyleDefinition
 #### $supports() Function
 
 ```tsx
-export function $supports<T extends StyleDefinition<O>, O extends StyleDefinition>(
-	query: SupportsQuery, instanceOrClass: T | IStyleDefinitionClass<T,O>): ISupportsRule<T>
+export function $supports<T extends StyleDefinition>( query: SupportsQuery,
+    instOrClass: T | IStyleDefinitionClass<T>): ISupportsRule<T>
 ```
 
 The `$supports` function creates a new `@supports` CSS rule.
 
 The generic `T` parameter is the type of the class or instance that the function accepts as the first parameter. This object defines the rules nested within the `@supports` rule.
-
-The generic type `O` defines the type of the *owner* style definition class. The owner is the top-level class in the chain of nested grouping rules. This type is used to define the type of the `owner` property, which can be used within the `@supports` rule to refer to properties of the owner style definition class.
 
 **Example.** The following example defines a `@supports` rule, which will be in effect only if the browser supports the grid layout.
 
@@ -324,15 +323,13 @@ class MyStyles extends StyleDefinition
 #### $media() Function
 
 ```tsx
-export function $media<T extends StyleDefinition<O>, O extends StyleDefinition>(
-	query: string | MediaQuery, instanceOrClass: T | IStyleDefinitionClass<T,O>): IMediaRule<T>
+export function $media<T extends StyleDefinition>( query: string | MediaQuery,
+    instOrClass: T | IStyleDefinitionClass<T>): IMediaRule<T>
 ```
 
 The `$media` function creates a new `@supports` CSS rule.
 
 The generic `T` parameter is the type of the class or instance that the function accepts as the first parameter. This object defines the rules nested within the `@media` rule.
-
-The generic type `O` defines the type of the *owner* style definition class. The owner is the top-level class in the chain of nested grouping rules. This type is used to define the type of the `owner` property, which can be used within the `@media` rule to refer to properties of the owner style definition class.
 
 **Example.** The following example defines a `@media` rule, which will be in effect only for smaller devices. The `inputText` class defined in the top-level style definition class `MyStyles` will be overridden on devices with width less than 600 pixels.
 
@@ -524,7 +521,7 @@ class MyStyles extends StyleDefinition
 export function $embed<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
 ```
 
-The `$embed` function makes the given style definition class an "owned" part of the "owner" style definition object. When activated, the embedded object doesn't create its own `<style>` element but uses that of its owner. This allows creating many small style definition classes instead of one huge one without incurring the overhead of many `<style>` elements.
+The `$embed` function makes the given style definition class an "owned" part of the "owner" style definition object. When activated, the embedded object doesn't create its own `<style>` element but uses that of its owner. This allows creating many small style definition classes instead of a single huge one without incurring the overhead of many `<style>` elements.
 
 Note that as opposed to the `$use` function, the `$embed` function always creates a new instance of the given class and doesn't associate the class with the created instance. That means that if a class is embedded into more than one "owner", two separate instances of each CSS rule will be created with different unique names.
 
