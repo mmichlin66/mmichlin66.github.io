@@ -125,7 +125,7 @@ class MyComponent
 export function forceDOMUpdate( schedulerType?: number): void
 ```
 
-The `forceDOMUpdate` function writes to DOM all style changes caused by the calls to the `activate`, `deactivate` and `IStyleRule.setProp` functions accumulated since the last activation of the given scheduler type. If the `schedulerType` parameter is left undefined, the current default scheduler type is used.
+The `forceDOMUpdate` function writes to DOM all style changes caused by the calls to the `activate`, `deactivate` and `IStyleRule.setProp` functions accumulated since the last update of the given scheduler type. If the `schedulerType` parameter is left undefined, the current default scheduler type is used.
 
 **Example.**
 
@@ -148,7 +148,7 @@ css.forceDOMUpdate();
 export function cancelDOMUpdate( schedulerType?: number): void
 ```
 
-The `cancelDOMUpdate` function removes all scheduled activations caused by the calls to the `activate`, `deactivate` and `IStyleRule.setProp` functions accumulated since the last activation of the given scheduling type. If the `schedulerType` parameter is left undefined, the current default scheduler type is used.
+The `cancelDOMUpdate` function removes all scheduled DOM updates caused by the calls to the `activate`, `deactivate` and `IStyleRule.setProp` functions accumulated since the last update of the given scheduling type. If the `schedulerType` parameter is left undefined, the current default scheduler type is used.
 
 **Example.**
 
@@ -218,17 +218,17 @@ export interface IScheduler
      * Initializes the scheduler object and provides the callback that should be invoked when the
      * scheduler decides to make changes to the DOM.
      */
-    init( doActivation: () => void);
+    init( doDOMUpdate: () => void);
 
 	/**
-	 * Is invoked when the scheduler nees to schedule its callback or event.
+	 * Is invoked when the scheduler needs to schedule its callback or event.
 	 */
-	scheduleActivation(): void;
+	scheduleDOMUpdate(): void;
 
 	/**
-	 * Is invoked when the scheduler nees to cancels its scheduled callback or event.
+	 * Is invoked when the scheduler needs to cancels its scheduled callback or event.
 	 */
-	unscheduleActivation(): void;
+	cancelDOMUpdate(): void;
 ```
 
 The `IScheduler` interface should be implemented by custom schedulers. Its methods are invoked by the activation infrastructure. The object implementing the `IScheduler` interface should be passed to the `registerScheduler` function.
@@ -242,21 +242,21 @@ class OneSecondScheduler implements IScheduler
     private timeoutHandle = 0;
 
     // Callback to call to write changes to the DOM.
-    private doActivation: () => void;
+    private doDOMUpdate: () => void;
 
     /**
      * Initializes the scheduler object and provides the callback that should be invoked when the
      * scheduler decides to make changes to the DOM.
      */
-    public init( doActivation: () => void)
+    public init( doDOMUpdate: () => void)
     {
-        this.doActivation = doActivation;
+        this.doDOMUpdate = doDOMUpdate;
     }
 
     /**
      * Is invoked when the scheduler needs to schedule its callback or event.
      */
-    public scheduleActivation(): void
+    public scheduleDOMUpdate(): void
     {
         this.timeoutHandle = setTimeout( this.onTimeout, 1000);
     }
@@ -264,7 +264,7 @@ class OneSecondScheduler implements IScheduler
     /**
      * Is invoked when the scheduler needs to cancels its scheduled callback or event.
      */
-    public unscheduleActivation(): void
+    public cancelDOMUpdate(): void
     {
         if (this.timeoutHandle > 0)
         {
@@ -273,14 +273,13 @@ class OneSecondScheduler implements IScheduler
         }
     }
 
-
     /**
      * Is invoked when the timeout expires.
      */
     private onTimeout = (): void =>
     {
         this.timeoutHandle = 0;
-        this.doActivation();
+        this.doDOMUpdate();
     }
 }
 ```
