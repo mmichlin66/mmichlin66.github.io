@@ -2,6 +2,7 @@
 layout: mimcss-guide
 unit: 8
 title: "Mimcss Guide: Styled Components"
+description: "Styled components define and manipulate styles as though the styles are defined locally per component instance and not globally."
 ---
 
 # Mimcss Guide: Styled Components

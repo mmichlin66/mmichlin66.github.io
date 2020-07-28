@@ -2,6 +2,7 @@
 layout: mimcss-guide
 unit: 9
 title: "Mimcss Guide: Activation Scheduling"
+description: "Scheduling of style activation and other DOM writing events to avoid layout thrashing."
 ---
 
 # Mimcss Guide: Activation Scheduling

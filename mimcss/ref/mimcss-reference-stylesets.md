@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 1
 title: "Mimcss Reference: Stylesets"
+description: "Describes types of stylesets used to define style rules including selectors, pseudo classes and elements and custom properties."
 ---
 
 # Mimcss Reference: Stylesets

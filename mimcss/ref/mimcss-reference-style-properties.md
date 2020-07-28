@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 8
 title: "Mimcss Reference: Style Properties"
+description: "Describes types of every supported CSS style property."
 ---
 
 # Mimcss Reference: Style Properties

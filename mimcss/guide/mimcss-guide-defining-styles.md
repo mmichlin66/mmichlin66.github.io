@@ -2,6 +2,7 @@
 layout: mimcss-guide
 unit: 2
 title: "Mimcss Guide: Defining Styles"
+description: "Mimcss uses the full power of the TypeScript typing system to define style property values in a type-safe and convenient ways."
 ---
 
 # Mimcss Guide: Defining Styles

@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 6
 title: "Mimcss Reference: Helper Functions"
+description: "Describes types and functions for working with gradients, filters, transforms, shapes and grids."
 ---
 
 # Mimcss Reference: Helper Functions

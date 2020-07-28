@@ -2,6 +2,7 @@
 layout: mimcss-guide
 unit: 4
 title: "Mimcss Guide: Assigning Names"
+description: "Mimcss uniquely generates names for CSS named entities such as classes, element identifiers, custom variables, animations, counters, grid lines and grid areas."
 ---
 
 # Mimcss Guide: Assigning Names

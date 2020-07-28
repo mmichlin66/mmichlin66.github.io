@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 5
 title: "Mimcss Reference: Colors"
+description: "Describes types and functions for working with colors."
 ---
 
 # Mimcss Reference: Colors

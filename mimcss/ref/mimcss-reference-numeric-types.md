@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 4
 title: "Mimcss Reference: Numeric Types"
+description: "Describes types and functions used to set numeric values of CSS types such as <length>, <angle>, etc."
 ---
 
 # Mimcss Reference: Numeric Types

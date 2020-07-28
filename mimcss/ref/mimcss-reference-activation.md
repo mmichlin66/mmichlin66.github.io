@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 3
 title: "Mimcss Reference: Activation"
+description: "Describes types and functions used to activate and deactivate style definitions."
 ---
 
 # Mimcss Reference: Activation

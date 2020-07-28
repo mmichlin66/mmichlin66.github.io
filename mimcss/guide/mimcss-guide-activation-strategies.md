@@ -2,6 +2,7 @@
 layout: mimcss-guide
 unit: 5
 title: "Mimcss Guide: Activation Strategies"
+description: "Styles can be activated and optionally deactivated depending on whether the presence of style rules is necessary throughout the application lifetime or only during certain moments."
 ---
 
 # Mimcss Guide: Activation Strategies

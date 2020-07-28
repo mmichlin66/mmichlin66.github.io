@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 2
 title: "Mimcss Reference: Rules"
+description: "Describes types and functions used to define CSS style and at-rules."
 ---
 
 # Mimcss Reference: Rules

@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 7
 title: "Mimcss Reference: Miscellaneous"
+description: "Describes miscellaneous types and functions used to set values of style properties."
 ---
 
 # Mimcss Reference: Miscellaneous

@@ -1,5 +1,7 @@
 ---
 layout: mimcss
+title: "Motivation for Mimcss"
+description: "Describes the motivation behind the Mimcss project."
 ---
 
 # Motivation for Mimcss

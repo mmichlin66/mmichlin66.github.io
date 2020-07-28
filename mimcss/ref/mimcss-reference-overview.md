@@ -2,6 +2,7 @@
 layout: mimcss-reference
 unit: 0
 title: "Mimcss Reference: Overview"
+description: "Provides links to Mimcss reference pages."
 ---
 
 # Mimcss Reference: Overview

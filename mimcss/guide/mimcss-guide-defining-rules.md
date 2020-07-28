@@ -2,6 +2,7 @@
 layout: mimcss-guide
 unit: 1
 title: "Mimcss Guide: Defining Rules"
+description: "Mimcss uses TypeScript classes to mimic a CSS stylesheets and uses the classes' properties to define CSS style and at-rules."
 ---
 
 # Mimcss Guide: Defining Rules

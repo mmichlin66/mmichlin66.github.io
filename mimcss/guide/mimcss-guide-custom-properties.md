@@ -2,6 +2,7 @@
 layout: mimcss-guide
 unit: 3
 title: "Mimcss Guide: Custom Properties"
+description: "Mimcss provides full support for custom CSS properties and allows assigning types to them to ensure type-safety."
 ---
 
 # Mimcss Guide: Custom Properties
@@ -94,7 +95,7 @@ If you just want to define a constant that can be used in the style rules, Mimcs
 
 Yes, style definition classes can contain properties that are not CSS rules. Since these classes are regular TypeScript classes, they can contain any type of properties and methods - static or instance. When Mimcss processes a style definition class (during a call to `$use` or `activate` function), it creates an instance of the class and goes over its properties. All properties that don't represent CSS rules are simply ignored by Mimcss; however, their values can be used by any rules.
 
-When creating constants you can use either static or instance properties; however, since in most cases there will be only single instance of each type definition class created, our recommendation is to use instance properties as it is easier to work with them.
+When creating constants you can use either static or instance properties; however, since in most cases there will be only single instance of each type definition class created, our recommendation is to use instance properties as they are easier to work with.
 
 Here is an example of specifying constants in a style definition class:
 
@@ -116,7 +117,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-Note that we defined the type of the `defaultColor` property. We have to do it because; otherwise, TypeScript will think that the type is `string`, which is not the type that is acceptable by the `color` style property.
+> Note that we defined the type of the `defaultColor` property. We have to do it because otherwise, TypeScript will think that the type is `string`, which is not the type that is acceptable by the `color` style property.
 
 The most significant difference between custom properties and constants is that it is possible to change the value of a custom property, thus changing styles. This is accomplished using the `setValue` method of the custom property object:
 
