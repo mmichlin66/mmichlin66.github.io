@@ -53,17 +53,17 @@ The rules that require names are assigned to the class's properties. The names o
 Note that we didn't specify the name of the class (nor of the ID, animation or custom property). This is because we will never use the actual name; instead, we will use the property to refer to the class. This is a fundamental aspect of Mimcss: names are hidden from the developers, so that the latter never have a chance of misspelling the former.
 
 ## Rules Activation
-By now we have defined our rules with a TypeScript class; however, how do we insert the rules into the DOM so that they start applying to the HTML? This process is called "activation" and is accomplished using the `$activate` function.
+By now we have defined our rules with a TypeScript class; however, how do we insert the rules into the DOM so that they start applying to the HTML? This process is called "activation" and is accomplished using the `activate` function.
 
 ```tsx
-let myStyles = css.$activate( MyStyles);
+let myStyles = css.activate( MyStyles);
 ```
 
-Notice that we passed the class object to the `$activate` function - we didn't create an instance of the class by ourselves. There are special situations in which you will want to create instances of the style definition class (see Styled Components later in this guide); however, normally you pass the class object to the `$activate` function and Mimcss creates an instance of it.
+Notice that we passed the class object to the `activate` function - we didn't create an instance of the class by ourselves. There are special situations in which you will want to create instances of the style definition class (see Styled Components later in this guide); however, normally you pass the class object to the `activate` function and Mimcss creates an instance of it.
 
 The `$ctivate` function can be invoked multiple times for the same class - Mimcss makes sure that only a single instance is created and the rules are inserted into the DOM only once.
 
-The result of the `$activate` call is two-fold: first, the rules defined in the class are inserted into the DOM, and second, the `myStyles` variable can now be used to refer to rule names. Here is how we do it in a hypothetical HTML rendering code:
+The result of the `activate` call is two-fold: first, the rules defined in the class are inserted into the DOM, and second, the `myStyles` variable can now be used to refer to rule names. Here is how we do it in a hypothetical HTML rendering code:
 
 ```tsx
 render()
@@ -74,17 +74,17 @@ render()
 }
 ```
 
-The return value of the `$activate` method is the instance of the style definition class. Properties created using one of the rule definition functions (`$class`, `$id`, etc.) implement different interfaces for different types of rules. The rules that produce names (such as class name or animation name) have the `name` property. In addition, each rule interface contains a reference to the Style Object Model rule objects such as CSSStyleRule. These can be used to manipulate styles programmatically.
+The return value of the `activate` method is the instance of the style definition class. Properties created using one of the rule definition functions (`$class`, `$id`, etc.) implement different interfaces for different types of rules. The rules that produce names (such as class name or animation name) have the `name` property. In addition, each rule interface contains a reference to the Style Object Model rule objects such as CSSStyleRule. These can be used to manipulate styles programmatically.
 
-If the `$activate` function inserts the rules into the DOM, the `$deactivate` function removes the rules from the DOM:
+If the `activate` function inserts the rules into the DOM, the `deactivate` function removes the rules from the DOM:
 
 ```tsx
-css.$deactivate( myStyles);
+css.deactivate( myStyles);
 ```
 
-The `$activate` and `$deactivate` functions use the reference counting mechanism. If you call the `$activate` function several times on the same style definition class, the styles will only be inserted once into the DOM. However, in order to remove them from the DOM, the `$deactivate` function has to be called the same number of times.
+The `activate` and `deactivate` functions use the reference counting mechanism. If you call the `activate` function several times on the same style definition class, the styles will only be inserted once into the DOM. However, in order to remove them from the DOM, the `deactivate` function has to be called the same number of times.
 
-In many cases, the rules don't need to be removed from the DOM and should stay active for the lifetime of the application. There are, however, situations when a set of CSS rules is only used by a specific component. In this case, it is desirable that the styles will be inserted into DOM only when the component is mounted. Moreover, when the component is unmounted, it is desirable to remove the rules from the DOM. In Mimcss, this can be accomplished by placing the calls to the `$activate` and `$deactivate` functions into the mounting and unmounting code respectively, for example:
+In many cases, the rules don't need to be removed from the DOM and should stay active for the lifetime of the application. There are, however, situations when a set of CSS rules is only used by a specific component. In this case, it is desirable that the styles will be inserted into DOM only when the component is mounted. Moreover, when the component is unmounted, it is desirable to remove the rules from the DOM. In Mimcss, this can be accomplished by placing the calls to the `activate` and `deactivate` functions into the mounting and unmounting code respectively, for example:
 
 ```tsx
 class MyComponent
@@ -93,12 +93,12 @@ class MyComponent
 
     willMount()
     {
-        this.styles = css.$activate( MyStyles);
+        this.styles = css.activate( MyStyles);
     }
 
     willUnmount()
     {
-         css.$deactivate( this.styles);
+         css.deactivate( this.styles);
     }
 
     render()
@@ -114,7 +114,7 @@ What if multiple instances of the component are used at the same time? No proble
 
 There are more sophisticated activation strategies possible and they are discussed in [Activation Strategies](mimcss-guide-activation-strategies.html) unit.
 
-Activating and deactivating style definitions is a DOM writing activity. Without the proper care writing to the DOM can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling*. The `$activate` and `$deactivate` functions have an optional parameter `schedulerType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the `setDefaultSchedulerType` function.
+Activating and deactivating style definitions is a DOM writing activity. Without the proper care writing to the DOM can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling*. The `activate` and `deactivate` functions have an optional parameter `schedulerType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the `setDefaultSchedulerType` function.
 
 Mimcss supports several built-in scheduler types and allows the library users to create their own schedulers. For more information see the [Activation Scheduling](mimcss-guide-activation-scheduling.html) unit.
 

@@ -44,8 +44,8 @@ export class OtherStyles extends css.StyleDefinition
 import {MyStyles} from "./MyStyles"
 import {OtherStyles} from "./OtherStyles"
 
-let myStyles = css.$activate(MyStyles);
-let otherStyles = css.$activate(OtherStyles);
+let myStyles = css.activate(MyStyles);
+let otherStyles = css.activate(OtherStyles);
 
 render()
 {
@@ -100,7 +100,7 @@ class MyStyles extends css.StyleDefinition
     )
 }
 
-let myStyles = css.$activate(MyStyles);
+let myStyles = css.activate(MyStyles);
 
 render()
 {

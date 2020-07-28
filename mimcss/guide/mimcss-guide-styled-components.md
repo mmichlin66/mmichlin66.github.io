@@ -19,19 +19,19 @@ CSS rules are by definition global. As long as a rule exists as part of a docume
 
 There are many attempts to try to minimize the possibility of conflicts between CSS rules and they all revolve around creating unique names for those CSS entities that have names - mostly classes, but also IDs, animations and custom CSS properties. That's the idea behind styled components: each instance of the component comes with rules whose names are auto-generated and thus cannot stomp on each other. This is especially important for components that create their styles based on parameters passed on to them from outside - e.g. React properties. Such styles are called "local" - because only a single instance of the component has access to the names used in these style rules.
 
-So far in this guide we have only seen global styles in Mimcss. A Style Definition class was instantiated only once - no matter how many times the `$activate` (or `$use`) function was called for it. This unit describes how Mimcss can create "local" styles and thus support styled components.
+So far in this guide we have only seen global styles in Mimcss. A Style Definition class was instantiated only once - no matter how many times the `activate` (or `$use`) function was called for it. This unit describes how Mimcss can create "local" styles and thus support styled components.
 
 ## Style Definition Instance
-A style definition class is a regular TypeScript class and can have multiple instances. When we call the `$activate` or `$use` function and pass the class to it, Mimcss first looks whether there is already an instance of this class. If not, the instance is created; if yes, the existing instance is used. The names for the classes, IDs and other named entities are generated when the instance is created - that is, when the `$activate` function is called for the first time for the style definition class. The instance remains associated with the class even after we call the `$deactivate` function and the rules are removed from the DOM.
+A style definition class is a regular TypeScript class and can have multiple instances. When we call the `activate` or `$use` function and pass the class to it, Mimcss first looks whether there is already an instance of this class. If not, the instance is created; if yes, the existing instance is used. The names for the classes, IDs and other named entities are generated when the instance is created - that is, when the `activate` function is called for the first time for the style definition class. The instance remains associated with the class even after we call the `deactivate` function and the rules are removed from the DOM.
 
-Let's now look at the definition of the `$activate` and `$use` functions:
+Let's now look at the definition of the `activate` and `$use` functions:
 
 ```tsx
-export function $activate<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
+export function activate<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
 export function $use<T extends StyleDefinition>( instanceOrClass: T | IStyleDefinitionClass<T>): T | null
 ```
 
-We see that the function parameter can be not only a style definition class (that's what we have been using so far) but also an instance of a style definition class. That means that we can create an instance of the style definition class by ourselves and pass it on to the `$activate` function. When Mimcss gets a newly created instance of a style definition class it will create completely new CSS rules with new auto-generated names for its named entities. That's the key for creating styled components.
+We see that the function parameter can be not only a style definition class (that's what we have been using so far) but also an instance of a style definition class. That means that we can create an instance of the style definition class by ourselves and pass it on to the `activate` function. When Mimcss gets a newly created instance of a style definition class it will create completely new CSS rules with new auto-generated names for its named entities. That's the key for creating styled components.
 
 A styled component in Mimcss terminology is a component that creates its own instance of a style definition class. This instance is usually activated when the component is mounted and deactivated when the component is unmounted. Two instances of the same component use the same style definition class; however, they create two different instances of this class and have their style rules completely isolated from each other.
 
@@ -74,13 +74,13 @@ export class ColorBox extends Component
         super(props);
 
         // create style definition instance with the color from the props and activate it
-        this.styles = css.$activate( new ColorBoxStyles( this.props.bgColor));
+        this.styles = css.activate( new ColorBoxStyles( this.props.bgColor));
     }
 
     componentWillUnmount()
     {
         // deactivate the style definition instance
-        css.$deactivate(this.styles);
+        css.deactivate(this.styles);
     }
 
     render()

@@ -21,7 +21,7 @@ class Derived extends Base
     button = css.$class({ padding: 8 })
 }
 
-let derived = css.$activate(Base);
+let derived = css.activate(Base);
 ```
 
 Nothing surprising will happen when we activate the `Derived` class: the `derived` variable will provide access to both the `textInput` and the `button` CSS classes. For each of these properties Mimcss will generate a unique CSS class name. If you don't use the **Unique** mode for name generation, the names of the classes will be `Base_textInput` and `Derived_button`.
@@ -39,7 +39,7 @@ class Derived extends Base
     textInput = css.$class({ padding: 8 })
 }
 
-let derived = css.$activate(Derived);
+let derived = css.activate(Derived);
 ```
 
 There will be a single name generated for the `derived.textInput.name` variable. The name will be `Base_textInput`; however, the style will be `{ padding: 8 }`. That is, the name is generated based on the class where the rule is defined, while the style is taken from the class that has the override.
@@ -52,7 +52,7 @@ class AnotherDerived extends Base
     textInput = css.$class({ padding: 16 })
 }
 
-let anotherDerived = css.$activate(AnotherDerived);
+let anotherDerived = css.activate(AnotherDerived);
 ```
 
 As is probably expected, the `anotherDerived.textInput.name` will have the name `Base_textInput` and the style `{ padding: 16 }`. Thus no matter how many different derived classes we may have, they will all use the same name for the inherited properties but different styles assigned to them. This is actually in full conformance with Object-Oriented Programming paradigm and this allows us to achieve what we call "style virtualization".
@@ -100,7 +100,7 @@ class BeigeTheme extends Theme
     label = css.$class({ color: Colors.darkorange})
 }
 
-theme = css.$activate( BlueTheme);
+theme = css.activate( BlueTheme);
 ```
 
 As our "interface", we defined an abstract style definition class `Theme`. It has three abstract properties: two for custom CSS properties and one for a CSS class. Note that we didn't specify any styles for them. We are using them only to define types and names. We also created a non-abstract rule that applies for all `<input>` tags, which uses our abstract custom CSS properties to specify background and foreground colors.

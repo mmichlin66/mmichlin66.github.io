@@ -92,7 +92,7 @@ As it has already been mentioned above, custom CSS properties provide richer fun
 
 If you just want to define a constant that can be used in the style rules, Mimcss, by virtue of being a TypeScript code, provides multiple ways to do so. You can use any means the language allows: enumerations, static class properties, simple variables, etc. In order to keep the things together, however, our recommendation is to use properties of style definition class.
 
-Yes, style definition classes can contain properties that are not CSS rules. Since these classes are regular TypeScript classes, they can contain any type of properties and methods - static or instance. When Mimcss processes a style definition class (during a call to `$use` or `$activate` function), it creates an instance of the class and goes over its properties. All properties that don't represent CSS rules are simply ignored by Mimcss; however, their values can be used by any rules.
+Yes, style definition classes can contain properties that are not CSS rules. Since these classes are regular TypeScript classes, they can contain any type of properties and methods - static or instance. When Mimcss processes a style definition class (during a call to `$use` or `activate` function), it creates an instance of the class and goes over its properties. All properties that don't represent CSS rules are simply ignored by Mimcss; however, their values can be used by any rules.
 
 When creating constants you can use either static or instance properties; however, since in most cases there will be only single instance of each type definition class created, our recommendation is to use instance properties as it is easier to work with them.
 

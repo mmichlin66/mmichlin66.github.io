@@ -60,22 +60,22 @@ This page describes types and functions that are used to create Style Definition
 ```tsx
 export abstract class StyleDefinition<P extends StyleDefinition = any, O extends StyleDefinition = any>
 {
-	public constructor( parent?: P);
+    public constructor( parent?: P);
 
-	/**
-	 * Refers to the instance of the style definition class which is the parnt of this style
+    /**
+     * Refers to the instance of the style definition class which is the parnt of this style
      * definition object in the chain of style definition classes. Through this member, all rules
      * and other members defined in the parent definition class can be accessed.
-	 */
-	public get $parent(): P | undefined;
+     */
+    public get $parent(): P | undefined;
 
-	/**
-	 * Refers to the instance of the style definition class which is the owner of
-	 * this style definition object. The owner is the top-level class in the chain of style
-	 * definition classes. Through this member, all rules and other members defined in the owner
-	 * definition class can be accessed.
-	 */
-	public get $owner(): O | undefined;
+    /**
+     * Refers to the instance of the style definition class which is the owner of
+     * this style definition object. The owner is the top-level class in the chain of style
+     * definition classes. Through this member, all rules and other members defined in the owner
+     * definition class can be accessed.
+     */
+    public get $owner(): O | undefined;
 }
 ```
 
@@ -108,6 +108,8 @@ class MyStyles extends css.StyleDefinition
 
 **Note**: The property defined as an abstract rule is of the `IStyleRule` type; however, the `cssRule` property of this type will be undefined as no real CSS rule objects are created for abstract rules.
 
+**See Also:** [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IStyleRule](#istylerule-interface)
+
 #### $class() Function
 
 ```tsx
@@ -126,13 +128,15 @@ class MyStyles extends StyleDefinition
     red = css.$class({ color: "red" })
 }
 
-let myStyles = css.$activate( MyStyles);
+let myStyles = css.activate( MyStyles);
 
 render()
 {
     return <p className={myStyles.red.name}>This paragraph is red.</p>
 }
 ```
+
+**See Also:** [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IClassRule](#iclassrule-interface)
 
 #### $id() Function
 
@@ -152,13 +156,15 @@ class MyStyles extends StyleDefinition
     importantElement = css.$id({ color: "red" })
 }
 
-let myStyles = css.$activate( MyStyles);
+let myStyles = css.activate( MyStyles);
 
 render()
 {
     return <span id={myStyles.importantElement.name}>This is an important message.</p>
 }
 ```
+
+**See Also:** [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IIDRule](#iidrule-interface)
 
 #### $style() Function
 
@@ -187,6 +193,8 @@ class MyStyles extends StyleDefinition
 }
 ```
 
+**See Also:** [CssSelector](mimcss-reference-stylesets.html#cssselector-type), [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IStyleRule](#istylerule-interface)
+
 #### $keyframes() Function
 
 ```tsx
@@ -195,7 +203,7 @@ export function $keyframes( frames?: AnimationFrame[], nameOverride?: string | I
 
 The `$keyframes` function creates a new `@keyframes` CSS rule. The animation name will be created when the rule is processed as part of the style definition class. The name can be also overridden by providing either an explicit name or another animation rule. The function can be called without parameters just to "declare" the animation. Such animation can be later used either in conditional grouping rules or in derived style definition classes.
 
-The `$keyframes` function accepts an array of `AnimationRule` object. Each `AnimationRule` object defines a *waypoint* and a styleset. Waypoints are specified either as keywords `"from"` and `"to"` or as a number representing percentage.
+The `$keyframes` function accepts an array of `AnimationFrame` objects, each defining a *waypoint* and a styleset. Waypoints are specified either as keywords `"from"` and `"to"` or as a number representing percentage.
 
 **Example.** The following example defines a simple animation rule.
 
@@ -209,6 +217,8 @@ class MyStyles extends StyleDefinition
 	]);
 }
 ```
+
+**See Also:** [AnimationFrame](#animationframe-type), [IAnimationRule](#ianimationrule-interface)
 
 #### $page() Function
 
@@ -226,6 +236,8 @@ class MyStyles extends StyleDefinition
 	firstPage = css.$page( ":first", { margin: ["2in", "1in"] })
 }
 ```
+
+**See Also:** [PagePseudoClass](mimcss-reference-stylesets.html#pagepseudoclass-type), [Styleset](mimcss-reference-stylesets.html#styleset-type), [IPageRule](#ipagerule-interface)
 
 #### $import() Function
 
@@ -247,6 +259,8 @@ class MyStyles extends StyleDefinition
 }
 ```
 
+**See Also:** [IImportRule](#iimportrule-interface)
+
 #### $namespace() Function
 
 ```tsx
@@ -266,6 +280,8 @@ class MyStyles extends StyleDefinition
     ]
 }
 ```
+
+**See Also:** [INamespaceRule](#inamespacerule-interface)
 
 #### $fontface() Function
 
@@ -289,6 +305,8 @@ class MyStyles extends StyleDefinition
 	});
 }
 ```
+
+**See Also:** [IFontFaceRule](#ifontfacerule-interface)
 
 #### $supports() Function
 
@@ -320,6 +338,8 @@ class MyStyles extends StyleDefinition
 
 **Note**: The `@supports` CSS rule will be created only if the supports query is true; that is, the browser supports the features and syntax specified in the query. Otherwise; the property defined using the `$supports` function will have its `cssRule` property undefined.
 
+**See Also:** [ISupportsRule](#isupportsrule-interface)
+
 #### $media() Function
 
 ```tsx
@@ -347,6 +367,8 @@ class MyStyles extends StyleDefinition
 }
 ```
 
+**See Also:** [IMediaRule](#imediarule-interface)
+
 #### $var() Function
 
 ```tsx
@@ -370,6 +392,8 @@ class MyStyles extends StyleDefinition
     p = css.$style( "p", { color: this.defaultColor })
 }
 ```
+
+**See Also:** [IVarRule](#ivarrule-interface)
 
 #### $counter() Function
 
@@ -401,6 +425,8 @@ class MyStyles extends StyleDefinition
     })
 }
 ```
+
+**See Also:** [ICounterRule](#icounterrule-interface)
 
 #### $gridline() Function
 
@@ -449,6 +475,8 @@ class MyStyles extends StyleDefinition
 }
 ```
 
+**See Also:** [IGridLineRule](#igridlinerule-interface)
+
 #### $gridarea() Function
 
 ```tsx
@@ -482,6 +510,8 @@ class MyStyles extends StyleDefinition
 }
 ```
 
+**See Also:** [IGridAreaRule](#igridarearule-interface)
+
 #### $use() Function
 
 ```tsx
@@ -490,7 +520,7 @@ export function $use<T extends StyleDefinition>( instanceOrClass: T | IStyleDefi
 
 The `$use` function returns a processed instance of the style definition class, whose properties can be accessed by the callers. The input parameter can be one of the following three things:
 
-1. A style definition class. The `$use` function checks whether there is already an instance of this class associated with the class. This condition is true if either the `$use` or `$activate` function has already been called for this style definition class. If this is the case, the associated instance is returned; otherwise, a new instance is created and is associated with the class. This ensures, that a single instance is ever associated with the style definition class and that a single set of CSS rules is created for the style definition class. In other words, the class is *shared* between the callers.
+1. A style definition class. The `$use` function checks whether there is already an instance of this class associated with the class. This condition is true if either the `$use` or `activate` function has already been called for this style definition class. If this is the case, the associated instance is returned; otherwise, a new instance is created and is associated with the class. This ensures, that a single instance is ever associated with the style definition class and that a single set of CSS rules is created for the style definition class. In other words, the class is *shared* between the callers.
 1. An unprocessed instance of a style definition class. The `$use` function processes the instance and creates unique names for the named entities. This use case is suitable for so called *styled components*, where all component instances use the same style definition class but create separate instances of it for each component instance. Styled components can programmatically change the style properties and having separate instances of the style definition class isolates different instances of the component from each other.
 1. A processed instance of a style definition class. The `$use` function simply returns this instance.
 
@@ -555,7 +585,7 @@ class MyStyles extends StyleDefinition
 
 // A single <style> element  will be created that will include rules from all
 // the embedded style definition classes.
-let myStyles = css.$activate( MyStyles);
+let myStyles = css.activate( MyStyles);
 ```
 
 ### Helper Functions
@@ -579,7 +609,7 @@ class MyStyles extends StyleDefinition
 if (optimize)
     css.enableShortNames( true, "abc");
 
-this.myStyles = css.$activate( MyStyles);
+this.myStyles = css.activate( MyStyles);
 
 render()
 {
@@ -610,10 +640,12 @@ class MyStyles extends StyleDefinition
 }
 ```
 
+**See Also:** [ISelectorProxy](#iselectorproxy-interface)
+
 #### classes() Function
 
 ```tsx
-export function classes( ...classes: (INamedStyleRule | Extended<string>)[]): string;
+export function classes( ...classes: (IClassRule | Extended<string>)[]): string;
 ```
 
 The `classes` function concatenates the names of the given classes into a single string that can be assigned to a `class` property of an HTML classes.
@@ -628,13 +660,15 @@ class MyStyles extends StyleDefinition
     bold = css.$class({ fontWeight: 700 })
 }
 
-this.myStyles = css.$activate( MyStyles);
+this.myStyles = css.activate( MyStyles);
 
 render()
 {
     return <p className={css.classes( myStyles.red, myStyles.bold)}>This is a bold, red paragraph</p>;
 }
 ```
+
+**See Also:** [IClassRule](#iclassrule-interface)
 
 ### Rule Types
 
@@ -726,7 +760,7 @@ class MyStyles extends css.StyleDefinition
 }
 
 // Activate rules.
-let myStyles = css.$activate( MyStyles);
+let myStyles = css.activate( MyStyles);
 
 // Change the value of the `opacity` property in the `:hover` dependent rule.
 myStyles.class1.dependentRules[":hover"].setProp( "opacity", 0.6);
@@ -753,6 +787,8 @@ export interface INamedStyleRule extends IStyleRule, INamedEntity
 
 The INamedStyleRule interface combines IStyleRule and INamedEntity interfaces. This is used for class and ID rules.
 
+**See Also:** [$IClassRule](#iclassrule-interface), [$IIDRule](#iidrule-interface)
+
 #### IClassRule Interface
 
 ```tsx
@@ -764,6 +800,8 @@ export interface IClassRule extends INamedStyleRule
 
 The IClassRule interface represents a style rule where the selector is a single class name. The `cssClassName` property is the unique class name prefixed with the `"."` character.
 
+**See Also:** [$class()](#class-function)
+
 #### IIDRule Interface
 
 ```tsx
@@ -774,6 +812,8 @@ export interface IIDRule extends INamedStyleRule
 ```
 
 The IIDRule interface represents a style rule where the selector is a single element ID. The `cssIDsName` property is the unique ID name prefixed with the `"#"` character.
+
+**See Also:** [$id()](#id-function)
 
 #### IAnimationRule Interface
 
@@ -789,6 +829,8 @@ export interface IAnimationRule extends IRule, INamedEntity
 ```
 
 The `IAnimationRule` interface represents the `@keyframes` CSS rule. Objects implementing this interface are returned from the `$keyframes` function.
+
+**See Also:** [$keyframes()](#keyframes-function)
 
 ##### IAnimationFrameRule Interface
 
@@ -844,6 +886,8 @@ export interface IPageRule extends IStyleRule
 
 The `IPageRule` interface represents the `@page` CSS rule. Objects implementing this interface are returned from the `$page` function.
 
+**See Also:** [$page()](#page-function)
+
 #### IImportRule Interface
 
 ```tsx
@@ -855,6 +899,8 @@ export interface IImportRule extends IRule
 ```
 
 The `IImportRule` interface represents the CSS `@import` rule. Objects implementing this interface are returned from the `$import` function.
+
+**See Also:** [$import()](#import-function)
 
 #### INamespaceRule Interface
 
@@ -874,6 +920,8 @@ export interface INamespaceRule extends IRule
 
 The `INamespaceRule` interface represents the CSS `@namespace` rule. Objects implementing this interface are returned from the `$namespace` function.
 
+**See Also:** [$namespace()](#namespace-function)
+
 #### IFontFaceRule Interface
 
 ```tsx
@@ -885,6 +933,8 @@ export interface IFontFaceRule extends IRule
 ```
 
 The `IFontFaceRule` interface represents the CSS `@font-face` rule. Objects implementing this interface are returned from the `$fontface` function.
+
+**See Also:** [$fontface()](#fontface-function)
 
 #### IGroupRule Interface
 
@@ -913,6 +963,8 @@ export interface ISupportsRule<T extends StyleDefinition = any> extends IGroupRu
 
 The `ISupportsRule` interface represents the `@supports` CSS rule. Objects implementing this interface are returned from the `$supports` function.
 
+**See Also:** [$supports()](#supports-function)
+
 #### IMediaRule Interface
 
 ```tsx
@@ -924,6 +976,8 @@ export interface IMediaRule<T extends StyleDefinition = any> extends IGroupRule<
 ```
 
 The `IMediaRule` interface represents the `@media` CSS rule. Objects implementing this interface are returned from the `$media` function.
+
+**See Also:** [$media()](#media-function)
 
 #### IVarRule Interface
 
@@ -939,6 +993,8 @@ The `IVarRule` interface represents a CSS custom property definition. Objects im
 
 The `template` property specifies the name of the property of the `ICssVarTemplate` interface and determines the type accepted by the custom property.
 
+**See Also:** [$var()](#var-function)
+
 #### ICounterRule Interface
 
 ```tsx
@@ -950,6 +1006,8 @@ export interface ICounterRule extends INamedEntity
 ```
 
 The `ICounterRule` interface represents a named counter definition. Use this rule to create counter objects that can be used in counter-increment, counter-reset and counter-set style properties. No CSS rule is created for counters - they are needed only to provide type-safe counter definitions. Objects implementing this interface are returned from the `$counter` function.
+
+**See Also:** [$counter()](#counter-function)
 
 #### IGridLineRule Interface
 
@@ -973,6 +1031,8 @@ export interface IGridLineRule extends INamedEntity
 
 The `IGridLineRule` interface represents a definition of a named grid line. Objects implementing this interface are returned from the `$gridline` function or created when a grid area is defined using the `$gridarea` function.
 
+**See Also:** [$gridline()](#gridline-function)
+
 #### IGridAreaRule Interface
 
 ```tsx
@@ -987,4 +1047,6 @@ export interface IGridAreaRule extends INamedEntity
 ```
 
 The `IGridAreaRule` interface represents a definition of a named grid are. Grid area rule defines two line rules: for its start and end lines. Objects implementing this interface are returned from the `$gridarea` function.
+
+**See Also:** [$gridarea()](#gridarea-function)
 

@@ -324,7 +324,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-The `$use` function returns the same object that is returned by the `$activate` function. The difference between the `$use` and `$activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
+The `$use` function returns the same object that is returned by the `activate` function. The difference between the `$use` and `activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
 
 It is possible to call the `$use` function outside of any style definition class - it can be assigned to a variable and then used wherever this variable is visible. There is a significant advantage, however, of calling the `$use` function from inside a style definition class: when the style definition class is activated and deactivated, all the referenced classes will be activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
 

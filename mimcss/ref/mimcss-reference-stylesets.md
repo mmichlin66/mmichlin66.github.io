@@ -25,7 +25,7 @@ This page describes the different types of stylesets Mimcss uses.
   - [VarValueType Type](#varvaluetype-type)
   - [VarTemplates Type](#vartemplates-type)
 - [CombinedStyleset Type](#combinedstyleset-type)
-  - [SelectorProxy Type](#selectorproxy-type)
+  - [ISelectorProxy Interface](#iselectorproxy-interface)
   - [SelectorItem Type](#selectoritem-type)
   - [CssSelector Type](#cssselector-type)
   - [PagePseudoClass Type](#pagepseudoclass-type)
