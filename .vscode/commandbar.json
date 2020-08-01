@@ -13,14 +13,6 @@
             "priority": 1
         },
         {
-            "text": "github Build Refs",
-            "color": "pink",
-            "commandType": "exec",
-            "command": "node _tools/buildRefs.js",
-            "alignment": "left",
-            "priority": 1
-        },
-        {
             "text": "github Copy Libs",
             "color": "white",
             "commandType": "exec",
@@ -29,10 +21,18 @@
             "priority": 1
         },
         {
+            "text": "github Build Refs",
+            "color": "pink",
+            "commandType": "exec",
+            "command": "xnode _tools/buildRefs.js",
+            "alignment": "left",
+            "priority": 1
+        },
+        {
             "text": "github Copy Refs",
             "color": "pink",
             "commandType": "exec",
-            "command": "node _tools/copyRefs.js",
+            "command": "xnode _tools/copyRefs.js",
             "alignment": "left",
             "priority": 1
         }

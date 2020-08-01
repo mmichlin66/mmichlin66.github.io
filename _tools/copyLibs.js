@@ -18,10 +18,16 @@ exec( "xcopy ..\\..\\mimcl\\lib\\mimcl.dev.js   scripts\\ /i /y /d");
 
 console.log( "Copy mimurl-demo to " + p.join( ps.cwd(), "mimurl"));
 exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.js        mimurl\\ /i /y /d");
-exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
+// exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
 
 console.log( "Copy mimcss-demo to " + p.join( ps.cwd(), "mimcss/demo"));
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\*        mimcss\\demo\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\*.ttf            mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\editor.worker.js mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\ts.worker.js     mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss-demo.js   mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\examples\\*      mimcss\\demo\\examples\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimbl\\*         mimcss\\demo\\mimbl\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss\\*        mimcss\\demo\\mimcss\\ /s /i /y /d");
 
 console.log( "copyLibs.js script has finished");
 
