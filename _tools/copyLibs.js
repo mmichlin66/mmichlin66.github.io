@@ -20,6 +20,9 @@ console.log( "Copy mimurl-demo to " + p.join( ps.cwd(), "mimurl"));
 exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.js        mimurl\\ /i /y /d");
 exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
 
+console.log( "Copy mimcss-demo to " + p.join( ps.cwd(), "mimcss/demo"));
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\*        mimcss\\demo\\ /s /i /y /d");
+
 console.log( "copyLibs.js script has finished");
 
 

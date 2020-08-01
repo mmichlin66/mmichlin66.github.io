@@ -7,6 +7,7 @@ buildLib( "mimbl");
 buildLib( "mimurl");
 buildLib( "mimcl");
 buildLib( "mimurl-demo");
+buildLib( "mimcss-demo");
 
 console.log( "buildLibs.js script has finished");
 
