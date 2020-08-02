@@ -1,4 +1,4 @@
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule } from "../rules/RuleTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule } from "../rules/RuleTypes";
 import { Extended } from "../styles/UtilTypes";
 import { SupportsQuery, Styleset, VarTemplateName, VarValueType } from "../styles/StyleTypes";
 import { CssSelector, PagePseudoClass } from "../styles/SelectorTypes";
@@ -16,7 +16,13 @@ export declare function $abstract(style: CombinedStyleset): IStyleRule;
  * the class. Such class can be later used either in conditional grouping rules or in derived
  * style definition classes.
  */
-export declare function $class(style?: CombinedStyleset, nameOverride?: string | IClassRule): IClassRule;
+export declare function $class(style?: CombinedStyleset, nameOverride?: string | IClassRule | IClassNameRule): IClassRule;
+/**
+ * Creates new class name rule, which combines one or more other class names. This creates a
+ * "synonym" that is easier to apply to an element's class attribute than an array of two or
+ * more clas rules.
+ */
+export declare function $classname(...classes: (IClassRule | IClassNameRule | string)[]): IClassNameRule;
 /**
  * Creates new ID rule. The ID name will be created when the rule is processed as part of
  * the style definition class. The name can be also overridden by providing either an explicit

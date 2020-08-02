@@ -1,5 +1,5 @@
 import { IStringProxy, IGenericProxy } from "./UtilTypes";
-import { IStyleRule } from "../rules/RuleTypes";
+import { IStyleRule, IClassNameRule } from "../rules/RuleTypes";
 /**
  * The ISelectorProxy function returns a CSS selector string. This type is returned from the
  * [[selector]] function.
@@ -7,7 +7,7 @@ import { IStyleRule } from "../rules/RuleTypes";
 export interface ISelectorProxy extends IGenericProxy<"selector"> {
 }
 /** Type for a single selector token that can be used as an argument to the [[selector]] function */
-export declare type SelectorItem = string | IStyleRule | IStringProxy | ISelectorProxy;
+export declare type SelectorItem = string | IStyleRule | IClassNameRule | IStringProxy | ISelectorProxy;
 /** Type for a selector */
 export declare type CssSelector = SelectorItem | SelectorItem[];
 /** Represents print-related pseudo classes - those that can be specified with the @page CSS rule */

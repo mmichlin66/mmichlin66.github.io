@@ -2,9 +2,7 @@
 ---
 
 * {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	box-sizing: border-box;
-	font-size: 12px;
 	position: relative;
 }
 
@@ -22,6 +20,8 @@ html {
 body {
 	height: 100%;
 	margin: 0px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 12px;
 }
 
 pre, code, code > span {
@@ -224,7 +224,7 @@ a.postref {
 }
 
 .menuitem > .menuitemContent {
-	font-size: 14px;
+	font-size: 16px;
 	color: blue;
 }
 

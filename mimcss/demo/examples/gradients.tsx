@@ -2,8 +2,7 @@
 import * as css from "mimcss"
 
 
-
-class SharedStyles extends css.StyleDefinition
+export class CommonStyles extends css.StyleDefinition
 {
 	init = [
 		css.$style( "*", {
@@ -45,24 +44,21 @@ class SharedStyles extends css.StyleDefinition
 	hbox = css.$class({
 		display: "flex", flexDirection: "row", alignItems: "center",
 		"&>": [
-			["& > *", { flex: [0, 0, "auto"] }],
+			["*", { flex: [0, 0, "auto"] }],
 			[this.elastic, { flex: "1 1 0", overflow: "auto" }],
 		],
 		"&": [
 			[css.selector`&${this.spacing} > *`, { marginInlineStart: this.defaultInlineGap, marginInlineEnd: this.defaultInlineGap }],
 		]
 	})
-
-
 }
 
+// activate common styles
+let commonStyles = css.activate( CommonStyles);
 
 
-let sharedStyles = css.activate( SharedStyles);
 
-
-
-class MyStyles extends css.StyleDefinition
+class GradientStyles extends css.StyleDefinition
 {
 	linearGradient = css.$class({
 		width: 200,
@@ -86,9 +82,8 @@ class MyStyles extends css.StyleDefinition
 	})
 }
 
-
-
-let myStyles = css.activate( MyStyles);
+// activate our styles
+let styles = css.activate( GradientStyles);
 
 
 
@@ -96,15 +91,19 @@ class MainForm extends mim.Component
 {
 	public render()
 	{
-		return <div class={[sharedStyles.vbox, sharedStyles.spacing]}>
-			<div class={[sharedStyles.hbox, sharedStyles.spacing]}>
-				<div class={myStyles.linearGradient} />
-				<div class={myStyles.radialGradient} />
-				<div class={myStyles.conic} />
+		return <div class={[commonStyles.vbox, commonStyles.spacing]}>
+			<div class={[commonStyles.hbox, commonStyles.spacing]}>
+				<div class={styles.linearGradient} />
+				<div class={styles.radialGradient} />
+				<div class={styles.conic} />
 			</div>
 		</div>
 	}
 }
 
+
+
+// mount our form under the body element.
+mim.mount( new MainForm());
 
 

@@ -78,6 +78,7 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * from it.
      */
     willMount?(): void;
+    didMount?(): void;
     /**
      * Notifies that the component's content is going to be removed from the DOM tree. After
      * this method returns the component is destroyed.
@@ -537,7 +538,7 @@ export declare type EventPropType<T extends Event> = EventFuncType<T> | EventFun
 /**
  * Type for defining the class property of HTML elements
  */
-export declare type ClassPropType = string | css.IClassRule | (string | css.IClassRule)[];
+export declare type ClassPropType = string | css.IClassRule | css.IClassNameRule | (string | css.IClassRule | css.IClassNameRule)[];
 /**
  * Type for defining the id property of HTML elements
  */
