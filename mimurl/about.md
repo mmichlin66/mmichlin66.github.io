@@ -12,7 +12,7 @@ Mimurl library allows defining URL patterns and matching actual URLs against the
 `http://www.example.com:8080/departments/finance/payroll` | `{ prot: "http", port: 8080, dep: "finance" }`
 `https://www.example.com/departments/hr` | `{ prot: "https", dep: "hr" }`
 
-To play with Mimurl pattern parsing and URL matching capabilities [please visit here](mimurlDemo.html). API reference of the Mimurl library is available [here](mimurlReference.html).
+To play with Mimurl pattern parsing and URL matching capabilities [please visit here](playground.html). API reference of the Mimurl library is available [here](reference.html).
 
 
 ## Installation
@@ -148,7 +148,7 @@ Field definition takes the following form:
 * `{ratio%f=3.5}` - the segments string must be converted to a real number value, which becomes the value of the `ratio` field. If the segment cannot be converted to a real number, the field receives the default value of 3.5.
 
 ## Pattern Examples
-This section provides several examples of URL pattern and actual URLs that match or don't match the patterns. Also visit the Web page [Mimurl Demo](https://mmichlin66.github.io/mimurl/mimurlDemo.html) where you can define, parse and match your own URL patterns and actual URLs.
+This section provides several examples of URL pattern and actual URLs that match or don't match the patterns. Also visit the Web page [Mimurl Demo](https://mmichlin66.github.io/mimurl/playground.html) where you can define, parse and match your own URL patterns and actual URLs.
 
 ### Example 1
 ```
