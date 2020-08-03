@@ -49,7 +49,7 @@ In most cases, developers using Mimcss don't directly use the types described in
 
 ## ICssStyleset Interface
 
-The `ICssStyleset` interface is the basic interface that defines names and types of the CSS style properties. Each property has its own type, which are described in the [Style Properties](mimcss-reference-style-properties.html) document. We don't list its properties here because there is a lot of them. You can find the interface defined in the file `StyleTypes.d.ts`, which is included with the Mimcss NPM package.
+The `ICssStyleset` interface is the basic interface that defines names and types of the CSS style properties. Each property has its own type, which are described in the [Style Properties](style-properties.html) document. We don't list its properties here because there is a lot of them. You can find the interface defined in the file `StyleTypes.d.ts`, which is included with the Mimcss NPM package.
 
 ## ExtendedStyleset Type
 

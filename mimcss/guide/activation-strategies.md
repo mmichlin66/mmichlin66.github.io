@@ -60,12 +60,12 @@ In all the other methods discussed so far we pass the style definition class to 
 
 Styled component approach is suitable for complex but reusable widgets, which may leverage direct style manipulation to change their layout or visual effects.
 
-Styled components provide reach and flexible functionality and they are discussed in details in the [Styled Components](mimcss-guide-styled-components.html) unit.
+Styled components provide reach and flexible functionality and they are discussed in details in the [Styled Components](styled-components.html) unit.
 
 # DOM Writing
 Activating and deactivating style definitions is a DOM writing activity. Without the proper care writing to the DOM can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling*. The `activate` and `deactivate` functions have an optional parameter `schedulerType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the `setDefaultSchedulerType` function.
 
-Mimcss supports several built-in scheduler types and allows the library users to create their own schedulers. For more information see the [Activation Scheduling](mimcss-guide-activation-scheduling.html) unit.
+Mimcss supports several built-in scheduler types and allows the library users to create their own schedulers. For more information see the [Activation Scheduling](activation-scheduling.html) unit.
 
 
 

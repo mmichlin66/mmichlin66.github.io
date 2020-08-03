@@ -109,7 +109,7 @@ class MyStyles extends css.StyleDefinition
 
 **Note**: The property defined as an abstract rule is of the `IStyleRule` type; however, the `cssRule` property of this type will be undefined as no real CSS rule objects are created for abstract rules.
 
-**See Also:** [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IStyleRule](#istylerule-interface)
+**See Also:** [CombinedStyleset](stylesets.html#combinedstyleset-type), [IStyleRule](#istylerule-interface)
 
 #### $class() Function
 
@@ -137,7 +137,7 @@ render()
 }
 ```
 
-**See Also:** [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IClassRule](#iclassrule-interface)
+**See Also:** [CombinedStyleset](stylesets.html#combinedstyleset-type), [IClassRule](#iclassrule-interface)
 
 #### $id() Function
 
@@ -165,7 +165,7 @@ render()
 }
 ```
 
-**See Also:** [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IIDRule](#iidrule-interface)
+**See Also:** [CombinedStyleset](stylesets.html#combinedstyleset-type), [IIDRule](#iidrule-interface)
 
 #### $style() Function
 
@@ -194,7 +194,7 @@ class MyStyles extends StyleDefinition
 }
 ```
 
-**See Also:** [CssSelector](mimcss-reference-stylesets.html#cssselector-type), [CombinedStyleset](mimcss-reference-stylesets.html#combinedstyleset-type), [IStyleRule](#istylerule-interface)
+**See Also:** [CssSelector](stylesets.html#cssselector-type), [CombinedStyleset](stylesets.html#combinedstyleset-type), [IStyleRule](#istylerule-interface)
 
 #### $keyframes() Function
 
@@ -238,7 +238,7 @@ class MyStyles extends StyleDefinition
 }
 ```
 
-**See Also:** [PagePseudoClass](mimcss-reference-stylesets.html#pagepseudoclass-type), [Styleset](mimcss-reference-stylesets.html#styleset-type), [IPageRule](#ipagerule-interface)
+**See Also:** [PagePseudoClass](stylesets.html#pagepseudoclass-type), [Styleset](stylesets.html#styleset-type), [IPageRule](#ipagerule-interface)
 
 #### $import() Function
 
@@ -746,7 +746,7 @@ export type DependentRules =
     { [K in keyof IParameterizedPseudoEntity]?: IStyleRule[] };
 ```
 
-The types and interfaces used in the definition of the `DependentRules` type are discussed in the document [Stylesets](mimcss-reference-stylesets.html).
+The types and interfaces used in the definition of the `DependentRules` type are discussed in the document [Stylesets](stylesets.html).
 
 **Example.** The following example defines a class rule with a dependent `:hover` rule. Then a new value is set for the style property in the dependent rule.
 

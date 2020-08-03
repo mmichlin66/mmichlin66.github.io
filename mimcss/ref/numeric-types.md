@@ -52,9 +52,9 @@ export interface INumberBaseMath<T extends string>
 }
 ```
 
-**See Also:** [IGenericProxy](mimcss-reference-stylesets.html#igenericproxy-interface), [OneOrMany](mimcss-reference-stylesets.html#utility-types), [Extended](mimcss-reference-stylesets.html#extended-type)
+**See Also:** [IGenericProxy](stylesets.html#igenericproxy-interface), [OneOrMany](stylesets.html#utility-types), [Extended](stylesets.html#extended-type)
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### Number Values
 Number values are used to represent the CSS `<number>` type. Since it is a unitless number, the `string` type is not part of the definition for the `CssNumber` Mimcss type.
@@ -109,7 +109,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### Percent Values
 Percent values are used to represent the CSS `<percentage>` type.
@@ -182,7 +182,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### Length Values
 Length values are used to represent the CSS `<length> | <percentage>` type.
@@ -330,7 +330,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### Time Values
 Time values are used to represent the CSS `<time>` type.
@@ -412,7 +412,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### Angle Values
 Angle values are used to represent the CSS `<angle> | <percentage>` type.
@@ -508,7 +508,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### CssPoint Type
 The `CssPoint` type is defined by an array with two [Length](#length-values) values.
@@ -533,7 +533,7 @@ startPoint = $var( "CssPoint", [1, 1]); // :root { --startPoint: 1px 1px }
 let point: CssPoint = this.startPoint; // "var(--startPoint)"
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### CssPosition Type
 Position values are used to represent the CSS `<position>` type. The `CssPosition` type is defined either by a keyword or a [Length](#length-values) value or by an array with up to 4 keywords or [Length](#length-values) values.
@@ -586,7 +586,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 
 ### CssRadius Type
 Radius values are used to specify a corner radius (e.g. for a border properties). The `CssRadius` type is defined as either a single [Length](#length-values) value or as a tuple of two [Length](#length-values) values.
@@ -616,5 +616,5 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-[Go to top](#mimcss-reference-numeric-types)
+[Go to top](#numeric-types)
 

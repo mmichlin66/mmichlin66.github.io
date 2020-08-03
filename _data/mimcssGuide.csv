@@ -1,11 +1,11 @@
 unit,title,file
-0,Introduction,mimcss-guide-introduction.html
-1,Defining Rules,mimcss-guide-defining-rules.html
-2,Defining Styles,mimcss-guide-defining-styles.html
-3,Custom Properties,mimcss-guide-custom-properties.html
-4,Assigning Names,mimcss-guide-assigning-names.html
-5,Activation Strategies,mimcss-guide-activation-strategies.html
-6,Style Property Types,mimcss-guide-style-property-types.html
-7,Style Definition Inheritance,mimcss-guide-style-definition-inheritance.html
-8,Styled Components,mimcss-guide-styled-components.html
-9,Activation Scheduling,mimcss-guide-activation-scheduling.html
+0,Introduction,introduction.html
+1,Defining Rules,defining-rules.html
+2,Defining Styles,defining-styles.html
+3,Custom Properties,custom-properties.html
+4,Assigning Names,assigning-names.html
+5,Activation Strategies,activation-strategies.html
+6,Style Property Types,style-property-types.html
+7,Style Definition Inheritance,style-definition-inheritance.html
+8,Styled Components,styled-components.html
+9,Activation Scheduling,activation-scheduling.html

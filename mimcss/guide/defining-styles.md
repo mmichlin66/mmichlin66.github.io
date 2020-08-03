@@ -57,7 +57,7 @@ class MyStyles extends css.StyleDefinition
 
 Mimcss strives to avoid defining `string` as property type, especially for those properties that have a lot of keyword values such as `justify-items`, `cursor`, `list-style-type`, `border-style`, etc. If `string` is among the possible property types, then first, the autocomplete feature doesn't work, and second, misspellings are not detected at compile time. Ultimately, the decision whether or not to have `string` for a property type is a trade-off between the above considerations and the developer's convenience. For example, specifying the `border` property value as a string in `button2` is arguably easier than using an array as in `button3` even though the autocomplete works for the `"solid"` and `"brown"` strings. Similarly, since there are so many different units for specifying lengths, Mimcss allows the `string` type for properties such as `padding`, `width`, `line-height`, etc.
 
-The `Styleset` type allows specifying custom CSS properties using the special `"--"` property, which will be explained in the [Custom Properties](mimcss-guide-custom-properties.html) unit.
+The `Styleset` type allows specifying custom CSS properties using the special `"--"` property, which will be explained in the [Custom Properties](custom-properties.html) unit.
 
 ### Specifying !important flag
 CSS allows adding the `!important` flag to any style property to increase its specificity. For many style properties, Mimcss doesn't include the `string` type; however, for any property, Mimcss allows specifying an object with a single property "!", which contains the property value.
