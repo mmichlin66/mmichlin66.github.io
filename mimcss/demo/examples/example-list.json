@@ -16,7 +16,7 @@
     { "name": "Advanced" },
     {
         "name": "Gradients",
-        "path": "examples/gradients.tsx",
+        "path": "examples/css-gradients.tsx",
         "descr": "Demonstrates creating CSS gradients."
     }
 ]
