@@ -21,17 +21,22 @@ exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.js        mimurl\\ /i /y /d")
 // exec( "xcopy ..\\..\\mimurl-demo\\lib\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
 
 console.log( "Copy mimcss-demo to " + p.join( ps.cwd(), "mimcss/demo"));
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\*.ttf            mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\editor.worker.js mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\ts.worker.js     mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss.js        mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimbl.js         mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss-demo.js   mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\require.js       mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\MimcssDemoHtmlTemplate.html        mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\examples\\*      mimcss\\demo\\examples\\ /s /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimbl\\*         mimcss\\demo\\mimbl\\ /s /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss\\*        mimcss\\demo\\mimcss\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\*.ttf                        mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\editor.worker.js             mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\ts.worker.js                 mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss.js                    mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimbl.js                     mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimurl.js                    mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcl.js                     mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss-demo.js               mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\require.js                   mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\MimcssDemoHtmlTemplate.html  mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\extra-lib-list.json          mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss\\*                    mimcss\\demo\\mimcss\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimbl\\*                     mimcss\\demo\\mimbl\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimurl\\*                    mimcss\\demo\\mimurl\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcl\\*                     mimcss\\demo\\mimcl\\ /s /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\examples\\*                  mimcss\\demo\\examples\\ /s /i /y /d");
 
 console.log( "copyLibs.js script has finished");
 

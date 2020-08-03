@@ -1,0 +1,31 @@
+import * as mim from "mimbl";
+export declare class Popup extends mim.Component {
+    constructor(dlgSlice?: mim.Slice);
+    open(x?: number, y?: number): boolean;
+    close(retVal?: any): void;
+    showModal(x?: number, y?: number): Promise<any>;
+    isOpen(): boolean;
+    isModeless(): boolean;
+    isModal(): boolean;
+    startMove(e: MouseEvent): void;
+    move(newX: number, newY: number): void;
+    render(): any;
+    protected getDlgSlice(): mim.Slice;
+    private create;
+    private destroy;
+    private onKeyDown;
+    private onMove;
+    private onStopMove;
+    private dlgSlice;
+    get DlgSlice(): any;
+    private currDlgSlice;
+    private anchorDiv;
+    private initialX;
+    private initialY;
+    private dlg;
+    private modalPromiseResolveFunc;
+    private caption;
+    private dragPointOffsetX;
+    private dragPointOffsetY;
+    static DefaultDlgSlice: mim.Slice;
+}
