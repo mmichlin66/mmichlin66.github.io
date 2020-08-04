@@ -216,7 +216,7 @@ export declare function minmax(min: GridTrackSize, max: GridTrackSize): IMinMaxP
 /**
  * Returns an IRepeatProxy function representing the `repeat()` CSS function.
  */
-export declare function repeat(count: Extended<CssNumber> | "auto-fill" | "auto-fill", ...tracks: GridTrack[]): IRepeatProxy;
+export declare function repeat(count: Extended<CssNumber> | "auto-fill" | "auto-fit", ...tracks: GridTrack[]): IRepeatProxy;
 /**
  * Returns an ISpanProxy function representing the span expression for grid layouts. If the first
  * parameter is a number, the second parameter (if defined) must be a name; if the first parameter
