@@ -66,7 +66,7 @@ Mimbl produces HTML content according to the following rules:
 - Objects that implement a `render` method are treated as component instances: their `render` method is invoked by the Mimbl rendering mechanism and its return value is used to produce HTML content.
 - Objects that don't implement a `render` method are converted to strings using the `toString` method. Objects that don't override the default implementation of the `toString` method are converted to the "[object Object]" strings.
 - Promises are watched by the Mimbl rendering mechanism and their resolved values are used to produce HTML content. While a promise is pending, no HTML content is produced. If the promise is rejected, an exception is thrown, which bubbles up the component chain until there is a component that knows to handle it.
-- Functions are called by the Mimbl rendering mechanism without any parameters and their return values are used to produce HTML content. Using functions has some benefits and is described in more details in the unit [Rendering Functions](mimbl-guide-rendering-methods.html).
+- Functions are called by the Mimbl rendering mechanism without parameters and their return values are used to produce HTML content. Using functions has some benefits and is described in more details in the unit [Rendering Functions](rendering-methods.html).
 
 ## JSX Expressions
 This section provides a brief description of JSX as it pertains to Mimbl. The detailed description of JSX can be found in [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/jsx.html).
@@ -149,7 +149,7 @@ mim.mount( <>
 </>);
 ```
 
-Unfortunately, TypeScript doesn't support this syntax when a custom JSX factory is used. This is one of TypeScript's enhancement requests, but it is not clear when it will be implemented.
+Unfortunately, TypeScript doesn't currently support this syntax when a custom JSX factory is used; however, it was announced that TypeScript 4.0 will support it.
 
 Meanwhile, Mimbl (just as many other 3rd party libraries) provides a component that serves the sole purpose of combining multiple JSX expressions into a group without inserting any extra element into the resultant HTML. Unsurprisingly, the component is called `mim.Fragment` and is used as in the following example:
 
@@ -190,7 +190,7 @@ References are usually needed when there is no good way to perform a desired tas
 ```tsx
 class Child extends mim.Component
 {
-    @mim.updatable color: string = "black";
+    @mim.trigger color: css.CssColor = "black";
 
     public render(): any
     {
@@ -229,6 +229,55 @@ There are times when a component (or any other code) that created a `mim.Ref` ob
 It is a common task for Web developers to represent collections of same-type structures. This is modeled by an element having multiple sub-elements or a parent component rendering a list of child components. Such lists change when items are added to or removed from the list or when the order of items in the list changes. In order to properly update DOM when an item list changes, the first task Mimbl has to do is to match items from a newly rendered list to those in the existing list. Based on this matching, Mimbl understands what items should be destroyed or inserted or simply updated. The matching algorithm should figure out an item identity for the matching to be accurate and that identity should be unique among the items under the same parent.
 
 Mimbl allows developers to specify *keys* when elements and components are rendered. A key is a built-in property (of `any` type) that can be specified for any element as well as managed and functional components (more on this in the next unit). For proper matching, keys for all items under the same parent (another component or DOM element) must be unique. In many cases, choosing a unique key for an item is not difficult because it may reflect some unique property of a data element that the item represents. There are cases, however, when there is no such property and the keys should be actively managed by the Parent component to be created and remain unique.
+
+## CSS and Styles
+Mimbl uses the [Mimcss](https://mmichlin66.github.io/mimcss/guide/introduction.html) library for defining and using styles.
+
+CSS classes can be specified using properties from Mimcss Style Definition classes; for example:
+
+```tsx
+// Define styles for our component
+class MyStyles extends css.StyleDefinition
+{
+    blue = css.$class({ color: css.Colors.blue })
+}
+
+let styles = css.activate( MyStyles);
+
+render()
+{
+    // specify class by using the property of our style definition class
+    return <div class={styles.blue}>
+        Hello World!
+    </div>
+}
+```
+
+Of course class names can be specified as regular strings too. Moreover, in situations when there is a need to combine several classes for a single element, strings and style definition properties can be mixed; for example:
+
+```tsx
+render()
+{
+    // specify class by using the property of our style definition class
+    return <div class={[styles.blue, "bold"]}>
+        Hello World!
+    </div>
+}
+```
+
+The `id` property of an element can also be specified as either a regular string or a property from a style definition class (instead of `css.$class` the `css.$id` function must be used).
+
+The `style` property is specified as an object whose type is defined by Mimcss. This object contains all the CSS properties in their lowerCamelCase. Every property has defined type, so some can be specified as strings others as numbers, yet others as arrays, tuples, functions, object or a combination of all the above. For dimensional properties such as length and angle, values can be specified as a number, in which case the default prefix corresponding to the type will be appended. The default prefix also depends on whether the the number is integer or floating point.
+
+```tsx
+render()
+{
+    // specify class by using the property of our style definition class
+    return <div style={ {padding: 4, margin: [4, 0.5, "auto"], filter: css.greyscale( 0.8) } }>
+        Hello World!
+    </div>
+}
+```
 
 
 

@@ -1,10 +1,10 @@
 unit,title,file
-0,Introduction,mimbl-guide-introduction.html
-1,Component Types,mimbl-guide-component-types.html
-2,Rendering HTML Content,mimbl-guide-rendering-html.html
-3,Handling Events,mimbl-guide-handling-events.html
-4,Callbacks and this,mimbl-guide-callbacks-and-this.html
-5,Custom Attributes,mimbl-guide-custom-attributes.html
-6,Publishing and Subscribing to Services,mimbl-guide-service-pub-sub.html
-7,Mimbl Tick and Component Life Cycle,mimbl-guide-mimbl-tick-and-component-lifecycle.html
-8,Rendering Methods,mimbl-guide-rendering-methods.html
+0,Introduction,introduction.html
+1,Component Types,component-types.html
+2,Rendering HTML Content,rendering-html.html
+3,Handling Events,handling-events.html
+4,Callbacks and this,callbacks-and-this.html
+5,Custom Attributes,custom-attributes.html
+6,Publishing and Subscribing to Services,service-pub-sub.html
+7,Mimbl Tick and Component Life Cycle,mimbl-tick-and-component-lifecycle.html
+8,Rendering Methods,rendering-methods.html

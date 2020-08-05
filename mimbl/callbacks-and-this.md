@@ -57,7 +57,7 @@ class A
 These two techniques are widely used to allow methods to be invoked as callbacks; however, let's notice what is actually happening here. In our original definition of class `A`, the `printName` method was really a method - that is, a function defined on the prototype of the class. This means that no matter how many objects of the class we create, there is a single definition of the method. When we define the `printName` method as an arrow function or bind the method to `this` in the constructor, what we actually create is a property and each instance of our class will have this property with a distinct value. This might be wasteful - especially if we have many callbacks and not all of them are necessarily used all the time.
 
 ## Wrapping Callback Methods
-As we saw in the previous unit, Mimbl solves the above problem for event handlers defined as component classes' methods by wrapping the event handler methods with an internal function that stores the component instance and uses this instance in the call to the `Function.apply()` function. Mimbl also provides an explicit way of wrapping component methods so that they can be used in any context that expects a callback. This is accomplished via the `wrapCallback` method of the `mim.Component` class and thus is available to any managed or independent component implemented by extending this class.
+As we saw in the previous unit, Mimbl solves the above problem for event handlers defined as component classes' methods by wrapping the event handler methods with an internal function that stores the component instance and uses this instance in the call to the `Function.prototype.apply()` function. Mimbl also provides an explicit way of wrapping component methods so that they can be used in any context that expects a callback. This is accomplished via the `wrapCallback` method of the `mim.Component` class and thus is available to any managed or independent component implemented by extending this class.
 
 Let's implement a simple DelayedMessage component, which will display a message every time the user clicks the button; however, displaying the message will be delayed by two seconds using the `setTimeout` function. The message will consists of the time the user clicked the button and the time the message was actually displayed.
 
@@ -65,10 +65,10 @@ Let's implement a simple DelayedMessage component, which will display a message 
 class DelayedMessage extends mim.Component
 {
     /** Remembered time when the user clicked the button */
-    @mim.updatable private clickedTime: Date;
+    @mim.trigger private clickedTime: Date;
 
     /** Remembered time when the message is displayed */
-    @mim.updatable private displayedTime: Date;
+    @mim.trigger private displayedTime: Date;
 
     public render(): any
     {

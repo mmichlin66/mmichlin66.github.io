@@ -3,13 +3,15 @@ layout: mimbl
 ---
 
 # Mimbl - Web UI Authoring Library
-Mimbl is a TypeScript/JavaScript UI authoring library that combines declarative and imperative programming in one package. Mimbl is proposed as an alternative to React. The accompanying document [React Discussion](../2019/08/10/React-Discussion.html) provides more information about aspects of React that this library strives to improve upon.
+Mimbl is a TypeScript/JavaScript UI authoring library that combines declarative and imperative programming in one package. Mimbl is proposed as an alternative to React. The accompanying document [React Discussion](https://mmichlin66.github.io/2019/08/10/React-Discussion.html) provides more information about aspects of React that this library strives to improve upon.
 
 ## Features
 Mimbl provides all the standard functionality that developers expect from component authoring libraries: declarative laying out of HTML structure, function- and class-based components, references, error boundaries, lazy-loading, etc. In addition to this functionality Mimbl provides the following unique features:
 
 - Instance-based components whose lifecycle is controlled by developers and which can be accessed via standard property and method invocation.
 - Custom HTML and SVG attributes defined by developers and supported via handler objects.
+- Built-in trigger-watcher mechanism that re-renders components upon changes in the observable properties.
+- Rendering methods - independent re-rendering of portions of a component encapsulated in a method.
 - Service publish/subscribe mechanism.
 
 ## Components
@@ -46,17 +48,17 @@ import * as mim from "mimbl"
  */
 class Child extends mim.Component
 {
-    @mim.updatable txtColor: string;
+    @mim.trigger color: css.CssColor;
 
-    constructor( txtColor: string = "black")
+    constructor( color: string = "black")
     {
         super();
-        this.txtColor = txtColor;
+        this.color = color;
     }
     
     render(): any
     {
-        return <span style={ {color: this.txtColor} }>Hello World!</span>;
+        return <span style={ {color: this.color} }>Hello World!</span>;
     }
 }
 
@@ -65,7 +67,7 @@ class Child extends mim.Component
  */
 interface ParentProps
 {
-	txtInitColor?: string;
+	initColor?: css.CssColor;
 }
 
 class Parent extends mim.Component<ParentProps>
@@ -75,24 +77,24 @@ class Parent extends mim.Component<ParentProps>
     constructor( props: ParentProps)
     {
         super( props);
-        this.child = new Child( props.txtInitColor ? props.txtInitColor : 'green');
+        this.child = new Child( props.initColor ? props.initColor : 'green');
     }
 
     render(): any
     {
         return <div>
-            <button click={() => this.child.txtColor = "black"}>Black</button>
-            <button click={() => this.child.txtColor = "red"}>Red</button>
-            <button click={() => this.child.txtColor = "blue"}>Blue</button>
+            <button click={() => this.child.color = "black"}>Black</button>
+            <button click={() => this.child.color = "red"}>Red</button>
+            <button click={() => this.child.color = "blue"}>Blue</button>
             {this.child}
         </div>;
     }
 }
 
-mim.mount( <Parent txtInitColor="brown"/>, document.getElementById("root"));
+mim.mount( <Parent initColor="brown"/>, document.getElementById("root"));
 ```
 
-The `Child` component defines a string property `txtColor` that keeps the current color of the "Hello World!" text that the component displays in its `render` method. The `txtColor` property is defined using the `mim.updatable` decorator, which schedules re-rendering of the component whenever the property value changes.
+The `Child` component defines a string property `txtColor` that keeps the current color of the "Hello World!" text that the component displays in its `render` method. The `color` property is defined using the `mim.trigger` decorator, which schedules re-rendering of the component whenever the property value changes.
 
 The `Parent` component creates an instance of the `Child` component and keeps it in its `child` property. The `render` method lays out three `button` elements for changing text color and then specifies the `child` property in the curly braces. When the user clicks one of the color buttons, the `Parent` component sets the corresponding color string to the `Child` component's `txtColor` property. This causes re-rendering of the `child` component with the new text color. Note that the `Parent` component is not re-rendered.
 

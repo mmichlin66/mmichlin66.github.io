@@ -2,6 +2,7 @@
 layout: mimbl-guide
 unit: 1
 title: Component Types
+description: Mimbl supports several component types. This unit discusses them in details.
 ---
 
 # Mimbl Guide: Component Types
@@ -20,7 +21,7 @@ Functional components are just functions that accept a *props* object and return
 ```tsx
 interface HelloWorldFuncProps
 {
-    color?: string;
+    color?: css.CssColor;
 }
 
 function HelloWorldFunc( props: HelloWorldFuncProps): any
@@ -41,7 +42,7 @@ Managed components are classes that derive from the `mim.Component` class and th
 ```tsx
 interface HelloWorldManagedProps
 {
-    color?: string;
+    color?: css.CssColor;
 }
 
 class HelloWorldManaged extends mim.Component<HelloWorldManagedProps>
@@ -87,9 +88,9 @@ Independent components are classes that, like managed components, derive from th
 ```tsx
 class HelloWorldIndependent extends mim.Component
 {
-    @mim.updatable color: string;
+    @mim.trigger color: css.CssColor;
 
-    constructor( color: string)
+    constructor( color: css.CssColor)
     {
         super();
 
@@ -111,7 +112,7 @@ Here are the notable differences from the managed component:
 - The constructor accepts the color value, which is assigned to the `color` field.
 - Component is instantiated using `new`.
 
-The `@mim.updatable` decorator makes the `color` field an *updatable property*, meaning that whenever the value of the field is changed, the component will be updated. Multiple fields can be marked as updatable properties and if their values are changed during the same JavaScript event loop, the component will be only updated once. The `@mim.updatable` decorator is a convenience feature: internally it calls the `updateMe` method. Independent components can directly call the `updateMe` method whenever they want and, again, if multiple calls are made during the same JavaScript event loop, the component will be only updated once.
+The `@mim.trigger` decorator makes the `color` field an *observable property*, meaning that whenever the value of the field is changed, the component will be updated. Multiple fields can be marked as trigger properties and if their values are changed during the same JavaScript event loop, the component will be only updated once. The `@mim.trigger` decorator is a convenience feature: internally it calls the `updateMe` method. Independent components can directly call the `updateMe` method whenever they want and, again, if multiple calls are made during the same JavaScript event loop, the component will be only updated once.
 
 Let's see how independent components are used by other components. Imagine a *Parent* component that has a mechanism to choose a color and then it uses our `HelloWorldIndependent` component to say "Hello World!" in that color.
 
@@ -134,16 +135,16 @@ class Parent extends mim.Component
 
 The `Parent` component declares an internal field that keeps the instance of our `HelloWorldIndependent` component. This instance is used in curly braces in JSX - because it is just a regular JavaScript object. Mimbl knows that this object is actually a component (simply because it has the `render` method) and will handle it accordingly. When the parent component decides to change the color in which it wants the "Hello World!" phrase to be displayed it just assigns the new color value to our component's `color` property and our component dutifully updates itself.
 
-Note what is happening here: although it is the `Parent` component that decides on what color to use, only the `HelloWorldIndependent` component is updated - the `Parent` component is NOT updated. This may make a big difference for complex component hierarchies - especially if there are components composed of many child components. Similar functionality is possible with managed components too - by obtaining references to child components. With independent components, the component instances are already the references we need.
+Notice what is happening here: although it is the `Parent` component that decides on what color to use, only the `HelloWorldIndependent` component is updated - the `Parent` component is NOT updated. This may make a big difference for complex component hierarchies - especially if there are components composed of many child components. Similar functionality is possible with managed components too - by obtaining references to child components. With independent components, the component instances are already the references we need.
 
-Another significant difference between managed and independent components is that independent components are normally not updated when their parent is updated. Independent components are only updated when their `updateMe` method is called, which happens when the component decides for itself that it needs to be updated. This can be triggered by either the internal component's functionality or by an updatable property being changed; in both cases, however, the decision is made solely by the component itself.
+Another significant difference between managed and independent components is that independent components are normally not updated when their parent is updated. Independent components are only updated when their `updateMe` method is called, which happens when the component decides for itself that it needs to be updated. This can be triggered by either the internal component's functionality or by an observable property being changed; in both cases, however, the decision is made solely by the component itself.
 
 Maybe the most significant difference between managed and independent components is that independent components are not destroyed when their location inside the page hierarchy changes. (By "destroyed" we mean "lost to garbage collection".) Imagine a `Parent` component that for whatever reasons (usually styling) places a `Child` component on a different hierarchy level in its HTML structure. First let's implement this functionality using a managed child component:
 
 ```tsx
 class Parent extends mim.Component
 {
-    @mim.updatable isDeep = false;
+    @mim.trigger isDeep = false;
 
     public render(): any
     {
@@ -161,7 +162,7 @@ Now let's implement the same functionality using an independent child component:
 ```tsx
 class Parent extends mim.Component
 {
-    @mim.updatable isDeep = false;
+    @mim.trigger isDeep = false;
     child = new Child();
 
     public render(): any
