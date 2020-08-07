@@ -225,34 +225,6 @@ export declare type RefPropType<T = any> = Ref<T> | RefFunc<T>;
  */
 export declare function setRef<T>(ref: RefPropType<T>, val: T, onlyIf?: T): void;
 /**
- * Decorator function for defining properties with a set method that calls the updateMe method
- * whenever the property value changes.
- *	```tsx
- *	class Child extends Component
- *	{
- *		@mim.updatable text: string = "Hello!";
- *		render()
- *		{
- *	 		return <div>{text}</div>
- *		}
- *	}
- *
- *	class Parent extends Component
- *	{
- *		child = new Child();
- *		render()
- *		{
- *			return <div click={() => this.child.text += " again"}>{this.child}</div>
- *		}
- *	}
- *	```
- * In the above example, the Child component will be re-rendered when its `text` property changes.
- *
- * @param target
- * @param name
- */
-export declare function updatable(target: any, name: string): void;
-/**
  * An artificial "Fragment" component that is only used as a temporary collection of other items
  * in places where JSX only allows a single item. Our JSX factory function creates a virtual node
  * for each of its children and the function is never actually called. This function is only needed
@@ -1210,3 +1182,7 @@ export declare function mount(content: any, anchorDN?: Node): void;
  */
 export declare function unmount(anchorDN?: Node): void;
 export declare let mimblStyleSchedulerType: number;
+/**
+ * @deprecated - use `@trigger`
+ */
+export declare function updatable(target: any, name: string): void;

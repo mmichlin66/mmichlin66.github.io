@@ -30,8 +30,7 @@ exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimurl.js                    mimcss\\demo
 exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcl.js                     mimcss\\demo\\ /i /y /d");
 exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss-demo.js               mimcss\\demo\\ /i /y /d");
 exec( "xcopy ..\\..\\mimcss-demo\\lib\\require.js                   mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\result-html-template.html    mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\..\\mimcss-demo\\lib\\extra-lib-list.json          mimcss\\demo\\ /i /y /d");
+exec( "xcopy ..\\..\\mimcss-demo\\lib\\playground-config.json       mimcss\\demo\\ /i /y /d");
 exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimcss\\*                    mimcss\\demo\\mimcss\\ /s /i /y /d");
 exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimbl\\*                     mimcss\\demo\\mimbl\\ /s /i /y /d");
 exec( "xcopy ..\\..\\mimcss-demo\\lib\\mimurl\\*                    mimcss\\demo\\mimurl\\ /s /i /y /d");
