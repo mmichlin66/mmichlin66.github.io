@@ -272,7 +272,7 @@ export interface ICustomAttributeHandlerClass<T> {
  * The ICustomAttributeHandler interface represents an ability to handle custom properties that can
  * be applied to intrinsic (HTML or SVG) elements.
  */
-export interface ICustomAttributeHandler<T> {
+export interface ICustomAttributeHandler<T = any> {
     /**
      * Updates an existing custom attribute with the new value.
      * @param newPropVal New value of the custom attribute.
