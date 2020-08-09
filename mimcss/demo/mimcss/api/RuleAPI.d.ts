@@ -126,7 +126,7 @@ export declare function enableShortNames(enable: boolean, prefix?: string): void
  * `class` property of an HTML element.
  * @param classes
  */
-export declare function classes(...classes: (IClassRule | Extended<string>)[]): string;
+export declare function classes(...classes: (IClassRule | IClassNameRule | Extended<string>)[]): string;
 /**
  * The IStyleSerializationContext interface allows adding style definition classes and objects
  * and serializing them to a single string. This can be used for server-side rendering when
@@ -154,4 +154,19 @@ export declare function createCssSerializer(): ICssSerializer;
  * set as the content of a `<style>` element.
  */
 export declare function serializeToCSS(arg1: StyleDefinition | IStyleDefinitionClass, ...args: (StyleDefinition | IStyleDefinitionClass)[]): string;
+/**
+ * Decorator that should be applied to a rule if it is defined and used in the same style
+ * definition class but then is overridden in a derived style definition class. The problem
+ * this solves is this: when a rule is defined in a base class and then overridden in a derived
+ * class, when an instance of the derived class is created, the rules that are created in the
+ * base and derived classes see different values of the rule. Since our rules are defined as
+ * part of the constructor, the base class constructor's code only sees the value assigned in that
+ * code. If another rule in the base class uses this first rule, this value is remembered.
+ *
+ * The `@virtual` decorator creates a Proxy object for the rule with the handler that keeps the
+ * most recent value set. Thus when a rule in the base class's constructor uses a virtualized
+ * rule, the first rule will see the overridden value of the rule when accessed in the
+ * post-constructor code.
+ */
+export declare function virtual(target: any, name: string): void;
 //# sourceMappingURL=RuleAPI.d.ts.map
