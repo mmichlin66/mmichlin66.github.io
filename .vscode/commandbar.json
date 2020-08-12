@@ -32,7 +32,7 @@
             "text": "github Copy Refs",
             "color": "pink",
             "commandType": "exec",
-            "command": "xnode _tools/copyRefs.js",
+            "command": "node _tools/copyRefs.js",
             "alignment": "left",
             "priority": 1
         }

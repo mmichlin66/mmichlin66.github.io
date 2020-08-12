@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>StyleDefinition | mimcss</title>
-	<meta name="description" content="Documentation for mimcss">
+	<title>StyleDefinition | Mimcss Reference</title>
+	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">mimcss</a>
+					<a href="../index.html" class="title">Mimcss Reference</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -58,7 +58,7 @@
 					<a href="_rules_ruletypes_.styledefinition.html">StyleDefinition</a>
 				</li>
 			</ul>
-			<h1>Class StyleDefinition&lt;O&gt;</h1>
+			<h1>Class StyleDefinition&lt;P, O&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -68,32 +68,27 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The StyleDefinition class is a base for all classes that contain defininitions of CSS rules.
-						Use it the following way:</p>
+						<p>The StyleDefinition class is a base for all classes that contain defininitions of CSS rules.</p>
 					</div>
-					<pre><code class="language-typescript"><span class="hljs-keyword">class</span> MyStyles extend StyleDefinition
-{
-    <span class="hljs-comment">// 8px padding on regular devices</span>
-    defaultPadding = $<span class="hljs-keyword">var</span>( <span class="hljs-string">"padding"</span>, <span class="hljs-number">8</span>)
-
-    ifNarrowDevice = $media( {maxWidth: <span class="hljs-number">600</span> },
-        <span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> StyleDefinition&lt;MyStyles&gt;
-        {
-            <span class="hljs-comment">// 4px padding on narrow devices</span>
-            defaultPadding = $<span class="hljs-keyword">var</span>( <span class="hljs-string">"padding"</span>, Len.calc( <span class="hljs-string">"{0} / 2"</span>, <span class="hljs-keyword">this</span>.owner.defaultPadding))
-        }
-    )
-}</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
+						<h4>P<span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Parent style definition class. Parent of top-lvel class is null.</p>
+							</div>
+						</div>
+					</li>
+					<li>
 						<h4>O<span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>Top-level style definition class, which is the owner of this class.</p>
+								<p>Top-level style definition class, which is the owner of this class. The top-level
+								class is its own owner.</p>
 							</div>
 						</div>
 					</li>
@@ -120,7 +115,8 @@
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_rules_ruletypes_.styledefinition.html#owner" class="tsd-kind-icon">owner</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_rules_ruletypes_.styledefinition.html#_owner" class="tsd-kind-icon">$owner</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_rules_ruletypes_.styledefinition.html#_parent" class="tsd-kind-icon">$parent</a></li>
 							</ul>
 						</section>
 					</div>
@@ -132,29 +128,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Style<wbr>Definition<span class="tsd-signature-symbol">(</span>owner<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Style<wbr>Definition<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">P</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in rules/RuleTypes.ts:296</li>
+									<li>Defined in rules/RuleTypes.ts:408</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Style definition classes are created directly only by the <em>styled components</em> - that is,
 										components that use different styles for each instance. Otherwise, style definition
-									class instances are created when either the <a href="../modules/_api_ruleapi_.html#_use">$use</a> or <a href="../modules/_api_ruleapi_.html#_activate">$activate</a> function is called.</p>
+									class instances are created when either the <a href="../modules/_api_ruleapi_.html#_use">$use</a> or <a href="../modules/_api_schedulingapi_.html#activate">activate</a> function is called.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> owner: <span class="tsd-signature-type">O</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> = null</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parent: <a href="" class="tsd-signature-type">P</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>Reference to the top-level style definition class</p>
+											<p>Reference to the parent style definition class</p>
 										</div>
 									</div>
 								</li>
@@ -167,27 +163,51 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="owner" class="tsd-anchor"></a>
-					<h3>owner</h3>
+					<a name="_owner" class="tsd-anchor"></a>
+					<h3>$owner</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> owner<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> $owner<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in rules/RuleTypes.ts:314</li>
+									<li>Defined in rules/RuleTypes.ts:436</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Refers to the singleton instance of the style definition class which is the <em>owner</em> of
+									<p>Refers to the instance of the style definition class which is the owner of
 										this style definition object. The owner is the top-level class in the chain of style
-										definition classes. Through this memeber, all rules and other memebers defined in the owner
+										definition classes. Through this member, all rules and other members defined in the owner
 									definition class can be accessed.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">O</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">O</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="_parent" class="tsd-anchor"></a>
+					<h3>$parent</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> $parent<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in rules/RuleTypes.ts:428</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Refers to the instance of the style definition class which is the parnt of this style
+										definition object in the chain of style definition classes. Through this member, all rules
+									and other members defined in the parent definition class can be accessed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">P</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -199,13 +219,55 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_colorapi_.html">&quot;api/<wbr>ColorAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_imageapi_.html">&quot;api/<wbr>ImageAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_ruleapi_.html">&quot;api/<wbr>RuleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_schedulingapi_.html">&quot;api/<wbr>SchedulingAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_styleapi_.html">&quot;api/<wbr>StyleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_utilapi_.html">&quot;api/<wbr>UtilAPI&quot;</a>
+					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_rules_ruletypes_.schedulertype.html" class="tsd-kind-icon">Scheduler<wbr>Type</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
@@ -215,23 +277,38 @@
 								<a href="_rules_ruletypes_.styledefinition.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="_rules_ruletypes_.styledefinition.html#owner" class="tsd-kind-icon">owner</a>
+								<a href="_rules_ruletypes_.styledefinition.html#_owner" class="tsd-kind-icon">$owner</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_rules_ruletypes_.styledefinition.html#_parent" class="tsd-kind-icon">$parent</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_rules_ruletypes_.iabstractrule.html" class="tsd-kind-icon">IAbstract<wbr>Rule</a>
+						<a href="../interfaces/_rules_ruletypes_.ianimationframerule.html" class="tsd-kind-icon">IAnimation<wbr>Frame<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_rules_ruletypes_.ianimationrule.html" class="tsd-kind-icon">IAnimation<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-kind-icon">IClass<wbr>Name<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-kind-icon">IClass<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_rules_ruletypes_.icounterrule.html" class="tsd-kind-icon">ICounter<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_rules_ruletypes_.ifontfacerule.html" class="tsd-kind-icon">IFont<wbr>Face<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_rules_ruletypes_.igridarearule.html" class="tsd-kind-icon">IGrid<wbr>Area<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_rules_ruletypes_.igridlinerule.html" class="tsd-kind-icon">IGrid<wbr>Line<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../interfaces/_rules_ruletypes_.igrouprule.html" class="tsd-kind-icon">IGroup<wbr>Rule</a>
@@ -249,6 +326,9 @@
 						<a href="../interfaces/_rules_ruletypes_.inamedentity.html" class="tsd-kind-icon">INamed<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_rules_ruletypes_.inamedstylerule.html" class="tsd-kind-icon">INamed<wbr>Style<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_rules_ruletypes_.inamespacerule.html" class="tsd-kind-icon">INamespace<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
@@ -258,7 +338,7 @@
 						<a href="../interfaces/_rules_ruletypes_.irule.html" class="tsd-kind-icon">IRule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_rules_ruletypes_.iselectorrule.html" class="tsd-kind-icon">ISelector<wbr>Rule</a>
+						<a href="../interfaces/_rules_ruletypes_.ischeduler.html" class="tsd-kind-icon">IScheduler</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>
@@ -276,10 +356,19 @@
 						<a href="../modules/_rules_ruletypes_.html#animationframe" class="tsd-kind-icon">Animation<wbr>Frame</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_rules_ruletypes_.html#extendedstyleset" class="tsd-kind-icon">Extended<wbr>Styleset</a>
+						<a href="../modules/_rules_ruletypes_.html#animationstyleset" class="tsd-kind-icon">Animation<wbr>Styleset</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/_rules_ruletypes_.html#symowner" class="tsd-kind-icon">sym<wbr>Owner</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#animationwaypoint" class="tsd-kind-icon">Animation<wbr>Waypoint</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#combinedstyleset" class="tsd-kind-icon">Combined<wbr>Styleset</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#dependentrules" class="tsd-kind-icon">Dependent<wbr>Rules</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#selectorcombinator" class="tsd-kind-icon">Selector<wbr>Combinator</a>
 					</li>
 				</ul>
 			</nav>
@@ -307,6 +396,9 @@
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
@@ -315,6 +407,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

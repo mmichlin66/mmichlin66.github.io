@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;api/RuleAPI&quot; | mimcss</title>
-	<meta name="description" content="Documentation for mimcss">
+	<title>&quot;api/RuleAPI&quot; | Mimcss Reference</title>
+	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">mimcss</a>
+					<a href="../index.html" class="title">Mimcss Reference</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -67,14 +67,22 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_api_ruleapi_.icssserializer.html" class="tsd-kind-icon">ICss<wbr>Serializer</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_abstract" class="tsd-kind-icon">$abstract</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_ruleapi_.html#_activate" class="tsd-kind-icon">$activate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_class" class="tsd-kind-icon">$class</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_deactivate" class="tsd-kind-icon">$deactivate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_enableshortnames" class="tsd-kind-icon">$enable<wbr>Short<wbr>Names</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_classname" class="tsd-kind-icon">$classname</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_counter" class="tsd-kind-icon">$counter</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_ruleapi_.html#_embed" class="tsd-kind-icon">$embed</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_fontface" class="tsd-kind-icon">$fontface</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_gridarea" class="tsd-kind-icon">$gridarea</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_gridline" class="tsd-kind-icon">$gridline</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_id" class="tsd-kind-icon">$id</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_import" class="tsd-kind-icon">$import</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#_keyframes" class="tsd-kind-icon">$keyframes</a></li>
@@ -86,6 +94,10 @@
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_ruleapi_.html#_use" class="tsd-kind-icon">$use</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_ruleapi_.html#_var" class="tsd-kind-icon">$var</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#classes" class="tsd-kind-icon">classes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#enableshortnames" class="tsd-kind-icon">enable<wbr>Short<wbr>Names</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_ruleapi_.html#virtual" class="tsd-kind-icon">virtual</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,13 +109,13 @@
 					<a name="_abstract" class="tsd-anchor"></a>
 					<h3>$abstract</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$abstract<span class="tsd-signature-symbol">(</span>style<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.iabstractrule.html" class="tsd-signature-type">IAbstractRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$abstract<span class="tsd-signature-symbol">(</span>style<span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.istylerule.html" class="tsd-signature-type">IStyleRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:26</li>
+									<li>Defined in api/RuleAPI.ts:27</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -115,48 +127,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>style: <span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span></h5>
+									<h5>style: <a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.iabstractrule.html" class="tsd-signature-type">IAbstractRule</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="_activate" class="tsd-anchor"></a>
-					<h3>$activate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">$activate&lt;T&gt;<span class="tsd-signature-symbol">(</span>instanceOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in api/RuleAPI.ts:138</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Activates the given stylesheet and inserts all its rules into DOM. If the input object is not
-										a stylesheet but a style definition class, obtain stylesheet by calling the $use function.
-										Note that each stylesheet object maintains a reference counter of how many times it was
-										activated and deactivated. The rules are inserted to DOM only when this reference counter goes
-									up to 1.</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>instanceOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.istylerule.html" class="tsd-signature-type">IStyleRule</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -164,13 +138,13 @@
 					<a name="_class" class="tsd-anchor"></a>
 					<h3>$class</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$class<span class="tsd-signature-symbol">(</span>style<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span>, nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$class<span class="tsd-signature-symbol">(</span>style<span class="tsd-signature-symbol">?: </span><a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a>, nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:36</li>
+									<li>Defined in api/RuleAPI.ts:39</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,10 +159,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a></h4>
@@ -196,67 +170,103 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="_deactivate" class="tsd-anchor"></a>
-					<h3>$deactivate</h3>
+					<a name="_classname" class="tsd-anchor"></a>
+					<h3>$classname</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$deactivate<span class="tsd-signature-symbol">(</span>instance<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">$classname<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>classes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:151</li>
+									<li>Defined in api/RuleAPI.ts:50</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Deactivates the given stylesheet by removing its rules from DOM. Note that each stylesheet
-										object maintains a reference counter of how many times it was activated and deactivated. The
-									rules are removed from DOM only when this reference counter goes down to 0.</p>
+									<p>Creates new class name rule, which combines one or more other class names. This creates a
+										&quot;synonym&quot; that is easier to apply to an element&#39;s class attribute than an array of two or
+									more clas rules.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>instance: <a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classes: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="_enableshortnames" class="tsd-anchor"></a>
-					<h3>$enable<wbr>Short<wbr>Names</h3>
+					<a name="_counter" class="tsd-anchor"></a>
+					<h3>$counter</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$enable<wbr>Short<wbr>Names<span class="tsd-signature-symbol">(</span>enable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">$counter<span class="tsd-signature-symbol">(</span>nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.icounterrule.html" class="tsd-signature-type">ICounterRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.icounterrule.html" class="tsd-signature-type">ICounterRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:165</li>
+									<li>Defined in api/RuleAPI.ts:107</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the flag indicating whether to use optimized (short) rule names. If yes, the names
-										will be created by appending a unique number to the given prefix. If the prefix is not
-									specified, the standard prefix &quot;n&quot; will be used.</p>
+									<p>Creates new counter object. The counter name will be created when the rule is processed as
+										part of the style definition class. The name can be also overridden by providing either an
+									explicit name or another counter rule.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>enable: <span class="tsd-signature-type">boolean</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.icounterrule.html" class="tsd-signature-type">ICounterRule</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.icounterrule.html" class="tsd-signature-type">ICounterRule</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="_embed" class="tsd-anchor"></a>
+					<h3>$embed</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">$embed&lt;T&gt;<span class="tsd-signature-symbol">(</span>instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:210</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Embeds the given style definition class into another style definition object. When activated,
+										the embedded object doesn&#39;t create its own <code>&lt;style&gt;</code> element but uses that of its owner. This
+										allows creating many small style definition classes instead of one huge one without incurring
+									the overhead of many <code>&lt;style&gt;</code> elements.</p>
+								</div>
+								<p>Note that as opposed to the $use function, the $embed function always creates a new instance of
+									the given class and doesn&#39;t associate the class with the created instance. That means that if
+									a class is embedded into more than one &quot;owner&quot;, two separate instances of each CSS rule will be
+								created with different unique names.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -270,7 +280,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:86</li>
+									<li>Defined in api/RuleAPI.ts:145</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,16 +299,79 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="_id" class="tsd-anchor"></a>
-					<h3>$id</h3>
+					<a name="_gridarea" class="tsd-anchor"></a>
+					<h3>$gridarea</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$id<span class="tsd-signature-symbol">(</span>style<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span>, nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iidrule.html" class="tsd-signature-type">IIDRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.iidrule.html" class="tsd-signature-type">IIDRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$gridarea<span class="tsd-signature-symbol">(</span>nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.igridarearule.html" class="tsd-signature-type">IGridAreaRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.igridarearule.html" class="tsd-signature-type">IGridAreaRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:46</li>
+									<li>Defined in api/RuleAPI.ts:128</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates new grid area object. The area name will be created when the rule is processed as
+										part of the style definition class. The name can be also overridden by providing either an
+									explicit name or another grid area rule.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.igridarearule.html" class="tsd-signature-type">IGridAreaRule</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.igridarearule.html" class="tsd-signature-type">IGridAreaRule</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="_gridline" class="tsd-anchor"></a>
+					<h3>$gridline</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">$gridline<span class="tsd-signature-symbol">(</span>nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.igridlinerule.html" class="tsd-signature-type">IGridLineRule</a>, isStartEndOrNone<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.igridlinerule.html" class="tsd-signature-type">IGridLineRule</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:117</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates new grid line object. The line name will be created when the rule is processed as
+										part of the style definition class. The name can be also overridden by providing either an
+									explicit name or another grid line rule.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.igridlinerule.html" class="tsd-signature-type">IGridLineRule</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> isStartEndOrNone: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.igridlinerule.html" class="tsd-signature-type">IGridLineRule</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="_id" class="tsd-anchor"></a>
+					<h3>$id</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">$id<span class="tsd-signature-symbol">(</span>style<span class="tsd-signature-symbol">?: </span><a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a>, nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iidrule.html" class="tsd-signature-type">IIDRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.iidrule.html" class="tsd-signature-type">IIDRule</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:62</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,7 +386,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iidrule.html" class="tsd-signature-type">IIDRule</a></h5>
@@ -333,7 +406,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:80</li>
+									<li>Defined in api/RuleAPI.ts:136</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -361,13 +434,13 @@
 					<a name="_keyframes" class="tsd-anchor"></a>
 					<h3>$keyframes</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$keyframes<span class="tsd-signature-symbol">(</span>frames<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">RuleTypes.AnimationFrame</span><span class="tsd-signature-symbol">[]</span>, nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.ianimationrule.html" class="tsd-signature-type">IAnimationRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.ianimationrule.html" class="tsd-signature-type">IAnimationRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$keyframes<span class="tsd-signature-symbol">(</span>frames<span class="tsd-signature-symbol">?: </span><a href="../enums/_rules_ruletypes_.schedulertype.html#animationframe" class="tsd-signature-type">AnimationFrame</a><span class="tsd-signature-symbol">[]</span>, nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.ianimationrule.html" class="tsd-signature-type">IAnimationRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.ianimationrule.html" class="tsd-signature-type">IAnimationRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:62</li>
+									<li>Defined in api/RuleAPI.ts:82</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -382,7 +455,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> frames: <span class="tsd-signature-type">RuleTypes.AnimationFrame</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> frames: <a href="../enums/_rules_ruletypes_.schedulertype.html#animationframe" class="tsd-signature-type">AnimationFrame</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.ianimationrule.html" class="tsd-signature-type">IAnimationRule</a></h5>
@@ -396,13 +469,13 @@
 					<a name="_media" class="tsd-anchor"></a>
 					<h3>$media</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">$media&lt;T, O&gt;<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_styles_mediatypes_.html#mediaquery" class="tsd-signature-type">MediaQuery</a>, instanceOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.imediarule.html" class="tsd-signature-type">IMediaRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">$media&lt;T&gt;<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_styles_mediatypes_.html#mediaquery" class="tsd-signature-type">MediaQuery</a>, instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.imediarule.html" class="tsd-signature-type">IMediaRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:111</li>
+									<li>Defined in api/RuleAPI.ts:178</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -413,10 +486,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-								<li>
-									<h4>O<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -425,7 +495,7 @@
 									<h5>query: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_styles_mediatypes_.html#mediaquery" class="tsd-signature-type">MediaQuery</a></h5>
 								</li>
 								<li>
-									<h5>instanceOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.imediarule.html" class="tsd-signature-type">IMediaRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -442,7 +512,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:92</li>
+									<li>Defined in api/RuleAPI.ts:153</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -473,7 +543,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:98</li>
+									<li>Defined in api/RuleAPI.ts:161</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -498,13 +568,13 @@
 					<a name="_style" class="tsd-anchor"></a>
 					<h3>$style</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$style<span class="tsd-signature-symbol">(</span>selector<span class="tsd-signature-symbol">: </span><a href="_styles_selectortypes_.html#cssselector" class="tsd-signature-type">CssSelector</a>, style<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.iselectorrule.html" class="tsd-signature-type">ISelectorRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$style<span class="tsd-signature-symbol">(</span>selector<span class="tsd-signature-symbol">: </span><a href="_styles_selectortypes_.html#cssselector" class="tsd-signature-type">CssSelector</a>, style<span class="tsd-signature-symbol">: </span><a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.istylerule.html" class="tsd-signature-type">IStyleRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:52</li>
+									<li>Defined in api/RuleAPI.ts:70</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -518,10 +588,10 @@
 									<h5>selector: <a href="_styles_selectortypes_.html#cssselector" class="tsd-signature-type">CssSelector</a></h5>
 								</li>
 								<li>
-									<h5>style: <span class="tsd-signature-type">RuleTypes.ExtendedStyleset</span></h5>
+									<h5>style: <a href="_rules_ruletypes_.html#combinedstyleset" class="tsd-signature-type">CombinedStyleset</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.iselectorrule.html" class="tsd-signature-type">ISelectorRule</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.istylerule.html" class="tsd-signature-type">IStyleRule</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -529,61 +599,18 @@
 					<a name="_supports" class="tsd-anchor"></a>
 					<h3>$supports</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">$supports&lt;T, O&gt;<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><a href="_styles_styletypes_.html#supportsquery" class="tsd-signature-type">SupportsQuery</a>, instanceOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.isupportsrule.html" class="tsd-signature-type">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">$supports&lt;T&gt;<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><a href="_styles_styletypes_.html#supportsquery" class="tsd-signature-type">SupportsQuery</a>, instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.isupportsrule.html" class="tsd-signature-type">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:104</li>
+									<li>Defined in api/RuleAPI.ts:169</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Creates new supports rule.</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-								<li>
-									<h4>O<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>query: <a href="_styles_styletypes_.html#supportsquery" class="tsd-signature-type">SupportsQuery</a></h5>
-								</li>
-								<li>
-									<h5>instanceOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.isupportsrule.html" class="tsd-signature-type">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="_use" class="tsd-anchor"></a>
-					<h3>$use</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">$use&lt;T&gt;<span class="tsd-signature-symbol">(</span>instanceOrClass<span class="tsd-signature-symbol">: </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in api/RuleAPI.ts:123</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Processes the given stylesheet definition and returns the Stylesheet object that contains
-										names of IDs, classes and keyframes and allows style manipulations. For a given stylesheet
-										definition class there is a single stylesheet object, no matter how many times this function
-									is invoked.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -595,7 +622,47 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>instanceOrClass: <a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>query: <a href="_styles_styletypes_.html#supportsquery" class="tsd-signature-type">SupportsQuery</a></h5>
+								</li>
+								<li>
+									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_rules_ruletypes_.isupportsrule.html" class="tsd-signature-type">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="_use" class="tsd-anchor"></a>
+					<h3>$use</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">$use&lt;T&gt;<span class="tsd-signature-symbol">(</span>instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:192</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Processes the given style definition class or instance and creates unique names for all named
+										entities. For a given style definition class only a single instance is created, no matter how
+										many times this function is invoked. However, if an instance, which has not yet been processed,
+									is passed, then a new set of unique names will be created for it.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
@@ -612,7 +679,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:73</li>
+									<li>Defined in api/RuleAPI.ts:96</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -651,30 +718,163 @@
 					<a name="classes" class="tsd-anchor"></a>
 					<h3>classes</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">classes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>classes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"string"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_styles_utiltypes_.ivarproxy.html" class="tsd-signature-type">IVarProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">classes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>classes<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/RuleAPI.ts:177</li>
+									<li>Defined in api/RuleAPI.ts:238</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Concatenates the names of the given classes into a single string that can be assigned to a
-									<code>cass</code> property of an HTML element.</p>
+									<code>class</code> property of an HTML element.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classes: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"string"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_styles_utiltypes_.ivarproxy.html" class="tsd-signature-type">IVarProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classes: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="createcssserializer" class="tsd-anchor"></a>
+					<h3>create<wbr>Css<wbr>Serializer</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Css<wbr>Serializer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_api_ruleapi_.icssserializer.html" class="tsd-signature-type">ICssSerializer</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:278</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new ICssSerializer object that allows adding style definition classes
+										and instances and serializing them to a string. This can be used for server-side rendering when
+									the resultant string can be set as the content of a <code>&lt;style&gt;</code> element.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_api_ruleapi_.icssserializer.html" class="tsd-signature-type">ICssSerializer</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="enableshortnames" class="tsd-anchor"></a>
+					<h3>enable<wbr>Short<wbr>Names</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">enable<wbr>Short<wbr>Names<span class="tsd-signature-symbol">(</span>enable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:226</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the flag indicating whether to use optimized (short) rule names. If yes, the names
+										will be created by appending a unique number to the given prefix. If the prefix is not
+									specified, the standard prefix &quot;n&quot; will be used.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>enable: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="serializetocss" class="tsd-anchor"></a>
+					<h3>serialize<wbr>ToCSS</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">serialize<wbr>ToCSS<span class="tsd-signature-symbol">(</span>arg1<span class="tsd-signature-symbol">: </span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:290</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serializes one or more style definition classes and instances and returns their CSS string
+										representation. This can be used for server-side rendering when the resultant string can be
+									set as the content of a <code>&lt;style&gt;</code> element.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>arg1: <a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-symbol">(</span><a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-signature-type">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_rules_ruletypes_.istyledefinitionclass.html" class="tsd-signature-type">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="virtual" class="tsd-anchor"></a>
+					<h3>virtual</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">virtual<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in api/RuleAPI.ts:396</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Decorator that should be applied to a rule if it is defined and used in the same style
+										definition class but then is overridden in a derived style definition class. The problem
+										this solves is this: when a rule is defined in a base class and then overridden in a derived
+										class, when an instance of the derived class is created, the rules that are created in the
+										base and derived classes see different values of the rule. Since our rules are defined as
+										part of the constructor, the base class constructor&#39;s code only sees the value assigned in that
+									code. If another rule in the base class uses this first rule, this value is remembered.</p>
+								</div>
+								<p>The <code>@virtual</code> decorator creates a Proxy object for the rule with the handler that keeps the
+									most recent value set. Thus when a rule in the base class&#39;s constructor uses a virtualized
+									rule, the first rule will see the overridden value of the rule when accessed in the
+								post-constructor code.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -686,30 +886,78 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_colorapi_.html">&quot;api/<wbr>ColorAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_imageapi_.html">&quot;api/<wbr>ImageAPI&quot;</a>
+					</li>
 					<li class="current tsd-kind-module">
 						<a href="_api_ruleapi_.html">&quot;api/<wbr>RuleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_schedulingapi_.html">&quot;api/<wbr>SchedulingAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_styleapi_.html">&quot;api/<wbr>StyleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_utilapi_.html">&quot;api/<wbr>UtilAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_api_ruleapi_.icssserializer.html" class="tsd-kind-icon">ICss<wbr>Serializer</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_api_ruleapi_.html#_abstract" class="tsd-kind-icon">$abstract</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_api_ruleapi_.html#_activate" class="tsd-kind-icon">$activate</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_api_ruleapi_.html#_class" class="tsd-kind-icon">$class</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_api_ruleapi_.html#_deactivate" class="tsd-kind-icon">$deactivate</a>
+						<a href="_api_ruleapi_.html#_classname" class="tsd-kind-icon">$classname</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_api_ruleapi_.html#_enableshortnames" class="tsd-kind-icon">$enable<wbr>Short<wbr>Names</a>
+						<a href="_api_ruleapi_.html#_counter" class="tsd-kind-icon">$counter</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_api_ruleapi_.html#_embed" class="tsd-kind-icon">$embed</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_api_ruleapi_.html#_fontface" class="tsd-kind-icon">$fontface</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_api_ruleapi_.html#_gridarea" class="tsd-kind-icon">$gridarea</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_api_ruleapi_.html#_gridline" class="tsd-kind-icon">$gridline</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_api_ruleapi_.html#_id" class="tsd-kind-icon">$id</a>
@@ -744,6 +992,18 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_api_ruleapi_.html#classes" class="tsd-kind-icon">classes</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_api_ruleapi_.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_api_ruleapi_.html#enableshortnames" class="tsd-kind-icon">enable<wbr>Short<wbr>Names</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_api_ruleapi_.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_api_ruleapi_.html#virtual" class="tsd-kind-icon">virtual</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -769,6 +1029,9 @@
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
@@ -777,6 +1040,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

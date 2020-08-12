@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;api/ImageAPI&quot; | mimcss</title>
-	<meta name="description" content="Documentation for mimcss">
+	<title>&quot;api/ImageAPI&quot; | Mimcss Reference</title>
+	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">mimcss</a>
+					<a href="../index.html" class="title">Mimcss Reference</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -67,84 +67,51 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="_api_imageapi_.html#gradient" class="tsd-kind-icon">gradient</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_imageapi_.html#conicgradient" class="tsd-kind-icon">conic<wbr>Gradient</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_imageapi_.html#crossfade" class="tsd-kind-icon">cross<wbr>Fade</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_imageapi_.html#lineargradient" class="tsd-kind-icon">linear<wbr>Gradient</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_imageapi_.html#radialgradient" class="tsd-kind-icon">radial<wbr>Gradient</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_imageapi_.html#repeatinglineargradient" class="tsd-kind-icon">repeating<wbr>Linear<wbr>Gradient</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_api_imageapi_.html#repeatingradialgradient" class="tsd-kind-icon">repeating<wbr>Radial<wbr>Gradient</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="conicgradient" class="tsd-anchor"></a>
-					<h3>conic<wbr>Gradient</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">conic<wbr>Gradient<span class="tsd-signature-symbol">(</span>angle<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#cssangle" class="tsd-signature-type">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, pos<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#simplecssposition" class="tsd-signature-type">SimpleCssPosition</a>, <span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>img<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"image"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in api/ImageAPI.ts:56</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns an ImageProxy function representing the<code>conic-gradient()</code>  CSS function.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> angle: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#cssangle" class="tsd-signature-type">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <a href="_styles_utiltypes_.html#simplecssposition" class="tsd-signature-type">SimpleCssPosition</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">(</span>img<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"image"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></h4>
-							<ul class="tsd-parameters">
-								<li class="tsd-parameter-signature">
-									<ul class="tsd-signatures tsd-kind-type-literal">
-										<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>img<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"image"</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-									</ul>
-									<ul class="tsd-descriptions">
-										<li class="tsd-description">
-											<h4 class="tsd-parameters-title">Parameters</h4>
-											<ul class="tsd-parameters">
-												<li>
-													<h5><span class="tsd-flag ts-flagOptional">Optional</span> img: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"image"</span></h5>
-												</li>
-											</ul>
-											<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-					</ul>
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="gradient" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagLet">Let</span> gradient</h3>
+					<div class="tsd-signature tsd-kind-icon">gradient<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_styles_imagetypes_.igradient.html" class="tsd-signature-type">IGradient</a><span class="tsd-signature-symbol"> = new Gradient()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in api/ImageAPI.ts:34</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The gradient variable provides access to functions implementing the <code>&lt;gradient&gt;</code> CSS functions.</p>
+						</div>
+					</div>
 				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="crossfade" class="tsd-anchor"></a>
 					<h3>cross<wbr>Fade</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">cross<wbr>Fade<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.CrossFadeParam</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.ImageProxy</span></li>
+						<li class="tsd-signature tsd-kind-icon">cross<wbr>Fade<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><a href="_styles_imagetypes_.html#crossfadeparam" class="tsd-signature-type">CrossFadeParam</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_imagetypes_.iimageproxy.html" class="tsd-signature-type">IImageProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/ImageAPI.ts:67</li>
+									<li>Defined in api/ImageAPI.ts:41</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -155,146 +122,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">ImageTypes.CrossFadeParam</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <a href="_styles_imagetypes_.html#crossfadeparam" class="tsd-signature-type">CrossFadeParam</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ImageTypes.ImageProxy</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="lineargradient" class="tsd-anchor"></a>
-					<h3>linear<wbr>Gradient</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">linear<wbr>Gradient<span class="tsd-signature-symbol">(</span>angle<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ImageTypes.LinearGradAngle</span>, <span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.ImageProxy</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in api/ImageAPI.ts:10</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns an ImageProxy function representing the <code>linear-gradient()</code> CSS function.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> angle: <span class="tsd-signature-type">ImageTypes.LinearGradAngle</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ImageTypes.ImageProxy</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="radialgradient" class="tsd-anchor"></a>
-					<h3>radial<wbr>Gradient</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">radial<wbr>Gradient<span class="tsd-signature-symbol">(</span>shape<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ImageTypes.RadialGradientShape</span>, extent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ImageTypes.RadialGradientExtent</span>, pos<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a>, <span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.ImageProxy</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in api/ImageAPI.ts:32</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns an ImageProxy function representing the <code>radial-gradient()</code> CSS function.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> shape: <span class="tsd-signature-type">ImageTypes.RadialGradientShape</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> extent: <span class="tsd-signature-type">ImageTypes.RadialGradientExtent</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ImageTypes.ImageProxy</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="repeatinglineargradient" class="tsd-anchor"></a>
-					<h3>repeating<wbr>Linear<wbr>Gradient</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">repeating<wbr>Linear<wbr>Gradient<span class="tsd-signature-symbol">(</span>angle<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ImageTypes.LinearGradAngle</span>, <span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.ImageProxy</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in api/ImageAPI.ts:21</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns an ImageProxy function representing the <code>repeating-linear-gradient()</code> CSS function.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> angle: <span class="tsd-signature-type">ImageTypes.LinearGradAngle</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ImageTypes.ImageProxy</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="repeatingradialgradient" class="tsd-anchor"></a>
-					<h3>repeating<wbr>Radial<wbr>Gradient</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">repeating<wbr>Radial<wbr>Gradient<span class="tsd-signature-symbol">(</span>shape<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ImageTypes.RadialGradientShape</span>, extent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ImageTypes.RadialGradientExtent</span>, pos<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a>, <span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageTypes.ImageProxy</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in api/ImageAPI.ts:44</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns an ImageProxy function representing the <code>repeating-radial-gradient()</code> CSS function.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> shape: <span class="tsd-signature-type">ImageTypes.RadialGradientShape</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> extent: <span class="tsd-signature-type">ImageTypes.RadialGradientExtent</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <span class="tsd-signature-type">ImageTypes.GradientStopOrHint</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ImageTypes.ImageProxy</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styles_imagetypes_.iimageproxy.html" class="tsd-signature-type">IImageProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -306,30 +137,57 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_colorapi_.html">&quot;api/<wbr>ColorAPI&quot;</a>
+					</li>
 					<li class="current tsd-kind-module">
 						<a href="_api_imageapi_.html">&quot;api/<wbr>ImageAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_ruleapi_.html">&quot;api/<wbr>RuleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_schedulingapi_.html">&quot;api/<wbr>SchedulingAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_styleapi_.html">&quot;api/<wbr>StyleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_api_utilapi_.html">&quot;api/<wbr>UtilAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_api_imageapi_.html#conicgradient" class="tsd-kind-icon">conic<wbr>Gradient</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="_api_imageapi_.html#gradient" class="tsd-kind-icon">gradient</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_api_imageapi_.html#crossfade" class="tsd-kind-icon">cross<wbr>Fade</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_api_imageapi_.html#lineargradient" class="tsd-kind-icon">linear<wbr>Gradient</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_api_imageapi_.html#radialgradient" class="tsd-kind-icon">radial<wbr>Gradient</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_api_imageapi_.html#repeatinglineargradient" class="tsd-kind-icon">repeating<wbr>Linear<wbr>Gradient</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_api_imageapi_.html#repeatingradialgradient" class="tsd-kind-icon">repeating<wbr>Radial<wbr>Gradient</a>
 					</li>
 				</ul>
 			</nav>
@@ -356,6 +214,9 @@
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
@@ -364,6 +225,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IGroupRule | mimcss</title>
-	<meta name="description" content="Documentation for mimcss">
+	<title>IGroupRule | Mimcss Reference</title>
+	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">mimcss</a>
+					<a href="../index.html" class="title">Mimcss Reference</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -68,8 +68,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The ISupportRule interface represents the CSS @supports rule.
-						Objects implementing this interface are returned from the <a href="../modules/_api_ruleapi_.html#_supports">$supports</a> function.</p>
+						<p>The IGroupRule interface represents a grouping CSS rule.</p>
 					</div>
 				</div>
 			</section>
@@ -102,14 +101,6 @@
 					</li>
 				</ul>
 			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_rules_grouprules_.grouprule.html" class="tsd-signature-type">GroupRule</a></li>
-					<li><a href="../classes/_rules_grouprules_.mediarule.html" class="tsd-signature-type">MediaRule</a></li>
-					<li><a href="../classes/_rules_grouprules_.supportsrule.html" class="tsd-signature-type">SupportsRule</a></li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -128,12 +119,12 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="cssrule" class="tsd-anchor"></a>
-					<h3>css<wbr>Rule</h3>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> css<wbr>Rule</h3>
 					<div class="tsd-signature tsd-kind-icon">css<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CSSGroupingRule</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_rules_ruletypes_.irule.html">IRule</a>.<a href="_rules_ruletypes_.irule.html#cssrule">cssRule</a></p>
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:340</li>
+							<li>Defined in rules/RuleTypes.ts:462</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -144,11 +135,11 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="rules" class="tsd-anchor"></a>
-					<h3>rules</h3>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> rules</h3>
 					<div class="tsd-signature tsd-kind-icon">rules<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in rules/RuleTypes.ts:337</li>
+							<li>Defined in rules/RuleTypes.ts:459</li>
 						</ul>
 					</aside>
 				</section>
@@ -160,27 +151,81 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_colorapi_.html">&quot;api/<wbr>ColorAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_imageapi_.html">&quot;api/<wbr>ImageAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_ruleapi_.html">&quot;api/<wbr>RuleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_schedulingapi_.html">&quot;api/<wbr>SchedulingAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_styleapi_.html">&quot;api/<wbr>StyleAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_api_utilapi_.html">&quot;api/<wbr>UtilAPI&quot;</a>
+					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_rules_ruletypes_.html">&quot;rules/<wbr>Rule<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_colortypes_.html">&quot;styles/<wbr>Color<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_fontfacetypes_.html">&quot;styles/<wbr>Font<wbr>Face<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_imagetypes_.html">&quot;styles/<wbr>Image<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_mediatypes_.html">&quot;styles/<wbr>Media<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_selectortypes_.html">&quot;styles/<wbr>Selector<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_styletypes_.html">&quot;styles/<wbr>Style<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_styles_utiltypes_.html">&quot;styles/<wbr>Util<wbr>Types&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_rules_ruletypes_.schedulertype.html" class="tsd-kind-icon">Scheduler<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../classes/_rules_ruletypes_.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_rules_ruletypes_.iabstractrule.html" class="tsd-kind-icon">IAbstract<wbr>Rule</a>
+						<a href="_rules_ruletypes_.ianimationframerule.html" class="tsd-kind-icon">IAnimation<wbr>Frame<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.ianimationrule.html" class="tsd-kind-icon">IAnimation<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_rules_ruletypes_.iclassnamerule.html" class="tsd-kind-icon">IClass<wbr>Name<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.iclassrule.html" class="tsd-kind-icon">IClass<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_rules_ruletypes_.icounterrule.html" class="tsd-kind-icon">ICounter<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.ifontfacerule.html" class="tsd-kind-icon">IFont<wbr>Face<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_rules_ruletypes_.igridarearule.html" class="tsd-kind-icon">IGrid<wbr>Area<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_rules_ruletypes_.igridlinerule.html" class="tsd-kind-icon">IGrid<wbr>Line<wbr>Rule</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -210,6 +255,9 @@
 						<a href="_rules_ruletypes_.inamedentity.html" class="tsd-kind-icon">INamed<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_rules_ruletypes_.inamedstylerule.html" class="tsd-kind-icon">INamed<wbr>Style<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_rules_ruletypes_.inamespacerule.html" class="tsd-kind-icon">INamespace<wbr>Rule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
@@ -219,7 +267,7 @@
 						<a href="_rules_ruletypes_.irule.html" class="tsd-kind-icon">IRule</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_rules_ruletypes_.iselectorrule.html" class="tsd-kind-icon">ISelector<wbr>Rule</a>
+						<a href="_rules_ruletypes_.ischeduler.html" class="tsd-kind-icon">IScheduler</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_rules_ruletypes_.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>
@@ -237,10 +285,19 @@
 						<a href="../modules/_rules_ruletypes_.html#animationframe" class="tsd-kind-icon">Animation<wbr>Frame</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/_rules_ruletypes_.html#extendedstyleset" class="tsd-kind-icon">Extended<wbr>Styleset</a>
+						<a href="../modules/_rules_ruletypes_.html#animationstyleset" class="tsd-kind-icon">Animation<wbr>Styleset</a>
 					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-module">
-						<a href="../modules/_rules_ruletypes_.html#symowner" class="tsd-kind-icon">sym<wbr>Owner</a>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#animationwaypoint" class="tsd-kind-icon">Animation<wbr>Waypoint</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#combinedstyleset" class="tsd-kind-icon">Combined<wbr>Styleset</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#dependentrules" class="tsd-kind-icon">Dependent<wbr>Rules</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/_rules_ruletypes_.html#selectorcombinator" class="tsd-kind-icon">Selector<wbr>Combinator</a>
 					</li>
 				</ul>
 			</nav>
@@ -268,6 +325,9 @@
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
 		</div>
 	</div>
 </footer>
@@ -276,6 +336,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
