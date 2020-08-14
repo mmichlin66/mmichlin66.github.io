@@ -1,4 +1,4 @@
-import * as css from "mimcss";
+import { Styleset, IClassRule, IClassNameRule, IIDRule } from "mimcss";
 /**
  * Type used to define properties that can be passed to a functional component.
  *
@@ -474,7 +474,7 @@ export interface ITextVN extends IVNode {
  */
 export declare type Slice = {
     className?: string;
-    style?: css.Styleset;
+    style?: Styleset;
     props?: object;
     content?: any;
 };
@@ -510,11 +510,11 @@ export declare type EventPropType<T extends Event> = EventFuncType<T> | EventFun
 /**
  * Type for defining the class property of HTML elements
  */
-export declare type ClassPropType = string | css.IClassRule | css.IClassNameRule | (string | css.IClassRule | css.IClassNameRule)[];
+export declare type ClassPropType = string | IClassRule | IClassNameRule | (string | IClassRule | IClassNameRule)[];
 /**
  * Type for defining the id property of HTML elements
  */
-export declare type IDPropType = string | number | css.IIDRule;
+export declare type IDPropType = string | number | IIDRule;
 /**
  * The ICommonProps interface defines standard properties that can be used on all JSX elements -
  * intrinsic (HTML and SVG) as well as functional and class-based components.
@@ -550,10 +550,10 @@ export interface IElementProps<TRef, TChildren = any> extends ICommonProps {
     class?: ClassPropType;
     draggable?: boolean;
     dropzone?: "copy" | "move" | "link";
-    id?: string | number | css.IIDRule;
+    id?: string | number | IIDRule;
     lang?: string;
     role?: string;
-    style?: css.Styleset;
+    style?: Styleset;
     tabindex?: number;
     abort?: EventPropType<UIEvent>;
     animationcancel?: EventPropType<AnimationEvent>;
@@ -871,24 +871,6 @@ export declare namespace JSX {
     }
 }
 /**
- * JSX Factory function. In order for this function to be invoked by the TypeScript compiler, the
- * tsconfig.json must have the following option:
- *
- * ```json
- * "compilerOptions":
- * {
- *     "jsx": "react",
- *     "jsxFactory": "mim.jsx"
- * }
- * ```
- *
- * The .tsx files must import the mimbl module as mim: import * as mim from "mimbl"
- * @param tag
- * @param props
- * @param children
- */
-export declare function jsx(tag: any, props: any, ...children: any[]): any;
-/**
  * Registers custom attribute handler class for the given property name.
  * @param propName name of the custom attribute
  * @param factory custom attribute class
@@ -924,13 +906,13 @@ export declare function mergeClasses(...classNames: (string | string[])[]): stri
  * always returns an object - even if empty
  * @param styles Array of style objects to merge.
  */
-export declare function mergeStyles(...styles: css.Styleset[]): css.Styleset;
+export declare function mergeStyles(...styles: Styleset[]): Styleset;
 /**
  * Combines arbitrary number of style objects merging later into the first one.
  * @param resStyle Resultant style object
  * @param styles Array of style objects to merge.
  */
-export declare function mergeStylesTo(resStyle: css.Styleset, ...styles: (css.Styleset | string)[]): void;
+export declare function mergeStylesTo(resStyle: Styleset, ...styles: (Styleset | string)[]): void;
 /**
  * Wraps the given callback and returns a wrapper function which is executed in the context of the
  * given virtual node. The given "that" object will be the value of "this" when the callback is
@@ -940,11 +922,29 @@ export declare function mergeStylesTo(resStyle: css.Styleset, ...styles: (css.St
  * however, in this case if the exception is caught it will not be handled by the Mimbl error
  * handling mechanism.
  * @param callback Callback to be wrapped.
- * @param that Object that will be the value of "this" when the callback is executed.
+ * @param thisCallback Object that will be the value of "this" when the callback is executed.
  * @param vn Virtual node in whose context the callback will be executed.
  * @returns The wrapper function that should be used instead of the original callback.
  */
-export declare function wrapCallback<T extends Function>(callback: T, that?: object, vn?: IVNode): T;
+export declare function wrapCallback<T extends Function>(callback: T, thisCallback?: object, vn?: IVNode): T;
+/**
+ * JSX Factory function. In order for this function to be invoked by the TypeScript compiler, the
+ * tsconfig.json must have the following option:
+ *
+ * ```json
+ * "compilerOptions":
+ * {
+ *     "jsx": "react",
+ *     "jsxFactory": "mim.jsx"
+ * }
+ * ```
+ *
+ * The .tsx files must import the mimbl module as mim: import * as mim from "mimbl"
+ * @param tag
+ * @param props
+ * @param children
+ */
+export declare function jsx(tag: any, props: any, ...children: any[]): any;
 /**
  * The ComponentUpdateRequest type defines parameters that can be passed to the component updateMe
  * method if the goal is not to update the entire component but only one or several rendering
@@ -1036,7 +1036,7 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      * @returns Function that has the same signature as the given callback and that should be used
      *     instead of the original callback
      */
-    protected wrapCallback<T extends Function>(callback: T, that?: object): T;
+    protected wrapCallback<T extends Function>(callback: T, thisCallback?: object): T;
 }
 /**
  * Properties to be used with the FuncProxy component. FuncProxy component cannot have children.
@@ -1155,19 +1155,6 @@ export declare class PromiseProxy extends Component<PromiseProxyProps> {
     /** The render method of the PromiseProxy component is never actually called */
     render(): any;
 }
-/**
- * Renders the given content (usually result of JSX expression) under the given HTML element in a
- * synchronous manner.
- * @param content Content to render.
- * @param anchorDN DOM element under which to render the content. If null or undefined, then
- * render under the document.body tag.
- */
-export declare function mountSync(content: any, anchorDN?: Node): void;
-/**
- * Removes the content that was originally generated by the mountSync function.
- * @param anchorDN DOM element under which the content was previously rendered.
- */
-export declare function unmountSync(anchorDN?: Node): void;
 /**
  * Renders the given content (usually result of JSX expression) under the given HTML element
 // asynchronously.

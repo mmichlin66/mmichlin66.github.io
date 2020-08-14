@@ -40,13 +40,13 @@ private renderRightSidebar(): any
     </div>;
 }
 
-private setRightSidebarColor( color: string): void
+private setRightSidebarColor( color: css.CssColor): void
 {
     this.rightSidebarColor = color;
-    this.updateMe();
 }
 
-private rightSidebarColor: string = "red";
+@mim.trigger
+private rightSidebarColor: css.CssColor = "red";
 
 // some method definitions are omitted for brevity.
 ```
@@ -74,23 +74,17 @@ public render(): any
 private setRightSidebarColor( color: string): void
 {
     this.rightSidebarColor = color;
-    this.updateMe( this.renderRightSidebar);
 }
 ```
 
-There are two main differences between these two code excerpts:
+There only differences between the previous code is that while in the first example, the *renderSomething* methods are called, in the second excerpt the methods themselves are provided as content (note the lack of `()`). The outcome is exactly what we wanted: when a color button is clicked in the header, only the right sidebar area is re-rendered.
 
-- In the first excerpt, the *renderSomething* methods are called, while in the second excerpt the methods themselves are provided as content (note the lack of `()`).
-- In the first excerpt, the `updateMe` method is called to re-render the entire component, while in the second excerpt, the `this.updateMe` method is called and the `renderRightSidebar` method is passed to it.
-
-The outcome is exactly what we wanted: when a color button is clicked in the header, only the right sidebar area is re-rendered.
-
-There is no magic of course. Behind the scene, whenever Mimbl encounters a function passed as content, it creates a small component (called FuncProxy) and keeps it linked to the function. Whenever the `this.updateMe` method is called, Mimbl finds the FuncProxy component for the given method and updates it. Mimbl also makes sure to pass the reference to our entire component as *this* when it calls the rendering method.
+There is no magic of course. Behind the scene, whenever Mimbl encounters a function passed as content, it creates a small component (called `FuncProxy`) and keeps it linked to the function. As with the main `render` method the other rendering methods react on the changes in the triggers that they use. Mimbl also makes sure to pass the reference to our entire component as *this* when it calls the rendering method.
 
 In short, the mechanism converts methods into components - that is, it does automatically what developers would otherwise do by hand.
 
 ### FuncProxy Component
-The code above is the simplest scenario where the *renderSomething* functions don't accept any parameters, are instance methods of our component and are called only once each in our component's render method. In real life, this might not be the case and Mimbl provides a solution that covers all these cases.
+The code above is the simplest scenario where the *renderSomething* functions don't accept any parameters, are instance methods of our component and are called only once each in our component's main `render` method. In real life, this might not be the case and Mimbl provides a solution that covers all these cases.
 
 Mimbl has a special component called `FuncProxy` that is used in JSX:
 
@@ -98,7 +92,7 @@ Mimbl has a special component called `FuncProxy` that is used in JSX:
 <FuncProxy func={this.renderSomething} />;
 ```
 
-The above code is the precise equivalent of:
+Thus the code in the previous example is the precise equivalent of:
 
 ```tsx
 <FuncProxy func={this.renderSomething} />;

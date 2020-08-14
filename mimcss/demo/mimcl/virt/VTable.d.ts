@@ -1,5 +1,5 @@
-import * as mim from "mimbl";
 import { Styleset } from "mimcss";
+import { ComponentWithLocalStyles } from "../util/LocalStyles";
 /**
  * The VTAbleCellData interface represents information about a single cell that is provided
  * by a caller when requesed by VTable.
@@ -71,7 +71,7 @@ export interface VTableProps {
  * maximum values. During scrolling, if the actual overscan number becomes less than the minimum,
  * new cells are added and if it becomes more then the maximum cells are deleted.
  */
-export declare class VTable extends mim.ComponentWithLocalStyles<VTableProps> {
+export declare class VTable extends ComponentWithLocalStyles<VTableProps> {
     constructor(props: VTableProps);
     willMount(): void;
     private prepareLocalStyles;
