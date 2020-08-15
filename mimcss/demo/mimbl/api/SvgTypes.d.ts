@@ -1,5 +1,5 @@
-import * as mim from "./mim";
-export interface ISvgElementProps extends mim.IElementProps<SVGElement> {
+import { IElementProps, ReferrerPolicyPropType, FormtargetPropType, CrossoriginPropType } from "./mim";
+export interface ISvgElementProps extends IElementProps<SVGElement> {
 }
 export declare type PreserveAspectRatioPropType = "none" | "xMinYMin" | "xMidYMin" | "xMaxYMin" | "xMinYMid" | "xMidYMid" | "xMaxYMid" | "xMinYMax" | "xMidYMax" | "xMaxYMax" | "meet" | "slice";
 export declare type SvgInPropType = string | "SourceGraphic" | "SourceAlpha" | "BackgroundImage" | "BackgroundAlpha" | "FillPaint" | "StrokePaint";
@@ -124,9 +124,9 @@ export interface ISvgAElementProps extends ISvgConditionalProcessingProps, ISvgP
     href?: string;
     hreflang?: string;
     ping?: string;
-    referrerpolicy?: mim.ReferrerPolicyPropType;
+    referrerpolicy?: ReferrerPolicyPropType;
     rel?: string;
-    target?: mim.FormtargetPropType;
+    target?: FormtargetPropType;
     type?: string;
 }
 export interface ISvgAnimateMotionElementProps extends ISvgConditionalProcessingProps, ISvgAnimationProps {
@@ -398,7 +398,7 @@ export interface ISvgRectElementProps extends ISvgConditionalProcessingProps, IS
 }
 export interface ISvgScriptElementProps extends ISvgElementProps {
     async?: boolean;
-    crossorigin?: mim.CrossoriginPropType;
+    crossorigin?: CrossoriginPropType;
     defer?: boolean;
     integrity?: string;
     nomodule?: boolean;

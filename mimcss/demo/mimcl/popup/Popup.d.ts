@@ -1,6 +1,7 @@
 import * as mim from "mimbl";
+import { Slice } from "../util/LocalStyles";
 export declare class Popup extends mim.Component {
-    constructor(dlgSlice?: mim.Slice);
+    constructor(dlgSlice?: Slice);
     open(x?: number, y?: number): boolean;
     close(retVal?: any): void;
     showModal(x?: number, y?: number): Promise<any>;
@@ -10,7 +11,7 @@ export declare class Popup extends mim.Component {
     startMove(e: MouseEvent): void;
     move(newX: number, newY: number): void;
     render(): any;
-    protected getDlgSlice(): mim.Slice;
+    protected getDlgSlice(): Slice;
     private create;
     private destroy;
     private onKeyDown;
@@ -27,5 +28,5 @@ export declare class Popup extends mim.Component {
     private caption;
     private dragPointOffsetX;
     private dragPointOffsetY;
-    static DefaultDlgSlice: mim.Slice;
+    static DefaultDlgSlice: Slice;
 }

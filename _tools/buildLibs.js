@@ -17,7 +17,7 @@ function buildLib( libName)
 {
 	ps.chdir( p.join( __dirname, "..\\..\\..\\" + libName));
 	console.log( "Build " + libName);
-	exec( "tsc -b && webpack");
+	exec( "tsc -b && webpack", undefined, true);
 }
 
 

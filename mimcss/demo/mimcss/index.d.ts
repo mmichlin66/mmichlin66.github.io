@@ -12,4 +12,4 @@ export * from "./api/ImageAPI";
 export * from "./api/StyleAPI";
 export * from "./api/RuleAPI";
 export * from "./api/SchedulingAPI";
-//# sourceMappingURL=mimcssTypes.d.ts.map
+//# sourceMappingURL=index.d.ts.map

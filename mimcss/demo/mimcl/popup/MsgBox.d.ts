@@ -1,10 +1,10 @@
-import * as mim from "mimbl";
 import { Dialog } from "./Dialog";
+import { Slice } from "../util/LocalStyles";
 export declare class MsgBox extends Dialog {
     static showModal(message: string, title?: string, buttons?: MsgBoxButtons, icon?: MsgBoxIcon): Promise<MsgBoxButtons>;
     constructor(message: string, title?: string, buttons?: MsgBoxButtons, icon?: MsgBoxIcon);
-    protected getCaptionAreaSlice(): mim.Slice;
-    protected getMainAreaSlice(): mim.Slice;
+    protected getCaptionAreaSlice(): Slice;
+    protected getMainAreaSlice(): Slice;
     private createButtons;
     private getIconClassAndColor;
     private createButton;
