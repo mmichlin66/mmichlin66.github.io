@@ -14,13 +14,19 @@
 <body>
 	<div class="vbox" style="height: 100%">
 		<div class="hbox mainHeader">
-			<img src="{{pathToRoot}}assets/mim-logo.png" style="margin: auto 0.5em">
-			<div class="menubar" style="justify-content:flex-start; flex-grow:1; align-items:center">
+			<div class="hbox spacing">
+                <img src="{{pathToRoot}}assets/mim-logo.png" style="margin: auto 0.5em">
+                <div>
+                    <span>Web Site of</span>
+                    <br/>
+                    <span>Michael Michlin</span>
+                </div>
+            </div>
+			<div class="menubar" style="justify-content:flex-start; align-items:center">
 				<a class="menuitem" href="{{pathToRoot}}">Home</a>
 				<div class="menuitem">
 					<div class="menuitemContent">Mimcss</div>
 					<div class="menu">
-						<a class="menuitem" href="{{pathToRoot}}mimcss/motivation.html">About</a>
 						<a class="menuitem" href="{{pathToRoot}}mimcss/guide/introduction.html">Documentation</a>
 						<a class="menuitem" href="{{pathToRoot}}mimcss/demo/playground.html">Playground</a>
                         <a class="menuitem" href="{{pathToRoot}}mimcss/reference.html">Typedoc Reference</a>
@@ -43,8 +49,10 @@
 						<a class="menuitem" href="{{pathToRoot}}mimurl/reference.html">Reference</a>
 					</div>
 				</div>
+            </div>
+			<div class="menubar">
 				<a class="menuitem" href="{{pathToRoot}}blog.html">Blog</a>
-			</div>
+            </div>
 		</div>
 		<div class="main-container elastic vbox">
 			{{ content }}

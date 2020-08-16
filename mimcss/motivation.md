@@ -1,5 +1,5 @@
 ---
-layout: mimcss
+layout: mimcss-guide
 title: "Motivation for Mimcss"
 description: "Describes the motivation behind the Mimcss project."
 ---

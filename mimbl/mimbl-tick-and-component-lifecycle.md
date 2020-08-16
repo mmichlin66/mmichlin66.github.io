@@ -1,6 +1,6 @@
 ---
 layout: mimbl-guide
-unit: 7
+unit: 8
 title: Mimbl Tick and Component Life Cycle
 ---
 

@@ -9,28 +9,34 @@ Mimbl is a TypeScript/JavaScript UI authoring library that combines declarative 
 Mimbl provides all the standard functionality that developers expect from component authoring libraries: declarative laying out of HTML structure, function- and class-based components, references, error boundaries, lazy-loading, etc. In addition to this functionality Mimbl provides the following unique features:
 
 - Instance-based components whose lifecycle is controlled by developers and which can be accessed via standard property and method invocation.
-- Custom HTML and SVG attributes defined by developers and supported via handler objects.
 - Built-in trigger-watcher mechanism that re-renders components upon changes in the observable properties.
-- Rendering methods - independent re-rendering of portions of a component encapsulated in a method.
+- Partitioned components - independent re-rendering of portions of a component encapsulated in a method.
+- Custom HTML and SVG attributes defined by developers and supported via handler objects.
 - Service publish/subscribe mechanism.
 
-## Components
-Mimbl components can be developed as functions or as classes. Function-based components are regular TypeScript/JavaScript functions that accept a "props" object and return an object that represents DOM content. Function components are stateless and don't support any hooks.
+### Components
+Mimbl components can be developed as functions or as classes. Function-based components are regular TypeScript/JavaScript functions that accept a "props" object and return an object that represents DOM content. Function components are stateless and are updated only when a parent component passes to it a different set of properties during its update.
 
 Class-based components are classes that must implement the `render` method and may optionally implement other methods for lifecycle management. Usually, class-based components derive from the `mimbl.Component` class; however, this is not required. Class-based components are stateful and maintain their state using their instance properties. There is no special "state" object that the Mimbl infrastructure knows about and treats in a special way - component's state is encapsulated by and known only to the component itself.
 
 Function-based components are first-class citizens in Mimbl but since they are only useful for simple stateless functionality and have very simple lifecycle they have limited use. Thus the majority of the further discussion is dedicated to the class-based components. Also, if not otherwise indicated, the term "component" will refer to class-based components.
 
 Mimbl components can be leveraged in two different ways:
-* as React-style components - that is, by specifying the component class name in JSX and letting the infrastructure to decide when to instantiate and when to destroy its instances. These components are also referred to later as JSX components.
-* as instance-based components - that is, by allowing developers to decide when the component should be instantiated and destroyed. In this case the components are created using a standard new operator and developers are in full control as to when to create the components. These components are also referred to later as Mimbl components or as "Mimbl non-JSX components" if it is necessary to distinguish them from JSX components.
+* as React-style components - that is, by specifying the component class name in JSX and letting the infrastructure to decide when to instantiate and when to destroy its instances. These components are also referred to later as *managed* components.
+* as instance-based components - that is, by allowing developers to decide when the component should be instantiated and destroyed. In this case the components are created using a standard new operator and developers are in full control as to when to create the components. These components are also referred to later as *independent* components.
 
-In both cases, the components participate in the JSX layout. For the instance-based components, the variable holding the reference to the component is used directly within the curly braces. The component's properties and methods can be accessed and invoked directly. Developers are free to create component constructors with whatever parameters they see fit. Developers are encouraged to create component class hierarchies for code reuse.
+In both cases, the components participate in the JSX layout. For the independent components, the variable holding the reference to the component is used directly within the curly braces. The component's properties and methods can be accessed and invoked directly. Developers are free to create component constructors with whatever parameters they see fit. Developers are encouraged to create component class hierarchies for code reuse.
 
-## Custom Attributes
+### Trigger-Watcher Mechanism
+For a class-based component (both managed and independent), its internal properties can be specified as *triggers* by using the `@trigger` decorator. From the moment the component is mounted, every run of the `render` method automatically remembers what triggers were accessed. Later, when a trigger's value is changed, the component will be re-rendered automatically.
+
+### Partitioned Components
+It is ubiquitous that complex components don't have their entire JSX-related code reside in one big `render` method, but instead, use private methods (usually called `renderSomething`) responsible for rendering portions of the component. These methods are then invoked from the `render` method. In Mimbl, such methods are automatically converted to internally managed components that can be updated independently of the *parent* component and of each other. Just like the `render` method, these methods use the trigger-watcher mechanism to re-render the portions of the component when the values of the triggers change.
+
+### Custom Attributes
 A unique Mimbl feature is the ability to implement custom element attributes. As their name implies, custom element attributes are attributes that can be directly applied to the JSX representation of HTML and SVG elements and that have associated code executing custom functionality at run-time. The code is provided in the form of Custom Attribute Handlers - classes that are registered to implement functionality for named attributes. The consumers of custom attributes specify the named attributes in JSX representation of HTML or SVG elements in the same way they specify standard attributes.
 
-## Publishing and Subscribing to Services
+### Publishing and Subscribing to Services
 In Mimbl parlance, *service* is an arbitrary object that is *published* by a component and that can be accessed and *subscribed to* by components below the publishing one in the HTML tree.
 
 Service publish/subscribe mechanism provides the way to make information maintained by an upstream component available to the downstream components without passing this information through layers of intermediary components between the publisher and the subscriber. For these intermediary components, there is no need to know anything about the service.

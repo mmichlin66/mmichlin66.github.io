@@ -5,55 +5,70 @@ title: Home
 
 {% include pathToRoot.lqd %}
 
-<h3>Mimcss - TypeScript CSS Authoring Library</h3>
-<div class="hbox spacing">
-    <a href="https://www.npmjs.com/package/mimcss">
-        <img src="https://img.shields.io/npm/v/mimcss.svg?&style=flat-square&color=success"
-        alt="npm version">
-    </a>
-    <a href="https://www.npmjs.com/package/mimcss">
-        <img src="https://img.shields.io/npm/dm/mimcss.svg?&style=flat-square&color=success"
-        alt="downloads per month">
-    </a>
-    <a href="https://gitter.im/mimcss/general?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" rel="nofollow">
-        <img src="https://img.shields.io/gitter/room/mmichlin66/mimcss.svg?&style=flat-square&color=informational"
-        alt="Join the chat at https://gitter.im/mimcss/general">
-    </a>
+<div class="vbox spacing">
+    <h3>Mimcss - TypeScript CSS Authoring Library</h3>
+    <p>
+        <strong>Mimcss</strong> is a TypeScript library that allows authoring CSS styles without creating CSS files. Instead, the styles
+        are created via TypeScript programming. You code your styling rules including CSS classes, animations, media etc. by creating
+        TypeScript classes. The Mimcss library processes these classes and creates the rules that are inserted into
+        <code class="highlighter-rouge">&lt;style&gt;</code> elements in the <code class="highlighter-rouge">&lt;head&gt;</code> of your
+        HTML document. As a result, your application or library bundle is self contained and doesn't require a separate CSS bundle.</p>
+    <div class="hbox spacing">
+        <a href="https://www.npmjs.com/package/mimcss">
+            <img src="https://img.shields.io/npm/v/mimcss.svg?&style=flat-square&color=success"
+            alt="Mimcss npm version">
+        </a>
+        <a href="https://www.npmjs.com/package/mimcss">
+            <img src="https://img.shields.io/npm/dm/mimcss.svg?&style=flat-square&color=success"
+            alt="Mimcss downloads per month">
+        </a>
+        <a href="https://gitter.im/mimcss/general?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" rel="nofollow">
+            <img src="https://img.shields.io/gitter/room/mmichlin66/mimcss.svg?&style=flat-square&color=informational"
+            alt="Join the chat at https://gitter.im/mimcss/general">
+        </a>
+    </div>
+    <div class="hbox spacing">
+        <a href="{{pathToRoot}}mimcss/guide/introduction.html">Documentation</a>
+        <a href="{{pathToRoot}}mimcss/demo/playground.html">Playground</a>
+        <a href="{{pathToRoot}}mimcss/reference.html">Reference</a>
+    </div>
 </div>
-<p><strong>Mimcss</strong> is a TypeScript library that allows authoring CSS styles without creating CSS files. Instead, the styles
-    are created via TypeScript programming. You code your styling rules including CSS classes, animations, media etc. by creating
-    TypeScript classes. The Mimcss library processes these classes and creates the rules that are inserted into
-    <code class="highlighter-rouge">&lt;style&gt;</code> elements in the <code class="highlighter-rouge">&lt;head&gt;</code> of your
-    HTML document. As a result, your application or library bundle is self contained and doesn't require a separate CSS bundle.</p>
-<div class="hbox spacing">
-	<a href="{{pathToRoot}}mimcss/motivation.html">About</a>
-	<a href="{{pathToRoot}}mimcss/guide/introduction.html">Documentation</a>
-	<a href="{{pathToRoot}}mimcss/demo/playground.html">Playground</a>
-	<a href="{{pathToRoot}}mimcss/reference.html">Typedoc Reference</a>
+<hr style="width: 100%"/>
+<div class="vbox spacing">
+    <h3>Mimbl - Web UI Authoring Library</h3>
+    <p>
+        <strong>Mimbl</strong> is a JavaScript/TypeScript library for creating components and using
+        them to author single page Web applications. Mimbl is a React-like library in that it uses JSX for lying out HTML elements and
+        components; however, Mimbl brings many unique features mostly focused on update efficiency and developer convenience.
+    </p>
+    <div class="hbox spacing">
+        <a href="https://www.npmjs.com/package/mimbl">
+            <img src="https://img.shields.io/npm/v/mimbl.svg?&style=flat-square&color=success"
+            alt="Mimbl npm version">
+        </a>
+        <a href="https://www.npmjs.com/package/mimbl">
+            <img src="https://img.shields.io/npm/dm/mimbl.svg?&style=flat-square&color=success"
+            alt="Mimbl downloads per month">
+        </a>
+    </div>
+    <div class="hbox spacing">
+        <!-- <a href="{{pathToRoot}}mimbl/about.html">About</a> -->
+        <a href="{{pathToRoot}}mimbl/introduction.html">Documentation</a>
+        <a href="{{pathToRoot}}mimbl/playground.html">Playground</a>
+        <a href="{{pathToRoot}}mimbl/reference.html">Reference</a>
+    </div>
 </div>
-<br />
-<h3>Mimbl - UI Authoring Library</h3>
-<p>
-	<strong>Mimbl</strong> is a JavaScript/TypeScript library for creating components and using
-	them to author single page Web applications.
-</p>
-<div class="hbox spacing">
-	<a href="{{pathToRoot}}mimbl/about.html">About</a>
-	<a href="{{pathToRoot}}mimbl/introduction.html">Guide</a>
-	<!-- <a href="{{pathToRoot}}mimbl/playground.html">Demo</a> -->
-	<a href="{{pathToRoot}}mimbl/reference.html">Reference</a>
+<hr style="width: 100%"/>
+<div class="vbox spacing">
+    <h3>Mimurl - URL Parsing and Matching Library</h3>
+    <p>
+        <strong>Mimurl</strong> is a JavaScript/TypeScript library for parsing URLs and URL patterns
+        and matching them. URL pattern can specify a number of fields. When an actual URL is matched
+        against the pattern, the result will contain field values.
+    </p>
+    <div class="hbox spacing">
+        <a href="{{pathToRoot}}mimurl/about.html">Documentation</a>
+        <a href="{{pathToRoot}}mimurl/playground.html">Playground</a>
+        <a href="{{pathToRoot}}mimurl/reference.html">Reference</a>
+    </div>
 </div>
-<br />
-<h3>Mimurl - URL Parsing and Matching Library</h3>
-<p>
-	<strong>Mimurl</strong> is a JavaScript/TypeScript library for parsing URLs and URL patterns
-	and matching them. URL pattern can specify a number of fields. When an actual URL is matched
-	against the pattern, the result will contain field values.
-</p>
-<div class="hbox spacing">
-	<a href="{{pathToRoot}}mimurl/about.html">About</a>
-	<a href="{{pathToRoot}}mimurl/playground.html">Demo</a>
-	<a href="{{pathToRoot}}mimurl/reference.html">Reference</a>
-</div>
-<br />
-<br />

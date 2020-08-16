@@ -42,13 +42,13 @@ After the above call, all calls to the `activate`, `deactivate` and `IStyleRule.
 Note that the call to the `setDefaultSchedulerType` function should occur early in the application lifetime before any activation and style property setting occurs. On the other hand, nothing stops application developers to switch to a different scheduler in the middle of the application, although it is hard to see a real case for it.
 
 ### Synchronous Scheduler
-The Synchronous scheduler doesn't do any scheduling and calls to the `activate`, `deactivate` and `IStyleRule.setProp` functions directly make changes to the DOM. This scheduler may be useful for applications that already take care of calling the above functions in a manner that avoids unnecessary style and layout recalculations.
+The Synchronous scheduler doesn't do any real scheduling; calls to the `activate`, `deactivate` and `IStyleRule.setProp` functions directly make changes to the DOM. This scheduler may be useful for applications that already take care of calling the above functions in a manner that avoids unnecessary style and layout recalculations.
 
 The Synchronous scheduler is the default scheduler unless a different scheduler is set using the `setDefaultSchedulerType` function.
 
 
 ### Animation Frame Scheduler
-The Animation Frame scheduler schedules the DOM writing operations for the next animation frame by using the `requestAnimationFrame` API functions. No matter how many times the functions `activate`, `deactivate` and `IStyleRule.setProp` are called since the last animation frame, all the corresponding DOM changes will be made in the next animation frame.
+The Animation Frame scheduler schedules the DOM writing operations for the next animation frame by using the `requestAnimationFrame` API function. No matter how many times the functions `activate`, `deactivate` and `IStyleRule.setProp` are called since the last animation frame, all the corresponding DOM changes will be made in the next animation frame.
 
 ### Manual Scheduler
 While the Animation Frame scheduler can serve well under certain circumstances, it does not guarantee that layout thrashing is avoided. If the application (or some library used by the application) also uses animation frames, it is unpredictable in which order the animation frame callbacks are executed, which can lead to intermingling of DOM reads and writes.
@@ -58,7 +58,7 @@ Mimcss implements the Manual scheduler type, which can be used by applications t
 ## Custom Schedulers
 Mimcss allows writing custom schedulers, which can be a reasonable approach for component authoring libraries or for applications that have a particular way of synchronizing DOM writing operations.
 
-A custom scheduler is a JavaScript object that implements the `IScheduler` interface. The custom scheduler object should be registered with Mimcss using the `registerScheduler` function. This function returns the number identifying the new scheduler type and this number should be passed to the `setDefaultSchedulerType` functions in order to set the new scheduler as the default one.
+A custom scheduler is a JavaScript class that implements the `IScheduler` interface. The custom scheduler object should be registered with Mimcss using the `registerScheduler` function. This function returns the number identifying the new scheduler type and this number should be passed to the `setDefaultSchedulerType` function in order to set the new scheduler as the default one.
 
 Once the custom scheduler is registered and set as the default, all calls to the `activate`, `deactivate`, `IStyleRule.setProp`, `forceDOMUpdate` and `cancelDOMUpdate` functions will be accumulated by the Mimcss scheduling infrastructure and the scheduler object's methods will be called:
 

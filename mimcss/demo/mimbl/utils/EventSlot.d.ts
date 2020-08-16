@@ -10,6 +10,8 @@ export interface IEventSlot<TFunc extends Function> {
     attach(listener: TFunc): void;
     /** Removes the given function as a listener to the event. */
     detach(listener: TFunc): void;
+    /** Returns the number of currently attached listeners. */
+    readonly count: number;
 }
 /**
  * The IEventSlotOwner interface represents an event slot from the point of view of the caller who
@@ -42,6 +44,8 @@ export declare class EventSlot<TFunc extends Function> implements IEventSlotOwne
     attach(listener: TFunc): void;
     /** Removes the given function as a listener to the event. */
     detach(listener: TFunc): void;
+    /** Returns the number of currently attached listeners. */
+    get count(): number;
     /** Removes all listeners to the event. */
     clear(): void;
     private listeners;

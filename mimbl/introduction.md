@@ -82,20 +82,20 @@ import * as mim from "mimbl"
 class HelloTo extends mim.Component
 {
     @mim.trigger private name: string;
-    private refName = new mim.Ref<HTMLInputElement>();
+    @mim.ref private refName: HTMLInputElement;
 
     public render(): any
     {
         return <div>
             <button click={this.onSayHelloTo}>Say Hello To</button>
-            <input type="text" ref={this.refName} style={ {marginLeft: "20px"} } />
-            <span style={ {marginLeft: "20px"} }>{`Hello to ${this.name}!`}</span>
+            <input type="text" ref={this.refName} style={ {marginLeft: 20} } />
+            <span style={ {marginLeft: 20} }>{`Hello to ${this.name}!`}</span>
         </div>
     }
 
     private onSayHelloTo(): void
     {
-        this.name = this.refName.r.value;
+        this.name = this.refName.value;
     }
 }
 
@@ -104,7 +104,7 @@ mim.mount( new HelloTo());
 
 As we can see the component structure is pretty similar to that of React. The HelloWorld class is a class-based component because it derives from the Mimbl's Component class. It's `render` method uses JSX to lay out the HTML structure.
 
-The component defines a reference object `refName` and passes it on to the `<input>` element. It also defines a `name` field that is used to remember the value from the `<input>` element when the user clicks the button. The button element is passed the event handler method `onSayHelloTo` for the `click` event. The `<span>` element displays the "Hello to" string combined with the value of the `name` field whenever the component is updated.
+The component declares a reference `refName` and passes it on to the `<input>` element. It also defines a `name` field that is used to remember the value from the `<input>` element when the user clicks the button. The button element is passed the event handler method `onSayHelloTo` for the `click` event. The `<span>` element displays the "Hello to" string combined with the value of the `name` field whenever the component is updated.
 
 When the user clicks the button, the reference object is used to retrieve the `<input>` element's current value and to store it in the component's `name` field. Since the `name` property is decorated with `@trigger` the component will be re-rendered as soon as the value of the `name` property changes.
 
@@ -112,14 +112,24 @@ To put the component on the page, the Mimbl's `mount` method is called, which is
 
 There are several differences - some significant, some subtle - in the component definition compared to React. Among the subtle ones are:
 
+- The reference is declared with the intended type and with the `@ref` decorator. This way the reference can be used to directly access the referenced object's methods and properties without the extra `current` property.
 - Events are identified by their DOM names without prefixing them with "on"; that is, "click" instead of "onClick". In general, Mimbl strives to use the original HTML attribute and event names whenever possible. For example, Mimbl uses "class", "for" and "tabindex", while React uses customized "className", "forHtml" and "tabIndex".
-- The value of the reference is retrieved using the `r` property instead of React's `current` property - in the sole interest of brevity; otherwise, the reference concept and functionality are essentially the same.
 - There is no "controlled component" pattern, which is common in and recommended by React: the value of the internal variable `name` isn't kept in sync with the value of the `<input>` element; instead, it is retrieved only when there is a need to use it. Mimbl is fully capable of implementing the control component pattern; however, we don't see it as a good practice. You can read more on this author's view of the controlled components [here](https://mmichlin66.github.io/2019/08/10/React-Discussion.html).
 
 Among the significant differences are the following:
 
 - Mimbl components don't have a `state` object - the component's state is kept in the instance variables. The existence of the `state` object and the React insistence on using it has always been a mystery for this author: you can read more on this topic in the same article mentioned [above](https://mmichlin66.github.io/2019/08/10/React-Discussion.html).
 - Mimbl components don't have the `setState` method (which, in React, combines the state changing and update requesting). Whenever the component needs to be updated it must either call the `updateMe` method (which acts as the React's `forceUpdate`) or rely on the trigger-watcher mechanism as in the example.
-- The component in our example is instantiated by us (the developers), while in React, the component's class is used in JSX and is instantiated by the React library. Mimbl, in fact supports several component types and this will be discussed in the next unit.
+- The component in our example is instantiated by us (the developers), while in React, the component's class is used in JSX and is instantiated by the React library. Mimbl, in fact supports several component types, which are discussed later in this guide.
+
+In addition, Mimbl provides the following unique features:
+
+- Instance-based components whose lifecycle is controlled by developers and which can be accessed via standard property and method invocation.
+- Built-in trigger-watcher mechanism that re-renders components upon changes in the observable properties.
+- Partitioned components - independent re-rendering of portions of a component encapsulated in a method.
+- Custom HTML and SVG attributes defined by developers and supported via handler objects.
+- Service publish/subscribe mechanism.
+
+The following units discuss these features in more details.
 
 

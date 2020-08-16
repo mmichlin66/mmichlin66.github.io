@@ -583,13 +583,12 @@ export declare type ScheduledFuncType = () => void;
 /**
  * Defines event handler that is invoked when reference value changes.
  */
-export declare type RefFunc<T> = (newRef: T) => void;
+export declare type RefFunc<T = any> = (newRef: T) => void;
 /**
  * Reference class to use whenever a reference to an object is needed - for example, with JSX `ref`
  * attributes and services.
  */
-export declare class Ref<T> {
-    private _r;
+export declare class Ref<T = any> {
     /** Event that is fired when the referenced value changes */
     private changedEvent;
     constructor(listener?: RefFunc<T>, initialReferene?: T);
@@ -601,14 +600,27 @@ export declare class Ref<T> {
     get r(): T;
     /** Set accessor for the reference value */
     set r(newRef: T);
-    /** Clears the reference value and also clears all all registered listeners */
-    clear(): void;
 }
+/**
+ * Decorator function for creating reference properties without the need to manually create Ref<>
+ * instances. This allows for the following code pattern:
+ *
+ * ```typescript
+ * class A extends Component
+ * {
+ *     @ref myDiv: HTMLDivElement;
+ *     render() { return <div ref={myDiv}>Hello</div>; }
+ * }
+ * ```
+ *
+ * In the above example, the myDiv property will be set to pint to the HTML div element.
+ */
+export declare function ref(target: any, name: string): void;
 /**
  * Type of ref property that can be passed to JSX elements and components. This can be either the
  * [[Ref]] class or [[RefFunc]] function.
  */
-export declare type RefPropType<T = any> = Ref<T> | RefFunc<T>;
+export declare type RefPropType<T = any> = T | Ref<T> | RefFunc<T>;
 /**
  * Helper function to set the value of the reference that takes care of the different types of
  * references. The optional `onlyIf` parameter may specify a value so that only if the reference
@@ -979,6 +991,12 @@ export interface FuncProxyProps extends ICommonProps {
      */
     args?: any[];
     /**
+     * Value to be used as "this" when invoking the function. If this value is undefined, the
+     * class based component that rendered the FuncProxy component will be used (which is the
+     * most common case).
+     */
+    thisArg?: any;
+    /**
      * Flag indicating whether the arguments specified by the `args` property should be passed to
      * the function overriding arguments that were specified by the most recent call to the
      * FuncProxy.update method. By default the value of this property is false and `args` will be
@@ -1003,12 +1021,6 @@ export interface FuncProxyProps extends ICommonProps {
      * be used again.
      */
     replaceArgs?: boolean;
-    /**
-     * Value to be used as "this" when invoking the function. If this value is undefined, the
-     * class based component that rendered the FuncProxy component will be used (which is the
-     * most common case).
-     */
-    thisArg?: any;
 }
 /**
  * The FuncProxy component wraps a function that produces content. Proxies can wrap instance
@@ -1026,7 +1038,7 @@ export interface FuncProxyProps extends ICommonProps {
  * <div>{this.renderSomething}</div>
  * ```
  *
- * The FuncProxy coponent is needed in the case where one (or more) of the following is true:
+ * The FuncProxy component is needed in the case where one (or more) of the following is true:
  * - There is a need to pass arguments to the function
  * - The same function is used multiple times and keys must be used to distinguish between the
  * invocations.

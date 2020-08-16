@@ -2,19 +2,19 @@ let p = require( "path");
 let ps = require( "process");
 let cps = require( "child_process");
 
-ps.chdir( p.join( __dirname, "..\\..\\..\\mimcss"));
+ps.chdir( p.join( __dirname, "..\\..\\mimcss"));
 console.log( "Build mimcss Doc");
 exec( "doc.bat");
 
-ps.chdir( p.join( __dirname, "..\\..\\..\\mimbl"));
+ps.chdir( p.join( __dirname, "..\\..\\mimbl"));
 console.log( "Build mimbl Doc");
 exec( "doc.bat");
 
-ps.chdir( p.join( __dirname, "..\\..\\..\\mimurl"));
+ps.chdir( p.join( __dirname, "..\\..\\mimurl"));
 console.log( "Build mimurl Doc");
 exec( "doc.bat");
 
-ps.chdir( p.join( __dirname, "..\\..\\..\\mimcl"));
+ps.chdir( p.join( __dirname, "..\\..\\mimcl"));
 console.log( "Build mimcl Doc");
 exec( "doc.bat");
 

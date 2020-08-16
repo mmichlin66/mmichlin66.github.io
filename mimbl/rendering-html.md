@@ -185,45 +185,34 @@ class Focus extends mim.Component
 }
 ```
 
-References are usually needed when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. References can also be used for components and here they have wider application than with DOM elements. Mimbl promotes using components just as regular JavaScript object and that means communicating with them by direct property manipulation and method invocations. Here is an example when a Parent component uses a reference to a Child component to tell it what color to use for its text:
+Mimbl also supports the `@ref` decorator that also creates a reference but allows for a more straightforward syntax. Here is the same code using the `@ref` decorator:
 
 ```tsx
-class Child extends mim.Component
+class Focus extends mim.Component
 {
-    @mim.trigger color: css.CssColor = "black";
-
-    public render(): any
-    {
-        return <span style={ {color: this.color} }>Hello!</span>
-    }
-}
-
-class Parent extends mim.Component
-{
-    private childRef = new mim.Ref<Child>();
+    @ref private inputRef: HTMLInputElement;
 
     public render(): any
     {
         return <div>
-            <button click={this.onRed}>Red</button>
-            <button click={this.onGreen}>Green</button>
-            <button click={this.onBlue}>Blue</button>
+            <button click={this.onSetFocus}>Set Focus</button>
             <br/>
-            <Child ref={this.childRef} />
+            <input type="text" ref={this.inputRef} />
         </div>
     }
 
-    private onRed(): void { this.inputRef.r.color = "red"; }
-    private onGreen(): void { this.inputRef.r.color = "green"; }
-    private onBlue(): void { this.inputRef.r.color = "blue"; }
+    private onSetFocus(): void
+    {
+        this.inputRef.focus();
+    }
 }
 ```
 
-When an element or a component instance to which the reference points is not rendered anymore, the reference object is *cleared*; that is, its `r` property is set to `undefined`. The reference is also cleared when a component that created it is unmounted. It is a good practice to check whether the `r` property is defined before using it.
+Note that we declare our `inputRef` property directly as of type `HTMLInputElement` and use it as such in the `onSetFocus` method - there is no `r` property. Also note that we don't assign any value to this property. Behind the scenes, Mimbl creates a `Proxy` object, which points to the actual HTML element and delegates all calls to it.
 
-The `ref` attribute is applicable to any type of DOM elements as well as any *managed* component (more on this in the next unit).
+References are usually needed when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. The `ref` attribute is applicable to any type of DOM elements as well as any managed component. References are not used for independent components because the instance of the independent component is available directly (more on this in the next unit).
 
-There are times when a component (or any other code) that created a `mim.Ref` object wants to be notified when the reference is filled in, cleared or its value changes. The `mim.Ref` object allows providing a callback that will be invoked every time the value of the reference changes in any way. The callback can either be provided as a first parameter in the `mim.Ref` constructor or passed in the call to the `addListener` method. When no longer needed, the callback can be removed by calling the `removeListener` method.
+There are times when a component that created a `mim.Ref` object wants to be notified when the reference is filled in, cleared or its value changes. The `mim.Ref` object allows providing a callback that will be invoked every time the value of the reference changes in any way. The callback can either be provided as a first parameter in the `mim.Ref` constructor or passed in the call to the `addListener` method. When no longer needed, the callback can be removed by calling the `removeListener` method. Note that when the reference is defined using the `@ref` decorator, the `addListener` and `removeListener` methods are not available.
 
 ## Element and Component Lists
 It is a common task for Web developers to represent collections of same-type structures. This is modeled by an element having multiple sub-elements or a parent component rendering a list of child components. Such lists change when items are added to or removed from the list or when the order of items in the list changes. In order to properly update DOM when an item list changes, the first task Mimbl has to do is to match items from a newly rendered list to those in the existing list. Based on this matching, Mimbl understands what items should be destroyed or inserted or simply updated. The matching algorithm should figure out an item identity for the matching to be accurate and that identity should be unique among the items under the same parent.
@@ -267,12 +256,11 @@ render()
 
 The `id` property of an element can also be specified as either a regular string or a property from a style definition class (instead of `css.$class` the `css.$id` function must be used).
 
-The `style` property is specified as an object whose type is defined by Mimcss. This object contains all the CSS properties in their lowerCamelCase. Every property has defined type, so some can be specified as strings others as numbers, yet others as arrays, tuples, functions, object or a combination of all the above. For dimensional properties such as length and angle, values can be specified as a number, in which case the default prefix corresponding to the type will be appended. The default prefix also depends on whether the the number is integer or floating point.
+The `style` property is specified as an object whose type is defined by Mimcss. This object contains all the CSS properties in their lowerCamel case. Every property has a defined type, so some can be specified as strings others as numbers, yet others as arrays, tuples, functions, objects or a combination of all the above. For dimensional properties such as length and angle, values can be specified as a number, in which case the default prefix corresponding to the type will be appended. The default prefix also depends on whether the the number is integer or floating point.
 
 ```tsx
 render()
 {
-    // specify class by using the property of our style definition class
     return <div style={ {padding: 4, margin: [4, 0.5, "auto"], filter: css.greyscale( 0.8) } }>
         Hello World!
     </div>

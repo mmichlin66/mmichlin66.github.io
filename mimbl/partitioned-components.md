@@ -1,11 +1,11 @@
 ---
 layout: mimbl-guide
-unit: 8
-title: Rendering Methods
+unit: 4
+title: Partitioned Components
 ---
 
-# Mimbl Guide: Rendering Methods
-### Complex Component Rendering
+# Mimbl Guide: Partitioned Components
+### Rendering Complex Components
 We often deal with creating complex components that contain multiple sections, which in turn can be divided into sub-sections. Having a single `render` method is usually too cumbersome - there is too much JSX for a single method. On the other hand, the sections of our complex components are probably only used on this page and are not leveraged in any other part of the application; therefore, creating a separate component for them is not really worth the time and effort. The standard solution is to use private rendering methods - methods that return JSX content that is ultimately used in the `render` method.
 
 The rendering code of a complex component often looks like the following:
@@ -55,7 +55,7 @@ The above code presents a page divided into five sections. The header has three 
 
 It is possible to create components for each of the sections, which would be rendered independently, but this requires an extra effort and, most importantly, we will have to pass the proper pieces of the internal state to each of the components. With such components being used in exactly one place, the extra effort seems unjustified. What we really want is a way to say "re-render only the part for which the *renderSomething* method is responsible" and Mimbl provides exactly this functionality.
 
-Here is the syntax that Mimbl allows (only the methods with changes are shown):
+Here is the syntax that Mimbl allows (only the `render` method has changes):
 
 ```tsx
 public render(): any
@@ -70,18 +70,13 @@ public render(): any
         { this.renderFooter }
     </div>;
 }
-
-private setRightSidebarColor( color: string): void
-{
-    this.rightSidebarColor = color;
-}
 ```
 
-There only differences between the previous code is that while in the first example, the *renderSomething* methods are called, in the second excerpt the methods themselves are provided as content (note the lack of `()`). The outcome is exactly what we wanted: when a color button is clicked in the header, only the right sidebar area is re-rendered.
+The only differences from the previous code is that while in the first example, the *renderSomething* methods are called, in the second excerpt, the methods themselves are provided as content (note the lack of `()`). The outcome is exactly what we wanted: when a color button is clicked in the header, only the right sidebar area is re-rendered.
 
 There is no magic of course. Behind the scene, whenever Mimbl encounters a function passed as content, it creates a small component (called `FuncProxy`) and keeps it linked to the function. As with the main `render` method the other rendering methods react on the changes in the triggers that they use. Mimbl also makes sure to pass the reference to our entire component as *this* when it calls the rendering method.
 
-In short, the mechanism converts methods into components - that is, it does automatically what developers would otherwise do by hand.
+In short, the mechanism converts methods into components - that is, it does automatically what developers would otherwise have to do by hand.
 
 ### FuncProxy Component
 The code above is the simplest scenario where the *renderSomething* functions don't accept any parameters, are instance methods of our component and are called only once each in our component's main `render` method. In real life, this might not be the case and Mimbl provides a solution that covers all these cases.
