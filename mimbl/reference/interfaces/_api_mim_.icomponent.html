@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IComponent | mimbl</title>
-	<meta name="description" content="">
+	<title>IComponent | Mimbl Reference</title>
+	<meta name="description" content="Documentation for Mimbl Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">mimbl</a>
+					<a href="../index.html" class="title">Mimbl Reference</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -112,9 +112,11 @@
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../classes/_api_mim_.component.html" class="tsd-signature-type">Component</a></li>
-					<li><a href="../classes/_core_localstyles_.componentwithlocalstyles.html" class="tsd-signature-type">ComponentWithLocalStyles</a></li>
+					<li><a href="../classes/_comp_popups_.dialog.html" class="tsd-signature-type">Dialog</a></li>
 					<li><a href="../classes/_api_mim_.funcproxy.html" class="tsd-signature-type">FuncProxy</a></li>
-					<li><a href="../classes/_api_mim_.waiting.html" class="tsd-signature-type">Waiting</a></li>
+					<li><a href="../classes/_comp_popups_.msgbox.html" class="tsd-signature-type">MsgBox</a></li>
+					<li><a href="../classes/_comp_popups_.popup.html" class="tsd-signature-type">Popup</a></li>
+					<li><a href="../classes/_api_mim_.promiseproxy.html" class="tsd-signature-type">PromiseProxy</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -124,6 +126,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#displayname" class="tsd-kind-icon">display<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#props" class="tsd-kind-icon">props</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#vn" class="tsd-kind-icon">vn</a></li>
 							</ul>
@@ -131,7 +134,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#getdisplayname" class="tsd-kind-icon">get<wbr>Display<wbr>Name</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#afterupdate" class="tsd-kind-icon">after<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#beforeupdate" class="tsd-kind-icon">before<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#didmount" class="tsd-kind-icon">did<wbr>Mount</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#getupdatestrategy" class="tsd-kind-icon">get<wbr>Update<wbr>Strategy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#render" class="tsd-kind-icon">render</a></li>
@@ -146,17 +151,35 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="props" class="tsd-anchor"></a>
-					<h3>props</h3>
-					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="displayname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> display<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in api/mim.ts:70</li>
+							<li>Defined in mimbl/src/api/mim.ts:86</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Component properties passed to the constructor</p>
+							<p>Components can define display name for tracing purposes; if they don&#39;t the default name
+								used is the component&#39;s class constructor name. Note that this method can be called before
+							the virtual node is attached to the component.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="props" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> props</h3>
+					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in mimbl/src/api/mim.ts:79</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Component properties passed to the constructor. For managed components, the properties
+							can also be set (changed) when the component&#39;s parent is updated.</p>
 						</div>
 					</div>
 				</section>
@@ -166,7 +189,7 @@
 					<div class="tsd-signature tsd-kind-icon">vn<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in api/mim.ts:86</li>
+							<li>Defined in mimbl/src/api/mim.ts:95</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -185,26 +208,69 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getdisplayname" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> get<wbr>Display<wbr>Name</h3>
+					<a name="afterupdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> after<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Display<wbr>Name<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">after<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/mim.ts:77</li>
+									<li>Defined in mimbl/src/api/mim.ts:133</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Components can define display name for tracing purposes; if they don&#39;t the default name
-										is the component&#39;s class constructor name. Note that this method can be called before
-									the virtual node is attached to the component.</p>
+									<p>Optional method that is called after al components that are scheduled to be updated in
+										a Mimbl tick, are updated. If implemented, this method will be called every time the
+										component is scheduled to be updated. This method is called after all modifications to
+									DOM resulting from updaing components have been already done.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="beforeupdate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> before<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">before<wbr>Update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mimbl/src/api/mim.ts:125</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Optional method that is called before any components that are scheduled to be updated in
+										a Mimbl tick, are updated. If implemented, this method will be called every time the
+										component is scheduled to be updated. This method can read DOM layout information (e.g.
+									element measurements) without the risk of causing forced layouts.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="didmount" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> did<wbr>Mount</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">did<wbr>Mount<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mimbl/src/api/mim.ts:111</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -218,7 +284,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/mim.ts:135</li>
+									<li>Defined in mimbl/src/api/mim.ts:168</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,7 +307,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/mim.ts:129</li>
+									<li>Defined in mimbl/src/api/mim.ts:162</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -285,7 +351,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/mim.ts:96</li>
+									<li>Defined in mimbl/src/api/mim.ts:98</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,19 +373,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/mim.ts:109</li>
+									<li>Defined in mimbl/src/api/mim.ts:148</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Informs the component that new properties have been specified. At the time of the call
-										this.props refers to the &quot;old&quot; properties. If the component returns true,then its render
-										method will be called. At that time,the original props object that was passed into the
-										component&#39;s constructor will have these new properties. If the component doesn&#39;t implement
-										the shouldUpdate method it is as though true is returned. If the component returns
-										false, the render method is not called and the DOM tree of the component remains unchanged.
-									The properties of the component, however, still change.</p>
+									<p>This method is only used by managed components.</p>
 								</div>
+								<p>Informs the component that new properties have been specified. At the time of the call
+									this.props refers to the &quot;old&quot; properties. If the component returns true,then its render
+									method will be called. At that time,the original props object that was passed into the
+									component&#39;s constructor will have these new properties. If the component doesn&#39;t implement
+									the shouldUpdate method it is as though true is returned. If the component returns
+									false, the render method is not called and the DOM tree of the component remains unchanged.
+								The properties of the component, however, still change.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -345,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/mim.ts:93</li>
+									<li>Defined in mimbl/src/api/mim.ts:105</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -369,7 +436,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/mim.ts:115</li>
+									<li>Defined in mimbl/src/api/mim.ts:117</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,23 +457,11 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_api_htmltypes_.html">"api/<wbr>Html<wbr>Types"</a>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_api_mim_.html">&quot;api/mim&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_api_svgtypes_.html">"api/<wbr>Svg<wbr>Types"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_api_mim_.html">"api/mim"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_core_elmattr_.html">"core/<wbr>Elm<wbr>Attr"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_core_eventslot_.html">"core/<wbr>Event<wbr>Slot"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_core_localstyles_.html">"core/<wbr>Local<wbr>Styles"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_comp_popups_.html">&quot;comp/<wbr>Popups&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -414,9 +469,12 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_api_mim_.icomponent.html" class="tsd-kind-icon">IComponent</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_mim_.icomponent.html#displayname" class="tsd-kind-icon">display<wbr>Name</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_api_mim_.icomponent.html#props" class="tsd-kind-icon">props</a>
 							</li>
@@ -424,7 +482,13 @@
 								<a href="_api_mim_.icomponent.html#vn" class="tsd-kind-icon">vn</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_api_mim_.icomponent.html#getdisplayname" class="tsd-kind-icon">get<wbr>Display<wbr>Name</a>
+								<a href="_api_mim_.icomponent.html#afterupdate" class="tsd-kind-icon">after<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_api_mim_.icomponent.html#beforeupdate" class="tsd-kind-icon">before<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_api_mim_.icomponent.html#didmount" class="tsd-kind-icon">did<wbr>Mount</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="_api_mim_.icomponent.html#getupdatestrategy" class="tsd-kind-icon">get<wbr>Update<wbr>Strategy</a>
@@ -458,57 +522,24 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>
@@ -518,6 +549,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

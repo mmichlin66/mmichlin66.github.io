@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IntrinsicAttributes | Mimbl Reference</title>
+	<title>PromiseProxyProps | Mimbl Reference</title>
 	<meta name="description" content="Documentation for Mimbl Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,19 +55,23 @@
 					<a href="../modules/_api_mim_.html">&quot;api/mim&quot;</a>
 				</li>
 				<li>
-					<a href="../modules/_api_mim_.jsx.html">JSX</a>
-				</li>
-				<li>
-					<a href="_api_mim_.jsx.intrinsicattributes.html">IntrinsicAttributes</a>
+					<a href="_api_mim_.promiseproxyprops.html">PromiseProxyProps</a>
 				</li>
 			</ul>
-			<h1>Interface IntrinsicAttributes</h1>
+			<h1>Interface PromiseProxyProps</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Properties to be used with the PromiseProxy component.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -75,7 +79,7 @@
 						<a href="_api_mim_.icommonprops.html" class="tsd-signature-type">ICommonProps</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IntrinsicAttributes</span>
+								<span class="target">PromiseProxyProps</span>
 							</li>
 						</ul>
 					</li>
@@ -85,17 +89,55 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.jsx.intrinsicattributes.html#key" class="tsd-kind-icon">key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.promiseproxyprops.html#errorcontentfunc" class="tsd-kind-icon">error<wbr>Content<wbr>Func</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.promiseproxyprops.html#key" class="tsd-kind-icon">key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.promiseproxyprops.html#promise" class="tsd-kind-icon">promise</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="errorcontentfunc" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> error<wbr>Content<wbr>Func</h3>
+					<div class="tsd-signature tsd-kind-icon">error<wbr>Content<wbr>Func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in mimbl/src/api/mim.ts:1567</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Function that is called if the promise is rejected.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>err: <span class="tsd-signature-type">any</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="key" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> key</h3>
@@ -112,6 +154,21 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="promise" class="tsd-anchor"></a>
+					<h3>promise</h3>
+					<div class="tsd-signature tsd-kind-icon">promise<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in mimbl/src/api/mim.ts:1564</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Promise that will be watch by the waiting node.</p>
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -120,37 +177,34 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_api_mim_.html">&quot;api/mim&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_comp_popups_.html">&quot;comp/<wbr>Popups&quot;</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="_api_mim_.jsx.elementattributesproperty.html" class="tsd-kind-icon">Element<wbr>Attributes<wbr>Property</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="_api_mim_.jsx.elementchildrenattribute.html" class="tsd-kind-icon">Element<wbr>Children<wbr>Attribute</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace tsd-has-type-parameter">
-						<a href="_api_mim_.jsx.elementclass.html" class="tsd-kind-icon">Element<wbr>Class</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="_api_mim_.jsx.intrinsicattributes.html" class="tsd-kind-icon">Intrinsic<wbr>Attributes</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_api_mim_.promiseproxyprops.html" class="tsd-kind-icon">Promise<wbr>Proxy<wbr>Props</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_mim_.promiseproxyprops.html#errorcontentfunc" class="tsd-kind-icon">error<wbr>Content<wbr>Func</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_api_mim_.jsx.intrinsicattributes.html#key" class="tsd-kind-icon">key</a>
+								<a href="_api_mim_.promiseproxyprops.html#key" class="tsd-kind-icon">key</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_mim_.promiseproxyprops.html#promise" class="tsd-kind-icon">promise</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace tsd-has-type-parameter">
-						<a href="_api_mim_.jsx.intrinsicclassattributes.html" class="tsd-kind-icon">Intrinsic<wbr>Class<wbr>Attributes</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="_api_mim_.jsx.intrinsicelements.html" class="tsd-kind-icon">Intrinsic<wbr>Elements</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -170,6 +224,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

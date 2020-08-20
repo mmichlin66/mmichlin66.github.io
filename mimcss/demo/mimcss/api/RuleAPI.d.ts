@@ -121,11 +121,20 @@ export declare function $embed<T extends StyleDefinition>(instOrClass: T | IStyl
  */
 export declare function enableShortNames(enable: boolean, prefix?: string): void;
 /**
+ * Type for defining the class property of HTML elements.
+ */
+export declare type ClassPropType = string | IClassRule | IClassNameRule | ClassPropType[];
+/**
  * Concatenates the names of the given classes into a single string that can be assigned to a
  * `class` property of an HTML element.
- * @param classes
+ * @param classProps
  */
-export declare function classes(...classes: (IClassRule | IClassNameRule | string)[]): string;
+export declare function classes(...classProps: ClassPropType[]): string;
+/**
+ * Chooses the first non-null name from the given list of classes.
+ * @param classProps
+ */
+export declare function chooseClass(...classProps: ClassPropType[]): string | null;
 /**
  * The ICssSerializer interface allows adding style definition classes and objects
  * and serializing them to a single string. This can be used for server-side rendering when

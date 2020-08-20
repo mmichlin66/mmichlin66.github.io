@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ICustomAttributeHandler | Mimbl Reference</title>
+	<title>IPopup | Mimbl Reference</title>
 	<meta name="description" content="Documentation for Mimbl Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,13 +52,13 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_api_mim_.html">&quot;api/mim&quot;</a>
+					<a href="../modules/_comp_popups_.html">&quot;comp/Popups&quot;</a>
 				</li>
 				<li>
-					<a href="_api_mim_.icustomattributehandler.html">ICustomAttributeHandler</a>
+					<a href="_comp_popups_.ipopup.html">IPopup</a>
 				</li>
 			</ul>
-			<h1>Interface ICustomAttributeHandler&lt;T&gt;</h1>
+			<h1>Interface IPopup</h1>
 		</div>
 	</div>
 </header>
@@ -68,25 +68,30 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The ICustomAttributeHandler interface represents an ability to handle custom properties that can
-						be applied to intrinsic (HTML or SVG) elements.</p>
+						<p>The IPopup interface represents a popup from the point of view of the content. This interface
+						is published as a service and can be used by the content components to close the popup.</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T</h4>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ICustomAttributeHandler</span>
+						<span class="target">IPopup</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_comp_popups_.idialog.html" class="tsd-signature-type">IDialog</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_comp_popups_.dialog.html" class="tsd-signature-type">Dialog</a></li>
+					<li><a href="../classes/_comp_popups_.msgbox.html" class="tsd-signature-type">MsgBox</a></li>
+					<li><a href="../classes/_comp_popups_.popup.html" class="tsd-signature-type">Popup</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,8 +101,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icustomattributehandler.html#terminate" class="tsd-kind-icon">terminate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icustomattributehandler.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_comp_popups_.ipopup.html#close" class="tsd-kind-icon">close</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,71 +110,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="terminate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> terminate</h3>
+					<a name="close" class="tsd-anchor"></a>
+					<h3>close</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">terminate<span class="tsd-signature-symbol">(</span>isRemoval<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">close<span class="tsd-signature-symbol">(</span>returnValue<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1240</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:31</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Terminates the functioning of the custom attribute handler. This method is invoked either
-										when a new rendering of the element doesn&#39;t have the attribute anymore or if the element
-										is removed. Although this method is optional, most handlers will need to implement it to
-									properly cleanup any resources (e.g. event handlers) to avoid leaks.</p>
+									<p>Closes the popup and passes a value to be used as a return value. For the modal popups,
+										this value will be the resolved value of the promise returned by the showModal() method.
+									For modeless popups, this value will be available as the returnValue property.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>isRemoval: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnValue: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>True if the element is being removed and false if the element is being
-											updated and the attribute is no longer provided. If the handler adds any event
-											listeners to the element, then it has to remove them on update but doen&#39;t have to do it
-										on element removal.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="update" class="tsd-anchor"></a>
-					<h3>update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>newPropVal<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1228</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Updates an existing custom attribute with the new value.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>newPropVal: <span class="tsd-signature-type">T</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>New value of the custom attribute.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>True if changes were made and false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -182,31 +149,73 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_api_mim_.html">&quot;api/mim&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/_comp_popups_.html">&quot;comp/<wbr>Popups&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_comp_popups_.dialogbutton.html" class="tsd-kind-icon">Dialog<wbr>Button</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_comp_popups_.msgboxbuttons.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Buttons</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_comp_popups_.msgboxicon.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Icon</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.defaultdialogstyles.html" class="tsd-kind-icon">Default<wbr>Dialog<wbr>Styles</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.defaultpopupstyles.html" class="tsd-kind-icon">Default<wbr>Popup<wbr>Styles</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.dialog.html" class="tsd-kind-icon">Dialog</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.msgbox.html" class="tsd-kind-icon">Msg<wbr>Box</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.msgboxstyles.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Styles</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.popup.html" class="tsd-kind-icon">Popup</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_comp_popups_.idialog.html" class="tsd-kind-icon">IDialog</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_comp_popups_.idialogbutton.html" class="tsd-kind-icon">IDialog<wbr>Button</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_comp_popups_.idialogoptions.html" class="tsd-kind-icon">IDialog<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_comp_popups_.idialogstyles.html" class="tsd-kind-icon">IDialog<wbr>Styles</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_api_mim_.icustomattributehandler.html" class="tsd-kind-icon">ICustom<wbr>Attribute<wbr>Handler</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_comp_popups_.ipopup.html" class="tsd-kind-icon">IPopup</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_api_mim_.icustomattributehandler.html#terminate" class="tsd-kind-icon">terminate</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_api_mim_.icustomattributehandler.html#update" class="tsd-kind-icon">update</a>
+								<a href="_comp_popups_.ipopup.html#close" class="tsd-kind-icon">close</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_comp_popups_.ipopupoptions.html" class="tsd-kind-icon">IPopup<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_comp_popups_.ipopupstyles.html" class="tsd-kind-icon">IPopup<wbr>Styles</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

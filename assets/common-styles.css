@@ -20,8 +20,8 @@ html {
 body {
 	height: 100%;
 	margin: 0px;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 13px;
+	font-family: "Segoe UI", Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
 }
 
 pre, code, code > span {
@@ -241,13 +241,13 @@ a.postref {
 
 /* .menubar > .menuitem, .menubar > a.menuitem, .menubar > a.menuitem:hover, */
 .menu > .menuitem, .menu > a.menuitem, .menu > a.menuitem:hover {
-	font-size: 16px;
+	font-size: 18px;
 	color: blue;
-	padding: 0.5em 1em;
+	padding: 0.3em 1em;
 }
 
 .menuitem > .menuitemContent {
-	font-size: 16px;
+	font-size: 18px;
 	color: blue;
 }
 
@@ -258,7 +258,8 @@ a.postref {
 }
 
 .menu .menuitem:hover {
-	background-color: lightskyblue;
+	background-color: #e5e5e5;
+	/* background-color: lightskyblue; */
 	/*background-color: #F5CBA7;*/
 	text-decoration: none;
 }
@@ -299,8 +300,8 @@ a.postref {
 .mainHeader > .menubar > a,
 .mainHeader > .menubar > .menuitem > .menuitemContent {
     color: white;
-    font-size: 16px;
-    padding: 0.5em 1em;
+    font-size: 18px;
+    padding: 0.3em 1em;
 }
 
 

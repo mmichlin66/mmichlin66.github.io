@@ -1,4 +1,4 @@
-import { Styleset, IClassRule, IClassNameRule, IIDRule } from "mimcss";
+import { Styleset, IIDRule, ClassPropType } from "mimcss";
 /**
  * Type used to define properties that can be passed to a functional component.
  *
@@ -160,10 +160,6 @@ export declare type EventFuncAndThisAndFlagType<T extends Event> = [EventFuncTyp
  * @typeparam T DOM event type, e.g. MouseEvent
  */
 export declare type EventPropType<T extends Event> = EventFuncType<T> | EventFuncAndThisType<T> | EventFuncAndFlagType<T> | EventFuncAndThisAndFlagType<T>;
-/**
- * Type for defining the class property of HTML elements
- */
-export declare type ClassPropType = string | IClassRule | IClassNameRule | (string | IClassRule | IClassNameRule)[];
 /**
  * Type for defining the id property of HTML elements
  */

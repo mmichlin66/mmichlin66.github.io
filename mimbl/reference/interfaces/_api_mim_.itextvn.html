@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ITextVN | mimbl</title>
-	<meta name="description" content="">
+	<title>ITextVN | Mimbl Reference</title>
+	<meta name="description" content="Documentation for Mimbl Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">mimbl</a>
+					<a href="../index.html" class="title">Mimbl Reference</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -92,6 +92,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#creator" class="tsd-kind-icon">creator</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#next" class="tsd-kind-icon">next</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#parent" class="tsd-kind-icon">parent</a></li>
@@ -100,6 +101,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.itextvn.html#text" class="tsd-kind-icon">text</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.itextvn.html#textnode" class="tsd-kind-icon">text<wbr>Node</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#updaterequested" class="tsd-kind-icon">update<wbr>Requested</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
@@ -108,7 +110,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="_api_mim_.itextvn.html#getservice" class="tsd-kind-icon">get<wbr>Service</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="_api_mim_.itextvn.html#publishservice" class="tsd-kind-icon">publish<wbr>Service</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#requestupdate" class="tsd-kind-icon">request<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#schedulecall" class="tsd-kind-icon">schedule<wbr>Call</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#schedulecallafterupdate" class="tsd-kind-icon">schedule<wbr>Call<wbr>After<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.itextvn.html#schedulecallbeforeupdate" class="tsd-kind-icon">schedule<wbr>Call<wbr>Before<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="_api_mim_.itextvn.html#subscribeservice" class="tsd-kind-icon">subscribe<wbr>Service</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="_api_mim_.itextvn.html#unpublishservice" class="tsd-kind-icon">unpublish<wbr>Service</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited"><a href="_api_mim_.itextvn.html#unsubscribeservice" class="tsd-kind-icon">unsubscribe<wbr>Service</a></li>
@@ -121,13 +124,29 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="creator" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> creator</h3>
+					<div class="tsd-signature tsd-kind-icon">creator<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.icomponent.html" class="tsd-signature-type">IComponent</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#creator">creator</a></p>
+						<ul>
+							<li>Defined in mimbl/src/api/mim.ts:989</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Component that created this node in its render method (or undefined).</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="name" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> name</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> name</h3>
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#name">name</a></p>
 						<ul>
-							<li>Defined in api/mim.ts:674</li>
+							<li>Defined in mimbl/src/api/mim.ts:1005</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -140,12 +159,12 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="next" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> next</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> next</h3>
 					<div class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#next">next</a></p>
 						<ul>
-							<li>Defined in api/mim.ts:661</li>
+							<li>Defined in mimbl/src/api/mim.ts:992</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -156,12 +175,12 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="parent" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> parent</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> parent</h3>
 					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#parent">parent</a></p>
 						<ul>
-							<li>Defined in api/mim.ts:658</li>
+							<li>Defined in mimbl/src/api/mim.ts:986</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -172,12 +191,12 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="prev" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> prev</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> prev</h3>
 					<div class="tsd-signature tsd-kind-icon">prev<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#prev">prev</a></p>
 						<ul>
-							<li>Defined in api/mim.ts:664</li>
+							<li>Defined in mimbl/src/api/mim.ts:995</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -188,12 +207,12 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="subnodes" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sub<wbr>Nodes</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> sub<wbr>Nodes</h3>
 					<div class="tsd-signature tsd-kind-icon">sub<wbr>Nodes<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#subnodes">subNodes</a></p>
 						<ul>
-							<li>Defined in api/mim.ts:667</li>
+							<li>Defined in mimbl/src/api/mim.ts:998</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -208,7 +227,7 @@
 					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in api/mim.ts:839</li>
+							<li>Defined in mimbl/src/api/mim.ts:1179</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -223,7 +242,7 @@
 					<div class="tsd-signature tsd-kind-icon">text<wbr>Node<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Text</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in api/mim.ts:842</li>
+							<li>Defined in mimbl/src/api/mim.ts:1182</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -234,12 +253,12 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> type</h3>
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/_api_mim_.vntype.html" class="tsd-signature-type">VNType</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#type">type</a></p>
 						<ul>
-							<li>Defined in api/mim.ts:655</li>
+							<li>Defined in mimbl/src/api/mim.ts:983</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -248,6 +267,17 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="updaterequested" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> update<wbr>Requested</h3>
+					<div class="tsd-signature tsd-kind-icon">update<wbr>Requested<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#updaterequested">updateRequested</a></p>
+						<ul>
+							<li>Defined in mimbl/src/api/mim.ts:1010</li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
@@ -255,14 +285,14 @@
 					<a name="getservice" class="tsd-anchor"></a>
 					<h3>get<wbr>Service</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Service&lt;K&gt;<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, defaultService<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IServiceDefinitions[K]</span>, useSelf<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IServiceDefinitions[K]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Service&lt;K&gt;<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, defaultService<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span>, useSelf<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#getservice">getService</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:732</li>
+									<li>Defined in mimbl/src/api/mim.ts:1075</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,7 +305,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof IServiceDefinitions</span></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="_api_mim_.iservicedefinitions.html" class="tsd-signature-type">IServiceDefinitions</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -284,7 +314,7 @@
 									<h5>id: <span class="tsd-signature-type">K</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> defaultService: <span class="tsd-signature-type">IServiceDefinitions[K]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> defaultService: <span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useSelf: <span class="tsd-signature-type">boolean</span></h5>
@@ -292,7 +322,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IServiceDefinitions[K]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -300,14 +330,14 @@
 					<a name="publishservice" class="tsd-anchor"></a>
 					<h3>publish<wbr>Service</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">publish<wbr>Service&lt;K&gt;<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, service<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IServiceDefinitions[K]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">publish<wbr>Service&lt;K&gt;<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, service<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#publishservice">publishService</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:696</li>
+									<li>Defined in mimbl/src/api/mim.ts:1039</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -319,7 +349,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof IServiceDefinitions</span></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="_api_mim_.iservicedefinitions.html" class="tsd-signature-type">IServiceDefinitions</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -328,7 +358,7 @@
 									<h5>id: <span class="tsd-signature-type">K</span></h5>
 								</li>
 								<li>
-									<h5>service: <span class="tsd-signature-type">IServiceDefinitions[K]</span></h5>
+									<h5>service: <span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -346,7 +376,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#requestupdate">requestUpdate</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:679</li>
+									<li>Defined in mimbl/src/api/mim.ts:1015</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,23 +389,22 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="schedulecall" class="tsd-anchor"></a>
-					<h3>schedule<wbr>Call</h3>
+					<a name="schedulecallafterupdate" class="tsd-anchor"></a>
+					<h3>schedule<wbr>Call<wbr>After<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Call<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, beforeUpdate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Call<wbr>After<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#schedulecall">scheduleCall</a></p>
+								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#schedulecallafterupdate">scheduleCallAfterUpdate</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:688</li>
+									<li>Defined in mimbl/src/api/mim.ts:1031</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Schedules to call the given function either before or after all the scheduled components
-									have been updated.</p>
+									<p>Schedules to call the given function before all the scheduled components have been updated.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -383,14 +412,53 @@
 								<li>
 									<h5>func: <a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Function to be called either before or after the update cycle.</p>
+										<p>Function to be called.</p>
 									</div>
 								</li>
 								<li>
-									<h5>beforeUpdate: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Flag indicating whether the function should be called before (true)
-										or after (false) the update cycle.</p>
+										<p>Object to be used as the &quot;this&quot; value when the function is called. This parameter
+										is not needed if the function is already bound or it is an arrow function.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="schedulecallbeforeupdate" class="tsd-anchor"></a>
+					<h3>schedule<wbr>Call<wbr>Before<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Call<wbr>Before<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#schedulecallbeforeupdate">scheduleCallBeforeUpdate</a></p>
+								<ul>
+									<li>Defined in mimbl/src/api/mim.ts:1023</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Schedules to call the given function before all the scheduled components have been updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>func: <a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Function to be called.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Object to be used as the &quot;this&quot; value when the function is called. This parameter
+										is not needed if the function is already bound or it is an arrow function.</p>
 									</div>
 								</li>
 							</ul>
@@ -402,14 +470,14 @@
 					<a name="subscribeservice" class="tsd-anchor"></a>
 					<h3>subscribe<wbr>Service</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>Service&lt;K&gt;<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, ref<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#refproptype" class="tsd-signature-type">RefPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IServiceDefinitions[K]</span><span class="tsd-signature-symbol">&gt;</span>, defaultService<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IServiceDefinitions[K]</span>, useSelf<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>Service&lt;K&gt;<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, ref<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#refproptype" class="tsd-signature-type">RefPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span>, defaultService<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span>, useSelf<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#subscribeservice">subscribeService</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:714</li>
+									<li>Defined in mimbl/src/api/mim.ts:1057</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -426,7 +494,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof IServiceDefinitions</span></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="_api_mim_.iservicedefinitions.html" class="tsd-signature-type">IServiceDefinitions</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -435,10 +503,10 @@
 									<h5>id: <span class="tsd-signature-type">K</span></h5>
 								</li>
 								<li>
-									<h5>ref: <a href="../modules/_api_mim_.html#refproptype" class="tsd-signature-type">RefPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IServiceDefinitions[K]</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>ref: <a href="../modules/_api_mim_.html#refproptype" class="tsd-signature-type">RefPropType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> defaultService: <span class="tsd-signature-type">IServiceDefinitions[K]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> defaultService: <span class="tsd-signature-type">IServiceDefinitions</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useSelf: <span class="tsd-signature-type">boolean</span></h5>
@@ -461,7 +529,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#unpublishservice">unpublishService</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:699</li>
+									<li>Defined in mimbl/src/api/mim.ts:1042</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -472,7 +540,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof IServiceDefinitions</span></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="_api_mim_.iservicedefinitions.html" class="tsd-signature-type">IServiceDefinitions</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -496,7 +564,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#unsubscribeservice">unsubscribeService</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:722</li>
+									<li>Defined in mimbl/src/api/mim.ts:1065</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -508,7 +576,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">keyof IServiceDefinitions</span></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="_api_mim_.iservicedefinitions.html" class="tsd-signature-type">IServiceDefinitions</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -527,51 +595,51 @@
 					<a name="wrapcallback" class="tsd-anchor"></a>
 					<h3>wrap<wbr>Callback</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">wrap<wbr>Callback&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">wrap<wbr>Callback&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#wrapcallback">wrapCallback</a></p>
 								<ul>
-									<li>Defined in api/mim.ts:775</li>
+									<li>Defined in mimbl/src/api/mim.ts:1118</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Creates a wrapper function with the same signature as the given callback so that if the original
-										callback throws an exception, it is processed by the Mimble error handling mechanism so that the
-										exception bubles from this virtual node up the hierarchy until a node/component that knows to
+										callback throws an exception, it is processed by the Mimbl error handling mechanism so that the
+										exception bubbles from this virtual node up the hierarchy until a node/component that knows to
 									handle errors is found.</p>
 								</div>
 								<p>This function should be called by the code that is not part of any component but still has access
 									to the IVNode object; for example, custom attribute handlers. Components that derive from the
-								mim.Component class should use the wrapCallback method of the mim.Component class.</p>
+								Component class should use the wrapCallback method of the Component class.</p>
 								<p>Use this method before passing callbacks to document and window event handlers as well as
 								non-DOM objects that use callbacks, e.g. promises. For example:</p>
 								<pre><code class="language-typescript">    <span class="hljs-keyword">class</span> ResizeMonitor
     {
-        <span class="hljs-keyword">private</span> onWindowResize = (e: Event): <span class="hljs-function"><span class="hljs-params">void</span> =&gt;</span> {};
+        <span class="hljs-keyword">private</span> onWindowResize(e: Event): <span class="hljs-built_in">void</span> {};
 
         wrapper: (e: Event): <span class="hljs-built_in">void</span>;
 
         <span class="hljs-keyword">public</span> startResizeMonitoring( vn: IVNode)
         {
-            <span class="hljs-keyword">this</span>.wrapper = vn.wrapCallback( <span class="hljs-keyword">this</span>.onWindowResize);
-            <span class="hljs-built_in">window</span>.addEventListener( <span class="hljs-string">"resize"</span>, <span class="hljs-keyword">this</span>.wrapper);
+            <span class="hljs-built_in">this</span>.wrapper = vn.wrapCallback( <span class="hljs-built_in">this</span>.onWindowResize, <span class="hljs-built_in">this</span>);
+            <span class="hljs-built_in">window</span>.addEventListener( <span class="hljs-string">&quot;resize&quot;</span>, <span class="hljs-built_in">this</span>.wrapper);
         }
 
         <span class="hljs-keyword">public</span> stopResizeMonitoring()
         {
-            <span class="hljs-built_in">window</span>.removeEventListener( <span class="hljs-string">"resize"</span>, <span class="hljs-keyword">this</span>.wrapper);
-            <span class="hljs-keyword">this</span>.wrapper = <span class="hljs-literal">undefined</span>;
+            <span class="hljs-built_in">window</span>.removeEventListener( <span class="hljs-string">&quot;resize&quot;</span>, <span class="hljs-built_in">this</span>.wrapper);
+            <span class="hljs-built_in">this</span>.wrapper = <span class="hljs-literal">undefined</span>;
         }
     }</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>T</h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -583,7 +651,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">any</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -600,23 +668,11 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_api_htmltypes_.html">"api/<wbr>Html<wbr>Types"</a>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_api_mim_.html">&quot;api/mim&quot;</a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_api_svgtypes_.html">"api/<wbr>Svg<wbr>Types"</a>
-					</li>
-					<li class="current tsd-kind-external-module">
-						<a href="../modules/_api_mim_.html">"api/mim"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_core_elmattr_.html">"core/<wbr>Elm<wbr>Attr"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_core_eventslot_.html">"core/<wbr>Event<wbr>Slot"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="../modules/_core_localstyles_.html">"core/<wbr>Local<wbr>Styles"</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_comp_popups_.html">&quot;comp/<wbr>Popups&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -624,9 +680,12 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_api_mim_.itextvn.html" class="tsd-kind-icon">ITextVN</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_api_mim_.itextvn.html#creator" class="tsd-kind-icon">creator</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_api_mim_.itextvn.html#name" class="tsd-kind-icon">name</a>
 							</li>
@@ -651,6 +710,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_api_mim_.itextvn.html#type" class="tsd-kind-icon">type</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_api_mim_.itextvn.html#updaterequested" class="tsd-kind-icon">update<wbr>Requested</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
 								<a href="_api_mim_.itextvn.html#getservice" class="tsd-kind-icon">get<wbr>Service</a>
 							</li>
@@ -661,7 +723,10 @@
 								<a href="_api_mim_.itextvn.html#requestupdate" class="tsd-kind-icon">request<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_api_mim_.itextvn.html#schedulecall" class="tsd-kind-icon">schedule<wbr>Call</a>
+								<a href="_api_mim_.itextvn.html#schedulecallafterupdate" class="tsd-kind-icon">schedule<wbr>Call<wbr>After<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_api_mim_.itextvn.html#schedulecallbeforeupdate" class="tsd-kind-icon">schedule<wbr>Call<wbr>Before<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter tsd-is-inherited">
 								<a href="_api_mim_.itextvn.html#subscribeservice" class="tsd-kind-icon">subscribe<wbr>Service</a>
@@ -689,57 +754,23 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 		</div>
 	</div>
@@ -749,6 +780,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
