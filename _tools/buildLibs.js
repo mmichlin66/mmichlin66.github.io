@@ -4,10 +4,10 @@ let cps = require( "child_process");
 
 buildLib( "mimcss");
 buildLib( "mimbl");
+buildLib( "mim-tsplay");
 buildLib( "mimurl");
 buildLib( "mimcl");
 buildLib( "mimurl-demo");
-buildLib( "mimcss-demo");
 
 console.log( "buildLibs.js script has finished");
 

@@ -2,7 +2,7 @@
  * The IEventSlot interface represents an event with custom parameters. Multiple listeners can be
  * added/removed to/from an event.
  */
-export interface IEventSlot<TFunc extends Function> {
+export interface IEventSlot<TFunc extends Function = Function> {
     /**
      * Adds the given function as a listener to the event. Note that this cannot be a lambda
      * function because there will be no way to remove a lambda function listener later.
@@ -17,7 +17,7 @@ export interface IEventSlot<TFunc extends Function> {
  * The IEventSlotOwner interface represents an event slot from the point of view of the caller who
  * created it. The owner can fire events and clear event listeners.
  */
-export interface IEventSlotOwner<TFunc extends Function> extends IEventSlot<TFunc> {
+export interface IEventSlotOwner<TFunc extends Function = Function> extends IEventSlot<TFunc> {
     /**
      * Method that raises the event and calls all the listeners (if any). It has the signature
      * of the template function so only proper-types parameters can be passed to it.
@@ -31,7 +31,7 @@ export interface IEventSlotOwner<TFunc extends Function> extends IEventSlot<TFun
  * need for the classes to derive from EventTarget and use string names for events. Multiple
  * listeners can be added/removed to/from an event.
  */
-export declare class EventSlot<TFunc extends Function> implements IEventSlotOwner<TFunc> {
+export declare class EventSlot<TFunc extends Function = Function> implements IEventSlotOwner<TFunc> {
     /**
      * Method that raises the event and calls all the listeners (if any). It has the signature
      * of the template function so only proper-types parameters can be passed to it.
@@ -50,10 +50,6 @@ export declare class EventSlot<TFunc extends Function> implements IEventSlotOwne
     clear(): void;
     private listeners;
     private realFire;
-}
-export interface ISimpleEventSlot extends IEventSlot<() => void> {
-}
-export declare class SimpleEventSlot extends EventSlot<() => void> {
 }
 /**
  * The MultiEventSlot type represents an object that for each property from the template type T
@@ -78,10 +74,8 @@ export declare class SimpleEventSlot extends EventSlot<() => void> {
  * ```
  *
  */
-export declare type MultiEventSlot<T extends {
-    [K: string]: Function;
-}> = {
-    readonly [P in keyof T]: IEventSlot<T[P]>;
+export declare type MultiEventSlot<T> = {
+    readonly [P in keyof T]: IEventSlot<Extract<T[P], Function>>;
 };
 /**
  * The MultiEventSlotOwner type represents an object that for each property from the template type
@@ -106,10 +100,8 @@ export declare type MultiEventSlot<T extends {
  * ```
  *
  */
-export declare type MultiEventSlotOwner<T extends {
-    [K: string]: Function;
-}> = {
-    readonly [P in keyof T]: IEventSlotOwner<T[P]>;
+export declare type MultiEventSlotOwner<T> = {
+    readonly [P in keyof T]: IEventSlotOwner<Extract<T[P], Function>>;
 };
 /**
  * Creates an object that will have event slots for each property of the template type T. The
@@ -138,10 +130,8 @@ export declare type MultiEventSlotOwner<T extends {
  * }
  *
  * let obj: IMyClass = new MyClass();
- * obj.events.change.add( (n: number) => console.log(n));
+ * obj.events.change.attach( (n: number) => console.log(n));
  * obj.doSomething();
  * ```
  */
-export declare function createMultiEventSlot<T extends {
-    [K: string]: Function;
-}>(): MultiEventSlotOwner<T>;
+export declare function createMultiEventSlot<T>(): MultiEventSlotOwner<T>;

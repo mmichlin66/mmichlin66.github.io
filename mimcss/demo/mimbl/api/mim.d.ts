@@ -609,7 +609,7 @@ export declare class Ref<T = any> {
  * }
  * ```
  *
- * In the above example, the myDiv property will be set to pint to the HTML div element.
+ * In the above example, the myDiv property will be set to point to the HTML div element.
  */
 export declare function ref(target: any, name: string): void;
 /**

@@ -1,7 +1,13 @@
 <html style="height: 100%;">
-<body style="height: 100%; margin: 0" onload="mimcssDemoMain()">
+<body style="height: 100%; margin: 0" onload="loadPlayground()">
     <script src="mimcss.js"></script>
     <script src="mimbl.js"></script>
-    <script src="mimcss-demo.js"></script>
+    <script src="mim-tsplay.js"></script>
+    <script>
+        function loadPlayground()
+        {
+            window.mountPlayground( document.body);
+        }
+    </script>
 </body>
 </html>
