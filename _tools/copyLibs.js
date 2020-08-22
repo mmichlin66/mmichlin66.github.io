@@ -20,26 +20,27 @@ console.log( "Copy mimurl-demo to " + p.join( ps.cwd(), "mimurl"));
 exec( "xcopy ..\\mimurl-demo\\lib\\mimurl-demo.js        mimurl\\ /i /y /d");
 // exec( "xcopy ..\\mimurl-demo\\lib\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
 
-console.log( "Copy mim-tsplay to " + p.join( ps.cwd(), "mimcss/demo"));
-exec( "xcopy ..\\mim-tsplay\\lib\\*.ttf                 mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\mim-tsplay\\lib\\editor.worker.js      mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\mim-tsplay\\lib\\ts.worker.js          mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\mim-tsplay\\lib\\mim-tsplay.js         mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\mimcss.js                 mimcss\\demo\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\mimbl.js                   mimcss\\demo\\ /i /y /d");
+// playground
+console.log( "Copy libraries to " + p.join( ps.cwd(), "demo"));
+exec( "xcopy ..\\mim-tsplay\\lib\\*.ttf                 demo\\ /i /y /d");
+exec( "xcopy ..\\mim-tsplay\\lib\\editor.worker.js      demo\\ /i /y /d");
+exec( "xcopy ..\\mim-tsplay\\lib\\ts.worker.js          demo\\ /i /y /d");
+exec( "xcopy ..\\mim-tsplay\\lib\\mim-tsplay.js         demo\\ /i /y /d");
+exec( "xcopy ..\\mimcss\\lib\\mimcss.js                 demo\\ /i /y /d");
+exec( "xcopy ..\\mimbl\\lib\\mimbl.js                   demo\\ /i /y /d");
 
-console.log( "Copy mimcss types to " + p.join( ps.cwd(), "mimcss/demo"));
-exec( "xcopy ..\\mimcss\\lib\\index.d.ts                mimcss\\demo\\mimcss\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\styles\\*Types.d.ts       mimcss\\demo\\mimcss\\styles\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\rules\\RuleTypes.d.ts     mimcss\\demo\\mimcss\\rules\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\api\\*.d.ts               mimcss\\demo\\mimcss\\api\\ /i /y /d");
+console.log( "Copy mimcss types to " + p.join( ps.cwd(), "demo/types/mimcss"));
+exec( "xcopy ..\\mimcss\\lib\\index.d.ts                demo\\types\\mimcss\\ /i /y /d");
+exec( "xcopy ..\\mimcss\\lib\\styles\\*Types.d.ts       demo\\types\\mimcss\\styles\\ /i /y /d");
+exec( "xcopy ..\\mimcss\\lib\\rules\\RuleTypes.d.ts     demo\\types\\mimcss\\rules\\ /i /y /d");
+exec( "xcopy ..\\mimcss\\lib\\api\\*.d.ts               demo\\types\\mimcss\\api\\ /i /y /d");
 
-console.log( "Copy mimbl types to " + p.join( ps.cwd(), "mimcss/demo"));
-exec( "xcopy ..\\mimbl\\lib\\index.d.ts                 mimcss\\demo\\mimbl\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\utils\\EventSlot.d.ts      mimcss\\demo\\mimbl\\utils\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\utils\\TriggerWatcher.d.ts mimcss\\demo\\mimbl\\utils\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\api\\*.d.ts                mimcss\\demo\\mimbl\\api\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\comp\\Popups.d.ts          mimcss\\demo\\mimbl\\comp\\ /i /y /d");
+console.log( "Copy mimbl types to " + p.join( ps.cwd(), "demo/types/mimbl"));
+exec( "xcopy ..\\mimbl\\lib\\index.d.ts                 demo\\types\\mimbl\\ /i /y /d");
+exec( "xcopy ..\\mimbl\\lib\\utils\\EventSlot.d.ts      demo\\types\\mimbl\\utils\\ /i /y /d");
+exec( "xcopy ..\\mimbl\\lib\\utils\\TriggerWatcher.d.ts demo\\types\\mimbl\\utils\\ /i /y /d");
+exec( "xcopy ..\\mimbl\\lib\\api\\*.d.ts                demo\\types\\mimbl\\api\\ /i /y /d");
+exec( "xcopy ..\\mimbl\\lib\\comp\\Popups.d.ts          demo\\types\\mimbl\\comp\\ /i /y /d");
 
 console.log( "copyLibs.js script has finished");
 

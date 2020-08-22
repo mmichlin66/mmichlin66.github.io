@@ -6,7 +6,7 @@
     <script>
         function loadPlayground()
         {
-            window.mountPlayground( document.body);
+            window.mountPlayground( document.body, `${location.hash.substr(1)}/playground-config.json`);
         }
     </script>
 </body>

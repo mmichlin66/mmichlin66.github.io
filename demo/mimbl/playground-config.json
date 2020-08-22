@@ -1,5 +1,5 @@
 ﻿{
-    "wellcomeMessage": "Wellcome to Mimcss Playground!",
+    "wellcomeMessage": "Wellcome to Mimbl Playground!",
 
     "extraLibList": [
         {
@@ -22,7 +22,7 @@
                 "api/RuleAPI.d.ts",
                 "api/SchedulingAPI.d.ts"
             ],
-            "rootPath": "mimcss/"
+            "rootPath": "types/mimcss/"
         },
 
         {
@@ -35,9 +35,10 @@
                 "api/UtilAPI.d.ts",
                 "api/HtmlTypes.d.ts",
                 "api/SvgTypes.d.ts",
-                "api/mim.d.ts"
+                "api/mim.d.ts",
+                "comp/Popups.d.ts"
             ],
-            "rootPath": "mimbl/"
+            "rootPath": "types/mimbl/"
         }
     ],
 
@@ -45,40 +46,18 @@
         { "name": "Templates" },
         {
             "name": "Basic Template",
-            "path": "examples/basic-template.tsx",
-            "descr": "Empty style definition and component classes"
+            "path": "mimbl/examples/basic-template.tsx",
+            "descr": "Empty component class"
         },
-        
+
         { "name": "Basic" },
         {
             "name": "Hello World!",
-            "path": "examples/hello-world.tsx",
-            "descr": "Simple but real example of defining styles"
-        },
-        {
-            "name": "Numeric Properties",
-            "path": "examples/numeric-properties.tsx",
-            "descr": "Defining styles that include units of different dimensions"
-        },
-        {
-            "name": "Gradients",
-            "path": "examples/gradients.tsx",
-            "descr": "Demonstrates creating CSS gradients."
-        },
-        
-        { "name": "Advanced" },
-        {
-            "name": "Themes",
-            "path": "examples/themes.tsx",
-            "descr": "Demonstrates changing themes using style definition inheritance."
-        },
-        {
-            "name": "Scheduling",
-            "path": "examples/under-construction.tsx",
-            "descr": "Demonstrates custom scheduler."
+            "path": "mimbl/examples/hello-world.tsx",
+            "descr": "Simple but real component example"
         }
     ],
 
-    "firstExample": "examples/basic-template.tsx"
-    
+    "firstExample": "mimbl/examples/basic-template.tsx"
+
 }
