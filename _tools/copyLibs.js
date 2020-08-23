@@ -24,7 +24,9 @@ exec( "xcopy ..\\mimurl-demo\\lib\\mimurl-demo.js        mimurl\\ /i /y /d");
 console.log( "Copy libraries to " + p.join( ps.cwd(), "demo"));
 exec( "xcopy ..\\mim-tsplay\\lib\\*.ttf                 demo\\ /i /y /d");
 exec( "xcopy ..\\mim-tsplay\\lib\\*.worker.js           demo\\ /i /y /d");
-exec( "xcopy ..\\mim-tsplay\\lib\\mim-tsplay.js        demo\\ /i /y /d");
+exec( "xcopy ..\\mim-tsplay\\lib\\mim-tsplay.js         demo\\ /i /y /d");
+exec( "xcopy ..\\mimcss\\lib\\mimcss.js                 demo\\ /i /y /d");
+exec( "xcopy ..\\mimbl\\lib\\mimbl.js                   demo\\ /i /y /d");
 
 console.log( "Copy mimcss types to " + p.join( ps.cwd(), "demo/types/mimcss"));
 exec( "xcopy ..\\mimcss\\lib\\index.d.ts                demo\\types\\mimcss\\ /i /y /d");
