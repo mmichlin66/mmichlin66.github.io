@@ -85,8 +85,8 @@ export interface IPopupOptions<TStyles extends IPopupStyles = IPopupStyles> {
     readonly dialogStyleClass?: css.ClassPropType;
     /**
      * Value that is returned when the user closes the popup by pressing the Escape key. If this
-     * property is undefined, the popup cannot be closed with the Escape key. The default value is
-     * undefined.
+     * property is undefined, the popup cannot be closed with the Escape key. Note that null is
+     * valid value that can be used to close a popup. The default value is undefined.
      *
      * For modal popups, this property also controls whether the user can dismiss the popup by
      * clicking on the backdrop - that is, the area outside of the popup itslef.
@@ -375,6 +375,10 @@ export interface IDialogOptions<TStyles extends IDialogStyles = IDialogStyles> e
  */
 export declare class Dialog<TStyles extends IDialogStyles = IDialogStyles, TOptions extends IDialogOptions<TStyles> = IDialogOptions<TStyles>> extends Popup<TStyles, TOptions> implements IDialog {
     constructor(bodyContent?: any, captionContent?: any, options?: TOptions, ...buttons: IDialogButton[]);
+    /**
+     * Adds a button to the button bar
+     */
+    setCaption(captionContent: any): void;
     /**
      * Adds a button to the button bar
      */

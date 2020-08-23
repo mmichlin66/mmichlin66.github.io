@@ -1,7 +1,7 @@
 ﻿{
     "wellcomeMessage": "Wellcome to Mimbl Playground!",
 
-    "extraLibList": [
+    "extraLibs": [
         {
             "libName": "mimcss",
             "url": "mimcss",
@@ -42,19 +42,19 @@
         }
     ],
 
-    "exampleList": [
+    "examples": [
         { "name": "Templates" },
         {
             "name": "Basic Template",
             "path": "mimbl/examples/basic-template.tsx",
-            "descr": "Empty component class"
+            "description": "Empty component class"
         },
 
         { "name": "Basic" },
         {
             "name": "Hello World!",
             "path": "mimbl/examples/hello-world.tsx",
-            "descr": "Simple but real component example"
+            "description": "Simple but real component example"
         }
     ],
 
