@@ -5,6 +5,7 @@ let cps = require( "child_process");
 buildLib( "mimcss");
 buildLib( "mimbl");
 buildLib( "mim-tsplay");
+buildLib( "mimcss-demo");
 buildLib( "mimurl");
 buildLib( "mimcl");
 buildLib( "mimurl-demo");
