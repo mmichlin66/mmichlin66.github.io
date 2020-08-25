@@ -1,13 +1,13 @@
 import { Styleset, IIDRule, ClassPropType } from "mimcss";
 /**
- * Type used to define properties that can be passed to a functional component.
+ * Type used to define properties that can be passed to a class-based component.
  *
- * @typeparam TProps Type defining properties that can be passed to the functional component
- *		with these properties. Default type is an empty object (no properties).
- * @typeparam TChildren Type defining components, elements or other objects that can be used
- *		as children for the functional component with these properties. Default is `any`.
+ * @typeparam TProps Type defining properties that can be passed to the functional or class-based
+ * component with these properties. Default type is an empty object (no properties).
+ * @typeparam TChildren Type defining components, elements or other objects that can be used as
+ * children for the component with these properties. Default is `any`.
  */
-export declare type FuncProps<TProps = {}, TChildren = any> = Readonly<TProps> & {
+export declare type CompProps<TProps = {}, TChildren = any> = Readonly<TProps> & {
     readonly children?: TChildren;
 };
 /**
@@ -18,18 +18,7 @@ export declare type FuncProps<TProps = {}, TChildren = any> = Readonly<TProps> &
  * @typeparam TChildren Type defining components, elements or other objects that can be used
  *		as children for this functional component. Default is `any`.
  */
-export declare type FuncCompType<TProps = {}, TChildren = any> = (props: FuncProps<TProps, TChildren>) => any;
-/**
- * Type used to define properties that can be passed to a class-based component.
- *
- * @typeparam TProps Type defining properties that can be passed to the class-based component
- *		with these properties. Default type is an empty object (no properties).
- * @typeparam TChildren Type defining components, elements or other objects that can be used
- *		as children for the class-based component with these properties. Default is `any`.
- */
-export declare type CompProps<TProps = {}, TChildren = any> = Readonly<TProps> & {
-    readonly children?: TChildren;
-};
+export declare type FuncCompType<TProps = {}, TChildren = any> = (props: CompProps<TProps, TChildren>) => any;
 /**
  * Interface that defines constructor signature for components.
  *
@@ -53,7 +42,7 @@ export interface IComponentClass<TProps = {}, TChildren = any> {
 export interface IComponent<TProps = {}, TChildren = any> {
     /**
      * Component properties passed to the constructor. For managed components, the properties
-     * can also be set (changed) when the component's parent is updated.
+     * are updated when the component's parent is updated.
      */
     props?: CompProps<TProps, TChildren>;
     /**
@@ -78,6 +67,12 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * from it.
      */
     willMount?(): void;
+    /**
+     * Notifies the component that it was successfully mounted. This method is called after the
+     * component is rendered for the first time and the content of all its sub-nodes is added to
+     * the DOM tree.
+     * This method is part of the Commit phase.
+     */
     didMount?(): void;
     /**
      * Notifies that the component's content is going to be removed from the DOM tree. After
@@ -89,20 +84,22 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * a Mimbl tick, are updated. If implemented, this method will be called every time the
      * component is scheduled to be updated. This method can read DOM layout information (e.g.
      * element measurements) without the risk of causing forced layouts.
+     * This method is invoked before the Render phase.
      */
     beforeUpdate?(): void;
     /**
-     * Optional method that is called after al components that are scheduled to be updated in
+     * Optional method that is called after all components that are scheduled to be updated in
      * a Mimbl tick, are updated. If implemented, this method will be called every time the
      * component is scheduled to be updated. This method is called after all modifications to
      * DOM resulting from updaing components have been already done.
+     * This method is invoked after the Commit phase.
      */
     afterUpdate?(): void;
     /**
      * This method is only used by managed components.
      *
      * Informs the component that new properties have been specified. At the time of the call
-     * this.props refers to the "old" properties. If the component returns true,then its render
+     * this.props refers to the "old" properties. If the component returns true, then its render
      * method will be called. At that time,the original props object that was passed into the
      * component's constructor will have these new properties. If the component doesn't implement
      * the shouldUpdate method it is as though true is returned. If the component returns
@@ -113,11 +110,10 @@ export interface IComponent<TProps = {}, TChildren = any> {
      */
     shouldUpdate?(newProps: CompProps<TProps, TChildren>): boolean;
     /**
-     * Handles an exception that occurred during the component's own rendering or rendering of
-     * one of its descendants. If this method is not implemented or if it throws an error, the
-     * error will be propagated up the chain of components until it reaches a component that
-     * handles it. If none of the components can handle the error, the entire tree will be
-     * unmounted.
+     * Handles an exception that occurred during the rendering of one of the component's children.
+     * If this method is not implemented or if it throws an error, the error will be propagated up
+     * the chain of components until it reaches a component that handles it. If none of the
+     * components can handle the error, the entire tree will be unmounted.
      * @param err An exception that was thrown during the component's own rendering or rendering
      * of one of its descendants.
      * @param path An array of names of components and elements from the mounted root to the
@@ -131,6 +127,28 @@ export interface IComponent<TProps = {}, TChildren = any> {
      */
     getUpdateStrategy?(): UpdateStrategy;
 }
+/**
+ * The UpdateStrategy object specifies different aspects of update behavior of components and
+ * elements.
+ */
+export declare type UpdateStrategy = {
+    /**
+     * Flag determining whether non-matching new keyed sub-nodes are allowed to recycle non-
+     * matching old keyed sub-nodes. Here "non-matching" means those new or old nodes with keys
+     * for which no old or new sub-nodes with the same key were found. If this flag is false, then
+     * non-matching old sub-nodes will be removed and non-matching new sub-nodes will be inserted.
+     * If this flag is true, then non-matching old sub-nodes will be updated by the non-matching
+     * new sub-nodes - provided that the types of sub-nodes are the same.
+     *
+     * If keyed sub-nodes recycling is allowed it can speed up an update process because
+     * less DOM nodes get removed and inserted, which is more expensive than updating. However,
+     * this can have some adverse effects under cirtain circumstances if certain data is bound
+     * to the particular instances of DOM nodes.
+     *
+     * The flag's default value is true.
+     */
+    allowKeyedNodeRecycling?: boolean;
+};
 /**
  * Type of event handler function for DOM events of type T.
  * @typeparam T DOM event type, e.g. MouseEvent
@@ -164,28 +182,6 @@ export declare type EventPropType<T extends Event> = EventFuncType<T> | EventFun
  * Type for defining the id property of HTML elements
  */
 export declare type IDPropType = string | number | IIDRule;
-/**
- * The UpdateStrategy object specifies different aspects of update behavior of components and
- * elements.
- */
-export declare type UpdateStrategy = {
-    /**
-     * Flag determining whether non-matching new keyed sub-nodes are allowed to recycle non-
-     * matching old keyed sub-nodes. Here "non-matching" means those new or old nodes for which
-     * no old or new sub-nodes respectively were found. If this flag is false, then non-matching
-     * old sub-nodes will be removed and non-matching new sub-nodes will be inserted. If this
-     * flag is true, then non-matching old sub-nodes will be updated by the non-matching new
-     * sub-nodes - provided that the types of sub-nodes are the same.
-     *
-     * If keyed sub-nodes recycling is allowed it can speed up an update process because
-     * less DOM nodes get removed and inserted, which is more expensive than updating. However,
-     * this can have some adverse effects under cirtain circumstances if certain data is bound
-     * to the particular instances of DOM nodes.
-     *
-     * The flag's default value is true.
-     */
-    allowKeyedNodeRecycling?: boolean;
-};
 export declare type CrossoriginPropType = "anonymous" | "use-credentials";
 export declare type FormenctypePropType = "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain";
 export declare type FormmethodPropType = "get" | "post" | "dialog";
@@ -628,25 +624,6 @@ export declare type RefPropType<T = any> = T | Ref<T> | RefFunc<T>;
  * The new value will be set only if the old value equals the `onlyIf` value.
  */
 export declare function setRef<T>(ref: RefPropType<T>, val: T, onlyIf?: T): void;
-/** Defines types of virtual DOM nodes */
-export declare const enum VNType {
-    /** Top-level node */
-    Root = 0,
-    /** Class-based (state-full) component created via new */
-    IndependentComp = 1,
-    /** Class-based (state-full) component laid out using JSX */
-    ManagedComp = 2,
-    /** Stateless component (simple rendering function accepting props) */
-    FuncComp = 3,
-    /** DOM element (HTML or SVG) laid out using JSX. */
-    Elm = 4,
-    /** Text node */
-    Text = 5,
-    /** Wrapper around a function/method that can be updated independently. */
-    FuncProxy = 6,
-    /** Node that waits for a promise to be settled and then displays the resolved value as content. */
-    PromiseProxy = 7
-}
 /**
  * The IVNode interface represents a virtual node. Through this interface, callers can perform
  * most common actions that are available on every type of virtual node. Each type of virtual node
@@ -654,8 +631,6 @@ export declare const enum VNType {
  * type are available.
  */
 export interface IVNode {
-    /** Gets node type. */
-    readonly type: VNType;
     /** Gets node's parent. This is undefined for the top-level (root) nodes. */
     readonly parent?: IVNode;
     /** Component that created this node in its render method (or undefined). */
@@ -779,7 +754,10 @@ export interface IManagedCompVN extends IVNode {
     /** Gets the component class. */
     readonly compClass: IComponentClass;
 }
-export interface IIndependentCompVN extends IVNode {
+/**
+ * The IIndependentCompVN interface represents a virtual node for an independent component.
+ */
+export interface IIndependentCompVN extends IClassCompVN {
 }
 /**
  *  The IElmVN interface represents a virtual node for a DOM element.
@@ -887,7 +865,7 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
     abstract render(): any;
     /**
      * This method is called by the component to request to be updated. If no arguments are
-     * provided, the entire component is requested to be updated. If argument are provided, they
+     * provided, the entire component is requested to be updated. If arguments are provided, they
      * indicate what rendering functions should be updated.
      * @param updateRequests
      */

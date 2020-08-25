@@ -242,11 +242,6 @@ export declare class Popup<TStyles extends IPopupStyles = IPopupStyles, TOptions
      */
     protected getDefaultStyles(): TStyles | css.IStyleDefinitionClass<TStyles>;
     /**
-     * Returns the value that should be used as a return value when closing the popup after the
-     * user pressed the Esc key. If undefined is returned, the popup doesn't close
-     */
-    protected getReturnValueForEscapeKey(): any;
-    /**
      * This method is called when the popup opens. If derived classes override it they
      * must call super.onOpen().
      */
@@ -297,6 +292,10 @@ export interface IDialogButton {
      * is, the button is enabled.
      */
     readonly disabled?: boolean;
+    /**
+     * Keyboard key or code associated with the button.
+     */
+    readonly keycode?: string;
 }
 /**
  * The IPopup interface represents a popup from the point of view of the content. This interface
@@ -368,6 +367,10 @@ export interface IDialogOptions<TStyles extends IDialogStyles = IDialogStyles> e
      * Defines what CSS class to use for the buttons.
      */
     readonly dialogButtonStyleClass?: css.ClassPropType;
+    /**
+     * Identifier of the default button, which will have focus when the dialog appears.
+     */
+    readonly defaultButton?: any;
 }
 /**
  * The Dialog class is a popup that divides the popup area into three sections: caption, body and
@@ -396,6 +399,10 @@ export declare class Dialog<TStyles extends IDialogStyles = IDialogStyles, TOpti
      */
     willMount(): void;
     /**
+     * If derived classes override this method, they must call super.didMount()
+     */
+    didMount(): void;
+    /**
      * If derived classes override this method, they must call super.willUnmount()
      */
     willUnmount(): void;
@@ -405,8 +412,11 @@ export declare class Dialog<TStyles extends IDialogStyles = IDialogStyles, TOpti
     renderButtons(): void;
     private onCaptionPointerDown;
     private onButtonClicked;
+    private onButtonKeyDown;
     private captionContent;
     private buttons;
+    private buttonKeys;
+    private nextButtonTabIndex;
     private captionClassName;
     private bodyClassName;
     private buttonBarClassName;
@@ -470,18 +480,13 @@ export declare class MsgBox extends Dialog<MsgBoxStyles> {
      * @param icon Optional identifier of the icon to be displayed.
      * @returns Promise that is resolved with the identifier of the button clicked by the user.
      */
-    static showModal(message: string, title?: string, buttons?: MsgBoxButtonBar, icon?: MsgBoxIcon): Promise<MsgBoxButton>;
-    constructor(message: any, title?: string, buttons?: MsgBoxButtonBar, icon?: MsgBoxIcon);
+    static showModal(message: string, title?: string, buttons?: MsgBoxButtonBar, icon?: MsgBoxIcon, defaultButton?: MsgBoxButton): Promise<MsgBoxButton>;
+    constructor(message: any, title?: string, buttons?: MsgBoxButtonBar, icon?: MsgBoxIcon, defaultButton?: MsgBoxButton);
     renderBody(): any;
     /**
      * Returns the default style definition instance or class
      */
     protected getDefaultStyles(): MsgBoxStyles | css.IStyleDefinitionClass<MsgBoxStyles>;
-    /**
-     * Returns the value that should be used as a return value when closing the popup after the
-     * user pressed the Esc key. If undefined is returned, the popup doesn't close
-     */
-    protected getReturnValueForEscapeKey(): any;
     private createButtons;
     private getIconClassAndColor;
     private createButton;
