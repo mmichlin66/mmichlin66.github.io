@@ -214,10 +214,11 @@ export interface IHtmlInputElementProps extends IHtmlElementProps<HTMLInputEleme
     required?: boolean;
     type?: InputTypePropType;
     value?: string;
-    defaultValue?: string;
     checked?: boolean;
-    max?: string;
-    min?: string;
+    defaultValue?: string;
+    defaultCheck?: boolean;
+    max?: string | number;
+    min?: string | number;
     step?: number | "any";
     multiple?: boolean;
     placeholder?: string;
