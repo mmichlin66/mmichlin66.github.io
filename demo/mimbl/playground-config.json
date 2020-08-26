@@ -4,7 +4,7 @@
     "extraLibs": [
         {
             "libName": "mimcss",
-            "url": "mimcss",
+            "url": "/lib/mimcss",
             "files": [
                 "index.d.ts",
                 "styles/UtilTypes.d.ts",
@@ -27,7 +27,7 @@
 
         {
             "libName": "mimbl",
-            "url": "mimbl",
+            "url": "/lib/mimbl",
             "files": [
                 "index.d.ts",
                 "utils/EventSlot.d.ts",

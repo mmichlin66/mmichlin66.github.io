@@ -5,28 +5,21 @@ let cps = require( "child_process");
 ps.chdir( p.join( __dirname, ".."));
 console.log( "Current directory: " + ps.cwd());
 
-console.log( "Copy scripts to " + p.join( ps.cwd(), "scripts"));
-exec( "xcopy ..\\mimcss\\lib\\mimcss.js     scripts\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\mimcss.dev.js scripts\\ /i /y /d");
-exec( "xcopy ..\\mimurl\\lib\\mimurl.js     scripts\\ /i /y /d");
-exec( "xcopy ..\\mimurl\\lib\\mimurl.dev.js scripts\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\mimbl.js       scripts\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\mimbl.dev.js   scripts\\ /i /y /d");
-exec( "xcopy ..\\mimcl\\lib\\mimcl.js       scripts\\ /i /y /d");
-exec( "xcopy ..\\mimcl\\lib\\mimcl.dev.js   scripts\\ /i /y /d");
+console.log( "Copy libraries to " + p.join( ps.cwd(), "lib"));
+exec( "xcopy ..\\mimcss\\lib\\mimcss.js     lib\\ /i /y /d");
+exec( "xcopy ..\\mimurl\\lib\\mimurl.js     lib\\ /i /y /d");
+exec( "xcopy ..\\mimbl\\lib\\mimbl.js       lib\\ /i /y /d");
+exec( "xcopy ..\\mimcl\\lib\\mimcl.js       lib\\ /i /y /d");
 
 
 console.log( "Copy mimurl-demo to " + p.join( ps.cwd(), "mimurl"));
 exec( "xcopy ..\\mimurl-demo\\lib\\mimurl-demo.js        mimurl\\ /i /y /d");
-// exec( "xcopy ..\\mimurl-demo\\lib\\mimurl-demo.dev.js    mimurl\\ /i /y /d");
 
 // playground
 console.log( "Copy libraries to " + p.join( ps.cwd(), "demo"));
 exec( "xcopy ..\\mim-tsplay\\lib\\*.ttf                 demo\\ /i /y /d");
 exec( "xcopy ..\\mim-tsplay\\lib\\*.worker.js           demo\\ /i /y /d");
 exec( "xcopy ..\\mim-tsplay\\lib\\mim-tsplay.js         demo\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\mimcss.js                 demo\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\mimbl.js                   demo\\ /i /y /d");
 exec( "xcopy ..\\mimcss-demo\\lib\\mimcss-demo.js       demo\\ /i /y /d");
 
 console.log( "Copy mimcss types to " + p.join( ps.cwd(), "demo/types/mimcss"));

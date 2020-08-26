@@ -2,13 +2,11 @@
 layout: simple
 ---
 
-{% include pathToRoot.lqd %}
-
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="post-header">
 		<div>
-			<a href="{{pathToRoot}}index.html">home</a> &gt;
-			<a href="{{pathToRoot}}blog.html">blog</a> &gt;
+			<a href="/index.html">home</a> &gt;
+			<a href="/blog.html">blog</a> &gt;
 			{{ page.title | escape }}
 		</div>
 		<h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>

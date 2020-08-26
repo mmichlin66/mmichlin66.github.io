@@ -48,7 +48,7 @@ That's how the code in this guide imports the library; however, if you decide to
 In your HTML file use the following URL to reference the Mimbl library (well, when Mimbl becomes popular enough we will host it on CDN):
 
 ```html
-<script src="mmichlin66.github.io/scripts/mimbl.js"></script>
+<script src="mmichlin66.github.io/lib/mimbl.js"></script>
 
 ```
 
@@ -58,7 +58,7 @@ The first Web page we will author will be, of course, a Hello World! program. Th
 ```html
 <html>
     <body>
-        <script src="mmichlin66.github.io/scripts/mimbl.js"></script>
+        <script src="mmichlin66.github.io/lib/mimbl.js"></script>
         <script src="bundle.js"></script>
     </body>
 </html>
