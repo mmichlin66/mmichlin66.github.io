@@ -1,4 +1,4 @@
-import { Extended, CssPosition, CssLength, CssPercent, CssAngle, CssNumber, OneOrBox, CssPoint } from "../styles/UtilTypes";
+import { Extended, CssPosition, CssLength, CssPercent, CssAngle, CssNumber, CssPoint } from "../styles/UtilTypes";
 import { CssColor } from "../styles/ColorTypes";
 import { SelectorItem, ISelectorProxy } from "../styles/SelectorTypes";
 import { Styleset, ExtendedStyleset, StringStyleset, ExtentKeyword, IFilterProxy, IBasicShapeProxy, ITransformProxy, BorderRadius_StyleType, FillRule_StyleType, IPathBuilder, IRayProxy, IFitContentProxy, IRepeatProxy, IMinMaxProxy, GridTrackSize, GridTrack, ISpanProxy, GridLineCountOrName } from "../styles/StyleTypes";
@@ -88,31 +88,99 @@ export declare function blur(radius: Extended<CssLength>): IFilterProxy;
  * @param spread Value of the shadow's spreading. The default value is 0.
  * @param inset Flag indicating whether the shadow goes inside the shape. The default value is false.
  */
-export declare function dropShadow(x: Extended<CssLength>, y: Extended<CssLength>, color?: Extended<CssColor>, blur?: Extended<CssLength>, spread?: Extended<CssLength>): IFilterProxy;
+export declare function dropShadow(x: Extended<CssLength>, y: Extended<CssLength>, color?: Extended<CssColor>, blur?: Extended<CssLength>): IFilterProxy;
 /**
  * Returns an IFilterProxy function representing the `hue-rotate()` CSS function.
  */
 export declare function hueRotate(amount: Extended<CssAngle>): IFilterProxy;
 /**
- * Returns an IBasicShapeProxy function representing the `inset()` CSS function.
+ * The IInsetProxy interface represents the CSS inset basic shape. It is the result of invoking
+ * the [[inset]] function and it can be directly assigned to a suitable style property (e.g.
+ * clip-path). In addition it has the `round` method that can be called to specify the radii of
+ * the inset rectangle's corners.
  */
-export declare function inset(offset: Extended<OneOrBox<CssLength>>, radius?: Extended<BorderRadius_StyleType>): IBasicShapeProxy;
+export interface IInsetProxy extends IBasicShapeProxy {
+    round(radius?: Extended<BorderRadius_StyleType>): IBasicShapeProxy;
+}
+/**
+ * Returns an IInsetProxy function representing the `inset()` CSS function.
+ *
+ * *Example:*
+ *
+ * ```typescript
+ * clipPath: inset( "15%")
+ *
+ * clipPath: inset( "15%").round( 8)
+ * ```
+ */
+export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>, o3?: Extended<CssLength>, o4?: Extended<CssLength>): IInsetProxy;
 /**
  * Type that is used to specify a radius in [[circle]] and [[ellipse]] functions.
  */
 export declare type ShapeRadius = Extended<CssLength | "closest-side" | "farthest-side">;
 /**
- * Returns an IBasicShapeProxy function representing the `circle()` CSS function.
+ * The ICircleProxy interface represents the CSS circle basic shape. It is the result of invoking
+ * the [[circle]] function and it can be directly assigned to a suitable style property (e.g.
+ * clip-path). In addition it has the `at` method that can be called to specify the position of
+ * the circle's center.
  */
-export declare function circle(center?: ShapeRadius, position?: Extended<CssPosition>): IBasicShapeProxy;
+export interface ICircleProxy extends IBasicShapeProxy {
+    at(pos: Extended<CssPosition>): IBasicShapeProxy;
+}
 /**
- * Returns an IBasicShapeProxy function representing the `ellipse()` CSS function.
+ * Returns an ICircleProxy function representing the `circle()` CSS function.
+ *
+ * *Example:*
+ *
+ * ```typescript
+ * clipPath: circle( 100)
+ *
+ * clipPath: circle( 100).at( ["center", "30%"])
+ * ```
  */
-export declare function ellipse(rx?: ShapeRadius, ry?: ShapeRadius, position?: Extended<CssPosition>): IBasicShapeProxy;
+export declare function circle(radius?: ShapeRadius): ICircleProxy;
 /**
- * Returns an IBasicShapeProxy function representing the `polygon()` CSS function.
+ * The IEllipseProxy interface represents the CSS ellipse basic shape. It is the result of invoking
+ * the [[ellipse]] function and it can be directly assigned to a suitable style property (e.g.
+ * clip-path). In addition it has the `at` method that can be called to specify the position of
+ * the ellipse's center.
  */
-export declare function polygon(pointOrRule: CssPoint | FillRule_StyleType, ...points: CssPoint[]): IBasicShapeProxy;
+export interface IEllipseProxy extends IBasicShapeProxy {
+    at(pos: Extended<CssPosition>): IBasicShapeProxy;
+}
+/**
+ * Returns an IEllipseProxy function representing the `ellipse()` CSS function.
+ *
+ * *Example:*
+ *
+ * ```typescript
+ * clipPath: ellipse( 100, 50)
+ *
+ * clipPath: ellipse( 100, 50).at( ["center", "30%"])
+ * ```
+ */
+export declare function ellipse(radiusX?: ShapeRadius, radiusY?: ShapeRadius): IEllipseProxy;
+/**
+ * The IPolygonProxy interface represents the CSS polygon basic shape. It is the result of invoking
+ * the [[polygon]] function and it can be directly assigned to a suitable style property (e.g.
+ * clip-path). In addition it has the `fill` method that can be called to specify the fill
+ * rule.
+ */
+export interface IPolygonProxy extends IBasicShapeProxy {
+    fill(rule: FillRule_StyleType): IBasicShapeProxy;
+}
+/**
+ * Returns an IPolygon interface representing the `polygon()` CSS function.
+ *
+ * *Example:*
+ *
+ * ```typescript
+ * clipPath: css.polygon( [0,100], [50,0], [100,100])
+ *
+ * clipPath: css.polygon( [0,100], [50,0], [100,100]).fill( "evenodd")
+ * ```
+ */
+export declare function polygon(...points: CssPoint[]): IPolygonProxy;
 /**
  * Returns an IRayProxy function representing the `ray()` CSS function.
  */

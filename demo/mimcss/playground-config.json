@@ -67,6 +67,11 @@
             "description": "Demonstrates creating CSS gradients."
         },
         {
+            "name": "Shapes",
+            "path": "mimcss/examples/shapes.tsx",
+            "description": "Demonstrates defining clip-path with shape functions."
+        },
+        {
             "name": "Offset Animation",
             "path": "mimcss/examples/shape-offset-animation.tsx",
             "description": "Demonstrates moving and rotating shape along a path."

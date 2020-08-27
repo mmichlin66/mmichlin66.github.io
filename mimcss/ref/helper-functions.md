@@ -41,31 +41,14 @@ export type CssImage = IUrlProxy | IImageProxy;
 ```
 
 ### Gradients
-The `gradient` object implements the `IGradient` interface that contains properties named after the CSS functions defined in the `<gradient>` CSS type:
-
-```tsx
-export interface IGradient
-{
-    readonly linear: ILinearGradient;
-    readonly repeatingLinear: ILinearGradient;
-    readonly radial: IRadialGradient;
-    readonly repeatingRadial: IRadialGradient;
-    readonly conic: IConicGradient;
-    readonly repeatingConic: IConicGradient;
-}
-
-export let gradient: IGradient;
-```
-
-The `ILinearGradient`, `IRadialGradient` and `IConicGradient` interfaces are *callable* interfaces meaning that can be called as functions. These functions accept the variable array of parameters defining color stops and hints. In addition, these interfaces expose methods that can be called to set optional parameters further defining the behavior of the gradients.
+Mimcss implements functions named after the CSS functions defined in the `<gradient>` CSS type. These functions return interfaces that extend the `IImageProxy` interface, which is accepted by several style properties such as `background-image` and `border-image`. These functions accept the variable array of parameters defining color stops and hints. In addition, these functions expose methods that can be called to set optional parameters further defining the behavior of the gradients.
 
 #### Linear Gradients
-The `linear` and `repeatingLinear` properties of the `IGradient` interface return the `ILinearGradient` interface:
+The `linearGradient` and `repeatingLinearGradient` functions return the `ILinearGradient` interface:
 
 ```tsx
-export interface ILinearGradient
+export interface ILinearGradient extends IImageProxy
 {
-    (...stopsOrHints: GradientStopOrHint[]): ImageProxy;
     to( angle: LinearGradAngle): ILinearGradient;
 }
 
@@ -74,6 +57,10 @@ export type LinearGradAngle = Extended<CssAngle> | LinearGradSideOrCorner;
 export type LinearGradSideOrCorner = "bottom" | "left" | "top" | "right" |
     "top left" | "top right" | "bottom right" | "bottom left" |
     "left top" | "right top" | "left bottom" | "right bottom";
+
+export function linearGradient(...stopsOrHints: GradientStopOrHint[]): ILinearGradient;
+
+export function repeatingLinearGradient(...stopsOrHints: GradientStopOrHint[]): ILinearGradient;
 ```
 
 The `to()` method allows setting the angle of the linear gradient.
@@ -85,47 +72,46 @@ class MyStyles extends css.StyleDefinition
 {
     // Simple linear gradient going from top to bottom.
     cls1 = css.$class({
-        backgroundImage: css.gradient.linear( "red", "blue")
+        backgroundImage: css.linearGradient( "red", "blue")
     })
 
     // Linear gradient going towards the top with color hint at 30%. Note that hints are specified
     // as single number arrays and not just as numbers.
     cls2 = css.$class({
-        backgroundImage: css.gradient.linear.to("top")( "red", [30], "blue")
+        backgroundImage: css.linearGradient( "red", [30], "blue").to("top")
     })
 
     // Linear gradient going towards the right-bottom corner.
     cls3 = css.$class({
-        backgroundImage: css.gradient.linear.to("bottom right")( "red", "blue")
+        backgroundImage: css.linearGradient( "red", "blue").to("bottom right")
     })
 
     // Repeating linear gradient going towards the right side. The yellow color stop is at
     // 25% and the second red stop is at 50%.
     cls4 = css.$class({
-        backgroundImage: css.gradient.repeatingLinear.to("right")("red", ["yellow", 25], ["red", 50])
+        backgroundImage: css.repeatingLinearGradient("red", ["yellow", 25], ["red", 50]).to("right")
     })
 
     // Repeating linear gradient going towards the right side. The yellow color stop is at
     // 25% and the second red stop is at 50%.
     cls5 = css.$class({
-        backgroundImage: css.gradient.repeatingLinear.to("right")("red", ["yellow", 25], ["red", 50])
+        backgroundImage: css.repeatingLinearGradient("red", ["yellow", 25], ["red", 50]).to("right")
     })
 
     // Repeating linear gradient going with the angle of 45 degrees.
     cls6 = css.$class({
-        backgroundImage: css.gradient.repeatingLinear.to(45)("red", ["yellow", 25], ["red", 50])
+        backgroundImage: css.repeatingLinearGradient("red", ["yellow", 25], ["red", 50]).to(45)
     })
 }
 ```
 
 
 #### Radial Gradients
-The `radial` and `repeatingRadial` properties of the `IGradient` interface return the `IRadialGradient` interface:
+The `radialGradient` and `repeatingRadialGradient` functions return the `IRadialGradient` interface:
 
 ```tsx
-export interface IRadialGradient
+export interface IRadialGradient extends IImageProxy
 {
-    (...stopsOrHints: GradientStopOrHint[]): ImageProxy;
     circle( sizeOrExtent?: Extended<CssLength> | Extended<ExtentKeyword>): IRadialGradient;
     ellipse( sizeOrExtent?: [Extended<CssLength>, Extended<CssLength>] | Extended<ExtentKeyword>): IRadialGradient;
     extent( extent: Extended<ExtentKeyword>): IRadialGradient;
@@ -150,48 +136,46 @@ class MyStyles extends css.StyleDefinition
 {
     // Simple radial gradient with the center positioned at the center of the box
     cls1 = css.$class({
-        backgroundImage: css.gradient.radial( "red", "blue")
+        backgroundImage: css.radialGradient( "red", "blue")
     })
 
     // Radial gradient with the center positioned at the middle of the right side
     cls2 = css.$class({
-        backgroundImage: css.gradient.radial.at(["right", "center"])( "red", [30], "blue")
+        backgroundImage: css.radialGradient( "red", [30], "blue").at(["right", "center"])
     })
 
     // Circular radial gradient with absolute size.
     cls3 = css.$class({
-        backgroundImage: css.gradient.radial.circle(css.Len.px(50))( "red", "blue", "yellow")
+        backgroundImage: css.radialGradient( "red", "blue", "yellow").circle(css.Len.px(50))
     })
 
     // Elliptical radial gradient with size defined by the closest corner. The yellow color stop is at
     // 50% and the second red stop is at 90%.
     cls4 = css.$class({
-        backgroundImage: css.gradient.radial.ellipse("closest-corner")("red", ["yellow", 50], ["red", 90])
+        backgroundImage: css.radialGradient( "red", ["yellow", 50], ["red", 90]).ellipse("closest-corner")
     })
 
     // Repeating circular radial gradient going up to the farthest side.
     cls5 = css.$class({
-        backgroundImage: css.gradient.repeatingRadial.circle("farthest-side")
-            ("red", ["yellow", 25], ["red", 50])
+        backgroundImage: css.repeatingRadialGradient( "red", ["yellow", 25], ["red", 50]).circle("farthest-side")
     })
 
     // Repeating circular radial gradient going up to the closest side positioned close to the
     // bottom left corner.
     cls6 = css.$class({
-        backgroundImage: css.gradient.repeatingRadial.at(["left", 3.5, "bottom", 3.5])
-            .circle(50)("red", ["yellow", 25], ["red", 50])
+        backgroundImage: css.repeatingRadialGradient( "red", ["yellow", 25], ["red", 50])
+            .circle(50).at(["left", 3.5, "bottom", 3.5])
     })
 }
 ```
 
 
 #### Conic Gradients
-The `conic` and `repeatingConic` properties of the `IGradient` interface return the `IConicGradient` interface:
+The `conicGradient` and `repeatingConicGradient` functions return the `IConicGradient` interface:
 
 ```tsx
-export interface IConicGradient
+export interface IConicGradient extends IImageProxy
 {
-    (...stopsOrHints: GradientStopOrHint[]): ImageProxy;
     from( angle: Extended<CssAngle>): IConicGradient;
     at( pos: Extended<SimpleCssPosition>): IConicGradient;
 }
@@ -210,24 +194,24 @@ class MyStyles extends css.StyleDefinition
 {
     // Conic gradient with the center positioned at the center of the box
     cls1 = css.$class({
-        backgroundImage: css.gradient.conic( "red", "blue")
+        backgroundImage: css.conicGradient( "red", "blue")
     })
 
     // Conic gradient with the center positioned at the middle of the right side
     cls2 = css.$class({
-        backgroundImage: css.gradient.conic.at(["right", "center"])( "red", [30], "blue")
+        backgroundImage: css.conicGradient( "red", [30], "blue").at(["right", "center"])
     })
 
     // Conic gradient starting with the angle of 30 degrees.
     cls3 = css.$class({
-        backgroundImage: css.gradient.conic.from(30)( "red", "blue", "yellow")
+        backgroundImage: css.conicGradient( "red", "blue", "yellow").from(30)
     })
 
     // Conic gradient starting with the angle of 30 degrees and positioned at the middle of the
     // right side.
     cls4 = css.$class({
-        backgroundImage: css.gradient.conic.from(30).at(["right", "center"])
-            ("red", ["yellow", 50], ["red", 90])
+        backgroundImage: css.conicGradient ( "red", ["yellow", 50], ["red", 90])
+            .from(30).at(["right", "center"])
     })
 }
 ```
@@ -345,27 +329,42 @@ export type BasicShape = IBasicShapeProxy | IPathBuilder;
  */
 export interface IBasicShapeProxy extends IGenericProxy<"basic-shape">;
 
-/**
- * The IRayProxy function represents an invocation of one the CSS `ray()` functions.
- */
-export interface IRayProxy extends IGenericProxy<"ray">;
-
 /** Type used for several properties */
 export type GeometryBoxKeyword = "margin-box" | "border-box" | "padding-box" | "content-box" |
     "fill-box" | "stroke-box" | "view-box";
 
-export function inset( offset: Extended<OneOrBox<CssLength>>,
-    radius?: Extended<BorderRadius_StyleType>): IBasicShapeProxy;
+export interface IInsetProxy extends IBasicShapeProxy
+{
+    round( radius?: Extended<BorderRadius_StyleType>): IBasicShapeProxy;
+}
+
+export function inset( o1: Extended<CssLength>, o2?: Extended<CssLength>,
+    o3?: Extended<CssLength>, o4?: Extended<CssLength>): IInsetProxy;
 
 export type ShapeRadius = Extended<CssLength | "closest-side" | "farthest-side">;
 
-export function circle( center?: ShapeRadius, position?: Extended<CssPosition>): IBasicShapeProxy;
+export interface ICircleProxy extends IBasicShapeProxy
+{
+    at( pos: Extended<CssPosition>): IBasicShapeProxy;
+}
 
-export function ellipse( rx?: ShapeRadius, ry?: ShapeRadius,
-    position?: Extended<CssPosition>): IBasicShapeProxy;
+export function circle( radius?: ShapeRadius): ICircleProxy;
 
-export function polygon( pointOrRule: CssPoint | FillRule_StyleType,
-    ...points: CssPoint[]): IBasicShapeProxy;
+export interface IEllipseProxy extends IBasicShapeProxy
+{
+    at( pos: Extended<CssPosition>): IBasicShapeProxy;
+}
+
+export function ellipse( radiusX?: ShapeRadius, radiusY?: ShapeRadius): IEllipseProxy;
+
+export interface IPolygonProxy extends IBasicShapeProxy
+{
+    fill( rule: FillRule_StyleType): IBasicShapeProxy;
+}
+
+export function polygon( ...points: CssPoint[]): IPolygonProxy
+
+export interface IRayProxy extends IGenericProxy<"ray">;
 
 export function ray( angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>,
     contain?: boolean): IRayProxy;
@@ -373,7 +372,7 @@ export function ray( angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | 
 export function path( fillRule?: FillRule_StyleType): IPathBuilder;
 ```
 
-The `IPathBuilder` interface allows building a path using successive convenient methods:
+The `IPathBuilder` interface allows building a path using successive methods:
 
 ```tsx
 export interface IPathBuilder

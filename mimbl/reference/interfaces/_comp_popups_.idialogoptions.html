@@ -117,7 +117,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.ipopupoptions.html">IPopupOptions</a>.<a href="_comp_popups_.ipopupoptions.html#anchorelement">anchorElement</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:104</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:116</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -133,7 +133,7 @@
 					<div class="tsd-signature tsd-kind-icon">dialog<wbr>Body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">css.ClassPropType</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:632</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:644</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -148,7 +148,7 @@
 					<div class="tsd-signature tsd-kind-icon">dialog<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">css.ClassPropType</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:642</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:654</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -163,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">dialog<wbr>Button<wbr>Bar<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">css.ClassPropType</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:637</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:649</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,7 +178,7 @@
 					<div class="tsd-signature tsd-kind-icon">dialog<wbr>Caption<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">css.ClassPropType</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:627</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:639</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -194,7 +194,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.ipopupoptions.html">IPopupOptions</a>.<a href="_comp_popups_.ipopupoptions.html#dialogstyleclass">dialogStyleClass</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:91</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:103</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -211,7 +211,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.ipopupoptions.html">IPopupOptions</a>.<a href="_comp_popups_.ipopupoptions.html#escapereturnvalue">escapeReturnValue</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:98</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:110</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -229,7 +229,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.ipopupoptions.html">IPopupOptions</a>.<a href="_comp_popups_.ipopupoptions.html#initialx">initialX</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:110</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:122</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +246,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.ipopupoptions.html">IPopupOptions</a>.<a href="_comp_popups_.ipopupoptions.html#initialy">initialY</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:116</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:128</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -263,19 +263,17 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.ipopupoptions.html">IPopupOptions</a>.<a href="_comp_popups_.ipopupoptions.html#styles">styles</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:85</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:97</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Defines what styles to use for the <dialog> element and optionally for the ::backdrop
-									pseudo element. The value can be either a style definition class implementing the
-									<a href="_comp_popups_.ipopupstyles.html">IPopupStyles</a> interface or an instance of such class. The popup activates the styles
-							when it opens and deactivates them when it closes. The default value is undefined.</p>
+							<p>Defines what styles to use for the <code>&lt;dialog&gt;</code> element and optionally for the ::backdrop
+								pseudo element. The value can be either a style definition class implementing the
+								<a href="_comp_popups_.ipopupstyles.html">IPopupStyles</a> interface or an instance of such class. The popup activates the styles
+								when it opens and deactivates them when it closes. If this property is not defined, the
+							popup will use the default styles. The default value is undefined.</p>
 						</div>
-						<p>If this property is not defined, the popup will use styles last set using the
-							[[pushPopupStyles]] function. If this function has never been called before, the popup
-						will use default styles.</p>
 					</div>
 				</section>
 			</section>

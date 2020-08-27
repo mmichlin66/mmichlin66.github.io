@@ -67,6 +67,15 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_api_styleapi_.icircleproxy.html" class="tsd-kind-icon">ICircle<wbr>Proxy</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_api_styleapi_.iellipseproxy.html" class="tsd-kind-icon">IEllipse<wbr>Proxy</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_api_styleapi_.iinsetproxy.html" class="tsd-kind-icon">IInset<wbr>Proxy</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_api_styleapi_.ipolygonproxy.html" class="tsd-kind-icon">IPolygon<wbr>Proxy</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_styleapi_.html#shaperadius" class="tsd-kind-icon">Shape<wbr>Radius</a></li>
@@ -135,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">Shape<wbr>Radius<span class="tsd-signature-symbol">:</span> <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"closest-side"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"farthest-side"</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in api/StyleAPI.ts:306</li>
+							<li>Defined in api/StyleAPI.ts:335</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -207,30 +216,31 @@
 					<a name="circle" class="tsd-anchor"></a>
 					<h3>circle</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">circle<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">?: </span><a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a>, position<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">circle<span class="tsd-signature-symbol">(</span>radius<span class="tsd-signature-symbol">?: </span><a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_api_styleapi_.icircleproxy.html" class="tsd-signature-type">ICircleProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:313</li>
+									<li>Defined in api/StyleAPI.ts:361</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IBasicShapeProxy function representing the <code>circle()</code> CSS function.</p>
+									<p>Returns an ICircleProxy function representing the <code>circle()</code> CSS function.</p>
 								</div>
+								<p><em>Example:</em></p>
+								<pre><code class="language-typescript">clipPath: circle( <span class="hljs-number">100</span>)
+
+clipPath: circle( <span class="hljs-number">100</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;30%&quot;</span>])</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> center: <a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> position: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> radius: <a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_api_styleapi_.icircleproxy.html" class="tsd-signature-type">ICircleProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -304,7 +314,7 @@
 					<a name="dropshadow" class="tsd-anchor"></a>
 					<h3>drop<wbr>Shadow</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">drop<wbr>Shadow<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, color<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_colortypes_.html#csscolor" class="tsd-signature-type">CssColor</a><span class="tsd-signature-symbol">&gt;</span>, blur<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, spread<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_styletypes_.ifilterproxy.html" class="tsd-signature-type">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">drop<wbr>Shadow<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, color<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_colortypes_.html#csscolor" class="tsd-signature-type">CssColor</a><span class="tsd-signature-symbol">&gt;</span>, blur<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_styletypes_.ifilterproxy.html" class="tsd-signature-type">IFilterProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -344,12 +354,6 @@
 										<p>Value of the shadow&#39;s blurring. The default value is 1 pixel.</p>
 									</div>
 								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> spread: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Value of the shadow&#39;s spreading. The default value is 0.</p>
-									</div>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styles_styletypes_.ifilterproxy.html" class="tsd-signature-type">IFilterProxy</a></h4>
 						</li>
@@ -359,33 +363,34 @@
 					<a name="ellipse" class="tsd-anchor"></a>
 					<h3>ellipse</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">ellipse<span class="tsd-signature-symbol">(</span>rx<span class="tsd-signature-symbol">?: </span><a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a>, ry<span class="tsd-signature-symbol">?: </span><a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a>, position<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">ellipse<span class="tsd-signature-symbol">(</span>radiusX<span class="tsd-signature-symbol">?: </span><a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a>, radiusY<span class="tsd-signature-symbol">?: </span><a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_api_styleapi_.iellipseproxy.html" class="tsd-signature-type">IEllipseProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:325</li>
+									<li>Defined in api/StyleAPI.ts:399</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IBasicShapeProxy function representing the <code>ellipse()</code> CSS function.</p>
+									<p>Returns an IEllipseProxy function representing the <code>ellipse()</code> CSS function.</p>
 								</div>
+								<p><em>Example:</em></p>
+								<pre><code class="language-typescript">clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-number">50</span>)
+
+clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-number">50</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;30%&quot;</span>])</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rx: <a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> radiusX: <a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> ry: <a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> position: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#cssposition" class="tsd-signature-type">CssPosition</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> radiusY: <a href="_api_styleapi_.html#shaperadius" class="tsd-signature-type">ShapeRadius</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_api_styleapi_.iellipseproxy.html" class="tsd-signature-type">IEllipseProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -399,7 +404,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:737</li>
+									<li>Defined in api/StyleAPI.ts:837</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -499,7 +504,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:279</li>
+									<li>Defined in api/StyleAPI.ts:278</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -521,30 +526,40 @@
 					<a name="inset" class="tsd-anchor"></a>
 					<h3>inset</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">inset<span class="tsd-signature-symbol">(</span>offset<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#oneorbox" class="tsd-signature-type">OneOrBox</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, radius<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_styletypes_.html#borderradius_styletype" class="tsd-signature-type">BorderRadius_StyleType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">inset<span class="tsd-signature-symbol">(</span>o1<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o2<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o3<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o4<span class="tsd-signature-symbol">?: </span><a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_api_styleapi_.iinsetproxy.html" class="tsd-signature-type">IInsetProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:295</li>
+									<li>Defined in api/StyleAPI.ts:313</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IBasicShapeProxy function representing the <code>inset()</code> CSS function.</p>
+									<p>Returns an IInsetProxy function representing the <code>inset()</code> CSS function.</p>
 								</div>
+								<p><em>Example:</em></p>
+								<pre><code class="language-typescript">clipPath: inset( <span class="hljs-string">&quot;15%&quot;</span>)
+
+clipPath: inset( <span class="hljs-string">&quot;15%&quot;</span>).round( <span class="hljs-number">8</span>)</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>offset: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#oneorbox" class="tsd-signature-type">OneOrBox</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>o1: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> radius: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_styletypes_.html#borderradius_styletype" class="tsd-signature-type">BorderRadius_StyleType</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> o2: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> o3: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> o4: <a href="_styles_utiltypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_styles_utiltypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_api_styleapi_.iinsetproxy.html" class="tsd-signature-type">IInsetProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -586,7 +601,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:475</li>
+									<li>Defined in api/StyleAPI.ts:575</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -629,7 +644,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:486</li>
+									<li>Defined in api/StyleAPI.ts:586</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -702,7 +717,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:747</li>
+									<li>Defined in api/StyleAPI.ts:847</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -761,7 +776,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:378</li>
+									<li>Defined in api/StyleAPI.ts:478</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -789,7 +804,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:501</li>
+									<li>Defined in api/StyleAPI.ts:601</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -811,30 +826,31 @@
 					<a name="polygon" class="tsd-anchor"></a>
 					<h3>polygon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span>pointOrRule<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#csspoint" class="tsd-signature-type">CssPoint</a><span class="tsd-signature-symbol"> | </span><a href="_styles_styletypes_.html#fillrule_styletype" class="tsd-signature-type">FillRule_StyleType</a>, <span class="tsd-signature-symbol">...</span>points<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#csspoint" class="tsd-signature-type">CssPoint</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>points<span class="tsd-signature-symbol">: </span><a href="_styles_utiltypes_.html#csspoint" class="tsd-signature-type">CssPoint</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_api_styleapi_.ipolygonproxy.html" class="tsd-signature-type">IPolygonProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:339</li>
+									<li>Defined in api/StyleAPI.ts:438</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IBasicShapeProxy function representing the <code>polygon()</code> CSS function.</p>
+									<p>Returns an IPolygon interface representing the <code>polygon()</code> CSS function.</p>
 								</div>
+								<p><em>Example:</em></p>
+								<pre><code class="language-typescript">clipPath: css.polygon( [<span class="hljs-number">0</span>,<span class="hljs-number">100</span>], [<span class="hljs-number">50</span>,<span class="hljs-number">0</span>], [<span class="hljs-number">100</span>,<span class="hljs-number">100</span>])
+
+clipPath: css.polygon( [<span class="hljs-number">0</span>,<span class="hljs-number">100</span>], [<span class="hljs-number">50</span>,<span class="hljs-number">0</span>], [<span class="hljs-number">100</span>,<span class="hljs-number">100</span>]).fill( <span class="hljs-string">&quot;evenodd&quot;</span>)</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pointOrRule: <a href="_styles_utiltypes_.html#csspoint" class="tsd-signature-type">CssPoint</a><span class="tsd-signature-symbol"> | </span><a href="_styles_styletypes_.html#fillrule_styletype" class="tsd-signature-type">FillRule_StyleType</a></h5>
-								</li>
-								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>points: <a href="_styles_utiltypes_.html#csspoint" class="tsd-signature-type">CssPoint</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styles_styletypes_.ibasicshapeproxy.html" class="tsd-signature-type">IBasicShapeProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_api_styleapi_.ipolygonproxy.html" class="tsd-signature-type">IPolygonProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -848,7 +864,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:361</li>
+									<li>Defined in api/StyleAPI.ts:461</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -882,7 +898,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:758</li>
+									<li>Defined in api/StyleAPI.ts:858</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -913,7 +929,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:521</li>
+									<li>Defined in api/StyleAPI.ts:621</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -941,7 +957,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:561</li>
+									<li>Defined in api/StyleAPI.ts:661</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -978,7 +994,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:531</li>
+									<li>Defined in api/StyleAPI.ts:631</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1006,7 +1022,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:541</li>
+									<li>Defined in api/StyleAPI.ts:641</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1034,7 +1050,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:551</li>
+									<li>Defined in api/StyleAPI.ts:651</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1090,7 +1106,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:575</li>
+									<li>Defined in api/StyleAPI.ts:675</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1121,7 +1137,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:625</li>
+									<li>Defined in api/StyleAPI.ts:725</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1155,7 +1171,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:595</li>
+									<li>Defined in api/StyleAPI.ts:695</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1183,7 +1199,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:605</li>
+									<li>Defined in api/StyleAPI.ts:705</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1211,7 +1227,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:615</li>
+									<li>Defined in api/StyleAPI.ts:715</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1381,7 +1397,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:638</li>
+									<li>Defined in api/StyleAPI.ts:738</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1412,7 +1428,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:648</li>
+									<li>Defined in api/StyleAPI.ts:748</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1440,7 +1456,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:658</li>
+									<li>Defined in api/StyleAPI.ts:758</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1468,7 +1484,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:772</li>
+									<li>Defined in api/StyleAPI.ts:872</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1532,7 +1548,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:668</li>
+									<li>Defined in api/StyleAPI.ts:768</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1563,7 +1579,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:718</li>
+									<li>Defined in api/StyleAPI.ts:818</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1597,7 +1613,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:688</li>
+									<li>Defined in api/StyleAPI.ts:788</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1625,7 +1641,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:698</li>
+									<li>Defined in api/StyleAPI.ts:798</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1653,7 +1669,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in api/StyleAPI.ts:708</li>
+									<li>Defined in api/StyleAPI.ts:808</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1725,6 +1741,18 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_api_styleapi_.icircleproxy.html" class="tsd-kind-icon">ICircle<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_api_styleapi_.iellipseproxy.html" class="tsd-kind-icon">IEllipse<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_api_styleapi_.iinsetproxy.html" class="tsd-kind-icon">IInset<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_api_styleapi_.ipolygonproxy.html" class="tsd-kind-icon">IPolygon<wbr>Proxy</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_api_styleapi_.html#shaperadius" class="tsd-kind-icon">Shape<wbr>Radius</a>
 					</li>

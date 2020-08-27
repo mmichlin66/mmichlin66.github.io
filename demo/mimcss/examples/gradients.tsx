@@ -8,24 +8,24 @@ class MyStyles extends css.StyleDefinition
 	linearGradient = css.$class({
 		width: 200,
 		height: 200,
-        backgroundImage: css.gradient.repeatingLinear.to(15)( css.Colors.lightcyan,
-            css.Colors.orange, [30], [css.Colors.lightcyan, 50])
+        backgroundImage: css.repeatingLinearGradient( css.Colors.pink,
+            css.Colors.burlywood, [30], [css.Colors.pink, 50]).to(15)
 	})
 
     // example of radial gradient
 	radialGradient = css.$class({
 		width: 200,
 		height: 200,
-		backgroundImage: css.gradient.repeatingRadial.circle().extent("farthest-corner").at([5.5,3.3])(
-						css.Colors.lightcyan, css.Colors.orange, [30], [css.Colors.lightcyan, 50])
+		backgroundImage: css.repeatingGradialGradient( css.Colors.lightcyan, css.Colors.orange, [30],
+			[css.Colors.lightcyan, 50]).circle().extent("farthest-corner").at([5.5,3.3])
 	})
 
     // example of conic gradient
 	conic = css.$class({
 		width: 200,
 		height: 200,
-		backgroundImage: css.gradient.conic.from(45).at("70%")( css.Colors.red, css.Colors.orange,
-			css.Colors.yellow, css.Colors.green, css.Colors.lightblue, css.Colors.blue, css.Colors.violet, css.Colors.red)
+        backgroundImage: css.conicGradient( css.Colors.red, css.Colors.orange,css.Colors.yellow, css.Colors.green,
+            css.Colors.lightblue, css.Colors.blue, css.Colors.violet, css.Colors.red).from(45).at("70%")
     })
 
     // another example of conic gradient
@@ -33,7 +33,7 @@ class MyStyles extends css.StyleDefinition
 		width: 200,
 		height: 200,
 		background: {
-            image: css.gradient.conic( ["white", 0.25], ["black", 0.25, 0.5], ["white", 0.5, 0.75], ["black", 0.75]),
+            image: css.conicGradient( ["white", 0.25], ["black", 0.25, 0.5], ["white", 0.5, 0.75], ["black", 0.75]),
             position: ["top", "left"],
             size: ["25%", "25%"],
             repeat: "repeat"

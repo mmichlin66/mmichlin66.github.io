@@ -1,10 +1,10 @@
-﻿import * as mim from "mimbl"
+﻿// This is an example from MDN demonstrating animation of the offset-distance property. The example
+// presents two variants of the same animation - just to demonstrate the different means Mimcss
+// provides that can be used under different circumstances.
+
+import * as mim from "mimbl"
 import * as css from "mimcss"
 
-
-// This is an example from MDN demonstrating animating the offset-distance property. It presents
-// two variants of the same animation - just to demonstrate the different means Mimcss provides
-// that can be used under different circumstances.
 
 
 class MyStyles extends css.StyleDefinition
@@ -49,12 +49,12 @@ class MyStyles extends css.StyleDefinition
 		"+": this.base,
 
 		// using negative number for inverted color and fraction for opacity
-		backgroundColor: -0x2BC4A2 - 0.7,
+		backgroundColor: -(0x2BC4A2 + 0.7),
 
 		// define clip-path using Mimcss polygon function and a helper function that returns of points.
 		// This can be useful when generating path dynamically based on some internal data. Note that
 		// what units to use is also specified dynamically.
-		clipPath: css.polygon( "evenodd", ...flatCoordsToCssPoints( "%", 0,0, 70,0, 100,50, 70,100, 0,100, 30,50)),
+		clipPath: css.polygon( ...flatCoordsToCssPoints( "%", 0,0, 70,0, 100,50, 70,100, 0,100, 30,50)),
 
 		// define animation using object notation, which is less error prone
 		animation: {
@@ -67,7 +67,8 @@ class MyStyles extends css.StyleDefinition
 	})
 
 	container = css.$class({
-		display: "flex"
+        display: "flex",
+		// justifyContent: "space-around",
 	})
 }
 
@@ -82,6 +83,8 @@ function flatCoordsToCssPoints( unit: string, ...coords: number[]): css.CssPoint
 	console.log( "points =", points);
 	return points;
 }
+
+
 
 let styles = css.activate( MyStyles);
 
