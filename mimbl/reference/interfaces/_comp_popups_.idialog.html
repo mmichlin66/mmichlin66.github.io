@@ -91,6 +91,7 @@
 				<ul class="tsd-hierarchy">
 					<li><a href="../classes/_comp_popups_.dialog.html" class="tsd-signature-type">Dialog</a></li>
 					<li><a href="../classes/_comp_popups_.msgbox.html" class="tsd-signature-type">MsgBox</a></li>
+					<li><a href="../classes/_comp_popups_.progressbox.html" class="tsd-signature-type">ProgressBox</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -98,12 +99,36 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_comp_popups_.idialog.html#buttoncount" class="tsd-kind-icon">button<wbr>Count</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_comp_popups_.idialog.html#addbutton" class="tsd-kind-icon">add<wbr>Button</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_comp_popups_.idialog.html#close" class="tsd-kind-icon">close</a></li>
 							</ul>
 						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="buttoncount" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> button<wbr>Count</h3>
+					<div class="tsd-signature tsd-kind-icon">button<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in mimbl/src/comp/Popups.tsx:688</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Returns the number of buttons in the button bar</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -119,7 +144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:574</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:683</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -148,7 +173,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.ipopup.html">IPopup</a>.<a href="_comp_popups_.ipopup.html#close">close</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:46</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:64</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -189,10 +214,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_comp_popups_.dialogbutton.html" class="tsd-kind-icon">Dialog<wbr>Button</a>
+						<a href="../enums/_comp_popups_.msgboxbutton.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Button</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_comp_popups_.msgboxbuttons.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Buttons</a>
+						<a href="../enums/_comp_popups_.msgboxbuttonbar.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Button<wbr>Bar</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/_comp_popups_.msgboxicon.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Icon</a>
@@ -215,11 +240,20 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../classes/_comp_popups_.popup.html" class="tsd-kind-icon">Popup</a>
 					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.progressbox.html" class="tsd-kind-icon">Progress<wbr>Box</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/_comp_popups_.progressboxstyles.html" class="tsd-kind-icon">Progress<wbr>Box<wbr>Styles</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="_comp_popups_.idialog.html" class="tsd-kind-icon">IDialog</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_comp_popups_.idialog.html#buttoncount" class="tsd-kind-icon">button<wbr>Count</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="_comp_popups_.idialog.html#addbutton" class="tsd-kind-icon">add<wbr>Button</a>
 							</li>
@@ -233,7 +267,7 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_comp_popups_.idialogbutton.html" class="tsd-kind-icon">IDialog<wbr>Button</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_comp_popups_.idialogoptions.html" class="tsd-kind-icon">IDialog<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
@@ -241,6 +275,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="_comp_popups_.ipopup.html" class="tsd-kind-icon">IPopup</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_comp_popups_.ipopupevents.html" class="tsd-kind-icon">IPopup<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_comp_popups_.ipopupoptions.html" class="tsd-kind-icon">IPopup<wbr>Options</a>
@@ -267,6 +304,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">

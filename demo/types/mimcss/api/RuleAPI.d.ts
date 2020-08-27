@@ -1,8 +1,8 @@
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule } from "../rules/RuleTypes";
-import { SupportsQuery, Styleset, VarTemplateName, VarValueType } from "../styles/StyleTypes";
-import { CssSelector, PagePseudoClass } from "../styles/SelectorTypes";
-import { MediaQuery } from "../styles/MediaTypes";
-import { IFontFace } from "../styles/FontFaceTypes";
+import { CssSelector, PagePseudoClass } from "../api/BasicTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule } from "./RuleTypes";
+import { SupportsQuery, Styleset, VarTemplateName, VarValueType } from "./StyleTypes";
+import { MediaQuery } from "./MediaAPI";
+import { IFontFace } from "./FontFaceAPI";
 /**
  * Creates new abstract rule, which defines a styleset that can be extended by other style
  * rules. Abstract rules don't have selectors and are not inserted into DOM.

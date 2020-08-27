@@ -116,6 +116,7 @@
 					<li><a href="../classes/_api_mim_.funcproxy.html" class="tsd-signature-type">FuncProxy</a></li>
 					<li><a href="../classes/_comp_popups_.msgbox.html" class="tsd-signature-type">MsgBox</a></li>
 					<li><a href="../classes/_comp_popups_.popup.html" class="tsd-signature-type">Popup</a></li>
+					<li><a href="../classes/_comp_popups_.progressbox.html" class="tsd-signature-type">ProgressBox</a></li>
 					<li><a href="../classes/_api_mim_.promiseproxy.html" class="tsd-signature-type">PromiseProxy</a></li>
 				</ul>
 			</section>
@@ -156,7 +157,7 @@
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:86</li>
+							<li>Defined in mimbl/src/api/mim.ts:71</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -173,13 +174,13 @@
 					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:79</li>
+							<li>Defined in mimbl/src/api/mim.ts:64</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Component properties passed to the constructor. For managed components, the properties
-							can also be set (changed) when the component&#39;s parent is updated.</p>
+							are updated when the component&#39;s parent is updated.</p>
 						</div>
 					</div>
 				</section>
@@ -189,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">vn<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:95</li>
+							<li>Defined in mimbl/src/api/mim.ts:80</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -217,15 +218,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:133</li>
+									<li>Defined in mimbl/src/api/mim.ts:122</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Optional method that is called after al components that are scheduled to be updated in
+									<p>Optional method that is called after all components that are scheduled to be updated in
 										a Mimbl tick, are updated. If implemented, this method will be called every time the
 										component is scheduled to be updated. This method is called after all modifications to
-									DOM resulting from updaing components have been already done.</p>
+										DOM resulting from updaing components have been already done.
+									This method is invoked after the Commit phase.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -242,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:125</li>
+									<li>Defined in mimbl/src/api/mim.ts:113</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -250,7 +252,8 @@
 									<p>Optional method that is called before any components that are scheduled to be updated in
 										a Mimbl tick, are updated. If implemented, this method will be called every time the
 										component is scheduled to be updated. This method can read DOM layout information (e.g.
-									element measurements) without the risk of causing forced layouts.</p>
+										element measurements) without the risk of causing forced layouts.
+									This method is invoked before the Render phase.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -267,9 +270,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:111</li>
+									<li>Defined in mimbl/src/api/mim.ts:98</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Notifies the component that it was successfully mounted. This method is called after the
+										component is rendered for the first time and the content of all its sub-nodes is added to
+										the DOM tree.
+									This method is part of the Commit phase.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -284,7 +295,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:168</li>
+									<li>Defined in mimbl/src/api/mim.ts:156</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,16 +318,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:162</li>
+									<li>Defined in mimbl/src/api/mim.ts:150</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Handles an exception that occurred during the component&#39;s own rendering or rendering of
-										one of its descendants. If this method is not implemented or if it throws an error, the
-										error will be propagated up the chain of components until it reaches a component that
-										handles it. If none of the components can handle the error, the entire tree will be
-									unmounted.</p>
+									<p>Handles an exception that occurred during the rendering of one of the component&#39;s children.
+										If this method is not implemented or if it throws an error, the error will be propagated up
+										the chain of components until it reaches a component that handles it. If none of the
+									components can handle the error, the entire tree will be unmounted.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -351,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:98</li>
+									<li>Defined in mimbl/src/api/mim.ts:83</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:148</li>
+									<li>Defined in mimbl/src/api/mim.ts:137</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -381,7 +391,7 @@
 									<p>This method is only used by managed components.</p>
 								</div>
 								<p>Informs the component that new properties have been specified. At the time of the call
-									this.props refers to the &quot;old&quot; properties. If the component returns true,then its render
+									this.props refers to the &quot;old&quot; properties. If the component returns true, then its render
 									method will be called. At that time,the original props object that was passed into the
 									component&#39;s constructor will have these new properties. If the component doesn&#39;t implement
 									the shouldUpdate method it is as though true is returned. If the component returns
@@ -412,7 +422,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:105</li>
+									<li>Defined in mimbl/src/api/mim.ts:90</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:117</li>
+									<li>Defined in mimbl/src/api/mim.ts:104</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

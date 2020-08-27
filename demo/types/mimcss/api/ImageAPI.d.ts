@@ -1,10 +1,60 @@
-import { Extended, CssPosition, CssAngle, CssLength } from "../styles/UtilTypes";
-import { GradientStopOrHint, LinearGradAngle, CrossFadeParam, IImageProxy } from "../styles/ImageTypes";
-import { ExtentKeyword } from "../styles/StyleTypes";
+import { Extended, CssPosition, CssAngle, CssLength, CssNumber, CssColor, IImageProxy, CssImage, ExtentKeyword } from "../api/BasicTypes";
 /**
- * Returns an ImageProxy function representing the `cross-fade()` CSS function.
+ * Type representing either color stop or color hint for the `<gradient>` CSS functions. Color
+ * stop is represented by either a simple color value or a two-to-three element tuple. In this
+ * tuple, the first item is the color value, the second item is the distance/angle of where the
+ * color starts and the optional third item is the distance/angle where the color stops.
+ *
+ * Hint value is expressed as a single-item array that contains a single CSS numeric value.
+ * Although hint is a single number, it must be enclosedin an array to distinguish it from color
+ * values because any numeric values in the gradient functions are interpreted as colors.
+ *
+ * For linear and radial gradients numeric values are of type [[CssLength]]; for conic gradients,
+ * these are of type [[CssAngle]]. Percents can be used for all types of gradients.
+ *
+ * **Examples:**
+ *
+ * ```typescript
+ * // linear gradient with 50px hint
+ * linearGradient( Colors.red, [50], Colors.blue)
+ *
+ * // radial gradient with a second color starting at 20%
+ * radialGradient( "red", ["blue", "20%"], "yellow")
+ *
+ * // conic gradient with a second color starting at 0.4turn and stopping at 0.6turn
+ * conicGradient( "red", ["blue", 0.4, 0.6], "yellow")
+ * ```
+ * @typeparam T Type of numeric values used for hints and color stops.
  */
-export declare function crossFade(...args: CrossFadeParam[]): IImageProxy;
+export declare type GradientStopOrHint<T extends (CssLength | CssAngle)> = Extended<CssColor> | [Extended<CssColor>, Extended<T>, Extended<T>?] | [Extended<T>];
+/**
+ * Type that enumerates possible values of the side-or-corner for the [[linearGradient]] function.
+ * These values can be specified in lieu of the angle in the [[ILinearGradient.to|to]] method of
+ * the [[ILinearGradient]] interface.
+ *
+ * **Examples:**
+ *
+ * ```typescript
+ * linearGradient( Colors.red, Colors.blue).to( "bottom right")
+ * ```
+ */
+export declare type LinearGradSideOrCorner = "bottom" | "left" | "top" | "right" | "top left" | "top right" | "bottom right" | "bottom left" | "left top" | "right top" | "left bottom" | "right bottom";
+/**
+ * Type that represents the angle of the [[linearGradient]] CSS function. These values can be
+ * specified in lieu of the angle in the [[ILinearGradient.to|to]] method of the
+ * [[ILinearGradient]] interface.
+ *
+ * **Examples:**
+ *
+ * ```typescript
+ * // linear gradient directed at the bottom corner of the element
+ * linearGradient( Colors.red, Colors.blue).to( "bottom right")
+ *
+ * // linear gradient at 45deg angle
+ * linearGradient( Colors.red, Colors.blue).to( 45)
+ * ```
+ */
+export declare type LinearGradAngle = Extended<CssAngle> | LinearGradSideOrCorner;
 /**
  * The ILinearGradient interface represents a function that produces either `linear-gradient` or
  * `repeating-linear-gradient` CSS function. It can be directly assigned to a suitable style
@@ -25,7 +75,7 @@ export interface ILinearGradient extends IImageProxy {
  * backgroundImage: linearGradient( "red", "blue").to( 45)
  * ```
  */
-export declare function linearGradient(...stopsOrHints: GradientStopOrHint[]): ILinearGradient;
+export declare function linearGradient(...stopsOrHints: GradientStopOrHint<CssLength>[]): ILinearGradient;
 /**
  * Function returning the ILinearGradient interface representing the `repeating-linear-gradient` CSS functions.
  *
@@ -37,7 +87,7 @@ export declare function linearGradient(...stopsOrHints: GradientStopOrHint[]): I
  * backgroundImage: linearGradient( "red", "blue").to( 45)
  * ```
  */
-export declare function repeatingLinearGradient(...stopsOrHints: GradientStopOrHint[]): ILinearGradient;
+export declare function repeatingLinearGradient(...stopsOrHints: GradientStopOrHint<CssLength>[]): ILinearGradient;
 /**
  * The IRadialGradient interface represents a function that produces either `radial-gradient` or
  * `repeating-radial-gradient` CSS function. It can be directly assigned to a suitable style
@@ -63,7 +113,7 @@ export interface IRadialGradient extends IImageProxy {
  * backgroundImage: radialGradient( "red", "blue").ellipse( "closest-side")
  * ```
  */
-export declare function radialGradient(...stopsOrHints: GradientStopOrHint[]): IRadialGradient;
+export declare function radialGradient(...stopsOrHints: GradientStopOrHint<CssLength>[]): IRadialGradient;
 /**
  * Function returning the IRadialGradient interface representing the `radial-gradient` CSS functions.
  *
@@ -77,7 +127,7 @@ export declare function radialGradient(...stopsOrHints: GradientStopOrHint[]): I
  * backgroundImage: repeatinGradialGradient( "red", "blue").ellipse( "closest-side")
  * ```
  */
-export declare function repeatingGradialGradient(...stopsOrHints: GradientStopOrHint[]): IRadialGradient;
+export declare function repeatingGradialGradient(...stopsOrHints: GradientStopOrHint<CssLength>[]): IRadialGradient;
 /**
  * The IConicGradient interface represents a function that produces either `conic-gradient` or
  * `repeating-conic-gradient` CSS function. It can be directly assigned to a suitable style
@@ -99,7 +149,7 @@ export interface IConicGradient extends IImageProxy {
  * backgroundImage: conicGradient( "red", "blue").from( 0.25).at( ["center", "65%"])
  * ```
  */
-export declare function conicGradient(...stopsOrHints: GradientStopOrHint[]): IConicGradient;
+export declare function conicGradient(...stopsOrHints: GradientStopOrHint<CssAngle>[]): IConicGradient;
 /**
  * Function returning the IConicGradient interface representing the `radial-gradient` CSS functions.
  *
@@ -111,5 +161,13 @@ export declare function conicGradient(...stopsOrHints: GradientStopOrHint[]): IC
  * backgroundImage: repeatingConicGradient( "red", "blue").from( 0.25).at( ["center", "65%"])
  * ```
  */
-export declare function repeatingConicGradient(...stopsOrHints: GradientStopOrHint[]): IConicGradient;
+export declare function repeatingConicGradient(...stopsOrHints: GradientStopOrHint<CssAngle>[]): IConicGradient;
+/**
+ * Type representing parameters for the [[crossFade]] function.
+ */
+export declare type CrossFadeParam = Extended<CssImage> | [Extended<CssImage>, Extended<CssNumber>];
+/**
+ * Returns an ImageProxy function representing the `cross-fade()` CSS function.
+ */
+export declare function crossFade(...args: CrossFadeParam[]): IImageProxy;
 //# sourceMappingURL=ImageAPI.d.ts.map

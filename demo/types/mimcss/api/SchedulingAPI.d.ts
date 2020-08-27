@@ -1,4 +1,4 @@
-import { StyleDefinition, IStyleDefinitionClass, IScheduler } from "../rules/RuleTypes";
+import { StyleDefinition, IStyleDefinitionClass, IScheduler } from "./RuleTypes";
 /**
  * Activates the given style definition class or instance and inserts all its rules into DOM. If
  * the input object is not an instance but a class, which is not yet associated with an instance,

@@ -58,7 +58,7 @@
 					<a href="_comp_popups_.dialog.html">Dialog</a>
 				</li>
 			</ul>
-			<h1>Class Dialog&lt;T, TProps, TChildren&gt;</h1>
+			<h1>Class Dialog&lt;TStyles, TOptions, TProps, TChildren&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -77,7 +77,10 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/_comp_popups_.idialogstyles.html" class="tsd-signature-type">IDialogStyles</a></h4>
+						<h4>TStyles<span class="tsd-signature-symbol">: </span><a href="../interfaces/_comp_popups_.idialogstyles.html" class="tsd-signature-type">IDialogStyles</a></h4>
+					</li>
+					<li>
+						<h4>TOptions<span class="tsd-signature-symbol">: </span><a href="../interfaces/_comp_popups_.idialogoptions.html" class="tsd-signature-type">IDialogOptions</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TStyles</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 					<li>
 						<h4>TProps</h4>
@@ -91,13 +94,16 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_comp_popups_.popup.html" class="tsd-signature-type">Popup</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_comp_popups_.popup.html" class="tsd-signature-type">Popup</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TStyles</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TOptions</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Dialog</span>
 								<ul class="tsd-hierarchy">
 									<li>
 										<a href="_comp_popups_.msgbox.html" class="tsd-signature-type">MsgBox</a>
+									</li>
+									<li>
+										<a href="_comp_popups_.progressbox.html" class="tsd-signature-type">ProgressBox</a>
 									</li>
 								</ul>
 							</li>
@@ -123,20 +129,22 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_comp_popups_.dialog.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#content" class="tsd-kind-icon">content</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#defaultstyles" class="tsd-kind-icon">default<wbr>Styles</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#optionalstyles" class="tsd-kind-icon">optional<wbr>Styles</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="_comp_popups_.dialog.html#options" class="tsd-kind-icon">options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#options" class="tsd-kind-icon">options</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#props" class="tsd-kind-icon">props</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#vn" class="tsd-kind-icon">vn</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_comp_popups_.dialog.html#buttoncount" class="tsd-kind-icon">button<wbr>Count</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#events" class="tsd-kind-icon">events</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#isvisible" class="tsd-kind-icon">is<wbr>Visible</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#returnvalue" class="tsd-kind-icon">return<wbr>Value</a></li>
@@ -149,16 +157,19 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#callmeafterupdate" class="tsd-kind-icon">call<wbr>MeAfter<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#callmebeforeupdate" class="tsd-kind-icon">call<wbr>MeBefore<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_comp_popups_.dialog.html#didmount" class="tsd-kind-icon">did<wbr>Mount</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="_comp_popups_.dialog.html#getdefaultstyles" class="tsd-kind-icon">get<wbr>Default<wbr>Styles</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#getreturnvalueforescapekey" class="tsd-kind-icon">get<wbr>Return<wbr>Value<wbr>For<wbr>Escape<wbr>Key</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#ismodal" class="tsd-kind-icon">is<wbr>Modal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#ismodeless" class="tsd-kind-icon">is<wbr>Modeless</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#moveto" class="tsd-kind-icon">move<wbr>To</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#onclose" class="tsd-kind-icon">on<wbr>Close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_comp_popups_.dialog.html#onopen" class="tsd-kind-icon">on<wbr>Open</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#open" class="tsd-kind-icon">open</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_comp_popups_.dialog.html#render" class="tsd-kind-icon">render</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_comp_popups_.dialog.html#renderbody" class="tsd-kind-icon">render<wbr>Body</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_comp_popups_.dialog.html#renderbuttons" class="tsd-kind-icon">render<wbr>Buttons</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_comp_popups_.dialog.html#rendercaption" class="tsd-kind-icon">render<wbr>Caption</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_comp_popups_.dialog.html#setcaption" class="tsd-kind-icon">set<wbr>Caption</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#showmodal" class="tsd-kind-icon">show<wbr>Modal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_comp_popups_.dialog.html#startmove" class="tsd-kind-icon">start<wbr>Move</a></li>
@@ -178,14 +189,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Dialog<span class="tsd-signature-symbol">(</span>bodyContent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, captionContent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, <span class="tsd-signature-symbol">...</span>buttons<span class="tsd-signature-symbol">: </span><a href="../interfaces/_comp_popups_.idialogbutton.html" class="tsd-signature-type">IDialogButton</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_comp_popups_.dialog.html" class="tsd-signature-type">Dialog</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Dialog<span class="tsd-signature-symbol">(</span>bodyContent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, captionContent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TOptions</span>, <span class="tsd-signature-symbol">...</span>buttons<span class="tsd-signature-symbol">: </span><a href="../interfaces/_comp_popups_.idialogbutton.html" class="tsd-signature-type">IDialogButton</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_comp_popups_.dialog.html" class="tsd-signature-type">Dialog</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:664</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:809</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -197,7 +208,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> captionContent: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">any</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <span class="tsd-signature-type">TOptions</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>buttons: <a href="../interfaces/_comp_popups_.idialogbutton.html" class="tsd-signature-type">IDialogButton</a><span class="tsd-signature-symbol">[]</span></h5>
@@ -208,7 +219,7 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="content" class="tsd-anchor"></a>
@@ -217,40 +228,40 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#content">content</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:493</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:588</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="defaultstyles" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> default<wbr>Styles</h3>
-					<div class="tsd-signature tsd-kind-icon">default<wbr>Styles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Styles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TStyles</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#defaultstyles">defaultStyles</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:499</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:594</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="optionalstyles" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> optional<wbr>Styles</h3>
-					<div class="tsd-signature tsd-kind-icon">optional<wbr>Styles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
+					<div class="tsd-signature tsd-kind-icon">optional<wbr>Styles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TStyles</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#optionalstyles">optionalStyles</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:502</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:597</li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="options" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> options</h3>
-					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_comp_popups_.idialogoptions.html" class="tsd-signature-type">IDialogOptions</a></div>
+					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TOptions</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#options">options</a></p>
+						<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#options">options</a></p>
 						<ul>
-							<li>Defined in mimbl/src/comp/Popups.tsx:780</li>
+							<li>Defined in mimbl/src/comp/Popups.tsx:591</li>
 						</ul>
 					</aside>
 				</section>
@@ -262,7 +273,7 @@
 						<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#props">props</a></p>
 						<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#props">props</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1289</li>
+							<li>Defined in mimbl/src/api/mim.ts:1251</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -280,7 +291,7 @@
 						<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#vn">vn</a></p>
 						<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#vn">vn</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1296</li>
+							<li>Defined in mimbl/src/api/mim.ts:1258</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -292,8 +303,53 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="buttoncount" class="tsd-anchor"></a>
+					<h3>button<wbr>Count</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> buttonCount<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mimbl/src/comp/Popups.tsx:845</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the number of buttons in the button bar</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="events" class="tsd-anchor"></a>
+					<h3>events</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MultiEventSlot</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_comp_popups_.ipopupevents.html" class="tsd-signature-type">IPopupEvents</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#events">events</a></p>
+								<ul>
+									<li>Defined in mimbl/src/comp/Popups.tsx:297</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Events that can be fired by the Popup component</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MultiEventSlot</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_comp_popups_.ipopupevents.html" class="tsd-signature-type">IPopupEvents</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 					<a name="isopen" class="tsd-anchor"></a>
 					<h3>is<wbr>Open</h3>
@@ -305,7 +361,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#isopen">isOpen</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:223</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:302</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -329,7 +385,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#isvisible">isVisible</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:264</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:322</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -343,7 +399,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#isvisible">isVisible</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:269</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:324</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,7 +428,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#returnvalue">returnValue</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:247</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:317</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -398,7 +454,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_comp_popups_.idialog.html">IDialog</a>.<a href="../interfaces/_comp_popups_.idialog.html#addbutton">addButton</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:681</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:834</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,7 +483,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#callmeafterupdate">callMeAfterUpdate</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1364</li>
+									<li>Defined in mimbl/src/api/mim.ts:1326</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -469,7 +525,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#callmebeforeupdate">callMeBeforeUpdate</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1349</li>
+									<li>Defined in mimbl/src/api/mim.ts:1311</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -512,7 +568,7 @@
 								<p>Implementation of <a href="../interfaces/_comp_popups_.idialog.html">IDialog</a>.<a href="../interfaces/_comp_popups_.idialog.html#close">close</a></p>
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#close">close</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:203</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:269</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -532,18 +588,41 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="didmount" class="tsd-anchor"></a>
+					<h3>did<wbr>Mount</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">did<wbr>Mount<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#didmount">didMount</a></p>
+								<ul>
+									<li>Defined in mimbl/src/comp/Popups.tsx:882</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>If derived classes override this method, they must call super.didMount()</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
 					<a name="getdefaultstyles" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Default<wbr>Styles</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Styles<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IStyleDefinitionClass</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Styles<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TStyles</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IStyleDefinitionClass</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TStyles</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#getdefaultstyles">getDefaultStyles</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:691</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:852</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -551,31 +630,7 @@
 									<p>Returns the default style definition instance or class</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IStyleDefinitionClass</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="getreturnvalueforescapekey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Return<wbr>Value<wbr>For<wbr>Escape<wbr>Key</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Return<wbr>Value<wbr>For<wbr>Escape<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#getreturnvalueforescapekey">getReturnValueForEscapeKey</a></p>
-								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:483</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the value that should be used as a return value when closing the popup after the
-									user pressed the Esc key. If undefined is returned, the popup doesn&#39;t close</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">TStyles</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IStyleDefinitionClass</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TStyles</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -590,7 +645,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#ismodal">isModal</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:239</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:312</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -613,7 +668,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#ismodeless">isModeless</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:231</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:307</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -636,7 +691,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#moveto">moveTo</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:322</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:380</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -659,6 +714,66 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="onclose" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Close</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Close<span class="tsd-signature-symbol">(</span>retVal<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#onclose">onClose</a></p>
+								<ul>
+									<li>Defined in mimbl/src/comp/Popups.tsx:578</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This method is called when the popup is being closed. If derived classes override it they
+									must call super.onClose().</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>retVal: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="onopen" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> on<wbr>Open</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Open<span class="tsd-signature-symbol">(</span>isModal<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#onopen">onOpen</a></p>
+								<ul>
+									<li>Defined in mimbl/src/comp/Popups.tsx:568</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This method is called when the popup opens. If derived classes override it they
+									must call super.onOpen().</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>isModal: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="open" class="tsd-anchor"></a>
 					<h3>open</h3>
@@ -670,7 +785,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#open">open</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:166</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:220</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -695,7 +810,7 @@
 								<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#render">render</a></p>
 								<p>Overrides <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#render">render</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:727</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:901</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -712,7 +827,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:744</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:918</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -729,7 +844,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:751</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:925</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -746,9 +861,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:736</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:910</li>
 								</ul>
 							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setcaption" class="tsd-anchor"></a>
+					<h3>set<wbr>Caption</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Caption<span class="tsd-signature-symbol">(</span>captionContent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mimbl/src/comp/Popups.tsx:826</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a button to the button bar</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>captionContent: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -764,7 +907,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#setcontent">setContent</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:256</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:330</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -795,15 +938,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#showmodal">showModal</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:183</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:238</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Displays the popup as a modeless dialog and returns a promise that is resolved when the
 										popup is closed. The resolved value of the promise is the value passed to the close()
-										method.  The method will throw an exception if the popup is already open as a modeless
-									popup.</p>
+									method. The method will return a rejected promise if the popup is already open.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -821,7 +963,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#startmove">startMove</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:279</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:340</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -855,7 +997,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#stopmove">stopMove</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:306</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:367</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -879,13 +1021,13 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#updateme">updateMe</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1313</li>
+									<li>Defined in mimbl/src/api/mim.ts:1275</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>This method is called by the component to request to be updated. If no arguments are
-										provided, the entire component is requested to be updated. If argument are provided, they
+										provided, the entire component is requested to be updated. If arguments are provided, they
 									indicate what rendering functions should be updated.</p>
 								</div>
 							</div>
@@ -913,12 +1055,12 @@
 								<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#willmount">willMount</a></p>
 								<p>Overrides <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#willmount">willMount</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:701</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:862</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>If deribed classes override this method, they must call super.willMount()</p>
+									<p>If derived classes override this method, they must call super.willMount()</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -937,12 +1079,12 @@
 								<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#willunmount">willUnmount</a></p>
 								<p>Overrides <a href="_comp_popups_.popup.html">Popup</a>.<a href="_comp_popups_.popup.html#willunmount">willUnmount</a></p>
 								<ul>
-									<li>Defined in mimbl/src/comp/Popups.tsx:721</li>
+									<li>Defined in mimbl/src/comp/Popups.tsx:895</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>If deribed classes override this method, they must call super.willUnmount()</p>
+									<p>If derived classes override this method, they must call super.willUnmount()</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -960,7 +1102,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#wrapcallback">wrapCallback</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1404</li>
+									<li>Defined in mimbl/src/api/mim.ts:1366</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1034,10 +1176,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_comp_popups_.dialogbutton.html" class="tsd-kind-icon">Dialog<wbr>Button</a>
+						<a href="../enums/_comp_popups_.msgboxbutton.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Button</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_comp_popups_.msgboxbuttons.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Buttons</a>
+						<a href="../enums/_comp_popups_.msgboxbuttonbar.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Button<wbr>Bar</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/_comp_popups_.msgboxicon.html" class="tsd-kind-icon">Msg<wbr>Box<wbr>Icon</a>
@@ -1065,7 +1207,7 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="_comp_popups_.dialog.html#optionalstyles" class="tsd-kind-icon">optional<wbr>Styles</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="_comp_popups_.dialog.html#options" class="tsd-kind-icon">options</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -1073,6 +1215,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_comp_popups_.dialog.html#vn" class="tsd-kind-icon">vn</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_comp_popups_.dialog.html#buttoncount" class="tsd-kind-icon">button<wbr>Count</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="_comp_popups_.dialog.html#events" class="tsd-kind-icon">events</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
 								<a href="_comp_popups_.dialog.html#isopen" class="tsd-kind-icon">is<wbr>Open</a>
@@ -1095,11 +1243,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_comp_popups_.dialog.html#close" class="tsd-kind-icon">close</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_comp_popups_.dialog.html#didmount" class="tsd-kind-icon">did<wbr>Mount</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
 								<a href="_comp_popups_.dialog.html#getdefaultstyles" class="tsd-kind-icon">get<wbr>Default<wbr>Styles</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_comp_popups_.dialog.html#getreturnvalueforescapekey" class="tsd-kind-icon">get<wbr>Return<wbr>Value<wbr>For<wbr>Escape<wbr>Key</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_comp_popups_.dialog.html#ismodal" class="tsd-kind-icon">is<wbr>Modal</a>
@@ -1109,6 +1257,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_comp_popups_.dialog.html#moveto" class="tsd-kind-icon">move<wbr>To</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_comp_popups_.dialog.html#onclose" class="tsd-kind-icon">on<wbr>Close</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_comp_popups_.dialog.html#onopen" class="tsd-kind-icon">on<wbr>Open</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_comp_popups_.dialog.html#open" class="tsd-kind-icon">open</a>
@@ -1124,6 +1278,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_comp_popups_.dialog.html#rendercaption" class="tsd-kind-icon">render<wbr>Caption</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_comp_popups_.dialog.html#setcaption" class="tsd-kind-icon">set<wbr>Caption</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_comp_popups_.dialog.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a>
@@ -1162,13 +1319,19 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_comp_popups_.popup.html" class="tsd-kind-icon">Popup</a>
 					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_comp_popups_.progressbox.html" class="tsd-kind-icon">Progress<wbr>Box</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_comp_popups_.progressboxstyles.html" class="tsd-kind-icon">Progress<wbr>Box<wbr>Styles</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_comp_popups_.idialog.html" class="tsd-kind-icon">IDialog</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_comp_popups_.idialogbutton.html" class="tsd-kind-icon">IDialog<wbr>Button</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../interfaces/_comp_popups_.idialogoptions.html" class="tsd-kind-icon">IDialog<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
@@ -1176,6 +1339,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_comp_popups_.ipopup.html" class="tsd-kind-icon">IPopup</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_comp_popups_.ipopupevents.html" class="tsd-kind-icon">IPopup<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../interfaces/_comp_popups_.ipopupoptions.html" class="tsd-kind-icon">IPopup<wbr>Options</a>
@@ -1215,11 +1381,10 @@
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
 			</ul>
 		</div>
 	</div>

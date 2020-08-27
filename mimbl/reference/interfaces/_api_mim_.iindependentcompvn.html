@@ -65,11 +65,18 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The IIndependentCompVN interface represents a virtual node for an independent component.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a>
+						<a href="_api_mim_.iclasscompvn.html" class="tsd-signature-type">IClassCompVN</a>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">IIndependentCompVN</span>
@@ -85,13 +92,13 @@
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#comp" class="tsd-kind-icon">comp</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#creator" class="tsd-kind-icon">creator</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#next" class="tsd-kind-icon">next</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#parent" class="tsd-kind-icon">parent</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#prev" class="tsd-kind-icon">prev</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#subnodes" class="tsd-kind-icon">sub<wbr>Nodes</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.iindependentcompvn.html#updaterequested" class="tsd-kind-icon">update<wbr>Requested</a></li>
 							</ul>
 						</section>
@@ -115,13 +122,29 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="comp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> comp</h3>
+					<div class="tsd-signature tsd-kind-icon">comp<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.icomponent.html" class="tsd-signature-type">IComponent</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_api_mim_.iclasscompvn.html">IClassCompVN</a>.<a href="_api_mim_.iclasscompvn.html#comp">comp</a></p>
+						<ul>
+							<li>Defined in mimbl/src/api/mim.ts:1091</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets the component instance.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="creator" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> creator</h3>
 					<div class="tsd-signature tsd-kind-icon">creator<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.icomponent.html" class="tsd-signature-type">IComponent</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#creator">creator</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:989</li>
+							<li>Defined in mimbl/src/api/mim.ts:951</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -137,7 +160,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#name">name</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1005</li>
+							<li>Defined in mimbl/src/api/mim.ts:967</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -155,7 +178,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#next">next</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:992</li>
+							<li>Defined in mimbl/src/api/mim.ts:954</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -171,7 +194,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#parent">parent</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:986</li>
+							<li>Defined in mimbl/src/api/mim.ts:948</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,7 +210,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#prev">prev</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:995</li>
+							<li>Defined in mimbl/src/api/mim.ts:957</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -203,28 +226,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#subnodes">subNodes</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:998</li>
+							<li>Defined in mimbl/src/api/mim.ts:960</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>List of sub-nodes.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="type" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/_api_mim_.vntype.html" class="tsd-signature-type">VNType</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#type">type</a></p>
-						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:983</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Gets node type.</p>
 						</div>
 					</div>
 				</section>
@@ -235,7 +242,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#updaterequested">updateRequested</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1010</li>
+							<li>Defined in mimbl/src/api/mim.ts:972</li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +260,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#getservice">getService</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1075</li>
+									<li>Defined in mimbl/src/api/mim.ts:1037</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -298,7 +305,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#publishservice">publishService</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1039</li>
+									<li>Defined in mimbl/src/api/mim.ts:1001</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,7 +344,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#requestupdate">requestUpdate</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1015</li>
+									<li>Defined in mimbl/src/api/mim.ts:977</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,7 +367,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#schedulecallafterupdate">scheduleCallAfterUpdate</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1031</li>
+									<li>Defined in mimbl/src/api/mim.ts:993</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -399,7 +406,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#schedulecallbeforeupdate">scheduleCallBeforeUpdate</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1023</li>
+									<li>Defined in mimbl/src/api/mim.ts:985</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -438,7 +445,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#subscribeservice">subscribeService</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1057</li>
+									<li>Defined in mimbl/src/api/mim.ts:1019</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -490,7 +497,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#unpublishservice">unpublishService</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1042</li>
+									<li>Defined in mimbl/src/api/mim.ts:1004</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -525,7 +532,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#unsubscribeservice">unsubscribeService</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1065</li>
+									<li>Defined in mimbl/src/api/mim.ts:1027</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -563,7 +570,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.ivnode.html">IVNode</a>.<a href="_api_mim_.ivnode.html#wrapcallback">wrapCallback</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1118</li>
+									<li>Defined in mimbl/src/api/mim.ts:1080</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -645,6 +652,9 @@
 						<a href="_api_mim_.iindependentcompvn.html" class="tsd-kind-icon">IIndependent<wbr>CompVN</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_api_mim_.iindependentcompvn.html#comp" class="tsd-kind-icon">comp</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_api_mim_.iindependentcompvn.html#creator" class="tsd-kind-icon">creator</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
@@ -661,9 +671,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_api_mim_.iindependentcompvn.html#subnodes" class="tsd-kind-icon">sub<wbr>Nodes</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_api_mim_.iindependentcompvn.html#type" class="tsd-kind-icon">type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_api_mim_.iindependentcompvn.html#updaterequested" class="tsd-kind-icon">update<wbr>Requested</a>

@@ -24,8 +24,6 @@ exec( "xcopy ..\\mimcss-demo\\lib\\mimcss-demo.js       demo\\ /i /y /d");
 
 console.log( "Copy mimcss types to " + p.join( ps.cwd(), "demo/types/mimcss"));
 exec( "xcopy ..\\mimcss\\lib\\index.d.ts                demo\\types\\mimcss\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\styles\\*Types.d.ts       demo\\types\\mimcss\\styles\\ /i /y /d");
-exec( "xcopy ..\\mimcss\\lib\\rules\\RuleTypes.d.ts     demo\\types\\mimcss\\rules\\ /i /y /d");
 exec( "xcopy ..\\mimcss\\lib\\api\\*.d.ts               demo\\types\\mimcss\\api\\ /i /y /d");
 
 console.log( "Copy mimbl types to " + p.join( ps.cwd(), "demo/types/mimbl"));

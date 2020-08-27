@@ -73,12 +73,6 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Enumerations</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum tsd-parent-kind-module"><a href="../enums/_api_mim_.vntype.html" class="tsd-kind-icon">VNType</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/_api_mim_.component.html" class="tsd-kind-icon">Component</a></li>
@@ -123,7 +117,6 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_mim_.html#formmethodproptype" class="tsd-kind-icon">Formmethod<wbr>Prop<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_mim_.html#formtargetproptype" class="tsd-kind-icon">Formtarget<wbr>Prop<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_mim_.html#funccomptype" class="tsd-kind-icon">Func<wbr>Comp<wbr>Type</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_mim_.html#funcprops" class="tsd-kind-icon">Func<wbr>Props</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_api_mim_.html#idproptype" class="tsd-kind-icon">IDProp<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_mim_.html#reffunc" class="tsd-kind-icon">Ref<wbr>Func</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_api_mim_.html#refproptype" class="tsd-kind-icon">Ref<wbr>Prop<wbr>Type</a></li>
@@ -157,7 +150,7 @@
 					<div class="tsd-signature tsd-kind-icon">Comp<wbr>Props&lt;TProps, TChildren&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>children<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:42</li>
+							<li>Defined in mimbl/src/api/mim.ts:15</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -171,8 +164,8 @@
 							<h4>TProps</h4>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Type defining properties that can be passed to the class-based component
-									with these properties. Default type is an empty object (no properties).</p>
+									<p>Type defining properties that can be passed to the functional or class-based
+									component with these properties. Default type is an empty object (no properties).</p>
 								</div>
 							</div>
 						</li>
@@ -180,8 +173,8 @@
 							<h4>TChildren</h4>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Type defining components, elements or other objects that can be used
-									as children for the class-based component with these properties. Default is <code>any</code>.</p>
+									<p>Type defining components, elements or other objects that can be used as
+									children for the component with these properties. Default is <code>any</code>.</p>
 								</div>
 							</div>
 						</li>
@@ -193,7 +186,7 @@
 					<div class="tsd-signature tsd-kind-icon">Component<wbr>Update<wbr>Request<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>args<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">; </span>key<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">; </span>thisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1277</li>
+							<li>Defined in mimbl/src/api/mim.ts:1237</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -210,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">Crossorigin<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"anonymous"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"use-credentials"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:247</li>
+							<li>Defined in mimbl/src/api/mim.ts:235</li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>And<wbr>Flag<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_api_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:197</li>
+							<li>Defined in mimbl/src/api/mim.ts:211</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -247,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>And<wbr>This<wbr>And<wbr>Flag<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_api_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:205</li>
+							<li>Defined in mimbl/src/api/mim.ts:219</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,7 +268,7 @@
 					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>And<wbr>This<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_api_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:190</li>
+							<li>Defined in mimbl/src/api/mim.ts:204</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -302,7 +295,7 @@
 					<div class="tsd-signature tsd-kind-icon">Event<wbr>Func<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:183</li>
+							<li>Defined in mimbl/src/api/mim.ts:197</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -349,7 +342,7 @@
 					<div class="tsd-signature tsd-kind-icon">Event<wbr>Prop<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.html#eventfunctype" class="tsd-signature-type">EventFuncType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_api_mim_.html#eventfuncandthistype" class="tsd-signature-type">EventFuncAndThisType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_api_mim_.html#eventfuncandflagtype" class="tsd-signature-type">EventFuncAndFlagType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_api_mim_.html#eventfuncandthisandflagtype" class="tsd-signature-type">EventFuncAndThisAndFlagType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:211</li>
+							<li>Defined in mimbl/src/api/mim.ts:225</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -375,7 +368,7 @@
 					<div class="tsd-signature tsd-kind-icon">Formenctype<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"application/x-www-form-urlencoded"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"multipart/form-data"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"text/plain"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:248</li>
+							<li>Defined in mimbl/src/api/mim.ts:236</li>
 						</ul>
 					</aside>
 				</section>
@@ -385,7 +378,7 @@
 					<div class="tsd-signature tsd-kind-icon">Formmethod<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"get"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"post"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"dialog"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:249</li>
+							<li>Defined in mimbl/src/api/mim.ts:237</li>
 						</ul>
 					</aside>
 				</section>
@@ -395,14 +388,14 @@
 					<div class="tsd-signature tsd-kind-icon">Formtarget<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_self"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_blank"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_parent"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"_top"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:250</li>
+							<li>Defined in mimbl/src/api/mim.ts:238</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="funccomptype" class="tsd-anchor"></a>
 					<h3>Func<wbr>Comp<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Func<wbr>Comp<wbr>Type&lt;TProps, TChildren&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="_api_mim_.html#funcprops" class="tsd-signature-type">FuncProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
+					<div class="tsd-signature tsd-kind-icon">Func<wbr>Comp<wbr>Type&lt;TProps, TChildren&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in mimbl/src/api/mim.ts:30</li>
@@ -439,14 +432,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-signature">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="_api_mim_.html#funcprops" class="tsd-signature-type">FuncProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">: </span><a href="_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>props: <a href="_api_mim_.html#funcprops" class="tsd-signature-type">FuncProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></h5>
+												<h5>props: <a href="_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -456,49 +449,13 @@
 						</ul>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="funcprops" class="tsd-anchor"></a>
-					<h3>Func<wbr>Props</h3>
-					<div class="tsd-signature tsd-kind-icon">Func<wbr>Props&lt;TProps, TChildren&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>children<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol"> }</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:15</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type used to define properties that can be passed to a functional component.</p>
-						</div>
-					</div>
-					<h4 class="tsd-type-parameters-title">Type parameters</h4>
-					<ul class="tsd-type-parameters">
-						<li>
-							<h4>TProps</h4>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Type defining properties that can be passed to the functional component
-									with these properties. Default type is an empty object (no properties).</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<h4>TChildren</h4>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Type defining components, elements or other objects that can be used
-									as children for the functional component with these properties. Default is <code>any</code>.</p>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="idproptype" class="tsd-anchor"></a>
 					<h3>IDProp<wbr>Type</h3>
 					<div class="tsd-signature tsd-kind-icon">IDProp<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">IIDRule</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:217</li>
+							<li>Defined in mimbl/src/api/mim.ts:231</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -513,7 +470,7 @@
 					<div class="tsd-signature tsd-kind-icon">Ref<wbr>Func&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>newRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:745</li>
+							<li>Defined in mimbl/src/api/mim.ts:733</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -555,7 +512,7 @@
 					<div class="tsd-signature tsd-kind-icon">Ref<wbr>Prop<wbr>Type&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_api_mim_.ref.html" class="tsd-signature-type">Ref</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="_api_mim_.html#reffunc" class="tsd-signature-type">RefFunc</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:917</li>
+							<li>Defined in mimbl/src/api/mim.ts:912</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -577,7 +534,7 @@
 					<div class="tsd-signature tsd-kind-icon">Referrer<wbr>Policy<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"no-referrer"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"no-referrer-when-downgrade"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"origin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"origin-when-cross-origin"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unsafe-url"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:251</li>
+							<li>Defined in mimbl/src/api/mim.ts:239</li>
 						</ul>
 					</aside>
 				</section>
@@ -587,7 +544,7 @@
 					<div class="tsd-signature tsd-kind-icon">Scheduled<wbr>Func<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:738</li>
+							<li>Defined in mimbl/src/api/mim.ts:726</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -617,7 +574,7 @@
 					<div class="tsd-signature tsd-kind-icon">Update<wbr>Strategy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>allowKeyedNodeRecycling<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:225</li>
+							<li>Defined in mimbl/src/api/mim.ts:165</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -634,11 +591,11 @@
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
 										<p>Flag determining whether non-matching new keyed sub-nodes are allowed to recycle non-
-											matching old keyed sub-nodes. Here &quot;non-matching&quot; means those new or old nodes for which
-											no old or new sub-nodes respectively were found. If this flag is false, then non-matching
-											old sub-nodes will be removed and non-matching new sub-nodes will be inserted. If this
-											flag is true, then non-matching old sub-nodes will be updated by the non-matching new
-										sub-nodes - provided that the types of sub-nodes are the same.</p>
+											matching old keyed sub-nodes. Here &quot;non-matching&quot; means those new or old nodes with keys
+											for which no old or new sub-nodes with the same key were found. If this flag is false, then
+											non-matching old sub-nodes will be removed and non-matching new sub-nodes will be inserted.
+											If this flag is true, then non-matching old sub-nodes will be updated by the non-matching
+										new sub-nodes - provided that the types of sub-nodes are the same.</p>
 									</div>
 									<p>If keyed sub-nodes recycling is allowed it can speed up an update process because
 										less DOM nodes get removed and inserted, which is more expensive than updating. However,
@@ -663,7 +620,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1441</li>
+									<li>Defined in mimbl/src/api/mim.ts:1403</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -708,7 +665,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:692</li>
+									<li>Defined in mimbl/src/api/mim.ts:680</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -751,7 +708,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1607</li>
+									<li>Defined in mimbl/src/api/mim.ts:1569</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -790,7 +747,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:811</li>
+									<li>Defined in mimbl/src/api/mim.ts:799</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -803,7 +760,7 @@
     <span class="hljs-meta">@ref</span> myDiv: HTMLDivElement;
     render() { <span class="hljs-keyword">return</span> &lt;div ref={myDiv}&gt;Hello&lt;/div&gt;; }
 }</code></pre>
-								<p>In the above example, the myDiv property will be set to pint to the HTML div element.</p>
+								<p>In the above example, the myDiv property will be set to point to the HTML div element.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -828,7 +785,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1250</li>
+									<li>Defined in mimbl/src/api/mim.ts:1210</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -865,7 +822,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1259</li>
+									<li>Defined in mimbl/src/api/mim.ts:1219</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -893,7 +850,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:931</li>
+									<li>Defined in mimbl/src/api/mim.ts:926</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -946,7 +903,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1616</li>
+									<li>Defined in mimbl/src/api/mim.ts:1578</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -977,7 +934,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1626</li>
+									<li>Defined in mimbl/src/api/mim.ts:1588</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1020,9 +977,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/_api_mim_.vntype.html" class="tsd-kind-icon">VNType</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../classes/_api_mim_.component.html" class="tsd-kind-icon">Component</a>
 					</li>
@@ -1118,9 +1072,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_api_mim_.html#funccomptype" class="tsd-kind-icon">Func<wbr>Comp<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_api_mim_.html#funcprops" class="tsd-kind-icon">Func<wbr>Props</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_api_mim_.html#idproptype" class="tsd-kind-icon">IDProp<wbr>Type</a>
