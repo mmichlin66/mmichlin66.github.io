@@ -393,7 +393,7 @@ export declare type Quotes_StyleType = "none" | "auto" | Extended<string>[];
 /** Type for the resize style property */
 export declare type Resize_StyleType = "none" | "both" | "horizontal" | "vertical" | "block" | "inline";
 /** Type for rotate style property */
-export declare type Rotate_StyleType = "none" | ["x" | "y" | "z", Extended<CssAngle>] | [Extended<CssNumber>, Extended<CssNumber>, Extended<CssNumber>, Extended<CssAngle>];
+export declare type Rotate_StyleType = "none" | CssAngle | ["x" | "y" | "z", Extended<CssAngle>] | [Extended<CssNumber>, Extended<CssNumber>, Extended<CssNumber>, Extended<CssAngle>];
 /** Type for row-gap style property */
 export declare type RowGap_StyleType = CssLength;
 /** Type for the scale style property */
@@ -727,8 +727,8 @@ export interface ICssStyleset {
     marginTop?: CssLength;
     marker?: DefaultStyleType;
     markerEnd?: Marker_StyleType;
-    markerMid?: DefaultStyleType;
-    markerStart?: DefaultStyleType;
+    markerMid?: Marker_StyleType;
+    markerStart?: Marker_StyleType;
     mask?: DefaultStyleType;
     maskComposite?: DefaultStyleType;
     maskImage?: DefaultStyleType;
@@ -800,7 +800,7 @@ export interface ICssStyleset {
     rubyAlign?: DefaultStyleType;
     rubyOverhang?: DefaultStyleType;
     rubyPosition?: DefaultStyleType;
-    scale?: DefaultStyleType;
+    scale?: Scale_StyleType;
     scrollbarColor?: ScrollbarColor_StyleType;
     scrollbarWidth?: ScrollbarWidth_StyleType;
     scrollBehavior?: ScrollBehavior_StyleType;

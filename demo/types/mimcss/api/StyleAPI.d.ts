@@ -310,7 +310,7 @@ export declare function span(countOrName: Extended<GridLineCountOrName>, nameOrC
  * @param b Blue separation value.
  * @param a Optional alpha mask as a percentage value.
  */
-export declare function rgb(r: number, g: number, b: number, a?: number): IColorProxy;
+export declare function rgb(r: Extended<number>, g: Extended<number>, b: Extended<number>, a?: Extended<number>): IColorProxy;
 /**
  * Converts the color specified as hue-saturation-lightness components and an optional alpha
  * mask to a CSS color representation. This method should be used when defining CSS color
@@ -335,7 +335,7 @@ export declare function rgb(r: number, g: number, b: number, a?: number): IColor
  * @param l Lightness component as a percentage value.
  * @param a Optional alpha mask as a percentage value.
  */
-export declare function hsl(h: number | string, s: number, l: number, a?: number): IColorProxy;
+export declare function hsl(h: Extended<CssAngle>, s: Extended<number>, l: Extended<number>, a?: Extended<number>): IColorProxy;
 /**
  * Converts the given color and the alpha mask to the CSS Color representation. This
  * method should be used when defining CSS color values in styleset properties.

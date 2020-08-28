@@ -861,8 +861,17 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      */
     vn: IVNode;
     constructor(props?: CompProps<TProps, TChildren>);
-    /** Returns the component's content that will be ultimately placed into the DOM tree. */
+    /**
+     * Returns the component's content that will be ultimately placed into the DOM tree. This
+     * method is abstract because it must be implemented by every component.
+     */
     abstract render(): any;
+    /**
+     * Determines whether the component is currently mounted. If a component has asynchronous
+     * functionality (e.g. fetching data from a server), component's code may be executed after
+     * it was alrady unmounted. This property allows the component to handle this situation.
+     */
+    get isMounted(): boolean;
     /**
      * This method is called by the component to request to be updated. If no arguments are
      * provided, the entire component is requested to be updated. If arguments are provided, they
@@ -897,18 +906,18 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      * handle errors is found.
      *
      * Use this method before passing callbacks to document and window event handlers as well as
-     * non-DOM objects that use callbacks, e.g. promises. For example:
+     * non-DOM objects that use callbacks, e.g. fetch, Promis, setTimeout, etc. For example:
      *
      * ```typescript
-     *	class ResizeMonitor
+     *	class ResizeMonitor extends mim.Component
      *	{
      *		private onWindowResize(e: Event): void {};
      *
      * 		wrapper: (e: Event): void;
      *
-     * 		public startResizeMonitoring( vn: IVNode)
+     * 		public startResizeMonitoring()
      *		{
-     *			this.wrapper = vn.wrapCallback( this.onWindowResize, this);
+     *			this.wrapper = vn.wrapCallback( this.onWindowResize);
      *			window.addEventListener( "resize", this.wrapper);
      *		}
      *
@@ -920,7 +929,10 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      *	}
      * ```
      *
-     * @param callback Callback to be wrapped
+     * @param callback Method/function to be wrapped
+     * @param thisCallback Optional value of "this" to bind the callback to. If this parameter is
+     * undefined, the component instance will be used. This parameter will be ignored if the the
+     * function is already bound or is an arrow function.
      * @returns Function that has the same signature as the given callback and that should be used
      *     instead of the original callback
      */

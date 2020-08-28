@@ -55,7 +55,12 @@
         {
             "name": "Numeric Properties",
             "path": "mimcss/examples/numeric-properties.tsx",
-            "description": "Defining styles that include units of different dimensions"
+            "description": "Demonstrates defining styles that include units of different dimensions"
+        },
+        {
+            "name": "Dynamic CSS Properties",
+            "path": "mimcss/examples/custom-props-animation.tsx",
+            "description": "Demonstrates defining CSS properties and setting their values dynamically."
         },
         {
             "name": "Gradients",
