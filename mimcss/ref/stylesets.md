@@ -89,7 +89,7 @@ export interface ICustomVar<T = any>
 
 The `ICustomVar` generic interface represents a CSS custom property object with values of the given type. This interface is needed because every style property can accept value in the form of the `var()` CSS function.
 
-#### IGenericProxy Interface 
+#### IGenericProxy Interface
 
 ```tsx
 export interface IGenericProxy<T extends string>
@@ -100,7 +100,7 @@ export interface IGenericProxy<T extends string>
 
 The `IGenericProxy` interface represents a callable interface implemented using functions that accept an optional parameter of a generic type and return a string. This interface is used as a base for proxy interfaces defining types acceptable by certain style properties. The type parameter helps differentiate these interfaces so that functions that can be assigned to one type of style properties (e.g. "transform") cannot be assigned to an incompatible style property (e.g. clip-path).
 
-#### IStringProxy Interface 
+#### IStringProxy Interface
 
 ```tsx
 export interface IStringProxy extends IGenericProxy<"string"> {};
@@ -120,7 +120,7 @@ The `Extended` generic type extends the given type with the following types:
 - `IStringProxy` interface that allows specifying raw string value.
 - `undefined` type that allows omit property value.
 
-#### ImportantProp Type 
+#### ImportantProp Type
 
 ```tsx
 export type ImportantProp<T> = { "!": Extended<T> };
@@ -128,7 +128,7 @@ export type ImportantProp<T> = { "!": Extended<T> };
 
 The `ImportantProp` generic type encapsulates the type of a property in an object with a single `"!"` property. This type is used to indicate that the property value must be flagged as `!important`.
 
-#### ExtendedProp Type 
+#### ExtendedProp Type
 
 ```tsx
 export type ExtendedProp<T> = Extended<T> | ImportantProp<T> | Global_StyleType;
@@ -160,10 +160,10 @@ export type OneOrMany<T> = T | Extended<T>[];
 ## Styleset Type
 
 ```tsx
-export type Styleset = ExtendedStyleset & { "--"?: CustomVarStyleType[] };
+export type Styleset = ExtendedStyleset & { "--"?: CustomVar_StyleType[] };
 ```
 
-The `Styleset` type extends the `ExtendedStyleset` type adding to it the `"--"` property, which is an array of `CustomVarStyleType` objects. In CSSOM, custom properties are not part of the `CSSStyleDeclaration` type (although the `setProperty` method is used to add them to the style definition). In Mimcss, we do want them to be specified declaratively in the stylesets when defining rules; therefore, we introduce several helper types that are used by the `Styleset` type.
+The `Styleset` type extends the `ExtendedStyleset` type adding to it the `"--"` property, which is an array of `CustomVar_StyleType` objects. In CSSOM, custom properties are not part of the `CSSStyleDeclaration` type (although the `setProperty` method is used to add them to the style definition). In Mimcss, we do want them to be specified declaratively in the stylesets when defining rules; therefore, we introduce several helper types that are used by the `Styleset` type.
 
 #### ICssVarTemplates Interface
 
@@ -243,7 +243,7 @@ The VarTemplates type maps all template properties defined in the `ICssVarTempla
 #### CustomVar_StyleType Type
 
 ```tsx
-export type CustomVar_StyleType<K extends VarTemplateName = any> = 
+export type CustomVar_StyleType<K extends VarTemplateName = any> =
     [IVarRule<K>, VarValueType<K>] | [string, K, VarValueType<K>]
 ```
 
@@ -436,7 +436,7 @@ export interface IParameterizedPseudoClass
 ```
 
 The `IParameterizedPseudoClass` interface maps names of pseudo classes that require parameters to the type that can be used to specify these parameters.
- 
+
 #### IParameterizedPseudoElement Interface
 
 ```tsx
@@ -448,7 +448,7 @@ export interface IParameterizedPseudoElement
 ```
 
 The `IParameterizedPseudoElement` interface maps names of pseudo elements that require parameters to the type that can be used to specify these parameters.
- 
+
 #### IParameterizedPseudoEntity Interface
 
 ```tsx
@@ -458,7 +458,7 @@ export interface IParameterizedPseudoEntity extends IParameterizedPseudoClass, I
 ```
 
 The `IParameterizedPseudoEntity` interface combines `IParameterizedPseudoClass` and `IParameterizedPseudoElement` interfaces.
- 
+
 
 #### SelectorCombinator Type
 

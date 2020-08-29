@@ -80,7 +80,6 @@ function flatCoordsToCssPoints( unit: string, ...coords: number[]): css.CssPoint
 	for( let i = 0; i + 1 < coords.length; i += 2)
 		points.push( [coords[i] + unit, coords[i+1] + unit]);
 
-	console.log( "points =", points);
 	return points;
 }
 
