@@ -1,6 +1,6 @@
 import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy } from "../api/BasicTypes";
 import { IVarRule, ICounterRule, IIDRule } from "./RuleTypes";
-import { VarTemplateName, VarValueType, ListStyleType_StyleType } from "./StyleTypes";
+import { VarTemplateName, ListStyleType_StyleType, ExtendedVarValue } from "./StyleTypes";
 /**
  * The Num object contains methods that implement CSS mathematic functions on the `<number>`
  * CSS type. When arguments for these functions are of the number JavaScript type they are
@@ -131,7 +131,7 @@ export declare function raw(parts: TemplateStringsArray, ...params: any[]): IStr
  * Returns a function representing the invocation of the `var()` CSS function for
  * the given custom CSS property with optional fallbacks.
  */
-export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: VarValueType<K>): IStringProxy;
+export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>): IStringProxy;
 /**
  * Returns a function representing the CSS `url()` function. The string parameter
  * will be wrapped in a "url()" invocation. The function can also accept the IIDRule object to

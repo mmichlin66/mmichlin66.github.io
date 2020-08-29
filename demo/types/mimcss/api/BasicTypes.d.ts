@@ -51,18 +51,15 @@ export interface IStringProxy extends IGenericProxy<"string"> {
 }
 /**
  * The ICustomVar interface represents a CSS custom property object with values of the given type.
- * This interface is needed because every style property can accept value in the form of the var()
- * CSS function.
+ * This interface is needed because every style property can accept value in the form of the
+ * `var()` CSS function. This interface is extended by the [[IVarRule]] interface that is returned
+ * from the [[$var]] function.
  */
 export interface ICustomVar<T = any> {
     /**
-     * Sets new value of this custom CSS property.
-     * @param value New value for the CSS property.
-     * @param important Flag indicating whether to set the "!important" flag on the property value.
-     * @param schedulerType ID of a registered scheduler type that is used to write the property
-     * value to the DOM. If undefined, the current default scheduler will be used.
+     * Gets the value of the property.
      */
-    setValue(value: T, important?: boolean, schedulerType?: number): void;
+    getValue(): Extended<T>;
 }
 /**
  * Type that extends the given type with the following types:
@@ -75,7 +72,7 @@ export declare type Extended<T> = T | ICustomVar<T> | IStringProxy | undefined;
  * type is used to indicate that the property value must be flagged as "!important".
  */
 export declare type ImportantProp<T> = {
-    "!": Extended<T>;
+    "!": ExtendedProp<T>;
 };
 /**
  * The ExtendedProp extends the given generic type with the following elements:
@@ -319,6 +316,8 @@ export interface IParameterizedPseudoElement {
  */
 export interface IParameterizedPseudoEntity extends IParameterizedPseudoClass, IParameterizedPseudoElement {
 }
+/** Represents properties used in the [[CombinedStyleset]] which are used to define dependent rules */
+export declare type SelectorCombinator = "&" | "&," | "& " | "&>" | "&+" | "&~" | ",&" | " &" | ">&" | "+&" | "~&";
 /**
  * The INamedColors interface lists the names of standard Web colors. It is needed to allow developers
  * to add new named colors through module augmentation technique.

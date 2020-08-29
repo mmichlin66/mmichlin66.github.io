@@ -9,13 +9,12 @@ import * as mim from "mimbl";
 import * as css from "mimcss"
 
 
-// Define styles for our component
 class MyStyles extends css.StyleDefinition
 {
-    // define custom properties whose value will be changed by user
+    // define custom properties whose values will be changed by user actions
     translate = css.$var( "CssLength", 0)
-    scale = css.$var( "scale", 1)
-    rotate = css.$var( "rotate", 0)
+    scale = css.$var( "CssNumber", 1)
+    rotate = css.$var( "CssAngle", 0)
 
     // define custom properties which will be defined differently under different elements
     hue = css.$var( "CssAngle")
@@ -27,7 +26,7 @@ class MyStyles extends css.StyleDefinition
         height: "15vmin",
         borderRadius: "10%",
 
-        // define transform using the custom properties whose values rae controled by user
+        // define transform using the custom properties whose values are controled by user
         transform: [
             css.translateX( this.translate),
             css.scale( this.scale),
@@ -70,7 +69,7 @@ class MyStyles extends css.StyleDefinition
     // using array so that we don't have to give names to rules whose names we don't use
     structure = [
         css.$media( "screen and (orientation: portrait)",
-            class extends css.StyleDefinition
+            class extends css.StyleDefinition<MyStyles>
             {
                 controls = css.$id({
                     right: "50%",

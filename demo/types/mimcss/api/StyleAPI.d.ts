@@ -222,7 +222,7 @@ export declare function rotate3d(x: Extended<CssNumber>, y: Extended<CssNumber>,
 /**
  * Returns an ITransformProxy function representing the `scale()` CSS function.
  */
-export declare function scale(cx: Extended<CssNumber>, sy?: Extended<CssNumber>): ITransformProxy;
+export declare function scale(cx: Extended<CssNumber>, cy?: Extended<CssNumber>): ITransformProxy;
 /**
  * Returns an ITransformProxy function representing the `scaleX()` CSS function.
  */
