@@ -24,7 +24,7 @@ export declare type FontSrc_Single = string | {
 /** Type of src property */
 export declare type FontSrc_FontFaceType = FontSrc_Single | FontSrc_Single[];
 /**
- * Interface representing the properties of teh @font-face CSS rule.
+ * Interface representing the properties of the @font-face CSS rule.
  */
 export interface ICssFontFace {
     fontFamily?: string;
