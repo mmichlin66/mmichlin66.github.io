@@ -125,7 +125,7 @@ export type PercentType = "Percent";
 export type CssPercent = NumberBase<PercentType>;
 
 /** Type for multi-part style property of the `<percent>` CSS type */
-export type CssMultiPercent = OneOrMany<CssPercent>;
+export type OneOrMany<CssPercent> = OneOrMany<CssPercent>;
 
 /** Proxy interface that represents values of the `<percent>` CSS type */
 export interface IPercentProxy extends IGenericProxy<PercentType> {};
@@ -199,13 +199,13 @@ export type LengthType = "Length" | PercentType;
 export type CssLength = NumberBase<LengthType>;
 
 /** Type for multi-part style property of the `<length>` CSS type */
-export type CssMultiLength = OneOrMany<CssLength>;
+export type OneOrMany<CssLength> = OneOrMany<CssLength>;
 
 /** Type for 1-to-2-part style property of the `<length>` CSS type */
-export type CssLengthPair = OneOrPair<CssLength>;
+export type OneOrPair<CssLength> = OneOrPair<CssLength>;
 
 /** Type for 1-to-4-part style property of the `<length>` CSS type */
-export type CssLengthBox = OneOrBox<CssLength>;
+export type OneOrBox<CssLength> = OneOrBox<CssLength>;
 
 /** Proxy interface that represents values of the `<length>` CSS type */
 export interface ILengthProxy extends IGenericProxy<LengthType> {};
@@ -346,7 +346,7 @@ export type TimeType = "Time";
 export type CssTime = NumberBase<TimeType>;
 
 /** Type for multi-part style property of the `<time>` CSS type */
-export type CssMultiTime = OneOrMany<CssTime>;
+export type OneOrMany<CssTime> = OneOrMany<CssTime>;
 
 /** Type for 1-to-four-part style property of the `<time>` CSS type */
 export type CssTimeBox = OneOrBox<CssTime>;
@@ -428,7 +428,7 @@ export type AngleType = "Angle" | PercentType;
 export type CssAngle = NumberBase<AngleType>;
 
 /** Type for multi-part style property of the `<angle>` CSS type */
-export type CssMultiAngle = OneOrMany<CssAngle>;
+export type OneOrMany<CssAngle> = OneOrMany<CssAngle>;
 
 /** Proxy interface that represents values of the `<angle>` CSS type */
 export interface IAngleProxy extends IGenericProxy<AngleType> {};
@@ -540,13 +540,13 @@ Position values are used to represent the CSS `<position>` type. The `CssPositio
 
 ```tsx
 /** Type describing the full up to 4 values `<position>` CSS type */
-export type CssPosition = SimpleCssPosition | 
+export type CssPosition = SimpleCssPosition |
     [HorizontalPositionKeyword, Extended<CssLength>, VerticalPositionKeyword] |
     [HorizontalPositionKeyword, VerticalPositionKeyword, Extended<CssLength>] |
     [HorizontalPositionKeyword, Extended<CssLength>, VerticalPositionKeyword, Extended<CssLength>];
 
 /** Type describing multiple `<position>` CSS types */
-export type MultiCssPosition = Extended<CssPosition>[];
+export type OneOrMany<CssPosition> = Extended<CssPosition>[];
 
 /** Type describing the horizontal position */
 export type HorizontalPositionKeyword = "left" | "center" | "right";

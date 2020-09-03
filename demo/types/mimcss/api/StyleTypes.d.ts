@@ -1,4 +1,4 @@
-import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, MultiCssPosition, CssTime, CssLength, CssAngle, CssPercent, CssLengthBox, CssMultiTime, CssFrequency, CssResolution, CssRadius, IUrlProxy, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, CssLengthPair, IQuotedProxy, CssColor, CssImage, BasicShape, GeometryBoxKeyword, IFilterProxy, IMinMaxProxy, IFitContentProxy, IRepeatProxy, ISpanProxy, IRayProxy, ITransformProxy } from "./BasicTypes";
+import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, IUrlProxy, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, IQuotedProxy, CssColor, CssImage, BasicShape, GeometryBoxKeyword, IFilterProxy, IMinMaxProxy, IFitContentProxy, IRepeatProxy, ISpanProxy, IRayProxy, ITransformProxy } from "./BasicTypes";
 import { FontStretch_Single } from "./FontFaceAPI";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule } from "./RuleTypes";
 /** Type for align-content style property */
@@ -23,13 +23,13 @@ export declare type Animation_Single = {
 /** Type for animation style property */
 export declare type Animation_StyleType = string | OneOrMany<Animation_Single>;
 /** Type for animation-delay style property */
-export declare type AnimationDelay_StyleType = CssMultiTime;
+export declare type AnimationDelay_StyleType = OneOrMany<CssTime>;
 /** Type for single animation direction */
 export declare type AnimationDirection_Single = "normal" | "reverse" | "alternate" | "alternate-reverse";
 /** Type for animation-direction style property */
 export declare type AnimationDirection_StyleType = OneOrMany<AnimationDirection_Single>;
 /** Type for animation-duraton style property */
-export declare type AnimationDuration_StyleType = CssMultiTime;
+export declare type AnimationDuration_StyleType = OneOrMany<CssTime>;
 /** Type for single animation fill mode */
 export declare type AnimationFillMode_Single = "none" | "forwards" | "backwards" | "both";
 /** Type for animation-fill-mode style property */
@@ -92,7 +92,7 @@ export declare type BackgroundOrigin_Single = "border-box" | "padding-box" | "co
 /** Type for background-origin style property */
 export declare type BackgroundOrigin_StyleType = OneOrMany<BackgroundOrigin_Single>;
 /** Type for background-position style property */
-export declare type BackgroundPosition_StyleType = MultiCssPosition;
+export declare type BackgroundPosition_StyleType = OneOrMany<CssPosition>;
 /** Type for background-position-x single item */
 export declare type BackgroundPositionX_Single = HorizontalPositionKeyword | CssLength | [HorizontalPositionKeyword, Extended<CssLength>];
 /**
@@ -167,7 +167,7 @@ export declare type BorderImageSource_StyleType = OneOrBox<CssImage | string>;
  */
 export declare type BorderImageWidth_StyleType = OneOrBox<CssNumber | "auto" | string>;
 /** Type for border-radius style property */
-export declare type BorderRadius_StyleType = OneOrPair<CssLengthBox>;
+export declare type BorderRadius_StyleType = OneOrPair<OneOrBox<CssLength>>;
 /** Type for border-spacing style property */
 export declare type BorderSpacing_StyleType = OneOrPair<CssLength>;
 /** Type for single border side style property */
@@ -206,7 +206,7 @@ export declare type CaretColor_StyleType = "auto" | CssColor;
 /** Type for clear style property */
 export declare type Clear_StyleType = "none" | "left" | "right" | "both" | "inline-start" | "inline-end";
 /** Type for clip style property */
-export declare type Clip_StyleType = "auto" | CssLengthBox;
+export declare type Clip_StyleType = "auto" | OneOrBox<CssLength>;
 /** Type for clip-path style property */
 export declare type ClipPath_StyleType = "none" | IUrlProxy | BasicShape | GeometryBoxKeyword | [GeometryBoxKeyword, BasicShape];
 /** Type for clip-rule style property */
@@ -308,10 +308,13 @@ export declare type GridTrackSize = CssLength | "min-content" | "max-content" | 
 export declare type GridAutoAxis_StyleType = OneOrMany<GridTrackSize>;
 /** Type for grid-auto-flow style property */
 export declare type GridAutoFlow_StyleType = "row" | "column" | "dense" | "row dense" | "column dense";
-/** Type for specifying either number of grid lines or name of grid line or area */
-export declare type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
+/**
+ * Type for specifying either number of grid lines or name of grid line or area. This type is used
+ * when defining grid-column-start/end and grid-row-start/end style properties.
+ */
+export declare type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule;
 /** Type for grid-column-start/end and grid-row-start/end style properties */
-export declare type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
+export declare type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy | [Extended<CssNumber>, IGridAreaRule | IGridLineRule];
 /** Type for grid-column and grid-row style properties */
 export declare type GridAxis_StyleType = OneOrPair<GridAxisSide_StyleType>;
 /** Type for grid-area style property */
@@ -736,7 +739,7 @@ export interface ICssStyleset {
     listStyleImage?: ListStyleImage_StyleType;
     listStylePosition?: ListStylePosition_StyleType;
     listStyleType?: ListStyleType_StyleType;
-    margin?: CssLengthBox;
+    margin?: OneOrBox<CssLength>;
     marginBlockEnd?: CssLength;
     marginBlockStart?: CssLength;
     marginBottom?: CssLength;
@@ -792,7 +795,7 @@ export interface ICssStyleset {
     overscrollBehaviorInline?: OverscrollBehavior_Single_StyleType;
     overscrollBehaviorX?: OverscrollBehavior_Single_StyleType;
     overscrollBehaviorY?: OverscrollBehavior_Single_StyleType;
-    padding?: CssLengthBox;
+    padding?: OneOrBox<CssLength>;
     paddingBlockEnd?: CssLength;
     paddingBlockStart?: CssLength;
     paddingBottom?: CssLength;
@@ -824,23 +827,23 @@ export interface ICssStyleset {
     scrollbarColor?: ScrollbarColor_StyleType;
     scrollbarWidth?: ScrollbarWidth_StyleType;
     scrollBehavior?: ScrollBehavior_StyleType;
-    scrollMargin?: CssLengthBox;
-    scrollMarginBlock?: CssLengthPair;
+    scrollMargin?: OneOrBox<CssLength>;
+    scrollMarginBlock?: OneOrPair<CssLength>;
     scrollMarginBlockEnd?: CssLength;
     scrollMarginBlockStart?: CssLength;
     scrollMarginBottom?: CssLength;
-    scrollMarginInline?: CssLengthPair;
+    scrollMarginInline?: OneOrPair<CssLength>;
     scrollMarginInlineEnd?: CssLength;
     scrollMarginInlineStart?: CssLength;
     scrollMarginLeft?: CssLength;
     scrollMarginRight?: CssLength;
     scrollMarginTop?: CssLength;
-    scrollPadding?: CssLengthBox;
-    scrollPaddingBlock?: CssLengthPair;
+    scrollPadding?: OneOrBox<CssLength>;
+    scrollPaddingBlock?: OneOrPair<CssLength>;
     scrollPaddingBlockEnd?: CssLength;
     scrollPaddingBlockStart?: CssLength;
     scrollPaddingBottom?: CssLength;
-    scrollPaddingInline?: CssLengthPair;
+    scrollPaddingInline?: OneOrPair<CssLength>;
     scrollPaddingInlineEnd?: CssLength;
     scrollPaddingInlineStart?: CssLength;
     scrollPaddingLeft?: CssLength;

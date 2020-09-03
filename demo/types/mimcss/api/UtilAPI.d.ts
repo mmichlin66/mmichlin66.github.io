@@ -59,9 +59,9 @@ export declare function rem(n: number): ILengthProxy;
 /** Creates length value in line-heights of the root element (<html>) */
 export declare function rlh(n: number): ILengthProxy;
 /** Creates length value in the units which are a smaller value between vw and vh */
-export declare function vmax(n: number): ILengthProxy;
-/** Creates length value in the units which are a larger value between vw and vh */
 export declare function vmin(n: number): ILengthProxy;
+/** Creates length value in the units which are a larger value between vw and vh */
+export declare function vmax(n: number): ILengthProxy;
 /** Creates length value for flex */
 export declare function fr(n: number): ILengthProxy;
 /**

@@ -16,16 +16,17 @@ layout: default
 				<li><a href="/mimcss/guide/{{ item.file }}">{{ item.title }}</a></li>
 			{% endfor %}
 			</ul>
+			<b>Playground</b>
+			<ul>
+                <li><a href="/mimcss/demo/playground.html">Playground</a></li>
+			</ul>
 			<b>Reference</b>
 			<ul>
-			{% for item in site.data.mimcssReference %}
-				<li><a href="/mimcss/ref/{{ item.file }}">{{ item.title }}</a></li>
-			{% endfor %}
+                <li><a href="/mimcss/reference.html">Typedoc Reference</a></li>
+                <li><a href="/mimcss/ref/style-properties.html">Style Properties</a></li>
 			</ul>
 			<b>Other</b>
 			<ul>
-                <li><a href="/mimcss/demo/playground.html">Playground</a></li>
-                <li><a href="/mimcss/reference.html">Typedoc Reference</a></li>
                 <li><a href="https://www.npmjs.com/package/mimcss" target="NPM">NPM Page</a></li>
                 <li><a href="https://github.com/mmichlin66/mimcss" target="GitHub">GitHub Page</a></li>
 			</ul>

@@ -130,12 +130,12 @@ The `animation` property can be specified as a string, as a single `Animation_Si
 animationDelay: AnimationDelay_StyleType;
 
 /** Type for animation-delay style property */
-export type AnimationDelay_StyleType = CssMultiTime;
+export type AnimationDelay_StyleType = OneOrMany<CssTime>;
 ```
 
 The `animation-delay` property can be specified as a single vale or an array of values of the [Time](numeric-types.html#time-values) type.
 
-**See Also:** [CssMultiTime](numeric-types.html#time-values)
+**See Also:** [OneOrMany<CssTime>](numeric-types.html#time-values)
 
 #### animation-direction
 
@@ -158,12 +158,12 @@ The `animation-direction` property can be specified as a single keyword or an ar
 ```tsx
 animationDuration: AnimationDuration_StyleType;
 
-export type AnimationDuration_StyleType = CssMultiTime;
+export type AnimationDuration_StyleType = OneOrMany<CssTime>;
 ```
 
 The `animation-duraton` property can be specified as a single vale or an array of values of the [Time](numeric-types.html#time-values) type.
 
-**See Also:** [CssMultiTime](numeric-types.html#time-values)
+**See Also:** [OneOrMany<CssTime>](numeric-types.html#time-values)
 
 #### animation-fill-mode
 
@@ -421,10 +421,10 @@ export type BackgroundOrigin_Single = "border-box" | "padding-box" | "content-bo
 backgroundPosition: BackgroundPosition_StyleType;
 
 /** Type for background-position style property */
-export type BackgroundPosition_StyleType = MultiCssPosition;
+export type BackgroundPosition_StyleType = OneOrMany<CssPosition>;
 ```
 
-**See Also:** [MultiCssPosition](numeric-types.html#cssposition-type)
+**See Also:** [OneOrMany<CssPosition>](numeric-types.html#cssposition-type)
 
 #### background-repeat
 
@@ -841,10 +841,10 @@ See the [`border-width`](#border-width) style property for type definition.
 borderRadius: BorderRadius_StyleType;
 
 /** Type for border-radius style property */
-export type BorderRadius_StyleType = OneOrPair<CssLengthBox>;
+export type BorderRadius_StyleType = OneOrPair<OneOrBox<CssLength>>;
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types), [CssLengthBox](numeric-types.html#length-values)
+**See Also:** [OneOrPair](stylesets.html#utility-types), [OneOrBox<CssLength>](numeric-types.html#length-values)
 
 #### border-right
 
@@ -1070,10 +1070,10 @@ export type Clear_StyleType = "none" | "left" | "right" | "both" | "inline-start
 clip: Clip_StyleType;
 
 /** Type for clip style property */
-export type Clip_StyleType = "auto" | CssLengthBox;
+export type Clip_StyleType = "auto" | OneOrBox<CssLength>;
 ```
 
-**See Also:** [CssLengthBox](numeric-types.html#length-values)
+**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
 
 #### clip-path
 
@@ -2191,12 +2191,12 @@ export type ListStyleType_StyleType = "none" | "disc" | "circle" | "square" | "d
 #### margin
 
 ```tsx
-margin: CssLengthBox;
+margin: OneOrBox<CssLength>;
 ```
 
 The `margin` property can be specified as a single `<length>` value or two-, three- or four-element tuple of `<length>` values.
 
-**See Also:** [CssLengthBox](numeric-types.html#length-values)
+**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
 
 #### margin-block-end
 
@@ -2631,12 +2631,12 @@ overscrollBehaviorY: OverscrollBehavior_Single_StyleType;
 #### padding
 
 ```tsx
-padding: CssLengthBox;
+padding: OneOrBox<CssLength>;
 ```
 
 The `padding` property can be specified as a single `<length>` value or two-, three- or four-element tuple of `<length>` values.
 
-**See Also:** [CssLengthBox](numeric-types.html#length-values)
+**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
 
 #### padding-block-end
 
@@ -2907,18 +2907,18 @@ export type ScrollBehavior_StyleType = "auto" | "smooth";
 #### scroll-margin
 
 ```tsx
-scrollMargin: CssLengthBox;
+scrollMargin: OneOrBox<CssLength>;
 ```
 
-**See Also:** [CssLengthBox](numeric-types.html#length-values)
+**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
 
 #### scroll-margin-block
 
 ```tsx
-scrollMarginBlock: CssLengthPair;
+scrollMarginBlock: OneOrPair<CssLength>;
 ```
 
-**See Also:** [CssLengthPair](numeric-types.html#length-values)
+**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
 
 #### scroll-margin-block-end
 
@@ -2947,10 +2947,10 @@ scrollMarginBottom: CssLength;
 #### scroll-margin-inline
 
 ```tsx
-scrollMarginInline: CssLengthPair;
+scrollMarginInline: OneOrPair<CssLength>;
 ```
 
-**See Also:** [CssLengthPair](numeric-types.html#length-values)
+**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
 
 #### scroll-margin-inline-end
 
@@ -2995,18 +2995,18 @@ scrollMarginTop: CssLength;
 #### scroll-padding
 
 ```tsx
-scrollPadding: CssLengthBox;
+scrollPadding: OneOrBox<CssLength>;
 ```
 
-**See Also:** [CssLengthBox](numeric-types.html#length-values)
+**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
 
 #### scroll-padding-block
 
 ```tsx
-scrollPaddingBlock: CssLengthPair;
+scrollPaddingBlock: OneOrPair<CssLength>;
 ```
 
-**See Also:** [CssLengthPair](numeric-types.html#length-values)
+**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
 
 #### scroll-padding-block-end
 
@@ -3035,10 +3035,10 @@ scrollPaddingBottom: CssLength;
 #### scroll-padding-inline
 
 ```tsx
-scrollPaddingInline: CssLengthPair;
+scrollPaddingInline: OneOrPair<CssLength>;
 ```
 
-**See Also:** [CssLengthPair](numeric-types.html#length-values)
+**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
 
 #### scroll-padding-inline-end
 
@@ -3270,7 +3270,7 @@ textDecorationLine: TextDecorationLine_StyleType;
 
 /** Type for the text-decoration-line style property */
 export type TextDecorationLine_StyleType = "none" | "spelling-error" | "grammar-error" |
-    OneOrMany<"underline" | "overline" | "line-through">; 
+    OneOrMany<"underline" | "overline" | "line-through">;
 ```
 
 **See Also:** [OneOrMany](stylesets.html#utility-types)
@@ -3752,9 +3752,9 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
 
     var currFirstLetter = "";
 
-    // allPropNames.forEach( (elmProp, name) => 
+    // allPropNames.forEach( (elmProp, name) =>
     // {
-    allPropElms.forEach( elmProp => 
+    allPropElms.forEach( elmProp =>
     {
         var name = elmProp.id;
         allPropNames.set( name, elmProp);

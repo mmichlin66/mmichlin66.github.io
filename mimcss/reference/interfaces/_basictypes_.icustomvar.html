@@ -68,11 +68,14 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The ICustomVar interface represents a CSS custom property object with values of the given type.
-							This interface is needed because every style property can accept value in the form of the
-							<code>var()</code> CSS function. This interface is extended by the <a href="_ruletypes_.ivarrule.html">IVarRule</a> interface that is returned
-						from the <a href="../modules/_ruleapi_.html#_var">$var</a> function.</p>
+						<p>The <code>ICustomVar</code> interface represents a custom property or a constant with values of the given
+							type. Every style property can accept a custom CSS property value in the form of the <code>var()</code> CSS
+							function. Mimcss also allows defining &quot;constants&quot;, which are a more lightweight way to provide
+						values that are used in other rules and properties.</p>
 					</div>
+					<p>Th <code>ICustomVar</code> interface is extended by the <a href="_ruletypes_.ivarrule.html">IVarRule</a> interface that is returned
+						from the <a href="../modules/_ruleapi_.html#_var">$var</a> function and by the <a href="_ruletypes_.iconstrule.html">IConstRule</a> interface that is returned from the
+					<a href="../modules/_ruleapi_.html#_const">$const</a> function.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-type-parameters">
@@ -124,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in BasicTypes.ts:88</li>
+									<li>Defined in BasicTypes.ts:92</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
