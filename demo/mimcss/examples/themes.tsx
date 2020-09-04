@@ -28,13 +28,13 @@ abstract class Theme extends css.StyleDefinition
     @css.virtual fontSize = css.$var( "fontSize")
     @css.virtual borderColor = css.$var( "color")
     @css.virtual boxBgColor = css.$var( "color")
-   
+
     grid = css.$class({
         display: "grid",
         gridTemplateColumns: css.repeat(2, "1fr"),
         gridTemplateRows: css.repeat(2, "1fr"),
         gap: 20,
-        width: "90%",
+        width: css.percent(90),
         minWidth: 300,
         height: 300,
         margin: 20
@@ -182,7 +182,7 @@ export class Themes extends mim.Component
             </div>
        </div>
     }
-    
+
     private onRoundThemeClicked()
     {
         if (this.currentTheme !== "round")
@@ -192,7 +192,7 @@ export class Themes extends mim.Component
             this.theme = css.activate( RoundTheme);
         }
     }
-    
+
     private onSquareThemeClicked()
     {
         if (this.currentTheme !== "square")

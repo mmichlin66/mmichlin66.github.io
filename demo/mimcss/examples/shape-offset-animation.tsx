@@ -74,11 +74,11 @@ class MyStyles extends css.StyleDefinition
 
 // Helper function that packs the given flat array of points into array of CssPoint objects
 // that is accepted by the Mimcss polygon function.
-function flatCoordsToCssPoints( unit: string, ...coords: number[]): css.CssPoint[]
+function flatCoordsToCssPoints( unit: css.LengthUnits | css.PercentUnits, ...coords: number[]): css.CssPoint[]
 {
 	let points: css.CssPoint[] = []
 	for( let i = 0; i + 1 < coords.length; i += 2)
-		points.push( [coords[i] + unit, coords[i+1] + unit]);
+        points.push( [css.Len.units( coords[i], unit), css.Len.units( coords[i+1], unit)]);
 
 	return points;
 }

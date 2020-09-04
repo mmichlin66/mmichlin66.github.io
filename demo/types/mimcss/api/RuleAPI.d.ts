@@ -450,28 +450,12 @@ export declare function $gridarea(nameOverride?: string | IGridAreaRule): IGridA
  * ```typescript
  * class MyStyles extends css.StyleDefinition
  * {
- *     headerArea = css.$gridarea();
- *     mainArea = css.$gridarea();
- *
- *     grid = css.$class({
- *         display: "grid",
- *         gridTemplateColumns: "1fr",
- *         gridTemplateRows: ["3em", "1fr"],
- *         gridTemplateAreas: [
- *             [this.headerArea, 1,1, 1,1],
- *             [this.mainArea, 2,1, 2,1],
- *         ],
- *     })
- *
- *     header = css.$class({
- *         gridArea: this.headerArea,
- *         backgroundColor: "blue"
- *     })
- *
- *     main = css.$class({
- *         gridArea: this.mainArea,
- *         backgroundColor: "lightgrey"
- *     })
+ *     font = css.$fontface({
+ *         fontFamily: "Roboto",
+ *         fontStyle: "italic",
+ *         fontWeight: 700,
+ *         src: {url: 'roboto.woff', format: 'woff'}
+ *     });
  * }
  */
 export declare function $fontface(fontface: IFontFace): IFontFaceRule;

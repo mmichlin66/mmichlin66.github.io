@@ -25,7 +25,7 @@ class MyStyles extends css.StyleDefinition
 		width: 200,
 		height: 200,
         backgroundImage: css.conicGradient( css.Colors.red, css.Colors.orange,css.Colors.yellow, css.Colors.green,
-            css.Colors.lightblue, css.Colors.blue, css.Colors.violet, css.Colors.red).from(45).at("70%")
+            css.Colors.lightblue, css.Colors.blue, css.Colors.violet, css.Colors.red).from(45).at( css.percent(70))
     })
 
     // another example of conic gradient
@@ -35,7 +35,7 @@ class MyStyles extends css.StyleDefinition
 		background: {
             image: css.conicGradient( ["white", 0.25], ["black", 0.25, 0.5], ["white", 0.5, 0.75], ["black", 0.75]),
             position: ["top", "left"],
-            size: ["25%", "25%"],
+            size: [css.percent(25), css.percent(25)],
             repeat: "repeat"
 		},
 		border: [1, "solid"]

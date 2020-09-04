@@ -22,9 +22,9 @@ class MyStyles extends css.StyleDefinition
 
     mover = css.$class({
         // define propeties common for all "movers"
-        width: "15vmin",
-        height: "15vmin",
-        borderRadius: "10%",
+        width: css.vmin(15),
+        height: css.vmin(15),
+        borderRadius: css.percent(10),
 
         // define transform using the custom properties whose values are controled by user
         transform: [
@@ -59,9 +59,9 @@ class MyStyles extends css.StyleDefinition
 
     controls = css.$id({
         position: "absolute",
-        right: "1rem",
-        bottom: "50%",
-        transform: css.translateY( "50%"),
+        right: css.rem(1),
+        bottom: css.percent(50),
+        transform: css.translateY( css.percent(50)),
         display: "flex",
         flexDirection: "column",
     })
@@ -72,23 +72,23 @@ class MyStyles extends css.StyleDefinition
             class extends css.StyleDefinition<MyStyles>
             {
                 controls = css.$id({
-                    right: "50%",
+                    right: css.percent(50),
                     bottom: 0,
-                    transform: css.translateX("50%")
+                    transform: css.translateX( css.percent(50))
                 })
             }
         ),
 
         css.$style( "input", {
-            width: "12rem",
-            marginBottom: "1rem"
+            width: css.rem(12),
+            marginBottom: css.rem(1)
         }),
 
         css.$style( "label", {
             display: "flex",
             justifyContent: "space-between",
             color: "white",
-            fontSize: ".85rem",
+            fontSize: css.rem(0.85),
             fontFamily: "system-ui, -apple-system, sans-serif"
         })
     ]
@@ -123,7 +123,7 @@ class MyComponent extends mim.Component
 
     private onTranslateChanged( e: Event)
     {
-        styles.translate.setValue( (e.currentTarget as HTMLInputElement).value + "vw")
+        styles.translate.setValue( css.vw( parseFloat( (e.currentTarget as HTMLInputElement).value)))
     }
 
     private onScaleChanged( e: Event)
@@ -133,7 +133,7 @@ class MyComponent extends mim.Component
 
     private onDegChanged( e: Event)
     {
-        styles.rotate.setValue( (e.currentTarget as HTMLInputElement).value + "deg")
+        styles.rotate.setValue( css.deg( parseFloat( (e.currentTarget as HTMLInputElement).value)))
     }
 }
 

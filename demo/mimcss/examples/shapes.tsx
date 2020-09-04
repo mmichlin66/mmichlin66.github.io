@@ -25,17 +25,17 @@ class MyStyles extends css.StyleDefinition
 
 	ellipse = css.$class({
 		"+": this.colorBox,
-		clipPath: css.ellipse( 75, 50).at( ["center", "35%"]),
+		clipPath: css.ellipse( 75, 50).at( ["center", css.percent(35)]),
 	})
 
 	circle = css.$class({
 		"+": this.colorBox,
-		clipPath: css.circle( "closest-side").at( [ 130, "65%"]),
+		clipPath: css.circle( "closest-side").at( [ 130, css.percent(65)]),
 	})
 
 	inset = css.$class({
 		"+": this.colorBox,
-		clipPath: css.inset( "15%").round( 8),
+		clipPath: css.inset( css.percent(15)).round( 8),
 	})
 
 	container = css.$class({
