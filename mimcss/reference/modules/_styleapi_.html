@@ -92,7 +92,6 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_styleapi_.html#diffstylesets" class="tsd-kind-icon">diff<wbr>Stylesets</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_styleapi_.html#dropshadow" class="tsd-kind-icon">drop<wbr>Shadow</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_styleapi_.html#ellipse" class="tsd-kind-icon">ellipse</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_styleapi_.html#fitcontent" class="tsd-kind-icon">fit<wbr>Content</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_styleapi_.html#getstylepropvalue" class="tsd-kind-icon">get<wbr>Style<wbr>Prop<wbr>Value</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_styleapi_.html#grayscale" class="tsd-kind-icon">grayscale</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_styleapi_.html#hsl" class="tsd-kind-icon">hsl</a></li>
@@ -169,7 +168,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in StyleAPI.ts:969</li>
+									<li>Defined in StyleAPI.ts:959</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -281,7 +280,7 @@
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript">clipPath: circle( <span class="hljs-number">100</span>)
 
-clipPath: circle( <span class="hljs-number">100</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;30%&quot;</span>])</code></pre>
+clipPath: circle( <span class="hljs-number">100</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, css.percent(<span class="hljs-number">30</span>)])</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -428,7 +427,7 @@ clipPath: circle( <span class="hljs-number">100</span>).at( [<span class="hljs-s
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript">clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-number">50</span>)
 
-clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-number">50</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;30%&quot;</span>])</code></pre>
+clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-number">50</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, css.percent(<span class="hljs-number">30</span>)])</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -440,34 +439,6 @@ clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-numbe
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_styleapi_.iellipseproxy.html" class="tsd-signature-type">IEllipseProxy</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fitcontent" class="tsd-anchor"></a>
-					<h3>fit<wbr>Content</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">fit<wbr>Content<span class="tsd-signature-symbol">(</span>size<span class="tsd-signature-symbol">: </span><a href="_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_basictypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_basictypes_.ifitcontentproxy.html" class="tsd-signature-type">IFitContentProxy</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in StyleAPI.ts:845</li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns an IFitContentProxy function representing the <code>fit-content()</code> CSS function.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>size: <a href="_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="_basictypes_.html#csslength" class="tsd-signature-type">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_basictypes_.ifitcontentproxy.html" class="tsd-signature-type">IFitContentProxy</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -553,7 +524,7 @@ clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-numbe
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in StyleAPI.ts:947</li>
+									<li>Defined in StyleAPI.ts:937</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,9 +626,9 @@ clipPath: ellipse( <span class="hljs-number">100</span>, <span class="hljs-numbe
 									<p>Returns an IInsetProxy function representing the <code>inset()</code> CSS function.</p>
 								</div>
 								<p><em>Example:</em></p>
-								<pre><code class="language-typescript">clipPath: inset( <span class="hljs-string">&quot;15%&quot;</span>)
+								<pre><code class="language-typescript">clipPath: inset( css.percent(<span class="hljs-number">15</span>))
 
-clipPath: inset( <span class="hljs-string">&quot;15%&quot;</span>).round( <span class="hljs-number">8</span>)</code></pre>
+clipPath: inset( css.percent(<span class="hljs-number">15</span>)).round( <span class="hljs-number">8</span>)</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -832,7 +803,7 @@ clipPath: inset( <span class="hljs-string">&quot;15%&quot;</span>).round( <span 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in StyleAPI.ts:855</li>
+									<li>Defined in StyleAPI.ts:845</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1013,7 +984,7 @@ clipPath: css.polygon( [<span class="hljs-number">0</span>,<span class="hljs-num
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in StyleAPI.ts:868</li>
+									<li>Defined in StyleAPI.ts:858</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1044,7 +1015,7 @@ clipPath: css.polygon( [<span class="hljs-number">0</span>,<span class="hljs-num
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in StyleAPI.ts:916</li>
+									<li>Defined in StyleAPI.ts:906</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1664,7 +1635,7 @@ clipPath: css.polygon( [<span class="hljs-number">0</span>,<span class="hljs-num
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in StyleAPI.ts:881</li>
+									<li>Defined in StyleAPI.ts:871</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1947,9 +1918,6 @@ clipPath: css.polygon( [<span class="hljs-number">0</span>,<span class="hljs-num
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_styleapi_.html#ellipse" class="tsd-kind-icon">ellipse</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="_styleapi_.html#fitcontent" class="tsd-kind-icon">fit<wbr>Content</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_styleapi_.html#getstylepropvalue" class="tsd-kind-icon">get<wbr>Style<wbr>Prop<wbr>Value</a>

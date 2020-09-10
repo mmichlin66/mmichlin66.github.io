@@ -41,7 +41,7 @@ class MyStyles extends css.StyleDefinition
 
     move = css.$animation([
         [ "from", { top: 0} ],
-        [ 50, { top: "50%" } ],
+        [ 50, { top: css.percent(50) } ],
         [ "to", { top: "100%" } ]
     ])
 }
@@ -187,7 +187,7 @@ class MyStyles extends css.StyleDefinition
         })
 
         css.$page( ":first", {
-            margin: ["3in", "1in"]
+            margin: [css.inch(3), css.inch(1)]
         })
     ]
 }

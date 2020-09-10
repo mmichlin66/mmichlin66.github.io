@@ -157,16 +157,16 @@ export function percent( n: number): IPercentProxy;
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    // Integer numbers are converted to strings by appending the 'px' units
-    cls1 = css.$class({ zoom: 100 }) // "100px"
+    // Integer numbers are converted to strings by appending the '%' units
+    cls1 = css.$class({ zoom: 100 }) // "100%"
 
     // Both integer and floating point numbers are converted to strings by uppending `"%"`.
     // Numbers between -1 and 1 (not inclusive) are first multiplied by 100.
     cls2 = css.$class({ zoom: 100 }) // "100%"
     cls3 = css.$class({ zoom: 0.75 }) // "75%"
 
-    // Percent can be specified as a string
-    cls4 = css.$class({ zoom: "30%" }) // "30%"
+    // Percent can be specified using the css.percent() function
+    cls4 = css.$class({ zoom: css.percent(30) }) // "30%"
 
     // A custom CSS variable can be declared to have the CssPercent type
     defaultZoom = css.$var( "CssPercent", 0.85) // :root { --defaultZoom: 85% }

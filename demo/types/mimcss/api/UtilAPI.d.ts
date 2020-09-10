@@ -1,10 +1,9 @@
-import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy } from "../api/BasicTypes";
+import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy, CssLength, IFitContentProxy } from "../api/BasicTypes";
 import { IVarRule, ICounterRule, IIDRule } from "./RuleTypes";
 import { VarTemplateName, ListStyleType_StyleType, ExtendedVarValue } from "./StyleTypes";
 /**
  * The Num object contains methods that implement CSS mathematic functions on the `<number>`
- * CSS type. When arguments for these functions are of the number JavaScript type they are
- * converted to strings without appending any units to them.
+ * CSS type.
  */
 export declare let Num: INumberMath;
 /**
@@ -12,7 +11,10 @@ export declare let Num: INumberMath;
  * `<percentage>` CSS type by appending a "%" unit suffix.
  */
 export declare let Percent: IPercentMath;
-/** Creates percent value */
+/**
+ * Creates percent value by appenfing the `"%"` sign to the given number. This function should be
+ * used whenever a `<percentage>` CSS type is used for a style property or value.
+ */
 export declare function percent(n: number): IPercentProxy;
 /**
  * The Len object contains methods that implement CSS mathematic functions on the `<length>`
@@ -132,6 +134,10 @@ export declare function raw(parts: TemplateStringsArray, ...params: any[]): IStr
  * the given custom CSS property with optional fallbacks.
  */
 export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>): IStringProxy;
+/**
+ * Returns an IFitContentProxy function representing the `fit-content()` CSS function.
+ */
+export declare function fitContent(size: Extended<CssLength>): IFitContentProxy;
 /**
  * Returns a function representing the CSS `url()` function. The string parameter
  * will be wrapped in a "url()" invocation. The function can also accept the IIDRule object to

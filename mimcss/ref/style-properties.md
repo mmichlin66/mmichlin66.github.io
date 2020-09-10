@@ -122,7 +122,7 @@ The `animation` property can be specified as a string, as a single `Animation_Si
 | mode | [animation-fill-mode](#animation-fill-mode) |
 | state | [animation-play-state](#animation-play-state) |
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssTime](numeric-types.html#time-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime)
 
 #### animation-delay
 
@@ -133,9 +133,9 @@ animationDelay: AnimationDelay_StyleType;
 export type AnimationDelay_StyleType = OneOrMany<CssTime>;
 ```
 
-The `animation-delay` property can be specified as a single vale or an array of values of the [Time](numeric-types.html#time-values) type.
+The `animation-delay` property can be specified as a single vale or an array of values of the [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime) type.
 
-**See Also:** [OneOrMany<CssTime>](numeric-types.html#time-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime)
 
 #### animation-direction
 
@@ -151,7 +151,7 @@ export type AnimationDirection_Single = "normal" | "reverse" | "alternate" | "al
 
 The `animation-direction` property can be specified as a single keyword or an array of keywords.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### animation-duration
 
@@ -161,9 +161,9 @@ animationDuration: AnimationDuration_StyleType;
 export type AnimationDuration_StyleType = OneOrMany<CssTime>;
 ```
 
-The `animation-duraton` property can be specified as a single vale or an array of values of the [Time](numeric-types.html#time-values) type.
+The `animation-duraton` property can be specified as a single vale or an array of values of the [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime) type.
 
-**See Also:** [OneOrMany<CssTime>](numeric-types.html#time-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime)
 
 #### animation-fill-mode
 
@@ -179,7 +179,7 @@ export type AnimationFillMode_Single = "none" | "forwards" | "backwards" | "both
 
 The `animation-fill-mode` property can be specified as a single keyword or an array of keywords.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### animation-iteration-count
 
@@ -195,7 +195,7 @@ export type AnimationIterationCount_Single = "infinite" | CssNumber;
 
 The `animation-iteration-count` property can be specified as a single item or an array of items where each item is either a keyword or a number.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssNumber](numeric-types.html#number-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### animation-name
 
@@ -211,7 +211,7 @@ export type AnimationName_StyleType = OneOrMany<AnimationName_Single>;
 
 The `animation-name` property can be specified as a single string or animation rule object or as an array of strings and/or animation rule objects.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### animation-play-state
 
@@ -227,7 +227,7 @@ export type AnimationPlayState_Single = "paused" | "running";
 
 The `animation-play-state` property can be specified as a single keyword or an array of keywords.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### animation-timing-function
 
@@ -259,7 +259,7 @@ A step function is represented either as a single number or as a two-element tup
 
 A Bezier function is represented as a four element tuple where each element is a number.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### backdrop-filter
 
@@ -273,9 +273,9 @@ export type Filter_StyleType = OneOrMany<Filter_Single>;
 export type Filter_Single = string | IUrlProxy | IFilterProxy;
 ```
 
-The `backdrop-filter` property can be specified either as a string or using the Mimcss `url()` function or using one of the Mimcss [filter functions](helper-functions.html#filters) that return the `IFilterProxy` type.
+The `backdrop-filter` property can be specified either as a string or using the Mimcss `url()` function or using one of the Mimcss filter functions that return the `IFilterProxy` type.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [IUrlProxy](miscellaneous.html#iurlproxy-interface), [IFilterProxy](helper-functions.html#filters)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [IUrlProxy](/mimcss/reference.html#interfaces/_basictypes_.iurlproxy.html), [IFilterProxy](/mimcss/reference.html#interfaces/_basictypes_.ifilterproxy.html)
 
 **Example**
 
@@ -336,7 +336,7 @@ The `background` property can be specified as a string, as a single `Background_
 | origin | [background-origin](#background-origin) |
 | clip | [background-clip](#background-clip) |
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssColor](colors.html#csscolor-type), [CssImage](helper-functions.html#images), [Extended](stylesets.html#extended-type), [CssPosition](numeric-types.html#cssposition-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor), [CssImage](/mimcss/reference.html#modules/_basictypes_.html#cssimage), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended), [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition)
 
 #### background-attachment
 
@@ -350,7 +350,7 @@ export type BackgroundAttachment_StyleType = OneOrMany<BackgroundAttachment_Sing
 export type BackgroundAttachment_Single = "scroll" | "fixed" | "local";
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### background-blend-mode
 
@@ -366,7 +366,7 @@ export type BackgroundBlendMode_Single = "normal" | "multiply" | "screen" | "ove
     "exclusion" | "hue" | "saturation" | "color" | "luminosity";
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### background-clip
 
@@ -380,7 +380,7 @@ export type BackgroundClip_StyleType = OneOrMany<BackgroundClip_Single>;
 export type BackgroundClip_Single = "border-box" | "padding-box" | "content-box" | "text";
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### background-color
 
@@ -388,7 +388,7 @@ export type BackgroundClip_Single = "border-box" | "padding-box" | "content-box"
 backgroundColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### background-image
 
@@ -399,7 +399,7 @@ backgroundImage: BackgroundImage_StyleType;
 export type BackgroundImage_StyleType = "none" | OneOrMany<CssImage | string>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssImage](helper-functions.html#images)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssImage](/mimcss/reference.html#modules/_basictypes_.html#cssimage)
 
 #### background-origin
 
@@ -413,7 +413,7 @@ export type BackgroundOrigin_StyleType = OneOrMany<BackgroundOrigin_Single>;
 export type BackgroundOrigin_Single = "border-box" | "padding-box" | "content-box" | "text";
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### background-position
 
@@ -424,7 +424,7 @@ backgroundPosition: BackgroundPosition_StyleType;
 export type BackgroundPosition_StyleType = OneOrMany<CssPosition>;
 ```
 
-**See Also:** [OneOrMany<CssPosition>](numeric-types.html#cssposition-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition)
 
 #### background-repeat
 
@@ -441,7 +441,7 @@ export type BackgroundRepeat_Single = "repeat-x" | "repeat-y" | OneOrPair<Backgr
 export type BackgroundRepeatKeyword_Single = "repeat" | "space" | "round" | "no-repeat";
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [OneOrPair](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair)
 
 #### background-size
 
@@ -464,7 +464,7 @@ define two sizes each with a width instead of one size with both width and heigh
 to specify both width and height you must use array within array - even for a single size:
 `[[100,200]]` will be interpreted as `"100px 200px"`.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [OneOrPair](stylesets.html#utility-types), [CssLength](numeric-types.html#length-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### baseline-shift
 
@@ -475,7 +475,7 @@ baselineShift: BaselineShift_StyleType;
 export type BaselineShift_StyleType = "sub" | "super" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### block-size
 
@@ -483,7 +483,7 @@ export type BaselineShift_StyleType = "sub" | "super" | CssLength;
 blockSize: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### border
 
@@ -497,7 +497,7 @@ export type Border_StyleType = CssLength | BorderStyle_Keyword | CssColor |
 
 The `border` style property can be specified as either a string, a border width value, a border style keyword, a border color or a three element tuple where the first element is the border width value, the second element is the border style keyword and the third element is the border color.
 
-**See Also:** [CssColor](colors.html#csscolor-type), [CssLength](numeric-types.html#length-values), [Extended](stylesets.html#extended-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 **Examples**
 
@@ -535,7 +535,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderBlockEndColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-block-end-style
 
@@ -565,7 +565,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderBlockStartColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-block-start-style
 
@@ -583,8 +583,6 @@ borderBlockStartWidth: BorderWidth_Single;
 
 See the [`border-width`](#border-width) style property for type definition.
 
-See the [`border-width`](#border-width) style property for type definition.
-
 #### border-bottom
 
 ```tsx
@@ -599,7 +597,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderBottomColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-bottom-left-radius
 
@@ -607,11 +605,15 @@ borderBottomColor: CssColor;
 borderBottomLeftRadius: CssRadius;
 ```
 
+**See Also:** [CssRadius](/mimcss/reference.html#modules/_basictypes_.html#cssradius)
+
 #### border-bottom-right-radius
 
 ```tsx
 borderBottomRightRadius: CssRadius;
 ```
+
+**See Also:** [CssRadius](/mimcss/reference.html#modules/_basictypes_.html#cssradius)
 
 #### border-bottom-style
 
@@ -647,7 +649,7 @@ borderColor: BorderColor_StyleType;
 export type BorderColor_StyleType = OneOrBox<CssColor>;
 ```
 
-**See Also:** [OneOrBox](stylesets.html#utility-types), [CssColor](colors.html#csscolor-type)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-image
 
@@ -668,7 +670,7 @@ export type BorderImage_Object =
     };
 ```
 
-**See Also:** [CssImage](helper-functions.html#images), [Extended](stylesets.html#extended-type)
+**See Also:** [CssImage](/mimcss/reference.html#modules/_basictypes_.html#cssimage), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### border-image-outset
 
@@ -682,7 +684,7 @@ borderImageOutset: BorderImageOutset_StyleType;
 export type BorderImageOutset_StyleType = OneOrBox<CssNumber | string>;
 ```
 
-**See Also:** [OneOrBox](stylesets.html#utility-types), [CssNumber](numeric-types.html#number-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### border-image-repeat
 
@@ -696,7 +698,7 @@ export type BorderImageRepeat_StyleType = OneOrPair<BorderImageRepeat_Keyword>;
 export type BorderImageRepeat_Keyword = "stretch" | "repeat" | "round" | "space";
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair)
 
 #### border-image-slice
 
@@ -711,7 +713,7 @@ export type BorderImageSlice_StyleType = OneOrBox<CssNumber | string> |
     [Extended<CssNumber | string>, Extended<CssNumber | string>, Extended<CssNumber | string>, Extended<CssNumber | string>, true];
 ```
 
-**See Also:** [OneOrBox](stylesets.html#utility-types), [CssNumber](numeric-types.html#number-values), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 
 #### border-image-source
@@ -723,7 +725,7 @@ borderImageSource: BorderImageSource_StyleType;
 export type BorderImageSource_StyleType = OneOrBox<CssImage | string>;
 ```
 
-**See Also:** [OneOrBox](stylesets.html#utility-types), [CssImage](helper-functions.html#images)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssImage](/mimcss/reference.html#modules/_basictypes_.html#cssimage)
 
 #### border-image-width
 
@@ -737,7 +739,7 @@ borderImageWidth: BorderImageWidth_StyleType;
 export type BorderImageWidth_StyleType = OneOrBox<CssNumber | "auto" | string>;
 ```
 
-**See Also:** [OneOrBox](stylesets.html#utility-types), [CssNumber](numeric-types.html#number-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### border-inline-end
 
@@ -753,7 +755,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderInlineEndColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-inline-end-style
 
@@ -785,7 +787,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderInlineStartColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-inline-start-style
 
@@ -817,7 +819,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderLeftColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-left-style
 
@@ -844,7 +846,7 @@ borderRadius: BorderRadius_StyleType;
 export type BorderRadius_StyleType = OneOrPair<OneOrBox<CssLength>>;
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types), [OneOrBox<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair), [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### border-right
 
@@ -860,7 +862,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderRightColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-right-style
 
@@ -887,7 +889,7 @@ borderSpacing: BorderSpacing_StyleType;
 export type BorderSpacing_StyleType = OneOrPair<CssLength>;
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types), [CssLength](numeric-types.html#length-values)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### border-style
 
@@ -902,7 +904,7 @@ export type BorderStyle_Keyword = "none" | "hidden" | "dotted" | "dashed" | "sol
     "groove" | "ridge" | "inset" | "outset";
 ```
 
-**See Also:** [OneOrBox](stylesets.html#utility-types)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox)
 
 #### border-top
 
@@ -918,7 +920,7 @@ See the [`border`](#border) style property for type definition and examples.
 borderTopColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### border-top-left-radius
 
@@ -960,7 +962,7 @@ export type BorderWidth_StyleType = OneOrBox<BorderWidth_Single>;
 export type BorderWidth_Single = "thin" | "medium" | "thick" | CssLength;
 ```
 
-**See Also:** [OneOrBox](stylesets.html#utility-types), [CssLength](numeric-types.html#length-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### bottom
 
@@ -968,7 +970,7 @@ export type BorderWidth_Single = "thin" | "medium" | "thick" | CssLength;
 bottom: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### box-shadow
 
@@ -990,7 +992,7 @@ export type BoxShadow_Single = "none" | string |
     };
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssColor](colors.html#csscolor-type), [CssLength](numeric-types.html#length-values), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 
 
@@ -1053,7 +1055,7 @@ caretColor: CaretColor_StyleType;
 export type CaretColor_StyleType = "auto" | CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### clear
 
@@ -1073,7 +1075,7 @@ clip: Clip_StyleType;
 export type Clip_StyleType = "auto" | OneOrBox<CssLength>;
 ```
 
-**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### clip-path
 
@@ -1089,7 +1091,7 @@ export type GeometryBoxKeyword = "margin-box" | "border-box" | "padding-box" | "
     "fill-box" | "stroke-box" | "view-box";
 ```
 
-**See Also:** [IUrlProxy](miscellaneous.html#iurlproxy-interface), [BasicShape](helper-functions.html#basic-shapes)
+**See Also:** [IUrlProxy](/mimcss/reference.html#interfaces/_basictypes_.iurlproxy.html), [BasicShape](/mimcss/reference.html#modules/_basictypes_.html#basicshape)
 
 #### clip-rule
 
@@ -1106,7 +1108,7 @@ export type ClipRule_StyleType = "nonzero" | "evenodd";
 color: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### color-interpolation
 
@@ -1153,7 +1155,7 @@ columnGap: ColumnGap_StyleType;
 export type ColumnGap_StyleType = "normal" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### column-rule
 
@@ -1169,7 +1171,7 @@ See the [`border`](#border) style property for type definition and examples.
 columnRuleColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### column-rule-style
 
@@ -1202,7 +1204,7 @@ export type ColumnSpan_StyleType = "none" | "all";
 columnWidth: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### columns
 
@@ -1215,7 +1217,7 @@ export type Columns_StyleType = "auto" | CssNumber | CssLength |
     ["auto" | Exclude<Extended<CssLength>,number>, "auto" | Extended<CssNumber>];
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [CssLength](numeric-types.html#length-values), [Extended](stylesets.html#extended-type)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### contain
 
@@ -1227,7 +1229,7 @@ export type Contain_StyleType = "none" | "strict" | "content" | "size" | "layout
     "paint" | Extended<"size" | "layout" | "style" | "paint">[];
 ```
 
-**See Also:** [Extended](stylesets.html#extended-type)
+**See Also:** [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### content
 
@@ -1239,9 +1241,9 @@ export type Content_StyleType = string | "none" | "normal" | OneOrMany<CssImage 
     "open-quote" | "close-quote" | "no-open-quote" | "no-close-quote">;
 ```
 
-The `content` property can also use the [attr()](miscellaneous.html#attr-function), [counter()](miscellaneous.html#counter-function) and [counters()](miscellaneous.html#counters-function) functions (which can potentially be used for any style property, but most browsers only support them for the `content` property).
+The `content` property can also use the [attr()](/mimcss/reference.html#modules/_utilapi_.html#attr), [counter()](/mimcss/reference.html#modules/_utilapi_.html#counter) and [counters()](/mimcss/reference.html#modules/_utilapi_.html#counters) functions (which can potentially be used for any style property, but most browsers only support them for the `content` property).
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssImage](helper-functions.html#images)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssImage](/mimcss/reference.html#modules/_basictypes_.html#cssimage)
 
 #### counter-increment
 
@@ -1253,7 +1255,7 @@ export type Counter_StyleType = "none" | OneOrMany<ICounterRule | string |
     [ICounterRule | string, Extended<number>]>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ICounterRule](rules.html#icounterrule-interface), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ICounterRule](/mimcss/reference.html#interfaces/_ruletypes_.icounterrule.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### counter-reset
 
@@ -1265,7 +1267,7 @@ export type Counter_StyleType = "none" | OneOrMany<ICounterRule | string |
     [ICounterRule | string, Extended<number>]>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ICounterRule](rules.html#icounterrule-interface), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ICounterRule](/mimcss/reference.html#interfaces/_ruletypes_.icounterrule.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### counter-set
 
@@ -1277,7 +1279,7 @@ export type Counter_StyleType = "none" | OneOrMany<ICounterRule | string |
     [ICounterRule | string, Extended<number>]>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ICounterRule](rules.html#icounterrule-interface), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ICounterRule](/mimcss/reference.html#interfaces/_ruletypes_.icounterrule.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### cursor
 
@@ -1300,7 +1302,7 @@ export type Cursor_Keyword = "auto" | "default" | "none" | "context-menu" | "hel
     "zoom-out" | "grab" | "grabbing";
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ICounterRule](rules.html#icounterrule-interface), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ICounterRule](/mimcss/reference.html#interfaces/_ruletypes_.icounterrule.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### direction
 
@@ -1352,7 +1354,7 @@ export type EmptyCells_StyleType = "show" | "hide";
 fill: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### fill-opacity
 
@@ -1360,7 +1362,7 @@ fill: CssColor;
 fillOpacity: CssPercent;
 ```
 
-**See Also:** [CssPercent](numeric-types.html#percent-values)
+**See Also:** [CssPercent](/mimcss/reference.html#modules/_basictypes_.html#csspercent)
 
 #### fill-rule
 
@@ -1385,7 +1387,7 @@ export type Filter_Single = string | IUrlProxy | IFilterProxy;
 
 The `filter` property can be specified either as a string or using the Mimcss `url()` function or using one of the Mimcss [filter functions](helper-functions.html#filters) that return the `IFilterProxy` type.
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [IUrlProxy](miscellaneous.html#iurlproxy-interface), [IFilterProxy](helper-functions.html#filters)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [IUrlProxy](/mimcss/reference.html#interfaces/_basictypes_.iurlproxy.html), [IFilterProxy](/mimcss/reference.html#interfaces/_basictypes_.ifilterproxy.html)
 
 **Examples**
 
@@ -1413,7 +1415,7 @@ export type Flex_StyleType = FlexBasis_StyleType | [Extended<number>, Extended<n
     [Extended<number>, Extended<number>, Extended<FlexBasis_StyleType>];
 ```
 
-**See Also:** [flex-basis](#flex-basis), [Extended](stylesets.html#extended-type)
+**See Also:** [flex-basis](#flex-basis), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### flex-basis
 
@@ -1424,7 +1426,7 @@ flexBasis: FlexBasis_StyleType;
 export type FlexBasis_StyleType = "auto" | "content" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### flex-direction
 
@@ -1445,7 +1447,7 @@ export type FlexFlow_StyleType = FlexDirection_StyleType | FlexWrap_StyleType |
     [Extended<FlexDirection_StyleType>, Extended<FlexWrap_StyleType>];
 ```
 
-**See Also:** [flex-direction](#flex-direction), [flex-wrap](#flex-wrap), [Extended](stylesets.html#extended-type)
+**See Also:** [flex-direction](#flex-direction), [flex-wrap](#flex-wrap), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### flex-grow
 
@@ -1453,7 +1455,7 @@ export type FlexFlow_StyleType = FlexDirection_StyleType | FlexWrap_StyleType |
 flexGrow: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### flex-shrink
 
@@ -1461,7 +1463,7 @@ flexGrow: CssNumber;
 flexShrink: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### flex-wrap
 
@@ -1487,7 +1489,7 @@ export type Float_StyleType = "left" | "right" | "none" | "inline-start" | "inli
 floodColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### flood-opacity
 
@@ -1495,7 +1497,7 @@ floodColor: CssColor;
 floodOpacity: CssPercent;
 ```
 
-**See Also:** [CssPercent](numeric-types.html#percent-values)
+**See Also:** [CssPercent](/mimcss/reference.html#modules/_basictypes_.html#csspercent)
 
 #### font
 
@@ -1530,7 +1532,7 @@ The `font` property can be specified as a string, as a keyword or as an object. 
 | stretch | [font-stretch](#font-stretch) |
 | lineHeight | [lineHeight](#lineHeight) |
 
-**See Also:** [CssLength](numeric-types.html#length-values), [CssNumber](numeric-types.html#number-values), [Extended](stylesets.html#extended-type)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### font-family
 
@@ -1572,7 +1574,7 @@ export type FontSize_StyleType = "xx-small" | "x-small" | "small" | "medium" | "
     "x-large" | "xx-large" | "xxx-large" | "larger" | "smaller" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### font-size-adjust
 
@@ -1580,7 +1582,7 @@ export type FontSize_StyleType = "xx-small" | "x-small" | "small" | "medium" | "
 fontSizeAdjust: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### font-stretch
 
@@ -1592,7 +1594,7 @@ export type FontStretch_StyleType = "normal" | "ultra-condensed" | "extra-conden
 "semi-condensed" | "semi-expanded" | "expanded" | "extra-expanded" | "ultra-expanded" | CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### font-style
 
@@ -1603,7 +1605,7 @@ fontStyle: FontStyle_StyleType;
 export type FontStyle_StyleType = "normal" | "italic" | "oblique" | CssAngle;
 ```
 
-**See Also:** [CssAngle](numeric-types.html#angle-values)
+**See Also:** [CssAngle](/mimcss/reference.html#modules/_basictypes_.html#cssangle)
 
 #### font-synthesis
 
@@ -1704,7 +1706,7 @@ export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
 export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [IGridAreaRule](rules.html#igridarearule-interface), [IGridLineRule](rules.html#igridlinerule-interface), [ISpanProxy](helper-functions.html#grids)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [IGridAreaRule](/mimcss/reference.html#interfaces/_ruletypes_.igridarearule.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [ISpanProxy](/mimcss/reference.html#interfaces/_basictypes_.ispanproxy.html)
 
 #### grid-auto-columns
 
@@ -1719,7 +1721,7 @@ export type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" |
     IMinMaxProxy | IFitContentProxy | IRepeatProxy;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values), [IMinMaxProxy](helper-functions.html#grids), [IFitContentProxy](helper-functions.html#grids), [IRepeatProxy](helper-functions.html#grids)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [IMinMaxProxy](/mimcss/reference.html#interfaces/_basictypes_.iminmaxproxy.html), [IFitContentProxy](/mimcss/reference.html#interfaces/_basictypes_.ifitcontentproxy.html), [IRepeatProxy](/mimcss/reference.html#interfaces/_basictypes_.irepeatproxy.html)
 
 #### grid-auto-flow
 
@@ -1743,7 +1745,7 @@ export type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" |
     IMinMaxProxy | IFitContentProxy | IRepeatProxy;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values), [IMinMaxProxy](helper-functions.html#grids), [IFitContentProxy](helper-functions.html#grids), [IRepeatProxy](helper-functions.html#grids)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [IMinMaxProxy](/mimcss/reference.html#interfaces/_basictypes_.iminmaxproxy.html), [IFitContentProxy](/mimcss/reference.html#interfaces/_basictypes_.ifitcontentproxy.html), [IRepeatProxy](/mimcss/reference.html#interfaces/_basictypes_.irepeatproxy.html)
 
 #### grid-column
 
@@ -1760,7 +1762,7 @@ export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
 export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [IGridAreaRule](rules.html#igridarearule-interface), [IGridLineRule](rules.html#igridlinerule-interface), [ISpanProxy](helper-functions.html#grids)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [IGridAreaRule](/mimcss/reference.html#interfaces/_ruletypes_.igridarearule.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [ISpanProxy](/mimcss/reference.html#interfaces/_basictypes_.ispanproxy.html)
 
 #### grid-column-end
 
@@ -1774,7 +1776,7 @@ export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
 export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [IGridAreaRule](rules.html#igridarearule-interface), [IGridLineRule](rules.html#igridlinerule-interface), [ISpanProxy](helper-functions.html#grids)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [IGridAreaRule](/mimcss/reference.html#interfaces/_ruletypes_.igridarearule.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [ISpanProxy](/mimcss/reference.html#interfaces/_basictypes_.ispanproxy.html)
 
 #### grid-column-gap
 
@@ -1785,7 +1787,7 @@ gridColumnGap: ColumnGap_StyleType;
 export type ColumnGap_StyleType = "normal" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### grid-column-start
 
@@ -1799,7 +1801,7 @@ export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
 export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [IGridAreaRule](rules.html#igridarearule-interface), [IGridLineRule](rules.html#igridlinerule-interface), [ISpanProxy](helper-functions.html#grids)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [IGridAreaRule](/mimcss/reference.html#interfaces/_ruletypes_.igridarearule.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [ISpanProxy](/mimcss/reference.html#interfaces/_basictypes_.ispanproxy.html)
 
 #### grid-gap
 
@@ -1827,7 +1829,7 @@ export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
 export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [IGridAreaRule](rules.html#igridarearule-interface), [IGridLineRule](rules.html#igridlinerule-interface), [ISpanProxy](helper-functions.html#grids)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [IGridAreaRule](/mimcss/reference.html#interfaces/_ruletypes_.igridarearule.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [ISpanProxy](/mimcss/reference.html#interfaces/_basictypes_.ispanproxy.html)
 
 #### grid-row-end
 
@@ -1841,7 +1843,7 @@ export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
 export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [IGridAreaRule](rules.html#igridarearule-interface), [IGridLineRule](rules.html#igridlinerule-interface), [ISpanProxy](helper-functions.html#grids)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [IGridAreaRule](/mimcss/reference.html#interfaces/_ruletypes_.igridarearule.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [ISpanProxy](/mimcss/reference.html#interfaces/_basictypes_.ispanproxy.html)
 
 #### grid-row-gap
 
@@ -1849,7 +1851,7 @@ export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | st
 gridRowGap: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### grid-row-start
 
@@ -1863,7 +1865,7 @@ export type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy;
 export type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [IGridAreaRule](rules.html#igridarearule-interface), [IGridLineRule](rules.html#igridlinerule-interface), [ISpanProxy](helper-functions.html#grids)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [IGridAreaRule](/mimcss/reference.html#interfaces/_ruletypes_.igridarearule.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [ISpanProxy](/mimcss/reference.html#interfaces/_basictypes_.ispanproxy.html)
 
 #### grid-template
 
@@ -1925,7 +1927,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-**See Also:** [IQuotedProxy](miscellaneous.html#using-raw-css), [Extended](stylesets.html#extended-type)
+**See Also:** [IQuotedProxy](/mimcss/reference.html#interfaces/_basictypes_.iquotedproxy.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### grid-template-columns
 
@@ -1973,12 +1975,13 @@ class MyStyles extends css.StyleDefinition
     // use lines defined by a grid area
     mainArea = css.$gridarea();
 	grid4 = css.$class({
-        gridTemplateColumns: [ "10%", [this.mainArea.startLine], css.repeat(4, "1fr"), [this.mainArea.lastLine], "10%"]
+        gridTemplateColumns: [ css.percent(10), [this.mainArea.startLine], css.repeat(4, "1fr"),
+            [this.mainArea.lastLine], css.percent(10)]
     })
 }
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values), [IMinMaxProxy](helper-functions.html#grids), [IFitContentProxy](helper-functions.html#grids), [IRepeatProxy](helper-functions.html#grids), [IGridLineRule](rules.html#igridlinerule-interface), [Extended](stylesets.html#extended-type)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [IMinMaxProxy](/mimcss/reference.html#interfaces/_basictypes_.iminmaxproxy.html), [IFitContentProxy](/mimcss/reference.html#interfaces/_basictypes_.ifitcontentproxy.html), [IRepeatProxy](/mimcss/reference.html#interfaces/_basictypes_.irepeatproxy.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### grid-template-rows
 
@@ -2004,7 +2007,7 @@ export type GridTrackLine = (IGridLineRule | Extended<string>)[];
 
 The usage of the `grid-template-rows` property is identical to that of the [grid-template-columns](#grid-template-columns) property.
 
-**See Also:** [CssLength](numeric-types.html#length-values), [IMinMaxProxy](helper-functions.html#grids), [IFitContentProxy](helper-functions.html#grids), [IRepeatProxy](helper-functions.html#grids), [IGridLineRule](rules.html#igridlinerule-interface), [Extended](stylesets.html#extended-type)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [IMinMaxProxy](/mimcss/reference.html#interfaces/_basictypes_.iminmaxproxy.html), [IFitContentProxy](/mimcss/reference.html#interfaces/_basictypes_.ifitcontentproxy.html), [IRepeatProxy](/mimcss/reference.html#interfaces/_basictypes_.irepeatproxy.html), [IGridLineRule](/mimcss/reference.html#interfaces/_ruletypes_.igridlinerule.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### height
 
@@ -2012,7 +2015,7 @@ The usage of the `grid-template-rows` property is identical to that of the [grid
 height: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### hyphens
 
@@ -2039,7 +2042,7 @@ export type ImageRendering_StyleType = "auto" | "crisp-edges" | "pixelated";
 inlineSize: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### isolation
 
@@ -2093,7 +2096,7 @@ export type JustifySelf_StyleType = "auto" | "normal" | "stretch" | "baseline" |
 left: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### letter-spacing
 
@@ -2104,7 +2107,7 @@ letterSpacing: LetterSpacing_StyleType;
 export type LetterSpacing_StyleType = "normal" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### lighting-color
 
@@ -2112,7 +2115,7 @@ export type LetterSpacing_StyleType = "normal" | CssLength;
 lightingColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### line-break
 
@@ -2132,7 +2135,7 @@ lineHeight: LineHeight_StyleType;
 export type LineHeight_StyleType = CssNumber | string;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### list-style
 
@@ -2149,7 +2152,7 @@ export type ListStyle_StyleType = ListStyleType_StyleType | ListStylePosition_St
 
 The `list-style` property is a shorthand for properties: [list-style-image](#list-style-image), [list-style-position](#list-style-position), [list-style-type](#list-style-type). The value can be specified as either a single value of any of these properties, or a two-element tuple of combinations of these properties or a three-element tuple of all three of these properties.
 
-**See Also:** [Extended](stylesets.html#extended-type)
+**See Also:** [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### line-style-image
 
@@ -2160,7 +2163,7 @@ lineStyleImage: ListStyleImage_StyleType;
 export type ListStyleImage_StyleType = "none" | IUrlProxy;
 ```
 
-**See Also:** [IUrlProxy](miscellaneous.html#iurlproxy-interface)
+**See Also:** [IUrlProxy](/mimcss/reference.html#interfaces/_basictypes_.iurlproxy.html)
 
 #### line-style-position
 
@@ -2196,7 +2199,7 @@ margin: OneOrBox<CssLength>;
 
 The `margin` property can be specified as a single `<length>` value or two-, three- or four-element tuple of `<length>` values.
 
-**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-block-end
 
@@ -2204,7 +2207,7 @@ The `margin` property can be specified as a single `<length>` value or two-, thr
 marginBlockEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-block-start
 
@@ -2212,7 +2215,7 @@ marginBlockEnd: CssLength;
 marginBlockStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-bottom
 
@@ -2220,7 +2223,7 @@ marginBlockStart: CssLength;
 marginBottom: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-inline-end
 
@@ -2228,7 +2231,7 @@ marginBottom: CssLength;
 marginInlineEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-inline-start
 
@@ -2236,7 +2239,7 @@ marginInlineEnd: CssLength;
 margIninlineStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-left
 
@@ -2244,7 +2247,7 @@ margIninlineStart: CssLength;
 marginLeft: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-right
 
@@ -2252,7 +2255,7 @@ marginLeft: CssLength;
 marginRight: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### margin-top
 
@@ -2260,7 +2263,7 @@ marginRight: CssLength;
 marginTop: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### marker-end
 
@@ -2271,7 +2274,7 @@ markerEnd: Marker_StyleType;
 export type Marker_StyleType = "none" | IIDRule;
 ```
 
-**See Also:** [IIDRule](rules.html#iidrule-interface)
+**See Also:** [IIDRule](/mimcss/reference.html#interfaces/_ruletypes_.iidrule.html)
 
 #### marker-mid
 
@@ -2282,7 +2285,7 @@ markerMid: Marker_StyleType;
 export type Marker_StyleType = "none" | IIDRule;
 ```
 
-**See Also:** [IIDRule](rules.html#iidrule-interface)
+**See Also:** [IIDRule](/mimcss/reference.html#interfaces/_ruletypes_.iidrule.html)
 
 #### marker-start
 
@@ -2293,7 +2296,7 @@ markerStart: Marker_StyleType;
 export type Marker_StyleType = "none" | IIDRule;
 ```
 
-**See Also:** [IIDRule](rules.html#iidrule-interface)
+**See Also:** [IIDRule](/mimcss/reference.html#interfaces/_ruletypes_.iidrule.html)
 
 #### max-block-size
 
@@ -2301,7 +2304,7 @@ export type Marker_StyleType = "none" | IIDRule;
 maxBlockSize: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### max-height
 
@@ -2309,7 +2312,7 @@ maxBlockSize: CssLength;
 maxHeight: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### max-inline-size
 
@@ -2317,7 +2320,7 @@ maxHeight: CssLength;
 maxInlineSize: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### max-width
 
@@ -2325,7 +2328,7 @@ maxInlineSize: CssLength;
 maxWidth: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### min-block-size
 
@@ -2333,7 +2336,7 @@ maxWidth: CssLength;
 minBlockSize: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### min-height
 
@@ -2341,7 +2344,7 @@ minBlockSize: CssLength;
 minHeight: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### min-inline-size
 
@@ -2349,7 +2352,7 @@ minHeight: CssLength;
 minInlineSize: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### min-width
 
@@ -2357,7 +2360,7 @@ minInlineSize: CssLength;
 minWidth: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### object-fit
 
@@ -2374,7 +2377,7 @@ export type ObjectFit_StyleType = "fill" | "contain" | "cover" | "none" | "scale
 objectPosition: CssPosition;
 ```
 
-**See Also:** [CssPosition](numeric-types.html#cssposition-type)
+**See Also:** [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition)
 
 #### offset
 
@@ -2402,7 +2405,7 @@ The `offset` property can be specified as a string, as a keyword or as an object
 | position | [offset-position](#offset-position) |
 | rotate | [offset-rotate](#offset-rotate) |
 
-**See Also:** [CssLength](numeric-types.html#length-values), [CssPosition](numeric-types.html#cssposition-type)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition)
 
 #### offset-anchor
 
@@ -2413,7 +2416,7 @@ offseAnchor: OffsetAnchor_StyleType;
 export type OffsetAnchor_StyleType = "auto" | CssPosition;
 ```
 
-**See Also:** [CssPosition](numeric-types.html#cssposition-type)
+**See Also:** [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition)
 
 #### offset-distance
 
@@ -2421,7 +2424,7 @@ export type OffsetAnchor_StyleType = "auto" | CssPosition;
 offsetDistance: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### offset-path
 
@@ -2433,7 +2436,7 @@ export type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape |
     [GeometryBoxKeyword, BasicShape];
 ```
 
-**See Also:** [IRayProxy](helper-functions.html#basic-shapes), [IUrlProxy](miscellaneous.html#iurlproxy-interface), [BasicShape](helper-functions.html#basic-shapes), [GeometryBoxKeyword](helper-functions.html#basic-shapes)
+**See Also:** [IRayProxy](/mimcss/reference.html#interfaces/_basictypes_.irayproxy.html), [IUrlProxy](/mimcss/reference.html#interfaces/_basictypes_.iurlproxy.html), [BasicShape](/mimcss/reference.html#modules/_basictypes_.html#basicshape), [GeometryBoxKeyword](/mimcss/reference.html#modules/_basictypes_.html#geometryboxkeyword)
 
 #### offset-position
 
@@ -2441,7 +2444,7 @@ export type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape |
 offsetPosition: CssPosition;
 ```
 
-**See Also:** [CssPosition](numeric-types.html#cssposition-type)
+**See Also:** [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition)
 
 #### offset-rotate
 
@@ -2452,7 +2455,7 @@ offsetRotate: CssPosition;
 export type OffsetRotate_StyleType = "auto" | "reverse" | CssAngle | ["auto" | "reverse", CssAngle];
 ```
 
-**See Also:** [CssAngle](numeric-types.html#angle-values)
+**See Also:** [CssAngle](/mimcss/reference.html#modules/_basictypes_.html#cssangle)
 
 #### opacity
 
@@ -2460,7 +2463,7 @@ export type OffsetRotate_StyleType = "auto" | "reverse" | CssAngle | ["auto" | "
 opacity: CssPercent;
 ```
 
-**See Also:** [CssPercent](numeric-types.html#percent-values)
+**See Also:** [CssPercent](/mimcss/reference.html#modules/_basictypes_.html#csspercent)
 
 #### order
 
@@ -2468,7 +2471,7 @@ opacity: CssPercent;
 order: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### orphans
 
@@ -2476,7 +2479,7 @@ order: CssNumber;
 orphans: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### outline
 
@@ -2492,7 +2495,7 @@ outline: Border_StyleType;
 outlineColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### outline-offset
 
@@ -2500,7 +2503,7 @@ outlineColor: CssColor;
 outlineOffset: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### outline-style
 
@@ -2530,7 +2533,7 @@ export type Overflow_StyleType = OneOrPair<Overflow_Single_StyleType>;
 export type Overflow_Single_StyleType = "visible" | "hidden" | "clip" | "scroll" | "auto";
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair)
 
 #### overflow-anchor
 
@@ -2594,7 +2597,7 @@ export type OverscrollBehavior_StyleType = OneOrPair<OverscrollBehavior_Single_S
 export type OverscrollBehavior_Single_StyleType = "contain" | "none" | "auto";
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair)
 
 #### overscroll-behavior-block
 
@@ -2636,7 +2639,7 @@ padding: OneOrBox<CssLength>;
 
 The `padding` property can be specified as a single `<length>` value or two-, three- or four-element tuple of `<length>` values.
 
-**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-block-end
 
@@ -2644,7 +2647,7 @@ The `padding` property can be specified as a single `<length>` value or two-, th
 paddingBlockEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-block-start
 
@@ -2652,7 +2655,7 @@ paddingBlockEnd: CssLength;
 paddingBlockStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-bottom
 
@@ -2660,7 +2663,7 @@ paddingBlockStart: CssLength;
 paddingBottom: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-inline-end
 
@@ -2668,7 +2671,7 @@ paddingBottom: CssLength;
 paddingInlineEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-inline-start
 
@@ -2676,7 +2679,7 @@ paddingInlineEnd: CssLength;
 margIninlineStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-left
 
@@ -2684,7 +2687,7 @@ margIninlineStart: CssLength;
 paddingLeft: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-right
 
@@ -2692,7 +2695,7 @@ paddingLeft: CssLength;
 paddingRight: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### padding-top
 
@@ -2700,7 +2703,7 @@ paddingRight: CssLength;
 paddingTop: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### paint-order
 
@@ -2748,7 +2751,7 @@ perspective: Perspective_StyleType;
 export type Perspective_StyleType = "none" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### perspective-origin
 
@@ -2760,7 +2763,7 @@ export type PerspectiveOrigin_StyleType = HorizontalPositionKeyword | VerticalPo
     [Extended<HorizontalPositionKeyword | CssLength>, Extended<VerticalPositionKeyword | CssLength>];
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values), [CssPosition](numeric-types.html#cssposition-type), [Extended](stylesets.html#extended-type)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### place-content
 
@@ -2771,7 +2774,7 @@ placeContent: PlaceContent_StyleType;
 export type PlaceContent_StyleType = AlignContent_StyleType | [Extended<AlignContent_StyleType>, Extended<JustifyContent_StyleType>];
 ```
 
-**See Also:** [align-content](#align-content), [justify-content](#justify-content), [Extended](stylesets.html#extended-type)
+**See Also:** [align-content](#align-content), [justify-content](#justify-content), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### place-items
 
@@ -2782,7 +2785,7 @@ placeItems: PlaceItems_StyleType;
 export type PlaceItems_StyleType = AlignItems_StyleType | [Extended<AlignItems_StyleType>, Extended<JustifyItems_StyleType>];
 ```
 
-**See Also:** [align-items](#align-items), [justify-items](#justify-items), [Extended](stylesets.html#extended-type)
+**See Also:** [align-items](#align-items), [justify-items](#justify-items), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### place-self
 
@@ -2793,7 +2796,7 @@ placeSelf: PlaceSelf_StyleType;
 export type PlaceSelf_StyleType = AlignSelf_StyleType | [Extended<AlignSelf_StyleType>, Extended<JustifySelf_StyleType>];
 ```
 
-**See Also:** [align-self](#align-self), [justify-self](#justify-self), [Extended](stylesets.html#extended-type)
+**See Also:** [align-self](#align-self), [justify-self](#justify-self), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### pointer-events
 
@@ -2823,7 +2826,7 @@ quotes: Quotes_StyleType;
 export type Quotes_StyleType = "none" | "auto" | Extended<string>[];
 ```
 
-**See Also:** [Extended](stylesets.html#extended-type)
+**See Also:** [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### resize
 
@@ -2840,7 +2843,7 @@ export type Resize_StyleType = "none" | "both" | "horizontal" | "vertical" | "bl
 right: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### rotate
 
@@ -2852,7 +2855,7 @@ export type Rotate_StyleType = "none" | ["x" | "y" | "z", Extended<CssAngle>] |
     [Extended<CssNumber>, Extended<CssNumber>, Extended<CssNumber>, Extended<CssAngle>];
 ```
 
-**See Also:** [CssAngle](numeric-types.html#angle-values), [CssNumber](numeric-types.html#number-values), [Extended](stylesets.html#extended-type)
+**See Also:** [CssAngle](/mimcss/reference.html#modules/_basictypes_.html#cssangle), [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### row-gap
 
@@ -2860,7 +2863,7 @@ export type Rotate_StyleType = "none" | ["x" | "y" | "z", Extended<CssAngle>] |
 rowGap: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scale
 
@@ -2872,7 +2875,7 @@ export type Scale_StyleType = "none" | CssNumber |
     [Extended<CssNumber>, Extended<CssNumber>?, Extended<CssNumber>?];
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values), [Extended](stylesets.html#extended-type)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### scrollbar-color
 
@@ -2884,7 +2887,7 @@ export type ScrollbarColor_StyleType = "auto" | "dark" | "light" |
     [Extended<CssColor>, Extended<CssColor>];
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type), [Extended](stylesets.html#extended-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### scrollbar-width
 
@@ -2910,7 +2913,7 @@ export type ScrollBehavior_StyleType = "auto" | "smooth";
 scrollMargin: OneOrBox<CssLength>;
 ```
 
-**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-block
 
@@ -2918,7 +2921,7 @@ scrollMargin: OneOrBox<CssLength>;
 scrollMarginBlock: OneOrPair<CssLength>;
 ```
 
-**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-block-end
 
@@ -2926,7 +2929,7 @@ scrollMarginBlock: OneOrPair<CssLength>;
 scrollMarginBlockEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-block-start
 
@@ -2934,7 +2937,7 @@ scrollMarginBlockEnd: CssLength;
 scrollMarginBlockStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-bottom
 
@@ -2942,7 +2945,7 @@ scrollMarginBlockStart: CssLength;
 scrollMarginBottom: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-inline
 
@@ -2950,7 +2953,7 @@ scrollMarginBottom: CssLength;
 scrollMarginInline: OneOrPair<CssLength>;
 ```
 
-**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-inline-end
 
@@ -2958,7 +2961,7 @@ scrollMarginInline: OneOrPair<CssLength>;
 scrollMarginInlineEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-inline-start
 
@@ -2966,7 +2969,7 @@ scrollMarginInlineEnd: CssLength;
 scrollMarginInlineStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-left
 
@@ -2974,7 +2977,7 @@ scrollMarginInlineStart: CssLength;
 scrollMarginLeft: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-right
 
@@ -2982,7 +2985,7 @@ scrollMarginLeft: CssLength;
 scrollMarginRight: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-margin-top
 
@@ -2990,7 +2993,7 @@ scrollMarginRight: CssLength;
 scrollMarginTop: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding
 
@@ -2998,7 +3001,7 @@ scrollMarginTop: CssLength;
 scrollPadding: OneOrBox<CssLength>;
 ```
 
-**See Also:** [OneOrBox<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrBox](/mimcss/reference.html#modules/_basictypes_.html#oneorbox), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-block
 
@@ -3006,7 +3009,7 @@ scrollPadding: OneOrBox<CssLength>;
 scrollPaddingBlock: OneOrPair<CssLength>;
 ```
 
-**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-block-end
 
@@ -3014,7 +3017,7 @@ scrollPaddingBlock: OneOrPair<CssLength>;
 scrollPaddingBlockEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-block-start
 
@@ -3022,7 +3025,7 @@ scrollPaddingBlockEnd: CssLength;
 scrollPaddingBlockStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-bottom
 
@@ -3030,7 +3033,7 @@ scrollPaddingBlockStart: CssLength;
 scrollPaddingBottom: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-inline
 
@@ -3038,7 +3041,7 @@ scrollPaddingBottom: CssLength;
 scrollPaddingInline: OneOrPair<CssLength>;
 ```
 
-**See Also:** [OneOrPair<CssLength>](numeric-types.html#length-values)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-inline-end
 
@@ -3046,7 +3049,7 @@ scrollPaddingInline: OneOrPair<CssLength>;
 scrollPaddingInlineEnd: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-inline-start
 
@@ -3054,7 +3057,7 @@ scrollPaddingInlineEnd: CssLength;
 scrollPaddingInlineStart: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-left
 
@@ -3062,7 +3065,7 @@ scrollPaddingInlineStart: CssLength;
 scrollPaddingLeft: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-right
 
@@ -3070,7 +3073,7 @@ scrollPaddingLeft: CssLength;
 scrollPaddingRight: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-padding-top
 
@@ -3078,7 +3081,7 @@ scrollPaddingRight: CssLength;
 scrollPaddingTop: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### scroll-snap-align
 
@@ -3089,7 +3092,7 @@ scrollSnapAlign: ScrollSnapAlign_StyleType;
 export type ScrollSnapAlign_StyleType = OneOrPair<"none" | "start" | "end" | "center">;
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair)
 
 #### scroll-snap-stop
 
@@ -3110,7 +3113,7 @@ export type ScrollSnapType_StyleType = "none" |
     [Extended<"x" | "y" | "block" | "inline" | "both">, Extended<"mandatory" | "proximity">];
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types), [Extended](stylesets.html#extended-type)
+**See Also:** [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### shape-image-threshold
 
@@ -3118,7 +3121,7 @@ export type ScrollSnapType_StyleType = "none" |
 shapeImageThreshold: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### shape-margin
 
@@ -3126,7 +3129,7 @@ shapeImageThreshold: CssNumber;
 shapeMargin: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### shape-outside
 
@@ -3137,7 +3140,7 @@ shapeOutside: ShapeOutside_StyleType;
 export type ShapeOutside_StyleType = IUrlProxy | BasicShape | GeometryBoxKeyword | CssImage;
 ```
 
-**See Also:** [IUrlProxy](miscellaneous.html#iurlproxy-interface), [BasicShape](helper-functions.html#basic-shapes), [GeometryBoxKeyword](helper-functions.html#basic-shapes), [CssImage](helper-functions.html#images)
+**See Also:** [IUrlProxy](/mimcss/reference.html#interfaces/_basictypes_.iurlproxy.html), [BasicShape](/mimcss/reference.html#modules/_basictypes_.html#basicshape), [GeometryBoxKeyword](/mimcss/reference.html#modules/_basictypes_.html#geometryboxkeyword), [CssImage](/mimcss/reference.html#modules/_basictypes_.html#cssimage)
 
 #### shape-rendering
 
@@ -3154,7 +3157,7 @@ export type ShapeRendering_StyleType = "auto" | "optimizeSpeed" | "crispEdges" |
 stopColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### stop-opacity
 
@@ -3162,7 +3165,7 @@ stopColor: CssColor;
 stopOpacity: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### stroke
 
@@ -3170,7 +3173,7 @@ stopOpacity: CssNumber;
 stroke: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### tab-size
 
@@ -3178,7 +3181,7 @@ stroke: CssColor;
 tabSize: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### table-layout
 
@@ -3253,7 +3256,7 @@ The `text-decoration` property can be specified as a string, as a number or as a
 | color | [text-decoration-color](#text-decoration-color) |
 | thickness | [text-decoration-thickness](#text-decoration-thickness) |
 
-**See Also:** [CssColor](colors.html#csscolor-type), [CssLength](numeric-types.html#length-values)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### text-decoration-color
 
@@ -3261,7 +3264,7 @@ The `text-decoration` property can be specified as a string, as a number or as a
 textDecorationColor: CssColor;
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### text-decoration-line
 
@@ -3273,7 +3276,7 @@ export type TextDecorationLine_StyleType = "none" | "spelling-error" | "grammar-
     OneOrMany<"underline" | "overline" | "line-through">;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### text-decoration-style
 
@@ -3302,7 +3305,7 @@ textDecorationThickness: TextDecorationThickness_StyleType;
 export type TextDecorationThickness_StyleType = "auto" | "from-font" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### text-emphasis
 
@@ -3314,7 +3317,7 @@ export type TextEmphasis_StyleType = TextEmphasisStyle_StyleType | CssColor |
     [Extended<TextEmphasisStyle_StyleType>, Extended<CssColor>];
 ```
 
-**See Also:** [CssColor](colors.html#csscolor-type), [text-emphasis-style](text-emphasis-style), [Extended](stylesets.html#extended-type)
+**See Also:** [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor), [text-emphasis-style](text-emphasis-style), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### text-emphasis-position
 
@@ -3341,7 +3344,7 @@ export type TextEmphasisShape = "dot" | "circle" | "double-circle" | "triangle" 
 export type TextEmphasisFill = "filled" | "open";
 ```
 
-**See Also:** [Extended](stylesets.html#extended-type)
+**See Also:** [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### text-indent
 
@@ -3353,7 +3356,7 @@ export type TextIndent_StyleType = CssLength |
     [Extended<CssLength>, Extended<OneOrMany<"each-line" | "hanging" | "each-line hanging">>];
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values), [Extended](stylesets.html#extended-type), [OneOrMany](stylesets.html#utility-types)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended), [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany)
 
 #### text-justify
 
@@ -3382,7 +3385,7 @@ textOverflow: TextOverflow_StyleType;
 export type TextOverflow_StyleType = OneOrPair<"clip" | "ellipsis" | "fade" | string>;
 ```
 
-**See Also:** [OneOrPair](stylesets.html#utility-types)
+**See Also:** [OneOrPair](/mimcss/reference.html#modules/_basictypes_.html#oneorpair)
 
 #### text-shadow
 
@@ -3402,7 +3405,7 @@ export type TextShadow_Single = "none" | string |
     };
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [Extended](stylesets.html#extended-type), [CssLength](numeric-types.html#length-values), [CssColor](colors.html#csscolor-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended), [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [CssColor](/mimcss/reference.html#modules/_basictypes_.html#csscolor)
 
 #### text-size-adjust
 
@@ -3413,7 +3416,7 @@ textSizeAdjust: TextSizeAdjust_StyleType;
 export type TextSizeAdjust_StyleType = "none" | "auto" | CssPercent;
 ```
 
-**See Also:** [CssPercent](numeric-types.html#percent-values)
+**See Also:** [CssPercent](/mimcss/reference.html#modules/_basictypes_.html#csspercent)
 
 #### text-transform
 
@@ -3439,7 +3442,7 @@ export type TextUnderlinePosition_StyleType = "auto" | "under" | "left" | "right
 top: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### touch-action
 
@@ -3467,7 +3470,7 @@ transform: Transform_StyleType;
 export type Transform_StyleType = "none" | string | OneOrMany<ITransformProxy>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ITransformProxy](helper-functions.html#transforms)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ITransformProxy](/mimcss/reference.html#interfaces/_basictypes_.itransformproxy.html)
 
 #### transform-box
 
@@ -3488,7 +3491,7 @@ export type TransformOrigin_StyleType = HorizontalPositionKeyword | VerticalPosi
     [Extended<HorizontalPositionKeyword | CssLength>, Extended<VerticalPositionKeyword | CssLength>, Extended<CssLength>?];
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values), [CssPosition](numeric-types.html#cssposition-type), [Extended](stylesets.html#extended-type)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [CssPosition](/mimcss/reference.html#modules/_basictypes_.html#cssposition), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### transform-style
 
@@ -3526,7 +3529,7 @@ The `transition` property can be specified as a string or as an object. The fiel
 | func | [transition-timing-function](#transition-func) |
 | delay | [transition-delay](#transition-delay) |
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [Extended](stylesets.html#extended-type), [CssTime](numeric-types.html#time-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended), [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime)
 
 #### transition-delay
 
@@ -3534,7 +3537,7 @@ The `transition` property can be specified as a string or as an object. The fiel
 transitionDelay: OneOrMany<CssTime>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssTime](numeric-types.html#time-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime)
 
 #### transition-duration
 
@@ -3542,7 +3545,7 @@ transitionDelay: OneOrMany<CssTime>;
 transitionDuration: OneOrMany<CssTime>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [CssTime](numeric-types.html#time-values)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [CssTime](/mimcss/reference.html#modules/_basictypes_.html#csstime)
 
 #### transition-property
 
@@ -3556,7 +3559,7 @@ export type TransitionProperty_StyleType = OneOrMany<TransitionProperty_Single>;
 export type TransitionProperty_Single = "none" | "all" | keyof ICssStyleset;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ICssStyleset](stylesets.html#icssstyleset-interface)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ICssStyleset](/mimcss/reference.html#interfaces/_styletypes_.icssstyleset.html)
 
 #### transition-timing-function
 
@@ -3582,7 +3585,7 @@ export type TransitionTimingFunction_StyleType = OneOrMany<TimingFunction_Single
 export type TimingFunction_Single = TimingFunction_Simple | TimingFunction_Step | TimingFunction_Bezier;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ICssStyleset](stylesets.html#icssstyleset-interface), [Extended](stylesets.html#extended-type)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ICssStyleset](/mimcss/reference.html#interfaces/_styletypes_.icssstyleset.html), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### translate
 
@@ -3594,7 +3597,7 @@ export type Translate_StyleType = "none" | CssLength |
     [Extended<CssLength>, Extended<CssLength>, Extended<CssLength>?];
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values), [Extended](stylesets.html#extended-type)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
 #### unicode-bidi
 
@@ -3657,7 +3660,7 @@ export type WhiteSpace_StyleType = "normal" | "pre" | "nowrap" | "pre-wrap" | "p
 widows: CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### width
 
@@ -3665,7 +3668,7 @@ widows: CssNumber;
 width: CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### will-change
 
@@ -3676,7 +3679,7 @@ willChange: WillChange_StyleType;
 export type WillChange_StyleType = "auto" | OneOrMany<"scroll-position" | "contents" | Exclude<keyof ICssStyleset,"willChange">>;
 ```
 
-**See Also:** [OneOrMany](stylesets.html#utility-types), [ICssStyleset](stylesets.html#icssstyleset-interface)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [ICssStyleset](/mimcss/reference.html#interfaces/_styletypes_.icssstyleset.html)
 
 #### word-break
 
@@ -3696,7 +3699,7 @@ wordSpacing: WordSpacing_StyleType;
 export type WordSpacing_StyleType = "normal" | CssLength;
 ```
 
-**See Also:** [CssLength](numeric-types.html#length-values)
+**See Also:** [CssLength](/mimcss/reference.html#modules/_basictypes_.html#csslength)
 
 #### writing-mode
 
@@ -3716,7 +3719,7 @@ zIndex: ZIndex_StyleType;
 export type ZIndex_StyleType = "auto" | CssNumber;
 ```
 
-**See Also:** [CssNumber](numeric-types.html#number-values)
+**See Also:** [CssNumber](/mimcss/reference.html#modules/_basictypes_.html#cssnumber)
 
 #### zoom
 
@@ -3727,13 +3730,14 @@ zoom: Zoom_StyleType;
 export type Zoom_StyleType = "normal" | "reset" | CssPercent;
 ```
 
-**See Also:** [CssPercent](numeric-types.html#percent-values)
+**See Also:** [CssPercent](/mimcss/reference.html#modules/_basictypes_.html#csspercent)
 
 
 
 
 
 <script>
+    console.log( "We are here");
     // prepare array of all letters
     var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 

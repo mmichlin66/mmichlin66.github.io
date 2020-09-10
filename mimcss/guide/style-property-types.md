@@ -22,13 +22,13 @@ We can divide all the style properties into the following broad categories based
 - Keyword-based properties. These properties use keywords to define their values. An example is the `visibility` property, whose allowed values are `visible` or `hidden` or `collapse`.
 - Number-based properties. These properties accept numbers usually (but not always) accompanied by a unit specification. An example is the `top` property with accepted values such as `4px` or `1.5em` or `10%`.
 - Color properties. These properties accept named colors as well as color values specified in the hexadecimal form and as `rgb` and `hsl` functions.
-- Complex value properties. These properties accept a list of values usually of different types and often in an arbitrary order. Shorthand properties usually belong to this category; for example, the `border` property. There are, however, longhand properties with complex values too, for example the `clip-path` property. 
+- Complex value properties. These properties accept a list of values usually of different types and often in an arbitrary order. Shorthand properties usually belong to this category; for example, the `border` property. There are, however, longhand properties with complex values too, for example the `clip-path` property.
 - Multi-value properties. These properties accept one or many values of either a simple or a complex type. For some properties, such as `animation`, the multiple values are separated by commas while for others, such as `padding`, the values are separated by spaces.
 
 When deciding what type to use for each individual style property, in addition to the category Mimcss considered the following factors:
 
 - There are many properties that do not belong strictly to one category. For example, the `vertical-align` property can be defined using a number of keyword values but it also accepts a numeric `<length>` value.
-- All properties accept the standard keyword values `initial`, `reset` and `inherit`.
+- All properties accept the standard keyword values `initial`, `unset`, `inherit` and `revert`.
 - All properties can accept the value of a custom CSS property using the `var()` CSS function.
 - Number-based properties must support the numeric functions, such as `min()` and `calc()`.
 
@@ -41,13 +41,13 @@ The goal of Mimcss is to boost the developers' productivity by increasing conven
     export type Visibility_StyleType = "visible" | "hidden" | "collapse";
     ```
 
-- For number-based types (such as `<length>`, `<angle>`, etc.) the type is defined as a union of `number` and `string`. The `string` type is included only because writing `"100%"` or `"0.5in"` is much more convenient than using a construct such as `css.percent(100)` or `css.inch(0.5)` (these functions are also part of Mimcss). The exception to this rule is that the type used for unitless numeric properties such as `orphans` or `order` only allows `number`.
+- For number-based types (such as `<length>`, `<angle>`, etc.) the type is defined as a `number` and a callable interface that is implemented by "unit functions" such as `css.percent(100)` or `css.inch(0.5)`. In addition, Mimcss allows a few string literals for such frequently used values as `"100%"` and `"1fr"`. For every numeric type, Mimcss defines a default unit to be used with integer numbers and another unit to be used with floating point numbers. For example, Mimcss defines the `CssLength` type for values of the CSS `<length>` type. When integer numbers are used for the `CssLength` values, they are interpreted as pixels; that is, having the unit suffix of `"px"`. For floating point numbers of the `CssLength` type, the suffix is `"em"`.
 
 - For color properties, the `CssColor` type includes string literals for all the named colors. It also allows specifying colors as numbers and provides `css.rgb()` and `css.hsl()` functions. The `string` type is not part of the `CssColor` type definition.
 
-- For complex properties Mimcss uses arrays, tuples, functions and objects to provide the type-safe and convenient way to specify values. For most complex properties such as `background`, `animation`, etc. the `string` type is allowed.
+- For complex properties Mimcss uses arrays, tuples, functions and objects to provide the type-safe and convenient way to specify values. For most complex short-hand properties such as `background`, `animation`, etc. object type with fields corresponding to the long-hand properties is allowed. Most fields in such object types are optional and thus can be omitted.
 
-- The string literals `initial`, `reset` and `inherit` are part of any property type definition.
+- The string literals `initial`, `reset`, `inherit` and `revert` are part of any property type definition.
 
 - All properties accept a custom CSS property if it is defined for a compatible type; for example:
 
@@ -115,10 +115,10 @@ The `min()` and `max()` functions accept a variable number of parameters of the 
 class MyStyles extends css.StyleDefinition
 {
     // This will work because the 'Len.min()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.Len.min( 100, 10.5, "1.5in", "50%") })
+    cls1 = css.$class({ left: css.Len.min( 100, 10.5, css.inch(1.5), css.percent(50)) })
 
     // This will NOT compile because the 'Angle.min()' function returns type incompatible with the 'left' property
-    cls2 = css.$class({ left: css.Angle.min( 45, 0.25, "1rad") })
+    cls2 = css.$class({ left: css.Angle.min( 45, 0.25, css.rad(1)) })
 }
 ```
 
@@ -128,10 +128,10 @@ The `clamp()` function accepts three parameters of the corresponding numeric typ
 class MyStyles extends css.StyleDefinition
 {
     // This will work because the 'Len.clamp()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.Len.clamp( 100,  "1.5in", "50%") })
+    cls1 = css.$class({ left: css.Len.clamp( 100,  css.inch(1.5), css.percent(50)) })
 
     // This will NOT compile because the 'Angle.min()' function returns type incompatible with the 'left' property
-    cls2 = css.$class({ left: css.Angle.clamp( 45, 0.25, "1rad") })
+    cls2 = css.$class({ left: css.Angle.clamp( 45, 0.25, css.rad(1)) })
 }
 ```
 
@@ -194,7 +194,7 @@ Mimcss allows assigning names to your own color values and using them just as yo
 Let's assume that you have a color value `0xA1B2C3` and you want to assign the name `myFavColor` to it. The first step is to add this name to the `INamedColors` interface as a property of the `number` type:
 
 ```tsx
-declare module "mimcss/lib/styles/ColorTypes"
+declare module "mimcss"
 {
     interface INamedColors
     {
@@ -234,14 +234,14 @@ The following list gives a brief description of the complex properties:
     ```tsx
     class MyStyles extends css.StyleDefinition
     {
-        // single string
-        cls1 = css.$class({ margin: "4px 8px" })
+        // single raw string
+        cls1 = css.$class({ margin: css.raw`4px 8px` })
 
         // single number (all four sides wil be set to 8px)
         cls2 = css.$class({ margin: 8 })
 
-        // tuple with two elements - number and string
-        cls3 = css.$class({ margin: [4, "1em"] })
+        // tuple with two elements - number
+        cls3 = css.$class({ margin: [4, 1.2] })
 
         // a single castom variable (4px for top, 0.5em for left and right, "auto" for bottom)
         defaultMargin = css.$var( "margin", [4, 0.5, "auto"])

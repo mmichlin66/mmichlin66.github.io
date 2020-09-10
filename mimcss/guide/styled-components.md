@@ -48,7 +48,7 @@ import * as css from "mimcss"
 class ColorBoxStyles extends css.StyleDefinition
 {
     // box size and border are hard-coded
-    box = css.$class({ width: 200, height: 200, border: "1px solid black" })
+    box = css.$class({ width: 200, height: 200, border: [1, "solid", "black"] })
 
     // background color is passed
     constructor( bgColor: css.CssColor)
@@ -56,7 +56,7 @@ class ColorBoxStyles extends css.StyleDefinition
         super();
 
         // set the background-color property of the style rule
-        this.box.setProp( "backgroundColor", bgColor); 
+        this.box.setProp( "backgroundColor", bgColor);
     }
 }
 
@@ -113,7 +113,7 @@ class ColorBoxStyles extends css.StyleDefinition
     box = css.$class({
         width: 200,
         height: 200,
-        border: "1px solid black",
+        border: [1, "solid", "black"],
         backgroundColor: this.bgColor
     })
 
@@ -201,7 +201,7 @@ class ColorBoxStyles extends css.StyleDefinition
     box = css.$class({
         width: 200,
         height: 200,
-        border: "1px solid black",
+        border: [1, "solid", "black"],
         backgroundColor: this.bgColor
     })
 

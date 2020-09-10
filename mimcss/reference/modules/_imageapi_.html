@@ -141,7 +141,7 @@
 linearGradient( Colors.red, [<span class="hljs-number">50</span>], Colors.blue)
 
 <span class="hljs-comment">// radial gradient with a second color starting at 20%</span>
-radialGradient( <span class="hljs-string">&quot;red&quot;</span>, [<span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;20%&quot;</span>], <span class="hljs-string">&quot;yellow&quot;</span>)
+radialGradient( <span class="hljs-string">&quot;red&quot;</span>, [<span class="hljs-string">&quot;blue&quot;</span>, css.percent(<span class="hljs-number">20</span>)], <span class="hljs-string">&quot;yellow&quot;</span>)
 
 <span class="hljs-comment">// conic gradient with a second color starting at 0.4turn and stopping at 0.6turn</span>
 conicGradient( <span class="hljs-string">&quot;red&quot;</span>, [<span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.6</span>], <span class="hljs-string">&quot;yellow&quot;</span>)</code></pre>
@@ -149,7 +149,7 @@ conicGradient( <span class="hljs-string">&quot;red&quot;</span>, [<span class="h
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"100%"</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_basictypes_.ilengthproxy.html" class="tsd-signature-type">ILengthProxy</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"100vh"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"100vw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"1fr"</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_basictypes_.iangleproxy.html" class="tsd-signature-type">IAngleProxy</a></h4>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"100%"</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_basictypes_.ilengthproxy.html" class="tsd-signature-type">ILengthProxy</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"5%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"10%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"15%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"20%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"25%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"30%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"35%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"40%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"45%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"50%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"55%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"60%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"65%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"70%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"75%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"80%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"85%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"90%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"95%"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"100vh"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"100vw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"1fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"2fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"3fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"4fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"5fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"6fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"7fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"8fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"9fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"10fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"11fr"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"12fr"</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_basictypes_.iangleproxy.html" class="tsd-signature-type">IAngleProxy</a></h4>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Type of numeric values used for hints and color stops.</p>
@@ -223,7 +223,7 @@ linearGradient( Colors.red, Colors.blue).to( <span class="hljs-number">45</span>
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript">backgroundImage: conicGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>)
 
-backgroundImage: conicGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).from( <span class="hljs-number">0.25</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;65%&quot;</span>])</code></pre>
+backgroundImage: conicGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).from( <span class="hljs-number">0.25</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, css.percent(<span class="hljs-number">65</span>)])</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -315,7 +315,7 @@ backgroundImage: linearGradient( <span class="hljs-string">&quot;red&quot;</span
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript">backgroundImage: radialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>)
 
-backgroundImage: radialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).circle( <span class="hljs-string">&quot;30%&quot;</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;65%&quot;</span>])
+backgroundImage: radialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).circle( css.percent(<span class="hljs-number">30</span>)).at( [<span class="hljs-string">&quot;center&quot;</span>, css.percent(<span class="hljs-number">65</span>)])
 
 backgroundImage: radialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).ellipse( <span class="hljs-string">&quot;closest-side&quot;</span>)</code></pre>
 							</div>
@@ -349,7 +349,7 @@ backgroundImage: radialGradient( <span class="hljs-string">&quot;red&quot;</span
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript">backgroundImage: repeatingConicGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>)
 
-backgroundImage: repeatingConicGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).from( <span class="hljs-number">0.25</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;65%&quot;</span>])</code></pre>
+backgroundImage: repeatingConicGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).from( <span class="hljs-number">0.25</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, css.percent(<span class="hljs-number">65</span>)])</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -381,7 +381,7 @@ backgroundImage: repeatingConicGradient( <span class="hljs-string">&quot;red&quo
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript">backgroundImage: repeatinGradialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>)
 
-backgroundImage: repeatinGradialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).circle( <span class="hljs-string">&quot;30%&quot;</span>).at( [<span class="hljs-string">&quot;center&quot;</span>, <span class="hljs-string">&quot;65%&quot;</span>])
+backgroundImage: repeatinGradialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).circle( css.percent(<span class="hljs-number">30</span>)).at( [<span class="hljs-string">&quot;center&quot;</span>, css.percent(<span class="hljs-number">65</span>)])
 
 backgroundImage: repeatinGradialGradient( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>).ellipse( <span class="hljs-string">&quot;closest-side&quot;</span>)</code></pre>
 							</div>

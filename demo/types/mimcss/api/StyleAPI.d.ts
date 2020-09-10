@@ -1,4 +1,4 @@
-import { Extended, CssPosition, CssLength, CssPercent, CssAngle, CssNumber, CssPoint, CssColor, SelectorItem, ISelectorProxy, IFilterProxy, IBasicShapeProxy, IPathBuilder, IRayProxy, IFitContentProxy, IRepeatProxy, IMinMaxProxy, ITransformProxy, ISpanProxy, ExtentKeyword, IColorProxy, INamedColors } from "../api/BasicTypes";
+import { Extended, CssPosition, CssLength, CssPercent, CssAngle, CssNumber, CssPoint, CssColor, SelectorItem, ISelectorProxy, IFilterProxy, IBasicShapeProxy, IPathBuilder, IRayProxy, IRepeatProxy, IMinMaxProxy, ITransformProxy, ISpanProxy, ExtentKeyword, IColorProxy, INamedColors } from "../api/BasicTypes";
 import { Styleset, ExtendedStyleset, StringStyleset, BorderRadius_StyleType, FillRule_StyleType, GridTrackSize, GridTrack, GridLineCountOrName } from "./StyleTypes";
 /**
  * Returns a string representation of a selector. This function is a tag function and must be
@@ -106,9 +106,9 @@ export interface IInsetProxy extends IBasicShapeProxy {
  * *Example:*
  *
  * ```typescript
- * clipPath: inset( "15%")
+ * clipPath: inset( css.percent(15))
  *
- * clipPath: inset( "15%").round( 8)
+ * clipPath: inset( css.percent(15)).round( 8)
  * ```
  */
 export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>, o3?: Extended<CssLength>, o4?: Extended<CssLength>): IInsetProxy;
@@ -133,7 +133,7 @@ export interface ICircleProxy extends IBasicShapeProxy {
  * ```typescript
  * clipPath: circle( 100)
  *
- * clipPath: circle( 100).at( ["center", "30%"])
+ * clipPath: circle( 100).at( ["center", css.percent(30)])
  * ```
  */
 export declare function circle(radius?: ShapeRadius): ICircleProxy;
@@ -154,7 +154,7 @@ export interface IEllipseProxy extends IBasicShapeProxy {
  * ```typescript
  * clipPath: ellipse( 100, 50)
  *
- * clipPath: ellipse( 100, 50).at( ["center", "30%"])
+ * clipPath: ellipse( 100, 50).at( ["center", css.percent(30)])
  * ```
  */
 export declare function ellipse(radiusX?: ShapeRadius, radiusY?: ShapeRadius): IEllipseProxy;
@@ -271,10 +271,6 @@ export declare function translateZ(z: Extended<CssLength>): ITransformProxy;
  * Returns an ITransformProxy function representing the `translate3d()` CSS function.
  */
 export declare function translate3d(x: Extended<CssLength>, y: Extended<CssLength>, z: Extended<CssLength>): ITransformProxy;
-/**
- * Returns an IFitContentProxy function representing the `fit-content()` CSS function.
- */
-export declare function fitContent(size: Extended<CssLength>): IFitContentProxy;
 /**
  * Returns an IMinMaxProxy function representing the `minmax()` CSS function.
  */

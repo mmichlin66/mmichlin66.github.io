@@ -19,7 +19,7 @@ import { Extended, CssPosition, CssAngle, CssLength, CssNumber, CssColor, IImage
  * linearGradient( Colors.red, [50], Colors.blue)
  *
  * // radial gradient with a second color starting at 20%
- * radialGradient( "red", ["blue", "20%"], "yellow")
+ * radialGradient( "red", ["blue", css.percent(20)], "yellow")
  *
  * // conic gradient with a second color starting at 0.4turn and stopping at 0.6turn
  * conicGradient( "red", ["blue", 0.4, 0.6], "yellow")
@@ -108,7 +108,7 @@ export interface IRadialGradient extends IImageProxy {
  * ```typescript
  * backgroundImage: radialGradient( "red", "blue")
  *
- * backgroundImage: radialGradient( "red", "blue").circle( "30%").at( ["center", "65%"])
+ * backgroundImage: radialGradient( "red", "blue").circle( css.percent(30)).at( ["center", css.percent(65)])
  *
  * backgroundImage: radialGradient( "red", "blue").ellipse( "closest-side")
  * ```
@@ -122,7 +122,7 @@ export declare function radialGradient(...stopsOrHints: GradientStopOrHint<CssLe
  * ```typescript
  * backgroundImage: repeatinGradialGradient( "red", "blue")
  *
- * backgroundImage: repeatinGradialGradient( "red", "blue").circle( "30%").at( ["center", "65%"])
+ * backgroundImage: repeatinGradialGradient( "red", "blue").circle( css.percent(30)).at( ["center", css.percent(65)])
  *
  * backgroundImage: repeatinGradialGradient( "red", "blue").ellipse( "closest-side")
  * ```
@@ -146,7 +146,7 @@ export interface IConicGradient extends IImageProxy {
  * ```typescript
  * backgroundImage: conicGradient( "red", "blue")
  *
- * backgroundImage: conicGradient( "red", "blue").from( 0.25).at( ["center", "65%"])
+ * backgroundImage: conicGradient( "red", "blue").from( 0.25).at( ["center", css.percent(65)])
  * ```
  */
 export declare function conicGradient(...stopsOrHints: GradientStopOrHint<CssAngle>[]): IConicGradient;
@@ -158,7 +158,7 @@ export declare function conicGradient(...stopsOrHints: GradientStopOrHint<CssAng
  * ```typescript
  * backgroundImage: repeatingConicGradient( "red", "blue")
  *
- * backgroundImage: repeatingConicGradient( "red", "blue").from( 0.25).at( ["center", "65%"])
+ * backgroundImage: repeatingConicGradient( "red", "blue").from( 0.25).at( ["center", css.percent(65)])
  * ```
  */
 export declare function repeatingConicGradient(...stopsOrHints: GradientStopOrHint<CssAngle>[]): IConicGradient;

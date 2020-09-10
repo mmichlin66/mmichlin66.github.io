@@ -69,7 +69,7 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>The ICssResolutionMath interface contains methods that implement CSS mathematic functions on the
-						<code>&lt;resolution&gt;</code> CSS types.</p>
+						<code>&lt;resolution&gt;</code> CSS types. This interface is implemented by the <a href="../modules/_utilapi_.html#resolution">Resolution</a> object.</p>
 					</div>
 				</div>
 			</section>
@@ -116,13 +116,15 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_basictypes_.inumberbasemath.html">INumberBaseMath</a>.<a href="_basictypes_.inumberbasemath.html#calc">calc</a></p>
 								<ul>
-									<li>Defined in BasicTypes.ts:188</li>
+									<li>Defined in BasicTypes.ts:340</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates property value using the CSS calc() function. This method is a tag function and must
-									be invoked with a template string without parentheses.</p>
+									<p>Creates property value using the CSS <code>calc()</code> function. This method is a tag function and must
+										be invoked with a template string without parentheses. Parameters in the template string
+										are of the type <code>Extended&lt;T&gt;</code>; that is, they can be either of the generic type <code>T</code>, or a
+									CSS custom variable or constant of type <code>T</code>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -132,9 +134,25 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#cssresolution" class="tsd-signature-type">CssResolution</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of parameters from the template string.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_basictypes_.igenericproxy.html" class="tsd-signature-type">IGenericProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Function implementing the <code>IGenericProxy&lt;P&gt;</code> callable interface. This allows the
+								result of the <code>calc</code> method to be assigned only to the properties of a compatible numeric
+							type.</p>
+							<p><strong>Example:</strong></p>
+							<pre><code class="language-typescript"><span class="hljs-keyword">class</span> MyStyles <span class="hljs-keyword">extends</span> css.StyleDefinition
+{
+    defaultPadding = css.var( <span class="hljs-string">&quot;CssLength&quot;</span>, <span class="hljs-number">8</span>)
+
+    <span class="hljs-comment">// calc( 200px - (2 * var(--defaultPadding)))</span>
+    cls1 = css.$class({
+        width: css.calc<span class="hljs-string">` 200px - (2 * <span class="hljs-subst">${<span class="hljs-built_in">this</span>.defaultPadding}</span>)`</span>
+    })
+}</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -149,27 +167,48 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_basictypes_.inumberbasemath.html">INumberBaseMath</a>.<a href="_basictypes_.inumberbasemath.html#clamp">clamp</a></p>
 								<ul>
-									<li>Defined in BasicTypes.ts:182</li>
+									<li>Defined in BasicTypes.ts:311</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates property value using the CSS clamp() function.</p>
+									<p>Creates property value using the CSS <code>clamp()</code> function. Parameters are of the type
+										<code>Extended&lt;T&gt;</code>; that is, they can be either of the generic type <code>T</code>, or a CSS custom variable
+									or constant of type <code>T</code>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>min: <a href="../modules/_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#cssresolution" class="tsd-signature-type">CssResolution</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Upper bound for the return value.</p>
+										</div>
+									</div>
 								</li>
 								<li>
 									<h5>pref: <a href="../modules/_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#cssresolution" class="tsd-signature-type">CssResolution</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Preferred value.</p>
+									</div>
 								</li>
 								<li>
 									<h5>max: <a href="../modules/_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#cssresolution" class="tsd-signature-type">CssResolution</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_basictypes_.igenericproxy.html" class="tsd-signature-type">IGenericProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Function implementing the <code>IGenericProxy&lt;P&gt;</code> callable interface. This allows the
+								result of the <code>clamp</code> method to be assigned only to the properties of a compatible numeric
+							type.</p>
+							<p><strong>Example:</strong></p>
+							<pre><code class="language-typescript"><span class="hljs-keyword">class</span> MyStyles <span class="hljs-keyword">extends</span> css.StyleDefinition
+{
+    <span class="hljs-comment">// clamp( 200px, 25.5em, 45%)</span>
+    cls1 = css.$class({
+        width: css.clamp( <span class="hljs-number">200</span>, <span class="hljs-number">25.5</span>, css.percent(<span class="hljs-number">45</span>))
+    })
+}</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -184,21 +223,37 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_basictypes_.inumberbasemath.html">INumberBaseMath</a>.<a href="_basictypes_.inumberbasemath.html#max">max</a></p>
 								<ul>
-									<li>Defined in BasicTypes.ts:179</li>
+									<li>Defined in BasicTypes.ts:285</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates property value using the CSS max() function.</p>
+									<p>Creates property value using the CSS <code>max()</code> function. Parameters are of the type
+										<code>Extended&lt;T&gt;</code>; that is, they can be either of the generic type <code>T</code>, or a CSS custom variable
+									or constant of type <code>T</code>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#cssresolution" class="tsd-signature-type">CssResolution</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>One or more values to choose the maximum from.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_basictypes_.igenericproxy.html" class="tsd-signature-type">IGenericProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Function implementing the <code>IGenericProxy&lt;P&gt;</code> callable interface. This allows the
+								result of the <code>max</code> method to be assigned only to the properties of a compatible numeric
+							type.</p>
+							<p><strong>Example:</strong></p>
+							<pre><code class="language-typescript"><span class="hljs-keyword">class</span> MyStyles <span class="hljs-keyword">extends</span> css.StyleDefinition
+{
+    <span class="hljs-comment">// max( 200px, 25.5em, 45%)</span>
+    cls1 = css.$class({
+        width: css.max( <span class="hljs-number">200</span>, <span class="hljs-number">25.5</span>, css.percent(<span class="hljs-number">45</span>))
+    })
+}</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -213,21 +268,37 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_basictypes_.inumberbasemath.html">INumberBaseMath</a>.<a href="_basictypes_.inumberbasemath.html#min">min</a></p>
 								<ul>
-									<li>Defined in BasicTypes.ts:176</li>
+									<li>Defined in BasicTypes.ts:261</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates property value using the CSS min() function.</p>
+									<p>Creates property value using the CSS <code>min()</code> function. Parameters are of the type
+										<code>Extended&lt;T&gt;</code>; that is, they can be either of the generic type <code>T</code>, or a CSS custom variable
+									or constant of type <code>T</code>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="../modules/_basictypes_.html#extended" class="tsd-signature-type">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#cssresolution" class="tsd-signature-type">CssResolution</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>One or more values to choose the minimum from.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_basictypes_.igenericproxy.html" class="tsd-signature-type">IGenericProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Function implementing the <code>IGenericProxy&lt;P&gt;</code> callable interface. This allows the
+								result of the <code>min</code> method to be assigned only to the properties of a compatible numeric
+							type.</p>
+							<p><strong>Example:</strong></p>
+							<pre><code class="language-typescript"><span class="hljs-keyword">class</span> MyStyles <span class="hljs-keyword">extends</span> css.StyleDefinition
+{
+    <span class="hljs-comment">// min( 200px, 25.5em, 45%)</span>
+    cls1 = css.$class({
+        width: css.min( <span class="hljs-number">200</span>, <span class="hljs-number">25.5</span>, css.percent(<span class="hljs-number">45</span>))
+    })
+}</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -242,24 +313,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_basictypes_.inumberbasemath.html">INumberBaseMath</a>.<a href="_basictypes_.inumberbasemath.html#units">units</a></p>
 								<ul>
-									<li>Defined in BasicTypes.ts:173</li>
+									<li>Defined in BasicTypes.ts:237</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates value from the given number and unit.</p>
+									<p>Creates value from the given number and unit. This method can be used to dynamically
+									construct the needed dimension.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>n: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Numeric value.</p>
+									</div>
 								</li>
 								<li>
 									<h5>unit: <a href="../modules/_basictypes_.html#resolutionunits" class="tsd-signature-type">ResolutionUnits</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Unit to append to the numeric value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_basictypes_.igenericproxy.html" class="tsd-signature-type">IGenericProxy</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_basictypes_.html#resolutiontype" class="tsd-signature-type">ResolutionType</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Function implementing the <code>IGenericProxy&lt;P&gt;</code> callable interface. This allows the
+								result of the <code>units</code> method to be assigned only to the properties of compatible numeric
+							type.</p>
 						</li>
 					</ul>
 				</section>

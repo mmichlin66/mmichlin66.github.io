@@ -49,7 +49,7 @@ class MyStyles extends css.StyleDefinition
 
     button3 = css.$class({
         backgroundColor: 0xFF00,        // green
-        padding: [4, "0.1in"],          // 4px top and bottom, 0.1in left and right
+        padding: [4, css.inch(0.1)],          // 4px top and bottom, 0.1in left and right
         border: [1, "solid", "brown"]   // defined as an array
     })
 }
@@ -96,8 +96,8 @@ class MyStyles extends css.StyleDefinition
     // extend the vbox class
     sidebar = css.$class({ "+": this.vbox,
         position: "absolute",
-        width: "15em",
-        height: "50em"
+        width: css.em(15),
+        height: css.em(50)
     })
 
     standout = css.$class({
@@ -106,8 +106,8 @@ class MyStyles extends css.StyleDefinition
 
     // extend two clases: sidebar and standout
     rightbar = css.$class({ "+": [this.sidebar, this.standout],
-        width: "10em",
-        left: "1em"
+        width: css.em(10),
+        left: css.em(1)
     })
 }
 ```
@@ -301,7 +301,7 @@ class CommonStyles extends css.StyleDefinition
     })
 
     standout = css.$class({
-        boxShadow: "10px 5px 5px red"
+        boxShadow: { x: 10, y: 5, blur: 5, color: "red" }
     })
 }
 
@@ -314,13 +314,13 @@ class MyStyles extends css.StyleDefinition
 
     sidebar = css.$class({ "+": this.common.vbox,
         position: "absolute",
-        width: "15em",
-        height: "50em"
+        width: css.em(15),
+        height: css.em(50)
     })
 
     rightbar = css.$class({ "+": [this.sidebar, this.common.standout],
-        width: "10em",
-        left: "1em"
+        width: css.em(10),
+        left: css.em(1)
     })
 }
 ```
