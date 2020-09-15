@@ -1,37 +1,46 @@
+import { CssAspectRatio, CssNumber, CssLength, CssResolution, IConstant, IStringProxy } from "./BasicTypes";
 /** Possible media types */
 export declare type MediaType = "all" | "braille" | "embossed" | "handheld" | "print" | "projection" | "screen" | "speech" | "tty" | "tv";
-export declare type AspectRatioFeatureType = [number, number] | string;
-export declare type LengthFeatureType = number | string;
-export declare type ResolutionFeatureType = number | string;
+/**
+ * Type that extends the given type with the following types:
+ * - IConstant interface that allows using a constant value.
+ * - IStringProxy interface that allows specifying raw string value.
+ */
+export declare type ExtendedFeature<T> = T | IConstant<T> | IStringProxy | null | undefined;
+/**
+ * Type for a media feature that can be specified either as a single value or as a range between
+ * two values of the given type.
+ */
+export declare type OneOrRange<T> = T | [ExtendedFeature<T>, ExtendedFeature<T>?];
 /**
  * Interface representing the type of objects that can be assigned to the style property of HTML
  * and SVG elements.
  */
-export declare type MediaFeatureset = {
+export interface IMediaFeatureset {
     anyHover?: "none" | "hover";
     anyPointer?: "none" | "coarse" | "fine";
-    aspectRatio?: AspectRatioFeatureType;
-    minAspectRatio?: AspectRatioFeatureType;
-    maxAspectRatio?: AspectRatioFeatureType;
-    color?: number | [number, number];
-    minColor?: number;
-    maxColor?: number;
+    aspectRatio?: CssAspectRatio;
+    minAspectRatio?: CssAspectRatio;
+    maxAspectRatio?: CssAspectRatio;
+    color?: OneOrRange<CssNumber>;
+    minColor?: CssNumber;
+    maxColor?: CssNumber;
     colorGamut?: "srgb" | "p3" | "rec2020";
-    colorIndex?: number | [number, number];
-    minColorIndex?: number;
-    maxColorIndex?: number;
+    colorIndex?: OneOrRange<CssNumber>;
+    minColorIndex?: CssNumber;
+    maxColorIndex?: CssNumber;
     displayMode?: "fullscreen" | "standalone" | "minimal-ui" | "browser";
     forcedColors?: "none" | "active";
     grid?: boolean;
-    height?: LengthFeatureType | [LengthFeatureType, LengthFeatureType];
-    minHeight?: LengthFeatureType;
-    maxHeight?: LengthFeatureType;
+    height?: OneOrRange<CssLength>;
+    minHeight?: CssLength;
+    maxHeight?: CssLength;
     hover?: "none" | "hover";
     invertedColors?: "none" | "inverted";
     lightLevel?: "dim" | "normal" | "washed";
-    monochrome?: number | [number, number];
-    minMonochrome?: number;
-    maxMonochrome?: number;
+    monochrome?: OneOrRange<CssNumber>;
+    minMonochrome?: CssNumber;
+    maxMonochrome?: CssNumber;
     orientation?: "portrait" | "landscape";
     overflowBlock?: "none" | "scroll" | "optional-paged" | "paged";
     overflowInline?: "none" | "scroll";
@@ -40,30 +49,39 @@ export declare type MediaFeatureset = {
     prefersContrast?: "no-preference" | "high" | "low";
     prefersReducedMotion?: "no-preference" | "reduce";
     prefersReducedTransparency?: "no-preference" | "reduce";
-    resolution?: ResolutionFeatureType | [ResolutionFeatureType, ResolutionFeatureType];
-    minResolution?: ResolutionFeatureType;
-    maxResolution?: ResolutionFeatureType;
+    resolution?: OneOrRange<CssResolution>;
+    minResolution?: CssResolution;
+    maxResolution?: CssResolution;
     scan?: "interlace" | "progressive";
     scripting?: "none" | "initial-only" | "enabled";
     update?: "none" | "slow" | "fast";
-    width?: LengthFeatureType | [LengthFeatureType, LengthFeatureType];
-    minWidth?: LengthFeatureType;
-    maxWidth?: LengthFeatureType;
-};
+    width?: OneOrRange<CssLength>;
+    minWidth?: CssLength;
+    maxWidth?: CssLength;
+}
 /**
  * Type representing a single set of styles as part of the @media rules. The styles in the
  * styleset are combined with the "and" operator. The entire styleset can be negated, which will
  * result in placing the "not" operator that will act on all styles in the query.
  */
-export declare type SingleMediaQuery = MediaFeatureset & {
+export interface ISingleMediaQuery extends IMediaFeatureset {
     $mediaType?: MediaType;
     $only?: boolean;
     $negate?: boolean;
+}
+/**
+ * The ExtendedSingleMediaQuery type maps all media features defined in the [[ISingleMediaQuery]]
+ * interface to the "extended" versions of their types. These extended types are defined by
+ * allowing [[StringProxy]] and [[IConstant]] interfaces to the type that is defined in the
+ * `ISingleMediaQuery` interface.
+ */
+export declare type ExtendedSingleMediaQuery = {
+    [K in keyof ISingleMediaQuery]?: ExtendedFeature<ISingleMediaQuery[K]>;
 };
 /**
  * Type representing one or more queries as part of the @media rule. While multiple queries in
  * an array are combined with the "," operator, the styles within each styleset are combined with
  * the "and" operator.
  */
-export declare type MediaQuery = SingleMediaQuery | SingleMediaQuery[];
+export declare type MediaQuery = string | ExtendedSingleMediaQuery | ExtendedSingleMediaQuery[];
 //# sourceMappingURL=MediaAPI.d.ts.map

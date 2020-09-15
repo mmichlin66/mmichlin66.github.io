@@ -77,6 +77,11 @@
             "path": "mimcss/examples/shape-offset-animation.tsx",
             "description": "Demonstrates moving and rotating shape along a path."
         },
+        {
+            "name": "Media rules",
+            "path": "mimcss/examples/media-rules.tsx",
+            "description": "Demonstrates responsve layout using media queries."
+        },
 
         { "name": "Advanced" },
         {

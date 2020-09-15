@@ -1,4 +1,4 @@
-import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy, CssLength, IFitContentProxy } from "../api/BasicTypes";
+import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy } from "../api/BasicTypes";
 import { IVarRule, ICounterRule, IIDRule } from "./RuleTypes";
 import { VarTemplateName, ListStyleType_StyleType, ExtendedVarValue } from "./StyleTypes";
 /**
@@ -144,6 +144,10 @@ export declare function fitContent(size: Extended<CssLength>): IFitContentProxy;
  * create url(#element) invocation, which is often used to address SVG elements by their IDs.
  */
 export declare function url(val: Extended<string | IIDRule>): IUrlProxy;
+/**
+ * Returns an IAspectRatioProxy function representing the `<ratio>` CSS type.
+ */
+export declare function ratio(w: CssNumber, h?: CssNumber): IAspectRatioProxy;
 /**
  * Returns a function representing the `attr()` CSS function. It returns IStringProxy
  * and theoretically can be used in any style property; however, its use by browsers is currently

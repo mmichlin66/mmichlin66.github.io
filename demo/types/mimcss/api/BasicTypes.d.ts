@@ -62,11 +62,35 @@ export interface IStringProxy extends IGenericProxy<"string"> {
  * function. Mimcss also allows defining "constants", which are a more lightweight way to provide
  * values that are used in other rules and properties.
  *
- * Th `ICustomVar` interface is extended by the [[IVarRule]] interface that is returned
+ * The `ICustomVar` interface is extended by the [[IVarRule]] interface that is returned
  * from the [[$var]] function and by the [[IConstRule]] interface that is returned from the
  * [[$const]] function.
+ *
+ * @typeparam T Basic type of the value of the custom CSS variable.
  */
 export interface ICustomVar<T = any> {
+    /**
+     * Sets new value of this custom CSS property at the global level; that is, under `:root`. To
+     * set a value of the CSS custom property under a certain CSS rule, use the
+     * [[IStyleRule.setCustomProp]] method.
+     * @param value New value for the CSS property.
+     * @param schedulerType ID of a registered scheduler type that is used to write the property
+     * value to the DOM. If undefined, the current default scheduler will be used.
+     */
+    setValue(value: ExtendedProp<T>, schedulerType?: number): void;
+}
+/**
+ * The `IConstant` interface represents a constant with values of the given type. Mimcss allows
+ * defining "constants", which are a lightweight way (compared to custom CSS properties) to provide
+ * values that are used in other rules and properties. Every style property can accept a constant
+ * value.
+ *
+ * The `IConstant` interface is extended by the [[IConstRule]] interface that is returned from the
+ * [[$const]] function.
+ *
+ * @typeparam T Basic type of the value of the constant.
+ */
+export interface IConstant<T = any> {
     /**
      * Gets the value of the property.
      */
@@ -74,10 +98,11 @@ export interface ICustomVar<T = any> {
 }
 /**
  * Type that extends the given type with the following types:
- * - ICustomVar interface that allows using a CSS custom property.
+ * - ICustomVar interface that allows using a CSS custom property rule value.
+ * - IConstant interface that allows using a constant rule value.
  * - IStringProxy interface that allows specifying raw string value.
  */
-export declare type Extended<T> = T | ICustomVar<T> | IStringProxy | undefined;
+export declare type Extended<T> = T | ICustomVar<T> | IConstant<T> | IStringProxy | null | undefined;
 /**
  * Type that encapsulates the type of property in an object with a single "!" property. This
  * type is used to indicate that the property value must be flagged as "!important".
@@ -425,6 +450,15 @@ export declare type SimpleCssPosition = HorizontalPositionKeyword | VerticalPosi
 export declare type CssPosition = SimpleCssPosition | [Extended<HorizontalPositionKeyword>, Extended<VerticalPositionKeyword>, Extended<CssLength>] | [Extended<HorizontalPositionKeyword>, Extended<CssLength>, Extended<VerticalPositionKeyword>, Extended<CssLength>?] | [Extended<VerticalPositionKeyword>, Extended<HorizontalPositionKeyword>, Extended<CssLength>] | [Extended<VerticalPositionKeyword>, Extended<CssLength>, Extended<HorizontalPositionKeyword>, Extended<CssLength>?];
 /** Type for a single corner radius */
 export declare type CssRadius = OneOrPair<CssLength>;
+/**
+ * The CssAspectRatio interface represents the CSS `<ratio>` type.
+ */
+export declare type CssAspectRatio = CssNumber | [Extended<CssNumber>, Extended<CssNumber>] | IAspectRatioProxy | "1/1" | "4/3" | "16/9" | "185/100" | "239/100";
+/**
+ * The IAspectRatioProxy interface represents an invocation of the [[ratio]] function.
+ */
+export interface IAspectRatioProxy extends IGenericProxy<"aspect-ratio"> {
+}
 /**
  * The IRuleWithSelector interface represents an entity that has a selector string..
  */

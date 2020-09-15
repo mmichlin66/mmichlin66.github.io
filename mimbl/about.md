@@ -1,5 +1,5 @@
 ---
-layout: mimbl
+layout: mimbl-guide
 ---
 
 # Mimbl - Web UI Authoring Library
@@ -61,7 +61,7 @@ class Child extends mim.Component
         super();
         this.color = color;
     }
-    
+
     render(): any
     {
         return <span style={ {color: this.color} }>Hello World!</span>;
@@ -79,7 +79,7 @@ interface ParentProps
 class Parent extends mim.Component<ParentProps>
 {
     child: Child;
-    
+
     constructor( props: ParentProps)
     {
         super( props);

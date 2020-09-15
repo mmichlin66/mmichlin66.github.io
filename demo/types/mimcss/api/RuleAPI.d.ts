@@ -478,7 +478,7 @@ export declare function $supports<T extends StyleDefinition>(query: SupportsQuer
 /**
  * Creates new media rule.
  */
-export declare function $media<T extends StyleDefinition>(query: string | MediaQuery, instOrClass: T | IStyleDefinitionClass<T>): IMediaRule<T>;
+export declare function $media<T extends StyleDefinition>(query: MediaQuery, instOrClass: T | IStyleDefinitionClass<T>): IMediaRule<T>;
 /**
  * Processes the given style definition class or instance and creates unique names for all named
  * entities. For a given style definition class only a single instance is created, no matter how

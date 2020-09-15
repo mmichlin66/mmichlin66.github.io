@@ -1,4 +1,4 @@
-import { ICustomVar, OneOrMany, PseudoEntity, CssSelector, PagePseudoClass, IParameterizedPseudoEntity, IRuleWithSelector, SelectorCombinator } from "../api/BasicTypes";
+import { ICustomVar, OneOrMany, PseudoEntity, CssSelector, PagePseudoClass, IParameterizedPseudoEntity, IRuleWithSelector, SelectorCombinator, IConstant } from "../api/BasicTypes";
 import { ExtendedStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
 /**
  * The `CombinedStyleset` type extends the Styleset type with certain properties that provide
@@ -204,11 +204,10 @@ export interface IVarRule<K extends VarTemplateName = any> extends INamedEntity,
      * set a value of the CSS custom property under a certain CSS rule, use the
      * [[IStyleRule.setCustomProp]] method.
      * @param value New value for the CSS property.
-     * @param important Flag indicating whether to set the "!important" flag on the property value.
      * @param schedulerType ID of a registered scheduler type that is used to write the property
      * value to the DOM. If undefined, the current default scheduler will be used.
      */
-    setValue(value: ExtendedVarValue<K>, important?: boolean, schedulerType?: number): void;
+    setValue(value: ExtendedVarValue<K>, schedulerType?: number): void;
 }
 /**
  * The IConstRule interface represents a "constant" that can be used anywhere the type defined by
@@ -220,12 +219,16 @@ export interface IVarRule<K extends VarTemplateName = any> extends INamedEntity,
  * `template` parameter including other constants, custom properties and functions.
  * Objects implementing this interface are returned from the [[$const]] function.
  */
-export interface IConstRule<K extends VarTemplateName = any> extends ICustomVar<VarValue<K>> {
+export interface IConstRule<K extends VarTemplateName = any> extends IConstant<VarValue<K>> {
     /**
      * Name of a non-custom CSS property or simple type whose type determines the type of the
      * custom property value.
      */
     readonly template: K;
+    /**
+     * Gets the value of the property.
+     */
+    getValue(): ExtendedVarValue<K>;
 }
 /**
  * The ICounterRule interface represents a named counter definition. Use this rule to create

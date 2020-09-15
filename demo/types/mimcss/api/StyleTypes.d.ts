@@ -1,4 +1,4 @@
-import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, IUrlProxy, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, IQuotedProxy, CssColor, CssImage, BasicShape, GeometryBoxKeyword, IFilterProxy, IMinMaxProxy, IFitContentProxy, IRepeatProxy, ISpanProxy, IRayProxy, ITransformProxy, ILengthProxy, CssSize } from "./BasicTypes";
+import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, IUrlProxy, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, IQuotedProxy, CssColor, CssImage, BasicShape, GeometryBoxKeyword, IFilterProxy, IMinMaxProxy, IFitContentProxy, IRepeatProxy, ISpanProxy, IRayProxy, ITransformProxy, ILengthProxy, CssSize, CssAspectRatio } from "./BasicTypes";
 import { FontStretch_Single } from "./FontFaceAPI";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule } from "./RuleTypes";
 /** Type for align-content style property */
@@ -551,7 +551,7 @@ export declare type Zoom_StyleType = "normal" | "reset" | CssPercent;
 /** Type for style properties for which there is no special type defined. */
 export declare type DefaultStyleType = string;
 /**
- * Interface representing a collection of built-in style properties. Every builtin property
+ * Interface representing a collection of built-in style properties. Every built-in property
  * appears in this interface. Also it is possible to add aditional properties via module
  * augmentation technique.
  */
@@ -570,6 +570,7 @@ export interface ICssStyleset {
     animationName?: AnimationName_StyleType;
     animationPlayState?: AnimationPlayState_StyleType;
     animationTimingFunction?: AnimationTimingFunction_StyleType;
+    aspectRatio?: CssAspectRatio;
     backdropFilter?: Filter_StyleType;
     backfaceVisibility?: BackfaceVisibilityMode_StyleType;
     background?: Background_StyleType;
@@ -743,12 +744,12 @@ export interface ICssStyleset {
     listStyleImage?: ListStyleImage_StyleType;
     listStylePosition?: ListStylePosition_StyleType;
     listStyleType?: ListStyleType_StyleType;
-    margin?: OneOrBox<CssLength> | "auto";
-    marginBlock?: OneOrPair<CssLength> | "auto";
+    margin?: OneOrBox<CssLength | "auto">;
+    marginBlock?: OneOrPair<CssLength | "auto">;
     marginBlockEnd?: CssLength | "auto";
     marginBlockStart?: CssLength | "auto";
     marginBottom?: CssLength | "auto";
-    marginInline?: OneOrPair<CssLength> | "auto";
+    marginInline?: OneOrPair<CssLength | "auto">;
     marginInlineEnd?: CssLength | "auto";
     marginInlineStart?: CssLength | "auto";
     marginLeft?: CssLength | "auto";
@@ -978,6 +979,8 @@ export interface ICssVarTemplates extends ICssStyleset {
     CssPosition?: CssPosition;
     /** Allows having CSS variables and constants that accept a `<radius>` CSS value */
     CssRadius?: CssRadius;
+    /** Allows having CSS variables and constants that accept a `<ratio>` CSS value */
+    CssAspectRatio?: CssAspectRatio;
     /** Allows having CSS variables and constants that accept a `<color>` CSS value */
     CssColor?: CssColor;
     /** Allows having CSS variables and constants that accept an `<image>` CSS value */
