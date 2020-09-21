@@ -58,6 +58,8 @@ export declare type TimingFunction_Bezier = [Extended<number>, Extended<number>,
 export declare type TimingFunction_Single = TimingFunction_Simple | TimingFunction_Step | TimingFunction_Bezier;
 /** Type for animation-timing-function style property */
 export declare type AnimationTimingFunction_StyleType = OneOrMany<TimingFunction_Single>;
+/** Type for aspect-ratio style property */
+export declare type AspectRatio_StyleType = CssAspectRatio | "auto";
 /** Type for backface-visibility style property */
 export declare type BackfaceVisibilityMode_StyleType = "visible" | "hidden";
 /** Type for single background value */
@@ -570,7 +572,7 @@ export interface ICssStyleset {
     animationName?: AnimationName_StyleType;
     animationPlayState?: AnimationPlayState_StyleType;
     animationTimingFunction?: AnimationTimingFunction_StyleType;
-    aspectRatio?: CssAspectRatio;
+    aspectRatio?: AspectRatio_StyleType;
     backdropFilter?: Filter_StyleType;
     backfaceVisibility?: BackfaceVisibilityMode_StyleType;
     background?: Background_StyleType;

@@ -19,7 +19,7 @@ export declare type OneOrRange<T> = T | [ExtendedFeature<T>, ExtendedFeature<T>?
 export interface IMediaFeatureset {
     anyHover?: "none" | "hover";
     anyPointer?: "none" | "coarse" | "fine";
-    aspectRatio?: CssAspectRatio;
+    aspectRatio?: OneOrRange<CssAspectRatio>;
     minAspectRatio?: CssAspectRatio;
     maxAspectRatio?: CssAspectRatio;
     color?: OneOrRange<CssNumber>;

@@ -6,6 +6,18 @@ import { Styleset, ExtendedStyleset, StringStyleset, BorderRadius_StyleType, Fil
  */
 export declare function selector(parts: TemplateStringsArray, ...params: SelectorItem[]): ISelectorProxy;
 /**
+ * Registers the given function to be used for converting values of the given style property to
+ * string. The `registerStyleProperty` function must be used after adding the property to the
+ * [[ICssStyleset]] interface via the module augmentation technique if the conversion to string
+ * requires non-standard operations. This function should not be called for propeties whose
+ * values only include numbers, strings, functions returning a string, objects whose `toString`
+ * method produces the necessary string or arrays of the above types.
+ *
+ * This function can be used for style properties that are not yet supported by Mimcss. This is
+ * also the way to support properties with vendor prefixes.
+ */
+export declare function registerStyleProperty(name: string, toStringFunc: (v: any) => string): boolean;
+/**
  * Converts the given value corresponding to the given style property to a CSS string.
  * @param stylePropName Style property name that determines how the value should be converted
  * to a CSS compliant string.

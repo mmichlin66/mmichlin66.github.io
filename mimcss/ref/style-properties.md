@@ -261,6 +261,17 @@ A Bezier function is represented as a four element tuple where each element is a
 
 **See Also:** [OneOrMany](/mimcss/reference.html#modules/_basictypes_.html#oneormany), [Extended](/mimcss/reference.html#modules/_basictypes_.html#extended)
 
+#### aspect-ratio
+
+```tsx
+aspectRatio: AspectRatio_StyleType;
+
+/** Type for aspect-ratio style property */
+export type AspectRatio_StyleType = CssAspectRatio | "auto";
+```
+
+**See Also:** [CssAspectRatio](/mimcss/reference.html#modules/_basictypes_.html#cssaspectratio)
+
 #### backdrop-filter
 
 ```tsx

@@ -96,7 +96,7 @@
         }
     ],
 
-    "firstExample": "mimcss/examples/basic-template.tsx",
+    "firstExample": "mimcss/examples/hello-world.tsx",
 
     "codeSnippets": [
         {
