@@ -1,4 +1,4 @@
-import { CssColor } from "mimcss";
+import { CssColor, MediaQuery } from "mimcss";
 import { IElementProps, EventPropType, ReferrerPolicyPropType, FormtargetPropType, CrossoriginPropType, FormenctypePropType, FormmethodPropType } from "./mim";
 export declare type AutocapitalizePropType = "off" | "none" | "on" | "sentences" | "words" | "characters";
 export declare type DirPropType = "ltr" | "rtl" | "auto";
@@ -259,7 +259,7 @@ export interface IHtmlLinkElementProps extends IHtmlElementProps<HTMLLinkElement
     hrefLang?: string;
     importance?: ImportancePropType;
     integrity?: string;
-    media?: string;
+    media?: MediaQuery;
     referrerpolicy?: ReferrerPolicyPropType;
     rel?: string;
     sizes?: string;
@@ -359,7 +359,7 @@ export interface IHtmlSelectElementProps extends IHtmlElementProps<HTMLSelectEle
 export interface IHtmlSlotElementProps extends IHtmlElementProps<HTMLSlotElement> {
 }
 export interface IHtmlSourceElementProps extends IHtmlElementProps<HTMLSourceElement> {
-    media?: string;
+    media?: MediaQuery;
     sizes?: string;
     src?: string;
     srcset?: string;
@@ -368,7 +368,7 @@ export interface IHtmlSourceElementProps extends IHtmlElementProps<HTMLSourceEle
 export interface IHtmlSpanElementProps extends IHtmlElementProps<HTMLSpanElement> {
 }
 export interface IHtmlStyleElementProps extends IHtmlElementProps<HTMLStyleElement> {
-    media?: string;
+    media?: MediaQuery;
     nonce?: string;
     title?: string;
     type?: string;

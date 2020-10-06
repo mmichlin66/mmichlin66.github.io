@@ -239,9 +239,14 @@
 					<div class="tsd-signature tsd-kind-icon">Attr<wbr>Type<wbr>Keyword<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"string"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"color"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"url"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"integer"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"number"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"length"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"angle"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"time"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"frequency"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in BasicTypes.ts:1366</li>
+							<li>Defined in BasicTypes.ts:1369</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type representing keywords used to define a type used in the CSS <code>attr()</code> function.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="attrunitkeyword" class="tsd-anchor"></a>
@@ -249,9 +254,14 @@
 					<div class="tsd-signature tsd-kind-icon">Attr<wbr>Unit<wbr>Keyword<span class="tsd-signature-symbol">:</span> <a href="_basictypes_.html#percentunits" class="tsd-signature-type">PercentUnits</a><span class="tsd-signature-symbol"> | </span><a href="_basictypes_.html#lengthunits" class="tsd-signature-type">LengthUnits</a><span class="tsd-signature-symbol"> | </span><a href="_basictypes_.html#timeunits" class="tsd-signature-type">TimeUnits</a><span class="tsd-signature-symbol"> | </span><a href="_basictypes_.html#angleunits" class="tsd-signature-type">AngleUnits</a><span class="tsd-signature-symbol"> | </span><a href="_basictypes_.html#resolutionunits" class="tsd-signature-type">ResolutionUnits</a><span class="tsd-signature-symbol"> | </span><a href="_basictypes_.html#frequencyunits" class="tsd-signature-type">FrequencyUnits</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in BasicTypes.ts:1368</li>
+							<li>Defined in BasicTypes.ts:1374</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type representing keywords used to define a unit used in the CSS <code>attr()</code> function.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="basicshape" class="tsd-anchor"></a>
@@ -264,8 +274,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The BasicShapeType represents an invocation of one the CSS <code>&lt;basic-shape&gt;</code> functions including
-							the <code>path()</code> function.</p>
+							<p>The BasicShapeType represents an invocation of one the CSS <code>&lt;basic-shape&gt;</code> functions such as
+							<a href="../interfaces/_imageapi_.iradialgradient.html#circle">circle</a>, [[polygone]], [[path]], etc.</p>
 						</div>
 					</div>
 				</section>
@@ -347,32 +357,32 @@
 						<p><strong>Examples:</strong></p>
 						<pre><code class="language-typescript"><span class="hljs-keyword">class</span> MyStyles <span class="hljs-keyword">extends</span> css.StyleDefinition
 {
-    <span class="hljs-comment">// using string value of a Web color</span>
-    cls1 = css.$class({ color: <span class="hljs-string">&quot;red&quot;</span> })
+    <span class="hljs-comment">// using string value and numeric value of Web colors</span>
+    cls1 = css.$class({ color: <span class="hljs-string">&quot;red&quot;</span>, backgroundColor: css.Colors.yellow })
 
     <span class="hljs-comment">// using string value of a system color</span>
-    cls1 = css.$class({ color: <span class="hljs-string">&quot;LinkText&quot;</span> })
+    cls2 = css.$class({ color: <span class="hljs-string">&quot;LinkText&quot;</span> })
 
     <span class="hljs-comment">// using numeric value</span>
-    cls2 = css.$class({ color: <span class="hljs-number">0xCCCCCC</span> })
+    cls3 = css.$class({ color: <span class="hljs-number">0xCCCCCC</span> })
 
     <span class="hljs-comment">// using numeric value with fractional part for alpha</span>
-    cls1 = css.$class({ color: <span class="hljs-number">0x123456</span> + <span class="hljs-number">0.4</span> })
+    cls4 = css.$class({ color: <span class="hljs-number">0x123456</span> + <span class="hljs-number">0.4</span> })
 
     <span class="hljs-comment">// using negative numeric value for inverted color</span>
-    cls1 = css.$class({ color: <span class="hljs-number">-0x123456</span> })
+    cls5 = css.$class({ color: <span class="hljs-number">-0x123456</span> })
 
     <span class="hljs-comment">// using negative numeric value with fractional part for inverted color with alpha</span>
-    cls1 = css.$class({ color: -(<span class="hljs-number">0x123456</span> + <span class="hljs-number">0.4</span>) })
+    cls6 = css.$class({ color: -(<span class="hljs-number">0x123456</span> + <span class="hljs-number">0.4</span>) })
 
     <span class="hljs-comment">// using the &lt;a href=&quot;_styleapi_.html#alpha&quot;&gt;alpha&lt;/a&gt; function with named color</span>
-    cls1 = css.$class({ color: css.alpha( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-number">0.4</span>) })
+    cls7 = css.$class({ color: css.alpha( <span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-number">0.4</span>) })
 
     <span class="hljs-comment">// using the &lt;a href=&quot;_styleapi_.html#rgb&quot;&gt;rgb&lt;/a&gt; function</span>
-    cls1 = css.$class({ color: css.rgb( <span class="hljs-number">256</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>) })
+    cls8 = css.$class({ color: css.rgb( <span class="hljs-number">256</span>, <span class="hljs-number">0</span>, <span class="hljs-number">128</span>) })
 
     <span class="hljs-comment">// using the &lt;a href=&quot;_styleapi_.html#hsl&quot;&gt;hsl&lt;/a&gt; function</span>
-    cls1 = css.$class({ color: css.hsl( <span class="hljs-number">200</span>, <span class="hljs-number">90</span>, <span class="hljs-number">52</span>) })
+    cls9 = css.$class({ color: css.hsl( <span class="hljs-number">200</span>, <span class="hljs-number">90</span>, <span class="hljs-number">52</span>) })
 }</code></pre>
 					</div>
 				</section>
@@ -628,7 +638,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type representing extent for the <code>radial-gradient()</code> or <code>ray()</code> CSS function.</p>
+							<p>Type representing extent for the [[radial-gradient]] or <a href="_styleapi_.html#ray">ray</a> functions.</p>
 						</div>
 					</div>
 				</section>
@@ -673,7 +683,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type used for several properties</p>
+							<p>Type representing the boundaries of a box</p>
 						</div>
 					</div>
 				</section>
