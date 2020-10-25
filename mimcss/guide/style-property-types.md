@@ -135,7 +135,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-The `calc()` function accepts arbitrary number of parameters where the first one is a string template that contains placeholders and the rest are the parameters of the corresponding numeric type that will substitutes the placeholders. The return value can only be assigned to the property of the compatible type. Note that the `calc()` function is a *tag* function and must be invoked with the template string without parentheses.
+The `calc()` function is a tag function accepting a template string with embedded parameters of the corresponding numeric type. The return value can only be assigned to the property of the compatible type.
 
 ```tsx
 class MyStyles extends css.StyleDefinition

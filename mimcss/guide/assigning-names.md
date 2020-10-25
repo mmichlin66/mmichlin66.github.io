@@ -61,7 +61,7 @@ Although the names of the properties defining the CSS classes are the same, Mimc
 Under the Scoped mode, the string value of the `myStyles.emphasized.name` property will be `".MyStyles_emphasized"`, while the string value of the `otherStyles.emphasized.name` property will be `".OtherStyles_emphasized"`. Under the Unique mode, the names might be created as `n25` and `n73`. This would be obviously much more difficult to debug.
 
 ## Explicit Names
-There are situations when we need to bypass the Mimcss name auto-generation. One use case is when we want to override a class that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and `$animation` - accept an optional parameter where we can provide the name as a string. For example,
+There are situations when we need to bypass the Mimcss name auto-generation. One use case is when we want to override a class that comes from a CSS file (remember that Mimcss is not "all-or-nothing" library). In this case, we can specify the names explicitly. The functions that produce named rules - `$class`, `$id`, `$var` and others - accept an optional parameter where we can provide the name as a string. For example,
 
 ```tsx
 class MyStyles extends css.StyleDefinition
@@ -81,7 +81,6 @@ class MyStyles extends css.StyleDefinition
     lib = css.$use(LibStyles)
 
     box = css.$class( { margin: 8 }, this.lib.box)
-
 }
 ```
 

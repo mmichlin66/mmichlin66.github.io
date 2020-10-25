@@ -17,7 +17,7 @@ class MyStyles extends css.StyleDefinition
         // Mimcss provides functions with names corresponding to units
         margin: css.cm(0.5),
 
-        // strings can also be used for numeric values - for developer convenience
+        // using unit functions
         width: css.percent(95),
         height: css.inch(3),
 
@@ -48,7 +48,7 @@ class MyStyles extends css.StyleDefinition
         // type corresponding to the CSS `<length>` type.
         width: css.Len.max( css.percent(80), 300, css.inch(4)),
 
-        // padding can be specified as an array of 2 to 3 elements:
+        // padding can be specified as an array of 2 to 4 elements:
         // 10px 1.4em 0.5cm 1%
         padding: [10, 1.4, css.cm(0.5), css.percent(1)],
     })

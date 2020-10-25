@@ -24,7 +24,7 @@ The `Styleset` type contains every short-hand and long-hand style property defin
 
 The `Styleset` type might look similar to the built-in `CSSStyleDeclaration` type; however, while in `CSSStyleDeclaration` all properties have the `string` type, in `Styleset`, each property has its own type. This provides to the developers an easier and more powerful way to specify values for the properties. Moreover, specifying invalid values will be detected as a compile-time error. Let's see several examples:
 
-1. The `color` property. Mimcss provides names of all the built-in colors in the `Colors` type. You can either use its properties, e.g. `Colors.dodgerblue`, or directly type `"dodgerblue"`. When you start typing color names as strings, the autocomplete feature of your IDE will prompt you with the suitable names. If you misspell the color name, it will be immediately detected. You can add new named colors using the module augmentation technique. You can also specify colors as numbers, e.g. 0xFF0000 for red, which is similar to the CSS notation `"#FF0000"` but allows you to calculate the color value programmatically without the need to convert it to string. There are also special color functions such as `rgb()` or `alpha()` that allow manipulating color values. All of these methods are of course applicable not only for the `color` property but to any property that uses color.
+1. The `color` property. Mimcss provides names of all the built-in colors in the `Colors` type. You can either use its properties, e.g. `Colors.dodgerblue`, or directly type `"dodgerblue"`. When you start typing color names as strings, the autocomplete feature of your IDE will prompt you with the suitable names. If you misspell the color name, it will be immediately detected. You can add new named colors using the module augmentation technique. You can also specify colors as numbers, e.g. 0xFF0000 for red, which is similar to the CSS notation `"#FF0000"` but allows you to calculate the color value programmatically without the need to convert it to string. There are also special color functions such as `rgb()` or `alpha()` that allow manipulating color values. All of these methods are of course applicable not only to the `color` property but to any property that uses color.
 
 1. The `padding` property. CSS allows specifying 1 to 4 values for the `padding` property where each of the values must specify dimension units (except for 0). In Mimcss,  the `padding` property value can be specified as a string or a number or an array of strings or numbers with 2, 3, or 4 elements. Integer numbers will be considered as `px` units, while floating point numbers will be considered as `em` units.
 
@@ -37,30 +37,30 @@ class MyStyles extends css.StyleDefinition
 {
     button1 = css.$class({
         backgroundColor: css.Colors.blue,   // built-in color property
-        padding: 4,                     // 4px for all sides
-        border: 2                       // 2px width with default style and color
+        padding: 4,                         // 4px for all sides
+        border: 2                           // 2px width with default style and color
     })
 
     button2 = css.$class({
-        backgroundColor: "yellow",      // built-in color constant
-        padding: [4, 0.3],              // 4px top and bottom, 0.3em left and right
-        border: "1px solid brown"       // defined as a string
+        backgroundColor: "yellow",          // built-in color constant
+        padding: [4, 0.3],                  // 4px top and bottom, 0.3em left and right
+        border: "1px solid brown"           // defined as a string
     })
 
     button3 = css.$class({
-        backgroundColor: 0xFF00,        // green
-        padding: [4, css.inch(0.1)],          // 4px top and bottom, 0.1in left and right
-        border: [1, "solid", "brown"]   // defined as an array
+        backgroundColor: 0xFF00,            // green
+        padding: [4, css.inch(0.1)],        // 4px top and bottom, 0.1in left and right
+        border: [1, "solid", "brown"]       // defined as an array
     })
 }
 ```
 
-Mimcss strives to avoid defining `string` as property type, especially for those properties that have a lot of keyword values such as `justify-items`, `cursor`, `list-style-type`, `border-style`, etc. If `string` is among the possible property types, then first, the autocomplete feature doesn't work, and second, misspellings are not detected at compile time. Ultimately, the decision whether or not to have `string` for a property type is a trade-off between the above considerations and the developer's convenience. For example, specifying the `border` property value as a string in `button2` is arguably easier than using an array as in `button3` even though the autocomplete works for the `"solid"` and `"brown"` strings. Similarly, since there are so many different units for specifying lengths, Mimcss allows the `string` type for properties such as `padding`, `width`, `line-height`, etc.
+Mimcss strives to avoid defining `string` as property type, especially for those properties that have a lot of keyword values such as `justify-items`, `cursor`, `list-style-type`, `border-style`, etc. If `string` is among the possible property types, then first, the autocomplete feature doesn't work, and second, misspellings are not detected at compile time. Ultimately, the decision whether or not to have `string` for a property type is a trade-off between the above considerations and the developer's convenience.
 
 The `Styleset` type allows specifying custom CSS properties using the special `"--"` property, which will be explained in the [Custom Properties](custom-properties.html) unit.
 
 ### Specifying !important flag
-CSS allows adding the `!important` flag to any style property to increase its specificity. For many style properties, Mimcss doesn't include the `string` type; however, for any property, Mimcss allows specifying an object with a single property "!", which contains the property value.
+CSS allows adding the `!important` flag to any style property to increase its specificity. For many style properties, Mimcss doesn't include the `string` type; however, for any property, Mimcss allows specifying an object with a single property `"!"`, which contains the property value.
 
 ```tsx
 class MyClass extends css.StyleDefinition
@@ -68,8 +68,8 @@ class MyClass extends css.StyleDefinition
     // .isNotImportant { min-width: 20px; }
     isNotImportant = css.$class({ minWidth: 20 })
 
-    // .isNotImportant { min-width: 20px !important }
-    issImportant = css.$class({ minWidth: { "!": 20 } })
+    // .isImportant { min-width: 20px !important }
+    isImportant = css.$class({ minWidth: { "!": 20 } })
 }
 ```
 

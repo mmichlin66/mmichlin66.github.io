@@ -1,6 +1,6 @@
 /**
- * This module describes functions used to create rules within style definition classes andsome
- * helper types and functions
+ * This module describes functions used to create rules within style definition classes and some
+ * helper types and functions.
  */
 import { CssSelector, PagePseudoClass } from "../api/BasicTypes";
 import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule } from "./RuleTypes";
@@ -222,7 +222,7 @@ export declare function $style(selector: CssSelector, styleset: CombinedStyleset
  *
  * @param frames Array of [[AnimationFrame]] objects. Each animation frame contains a waypoint
  * and a styleset.
- * @param nameOverride Atring or another `IAnimationRule` object that determines the name of the
+ * @param nameOverride String or another `IAnimationRule` object that determines the name of the
  * animation. If this optional parameter is defined, the name will override the Mimcss name
  * assignment mechanism. This might be useful if there is a need for the name to match a name of
  * another animation.
@@ -271,7 +271,7 @@ export declare function $keyframes(frames?: AnimationFrame[], nameOverride?: str
  * ```typescript
  * class MyStyles extends css.StyleDefinition
  * {
- *     // defining and using custom CSS property
+ *     // define and use custom CSS property
  *     importantTextColor = css.$var( "color", "red")
  *     important = css.$class({
  *         color: this.importantTextColor
@@ -280,7 +280,7 @@ export declare function $keyframes(frames?: AnimationFrame[], nameOverride?: str
  *     // use different value for the custom property under another CSS class
  *     special = css.$class({
  *         "+": this.important,
- *         "--": [ [this.importantTextColor, "maroon"]]
+ *         "--": [ [this.importantTextColor, "maroon"] ]
  *     })
  * }
  */
@@ -289,7 +289,7 @@ export declare function $var<K extends VarTemplateName>(template: K, value?: Ext
  * Creates a "constant" that can be used anywhere the type defined by the `template` parameter can
  * be used. They are called constants, because they provide a convenient and lightweight way of
  * defining values that are unchanged during the application lifetime. Although constants are
- * defined very similarly to custom properties (see the [[var]] function), they cannot participate
+ * defined very similarly to custom properties (see the [[$var]] function), they cannot participate
  * in the cascade and cannot be redefined under style rules. Constant can use any expression that
  * satisfies the type defined by the `template` parameter including other constants, custom
  * properties and functions.
@@ -443,7 +443,7 @@ export declare function $gridarea(nameOverride?: string | IGridAreaRule): IGridA
  *
  * @param fontface Object implementing the `IFontFace` interface defining the parameter of the
  * font to use.
- * @returns The `IFontFaceRule` object that represents the font-face rule.
+ * @returns The `IFontFaceRule` object that represents the @font-face rule.
  *
  * **Example:**
  *
@@ -461,6 +461,21 @@ export declare function $gridarea(nameOverride?: string | IGridAreaRule): IGridA
 export declare function $fontface(fontface: IFontFace): IFontFaceRule;
 /**
  * Creates a new `@import` rule referencing the given CSS file.
+ *
+ * @param url URL to the CSS file. Relative URLs are resolved relative to the base URL of the
+ * page where the Mimcss library is invoked.
+ * @returns The `IImportRule` object that represents the `@import` rule.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     importedCssFiles = [
+ *         css.$import( "common-3rdparty.css"),
+ *         css.$import( "small-screen-3rdparty.css", {maxWidth: 600}),
+ *     ]
+ * }
  */
 export declare function $import(url: string, mediaQuery?: string | MediaQuery, supportsQuery?: string | SupportsQuery): IImportRule;
 /**
@@ -472,7 +487,7 @@ export declare function $namespace(namespace: string, prefix?: string): INamespa
  */
 export declare function $page(pseudoClass?: PagePseudoClass, styleset?: Styleset): IPageRule;
 /**
- * Creates new supports rule.
+ * Creates a new `@supports` rule.
  */
 export declare function $supports<T extends StyleDefinition>(query: SupportsQuery, instOrClass: T | IStyleDefinitionClass<T>): ISupportsRule<T>;
 /**
@@ -502,8 +517,14 @@ export declare function $embed<T extends StyleDefinition>(instOrClass: T | IStyl
  * Sets the flag indicating whether to use optimized (short) rule names. If yes, the names
  * will be created by appending a unique number to the given prefix. If the prefix is not
  * specified, the standard prefix "n" will be used.
- * @param enable
- * @param prefix
+ *
+ * By default the development version of the liberary (mimcss.dev.js) uses scoped names and the
+ * production version uses short names. This function can be called to switch to the alternative
+ * method of name generation in either the development or the production builds.
+ *
+ * @param enable `true` to use short names of CSS entities and `false` to use scoped names.
+ * @param prefix Optional string that will serve as a prefix to which unique numbers will be added
+ * to generate short names. Ignored if the `enable` parameter is set to `false`.
  */
 export declare function enableShortNames(enable: boolean, prefix?: string): void;
 /**
@@ -547,7 +568,7 @@ export declare function createCssSerializer(): ICssSerializer;
  * representation. This can be used for server-side rendering when the resultant string can be
  * set as the content of a `<style>` element.
  */
-export declare function serializeToCSS(arg1: StyleDefinition | IStyleDefinitionClass, ...args: (StyleDefinition | IStyleDefinitionClass)[]): string;
+export declare function serializeToCSS(...args: (StyleDefinition | IStyleDefinitionClass)[]): string;
 /**
  * Decorator that should be applied to a rule if it is defined and used in the same style
  * definition class but then is overridden in a derived style definition class. The problem

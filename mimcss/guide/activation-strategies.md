@@ -13,10 +13,10 @@ description: "Styles can be activated and optionally deactivated depending on wh
 * [Styled Components](#styled-components)
 * [DOM Writing](#dom-writing)
 
-In the previous sections, we saw that rules are defined using rule definition classes and that the `activate` function is called to insert the CSS rules into the DOM. The `deactivate` function can be called at a later moment to remove the rules from the DOM. The question arises when we should call these functions. There is no a single answer that is good for all situations and this unit lists several of these situations and suggest an activation strategy for them.
+In the previous sections, we saw that rules are defined using rule definition classes and that the `activate` function is called to insert the CSS rules into the DOM. The `deactivate` function can be called at a later moment to remove the rules from the DOM. The question arises when we should call these functions. There is no single answer that is good for all situations and this unit lists several of these situations and suggest an activation strategy for them.
 
 We should consider the following factors of the activation process:
-- Rules inserted into DOM occupy memory, increase style layout calculation time and increase the possibility of style conflicts. The less rules are in the DOM, the leaner, faster and less error-prone is your application.
+- Rules inserted into DOM occupy memory, increase style layout calculation time and increase the possibility of style conflicts. The less rules are in the DOM, the leaner, faster and less error-prone your application.
 - Inserting and removing rules into/from the DOM is a time consuming process - not only because the insertion/removal functions take time but mostly because of layout calculations that the browser must perform to account for the new or removed styles.
 
 These two factors are contradictory: the first factor calls for having only those styles in the DOM that are relevant for the current content, while the second factor calls for inserting all the possible styles into the DOM once and leaving them there for the lifetime of the application.
@@ -27,7 +27,7 @@ The general approach is, as usual, a trade off: the styles that are used through
 The first approach is probably the simplest and is as close to the behavior of the CSS files as possible. In this approach, the activation is performed as soon as the style definition class is written:
 
 ```tsx
-class CommonStyles extends css.StyleDefinition
+export class CommonStyles extends css.StyleDefinition
 {
     vbox = css.$class({ display: "flex", flexDirection: "column" })
 }
@@ -39,9 +39,7 @@ The rules are activated as soon as the code is loaded. This is similar in behavi
 
 This approach is suitable for the shared styles that are used throughout the application. These can include definitions of custom CSS properties with application-wide defaults and most common layout and styling rules. Although the stylesheet can be deactivated, this is usually not needed.
 
-Note that in this approach, the style definition class is not even exported from the module - what is exported is the activated instance of this class. This means that as soon as this code runs (that is, this JavaScript module is loaded), the application can start using the styles.
-
-Note also, that if the application consists of multiple chunks, the JavaScript module containing the above code may not be included into the first chunk. The code of the module will only run when the appropriate chunk is loaded, which means that the styles will only be available after that chunk is loaded. This allows for a separation of styles between the chunks of the application.
+Note that if the application consists of multiple chunks, the JavaScript module containing the above code may not be included in the first chunk. The code of the module will only run when the appropriate chunk is loaded, which means that the styles will only be available after that chunk is loaded. This allows for a separation of styles between the chunks of the application.
 
 ## Explicit Activation
 In this approach, the `activate` function is called only at certain points in the application - usually when the user navigates to a relevant part of the application. Depending on the application needs styles can be deactivated when navigating to the part of the application that doesn't need them.
@@ -56,9 +54,9 @@ In this approach, the style rules are activated only when needed and deactivated
 In the just-in-time approach, the style definition class becomes an essential part of the component. It is activated when the component is mounted and deactivated when the component is unmounted. It is reasonable to put style definitions used by a component into the same module that defines the component.
 
 ## Styled Components
-In all the other methods discussed so far we pass the style definition class to the `activate` function and Mimcss creates a single instance of this class regardless of how many times the `activate` function is called. With styled components, we create an instance of the style definition class by ourselves and pass this instance to the `activate` function. We can create and activate as many instances of the style definition class as we want and for each instance a separate set of CSS rules is created and is inserted into the DOM, while Mimcss ensures that the names of classes, IDs and other named CSS entities used by these rules are unique.
+In all the other methods discussed so far we pass the style definition class to the `activate` function and Mimcss creates a single instance of this class regardless of how many times the `activate` function is called. With styled components, we create an instance of the style definition class by ourselves and pass this instance to the `activate` function. We can create and activate as many instances of the style definition class as we want and for each instance a separate set of CSS rules is created and inserted into the DOM, while Mimcss ensures that the names of classes, IDs and other named CSS entities used by these rules are unique.
 
-Styled component approach is suitable for complex but reusable widgets, which may leverage direct style manipulation to change their layout or visual effects.
+Styled components approach is suitable for complex but reusable widgets, which may leverage direct style manipulation to change their layout or visual effects.
 
 Styled components provide reach and flexible functionality and they are discussed in details in the [Styled Components](styled-components.html) unit.
 

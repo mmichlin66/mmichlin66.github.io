@@ -13,13 +13,13 @@ abstract class Theme extends css.StyleDefinition
     // define several abstract properties for rules that must be overridden in the derined style
     // definition classes. These rules define the names that will be used when rendering HTML.
     // We don't have to use the abstract keyword, but doing this forces the derived classes to
-    // provide definitions for these rueles (otherwise, theTypeScript compiler will not be happy).
+    // provide definitions for these rueles (otherwise, the TypeScript compiler will not be happy).
 	abstract box = css.$class()
 	abstract button = css.$class()
     abstract input = css.$class()
 
     // define several custom CSS properties that are used by rules of this class. We don't provide
-    // values for these variables but we specify the CSS property name (in camel form) that
+    // values for these variables but we specify the CSS property names (in camel form) that
     // define the types of these variables. The @virtual decorator is necessary here because
     // although these variables are used by the rules in this base class, we want the values to
     // be those assigned in the derived classes.
@@ -41,7 +41,7 @@ abstract class Theme extends css.StyleDefinition
     })
 
     // use $abstract rule because the following rules are only used as bases for the rules in the
-    // derived style definition classes. Using the $abstract rule means that we wil not create
+    // derived style definition classes. Using the $abstract rule means that we will not create
     // actual CSS SOM objects for them.
     boxBase = css.$abstract({
         display: "flex",

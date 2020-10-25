@@ -18,7 +18,7 @@ In regular CSS a unit of style definition is a rule. There are regular style rul
 
 In Mimcss, a stylesheet is represented by a class - called a Style Definition class. Individual rules are defined as properties of a style definition class. More precisely, a property of a style definition class can either define a single rule or be an array of rules. If the property defines a single rule, it is called a named rule because the property name allows referring to the rule by the property name. If a property is an array of rules, those rules are called unnamed rules because there is no property by which individual rules can be addressed.
 
-There are some rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names to which these rules are attached become the names by which these rules are referred to from the HTML rendering code.
+There are some rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names, to which these rules are attached, become the names by which these rules are referred to from the HTML rendering code.
 
 ## Style Definitions
 Let's create a simple style definition class:
@@ -39,7 +39,7 @@ class MyStyles extends css.StyleDefinition
 
     defaultColor = css.$var({ "color", "black" });
 
-    move = css.$animation([
+    move = css.$keyframes([
         [ "from", { top: 0} ],
         [ 50, { top: css.percent(50) } ],
         [ "to", { top: "100%" } ]
@@ -47,7 +47,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$class` and `$id` functions define style rules where the selector is a class and an element ID respectively. The `$var` function defines a custom CSS property. The `$animation` function defines a @keyframes rule.
+Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$class` and `$id` functions define style rules where the selector is a class and an element ID respectively. The `$var` function defines a custom CSS property. The `$keyframes` function defines a @keyframes (animation) rule.
 
 The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is not used in any way.
 
@@ -60,7 +60,7 @@ By now we have defined our rules with a TypeScript class; however, how do we ins
 let myStyles = css.activate( MyStyles);
 ```
 
-Notice that we passed the class object to the `activate` function - we didn't create an instance of the class by ourselves. There are special situations in which you will want to create instances of the style definition class (see Styled Components later in this guide); however, normally you pass the class object to the `activate` function and Mimcss creates an instance of it.
+Notice that we passed the class object to the `activate` function - we didn't create an instance of the class by ourselves. There are special situations in which you will want to create instances of the style definition class (see [Styled Components](styled-components.html) later in this guide); however, normally you pass the class object to the `activate` function and Mimcss creates an instance of it.
 
 The `$ctivate` function can be invoked multiple times for the same class - Mimcss makes sure that only a single instance is created and the rules are inserted into the DOM only once.
 
@@ -193,7 +193,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-Under the CSS specification, @import and $namespace rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first and the @namespace rules second, followed by other rules - regardless of their position in the style definition class. Mimcss will ignore any @import and @namespace rules specified under the nested grouping rules, such as @media and @supports - also in accordance with the CSS specification.
+Under the CSS specification, @import and @namespace rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first and the @namespace rules second, followed by other rules - regardless of their position in the style definition class. Mimcss will ignore any @import and @namespace rules specified under the nested grouping rules, such as @media and @supports - also in accordance with the CSS specification.
 
 The majority of CSS rules require specifying values for the style properties and that's what the next unit will cover.
 
