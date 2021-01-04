@@ -399,17 +399,13 @@ export declare class Dialog<TStyles extends IDialogStyles = IDialogStyles, TOpti
      */
     willMount(): void;
     /**
-     * If derived classes override this method, they must call super.didMount()
-     */
-    didMount(): void;
-    /**
      * If derived classes override this method, they must call super.willUnmount()
      */
     willUnmount(): void;
-    render(): void;
-    renderCaption(): void;
-    renderBody(): void;
-    renderButtons(): void;
+    render(): any;
+    renderCaption(): any;
+    renderBody(): any;
+    renderButtons(): any;
     private onCaptionPointerDown;
     private onButtonClicked;
     private onButtonKeyDown;

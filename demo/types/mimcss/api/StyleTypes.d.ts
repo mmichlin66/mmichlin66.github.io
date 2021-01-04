@@ -96,7 +96,10 @@ export declare type BackgroundOrigin_StyleType = OneOrMany<BackgroundOrigin_Sing
 /** Type for background-position style property */
 export declare type BackgroundPosition_StyleType = OneOrMany<CssPosition>;
 /** Type for background-position-x single item */
-export declare type BackgroundPositionX_Single = HorizontalPositionKeyword | CssLength | [HorizontalPositionKeyword, Extended<CssLength>];
+export declare type BackgroundPositionX_Single = HorizontalPositionKeyword | CssLength | [
+    HorizontalPositionKeyword,
+    Extended<CssLength>
+];
 /**
  * Type for background-position-x style property. To use the two-value syntax, e.g. `left 30px`,
  * the values must specified as a tuple inside an array; that is: `[["left", 30]]`. If values
@@ -105,7 +108,10 @@ export declare type BackgroundPositionX_Single = HorizontalPositionKeyword | Css
  */
 export declare type BackgroundPositionX_StyleType = OneOrMany<BackgroundPositionX_Single>;
 /** Type for background-position-y single item */
-export declare type BackgroundPositionY_Single = VerticalPositionKeyword | CssLength | [VerticalPositionKeyword, Extended<CssLength>];
+export declare type BackgroundPositionY_Single = VerticalPositionKeyword | CssLength | [
+    VerticalPositionKeyword,
+    Extended<CssLength>
+];
 /**
  * Type for background-position-y style property. To use the two-value syntax, e.g. `top 30px`,
  * the values must specified as a tuple inside an array; that is: `[["top", 30]]`. If values
@@ -160,7 +166,25 @@ export declare type BorderImageRepeatKeyword = "stretch" | "repeat" | "round" | 
 /** Type for border-image-repeat style property */
 export declare type BorderImageRepeat_StyleType = OneOrPair<BorderImageRepeatKeyword>;
 /** Type for border-image-slice style property */
-export declare type BorderImageSlice_StyleType = OneOrBox<CssPercent> | [Extended<CssPercent>, boolean?] | [Extended<CssPercent>, Extended<CssPercent>, boolean?] | [Extended<CssPercent>, Extended<CssPercent>, Extended<CssPercent>, boolean?] | [Extended<CssPercent>, Extended<CssPercent>, Extended<CssPercent>, Extended<CssPercent>, boolean?];
+export declare type BorderImageSlice_StyleType = OneOrBox<CssPercent> | [
+    Extended<CssPercent>,
+    boolean?
+] | [
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    boolean?
+] | [
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    boolean?
+] | [
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    boolean?
+];
 /** Type for border-image-source style property */
 export declare type BorderImageSource_StyleType = OneOrBox<CssImage> | "none";
 /**
@@ -177,7 +201,31 @@ export declare type BorderStyle_Single = "none" | "hidden" | "dotted" | "dashed"
 /** Type for border-style style property */
 export declare type BorderStyle_StyleType = OneOrBox<BorderStyle_Single>;
 /** Type for border style property */
-export declare type Border_StyleType = BorderWidth_Single | BorderStyle_Single | CssColor | [Extended<BorderWidth_Single>, Extended<BorderStyle_Single>?, Extended<CssColor>?] | [Extended<BorderWidth_Single>, Extended<CssColor>?, Extended<BorderStyle_Single>?] | [Extended<BorderStyle_Single>, Extended<BorderWidth_Single>?, Extended<CssColor>?] | [Extended<BorderStyle_Single>, Extended<CssColor>?, Extended<BorderWidth_Single>?] | [Extended<CssColor>, Extended<BorderWidth_Single>?, Extended<BorderStyle_Single>?] | [Extended<CssColor>, Extended<BorderStyle_Single>?, Extended<BorderWidth_Single>?];
+export declare type Border_StyleType = BorderWidth_Single | BorderStyle_Single | CssColor | [
+    Extended<BorderWidth_Single>,
+    Extended<BorderStyle_Single>?,
+    Extended<CssColor>?
+] | [
+    Extended<BorderWidth_Single>,
+    Extended<CssColor>?,
+    Extended<BorderStyle_Single>?
+] | [
+    Extended<BorderStyle_Single>,
+    Extended<BorderWidth_Single>?,
+    Extended<CssColor>?
+] | [
+    Extended<BorderStyle_Single>,
+    Extended<CssColor>?,
+    Extended<BorderWidth_Single>?
+] | [
+    Extended<CssColor>,
+    Extended<BorderWidth_Single>?,
+    Extended<BorderStyle_Single>?
+] | [
+    Extended<CssColor>,
+    Extended<BorderStyle_Single>?,
+    Extended<BorderWidth_Single>?
+];
 /** Type for border side width style property */
 export declare type BorderWidth_Single = "thin" | "medium" | "thick" | CssLength;
 /** Type for border-width style property */
@@ -210,7 +258,10 @@ export declare type Clear_StyleType = "none" | "left" | "right" | "both" | "inli
 /** Type for clip style property */
 export declare type Clip_StyleType = "auto" | OneOrBox<CssLength>;
 /** Type for clip-path style property */
-export declare type ClipPath_StyleType = "none" | IUrlProxy | BasicShape | GeometryBoxKeyword | [GeometryBoxKeyword, BasicShape];
+export declare type ClipPath_StyleType = "none" | IUrlProxy | BasicShape | GeometryBoxKeyword | [
+    GeometryBoxKeyword,
+    BasicShape
+];
 /** Type for clip-rule style property */
 export declare type ClipRule_StyleType = "nonzero" | "evenodd";
 /** Type for color-interpolation and color-interpolation-filters style properties */
@@ -233,7 +284,13 @@ export declare type ColumnSpan_StyleType = "none" | "all";
  * - two variants of two element arrays: one of the elements will be treated as a number of columns
  *   while another as the column width.
  */
-export declare type Columns_StyleType = "auto" | CssNumber | CssLength | ["auto" | Extended<CssNumber>, "auto" | Exclude<Extended<CssLength>, number>] | ["auto" | Exclude<Extended<CssLength>, number>, "auto" | Extended<CssNumber>];
+export declare type Columns_StyleType = "auto" | CssNumber | CssLength | [
+    "auto" | Extended<CssNumber>,
+    "auto" | Exclude<Extended<CssLength>, number>
+] | [
+    "auto" | Exclude<Extended<CssLength>, number>,
+    "auto" | Extended<CssNumber>
+];
 /** Type for contain style property */
 export declare type Contain_StyleType = "none" | "strict" | "content" | "size" | "layout" | "style" | "paint" | Extended<"size" | "layout" | "style" | "paint">[];
 /** Type for content style property */
@@ -261,13 +318,20 @@ export declare type Filter_Single = IUrlProxy | IFilterProxy;
 /** Type for filter and backdrop-filter style property */
 export declare type Filter_StyleType = OneOrMany<Filter_Single>;
 /** Type for flex style property */
-export declare type Flex_StyleType = FlexBasis_StyleType | [Extended<number>, Extended<number>] | [Extended<number>, Extended<number>, Extended<FlexBasis_StyleType>];
+export declare type Flex_StyleType = FlexBasis_StyleType | [Extended<number>, Extended<number>] | [
+    Extended<number>,
+    Extended<number>,
+    Extended<FlexBasis_StyleType>
+];
 /** Type for flex-basis style property */
 export declare type FlexBasis_StyleType = "auto" | "content" | CssLength;
 /** Type for flex-direction style property */
 export declare type FlexDirection_StyleType = "row" | "row-reverse" | "column" | "column-reverse";
 /** Type for flex-flow style property */
-export declare type FlexFlow_StyleType = FlexDirection_StyleType | FlexWrap_StyleType | [Extended<FlexDirection_StyleType>, Extended<FlexWrap_StyleType>];
+export declare type FlexFlow_StyleType = FlexDirection_StyleType | FlexWrap_StyleType | [
+    Extended<FlexDirection_StyleType>,
+    Extended<FlexWrap_StyleType>
+];
 /** Type for flex-wrap style property */
 export declare type FlexWrap_StyleType = "nowrap" | "wrap" | "wrap-reverse";
 /** Type for float style property */
@@ -314,7 +378,10 @@ export declare type GridAutoFlow_StyleType = "row" | "column" | "dense" | "row d
  */
 export declare type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineRule;
 /** Type for grid-column-start/end and grid-row-start/end style properties */
-export declare type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy | [Extended<CssNumber>, IGridAreaRule | IGridLineRule];
+export declare type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy | [
+    Extended<CssNumber>,
+    IGridAreaRule | IGridLineRule
+];
 /** Type for grid-column and grid-row style properties */
 export declare type GridAxis_StyleType = OneOrPair<GridAxisSide_StyleType>;
 /** Type for grid-area style property */
@@ -323,7 +390,13 @@ export declare type GridArea_StyleType = OneOrBox<GridAxisSide_StyleType>;
  * Type for defining a single grid area position. The numbers are 1-based indices of the lines in
  * the following sequence: block start, inline start, block end, inline end.
  */
-export declare type GridTemplateArea_Definition = [IGridAreaRule | Extended<string>, number, number, number, number];
+export declare type GridTemplateArea_Definition = [
+    IGridAreaRule | Extended<string>,
+    number,
+    number,
+    number,
+    number
+];
 /** Type for grid-template-areas style property */
 export declare type GridTemplateAreas_StyleType = "none" | OneOrMany<IQuotedProxy> | GridTemplateArea_Definition[];
 /** Type for grid-template-columns and grid-template-rows style properties */
@@ -356,7 +429,20 @@ export declare type LineBreak_StyleType = "auto" | "loose" | "normal" | "strict"
 /** Type for line-height style property */
 export declare type LineHeight_StyleType = CssNumber | ILengthProxy;
 /** Type for list-style style property */
-export declare type ListStyle_StyleType = ListStyleType_StyleType | ListStylePosition_StyleType | ListStyleImage_StyleType | [Extended<ListStyleImage_StyleType>, Extended<ListStylePosition_StyleType>] | [Extended<ListStyleImage_StyleType>, Extended<ListStyleType_StyleType>?] | [Extended<ListStyleType_StyleType>, Extended<ListStylePosition_StyleType>] | [Extended<ListStyleImage_StyleType>, Extended<ListStylePosition_StyleType>, Extended<ListStyleType_StyleType>?];
+export declare type ListStyle_StyleType = ListStyleType_StyleType | ListStylePosition_StyleType | ListStyleImage_StyleType | [
+    Extended<ListStyleImage_StyleType>,
+    Extended<ListStylePosition_StyleType>
+] | [
+    Extended<ListStyleImage_StyleType>,
+    Extended<ListStyleType_StyleType>?
+] | [
+    Extended<ListStyleType_StyleType>,
+    Extended<ListStylePosition_StyleType>
+] | [
+    Extended<ListStyleImage_StyleType>,
+    Extended<ListStylePosition_StyleType>,
+    Extended<ListStyleType_StyleType>?
+];
 /** Type for line-style-image style property */
 export declare type ListStyleImage_StyleType = "none" | IUrlProxy;
 /** Type for list-style-position style property */
@@ -380,7 +466,10 @@ export declare type Offset_StyleType = OffsetPath_StyleType | {
 /** Type for the offset-anchor style property */
 export declare type OffsetAnchor_StyleType = "auto" | CssPosition;
 /** Type for offset-path style property */
-export declare type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape | GeometryBoxKeyword | [GeometryBoxKeyword, BasicShape];
+export declare type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape | GeometryBoxKeyword | [
+    GeometryBoxKeyword,
+    BasicShape
+];
 /** Type for the offset-rotate style property */
 export declare type OffsetRotate_StyleType = "auto" | "reverse" | CssAngle | ["auto" | "reverse", CssAngle];
 /** Type for the overflow-x/y style property */
@@ -398,11 +487,18 @@ export declare type OverscrollBehavior_StyleType = OneOrPair<OverscrollBehavior_
 /** Type for the paint-order style property */
 export declare type PaintOrder_Keyword = "fill" | "stroke" | "markers";
 /** Type for the paint-order style property */
-export declare type PaintOrder_StyleType = "normal" | PaintOrder_Keyword | [PaintOrder_Keyword, PaintOrder_Keyword?, PaintOrder_Keyword?];
+export declare type PaintOrder_StyleType = "normal" | PaintOrder_Keyword | [
+    PaintOrder_Keyword,
+    PaintOrder_Keyword?,
+    PaintOrder_Keyword?
+];
 /** Type for the perspective style property */
 export declare type Perspective_StyleType = "none" | CssLength;
 /** Type for the perspective-origin style property */
-export declare type PerspectiveOrigin_StyleType = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength | [Extended<HorizontalPositionKeyword | CssLength>, Extended<VerticalPositionKeyword | CssLength>];
+export declare type PerspectiveOrigin_StyleType = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength | [
+    Extended<HorizontalPositionKeyword | CssLength>,
+    Extended<VerticalPositionKeyword | CssLength>
+];
 /** Type for the place-content style property */
 export declare type PlaceContent_StyleType = AlignContent_StyleType | [Extended<AlignContent_StyleType>, Extended<JustifyContent_StyleType>];
 /** Type for the place-items style property */
@@ -418,13 +514,25 @@ export declare type Quotes_StyleType = "none" | "auto" | Extended<string>[];
 /** Type for the resize style property */
 export declare type Resize_StyleType = "none" | "both" | "horizontal" | "vertical" | "block" | "inline";
 /** Type for rotate style property */
-export declare type Rotate_StyleType = "none" | CssAngle | ["x" | "y" | "z", Extended<CssAngle>] | [Extended<CssNumber>, Extended<CssNumber>, Extended<CssNumber>, Extended<CssAngle>];
+export declare type Rotate_StyleType = "none" | CssAngle | ["x" | "y" | "z", Extended<CssAngle>] | [
+    Extended<CssNumber>,
+    Extended<CssNumber>,
+    Extended<CssNumber>,
+    Extended<CssAngle>
+];
 /** Type for row-gap style property */
 export declare type RowGap_StyleType = CssLength;
 /** Type for the scale style property */
-export declare type Scale_StyleType = "none" | CssNumber | [Extended<CssNumber>, Extended<CssNumber>?, Extended<CssNumber>?];
+export declare type Scale_StyleType = "none" | CssNumber | [
+    Extended<CssNumber>,
+    Extended<CssNumber>?,
+    Extended<CssNumber>?
+];
 /** Type for the scrollbar-color style property */
-export declare type ScrollbarColor_StyleType = "auto" | "dark" | "light" | [Extended<CssColor>, Extended<CssColor>];
+export declare type ScrollbarColor_StyleType = "auto" | "dark" | "light" | [
+    Extended<CssColor>,
+    Extended<CssColor>
+];
 /** Type for the scrollbar-width style property */
 export declare type ScrollbarWidth_StyleType = "auto" | "thin" | "none";
 /** Type for the scroll-behavior style property */
@@ -434,7 +542,10 @@ export declare type ScrollSnapAlign_StyleType = OneOrPair<"none" | "start" | "en
 /** Type for the scroll-snap-stop style property */
 export declare type ScrollSnapStop_StyleType = "normal" | "always";
 /** Type for the scroll-snap-type style property */
-export declare type ScrollSnapType_StyleType = "none" | [Extended<"x" | "y" | "block" | "inline" | "both">, Extended<"mandatory" | "proximity">];
+export declare type ScrollSnapType_StyleType = "none" | [
+    Extended<"x" | "y" | "block" | "inline" | "both">,
+    Extended<"mandatory" | "proximity">
+];
 /** Type for shape-outside style property */
 export declare type ShapeOutside_StyleType = IUrlProxy | BasicShape | GeometryBoxKeyword | CssImage;
 /** Type for the shape-rendering style property */
@@ -467,7 +578,10 @@ export declare type TextDecorationStyle_StyleType = "solid" | "double" | "dotted
 export declare type TextDecorationSkipInk_StyleType = "none" | "auto" | "all";
 /** Type for the text-decoration-thickness style property */
 export declare type TextDecorationThickness_StyleType = "auto" | "from-font" | CssLength;
-export declare type TextEmphasis_StyleType = TextEmphasisStyle_StyleType | CssColor | [Extended<TextEmphasisStyle_StyleType>, Extended<CssColor>];
+export declare type TextEmphasis_StyleType = TextEmphasisStyle_StyleType | CssColor | [
+    Extended<TextEmphasisStyle_StyleType>,
+    Extended<CssColor>
+];
 /** Type for the text-emphasis-position style property */
 export declare type TextEmphasisPosition_StyleType = "over left" | "over right" | "under left" | "under right";
 /** Shape for the text-emphasis-style style property */
@@ -475,9 +589,15 @@ export declare type TextEmphasisShape = "dot" | "circle" | "double-circle" | "tr
 /** Fill option for the text-emphasis-style style property */
 export declare type TextEmphasisFill = "filled" | "open";
 /** Type for the text-emphasis-style style property */
-export declare type TextEmphasisStyle_StyleType = "none" | TextEmphasisFill | TextEmphasisShape | [Extended<TextEmphasisFill>, Extended<TextEmphasisShape>];
+export declare type TextEmphasisStyle_StyleType = "none" | TextEmphasisFill | TextEmphasisShape | [
+    Extended<TextEmphasisFill>,
+    Extended<TextEmphasisShape>
+];
 /** Type for the text-indent style property */
-export declare type TextIndent_StyleType = CssLength | [Extended<CssLength>, Extended<OneOrMany<"each-line" | "hanging" | "each-line hanging">>];
+export declare type TextIndent_StyleType = CssLength | [
+    Extended<CssLength>,
+    Extended<OneOrMany<"each-line" | "hanging" | "each-line hanging">>
+];
 /** Type for the text-justify style property */
 export declare type TextJustify_StyleType = "auto" | "inter-character" | "inter-word" | "none";
 /** Type for the text-orientation style property */
@@ -506,7 +626,11 @@ export declare type Transform_StyleType = "none" | OneOrMany<ITransformProxy>;
 /** Type for transform-box style property */
 export declare type TransformBox_StyleType = "content-box" | "border-box" | "fill-box" | "stroke-box" | "view-box";
 /** Type for transform-origin style property */
-export declare type TransformOrigin_StyleType = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength | [Extended<HorizontalPositionKeyword | CssLength>, Extended<VerticalPositionKeyword | CssLength>, Extended<CssLength>?];
+export declare type TransformOrigin_StyleType = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength | [
+    Extended<HorizontalPositionKeyword | CssLength>,
+    Extended<VerticalPositionKeyword | CssLength>,
+    Extended<CssLength>?
+];
 /** Type for transform-style style property */
 export declare type TransformStyle_StyleType = "flat" | "preserve-3d";
 /** Type for single transition */
@@ -525,7 +649,11 @@ export declare type TransitionProperty_StyleType = OneOrMany<TransitionProperty_
 /** Type for transition-timing-function style property */
 export declare type TransitionTimingFunction_StyleType = OneOrMany<TimingFunction_Single>;
 /** Type for the translate style property */
-export declare type Translate_StyleType = "none" | CssLength | [Extended<CssLength>, Extended<CssLength>, Extended<CssLength>?];
+export declare type Translate_StyleType = "none" | CssLength | [
+    Extended<CssLength>,
+    Extended<CssLength>,
+    Extended<CssLength>?
+];
 /** Type for the unicode-bidi style property */
 export declare type UnicodeBidi_StyleType = "normal" | "embed" | "isolate" | "bidi-override" | "isolate-override" | "plaintext";
 /** Type for the user-select style property */
@@ -1048,7 +1176,10 @@ export declare type ExtendedVarValue<K extends VarTemplateName> = ExtendedProp<V
  * .blue { --different-color: "blue"; }
  * ```
  */
-export declare type CustomVar_StyleType<K extends VarTemplateName = any> = [IVarRule<K>, ExtendedVarValue<K>] | [string, K, ExtendedVarValue<K>];
+export declare type CustomVar_StyleType<K extends VarTemplateName = any> = [
+    IVarRule<K>,
+    ExtendedVarValue<K>
+] | [string, K, ExtendedVarValue<K>];
 /**
  * Type representing a collection of style properties and their values. In addition to the
  * properties representing the standard CSS styles, this type also includes the "--" property,

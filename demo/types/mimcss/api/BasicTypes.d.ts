@@ -445,9 +445,33 @@ export declare type VerticalPositionKeyword = "top" | "center" | "bottom";
 /** Type of a value specifying the vertical position */
 export declare type VerticalPosition = VerticalPositionKeyword | CssLength;
 /** Type describing a simple 1 or two values `<position>` CSS type */
-export declare type SimpleCssPosition = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength | [Extended<HorizontalPosition>, Extended<VerticalPosition>] | [Extended<VerticalPosition>, Extended<HorizontalPosition>];
+export declare type SimpleCssPosition = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength | [
+    Extended<HorizontalPosition>,
+    Extended<VerticalPosition>
+] | [
+    Extended<VerticalPosition>,
+    Extended<HorizontalPosition>
+];
 /** Type describing the full up to 4 values `<position>` CSS type */
-export declare type CssPosition = SimpleCssPosition | [Extended<HorizontalPositionKeyword>, Extended<VerticalPositionKeyword>, Extended<CssLength>] | [Extended<HorizontalPositionKeyword>, Extended<CssLength>, Extended<VerticalPositionKeyword>, Extended<CssLength>?] | [Extended<VerticalPositionKeyword>, Extended<HorizontalPositionKeyword>, Extended<CssLength>] | [Extended<VerticalPositionKeyword>, Extended<CssLength>, Extended<HorizontalPositionKeyword>, Extended<CssLength>?];
+export declare type CssPosition = SimpleCssPosition | [
+    Extended<HorizontalPositionKeyword>,
+    Extended<VerticalPositionKeyword>,
+    Extended<CssLength>
+] | [
+    Extended<HorizontalPositionKeyword>,
+    Extended<CssLength>,
+    Extended<VerticalPositionKeyword>,
+    Extended<CssLength>?
+] | [
+    Extended<VerticalPositionKeyword>,
+    Extended<HorizontalPositionKeyword>,
+    Extended<CssLength>
+] | [
+    Extended<VerticalPositionKeyword>,
+    Extended<CssLength>,
+    Extended<HorizontalPositionKeyword>,
+    Extended<CssLength>?
+];
 /** Type for a single corner radius */
 export declare type CssRadius = OneOrPair<CssLength>;
 /**

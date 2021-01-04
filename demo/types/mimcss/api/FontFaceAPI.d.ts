@@ -9,9 +9,15 @@ export declare type FontStretch_Single = "normal" | "ultra-condensed" | "extra-c
 /** Type of font-stretch property */
 export declare type FontStretch_FontFaceType = FontStretch_Single | [FontStretch_Single, FontStretch_Single];
 /** Type of font-style property */
-export declare type FontStyle_FontFaceType = "normal" | "italic" | "oblique" | number | [FontFaceExtended<number>, FontFaceExtended<number>];
+export declare type FontStyle_FontFaceType = "normal" | "italic" | "oblique" | number | [
+    FontFaceExtended<number>,
+    FontFaceExtended<number>
+];
 /** Type of font-weight property */
-export declare type FontWeight_FontFaceType = "normal" | "bold" | number | [FontFaceExtended<number>, FontFaceExtended<number>];
+export declare type FontWeight_FontFaceType = "normal" | "bold" | number | [
+    FontFaceExtended<number>,
+    FontFaceExtended<number>
+];
 /** Possible named values for format part of the src property */
 export declare type FontSrcFormat_Keyword = "woff" | "woff2" | "truetype" | "opentype" | "embedded-opentype" | "svg";
 /** Type of a single part of the src property */

@@ -58,7 +58,7 @@ export interface IComponent<TProps = {}, TChildren = any> {
      *  2. Before the component is destroyed: null is passed as a parameter and the component must
      *    release the remembered object.
      */
-    vn?: IVNode;
+    vn?: IClassCompVN;
     /** Returns the component's content that will be ultimately placed into the DOM tree. */
     render(): any;
     /**
@@ -71,9 +71,13 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * Notifies the component that it was successfully mounted. This method is called after the
      * component is rendered for the first time and the content of all its sub-nodes is added to
      * the DOM tree.
-     * This method is part of the Commit phase.
      */
     didMount?(): void;
+    /**
+     * Notifies the component that it replaced the given old component. This allows the new
+     * component to copy whatever internal state it needs from the old component.
+     */
+    didReplace?(oldComp: IComponent<TProps, TChildren>): void;
     /**
      * Notifies that the component's content is going to be removed from the DOM tree. After
      * this method returns the component is destroyed.
@@ -84,7 +88,6 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * a Mimbl tick, are updated. If implemented, this method will be called every time the
      * component is scheduled to be updated. This method can read DOM layout information (e.g.
      * element measurements) without the risk of causing forced layouts.
-     * This method is invoked before the Render phase.
      */
     beforeUpdate?(): void;
     /**
@@ -92,7 +95,6 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * a Mimbl tick, are updated. If implemented, this method will be called every time the
      * component is scheduled to be updated. This method is called after all modifications to
      * DOM resulting from updaing components have been already done.
-     * This method is invoked after the Commit phase.
      */
     afterUpdate?(): void;
     /**
@@ -120,7 +122,7 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * component that threw the exception. This path is provided mostly for debugging and tracing
      * purposes.
      */
-    handleError?(err: any, path: string[]): void;
+    handleError?(err: any): void;
     /**
      * Retrieves update strategy object that determines different aspects of component behavior
      * during updates.
@@ -133,51 +135,51 @@ export interface IComponent<TProps = {}, TChildren = any> {
  */
 export declare type UpdateStrategy = {
     /**
-     * Flag determining whether non-matching new keyed sub-nodes are allowed to recycle non-
+     * Flag determining whether or not non-matching new keyed sub-nodes are allowed to recycle non-
      * matching old keyed sub-nodes. Here "non-matching" means those new or old nodes with keys
-     * for which no old or new sub-nodes with the same key were found. If this flag is false, then
+     * for which no old or new sub-nodes with the same key were found. If this flag is true, then
      * non-matching old sub-nodes will be removed and non-matching new sub-nodes will be inserted.
-     * If this flag is true, then non-matching old sub-nodes will be updated by the non-matching
+     * If this flag is false, then non-matching old sub-nodes will be updated by the non-matching
      * new sub-nodes - provided that the types of sub-nodes are the same.
      *
-     * If keyed sub-nodes recycling is allowed it can speed up an update process because
+     * If keyed sub-nodes recycling is enabled it can speed up an update process because
      * less DOM nodes get removed and inserted, which is more expensive than updating. However,
      * this can have some adverse effects under cirtain circumstances if certain data is bound
      * to the particular instances of DOM nodes.
      *
-     * The flag's default value is true.
+     * The flag's default value is false, that is recycling is enabled.
      */
-    allowKeyedNodeRecycling?: boolean;
+    disableKeyedNodeRecycling?: boolean;
 };
 /**
  * Type of event handler function for DOM events of type T.
  * @typeparam T DOM event type, e.g. MouseEvent
  */
-export declare type EventFuncType<T extends Event> = (e: T) => void;
+export declare type EventFuncType<T extends Event = Event> = (e: T) => void;
 /**
- * Tuple combining the event handler type and object that will be bound as "this" when the handler
- * is invoked.
+ * Tuple containing parameters of event handler in the following order:
+ *   - Event handler function.
+ *   - Object that will be referenced by "this" within the event handler function.
+ *   - Type of scheduling the Mimbl tick after the event handler function returns.
+ *   - Object that will be set as "current creator" for JSX parsing during the event handler
+ *     function execution.
+ *   - Flag indicating whether this event should be used as Capturing (true) or Bubbling (false).
+ *
  * @typeparam T DOM event type, e.g. MouseEvent
  */
-export declare type EventFuncAndThisType<T extends Event> = [EventFuncType<T>, object];
-/**
- * Tuple combining the event handler type and the Boolean flag indicating whether the event
- * handler should be attached to the capture (true) or to the bubble (false) phase.
- * @typeparam T DOM event type, e.g. MouseEvent
- */
-export declare type EventFuncAndFlagType<T extends Event> = [EventFuncType<T>, boolean];
-/**
- * Tuple combining the event handler type, object that will be bound as "this" when the handler
- * is invoked and the Boolean flag indicating whether the event handler should be attached to the
- * capture (true) or to the bubble (false) phase.
- * @typeparam T DOM event type, e.g. MouseEvent
- */
-export declare type EventFuncAndThisAndFlagType<T extends Event> = [EventFuncType<T>, object, boolean];
+export declare type EventArrayType<T extends Event> = [EventFuncType<T>, any, TickSchedulingType, any, boolean];
+export declare type EventObjectType<T extends Event> = {
+    func: EventFuncType<T>;
+    funcThisArg?: any;
+    schedulingType?: TickSchedulingType;
+    creator?: any;
+    useCapture?: boolean;
+};
 /**
  * Union type that can be passed to an Element's event.
  * @typeparam T DOM event type, e.g. MouseEvent
  */
-export declare type EventPropType<T extends Event> = EventFuncType<T> | EventFuncAndThisType<T> | EventFuncAndFlagType<T> | EventFuncAndThisAndFlagType<T>;
+export declare type EventPropType<T extends Event = Event> = EventFuncType<T> | EventArrayType<T> | EventObjectType<T>;
 /**
  * Type for defining the id property of HTML elements
  */
@@ -199,18 +201,24 @@ export interface ICommonProps {
  * The IElementProps interface defines standard properties (attributes and event listeners)
  * that can be used on all HTML and SVG elements.
  */
-export interface IElementProps<TRef, TChildren = any> extends ICommonProps {
+export interface IElementProps<TRef extends Element = Element, TChildren = any> extends ICommonProps {
     /**
      * Reference that will be set to the instance of the element after it is created (mounted). The
      * reference will be set to undefined after the element is unmounted.
      */
     ref?: RefPropType<TRef>;
     /**
+     * Reference that will be set to the virtual node corresponding to the element after it is
+     * created (mounted). The reference will be set to undefined after the element is unmounted.
+     */
+    vnref?: ElmVNRef<TRef>;
+    /**
      * Update strategy object that determines different aspects of element behavior during updates.
      */
     updateStrategy?: UpdateStrategy;
     /** Children that can be supplied to the element */
     children?: TChildren;
+    xmlns?: string;
     class?: ClassPropType;
     draggable?: boolean;
     dropzone?: "copy" | "move" | "link";
@@ -308,6 +316,7 @@ import * as svg from "./SvgTypes";
  * Namespace defining interfaces used by TypeScript to type-check JSX expressions.
  */
 export declare namespace JSX {
+    type Element = any;
     interface ElementClass extends IComponent {
     }
     interface ElementAttributesProperty {
@@ -558,7 +567,7 @@ export interface IServiceDefinitions {
 /**
  * The IErrorHandlingService interface represents a service that can be invoked when an error -
  * usually an exception - is encountered but cannot be handled locally. A component that implements
- * this service would normally remember the error and request to update itself,so that in its
+ * this service would normally remember the error and request to update itself, so that in its
  * render method it will present the error to the user.
  *
  * The IErrorHandlingService is implemented by the Root Virtual Node as a last resort for error
@@ -566,12 +575,25 @@ export interface IServiceDefinitions {
  * restart - in the hope that the error will not repeat itself.
  */
 export interface IErrorHandlingService {
-    reportError(err: any, path: string[]): void;
+    reportError(err: any): void;
 }
 /**
  * Type of functions scheduled to be called either before or after the update cycle.
  */
 export declare type ScheduledFuncType = () => void;
+/**
+ * The ElmVNRef class represents a reference to the element virtual node. Objects of this class
+ * can be created and passed to the `vnref` property of an element. After the element is rendered
+ * the object can be used to schedule updates to the element directly - that is, without updating
+ * the component that rendered the element. This, for example, can be used to update properties
+ * of the element without causing re-rendering of its children.
+ */
+export declare class ElmVNRef<T extends Element = Element> {
+    /** Reference to the virtual node corresponding to the element */
+    vn: IElmVN<T>;
+    /** Get accessor for the element */
+    get r(): T;
+}
 /**
  * Defines event handler that is invoked when reference value changes.
  */
@@ -633,12 +655,15 @@ export declare function setRef<T>(ref: RefPropType<T>, val: T, onlyIf?: T): void
 export interface IVNode {
     /** Gets node's parent. This is undefined for the top-level (root) nodes. */
     readonly parent?: IVNode;
+    /** Level of nesting at which the node resides relative to the root node. */
+    readonly depth?: number;
     /** Component that created this node in its render method (or undefined). */
     readonly creator?: IComponent;
-    /** Reference to the next sibling node or undefined for the last sibling. */
-    readonly next?: IVNode;
-    /** Reference to the previous sibling node or undefined for the first sibling. */
-    readonly prev?: IVNode;
+    /**
+     * Zero-based index of this node in the parent's list of sub-nodes. This is zero for the
+     * root nodes that don't have parents.
+     */
+    readonly index: number;
     /** List of sub-nodes. */
     readonly subNodes?: IVNode[];
     /**
@@ -647,23 +672,8 @@ export interface IVNode {
      * property of an element.
      */
     readonly name?: string;
-    readonly updateRequested: boolean;
     /** This method is called by the component when it needs to be updated. */
     requestUpdate(): void;
-    /**
-     * Schedules to call the given function before all the scheduled components have been updated.
-     * @param func Function to be called.
-     * @param that Object to be used as the "this" value when the function is called. This parameter
-     *   is not needed if the function is already bound or it is an arrow function.
-     */
-    scheduleCallBeforeUpdate(func: ScheduledFuncType, that?: object): void;
-    /**
-     * Schedules to call the given function before all the scheduled components have been updated.
-     * @param func Function to be called.
-     * @param that Object to be used as the "this" value when the function is called. This parameter
-     *   is not needed if the function is already bound or it is an arrow function.
-     */
-    scheduleCallAfterUpdate(func: ScheduledFuncType, that?: object): void;
     /**
      * Registers an object of any type as a service with the given ID that will be available for
      * consumption by descendant components.
@@ -700,45 +710,6 @@ export interface IVNode {
      * @param useSelf
      */
     getService<K extends keyof IServiceDefinitions>(id: K, defaultService?: IServiceDefinitions[K], useSelf?: boolean): IServiceDefinitions[K];
-    /**
-     * Creates a wrapper function with the same signature as the given callback so that if the original
-     * callback throws an exception, it is processed by the Mimbl error handling mechanism so that the
-     * exception bubbles from this virtual node up the hierarchy until a node/component that knows to
-     * handle errors is found.
-     *
-     * This function should be called by the code that is not part of any component but still has access
-     * to the IVNode object; for example, custom attribute handlers. Components that derive from the
-     * Component class should use the wrapCallback method of the Component class.
-     *
-     * Use this method before passing callbacks to document and window event handlers as well as
-     * non-DOM objects that use callbacks, e.g. promises. For example:
-     *
-     * ```typescript
-     *	class ResizeMonitor
-     *	{
-     *		private onWindowResize(e: Event): void {};
-     *
-     * 		wrapper: (e: Event): void;
-     *
-     * 		public startResizeMonitoring( vn: IVNode)
-     *		{
-     *			this.wrapper = vn.wrapCallback( this.onWindowResize, this);
-     *			window.addEventListener( "resize", this.wrapper);
-     *		}
-     *
-     * 		public stopResizeMonitoring()
-     *		{
-     *			window.removeEventListener( "resize", this.wrapper);
-     *			this.wrapper = undefined;
-     *		}
-     *	}
-     * ```
-     *
-     * @param callback Callback to be wrapped
-     * @returns Function that has the same signature as the given callback and that should be used
-     *     instead of the original callback
-     */
-    wrapCallback<T extends Function>(callback: T, that?: object): T;
 }
 /**
  * The IClassCompVN interface represents a virtual node for a JSX-based component.
@@ -750,7 +721,7 @@ export interface IClassCompVN extends IVNode {
 /**
  * The IManagedCompVN interface represents a virtual node for a JSX-based component.
  */
-export interface IManagedCompVN extends IVNode {
+export interface IManagedCompVN extends IClassCompVN {
     /** Gets the component class. */
     readonly compClass: IComponentClass;
 }
@@ -762,23 +733,37 @@ export interface IIndependentCompVN extends IClassCompVN {
 /**
  *  The IElmVN interface represents a virtual node for a DOM element.
  */
-export interface IElmVN extends IVNode {
+export interface IElmVN<T extends Element = Element> extends IVNode {
     /** Gets the DOM element name. */
     readonly elmName: string;
     /** Gets the flag indicating whether this element is an SVG (as opposed to HTML). */
     readonly isSvg: boolean;
     /** Gets the DOM element object. */
     readonly elm: Element;
+    /**
+     * Requests update of the element properties without re-rendering of its children.
+     */
+    setProps(props: IElementProps<T>): void;
 }
 /**
  * The ITextVN interface represents a virtual node for a text DOM node.
  */
 export interface ITextVN extends IVNode {
     /** Text of the node. */
-    text: string;
+    readonly text: string;
     /** Text DOM node. */
-    textNode: Text;
+    readonly textNode: Text;
+    /**
+     * Requests update of the text.
+     */
+    setText(text: string): void;
 }
+/**
+ * Creates text virtual node, whcih can be used to update the text without re-rendering parent
+ * element.
+ * @param text Text to initialize the text node
+ */
+export declare function createTextVN(text: string): ITextVN;
 /**
  * The ICustomAttributeHandlerClass interface represents a class of handlers of custom attributes
  * that can be applied to intrinsic (HTML or SVG) elements. The requirements on such classes are:
@@ -833,17 +818,7 @@ export declare function registerCustomAttribute<T>(attrName: string, handlerClas
  * @param propName name of the custom event
  */
 export declare function registerCustomEvent(eventName: string): void;
-/**
- * The ComponentUpdateRequest type defines parameters that can be passed to the component updateMe
- * method if the goal is not to update the entire component but only one or several rendering
- * functions.
- */
-export declare type ComponentUpdateRequest = Function | {
-    func: Function;
-    key?: any;
-    thisArg?: any;
-    args?: any;
-};
+export declare type TickSchedulingType = "s" | "t" | "a" | undefined;
 /**
  * Base class for components. Components that derive from this class must implement the render
  * method.
@@ -853,13 +828,13 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      * Component properties passed to the constructor. This is normally used only by managed
      * components and is usually undefined for independent coponents.
      */
-    props: CompProps<TProps, TChildren>;
+    readonly props: CompProps<TProps, TChildren>;
     /**
      * Remembered virtual node object through which the component can request services. This
      * is undefined in the component's costructor but will be defined before the call to the
      * (optional) willMount method.
      */
-    vn: IVNode;
+    vn: IClassCompVN;
     constructor(props?: CompProps<TProps, TChildren>);
     /**
      * Returns the component's content that will be ultimately placed into the DOM tree. This
@@ -876,29 +851,33 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      * This method is called by the component to request to be updated. If no arguments are
      * provided, the entire component is requested to be updated. If arguments are provided, they
      * indicate what rendering functions should be updated.
-     * @param updateRequests
+     * @param func Optional rendering function to invoke
+     * @param funcThisArg Optional value to use as "this" when invoking the rendering function. If
+     * undefined, the component's "this" will be used.
+     * @param key Optional key which distinguishes between multiple uses of the same function. This
+     * can be either the "arg" or the "key" property originally passed to the FunProxy component.
      */
-    protected updateMe(...updateRequests: ComponentUpdateRequest[]): void;
+    protected updateMe(func?: RenderMethodType, funcThisArg?: any, key?: any): void;
     /**
      * Schedules the given function to be called before any components scheduled to be updated in
      * the Mimbl tick are updated.
      * @param func Function to be called
-     * @param that Object that will be used as "this" value when the function is called. If this
+     * @param funcThisArg Object that will be used as "this" value when the function is called. If this
      *   parameter is undefined, the component instance will be used (which allows scheduling
      *   regular unbound components' methods). This parameter will be ignored if the function
      *   is already bound or is an arrow function.
      */
-    protected callMeBeforeUpdate(func: ScheduledFuncType, that?: object): void;
+    protected callMeBeforeUpdate(func: ScheduledFuncType, funcThisArg?: any): void;
     /**
      * Schedules the given function to be called after all components scheduled to be updated in
      * the Mimbl tick have already been updated.
      * @param func Function to be called
-     * @param that Object that will be used as "this" value when the function is called. If this
+     * @param funcThisArg Object that will be used as "this" value when the function is called. If this
      *   parameter is undefined, the component instance will be used (which allows scheduling
      *   regular unbound components' methods). This parameter will be ignored if the the function
      *   is already bound or is an arrow function.
      */
-    protected callMeAfterUpdate(func: ScheduledFuncType, that?: object): void;
+    protected callMeAfterUpdate(func: ScheduledFuncType, funcThisArg?: any): void;
     /**
      * Creates a wrapper function with the same signature as the given callback so that if the original
      * callback throws an exception, it is processed by the Mimbl error handling mechanism so that the
@@ -906,7 +885,7 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      * handle errors is found.
      *
      * Use this method before passing callbacks to document and window event handlers as well as
-     * non-DOM objects that use callbacks, e.g. fetch, Promis, setTimeout, etc. For example:
+     * non-DOM objects that use callbacks, e.g. fetch, Promise, setTimeout, etc. For example:
      *
      * ```typescript
      *	class ResizeMonitor extends mim.Component
@@ -917,7 +896,7 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      *
      * 		public startResizeMonitoring()
      *		{
-     *			this.wrapper = vn.wrapCallback( this.onWindowResize);
+     *			this.wrapper = this.wrapCallback( this.onWindowResize);
      *			window.addEventListener( "resize", this.wrapper);
      *		}
      *
@@ -929,14 +908,16 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      *	}
      * ```
      *
-     * @param callback Method/function to be wrapped
-     * @param thisCallback Optional value of "this" to bind the callback to. If this parameter is
+     * @param func Method/function to be wrapped
+     * @param funcThisArg Optional value of "this" to bind the callback to. If this parameter is
      * undefined, the component instance will be used. This parameter will be ignored if the the
      * function is already bound or is an arrow function.
+     * @param schedulingType Type determining whether and how a Mimbl tick should be scheduled
+     * after callback invocation.
      * @returns Function that has the same signature as the given callback and that should be used
      *     instead of the original callback
      */
-    protected wrapCallback<T extends Function>(callback: T, thisCallback?: object): T;
+    protected wrapCallback<T extends Function>(func: T, funcThisArg?: any, schedulingType?: TickSchedulingType): T;
 }
 /**
  * An artificial "Fragment" component that is only used as a temporary collection of other items
@@ -963,6 +944,10 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
  */
 export declare function Fragment(props: CompProps<{}>): any;
 /**
+ * Definition of type of  method that renders content.
+ */
+export declare type RenderMethodType = (arg: any) => any;
+/**
  * Properties to be used with the FuncProxy component. FuncProxy component cannot have children.
  * A key property can be used to distinguish between multiple uses of the same function. If the
  * function is used only once within a component, the key is not necessary; however, if the
@@ -970,43 +955,18 @@ export declare function Fragment(props: CompProps<{}>): any;
  */
 export interface FuncProxyProps extends ICommonProps {
     /** Function that renders content. */
-    func: Function;
-    /**
-     * Arguments to be passed to the function. Whenever the FuncProxy component is rendered, this
-     * parameter is used when calling the wrapped function.
-     */
-    args?: any[];
+    func: RenderMethodType;
     /**
      * Value to be used as "this" when invoking the function. If this value is undefined, the
      * class based component that rendered the FuncProxy component will be used (which is the
      * most common case).
      */
-    thisArg?: any;
+    funcThisArg?: any;
     /**
-     * Flag indicating whether the arguments specified by the `args` property should be passed to
-     * the function overriding arguments that were specified by the most recent call to the
-     * FuncProxy.update method. By default the value of this property is false and `args` will be
-     * used only the first time the function is wrapped by the FuncProxy component. If the
-     * FuncProxy.update method is called, the argument specified in this call will replace the
-     * original arguments. The next time the FuncProxy component is rendered, the `args` property
-     * will be ignored.
-     *
-     * Note the following sequence of actions that occurs when `replaceArgs` is false or omitted:
-     * 1. Parent component renders <FuncProxy func={this.foo} args="A" />. "A" will be used.
-     * 1. Parent component calls FuncProxy.update( this.foo, undefined, undefined, "B"). "B" will be used.
-     * 1. Parent component renders <FuncProxy func={this.foo} args="A" />. "B" will still be used.
-     *
-     * If the `replaceArgs` property is set to true, then every time the FuncProxy componenet is
-     * rendered, the value of the `args` property replaces whatever arguments there were before.
-     *
-     * Now note the sequence of actions when `replaceArgs` is true:
-     * 1. Parent component renders <FuncProxy func={this.foo} args="A" replaceArgs />."A" will
-     * be used.
-     * 1. Parent component calls FuncProxy.update( this.foo, undefined, undefined, "B"). "B" will be used.
-     * 1. Parent component renders <FuncProxy func={this.foo} args="A" replaceArgs />. "A" will
-     * be used again.
+     * Arguments to be passed to the function. Whenever the FuncProxy component is rendered, this
+     * parameter is used when calling the wrapped function.
      */
-    replaceArgs?: boolean;
+    arg?: any;
 }
 /**
  * The FuncProxy component wraps a function that produces content. Proxies can wrap instance
@@ -1043,15 +1003,6 @@ export declare class FuncProxy extends Component<FuncProxyProps, void> {
     private constructor();
     /** The render method of the FuncProxy component is never actually called */
     render(): any;
-    /**
-     * Request re-rendering of the content produced by the given function by invoking this
-     * function. The function must have been previously used in rendering using either
-     * <FuncProxy func={} /> JSX construct or a simpler constuct
-     * @param func Function to invoke.
-     * @param key Value that helps distinguishing between multiple usages of the function.
-     * @param args Arguments to be passed to the function.
-     */
-    static update(func: Function, key?: any, thisArg?: any, ...args: any[]): void;
 }
 /**
  * Properties to be used with the PromiseProxy component.
@@ -1092,6 +1043,15 @@ export declare function mount(content: any, anchorDN?: Node): void;
  * @param anchorDN DOM element under which the content was previously rendered.
  */
 export declare function unmount(anchorDN?: Node): void;
+/**
+ * Symbol that is attached to a render function to indicate that it should be wrapped in a watcher.
+ */
+export declare let symRenderWatcher: symbol;
+/**
+ * Decorator function for tagging a component's render function so that it will be wrapped in
+ * a watcher.
+ */
+export declare function watcher(target: any, name: string, propDescr: PropertyDescriptor): void;
 /**
  * @deprecated - use `@trigger`
  */

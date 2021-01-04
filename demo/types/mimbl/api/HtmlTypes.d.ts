@@ -5,7 +5,7 @@ export declare type DirPropType = "ltr" | "rtl" | "auto";
 export declare type InputmodePropType = "none" | "text" | "decimal" | "numeric" | "tel" | "search" | "email" | "url";
 export declare type ImportancePropType = "auto" | "high" | "low";
 export declare type InputTypePropType = "button" | "checkbox" | "color" | "date" | "datetime" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week";
-export interface IHtmlElementProps<TRef = HTMLElement> extends IElementProps<TRef> {
+export interface IHtmlElementProps<TRef extends HTMLElement = HTMLElement> extends IElementProps<TRef> {
     accesskey?: string;
     autocapitalize?: AutocapitalizePropType;
     contenteditable?: boolean;

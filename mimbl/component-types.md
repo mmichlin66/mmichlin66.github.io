@@ -126,7 +126,7 @@ class Parent extends mim.Component
         return <div>{this.helloWorldComp}</div>
     }
 
-    private onColorChanged( newColor: string): void
+    private onColorChanged( newColor: css.CssColor): void
     {
         this.helloWorldComp.color = newColor;
     }
