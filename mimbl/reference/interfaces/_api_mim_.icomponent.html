@@ -138,6 +138,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#afterupdate" class="tsd-kind-icon">after<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#beforeupdate" class="tsd-kind-icon">before<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#didmount" class="tsd-kind-icon">did<wbr>Mount</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#didreplace" class="tsd-kind-icon">did<wbr>Replace</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#getupdatestrategy" class="tsd-kind-icon">get<wbr>Update<wbr>Strategy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#handleerror" class="tsd-kind-icon">handle<wbr>Error</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_api_mim_.icomponent.html#render" class="tsd-kind-icon">render</a></li>
@@ -157,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:71</li>
+							<li>Defined in mimbl/src/api/mim.ts:61</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -174,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:64</li>
+							<li>Defined in mimbl/src/api/mim.ts:54</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,10 +188,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="vn" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> vn</h3>
-					<div class="tsd-signature tsd-kind-icon">vn<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a></div>
+					<div class="tsd-signature tsd-kind-icon">vn<span class="tsd-signature-symbol">:</span> <a href="_api_mim_.iclasscompvn.html" class="tsd-signature-type">IClassCompVN</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:80</li>
+							<li>Defined in mimbl/src/api/mim.ts:70</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -218,7 +219,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:122</li>
+									<li>Defined in mimbl/src/api/mim.ts:115</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,8 +227,7 @@
 									<p>Optional method that is called after all components that are scheduled to be updated in
 										a Mimbl tick, are updated. If implemented, this method will be called every time the
 										component is scheduled to be updated. This method is called after all modifications to
-										DOM resulting from updaing components have been already done.
-									This method is invoked after the Commit phase.</p>
+									DOM resulting from updaing components have been already done.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -244,7 +244,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:113</li>
+									<li>Defined in mimbl/src/api/mim.ts:107</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,8 +252,7 @@
 									<p>Optional method that is called before any components that are scheduled to be updated in
 										a Mimbl tick, are updated. If implemented, this method will be called every time the
 										component is scheduled to be updated. This method can read DOM layout information (e.g.
-										element measurements) without the risk of causing forced layouts.
-									This method is invoked before the Render phase.</p>
+									element measurements) without the risk of causing forced layouts.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -270,17 +269,45 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:98</li>
+									<li>Defined in mimbl/src/api/mim.ts:87</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Notifies the component that it was successfully mounted. This method is called after the
 										component is rendered for the first time and the content of all its sub-nodes is added to
-										the DOM tree.
-									This method is part of the Commit phase.</p>
+									the DOM tree.</p>
 								</div>
 							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="didreplace" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> did<wbr>Replace</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">did<wbr>Replace<span class="tsd-signature-symbol">(</span>oldComp<span class="tsd-signature-symbol">: </span><a href="_api_mim_.icomponent.html" class="tsd-signature-type">IComponent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in mimbl/src/api/mim.ts:93</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Notifies the component that it replaced the given old component. This allows the new
+									component to copy whatever internal state it needs from the old component.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>oldComp: <a href="_api_mim_.icomponent.html" class="tsd-signature-type">IComponent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">TProps</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -295,7 +322,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:156</li>
+									<li>Defined in mimbl/src/api/mim.ts:149</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -312,13 +339,13 @@
 					<a name="handleerror" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> handle<wbr>Error</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">handle<wbr>Error<span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Error<span class="tsd-signature-symbol">(</span>err<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:150</li>
+									<li>Defined in mimbl/src/api/mim.ts:143</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -338,14 +365,6 @@
 										of one of its descendants.</p>
 									</div>
 								</li>
-								<li>
-									<h5>path: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>An array of names of components and elements from the mounted root to the
-											component that threw the exception. This path is provided mostly for debugging and tracing
-										purposes.</p>
-									</div>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -361,7 +380,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:83</li>
+									<li>Defined in mimbl/src/api/mim.ts:73</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -383,7 +402,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:137</li>
+									<li>Defined in mimbl/src/api/mim.ts:130</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,7 +441,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:90</li>
+									<li>Defined in mimbl/src/api/mim.ts:80</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -446,7 +465,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:104</li>
+									<li>Defined in mimbl/src/api/mim.ts:99</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -501,6 +520,9 @@
 								<a href="_api_mim_.icomponent.html#didmount" class="tsd-kind-icon">did<wbr>Mount</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_api_mim_.icomponent.html#didreplace" class="tsd-kind-icon">did<wbr>Replace</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="_api_mim_.icomponent.html#getupdatestrategy" class="tsd-kind-icon">get<wbr>Update<wbr>Strategy</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
@@ -533,6 +555,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>

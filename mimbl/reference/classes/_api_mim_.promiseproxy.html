@@ -114,6 +114,12 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_api_mim_.promiseproxy.html#vn" class="tsd-kind-icon">vn</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_api_mim_.promiseproxy.html#ismounted" class="tsd-kind-icon">is<wbr>Mounted</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
@@ -131,13 +137,13 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="props" class="tsd-anchor"></a>
-					<h3>props</h3>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> props</h3>
 					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_mim_.html#compprops" class="tsd-signature-type">CompProps</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_api_mim_.promiseproxyprops.html" class="tsd-signature-type">PromiseProxyProps</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">TChildren</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#props">props</a></p>
 						<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#props">props</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1251</li>
+							<li>Defined in mimbl/src/api/mim.ts:1237</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -150,12 +156,12 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="vn" class="tsd-anchor"></a>
 					<h3>vn</h3>
-					<div class="tsd-signature tsd-kind-icon">vn<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_mim_.ivnode.html" class="tsd-signature-type">IVNode</a></div>
+					<div class="tsd-signature tsd-kind-icon">vn<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_api_mim_.iclasscompvn.html" class="tsd-signature-type">IClassCompVN</a></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#vn">vn</a></p>
 						<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#vn">vn</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1258</li>
+							<li>Defined in mimbl/src/api/mim.ts:1244</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -167,20 +173,48 @@
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="ismounted" class="tsd-anchor"></a>
+					<h3>is<wbr>Mounted</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isMounted<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#ismounted">isMounted</a></p>
+								<ul>
+									<li>Defined in mimbl/src/api/mim.ts:1263</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determines whether the component is currently mounted. If a component has asynchronous
+										functionality (e.g. fetching data from a server), component&#39;s code may be executed after
+									it was alrady unmounted. This property allows the component to handle this situation.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 					<a name="callmeafterupdate" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> call<wbr>MeAfter<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">call<wbr>MeAfter<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">call<wbr>MeAfter<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, funcThisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#callmeafterupdate">callMeAfterUpdate</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1326</li>
+									<li>Defined in mimbl/src/api/mim.ts:1310</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -198,7 +232,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> funcThisArg: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Object that will be used as &quot;this&quot; value when the function is called. If this
 											parameter is undefined, the component instance will be used (which allows scheduling
@@ -215,14 +249,14 @@
 					<a name="callmebeforeupdate" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> call<wbr>MeBefore<wbr>Update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">call<wbr>MeBefore<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, that<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">call<wbr>MeBefore<wbr>Update<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#scheduledfunctype" class="tsd-signature-type">ScheduledFuncType</a>, funcThisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#callmebeforeupdate">callMeBeforeUpdate</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1311</li>
+									<li>Defined in mimbl/src/api/mim.ts:1296</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -240,7 +274,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> that: <span class="tsd-signature-type">object</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> funcThisArg: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Object that will be used as &quot;this&quot; value when the function is called. If this
 											parameter is undefined, the component instance will be used (which allows scheduling
@@ -265,7 +299,7 @@
 								<p>Implementation of <a href="../interfaces/_api_mim_.icomponent.html">IComponent</a>.<a href="../interfaces/_api_mim_.icomponent.html#render">render</a></p>
 								<p>Overrides <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#render">render</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1551</li>
+									<li>Defined in mimbl/src/api/mim.ts:1508</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -281,7 +315,7 @@
 					<a name="updateme" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> update<wbr>Me</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Me<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>updateRequests<span class="tsd-signature-symbol">: </span><a href="../modules/_api_mim_.html#componentupdaterequest" class="tsd-signature-type">ComponentUpdateRequest</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<wbr>Me<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">?: </span><a href="../modules/_api_mim_.html#rendermethodtype" class="tsd-signature-type">RenderMethodType</a>, funcThisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, key<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -301,8 +335,23 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>updateRequests: <a href="../modules/_api_mim_.html#componentupdaterequest" class="tsd-signature-type">ComponentUpdateRequest</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> func: <a href="../modules/_api_mim_.html#rendermethodtype" class="tsd-signature-type">RenderMethodType</a></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>Optional rendering function to invoke</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> funcThisArg: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional value to use as &quot;this&quot; when invoking the rendering function. If
+										undefined, the component&#39;s &quot;this&quot; will be used.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> key: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional key which distinguishes between multiple uses of the same function. This
+										can be either the &quot;arg&quot; or the &quot;key&quot; property originally passed to the FunProxy component.</p>
 									</div>
 								</li>
 							</ul>
@@ -314,14 +363,14 @@
 					<a name="wrapcallback" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> wrap<wbr>Callback</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">wrap<wbr>Callback&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, thisCallback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">wrap<wbr>Callback&lt;T&gt;<span class="tsd-signature-symbol">(</span>func<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, funcThisArg<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span>, schedulingType<span class="tsd-signature-symbol">?: </span><a href="../modules/_api_mim_.html#tickschedulingtype" class="tsd-signature-type">TickSchedulingType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_api_mim_.component.html">Component</a>.<a href="_api_mim_.component.html#wrapcallback">wrapCallback</a></p>
 								<ul>
-									<li>Defined in mimbl/src/api/mim.ts:1366</li>
+									<li>Defined in mimbl/src/api/mim.ts:1354</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,16 +381,16 @@
 									handle errors is found.</p>
 								</div>
 								<p>Use this method before passing callbacks to document and window event handlers as well as
-								non-DOM objects that use callbacks, e.g. promises. For example:</p>
-								<pre><code class="language-typescript">    <span class="hljs-keyword">class</span> ResizeMonitor
+								non-DOM objects that use callbacks, e.g. fetch, Promise, setTimeout, etc. For example:</p>
+								<pre><code class="language-typescript">    <span class="hljs-keyword">class</span> ResizeMonitor <span class="hljs-keyword">extends</span> mim.Component
     {
         <span class="hljs-keyword">private</span> onWindowResize(e: Event): <span class="hljs-built_in">void</span> {};
 
         wrapper: (e: Event): <span class="hljs-built_in">void</span>;
 
-        <span class="hljs-keyword">public</span> startResizeMonitoring( vn: IVNode)
+        <span class="hljs-keyword">public</span> startResizeMonitoring()
         {
-            <span class="hljs-built_in">this</span>.wrapper = vn.wrapCallback( <span class="hljs-built_in">this</span>.onWindowResize, <span class="hljs-built_in">this</span>);
+            <span class="hljs-built_in">this</span>.wrapper = <span class="hljs-built_in">this</span>.wrapCallback( <span class="hljs-built_in">this</span>.onWindowResize);
             <span class="hljs-built_in">window</span>.addEventListener( <span class="hljs-string">&quot;resize&quot;</span>, <span class="hljs-built_in">this</span>.wrapper);
         }
 
@@ -361,13 +410,25 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>callback: <span class="tsd-signature-type">T</span></h5>
+									<h5>func: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Callback to be wrapped</p>
+										<p>Method/function to be wrapped</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> thisCallback: <span class="tsd-signature-type">object</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> funcThisArg: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional value of &quot;this&quot; to bind the callback to. If this parameter is
+											undefined, the component instance will be used. This parameter will be ignored if the the
+										function is already bound or is an arrow function.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulingType: <a href="../modules/_api_mim_.html#tickschedulingtype" class="tsd-signature-type">TickSchedulingType</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Type determining whether and how a Mimbl tick should be scheduled
+										after callback invocation.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -405,6 +466,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_api_mim_.promiseproxy.html#vn" class="tsd-kind-icon">vn</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="_api_mim_.promiseproxy.html#ismounted" class="tsd-kind-icon">is<wbr>Mounted</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="_api_mim_.promiseproxy.html#callmeafterupdate" class="tsd-kind-icon">call<wbr>MeAfter<wbr>Update</a>
 							</li>
@@ -435,6 +499,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>

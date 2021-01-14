@@ -1,7 +1,7 @@
 ---
 layout: mimbl-guide
 unit: 7
-title: Callbacks and this
+title: "Mimbl Guide: Callbacks and this"
 ---
 
 # Mimbl Guide: Callbacks and this

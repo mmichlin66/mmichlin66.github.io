@@ -1,12 +1,12 @@
 ---
 layout: mimbl-guide
 unit: 4
-title: Partitioned Components
+title: "Mimbl Guide: Partitioned Components"
 ---
 
 # Mimbl Guide: Partitioned Components
 ### Rendering Complex Components
-We often deal with creating complex components that contain multiple sections, which in turn can be divided into sub-sections. Having a single `render` method is usually too cumbersome - there is too much JSX for a single method. On the other hand, the sections of our complex components are probably only used on this page and are not leveraged in any other part of the application; therefore, creating a separate component for them is not really worth the time and effort. The standard solution is to use private rendering methods - methods that return JSX content that is ultimately used in the `render` method.
+We often deal with creating complex components that contain multiple sections, which in turn can be divided into sub-sections. Having a single `render` method is usually too cumbersome - there is too much JSX. On the other hand, the sections of our complex components are probably only used on this page and are not leveraged in any other part of the application; therefore, creating a separate component for them is not really worth the time and effort. The standard solution is to use private rendering methods - methods that return JSX content that is ultimately used in the `render` method.
 
 The rendering code of a complex component often looks like the following:
 
@@ -82,12 +82,6 @@ In short, the mechanism converts methods into components - that is, it does auto
 The code above is the simplest scenario where the *renderSomething* functions don't accept any parameters, are instance methods of our component and are called only once each in our component's main `render` method. In real life, this might not be the case and Mimbl provides a solution that covers all these cases.
 
 Mimbl has a special component called `FuncProxy` that is used in JSX:
-
-```tsx
-<FuncProxy func={this.renderSomething} />;
-```
-
-Thus the code in the previous example is the precise equivalent of:
 
 ```tsx
 <FuncProxy func={this.renderSomething} />;

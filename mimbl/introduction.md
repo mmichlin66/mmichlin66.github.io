@@ -1,7 +1,7 @@
 ---
 layout: mimbl-guide
 unit: 0
-title: Introduction
+title: "Mimbl Guide: Introduction"
 description: Brief introduction to using the Mimbl library for authoring Web UI.
 ---
 
@@ -33,11 +33,12 @@ Mimbl provides its own JSX factory function, which should be registered in your 
     "compilerOptions": {
         "jsx": "react",
         "jsxFactory": "mim.jsx",
+        "jsxFragmentFactory": "mim.Fragment",
         "experimentalDecorators": true,
     }
 ```
 
-TypeScript converts every JSX expression to a call to the JSX factory function and, therefore, the Mimbl's JSX factory should be imported into every .TSX file under a name that matches the name specified in the `tsconfig.json` file. The name `mim.jsx` assumes that you import the Mimbl library using the following statement:
+TypeScript converts every JSX expression to a call to the JSX factory function and, therefore, the Mimbl's JSX factory should be imported into every .tsx file under a name that matches the name specified in the `tsconfig.json` file. The name `mim.jsx` assumes that you import the Mimbl library using the following statement:
 
 ```tsx
 import * as mim from "mimbl"
@@ -45,11 +46,12 @@ import * as mim from "mimbl"
 
 That's how the code in this guide imports the library; however, if you decide to import it under a different name you are free to do so. Just remember to change the `jsxFactory` field in your `tsconfig.json` file to the appropriate value.
 
+The `jsxFragmentFactory` option is needed for the JSX "fragment" notation - `<>...</>` - to use multiple elements or components where a single entry is expected. This feature is available starting with TypeScript 4.0.0. If you are using an earlier version of TypeScript, you will have to use the construct `<mim.Fragment>...</mim.Fragment>`.
+
 In your HTML file use the following URL to reference the Mimbl library (well, when Mimbl becomes popular enough we will host it on CDN):
 
 ```html
 <script src="mmichlin66.github.io/lib/mimbl.js"></script>
-
 ```
 
 ## Hello World!
@@ -104,7 +106,7 @@ mim.mount( new HelloTo());
 
 As we can see the component structure is pretty similar to that of React. The HelloWorld class is a class-based component because it derives from the Mimbl's Component class. It's `render` method uses JSX to lay out the HTML structure.
 
-The component declares a reference `refName` and passes it on to the `<input>` element. It also defines a `name` field that is used to remember the value from the `<input>` element when the user clicks the button. The button element is passed the event handler method `onSayHelloTo` for the `click` event. The `<span>` element displays the "Hello to" string combined with the value of the `name` field whenever the component is updated.
+The component declares a reference `refName` and passes it on to the `<input>` element. It also defines a `name` field that is used to remember the value from the `<input>` element when the user clicks the button. The button element is passed the event handler method `onSayHelloTo` for the `click` event. The `<span>` element displays the "Hello to" string concatenated with the value of the `name` field whenever the component is updated.
 
 When the user clicks the button, the reference object is used to retrieve the `<input>` element's current value and to store it in the component's `name` field. Since the `name` property is decorated with `@trigger` the component will be re-rendered as soon as the value of the `name` property changes.
 
@@ -128,6 +130,7 @@ In addition, Mimbl provides the following unique features:
 - Built-in trigger-watcher mechanism that re-renders components upon changes in the observable properties.
 - Partitioned components - independent re-rendering of portions of a component encapsulated in a method.
 - Custom HTML and SVG attributes defined by developers and supported via handler objects.
+- Using [Mimcss](../mimcss/guide/introduction.html) library for defining element styles and classes.
 - Service publish/subscribe mechanism.
 
 The following units discuss these features in more details.

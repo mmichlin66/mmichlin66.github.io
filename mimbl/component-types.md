@@ -1,7 +1,7 @@
 ---
 layout: mimbl-guide
 unit: 1
-title: Component Types
+title: "Mimbl Guide: Component Types"
 description: Mimbl supports several component types. This unit discusses them in details.
 ---
 
@@ -9,9 +9,9 @@ description: Mimbl supports several component types. This unit discusses them in
 In this unit we will look at the different types of components that Mimbl supports and discuss which type is better suited to different circumstances.
 
 Mimbl supports three types of components:
-- Functional components
-- Managed components
-- Independent components
+- [Functional components](#functional-components)
+- [Managed components](#managed-components)
+- [Independent components](#independent-components)
 
 We will briefly describe each component type's main features and then use an example to highlight their differences.
 
@@ -32,9 +32,23 @@ function HelloWorldFunc( props: HelloWorldFuncProps): any
 mim.mount( <HelloWorldFunc color="blue" />);
 ```
 
-Functional components don't have state -  and the only way for a component to render different content is to have the parent supply different property values to it in JSX.
+Functional components don't have state -  the only way for a component to render different content is to have the parent supply different property values to it in JSX.
 
-Functional components are the simplest and least powerful type of components available in Mimbl; therefore, the rest of the unit will focus on the other two component types: managed and independent.
+Functional components are the simplest and least powerful type of components available in Mimbl; however, there are best suited for implementing simple widgets that serve as convenience wrappers around HTML elements. As an example let's consider a `<button>` element. In SPA applications, buttons are not used to submit forms; therefore, they are supposed to have the `type="button"` attribute. It is annoying for developers to have to write this every time they need a button. A functional component is the perfect solution for this situation:
+
+```tsx
+function Btn( props: mim.IHtmlButtonElementProps, children: any[]): any
+{
+    return <button type="button" {...props}>{children}</span>
+}
+
+mim.mount( <>
+    <Btn>Open</Btn>
+    <Btn>Close</Btn>
+</>);
+```
+
+As we can see, the function implementing the functional component accepts the *props* object and the array of children. The `Btn` component accepts as properties the `IHtmlButtonElementProps` interface, which allows using any attributes that the regular `<button>` element accepts (Mimbl provides such interfaces for all HTML and SVG elements). The `Btn` component sets the `type` attribute and spreads the `props` object. Then it uses the `children` array as the children of the `<button>` element.
 
 ## Managed Components
 Managed components are classes that derive from the `mim.Component` class and that are used in JSX by specifying their class name as a JSX tag. Managed components can define a `props` type and accept it in the constructor. Here is the same Hello World functionality implemented as a managed component:
@@ -61,7 +75,7 @@ class HelloWorldManaged extends mim.Component<HelloWorldManagedProps>
 mim.mount( <HelloWorldManaged color="blue" />);
 ```
 
-Managed components are stateful - their instance fields constitute their internal state. Managed components can request to be updated by calling the `updateMe` method from the `mim.Component` class. A parent component can obtain a *reference* to the instance of a managed component by using the built-in `ref` property as in the following snippet:
+Managed components are stateful - their instance fields constitute their internal state. Managed components can request to be updated by calling the `updateMe` method from the base `mim.Component` class. A parent component can obtain a *reference* to the instance of a managed component by using the built-in `ref` property as in the following snippet:
 
 ```tsx
 class Parent extends mim.Component
@@ -73,14 +87,13 @@ class Parent extends mim.Component
         return <Child ref={this.myRef} />
     }
 }
-
 ```
 
 Managed components can implement life-cycle methods so that they will be notified upon certain events in the component's life: `willMount`, `shouldUpdate`, `willUnmount`, etc.
 
-Managed components are called "managed" because the Mimbl infrastructure manages their instances deciding when to create and when to destroy them. Of course Mimbl doesn't do it arbitrarily - during updates, Mimbl tries to match components in a newly rendered JSX tree with that from a previous rendering. Mimbl will destroy existing component instances for which there is no matching component in the new rendering. Mimbl will create new instances of components for which there is no matching in the previous rendering. Otherwise, Mimbl will update the existing component instance with the new property values from the new rendering. The main point here is that developers never create managed component instances explicitly.
+Managed components are called "managed" because the Mimbl infrastructure manages their instances deciding when to create and when to destroy them. Of course Mimbl doesn't do it arbitrarily - during updates, Mimbl tries to match components in a newly rendered virtual node tree with that from a previous rendering. Mimbl will destroy existing component instances for which there is no matching component in the new rendering. Mimbl will create new instances of components for which there is no matching in the previous rendering. Otherwise, Mimbl will update the existing component instance with the new property values from the new rendering. The main point here is that developers never create managed component instances explicitly.
 
-When a managed component wants to update itself it calls the `updateMe` method. The Mimbl infrastructure will call the component's `render` method during the next update cycle. Since the functionality of managed components depends on the properties passed to them by their parents, they will be also updated when the parent updates. Thus, if some top-level component updates, the entire tree of managed components underneath it will also be updated. Managed components can opt out of this updating by implementing the `shouldUpdate` method and returning `false` from it.
+When a managed component wants to update itself it calls the `updateMe` method. Also, if the `render` method encounters triggers (that is, variables with the `@trigger` decorator), it will be called whenever a value of a trigger variable changes. The Mimbl infrastructure will call the component's `render` method during the next update cycle. Since the functionality of managed components depends on the properties passed to them by their parents, they will be also updated when the parent updates. Thus, if some top-level component updates, the entire tree of managed components underneath it will also be updated. Managed components can opt out of this updating by implementing the `shouldUpdate` method and returning `false` from it.
 
 ## Independent Components
 Independent components are classes that, like managed components, derive from the `mim.Component` class. The difference is that independent components are explicitly created by developers using the `new` operator. Independent components are free to accept any parameters in the constructor and they participate in JSX by specifying their instance instead of the class. Here is an example of the Hello World functionality implemented as an independent component:
@@ -103,7 +116,11 @@ class HelloWorldIndependent extends mim.Component
     }
 }
 
-mim.mount( new HelloWorldIndependent("blue"));
+let comp = new HelloWorldIndependent("blue");
+mim.mount( comp);
+....
+comp.color = "green";
+
 ```
 
 Here are the notable differences from the managed component:
@@ -111,8 +128,7 @@ Here are the notable differences from the managed component:
 - The `color` property is defined directly as the component's field.
 - The constructor accepts the color value, which is assigned to the `color` field.
 - Component is instantiated using `new`.
-
-The `@mim.trigger` decorator makes the `color` field an *observable property*, meaning that whenever the value of the field is changed, the component will be updated. Multiple fields can be marked as trigger properties and if their values are changed during the same JavaScript event loop, the component will be only updated once. The `@mim.trigger` decorator is a convenience feature: internally it calls the `updateMe` method. Independent components can directly call the `updateMe` method whenever they want and, again, if multiple calls are made during the same JavaScript event loop, the component will be only updated once.
+- The `color` property can be changed directly (most likely by a parent component), which will cause the component to be updated.
 
 Let's see how independent components are used by other components. Imagine a *Parent* component that has a mechanism to choose a color and then it uses our `HelloWorldIndependent` component to say "Hello World!" in that color.
 
@@ -133,18 +149,18 @@ class Parent extends mim.Component
 }
 ```
 
-The `Parent` component declares an internal field that keeps the instance of our `HelloWorldIndependent` component. This instance is used in curly braces in JSX - because it is just a regular JavaScript object. Mimbl knows that this object is actually a component (simply because it has the `render` method) and will handle it accordingly. When the parent component decides to change the color in which it wants the "Hello World!" phrase to be displayed it just assigns the new color value to our component's `color` property and our component dutifully updates itself.
+The `Parent` component declares an internal field that keeps the instance of our `HelloWorldIndependent` component. This instance is used in curly braces in JSX - because it is just a regular JavaScript object. Mimbl knows that this object is actually a component (because it derives from the `Component` class) and will handle it accordingly. When the parent component decides to change the color in which it wants the "Hello World!" phrase to be displayed it just assigns the new color value to our component's `color` property and our component dutifully updates itself.
 
 Notice what is happening here: although it is the `Parent` component that decides on what color to use, only the `HelloWorldIndependent` component is updated - the `Parent` component is NOT updated. This may make a big difference for complex component hierarchies - especially if there are components composed of many child components. Similar functionality is possible with managed components too - by obtaining references to child components. With independent components, the component instances are already the references we need.
 
-Another significant difference between managed and independent components is that independent components are normally not updated when their parent is updated. Independent components are only updated when their `updateMe` method is called, which happens when the component decides for itself that it needs to be updated. This can be triggered by either the internal component's functionality or by an observable property being changed; in both cases, however, the decision is made solely by the component itself.
+Another significant difference between managed and independent components is that independent components are not updated when their parent is updated. Independent components are only updated when their `updateMe` method is called, which happens when the component decides for itself that it needs to be updated. This can be triggered by either the internal component's functionality or by an observable property being changed; in both cases, however, the decision is made solely by the component itself.
 
 Maybe the most significant difference between managed and independent components is that independent components are not destroyed when their location inside the page hierarchy changes. (By "destroyed" we mean "lost to garbage collection".) Imagine a `Parent` component that for whatever reasons (usually styling) places a `Child` component on a different hierarchy level in its HTML structure. First let's implement this functionality using a managed child component:
 
 ```tsx
 class Parent extends mim.Component
 {
-    @mim.trigger isDeep = false;
+    isDeep = false;
 
     public render(): any
     {
@@ -162,7 +178,7 @@ Now let's implement the same functionality using an independent child component:
 ```tsx
 class Parent extends mim.Component
 {
-    @mim.trigger isDeep = false;
+    isDeep = false;
     child = new Child();
 
     public render(): any
@@ -271,21 +287,43 @@ The independent components, on the other hand, are perfectly suited for deriving
 
 There is one caveat though: since JavaScript is a prototype-based language, lookup of properties implemented towards the top of the class chain takes more time the deeper the class hierarchy. Therefore, for performance reasons you should avoid creating very deep component hierarchies.
 
-## Summary
-We could have concluded the unit this way:
+## Container Components
+There is a class of components that serve as containers for other components that are passed to it as children. For example we can imaging a Frame component that knows to draw a border and a shadow around its children. The component doesn't have any "intimate" knowledge of the children - they are passed to it from outside, most likely, by the common parent:
 
-- Independent components take less code to write.
+```tsx
+public render(): any
+{
+    return <>
+        ...
+        <Frame>
+            ...
+            ...
+        </Frame>
+        ...
+    </>
+}
+```
+
+This functionality is very natural to express with managed components in a declarative manner, while independent components are not suited well for such tasks. On the other hand, notice that in order to pass new children to a managed component the parent of the managed component must be updated. If the parent rendering involves many other components and elements, the rendering can take long time. On yet another hand there are mitigation technics that allow partitioning big components into smaller parts, which can be rendered independently of each other (see [Partitioned Components](partitioned-components.html)).
+
+## Summary
+Here is what we can say about independent components:
+
 - Independent components don't require references.
 - Independent components don't require keys.
 - Independent components can form component hierarchies.
 - Independent components perform better.
 
-Independent components, however, have a drawback too. This single drawback is the extra step of creating the instance of the independent component and, probably, the necessity to keep it somewhere. Therefore, our recommendation is as follows:
+On the other hand:
+- Managed components don't require developers to care about where to keep their instances.
+- Managed components can handle externally-provided children in a declarative manner.
 
-- Use independent components whenever possible, especially when:
+Each component type has its uses; therefore, our recommendation is as follows:
+
+- Use independent components when:
   - you have collections of components, or
   - you want to create component hierarchies, or
-  - your component has many pathways to be updated.
-- Use managed components only when a component is not intended to be updated frequently by the parent.
-- Use functional components only when the component doesn't have any internal state and when updates from the parent are infrequent.
+  - your component's properties and methods can be invoked externally.
+- Use managed components when they serve as a container to children that are supplied externally.
+- Use functional components when there is no need for an internal state and when updating the parent in order to pass new properties to the component doesn't cause unreasonably heavy rendering.
 

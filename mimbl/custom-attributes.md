@@ -1,7 +1,7 @@
 ---
 layout: mimbl-guide
 unit: 5
-title: Custom Attributes
+title: "Mimbl Guide: Custom Attributes"
 ---
 
 # Mimbl Guide: Custom Attributes

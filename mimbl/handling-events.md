@@ -1,7 +1,7 @@
 ---
 layout: mimbl-guide
 unit: 3
-title: Handling Events
+title: "Mimbl Guide: Handling Events"
 ---
 
 # Mimbl Guide: Handling Events
@@ -14,7 +14,7 @@ Mimbl allows developers to attach functions to DOM Element events so that when a
 
 This unit describes the Mimbl's event handling mechanism and answers the above questions.
 
-Note that this unit only discusses handling events of DOM elements created using JSX - usually in the context of a component's `render` method. Mimbl of course allows handling events of other objects (e.g. `window` or `document`) using the standard `addEventListener` function; however, this is discussed separately as part of the next unit [Callbacks and this](callbacks-and-this.html).
+Note that this unit only discusses handling events of DOM elements created using JSX - usually in the context of a component's `render` method. Mimbl of course allows handling events of other objects (e.g. `window` or `document`) using the standard `addEventListener` function; however, this is discussed separately as part of the unit [Callbacks and this](callbacks-and-this.html).
 
 ### Basic Use Case
 Below is a simple code of a component that has a button and a method that should be invoked when the button is clicked:
@@ -48,12 +48,12 @@ From the above code, we can immediately answer the question about how events are
 
 The handler function receives as a parameter an event object with the type corresponding to the event. Mimbl wraps event handler invocations so that it can intercept exceptions, but it doesn't change event parameters in any way.
 
-Specifying an event handler for an event as shown in the example above, attaches to the bubbling phase of the event processing. In most cases this is what developers need. If, however, the developer wants to attach to the capturing phase of the event processing, he must specify an array consisting of two elements: the event handler function and the Boolean `true` value:
+Specifying an event handler for an event as shown in the example above, attaches to the bubbling phase of the event processing. In most cases this is what developers need. If, however, the developer wants to attach to the capturing phase of the event processing, he must specify an object where the `func` property is set to the event handler function and the `useCapture` property is set to `true`:
 
 ```tsx
 public render(): void
 {
-    return <button click={[this.onButtonClick, true]}>Click Me</button>;
+    return <button click={ {func: this.onButtonClick, useCapture: true} }>Click Me</button>;
 }
 ```
 
@@ -62,7 +62,7 @@ In the example above, the event handler uses the `this` keyword to refer to the 
 
 The answer is simple: Mimbl performs a small trick behind the scenes - it uses the component instance that created the element to call the event handler method. This is almost the same as binding: Mimbl just uses the `Function.apply` method instead of `Function.bind`.
 
-But what if the event handler belongs not to the component class but to another related class? Mimbl of course cannot know that on its own but it allows developers to explicitly specify the object, to which the event handler belongs. In order to do that, developers must specify an array consisting of two elements: the event handler function and the object value:
+But what if the event handler belongs not to the component class but to another related class? Mimbl of course cannot know that on its own but it allows developers to explicitly specify the object, to which the event handler belongs. In order to do that, developers must specify an object where the `func` property is set to the event handler function and the `funcThisArg` property is set to the object to which the handler function belongs:
 
 ```tsx
 // Define interface that knows to react on the click event
@@ -85,7 +85,7 @@ class Hello extends mim.Component
     public render(): void
     {
         // the onClick event handler belongs to the object implementing the IClickable interface
-        return <button click={[this.clcikable.onClick, this.clcikable]}>Click Me</button>;
+        return <button click={ {func: this.clcikable.onClick, funcThisArg: this.clcikable} }>Click Me</button>;
     }
 }
 
@@ -109,12 +109,12 @@ class Person implements IClickable
 mim.mount( new Hello( new Person( "Michael")));
 ```
 
-If you want your event handler, which belongs to a separate object, to react on the capturing phase of the event processing, you must specify an array consisting of three elements: the event handler function, the object value and the Boolean `true` value:
+If you want your event handler, which belongs to a separate object, to react on the capturing phase of the event processing, you must specify an object with three properties: the event handler function, the object reference and the Boolean `true` value:
 
 ```tsx
 public render(): void
 {
-    return <button click={[this.clcikable.onClick, this.clcikable, true]}>Click Me</button>;
+    return <button click={ {func: this.clcikable.onClick, funcThisArg: this.clcikable, useCapture: true} }>Click Me</button>;
 }
 ```
 

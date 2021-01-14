@@ -1,7 +1,7 @@
 ---
 layout: mimbl-guide
 unit: 2
-title: Rendering HTML
+title: "Mimbl Guide: Rendering HTML Content"
 ---
 
 # Mimbl Guide: Rendering HTML Content
@@ -25,8 +25,6 @@ mim.mount( 25);
 // produces a single Text node with the "25" string
 
 mim.mount( true);
-// produces a single Text node with the "true" string
-
 mim.mount( false);
 mim.mount( null);
 mim.mount( undefined);
@@ -50,7 +48,7 @@ mim.mount( foo);
 
 function Foo() { return <div>Hello</div> }
 mim.mount( <Foo/>);
-// Produces a <div> element with the "Hello" string (text node) - Foo is a functional component in JSX expression
+// Produces a <div> element with the "Hello" string (text node) - Foo is a functional component in a JSX expression
 ```
 
 The above examples demonstrate the rules that Mimbl uses when producing HTML from the content provided to it. The following sections will discuss these rules in more detail and will provide more involved examples.
@@ -58,18 +56,17 @@ The above examples demonstrate the rules that Mimbl uses when producing HTML fro
 ## JavaScript Types
 Mimbl produces HTML content according to the following rules:
 
-- `false`, `null` and `undefined` are ignored - no HTML content is created for them.
-- Boolean `true` produces the string `"true"`.
+- `true`, `false`, `null` and `undefined` are ignored - no HTML content is created for them.
 - Strings are used as is and produce HTML text nodes. Empty strings don't produce HTML content.
 - Numbers are converted to strings using the standard JavaScript rules.
 - Arrays are iterated over and HTML content is created separately for each item. If an item is itself an array, the process continues recursively. For example, an array `[1, [2,3], 4]` will be treated the same way as array `[1,2,3,4]`.
-- Objects that implement a `render` method are treated as component instances: their `render` method is invoked by the Mimbl rendering mechanism and its return value is used to produce HTML content.
-- Objects that don't implement a `render` method are converted to strings using the `toString` method. Objects that don't override the default implementation of the `toString` method are converted to the "[object Object]" strings.
+- Objects that are instances of a class derived from `Component` are treated as component instances: their `render` method is invoked by the Mimbl rendering mechanism and its return value is used to produce HTML content.
+- Other objects are converted to strings using the `toString` method. Objects that don't override the default implementation of the `toString` method are converted to the `[object Object]` string.
 - Promises are watched by the Mimbl rendering mechanism and their resolved values are used to produce HTML content. While a promise is pending, no HTML content is produced. If the promise is rejected, an exception is thrown, which bubbles up the component chain until there is a component that knows to handle it.
-- Functions are called by the Mimbl rendering mechanism without parameters and their return values are used to produce HTML content. Using functions has some benefits and is described in more details in the unit [Rendering Functions](rendering-methods.html).
+- Functions are called by the Mimbl rendering mechanism without parameters and their return values are used to produce HTML content. Using functions has some benefits and is described in more details in the unit [Partitioned Components](partitioned-components.html).
 
 ## JSX Expressions
-This section provides a brief description of JSX as it pertains to Mimbl. The detailed description of JSX can be found in [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/jsx.html).
+This section provides a brief description of JSX as it pertains to Mimbl. The detailed description of JSX can be found in the [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/jsx.html).
 
 A JSX expression is an HTML-like construct that is type-checked and parsed by the TypeScript compiler into a call to a JSX factory function. A JSX expression consists of a single "root" JSX element with arbitrary number of children. Children can be either JSX expressions or strings or any other JavaScript type. A JSX element has an opening tag in the form `<tag>` and a closing tag in the form `</tag>`. If a JSX element doesn't have children it can use only an opening tag in the form `<tag/>`.
 
@@ -140,7 +137,7 @@ mim.mount( [ <div>First Element</div>, <div>Second Element</div> ]);
 
 This works but it visually breaks the JSX visual flow - the code doesn't resemble HTML anymore.
 
-For React, TypeScript supports a very convenient syntax in the form of a *fragment*, which is an empty JSX element. A fragment starts with `<>` and ends with `</>`. This syntax is very intuitive and is widely used with React. For example, in React, the following code works:
+Starting from version 4.0.0, TypeScript supports a very convenient syntax in the form of a *fragment*, which is an empty JSX element. A fragment starts with `<>` and ends with `</>`. This syntax is very intuitive and is widely used with React. For example, the following code works:
 
 ```tsx
 mim.mount( <>
@@ -149,9 +146,7 @@ mim.mount( <>
 </>);
 ```
 
-Unfortunately, TypeScript doesn't currently support this syntax when a custom JSX factory is used; however, it was announced that TypeScript 4.0 will support it.
-
-Meanwhile, Mimbl (just as many other 3rd party libraries) provides a component that serves the sole purpose of combining multiple JSX expressions into a group without inserting any extra element into the resultant HTML. Unsurprisingly, the component is called `mim.Fragment` and is used as in the following example:
+The earlier versions of TypeScript don't currently support this syntax when a custom JSX factory is used. In this case, Mimbl provides a component that serves the sole purpose of combining multiple JSX expressions into a group without inserting any extra element into the resultant HTML. Unsurprisingly, the component is called `mim.Fragment` and is used as in the following example:
 
 ```tsx
 mim.mount( <mim.Fragment>
@@ -185,7 +180,7 @@ class Focus extends mim.Component
 }
 ```
 
-Mimbl also supports the `@ref` decorator that also creates a reference but allows for a more straightforward syntax. Here is the same code using the `@ref` decorator:
+Mimbl supports the `@ref` decorator that also creates a reference but allows for a more straightforward syntax. Here is the same code using the `@ref` decorator:
 
 ```tsx
 class Focus extends mim.Component
@@ -210,14 +205,14 @@ class Focus extends mim.Component
 
 Note that we declare our `inputRef` property directly as of type `HTMLInputElement` and use it as such in the `onSetFocus` method - there is no `r` property. Also note that we don't assign any value to this property. Behind the scenes, Mimbl creates a `Proxy` object, which points to the actual HTML element and delegates all calls to it.
 
-References are usually needed when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. The `ref` attribute is applicable to any type of DOM elements as well as any managed component. References are not used for independent components because the instance of the independent component is available directly (more on this in the next unit).
+References are usually needed when there is no good way to perform a desired task in a declarative manner, for example, setting focus to an element or measuring the size of an element. The `ref` attribute is applicable to any type of DOM elements as well as any managed component. References are not used for independent components because the instance of the independent component is available directly.
 
 There are times when a component that created a `mim.Ref` object wants to be notified when the reference is filled in, cleared or its value changes. The `mim.Ref` object allows providing a callback that will be invoked every time the value of the reference changes in any way. The callback can either be provided as a first parameter in the `mim.Ref` constructor or passed in the call to the `addListener` method. When no longer needed, the callback can be removed by calling the `removeListener` method. Note that when the reference is defined using the `@ref` decorator, the `addListener` and `removeListener` methods are not available.
 
 ## Element and Component Lists
 It is a common task for Web developers to represent collections of same-type structures. This is modeled by an element having multiple sub-elements or a parent component rendering a list of child components. Such lists change when items are added to or removed from the list or when the order of items in the list changes. In order to properly update DOM when an item list changes, the first task Mimbl has to do is to match items from a newly rendered list to those in the existing list. Based on this matching, Mimbl understands what items should be destroyed or inserted or simply updated. The matching algorithm should figure out an item identity for the matching to be accurate and that identity should be unique among the items under the same parent.
 
-Mimbl allows developers to specify *keys* when elements and components are rendered. A key is a built-in property (of `any` type) that can be specified for any element as well as managed and functional components (more on this in the next unit). For proper matching, keys for all items under the same parent (another component or DOM element) must be unique. In many cases, choosing a unique key for an item is not difficult because it may reflect some unique property of a data element that the item represents. There are cases, however, when there is no such property and the keys should be actively managed by the Parent component to be created and remain unique.
+Mimbl allows developers to specify *keys* when elements and components are rendered. A key is a built-in property (of `any` type) that can be specified for any element as well as managed and functional components. For proper matching, keys for all items under the same parent (another component or DOM element) must be unique. In many cases, choosing a unique key for an item is not difficult because it may reflect some unique property of a data element that the item represents. There are cases, however, when there is no such property and the keys should be actively managed by the parent component to be created and remain unique.
 
 ## CSS and Styles
 Mimbl uses the [Mimcss](https://mmichlin66.github.io/mimcss/guide/introduction.html) library for defining and using styles.
@@ -247,7 +242,6 @@ Of course class names can be specified as regular strings too. Moreover, in situ
 ```tsx
 render()
 {
-    // specify class by using the property of our style definition class
     return <div class={[styles.blue, "bold"]}>
         Hello World!
     </div>
@@ -256,7 +250,7 @@ render()
 
 The `id` property of an element can also be specified as either a regular string or a property from a style definition class (instead of `css.$class` the `css.$id` function must be used).
 
-The `style` property is specified as an object whose type is defined by Mimcss. This object contains all the CSS properties in their lowerCamel case. Every property has a defined type, so some can be specified as strings others as numbers, yet others as arrays, tuples, functions, objects or a combination of all the above. For dimensional properties such as length and angle, values can be specified as a number, in which case the default prefix corresponding to the type will be appended. The default prefix also depends on whether the the number is integer or floating point.
+The `style` property is specified as an object whose type is defined by Mimcss. This object contains all the CSS properties in their lowerCamel case. Every property has a defined type, so some can be specified as strings others as numbers, yet others as arrays, tuples, functions, objects or a combination of all the above. For dimensional properties such as length and angle, values can be specified as a number, in which case the default prefix corresponding to the type will be appended. The default prefix also depends on whether the number is integer or floating point.
 
 ```tsx
 render()

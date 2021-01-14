@@ -1,7 +1,7 @@
 ---
 layout: mimbl-guide
 unit: 6
-title: Publishing and Subscribing to Services
+title: "Mimbl Guide: Publishing and Subscribing to Services"
 ---
 
 # Mimbl Guide: Publishing and Subscribing to Services

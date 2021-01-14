@@ -95,11 +95,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.funcproxyprops.html#args" class="tsd-kind-icon">args</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.funcproxyprops.html#arg" class="tsd-kind-icon">arg</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.funcproxyprops.html#func" class="tsd-kind-icon">func</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.funcproxyprops.html#functhisarg" class="tsd-kind-icon">func<wbr>This<wbr>Arg</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_api_mim_.funcproxyprops.html#key" class="tsd-kind-icon">key</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.funcproxyprops.html#replaceargs" class="tsd-kind-icon">replace<wbr>Args</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_api_mim_.funcproxyprops.html#thisarg" class="tsd-kind-icon">this<wbr>Arg</a></li>
 							</ul>
 						</section>
 					</div>
@@ -108,12 +107,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="args" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> args</h3>
-					<div class="tsd-signature tsd-kind-icon">args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></div>
+					<a name="arg" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> arg</h3>
+					<div class="tsd-signature tsd-kind-icon">arg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1422</li>
+							<li>Defined in mimbl/src/api/mim.ts:1425</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -126,15 +125,32 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="func" class="tsd-anchor"></a>
 					<h3>func</h3>
-					<div class="tsd-signature tsd-kind-icon">func<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Function</span></div>
+					<div class="tsd-signature tsd-kind-icon">func<span class="tsd-signature-symbol">:</span> <a href="../modules/_api_mim_.html#rendermethodtype" class="tsd-signature-type">RenderMethodType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1416</li>
+							<li>Defined in mimbl/src/api/mim.ts:1412</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Function that renders content.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="functhisarg" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> func<wbr>This<wbr>Arg</h3>
+					<div class="tsd-signature tsd-kind-icon">func<wbr>This<wbr>Arg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in mimbl/src/api/mim.ts:1419</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Value to be used as &quot;this&quot; when invoking the function. If this value is undefined, the
+								class based component that rendered the FuncProxy component will be used (which is the
+							most common case).</p>
 						</div>
 					</div>
 				</section>
@@ -145,66 +161,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_api_mim_.icommonprops.html">ICommonProps</a>.<a href="_api_mim_.icommonprops.html#key">key</a></p>
 						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:251</li>
+							<li>Defined in mimbl/src/api/mim.ts:254</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Unique key that distinguishes this JSX element from its siblings. The key can be of any type.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="replaceargs" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> replace<wbr>Args</h3>
-					<div class="tsd-signature tsd-kind-icon">replace<wbr>Args<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1455</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Flag indicating whether the arguments specified by the <code>args</code> property should be passed to
-								the function overriding arguments that were specified by the most recent call to the
-								FuncProxy.update method. By default the value of this property is false and <code>args</code> will be
-								used only the first time the function is wrapped by the FuncProxy component. If the
-								FuncProxy.update method is called, the argument specified in this call will replace the
-								original arguments. The next time the FuncProxy component is rendered, the <code>args</code> property
-							will be ignored.</p>
-						</div>
-						<p>Note the following sequence of actions that occurs when <code>replaceArgs</code> is false or omitted:</p>
-						<ol>
-							<li>Parent component renders <FuncProxy func={this.foo} args="A" />. &quot;A&quot; will be used.</li>
-							<li>Parent component calls FuncProxy.update( this.foo, undefined, undefined, &quot;B&quot;). &quot;B&quot; will be used.</li>
-							<li>Parent component renders <FuncProxy func={this.foo} args="A" />. &quot;B&quot; will still be used.</li>
-						</ol>
-						<p>If the <code>replaceArgs</code> property is set to true, then every time the FuncProxy componenet is
-						rendered, the value of the <code>args</code> property replaces whatever arguments there were before.</p>
-						<p>Now note the sequence of actions when <code>replaceArgs</code> is true:</p>
-						<ol>
-							<li>Parent component renders <FuncProxy func={this.foo} args="A" replaceArgs />.&quot;A&quot; will
-							be used.</li>
-							<li>Parent component calls FuncProxy.update( this.foo, undefined, undefined, &quot;B&quot;). &quot;B&quot; will be used.</li>
-							<li>Parent component renders <FuncProxy func={this.foo} args="A" replaceArgs />. &quot;A&quot; will
-							be used again.</li>
-						</ol>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="thisarg" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> this<wbr>Arg</h3>
-					<div class="tsd-signature tsd-kind-icon">this<wbr>Arg<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in mimbl/src/api/mim.ts:1429</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Value to be used as &quot;this&quot; when invoking the function. If this value is undefined, the
-								class based component that rendered the FuncProxy component will be used (which is the
-							most common case).</p>
 						</div>
 					</div>
 				</section>
@@ -232,19 +194,16 @@
 						<a href="_api_mim_.funcproxyprops.html" class="tsd-kind-icon">Func<wbr>Proxy<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_api_mim_.funcproxyprops.html#args" class="tsd-kind-icon">args</a>
+								<a href="_api_mim_.funcproxyprops.html#arg" class="tsd-kind-icon">arg</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_api_mim_.funcproxyprops.html#func" class="tsd-kind-icon">func</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_api_mim_.funcproxyprops.html#functhisarg" class="tsd-kind-icon">func<wbr>This<wbr>Arg</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="_api_mim_.funcproxyprops.html#key" class="tsd-kind-icon">key</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_api_mim_.funcproxyprops.html#replaceargs" class="tsd-kind-icon">replace<wbr>Args</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_api_mim_.funcproxyprops.html#thisarg" class="tsd-kind-icon">this<wbr>Arg</a>
 							</li>
 						</ul>
 					</li>
@@ -261,6 +220,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-namespace"><span class="tsd-kind-icon">Namespace</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>

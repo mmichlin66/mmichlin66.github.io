@@ -11,15 +11,6 @@ export declare type CompProps<TProps = {}, TChildren = any> = Readonly<TProps> &
     readonly children?: TChildren;
 };
 /**
- * Type of functions representing functional components.
- *
- * @typeparam TProps Type defining properties that can be passed to this functional component.
- *		Default type is an empty object (no properties).
- * @typeparam TChildren Type defining components, elements or other objects that can be used
- *		as children for this functional component. Default is `any`.
- */
-export declare type FuncCompType<TProps = {}, TChildren = any> = (props: CompProps<TProps, TChildren>) => any;
-/**
  * Interface that defines constructor signature for components.
  *
  * @typeparam TProps Type defining properties that can be passed to the class-based component
@@ -167,7 +158,7 @@ export declare type EventFuncType<T extends Event = Event> = (e: T) => void;
  *
  * @typeparam T DOM event type, e.g. MouseEvent
  */
-export declare type EventArrayType<T extends Event> = [EventFuncType<T>, any, TickSchedulingType, any, boolean];
+export declare type EventArrayType<T extends Event> = [EventFuncType<T>, any?, TickSchedulingType?, any?, boolean?];
 export declare type EventObjectType<T extends Event> = {
     func: EventFuncType<T>;
     funcThisArg?: any;
@@ -208,10 +199,10 @@ export interface IElementProps<TRef extends Element = Element, TChildren = any> 
      */
     ref?: RefPropType<TRef>;
     /**
-     * Reference that will be set to the virtual node corresponding to the element after it is
-     * created (mounted). The reference will be set to undefined after the element is unmounted.
+     * Reference that will be set to the instance of the element after it is created (mounted). The
+     * reference will be set to undefined after the element is unmounted.
      */
-    vnref?: ElmVNRef<TRef>;
+    vnref?: ElmRefPropType<TRef>;
     /**
      * Update strategy object that determines different aspects of element behavior during updates.
      */
@@ -582,19 +573,6 @@ export interface IErrorHandlingService {
  */
 export declare type ScheduledFuncType = () => void;
 /**
- * The ElmVNRef class represents a reference to the element virtual node. Objects of this class
- * can be created and passed to the `vnref` property of an element. After the element is rendered
- * the object can be used to schedule updates to the element directly - that is, without updating
- * the component that rendered the element. This, for example, can be used to update properties
- * of the element without causing re-rendering of its children.
- */
-export declare class ElmVNRef<T extends Element = Element> {
-    /** Reference to the virtual node corresponding to the element */
-    vn: IElmVN<T>;
-    /** Get accessor for the element */
-    get r(): T;
-}
-/**
  * Defines event handler that is invoked when reference value changes.
  */
 export declare type RefFunc<T = any> = (newRef: T) => void;
@@ -613,8 +591,30 @@ export declare class Ref<T = any> {
     /** Get accessor for the reference value */
     get r(): T;
     /** Set accessor for the reference value */
-    set r(newRef: T);
+    set r(v: T);
 }
+/**
+ * The ElmRef class represents a reference to the element virtual node. Such objects
+ * can be created and passed to the `ref` property of an element. After the element is rendered
+ * the object can be used to schedule updates to the element directly - that is, without updating
+ * the component that rendered the element. This, for example, can be used to update properties
+ * of the element without causing re-rendering of its children.
+ */
+export declare class ElmRef<T extends Element = Element> extends Ref<IElmVN<T>> {
+}
+/**
+ * Defines event handler that is invoked when reference value changes.
+ */
+export declare type ElmRefFunc<T extends Element = Element> = RefFunc<IElmVN<T>>;
+/**
+ * Type of ref property that can be passed to JSX elements and components. This can be either the
+ * [[Ref]] class or [[RefFunc]] function.
+ */
+export declare type RefPropType<T = any> = T | Ref<T> | RefFunc<T>;
+/**
+ * Type of vnref property that can be passed to JSX elements.
+ */
+export declare type ElmRefPropType<T extends Element = Element> = RefPropType<IElmVN<T>>;
 /**
  * Decorator function for creating reference properties without the need to manually create Ref<>
  * instances. This allows for the following code pattern:
@@ -623,18 +623,13 @@ export declare class Ref<T = any> {
  * class A extends Component
  * {
  *     @ref myDiv: HTMLDivElement;
- *     render() { return <div ref={myDiv}>Hello</div>; }
+ *     render() { return <div ref={this.myDiv}>Hello</div>; }
  * }
  * ```
  *
  * In the above example, the myDiv property will be set to point to the HTML div element.
  */
 export declare function ref(target: any, name: string): void;
-/**
- * Type of ref property that can be passed to JSX elements and components. This can be either the
- * [[Ref]] class or [[RefFunc]] function.
- */
-export declare type RefPropType<T = any> = T | Ref<T> | RefFunc<T>;
 /**
  * Helper function to set the value of the reference that takes care of the different types of
  * references. The optional `onlyIf` parameter may specify a value so that only if the reference
@@ -663,7 +658,7 @@ export interface IVNode {
      * Zero-based index of this node in the parent's list of sub-nodes. This is zero for the
      * root nodes that don't have parents.
      */
-    readonly index: number;
+    readonly index?: number;
     /** List of sub-nodes. */
     readonly subNodes?: IVNode[];
     /**
@@ -744,6 +739,10 @@ export interface IElmVN<T extends Element = Element> extends IVNode {
      * Requests update of the element properties without re-rendering of its children.
      */
     setProps(props: IElementProps<T>): void;
+    /**
+     * Requests re-rendering of the element children without updating its properties.
+     */
+    setChildren(children: any): void;
 }
 /**
  * The ITextVN interface represents a virtual node for a text DOM node.
@@ -818,7 +817,7 @@ export declare function registerCustomAttribute<T>(attrName: string, handlerClas
  * @param propName name of the custom event
  */
 export declare function registerCustomEvent(eventName: string): void;
-export declare type TickSchedulingType = "s" | "t" | "a" | undefined;
+export declare type TickSchedulingType = "n" | "s" | "t" | "a" | undefined;
 /**
  * Base class for components. Components that derive from this class must implement the render
  * method.
@@ -1044,14 +1043,15 @@ export declare function mount(content: any, anchorDN?: Node): void;
  */
 export declare function unmount(anchorDN?: Node): void;
 /**
- * Symbol that is attached to a render function to indicate that it should be wrapped in a watcher.
+ * Symbol that is attached to a render function to indicate that it should not be wrapped in a
+ * watcher.
  */
-export declare let symRenderWatcher: symbol;
+export declare let symRenderNoWatcher: symbol;
 /**
- * Decorator function for tagging a component's render function so that it will be wrapped in
+ * Decorator function for tagging a component's render function so that it will not be wrapped in
  * a watcher.
  */
-export declare function watcher(target: any, name: string, propDescr: PropertyDescriptor): void;
+export declare function noWatcher(target: any, name: string, propDescr: PropertyDescriptor): void;
 /**
  * @deprecated - use `@trigger`
  */
