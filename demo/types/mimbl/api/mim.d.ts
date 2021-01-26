@@ -1,6 +1,6 @@
 import { Styleset, IIDRule, ClassPropType } from "mimcss";
 /**
- * Type used to define properties that can be passed to a class-based component.
+ * Type used to define properties that can be passed to a manged component.
  *
  * @typeparam TProps Type defining properties that can be passed to the functional or class-based
  * component with these properties. Default type is an empty object (no properties).
@@ -19,7 +19,7 @@ export declare type CompProps<TProps = {}, TChildren = any> = Readonly<TProps> &
  *		as children for the class-based component of this type. Default is `any`.
  */
 export interface IComponentClass<TProps = {}, TChildren = any> {
-    new (props?: TProps): IComponent<TProps, TChildren>;
+    new (props?: TProps): Component<TProps, TChildren>;
     render(): any;
 }
 /**
@@ -35,7 +35,7 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * Component properties passed to the constructor. For managed components, the properties
      * are updated when the component's parent is updated.
      */
-    props?: CompProps<TProps, TChildren>;
+    readonly props?: CompProps<TProps, TChildren>;
     /**
      * Components can define display name for tracing purposes; if they don't the default name
      * used is the component's class constructor name. Note that this method can be called before
@@ -109,11 +109,9 @@ export interface IComponent<TProps = {}, TChildren = any> {
      * components can handle the error, the entire tree will be unmounted.
      * @param err An exception that was thrown during the component's own rendering or rendering
      * of one of its descendants.
-     * @param path An array of names of components and elements from the mounted root to the
-     * component that threw the exception. This path is provided mostly for debugging and tracing
-     * purposes.
+     * @returns New content to be displayed for the component.
      */
-    handleError?(err: any): void;
+    handleError?(err: any): any;
     /**
      * Retrieves update strategy object that determines different aspects of component behavior
      * during updates.
@@ -142,44 +140,42 @@ export declare type UpdateStrategy = {
      */
     disableKeyedNodeRecycling?: boolean;
 };
+/** Type defining the information that can be supplied for a callback to be wrapped */
+export interface CallbackWrappingParams<T extends Function = Function> {
+    func: T;
+    funcThisArg?: any;
+    arg?: any;
+    schedulingType?: TickSchedulingType;
+    creator?: any;
+}
+/**
+ * Wraps the given callback and returns a function with identical signature.
+ * @param params
+ */
+export declare function wrapCallback<T extends Function>(params?: CallbackWrappingParams<T>): T;
+/**
+ * Retrieves the argumnet that was passed when a callback was wrapped. This function can only be
+ * called from the callback itself while it is executing.
+ */
+export declare function getCallbackArg(): any;
 /**
  * Type of event handler function for DOM events of type T.
  * @typeparam T DOM event type, e.g. MouseEvent
  */
 export declare type EventFuncType<T extends Event = Event> = (e: T) => void;
-/**
- * Tuple containing parameters of event handler in the following order:
- *   - Event handler function.
- *   - Object that will be referenced by "this" within the event handler function.
- *   - Type of scheduling the Mimbl tick after the event handler function returns.
- *   - Object that will be set as "current creator" for JSX parsing during the event handler
- *     function execution.
- *   - Flag indicating whether this event should be used as Capturing (true) or Bubbling (false).
- *
- * @typeparam T DOM event type, e.g. MouseEvent
- */
-export declare type EventArrayType<T extends Event> = [EventFuncType<T>, any?, TickSchedulingType?, any?, boolean?];
-export declare type EventObjectType<T extends Event> = {
-    func: EventFuncType<T>;
-    funcThisArg?: any;
-    schedulingType?: TickSchedulingType;
-    creator?: any;
+/** Type defining the information that can be supplied for an event listener */
+export interface EventObjectType<T extends Event> extends CallbackWrappingParams<EventFuncType<T>> {
     useCapture?: boolean;
-};
+}
 /**
  * Union type that can be passed to an Element's event.
  * @typeparam T DOM event type, e.g. MouseEvent
  */
-export declare type EventPropType<T extends Event = Event> = EventFuncType<T> | EventArrayType<T> | EventObjectType<T>;
+export declare type EventPropType<T extends Event = Event> = EventFuncType<T> | EventObjectType<T>;
 /**
  * Type for defining the id property of HTML elements
  */
 export declare type IDPropType = string | number | IIDRule;
-export declare type CrossoriginPropType = "anonymous" | "use-credentials";
-export declare type FormenctypePropType = "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain";
-export declare type FormmethodPropType = "get" | "post" | "dialog";
-export declare type FormtargetPropType = string | "_self" | "_blank" | "_parent" | "_top";
-export declare type ReferrerPolicyPropType = "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "unsafe-url";
 /**
  * The ICommonProps interface defines standard properties that can be used on all JSX elements -
  * intrinsic (HTML and SVG) as well as functional and class-based components.
@@ -188,6 +184,19 @@ export interface ICommonProps {
     /** Unique key that distinguishes this JSX element from its siblings. The key can be of any type. */
     key?: any;
 }
+/**
+ * The IManagedCompProps interface adds to the ICommonProps the ability to obtain reference to
+ * the managed components via the ref property.
+ */
+export interface IManagedCompProps<T = any> extends ICommonProps {
+    readonly ref?: RefPropType<T>;
+}
+export declare type CrossoriginPropType = "anonymous" | "use-credentials";
+export declare type FormenctypePropType = "application/x-www-form-urlencoded" | "multipart/form-data" | "text/plain";
+export declare type FormmethodPropType = "get" | "post" | "dialog";
+export declare type FormtargetPropType = string | "_self" | "_blank" | "_parent" | "_top";
+export declare type ReferrerPolicyPropType = "no-referrer" | "no-referrer-when-downgrade" | "origin" | "origin-when-cross-origin" | "unsafe-url";
+export declare type DropzonePropType = "copy" | "move" | "link";
 /**
  * The IElementProps interface defines standard properties (attributes and event listeners)
  * that can be used on all HTML and SVG elements.
@@ -199,7 +208,7 @@ export interface IElementProps<TRef extends Element = Element, TChildren = any> 
      */
     ref?: RefPropType<TRef>;
     /**
-     * Reference that will be set to the instance of the element after it is created (mounted). The
+     * Reference that will be set to the element's virtual node after it is created (mounted). The
      * reference will be set to undefined after the element is unmounted.
      */
     vnref?: ElmRefPropType<TRef>;
@@ -212,8 +221,8 @@ export interface IElementProps<TRef extends Element = Element, TChildren = any> 
     xmlns?: string;
     class?: ClassPropType;
     draggable?: boolean;
-    dropzone?: "copy" | "move" | "link";
-    id?: string | number | IIDRule;
+    dropzone?: DropzonePropType;
+    id?: IDPropType;
     lang?: string;
     role?: string;
     style?: Styleset;
@@ -308,7 +317,7 @@ import * as svg from "./SvgTypes";
  */
 export declare namespace JSX {
     type Element = any;
-    interface ElementClass extends IComponent {
+    interface ElementClass extends Component {
     }
     interface ElementAttributesProperty {
         props: {};
@@ -519,8 +528,7 @@ export declare namespace JSX {
     }
     interface IntrinsicAttributes extends ICommonProps {
     }
-    interface IntrinsicClassAttributes<T> extends ICommonProps {
-        ref?: RefPropType<T>;
+    interface IntrinsicClassAttributes<T> extends IManagedCompProps<T> {
     }
 }
 /**
@@ -610,7 +618,16 @@ export declare type ElmRefFunc<T extends Element = Element> = RefFunc<IElmVN<T>>
  * Type of ref property that can be passed to JSX elements and components. This can be either the
  * [[Ref]] class or [[RefFunc]] function.
  */
-export declare type RefPropType<T = any> = T | Ref<T> | RefFunc<T>;
+export declare type RefType<T = any> = Ref<T> | RefFunc<T>;
+/**
+ * Type of ref property value. This can be either the [[Ref]] class or [[RefFunc]] function or the
+ * type itself.
+ */
+export declare type RefPropType<T = any> = T | RefType<T>;
+/**
+ * Type of the vnref property value.
+ */
+export declare type ElmRefType<T extends Element = Element> = RefType<IElmVN<T>>;
 /**
  * Type of vnref property that can be passed to JSX elements.
  */
@@ -640,7 +657,7 @@ export declare function ref(target: any, name: string): void;
  * @param onlyIf An optional value to which to compare the current (old) value of the reference.
  * The new value will be set only if the old value equals the `onlyIf` value.
  */
-export declare function setRef<T>(ref: RefPropType<T>, val: T, onlyIf?: T): void;
+export declare function setRef<T>(ref: RefType<T>, val: T, onlyIf?: T): void;
 /**
  * The IVNode interface represents a virtual node. Through this interface, callers can perform
  * most common actions that are available on every type of virtual node. Each type of virtual node
@@ -667,8 +684,6 @@ export interface IVNode {
      * property of an element.
      */
     readonly name?: string;
-    /** This method is called by the component when it needs to be updated. */
-    requestUpdate(): void;
     /**
      * Registers an object of any type as a service with the given ID that will be available for
      * consumption by descendant components.
@@ -712,6 +727,8 @@ export interface IVNode {
 export interface IClassCompVN extends IVNode {
     /** Gets the component instance. */
     readonly comp: IComponent;
+    /** This method is called by the component when it needs to be updated. */
+    requestUpdate(): void;
 }
 /**
  * The IManagedCompVN interface represents a virtual node for a JSX-based component.
@@ -731,18 +748,71 @@ export interface IIndependentCompVN extends IClassCompVN {
 export interface IElmVN<T extends Element = Element> extends IVNode {
     /** Gets the DOM element name. */
     readonly elmName: string;
-    /** Gets the flag indicating whether this element is an SVG (as opposed to HTML). */
-    readonly isSvg: boolean;
     /** Gets the DOM element object. */
     readonly elm: Element;
     /**
      * Requests update of the element properties without re-rendering of its children.
+     * @param props
      */
-    setProps(props: IElementProps<T>): void;
+    setProps(props: IElementProps<T>, schedulingType?: TickSchedulingType): void;
     /**
-     * Requests re-rendering of the element children without updating its properties.
+     * Updates the element's sub-nodes with the given content. This method engages the regular
+     * reconciliation mechanism, which tries to update the existing sub-nodes by the new sub-nodes
+     * and unmounting only those that cannot be updated.
+     * @param children
      */
-    setChildren(children: any): void;
+    updateChildren(content: any, schedulingType?: TickSchedulingType): void;
+    /**
+     * Completely replaces the element's sub-nodes with the given content. This method unmounts all
+     * existing sub-nodes without trying to see whether they can be updated by the new sub-nodes.
+     * @param children
+     */
+    setChildren(content?: any, schedulingType?: TickSchedulingType): void;
+    /**
+     * Retains the given range of the sub-nodes unmounting the sub-nodes outside this range. This
+     * method operates similar to the Array.prototype.slice method.
+     * @param startIndex Index of the first sub-node in the range
+     * @param endIndex (optional) Index of the sub-node after the last sub-node in the range. If
+     * this parameter is zero or undefined or greater than the length of the sub-nodes array, the
+     * range will include all sub-nodes from the startIndex to the end of the array.
+     */
+    sliceChildren(startIndex: number, endIndex?: number, schedulingType?: TickSchedulingType): void;
+    /**
+     * At the given index, removes a given number of sub-nodes and then inserts the new content.
+     * @param index
+     * @param countToDelete
+     * @param contentToInsert
+     * @param update Optional flag determining whether to reconcile or completely replace the
+     * sub-nodes being removed with the new content. The default is to replace.
+     */
+    spliceChildren(index: number, countToDelete?: number, contentToInsert?: any, update?: boolean, schedulingType?: TickSchedulingType): void;
+    /**
+     * Moves a range of sub-nodes to a new location.
+     * @param index Starting index of the range.
+     * @param count Number of sub-nodes in the range.
+     * @param shift Positive or negative number of positions the range will be moved.
+     */
+    moveChildren(index: number, count: number, shift: number, schedulingType?: TickSchedulingType): void;
+    /**
+     * Swaps two ranges of the element's sub-nodes. The ranges cannot intersect.
+     * @param index1
+     * @param count1
+     * @param index2
+     * @param count2
+     */
+    swapChildren(index1: number, count1: number, index2: number, count2: number, schedulingType?: TickSchedulingType): void;
+    /**
+     * Removes the given number of nodes from the start and/or the end of the list of sub-nodes.
+     * @param startCount
+     * @param endCount
+     */
+    trimChildren(startCount: number, endCount: number, schedulingType?: TickSchedulingType): void;
+    /**
+     * Adds the given content at the start and/or at the end of the existing children.
+     * @param startContent
+     * @param endContent
+     */
+    growChildren(startContent?: any, endContent?: any, schedulingType?: TickSchedulingType): void;
 }
 /**
  * The ITextVN interface represents a virtual node for a text DOM node.
@@ -755,10 +825,10 @@ export interface ITextVN extends IVNode {
     /**
      * Requests update of the text.
      */
-    setText(text: string): void;
+    setText(text: string, schedulingType?: TickSchedulingType): void;
 }
 /**
- * Creates text virtual node, whcih can be used to update the text without re-rendering parent
+ * Creates text virtual node, which can be used to update the text without re-rendering parent
  * element.
  * @param text Text to initialize the text node
  */
@@ -817,17 +887,26 @@ export declare function registerCustomAttribute<T>(attrName: string, handlerClas
  * @param propName name of the custom event
  */
 export declare function registerCustomEvent(eventName: string): void;
-export declare type TickSchedulingType = "n" | "s" | "t" | "a" | undefined;
+export declare const enum TickSchedulingType {
+    /** No tick is scheduled */
+    None = 1,
+    /** The tick is executed right away in a synchronous manner */
+    Sync = 2,
+    /** A microtask is scheduled for executing the tick */
+    Microtask = 3,
+    /** An animation frame is scheduled for executing the tick */
+    AnimationFrame = 4
+}
 /**
  * Base class for components. Components that derive from this class must implement the render
  * method.
  */
-export declare abstract class Component<TProps = {}, TChildren = any> implements IComponent<TProps, TChildren> {
+export declare abstract class Component<TProps = {}, TChildren = any> {
     /**
      * Component properties passed to the constructor. This is normally used only by managed
      * components and is usually undefined for independent coponents.
      */
-    readonly props: CompProps<TProps, TChildren>;
+    props: CompProps<TProps, TChildren>;
     /**
      * Remembered virtual node object through which the component can request services. This
      * is undefined in the component's costructor but will be defined before the call to the
@@ -840,6 +919,16 @@ export declare abstract class Component<TProps = {}, TChildren = any> implements
      * method is abstract because it must be implemented by every component.
      */
     abstract render(): any;
+    displayName?: string;
+    willMount?(): void;
+    didMount?(): void;
+    didReplace?(oldComp: IComponent<TProps, TChildren>): void;
+    willUnmount?(): void;
+    beforeUpdate?(): void;
+    afterUpdate?(): void;
+    shouldUpdate?(newProps: CompProps<TProps, TChildren>): boolean;
+    handleError?(err: any): any;
+    getUpdateStrategy?(): UpdateStrategy;
     /**
      * Determines whether the component is currently mounted. If a component has asynchronous
      * functionality (e.g. fetching data from a server), component's code may be executed after

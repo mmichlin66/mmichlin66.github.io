@@ -31,7 +31,6 @@ exec( "xcopy ..\\mimbl\\lib\\index.d.ts                 demo\\types\\mimbl\\ /i 
 exec( "xcopy ..\\mimbl\\lib\\utils\\EventSlot.d.ts      demo\\types\\mimbl\\utils\\ /i /y /d");
 exec( "xcopy ..\\mimbl\\lib\\utils\\TriggerWatcher.d.ts demo\\types\\mimbl\\utils\\ /i /y /d");
 exec( "xcopy ..\\mimbl\\lib\\api\\*.d.ts                demo\\types\\mimbl\\api\\ /i /y /d");
-exec( "xcopy ..\\mimbl\\lib\\comp\\Popups.d.ts          demo\\types\\mimbl\\comp\\ /i /y /d");
 
 console.log( "copyLibs.js script has finished");
 
