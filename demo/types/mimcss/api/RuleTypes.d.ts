@@ -1,4 +1,4 @@
-import { ICustomVar, OneOrMany, PseudoEntity, CssSelector, PagePseudoClass, IParameterizedPseudoEntity, IRuleWithSelector, SelectorCombinator, IConstant } from "../api/BasicTypes";
+import { ICustomVar, OneOrMany, PseudoEntity, CssSelector, PagePseudoClass, IParameterizedPseudoEntity, IRuleWithSelector, SelectorCombinator, IConstant } from "./CoreTypes";
 import { ExtendedStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
 /**
  * The `CombinedStyleset` type extends the Styleset type with certain properties that provide
@@ -141,6 +141,10 @@ export interface IClassNameRule extends INamedEntity, IRuleWithSelector {
     /** Name of all the class names prefixed with "." */
     readonly cssClassName: string;
 }
+/**
+ * Type for defining the class property of HTML elements.
+ */
+export declare type ClassPropType = string | IClassRule | IClassNameRule | ClassPropType[];
 /**
  * The IIDRule interface represents a style rule where the selector is a single element ID.
  */
@@ -408,5 +412,20 @@ export interface IScheduler {
      * Is invoked when the scheduler needs to cancels its scheduled callback or event.
      */
     cancelDOMUpdate(): void;
+}
+/**
+ * The ICssSerializer interface allows adding style definition classes and objects
+ * and serializing them to a single string. This can be used for server-side rendering when
+ * the resultant string can be set as the content of a `<style>` element.
+ */
+export interface ICssSerializer {
+    /**
+     * Adds style definition class or instance.
+     */
+    add(instOrClass: StyleDefinition | IStyleDefinitionClass): void;
+    /**
+     * Returns concatenated string representation of all CSS rules added to the context.
+     */
+    serialize(): string;
 }
 //# sourceMappingURL=RuleTypes.d.ts.map

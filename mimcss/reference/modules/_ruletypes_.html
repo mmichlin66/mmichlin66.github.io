@@ -87,6 +87,7 @@
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_ruletypes_.iclassrule.html" class="tsd-kind-icon">IClass<wbr>Rule</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/_ruletypes_.iconstrule.html" class="tsd-kind-icon">IConst<wbr>Rule</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_ruletypes_.icounterrule.html" class="tsd-kind-icon">ICounter<wbr>Rule</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_ruletypes_.icssserializer.html" class="tsd-kind-icon">ICss<wbr>Serializer</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_ruletypes_.ifontfacerule.html" class="tsd-kind-icon">IFont<wbr>Face<wbr>Rule</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_ruletypes_.igridarearule.html" class="tsd-kind-icon">IGrid<wbr>Area<wbr>Rule</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_ruletypes_.igridlinerule.html" class="tsd-kind-icon">IGrid<wbr>Line<wbr>Rule</a></li>
@@ -112,6 +113,7 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_ruletypes_.html#animationframe" class="tsd-kind-icon">Animation<wbr>Frame</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_ruletypes_.html#animationstyleset" class="tsd-kind-icon">Animation<wbr>Styleset</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_ruletypes_.html#animationwaypoint" class="tsd-kind-icon">Animation<wbr>Waypoint</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_ruletypes_.html#classproptype" class="tsd-kind-icon">Class<wbr>Prop<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_ruletypes_.html#combinedstyleset" class="tsd-kind-icon">Combined<wbr>Styleset</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_ruletypes_.html#dependentrules" class="tsd-kind-icon">Dependent<wbr>Rules</a></li>
 							</ul>
@@ -124,10 +126,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="animationframe" class="tsd-anchor"></a>
 					<h3>Animation<wbr>Frame</h3>
-					<div class="tsd-signature tsd-kind-icon">Animation<wbr>Frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_ruletypes_.html#animationwaypoint" class="tsd-signature-type">AnimationWaypoint</a><span class="tsd-signature-symbol">, </span><a href="_ruletypes_.html#animationstyleset" class="tsd-signature-type">AnimationStyleset</a><span class="tsd-signature-symbol">]</span></div>
+					<div class="tsd-signature tsd-kind-icon">Animation<wbr>Frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in RuleTypes.ts:210</li>
+							<li>Defined in RuleTypes.ts:217</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -144,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">Animation<wbr>Styleset<span class="tsd-signature-symbol">:</span> <a href="_styletypes_.html#styleset" class="tsd-signature-type">Styleset</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>+<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_ruletypes_.istylerule.html" class="tsd-signature-type">IStyleRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_ruletypes_.istylerule.html" class="tsd-signature-type">IStyleRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in RuleTypes.ts:203</li>
+							<li>Defined in RuleTypes.ts:210</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -159,16 +161,31 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="animationwaypoint" class="tsd-anchor"></a>
 					<h3>Animation<wbr>Waypoint</h3>
-					<div class="tsd-signature tsd-kind-icon">Animation<wbr>Waypoint<span class="tsd-signature-symbol">:</span> <a href="_basictypes_.html#oneormany" class="tsd-signature-type">OneOrMany</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"from"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"to"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Animation<wbr>Waypoint<span class="tsd-signature-symbol">:</span> <a href="_coretypes_.html#oneormany" class="tsd-signature-type">OneOrMany</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"from"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"to"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in RuleTypes.ts:195</li>
+							<li>Defined in RuleTypes.ts:202</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The AnimationWaypoint type defines a type that can be used to define a waypoint in an
 							animation sequence.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="classproptype" class="tsd-anchor"></a>
+					<h3>Class<wbr>Prop<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">Class<wbr>Prop<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_ruletypes_.iclassrule.html" class="tsd-signature-type">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_ruletypes_.iclassnamerule.html" class="tsd-signature-type">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><a href="_ruletypes_.html#classproptype" class="tsd-signature-type">ClassPropType</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in RuleTypes.ts:183</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type for defining the class property of HTML elements.</p>
 						</div>
 					</div>
 				</section>
@@ -247,16 +264,25 @@
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_basictypes_.html">&quot;<wbr>Basic<wbr>Types&quot;</a>
+						<a href="_coreapi_.html">&quot;<wbr>CoreAPI&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_fontfaceapi_.html">&quot;<wbr>Font<wbr>FaceAPI&quot;</a>
+						<a href="_coretypes_.html">&quot;<wbr>Core<wbr>Types&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_imageapi_.html">&quot;<wbr>ImageAPI&quot;</a>
+						<a href="_extraapi_.html">&quot;<wbr>ExtraAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_extratypes_.html">&quot;<wbr>Extra<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_fontfacetypes_.html">&quot;<wbr>Font<wbr>Face<wbr>Types&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_mediaapi_.html">&quot;<wbr>MediaAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_mediatypes_.html">&quot;<wbr>Media<wbr>Types&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_ruleapi_.html">&quot;<wbr>RuleAPI&quot;</a>
@@ -265,16 +291,10 @@
 						<a href="_ruletypes_.html">&quot;<wbr>Rule<wbr>Types&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_schedulingapi_.html">&quot;<wbr>SchedulingAPI&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_styleapi_.html">&quot;<wbr>StyleAPI&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_styletypes_.html">&quot;<wbr>Style<wbr>Types&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_utilapi_.html">&quot;<wbr>UtilAPI&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -303,6 +323,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_ruletypes_.icounterrule.html" class="tsd-kind-icon">ICounter<wbr>Rule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_ruletypes_.icssserializer.html" class="tsd-kind-icon">ICss<wbr>Serializer</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/_ruletypes_.ifontfacerule.html" class="tsd-kind-icon">IFont<wbr>Face<wbr>Rule</a>
@@ -365,6 +388,9 @@
 						<a href="_ruletypes_.html#animationwaypoint" class="tsd-kind-icon">Animation<wbr>Waypoint</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="_ruletypes_.html#classproptype" class="tsd-kind-icon">Class<wbr>Prop<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="_ruletypes_.html#combinedstyleset" class="tsd-kind-icon">Combined<wbr>Styleset</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
@@ -380,7 +406,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>

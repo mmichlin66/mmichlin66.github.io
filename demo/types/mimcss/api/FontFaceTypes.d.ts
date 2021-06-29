@@ -1,4 +1,4 @@
-import { IStringProxy } from "./BasicTypes";
+import { IStringProxy } from "./CoreTypes";
 /**
  * Type that extends the given type with the IStringProxy interface that allows specifying raw string value.
  */
@@ -53,4 +53,4 @@ export interface ICssFontFace {
 export declare type IFontFace = {
     [K in keyof ICssFontFace]: FontFaceExtended<ICssFontFace[K]>;
 };
-//# sourceMappingURL=FontFaceAPI.d.ts.map
+//# sourceMappingURL=FontFaceTypes.d.ts.map

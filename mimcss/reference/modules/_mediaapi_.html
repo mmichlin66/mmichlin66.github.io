@@ -67,23 +67,6 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_mediaapi_.imediafeatureset.html" class="tsd-kind-icon">IMedia<wbr>Featureset</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_mediaapi_.isinglemediaquery.html" class="tsd-kind-icon">ISingle<wbr>Media<wbr>Query</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_mediaapi_.html#extendedfeature" class="tsd-kind-icon">Extended<wbr>Feature</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_mediaapi_.html#extendedsinglemediaquery" class="tsd-kind-icon">Extended<wbr>Single<wbr>Media<wbr>Query</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_mediaapi_.html#mediaquery" class="tsd-kind-icon">Media<wbr>Query</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="_mediaapi_.html#mediatype" class="tsd-kind-icon">Media<wbr>Type</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="_mediaapi_.html#oneorrange" class="tsd-kind-icon">One<wbr>OrRange</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_mediaapi_.html#mediaquerytostring" class="tsd-kind-icon">media<wbr>Query<wbr>ToString</a></li>
@@ -93,136 +76,31 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="extendedfeature" class="tsd-anchor"></a>
-					<h3>Extended<wbr>Feature</h3>
-					<div class="tsd-signature tsd-kind-icon">Extended<wbr>Feature&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_basictypes_.iconstant.html" class="tsd-signature-type">IConstant</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_basictypes_.istringproxy.html" class="tsd-signature-type">IStringProxy</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in MediaAPI.ts:19</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type that extends the given type with the following types:</p>
-							<ul>
-								<li>IConstant interface that allows using a constant value.</li>
-								<li>IStringProxy interface that allows specifying raw string value.</li>
-							</ul>
-						</div>
-					</div>
-					<h4 class="tsd-type-parameters-title">Type parameters</h4>
-					<ul class="tsd-type-parameters">
-						<li>
-							<h4>T</h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="extendedsinglemediaquery" class="tsd-anchor"></a>
-					<h3>Extended<wbr>Single<wbr>Media<wbr>Query</h3>
-					<div class="tsd-signature tsd-kind-icon">Extended<wbr>Single<wbr>Media<wbr>Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in MediaAPI.ts:102</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The ExtendedSingleMediaQuery type maps all media features defined in the <a href="../interfaces/_mediaapi_.isinglemediaquery.html">ISingleMediaQuery</a>
-								interface to the &quot;extended&quot; versions of their types. These extended types are defined by
-								allowing [[StringProxy]] and <a href="../interfaces/_basictypes_.iconstant.html">IConstant</a> interfaces to the type that is defined in the
-							<code>ISingleMediaQuery</code> interface.</p>
-						</div>
-					</div>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="mediaquery" class="tsd-anchor"></a>
-					<h3>Media<wbr>Query</h3>
-					<div class="tsd-signature tsd-kind-icon">Media<wbr>Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_mediaapi_.html#extendedsinglemediaquery" class="tsd-signature-type">ExtendedSingleMediaQuery</a><span class="tsd-signature-symbol"> | </span><a href="_mediaapi_.html#extendedsinglemediaquery" class="tsd-signature-type">ExtendedSingleMediaQuery</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in MediaAPI.ts:111</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type representing one or more queries as part of the @media rule. While multiple queries in
-								an array are combined with the &quot;,&quot; operator, the styles within each styleset are combined with
-							the &quot;and&quot; operator.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="mediatype" class="tsd-anchor"></a>
-					<h3>Media<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Media<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"all"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"braille"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"embossed"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"handheld"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"print"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"projection"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"screen"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"speech"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"tty"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"tv"</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in MediaAPI.ts:9</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Possible media types</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="oneorrange" class="tsd-anchor"></a>
-					<h3>One<wbr>OrRange</h3>
-					<div class="tsd-signature tsd-kind-icon">One<wbr>OrRange&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><a href="_mediaapi_.html#extendedfeature" class="tsd-signature-type">ExtendedFeature</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="_mediaapi_.html#extendedfeature" class="tsd-signature-type">ExtendedFeature</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in MediaAPI.ts:27</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type for a media feature that can be specified either as a single value or as a range between
-							two values of the given type.</p>
-						</div>
-					</div>
-					<h4 class="tsd-type-parameters-title">Type parameters</h4>
-					<ul class="tsd-type-parameters">
-						<li>
-							<h4>T</h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="mediaquerytostring" class="tsd-anchor"></a>
 					<h3>media<wbr>Query<wbr>ToString</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">media<wbr>Query<wbr>ToString<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><a href="_mediaapi_.html#mediaquery" class="tsd-signature-type">MediaQuery</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">media<wbr>Query<wbr>ToString<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><a href="_mediatypes_.html#mediaquery" class="tsd-signature-type">MediaQuery</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in MediaAPI.ts:120</li>
+									<li>Defined in MediaAPI.ts:11</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Converts the given media query value to the CSS media query string. This function should be used
-										by libraries that allow specifying the <a href="_mediaapi_.html#mediaquery">MediaQuery</a> type for the <code>media</code> attribute of elements
+										by libraries that allow specifying the <a href="_mediatypes_.html#mediaquery">MediaQuery</a> type for the <code>media</code> attribute of elements
 									such as <code>&lt;link&gt;</code>, <code>&lt;style&gt;</code> and <code>&lt;source&gt;</code></p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>query: <a href="_mediaapi_.html#mediaquery" class="tsd-signature-type">MediaQuery</a></h5>
+									<h5>query: <a href="_mediatypes_.html#mediaquery" class="tsd-signature-type">MediaQuery</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -238,16 +116,25 @@
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_basictypes_.html">&quot;<wbr>Basic<wbr>Types&quot;</a>
+						<a href="_coreapi_.html">&quot;<wbr>CoreAPI&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_fontfaceapi_.html">&quot;<wbr>Font<wbr>FaceAPI&quot;</a>
+						<a href="_coretypes_.html">&quot;<wbr>Core<wbr>Types&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_imageapi_.html">&quot;<wbr>ImageAPI&quot;</a>
+						<a href="_extraapi_.html">&quot;<wbr>ExtraAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_extratypes_.html">&quot;<wbr>Extra<wbr>Types&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_fontfacetypes_.html">&quot;<wbr>Font<wbr>Face<wbr>Types&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
 						<a href="_mediaapi_.html">&quot;<wbr>MediaAPI&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_mediatypes_.html">&quot;<wbr>Media<wbr>Types&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_ruleapi_.html">&quot;<wbr>RuleAPI&quot;</a>
@@ -256,42 +143,15 @@
 						<a href="_ruletypes_.html">&quot;<wbr>Rule<wbr>Types&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_schedulingapi_.html">&quot;<wbr>SchedulingAPI&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_styleapi_.html">&quot;<wbr>StyleAPI&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_styletypes_.html">&quot;<wbr>Style<wbr>Types&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="_utilapi_.html">&quot;<wbr>UtilAPI&quot;</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_mediaapi_.imediafeatureset.html" class="tsd-kind-icon">IMedia<wbr>Featureset</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_mediaapi_.isinglemediaquery.html" class="tsd-kind-icon">ISingle<wbr>Media<wbr>Query</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_mediaapi_.html#extendedfeature" class="tsd-kind-icon">Extended<wbr>Feature</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_mediaapi_.html#extendedsinglemediaquery" class="tsd-kind-icon">Extended<wbr>Single<wbr>Media<wbr>Query</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_mediaapi_.html#mediaquery" class="tsd-kind-icon">Media<wbr>Query</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="_mediaapi_.html#mediatype" class="tsd-kind-icon">Media<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_mediaapi_.html#oneorrange" class="tsd-kind-icon">One<wbr>OrRange</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="_mediaapi_.html#mediaquerytostring" class="tsd-kind-icon">media<wbr>Query<wbr>ToString</a>
 					</li>
@@ -305,7 +165,6 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>

@@ -1,4 +1,4 @@
-import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy } from "../api/BasicTypes";
+import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
 import { IVarRule, ICounterRule, IIDRule } from "./RuleTypes";
 import { VarTemplateName, ListStyleType_StyleType, ExtendedVarValue } from "./StyleTypes";
 /**
@@ -115,6 +115,11 @@ export declare function hz(n: number): IFrequencyProxy;
 /** Creates frequency value in Kilo-Hertz */
 export declare function khz(n: number): IFrequencyProxy;
 /**
+ * Returns a string representation of a selector. This function is a tag function and must be
+ * invoked with the template string without parentheses.
+ */
+export declare function selector(parts: TemplateStringsArray, ...params: SelectorItem[]): ISelectorProxy;
+/**
  * The `raw` function allows specifying arbitrary text for properties whose type normally doesn't
  * allow strings.This function is a tag function and must be invoked with the template string
  * without parentheses. The `raw` function can be used for any style property. Note, however, that
@@ -169,4 +174,4 @@ export declare function counter(counterObj: Extended<ICounterRule | string>, sty
  * separator string and additional optional strings added after and/or before the counter.
  */
 export declare function counters(counterObj: Extended<ICounterRule | string>, separator: Extended<string>, style?: Extended<ListStyleType_StyleType>, textAfter?: Extended<string>, textBefore?: Extended<string>): IStringProxy;
-//# sourceMappingURL=UtilAPI.d.ts.map
+//# sourceMappingURL=CoreAPI.d.ts.map

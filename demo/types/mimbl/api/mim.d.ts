@@ -139,6 +139,18 @@ export declare type UpdateStrategy = {
      * The flag's default value is false, that is recycling is enabled.
      */
     disableKeyedNodeRecycling?: boolean;
+    /**
+     * Flag determining whether the reconciliation procedure should not pay attention to the keys.
+     * This flag is complimentary to the disableKeyedNodeRecycling flag and take effect only if the
+     * latter is false (or undefined). When the ignoreKeys flag is false (default) we try to match
+     * new sub-nodes to old ones using keys. Setting the ignoreKeys flag to true completely
+     * ignores keys and the matching is done by going through the lists of the new and
+     * old sub-nodes sequentially. Under certain circumstance this may speed up the reconciliation
+     * process
+     *
+     * The flag's default value is false, that is keys are used for matching the nodes.
+     */
+    ignoreKeys?: boolean;
 };
 /** Type defining the information that can be supplied for a callback to be wrapped */
 export interface CallbackWrappingParams<T extends Function = Function> {
@@ -225,7 +237,7 @@ export interface IElementProps<TRef extends Element = Element, TChildren = any> 
     id?: IDPropType;
     lang?: string;
     role?: string;
-    style?: Styleset;
+    style?: string | Styleset;
     tabindex?: number;
     abort?: EventPropType<UIEvent>;
     animationcancel?: EventPropType<AnimationEvent>;
@@ -753,44 +765,45 @@ export interface IElmVN<T extends Element = Element> extends IVNode {
     /**
      * Requests update of the element properties without re-rendering of its children.
      * @param props
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
     setProps(props: IElementProps<T>, schedulingType?: TickSchedulingType): void;
     /**
-     * Updates the element's sub-nodes with the given content. This method engages the regular
-     * reconciliation mechanism, which tries to update the existing sub-nodes by the new sub-nodes
-     * and unmounting only those that cannot be updated.
-     * @param children
+     * Replaces the given range of sub-nodes with the new content. The update parameter determines
+     * whether the old sub-nodes are simply removed and the new added or the new content is used
+     * to update the old sub-nodes.
+     * @param content New content to replace the range of old sub-nodes.
+     * @param startIndex Index of the first sub-node in the range to be replaced by the new content.
+     * If undefined, the default value is 0.
+     * @param endIndex Index after the last sub-node in the range to be replaced by the new content.
+     * If undefined, the range includes all sub-nodes from startIndex to the end.
+     * @param update If false, the old sub-nodes are removed and the new ones are inserted. If true,
+     * the reconciliation process is used to update the old sub-nodes with the new ones. The default
+     * value is false.
+     * @param updateStrategy If the reconciliation process is used (that is, the update parameter
+     * is true), determines the update strategy. If undefined, the update strategy of the node
+     * itself is used.
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
-    updateChildren(content: any, schedulingType?: TickSchedulingType): void;
-    /**
-     * Completely replaces the element's sub-nodes with the given content. This method unmounts all
-     * existing sub-nodes without trying to see whether they can be updated by the new sub-nodes.
-     * @param children
-     */
-    setChildren(content?: any, schedulingType?: TickSchedulingType): void;
-    /**
-     * Retains the given range of the sub-nodes unmounting the sub-nodes outside this range. This
-     * method operates similar to the Array.prototype.slice method.
-     * @param startIndex Index of the first sub-node in the range
-     * @param endIndex (optional) Index of the sub-node after the last sub-node in the range. If
-     * this parameter is zero or undefined or greater than the length of the sub-nodes array, the
-     * range will include all sub-nodes from the startIndex to the end of the array.
-     */
-    sliceChildren(startIndex: number, endIndex?: number, schedulingType?: TickSchedulingType): void;
+    setChildren(content?: any, startIndex?: number, endIndex?: number, update?: boolean, updateStrategy?: UpdateStrategy, schedulingType?: TickSchedulingType): void;
     /**
      * At the given index, removes a given number of sub-nodes and then inserts the new content.
      * @param index
      * @param countToDelete
      * @param contentToInsert
-     * @param update Optional flag determining whether to reconcile or completely replace the
-     * sub-nodes being removed with the new content. The default is to replace.
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
-    spliceChildren(index: number, countToDelete?: number, contentToInsert?: any, update?: boolean, schedulingType?: TickSchedulingType): void;
+    spliceChildren(index: number, countToDelete?: number, contentToInsert?: any, schedulingType?: TickSchedulingType): void;
     /**
      * Moves a range of sub-nodes to a new location.
      * @param index Starting index of the range.
      * @param count Number of sub-nodes in the range.
      * @param shift Positive or negative number of positions the range will be moved.
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
     moveChildren(index: number, count: number, shift: number, schedulingType?: TickSchedulingType): void;
     /**
@@ -799,20 +812,49 @@ export interface IElmVN<T extends Element = Element> extends IVNode {
      * @param count1
      * @param index2
      * @param count2
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
     swapChildren(index1: number, count1: number, index2: number, count2: number, schedulingType?: TickSchedulingType): void;
+    /**
+     * Retains the given range of the sub-nodes unmounting the sub-nodes outside this range. This
+     * method operates similar to the Array.prototype.slice method.
+     * @param startIndex Index of the first sub-node in the range. If undefined, the array of
+     * sub-nodes starts at index 0.
+     * @param endIndex Index of the sub-node after the last sub-node in the range. If
+     * this parameter is zero or undefined or greater than the length of the sub-nodes array, the
+     * range will include all sub-nodes from the startIndex to the end of the array.
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
+     */
+    sliceChildren(startIndex: number, endIndex?: number, schedulingType?: TickSchedulingType): void;
     /**
      * Removes the given number of nodes from the start and/or the end of the list of sub-nodes.
      * @param startCount
      * @param endCount
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
     trimChildren(startCount: number, endCount: number, schedulingType?: TickSchedulingType): void;
     /**
      * Adds the given content at the start and/or at the end of the existing children.
      * @param startContent
      * @param endContent
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
     growChildren(startContent?: any, endContent?: any, schedulingType?: TickSchedulingType): void;
+    /**
+     * Reverses sub-nodes within the given range.
+     * @param startIndex Index of the first sub-node in the range. If undefined, the array of
+     * sub-nodes starts at index 0.
+     * @param endIndex Index of the sub-node after the last sub-node in the range. If
+     * this parameter is zero or undefined or greater than the length of the sub-nodes array, the
+     * range will include all sub-nodes from the startIndex to the end of the array.
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
+     */
+    reverseChildren(startIndex?: number, endIndex?: number, schedulingType?: TickSchedulingType): void;
 }
 /**
  * The ITextVN interface represents a virtual node for a text DOM node.
@@ -824,6 +866,9 @@ export interface ITextVN extends IVNode {
     readonly textNode: Text;
     /**
      * Requests update of the text.
+     * @param text Text to set to the node.
+     * @param schedulingType Type determining whether the operation is performed immediately or
+     * is scheduled to a Mimbl tick.
      */
     setText(text: string, schedulingType?: TickSchedulingType): void;
 }

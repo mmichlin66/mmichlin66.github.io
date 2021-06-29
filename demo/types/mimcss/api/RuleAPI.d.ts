@@ -2,11 +2,11 @@
  * This module describes functions used to create rules within style definition classes and some
  * helper types and functions.
  */
-import { CssSelector, PagePseudoClass } from "../api/BasicTypes";
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule } from "./RuleTypes";
-import { SupportsQuery, Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
-import { MediaQuery } from "./MediaAPI";
-import { IFontFace } from "./FontFaceAPI";
+import { CssSelector, PagePseudoClass } from "./CoreTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, ICssSerializer, IScheduler } from "./RuleTypes";
+import { MediaQuery, SupportsQuery } from "./MediaTypes";
+import { IFontFace } from "./FontFaceTypes";
+import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
 /**
  * Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
  * Abstract rules don't have selectors and are not inserted into the DOM. Abstract rules can
@@ -528,10 +528,6 @@ export declare function $embed<T extends StyleDefinition>(instOrClass: T | IStyl
  */
 export declare function enableShortNames(enable: boolean, prefix?: string): void;
 /**
- * Type for defining the class property of HTML elements.
- */
-export declare type ClassPropType = string | IClassRule | IClassNameRule | ClassPropType[];
-/**
  * Concatenates the names of the given classes into a single string that can be assigned to a
  * `class` property of an HTML element.
  * @param classProps
@@ -543,20 +539,50 @@ export declare function classes(...classProps: ClassPropType[]): string;
  */
 export declare function chooseClass(...classProps: ClassPropType[]): string | null;
 /**
- * The ICssSerializer interface allows adding style definition classes and objects
- * and serializing them to a single string. This can be used for server-side rendering when
- * the resultant string can be set as the content of a `<style>` element.
+ * Activates the given style definition class or instance and inserts all its rules into DOM. If
+ * the input object is not an instance but a class, which is not yet associated with an instance,
+ * the instance is first created and processed. Note that each style definition instance maintains
+ * a reference counter of how many times it was activated and deactivated. The rules are inserted
+ * into DOM only upon first activation.
  */
-export interface ICssSerializer {
-    /**
-     * Adds style definition class or instance.
-     */
-    add(instOrClass: StyleDefinition | IStyleDefinitionClass): void;
-    /**
-     * Returns concatenated string representation of all CSS rules added to the context.
-     */
-    serialize(): string;
-}
+export declare function activate<T extends StyleDefinition>(instanceOrClass: T | IStyleDefinitionClass<T>, schedulerType?: number): T | null;
+/**
+ * Deactivates the given style definition instance by removing its rules from DOM. Note that each
+ * style definition instance maintains a reference counter of how many times it was activated and
+ * deactivated. The rules are removed from DOM only when this reference counter goes down to 0.
+ */
+export declare function deactivate(instance: StyleDefinition, schedulerType?: number): void;
+/**
+ * Writes to DOM all style changes caused by the calls to the activate and deactivate functions
+ * accumulated since the last activation of the given scheduling type.
+ */
+export declare function forceDOMUpdate(schedulerType?: number): void;
+/**
+ * Removes all scheduled activations caused by the calls to the activate and deactivate functions
+ * accumulated since the last activation of the given scheduling type.
+ */
+export declare function cancelDOMUpdate(schedulerType?: number): void;
+/**
+ * Sets the default scheduler type that is used by activate and deactivate functions that are
+ * called without explicitly providing value to the scheduler type parameter. Returns the type of
+ * the previous default scheduler or 0 if an error occurs (e.g. the given scheduler type ID is not
+ * registered).
+ */
+export declare function setDefaultSchedulerType(schedulerType: number): number;
+/**
+ * Returns the default scheduler type that is used by activate and deactivate functions that are
+ * called without explicitly providing value to the scheduler type parameter.
+ */
+export declare function getDefaultSchedulerType(): number;
+/**
+ * Registers the given scheduler object and returns the scheduler type identifier, which
+ * should be used when calling activate and deactivate functions.
+ */
+export declare function registerScheduler(scheduler: IScheduler): number;
+/**
+ * Unregisters a scheduler object with the given scheduler type identifier.
+ */
+export declare function unregisterScheduler(id: number): void;
 /**
  * Creates a new ICssSerializer object that allows adding style definition classes
  * and instances and serializing them to a string. This can be used for server-side rendering when

@@ -1,5 +1,6 @@
-import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, IUrlProxy, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, IQuotedProxy, CssColor, CssImage, BasicShape, GeometryBoxKeyword, IFilterProxy, IMinMaxProxy, IFitContentProxy, IRepeatProxy, ISpanProxy, IRayProxy, ITransformProxy, ILengthProxy, CssSize, CssAspectRatio } from "./BasicTypes";
-import { FontStretch_Single } from "./FontFaceAPI";
+import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, IUrlProxy, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, IQuotedProxy, GeometryBoxKeyword, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio } from "./CoreTypes";
+import { BasicShape, CssColor, CssImage, FilterFunc, IMinMaxProxy, IRayProxy, IRepeatProxy, ISpanProxy, TransformFunc } from "./ExtraTypes";
+import { FontStretch_Single } from "./FontFaceTypes";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule } from "./RuleTypes";
 /** Type for align-content style property */
 export declare type AlignContent_StyleType = "normal" | "stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "baseline" | "first baseline" | "last baseline" | "safe center" | "unsafe center" | "space-between" | "space-around" | "space-evenly";
@@ -314,7 +315,7 @@ export declare type EmptyCells_StyleType = "show" | "hide";
 /** Type for fill-rule style property */
 export declare type FillRule_StyleType = "nonzero" | "evenodd";
 /** Type for filter and backdrop-filter style single value */
-export declare type Filter_Single = IUrlProxy | IFilterProxy;
+export declare type Filter_Single = IUrlProxy | FilterFunc;
 /** Type for filter and backdrop-filter style property */
 export declare type Filter_StyleType = OneOrMany<Filter_Single>;
 /** Type for flex style property */
@@ -622,7 +623,7 @@ export declare type TextUnderlinePosition_StyleType = "auto" | "under" | "left" 
 /** Type for the touch-action style property */
 export declare type TouchAction_StyleType = "auto" | "none" | "manipulation" | "pan-x" | "pan-left" | "pan-right" | "pan-y" | "pan-up" | "pan-down" | "pinch-zoom" | "pan-x pinch-zoom" | "pan-left pinch-zoom" | "pan-right pinch-zoom" | "pan-y pinch-zoom" | "pan-up pinch-zoom" | "pan-down pinch-zoom" | "pan-x pan-y" | "pan-x pan-y pinch-zoom" | "pan-x pan-up" | "pan-x pan-up pinch-zoom" | "pan-x pan-down" | "pan-x pan-down pinch-zoom" | "pan-y pan-left" | "pan-y pan-left pinch-zoom" | "pan-y pan-right" | "pan-y pan-right pinch-zoom" | "pan-left pan-up" | "pan-left pan-up pinch-zoom" | "pan-left pan-down" | "pan-left pan-down pinch-zoom" | "pan-right pan-up" | "pan-right pan-up pinch-zoom" | "pan-right pan-down" | "pan-right pan-down pinch-zoom" | "pan-up pan-left" | "pan-up pan-left pinch-zoom" | "pan-up pan-right" | "pan-up pan-right pinch-zoom" | "pan-down pan-left" | "pan-down pan-left pinch-zoom" | "pan-down pan-right" | "pan-down pan-right pinch-zoom";
 /** Type for transform style property */
-export declare type Transform_StyleType = "none" | OneOrMany<ITransformProxy>;
+export declare type Transform_StyleType = "none" | OneOrMany<TransformFunc>;
 /** Type for transform-box style property */
 export declare type TransformBox_StyleType = "content-box" | "border-box" | "fill-box" | "stroke-box" | "view-box";
 /** Type for transform-origin style property */
@@ -1193,23 +1194,4 @@ export declare type Styleset = ExtendedStyleset & {
      */
     "--"?: CustomVar_StyleType[];
 };
-/**
- * Type representing a single set of styles as part of the @supports rules. The styles in the
- * styleset are combined with the "and" operator. The entire styleset can be negated, which will
- * result in placing the "not" operator that will act on all styles in the query.
- *
- * Note that using the `ExtendedStyleset` object doesn't allow for checking whether two or more
- * values of a given property are supported. For example, although we can test that the `display`
- * property supports the `flex` value, we cannot check whether both `flex` and `grid` values are
- * supported. To check such criteria you must specify the query as a string.
- */
-export declare type SingleSupportsQuery = string | ExtendedStyleset & {
-    $negate?: boolean;
-};
-/**
- * Type representing one or more queries as part of the @supports rule. While multiple queries in
- * an array are combined with the "or" operator, the styles within each styleset are combined with
- * the "and" operator.
- */
-export declare type SupportsQuery = SingleSupportsQuery | SingleSupportsQuery[];
 //# sourceMappingURL=StyleTypes.d.ts.map
