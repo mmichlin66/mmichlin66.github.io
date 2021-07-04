@@ -1,6 +1,4 @@
-import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, IUrlProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
-import { IVarRule, ICounterRule, IIDRule } from "./RuleTypes";
-import { VarTemplateName, ListStyleType_StyleType, ExtendedVarValue } from "./StyleTypes";
+import { INumberMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IPercentMath, Extended, IStringProxy, AttrTypeKeyword, AttrUnitKeyword, ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, IQuotedProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
 /**
  * The Num object contains methods that implement CSS mathematic functions on the `<number>`
  * CSS type.
@@ -135,20 +133,9 @@ export declare function selector(parts: TemplateStringsArray, ...params: Selecto
  */
 export declare function raw(parts: TemplateStringsArray, ...params: any[]): IStringProxy;
 /**
- * Returns a function representing the invocation of the `var()` CSS function for
- * the given custom CSS property with optional fallbacks.
- */
-export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>): IStringProxy;
-/**
  * Returns an IFitContentProxy function representing the `fit-content()` CSS function.
  */
 export declare function fitContent(size: Extended<CssLength>): IFitContentProxy;
-/**
- * Returns a function representing the CSS `url()` function. The string parameter
- * will be wrapped in a "url()" invocation. The function can also accept the IIDRule object to
- * create url(#element) invocation, which is often used to address SVG elements by their IDs.
- */
-export declare function url(val: Extended<string | IIDRule>): IUrlProxy;
 /**
  * Returns an IAspectRatioProxy function representing the `<ratio>` CSS type.
  */
@@ -164,14 +151,4 @@ export declare function attr(attrName: Extended<string>, typeOrUnit?: Extended<A
  * Returns a function representing a string in quotation marks.
  */
 export declare function quoted(val: any): IQuotedProxy;
-/**
- * Returns a function representing the CSS `counter()` function with additional
- * optional strings added after and/or before the counter.
- */
-export declare function counter(counterObj: Extended<ICounterRule | string>, style?: Extended<ListStyleType_StyleType>, textAfter?: Extended<string>, textBefore?: Extended<string>): IStringProxy;
-/**
- * Returns a function representing the CSS `countesr()` function with the given
- * separator string and additional optional strings added after and/or before the counter.
- */
-export declare function counters(counterObj: Extended<ICounterRule | string>, separator: Extended<string>, style?: Extended<ListStyleType_StyleType>, textAfter?: Extended<string>, textBefore?: Extended<string>): IStringProxy;
 //# sourceMappingURL=CoreAPI.d.ts.map

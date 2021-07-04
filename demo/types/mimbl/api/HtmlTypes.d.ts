@@ -66,8 +66,6 @@ export interface IHtmlBaseElementProps extends IHtmlElementProps<HTMLBaseElement
     href?: string;
     target?: FormtargetPropType;
 }
-export interface IHtmlBasefontElementProps extends IHtmlElementProps<HTMLBaseFontElement> {
-}
 export interface IHtmlBlockquoteElementProps extends IHtmlElementProps<HTMLQuoteElement> {
     cite?: string;
 }

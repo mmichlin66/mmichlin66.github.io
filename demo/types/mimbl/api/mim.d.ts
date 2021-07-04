@@ -349,7 +349,6 @@ export declare namespace JSX {
         audio: html.IHtmlAudioElementProps;
         b: html.IHtmlElementProps;
         base: html.IHtmlBaseElementProps;
-        basefont: html.IHtmlBasefontElementProps;
         bdi: html.IHtmlElementProps;
         bdo: html.IHtmlElementProps;
         big: html.IHtmlElementProps;

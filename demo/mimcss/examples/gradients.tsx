@@ -16,8 +16,8 @@ class MyStyles extends css.StyleDefinition
 	radialGradient = css.$class({
 		width: 200,
 		height: 200,
-		backgroundImage: css.repeatingGradialGradient( css.Colors.lightcyan, css.Colors.orange, [30],
-			[css.Colors.lightcyan, 50]).circle().extent("farthest-corner").at([5.5,3.3])
+		backgroundImage: css.radialGradient( css.Colors.lightcyan, css.Colors.orange, [30],
+			[css.Colors.lightcyan, 50]).circle().extent("farthest-corner").at([5.5,3.3]).repeating()
 	})
 
     // example of conic gradient

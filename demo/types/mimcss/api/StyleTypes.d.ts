@@ -1,5 +1,5 @@
-import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, IUrlProxy, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, IQuotedProxy, GeometryBoxKeyword, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio } from "./CoreTypes";
-import { BasicShape, CssColor, CssImage, FilterFunc, IMinMaxProxy, IRayProxy, IRepeatProxy, ISpanProxy, TransformFunc } from "./ExtraTypes";
+import { Extended, OneOrPair, OneOrBox, OneOrMany, CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, ExtendedProp, IQuotedProxy, GeometryBoxKeyword, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio } from "./CoreTypes";
+import { IUrlFunc, BasicShape, CssColor, CssImage, IMinMaxProxy, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IRayFunc, ITimingFunctionFunc, ICursorFunc } from "./ExtraTypes";
 import { FontStretch_Single } from "./FontFaceTypes";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule } from "./RuleTypes";
 /** Type for align-content style property */
@@ -49,14 +49,8 @@ export declare type AnimationPlayState_Single = "paused" | "running";
 export declare type AnimationPlayState_StyleType = OneOrMany<AnimationPlayState_Single>;
 /** Type for simple animation timing functions - those that don't have parameters */
 export declare type TimingFunction_Simple = "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out" | "step-start" | "step-end";
-/** Type for step animation timing function position */
-export declare type TimingFunction_StepPosition = "jump-start" | "jump-end" | "jump-none" | "jump-both" | "start" | "end";
-/** Type for step animation timing function */
-export declare type TimingFunction_Step = number | [Extended<number>, Extended<TimingFunction_StepPosition>?];
-/** Type for Bezier animation timing function */
-export declare type TimingFunction_Bezier = [Extended<number>, Extended<number>, Extended<number>, Extended<number>];
 /** Type for single animation timing function */
-export declare type TimingFunction_Single = TimingFunction_Simple | TimingFunction_Step | TimingFunction_Bezier;
+export declare type TimingFunction_Single = TimingFunction_Simple | ITimingFunctionFunc;
 /** Type for animation-timing-function style property */
 export declare type AnimationTimingFunction_StyleType = OneOrMany<TimingFunction_Single>;
 /** Type for aspect-ratio style property */
@@ -259,7 +253,7 @@ export declare type Clear_StyleType = "none" | "left" | "right" | "both" | "inli
 /** Type for clip style property */
 export declare type Clip_StyleType = "auto" | OneOrBox<CssLength>;
 /** Type for clip-path style property */
-export declare type ClipPath_StyleType = "none" | IUrlProxy | BasicShape | GeometryBoxKeyword | [
+export declare type ClipPath_StyleType = "none" | IUrlFunc | BasicShape | GeometryBoxKeyword | [
     GeometryBoxKeyword,
     BasicShape
 ];
@@ -285,11 +279,11 @@ export declare type ColumnSpan_StyleType = "none" | "all";
  * - two variants of two element arrays: one of the elements will be treated as a number of columns
  *   while another as the column width.
  */
-export declare type Columns_StyleType = "auto" | CssNumber | CssLength | [
+export declare type Columns_StyleType = "auto" | CssNumber | Exclude<CssLength, number> | [
     "auto" | Extended<CssNumber>,
-    "auto" | Exclude<Extended<CssLength>, number>
+    "auto" | Extended<Exclude<CssLength, number>>
 ] | [
-    "auto" | Exclude<Extended<CssLength>, number>,
+    "auto" | Extended<Exclude<CssLength, number>>,
     "auto" | Extended<CssNumber>
 ];
 /** Type for contain style property */
@@ -301,7 +295,7 @@ export declare type Counter_StyleType = "none" | OneOrMany<ICounterRule | string
 /** Type for cursor pre-defined names */
 export declare type Cursor_Keyword = "auto" | "default" | "none" | "context-menu" | "help" | "pointer" | "progress" | "wait" | "cell" | "crosshair" | "text" | "vertical-text" | "alias" | "copy" | "move" | "no-drop" | "not-allowed" | "e-resize" | "n-resize" | "ne-resize" | "nw-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize" | "ew-resize" | "ns-resize" | "nesw-resize" | "nwse-resize" | "col-resize" | "row-resize" | "all-scroll" | "zoom-in" | "zoom-out" | "grab" | "grabbing";
 /** Type for cursor style property single value */
-export declare type Cursor_Single = Cursor_Keyword | IUrlProxy | [IUrlProxy, Extended<CssNumber>, Extended<CssNumber>];
+export declare type Cursor_Single = Cursor_Keyword | IUrlFunc | ICursorFunc;
 /** Type for cursor style property */
 export declare type Cursor_StyleType = OneOrMany<Cursor_Single>;
 /** Type for direction style property */
@@ -315,17 +309,17 @@ export declare type EmptyCells_StyleType = "show" | "hide";
 /** Type for fill-rule style property */
 export declare type FillRule_StyleType = "nonzero" | "evenodd";
 /** Type for filter and backdrop-filter style single value */
-export declare type Filter_Single = IUrlProxy | FilterFunc;
+export declare type Filter_Single = IUrlFunc | IFilterProxy;
 /** Type for filter and backdrop-filter style property */
 export declare type Filter_StyleType = OneOrMany<Filter_Single>;
 /** Type for flex style property */
-export declare type Flex_StyleType = FlexBasis_StyleType | [Extended<number>, Extended<number>] | [
-    Extended<number>,
-    Extended<number>,
+export declare type Flex_StyleType = FlexBasis_StyleType | [
+    Extended<CssNumber>,
+    Extended<CssNumber>,
     Extended<FlexBasis_StyleType>
 ];
 /** Type for flex-basis style property */
-export declare type FlexBasis_StyleType = "auto" | "content" | CssLength;
+export declare type FlexBasis_StyleType = CssLength | "auto" | "content" | "fill" | "max-content" | "min-content" | "fit-content";
 /** Type for flex-direction style property */
 export declare type FlexDirection_StyleType = "row" | "row-reverse" | "column" | "column-reverse";
 /** Type for flex-flow style property */
@@ -445,7 +439,7 @@ export declare type ListStyle_StyleType = ListStyleType_StyleType | ListStylePos
     Extended<ListStyleType_StyleType>?
 ];
 /** Type for line-style-image style property */
-export declare type ListStyleImage_StyleType = "none" | IUrlProxy;
+export declare type ListStyleImage_StyleType = "none" | IUrlFunc;
 /** Type for list-style-position style property */
 export declare type ListStylePosition_StyleType = "inside" | "outside";
 /** Type for list-style-type style property */
@@ -467,7 +461,7 @@ export declare type Offset_StyleType = OffsetPath_StyleType | {
 /** Type for the offset-anchor style property */
 export declare type OffsetAnchor_StyleType = "auto" | CssPosition;
 /** Type for offset-path style property */
-export declare type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape | GeometryBoxKeyword | [
+export declare type OffsetPath_StyleType = "none" | IRayFunc | IUrlFunc | BasicShape | GeometryBoxKeyword | [
     GeometryBoxKeyword,
     BasicShape
 ];
@@ -548,7 +542,7 @@ export declare type ScrollSnapType_StyleType = "none" | [
     Extended<"mandatory" | "proximity">
 ];
 /** Type for shape-outside style property */
-export declare type ShapeOutside_StyleType = IUrlProxy | BasicShape | GeometryBoxKeyword | CssImage;
+export declare type ShapeOutside_StyleType = IUrlFunc | BasicShape | GeometryBoxKeyword | CssImage;
 /** Type for the shape-rendering style property */
 export declare type ShapeRendering_StyleType = "auto" | "optimizeSpeed" | "crispEdges" | "geometricPrecision";
 /** Type for the table-layout style property */
@@ -623,7 +617,7 @@ export declare type TextUnderlinePosition_StyleType = "auto" | "under" | "left" 
 /** Type for the touch-action style property */
 export declare type TouchAction_StyleType = "auto" | "none" | "manipulation" | "pan-x" | "pan-left" | "pan-right" | "pan-y" | "pan-up" | "pan-down" | "pinch-zoom" | "pan-x pinch-zoom" | "pan-left pinch-zoom" | "pan-right pinch-zoom" | "pan-y pinch-zoom" | "pan-up pinch-zoom" | "pan-down pinch-zoom" | "pan-x pan-y" | "pan-x pan-y pinch-zoom" | "pan-x pan-up" | "pan-x pan-up pinch-zoom" | "pan-x pan-down" | "pan-x pan-down pinch-zoom" | "pan-y pan-left" | "pan-y pan-left pinch-zoom" | "pan-y pan-right" | "pan-y pan-right pinch-zoom" | "pan-left pan-up" | "pan-left pan-up pinch-zoom" | "pan-left pan-down" | "pan-left pan-down pinch-zoom" | "pan-right pan-up" | "pan-right pan-up pinch-zoom" | "pan-right pan-down" | "pan-right pan-down pinch-zoom" | "pan-up pan-left" | "pan-up pan-left pinch-zoom" | "pan-up pan-right" | "pan-up pan-right pinch-zoom" | "pan-down pan-left" | "pan-down pan-left pinch-zoom" | "pan-down pan-right" | "pan-down pan-right pinch-zoom";
 /** Type for transform style property */
-export declare type Transform_StyleType = "none" | OneOrMany<TransformFunc>;
+export declare type Transform_StyleType = "none" | OneOrMany<ITransformProxy>;
 /** Type for transform-box style property */
 export declare type TransformBox_StyleType = "content-box" | "border-box" | "fill-box" | "stroke-box" | "view-box";
 /** Type for transform-origin style property */

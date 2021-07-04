@@ -1,17 +1,4 @@
 /**
- * This module describes common types and functions used in Mimcss. These include:
- *
- * - basic types used for all style properties
- * - numeric types used for style properties of CSS types such as `<length>`, `<angle>`, etc.
- * - pseudo classes and pseudo elements
- * - selectors
- * - colors
- * - shapes
- * - filters
- * - transforms
- * - utility types
- */
-/**
  * Style values that can be used for any CSS property.
  */
 export declare type Global_StyleType = "inherit" | "initial" | "unset" | "revert";
@@ -507,7 +494,7 @@ export declare type CssAspectRatio = CssNumber | IAspectRatioProxy | "1/1" | "4/
 export interface IAspectRatioProxy extends IGenericProxy<"aspect-ratio"> {
 }
 /**
- * The IRuleWithSelector interface represents an entity that has a selector string..
+ * The IRuleWithSelector interface represents an entity that has a selector string.
  */
 export interface IRuleWithSelector {
     /** CSS rule selector string */
@@ -572,16 +559,11 @@ export interface IParameterizedPseudoEntity extends IParameterizedPseudoClass, I
 /** Represents properties used in the [[CombinedStyleset]] which are used to define dependent rules */
 export declare type SelectorCombinator = "&" | "&," | "& " | "&>" | "&+" | "&~" | ",&" | " &" | ">&" | "+&" | "~&";
 /**
- * The IUrlProxy function represents an invocation of the CSS url() function.
- */
-export interface IUrlProxy extends IGenericProxy<"url"> {
-}
-/**
  * Type representing the boundaries of a box
  */
 export declare type GeometryBoxKeyword = "margin-box" | "border-box" | "padding-box" | "content-box" | "fill-box" | "stroke-box" | "view-box";
 /**
- * Type representing extent for the [[radial-gradient]] or [[ray]] functions.
+ * Type representing extent for the [[radialGradient]] or [[ray]] functions.
  */
 export declare type ExtentKeyword = "closest-corner" | "closest-side" | "farthest-corner" | "farthest-side";
 /**
