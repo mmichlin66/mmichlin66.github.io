@@ -3570,10 +3570,10 @@ transitionProperty: TransitionProperty_StyleType;
 export type TransitionProperty_StyleType = OneOrMany<TransitionProperty_Single>;
 
 /** Type for single transition-property */
-export type TransitionProperty_Single = "none" | "all" | keyof ICssStyleset;
+export type TransitionProperty_Single = "none" | "all" | keyof IBaseStyleset;
 ```
 
-**See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [ICssStyleset](/mimcss/reference.html#interfaces/styletypes_.icssstyleset.html)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [IBaseStyleset](/mimcss/reference.html#interfaces/styletypes_.icssstyleset.html)
 
 #### transition-timing-function
 
@@ -3599,7 +3599,7 @@ export type TransitionTimingFunction_StyleType = OneOrMany<TimingFunction_Single
 export type TimingFunction_Single = TimingFunction_Simple | TimingFunction_Step | TimingFunction_Bezier;
 ```
 
-**See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [ICssStyleset](/mimcss/reference.html#interfaces/styletypes_.icssstyleset.html), [Extended](/mimcss/reference.html#modules/coretypes.html#extended)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [IBaseStyleset](/mimcss/reference.html#interfaces/styletypes_.icssstyleset.html), [Extended](/mimcss/reference.html#modules/coretypes.html#extended)
 
 #### translate
 
@@ -3690,10 +3690,10 @@ width: CssLength;
 willChange: WillChange_StyleType;
 
 /** Type for will-change style property */
-export type WillChange_StyleType = "auto" | OneOrMany<"scroll-position" | "contents" | Exclude<keyof ICssStyleset,"willChange">>;
+export type WillChange_StyleType = "auto" | OneOrMany<"scroll-position" | "contents" | Exclude<keyof IBaseStyleset,"willChange">>;
 ```
 
-**See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [ICssStyleset](/mimcss/reference.html#interfaces/styletypes_.icssstyleset.html)
+**See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [IBaseStyleset](/mimcss/reference.html#interfaces/styletypes_.icssstyleset.html)
 
 #### word-break
 

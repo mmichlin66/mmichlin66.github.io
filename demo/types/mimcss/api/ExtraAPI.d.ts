@@ -3,7 +3,7 @@
  * @module ExtraAPI
  */
 import { CssAngle, CssLength, CssNumber, CssPercent, CssPoint, Extended, ExtentKeyword, IStringProxy } from "./CoreTypes";
-import { CrossFadeParam, CssColor, GradientStopOrHint, ICircleProxy, IColorProxy, IConicGradient, IEllipseProxy, ShapeRadius, IImageProxy, IInsetProxy, ILinearGradient, IMinMaxProxy, INamedColors, IPathBuilder, IPolygonProxy, IRadialGradient, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IUrlFunc, IRayFunc, TimingFunctionJumpTerm, ITimingFunctionFunc, ICursorFunc } from "./ExtraTypes";
+import { CrossFadeParam, CssColor, GradientStopOrHint, ICircle, IColorProxy, IConicGradient, IEllipse, ShapeRadius, IImageProxy, IInset, ILinearGradient, IMinMaxProxy, INamedColors, IPathBuilder, IPolygon, IRadialGradient, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IUrlFunc, IRayFunc, TimingFunctionJumpTerm, ITimingFunctionFunc, ICursorFunc } from "./ExtraTypes";
 import { ICounterRule, IIDRule, IVarRule } from "./RuleTypes";
 import { ExtendedVarValue, FillRule_StyleType, GridLineCountOrName, GridTrack, GridTrackSize, ListStyleType_StyleType, VarTemplateName } from "./StyleTypes";
 /**
@@ -269,12 +269,12 @@ export declare function translate3d(x: Extended<CssLength>, y: Extended<CssLengt
  * ```typescript
  * clipPath: inset( css.percent(15))
  *
- * clipPath: inset( css.percent(15)).round( 8)
+ * clipPath: inset( 10, 12, 14, 16).round( 8)
  * ```
  */
-export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>, o3?: Extended<CssLength>, o4?: Extended<CssLength>): IInsetProxy;
+export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>, o3?: Extended<CssLength>, o4?: Extended<CssLength>): IInset;
 /**
- * Returns an ICircleProxy function representing the `circle()` CSS function.
+ * Returns an ICircle objectn representing the `circle()` CSS function.
  *
  * *Example:*
  *
@@ -284,9 +284,19 @@ export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>,
  * clipPath: circle( 100).at( ["center", css.percent(30)])
  * ```
  */
-export declare function circle(radius?: ShapeRadius): ICircleProxy;
+export declare function circle(radius?: ShapeRadius): ICircle;
 /**
- * Returns an IEllipseProxy function representing the `ellipse()` CSS function.
+ * Returns an IEllipse object representing the `ellipse()` CSS function.
+ *
+ * *Example:*
+ *
+ * ```typescript
+ * clipPath: ellipse().at( ["top", "50%"])
+ * ```
+ */
+export declare function ellipse(): IEllipse;
+/**
+ * Returns an IEllipse object representing the `ellipse()` CSS function.
  *
  * *Example:*
  *
@@ -296,7 +306,7 @@ export declare function circle(radius?: ShapeRadius): ICircleProxy;
  * clipPath: ellipse( 100, 50).at( ["center", css.percent(30)])
  * ```
  */
-export declare function ellipse(radiusX?: ShapeRadius, radiusY?: ShapeRadius): IEllipseProxy;
+export declare function ellipse(radiusX: ShapeRadius, radiusY: ShapeRadius): IEllipse;
 /**
  * Returns an IPolygon interface representing the `polygon()` CSS function.
  *
@@ -308,18 +318,14 @@ export declare function ellipse(radiusX?: ShapeRadius, radiusY?: ShapeRadius): I
  * clipPath: css.polygon( [0,100], [50,0], [100,100]).fill( "evenodd")
  * ```
  */
-export declare function polygon(...points: CssPoint[]): IPolygonProxy;
-/**
- * Returns an IRayFunc function representing invocation of the `ray()` CSS function.
- */
-export declare function ray(angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>, contain?: boolean): IRayFunc;
+export declare function polygon(...points: CssPoint[]): IPolygon;
 /**
  * Returns an IPathBuilder interface that allows building a CSS path.
  */
 export declare function path(fillRule?: FillRule_StyleType): IPathBuilder;
 /**
- * Returns an IMinMaxProxy function representing the `minmax()` CSS function.
- */
+* Returns an IMinMaxProxy function representing the `minmax()` CSS function.
+*/
 export declare function minmax(min: GridTrackSize, max: GridTrackSize): IMinMaxProxy;
 /**
  * Returns an IRepeatProxy function representing the `repeat()` CSS function.
@@ -337,7 +343,7 @@ export declare function span(countOrName: Extended<GridLineCountOrName>, nameOrC
  */
 export declare function counter(counterObj: Extended<ICounterRule | string>, style?: Extended<ListStyleType_StyleType>, textAfter?: Extended<string>, textBefore?: Extended<string>): IStringProxy;
 /**
- * Returns a function representing the CSS `countesr()` function with the given
+ * Returns a function representing the CSS `counters()` function with the given
  * separator string and additional optional strings added after and/or before the counter.
  */
 export declare function counters(counterObj: Extended<ICounterRule | string>, separator: Extended<string>, style?: Extended<ListStyleType_StyleType>, textAfter?: Extended<string>, textBefore?: Extended<string>): IStringProxy;
@@ -348,10 +354,18 @@ export declare function counters(counterObj: Extended<ICounterRule | string>, se
  */
 export declare function url(p: Extended<string | IIDRule>): IUrlFunc;
 /**
- * Returns a function representing the CSS `url()` function followed by two optional numbers
+ * Returns a function representing the CSS `url()` function.
+ */
+export declare function cursor(p: Extended<string | IIDRule>): ICursorFunc;
+/**
+ * Returns a function representing the CSS `url()` function followed by two numbers
  * indicating the cursor hotspot.
  */
-export declare function cursor(p: string, x?: number, y?: number): ICursorFunc;
+export declare function cursor(p: Extended<string | IIDRule>, x: number, y: number): ICursorFunc;
+/**
+ * Returns an IRayFunc function representing invocation of the `ray()` CSS function.
+ */
+export declare function ray(angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>, contain?: boolean): IRayFunc;
 /**
  * Returns a function representing the invocation of the `var()` CSS function for
  * the given custom CSS property with optional fallbacks.

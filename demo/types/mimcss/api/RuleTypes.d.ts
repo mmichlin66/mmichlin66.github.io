@@ -1,5 +1,5 @@
 import { ICustomVar, OneOrMany, PseudoEntity, CssSelector, PagePseudoClass, IParameterizedPseudoEntity, IRuleWithSelector, SelectorCombinator, IConstant } from "./CoreTypes";
-import { ExtendedStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
+import { ExtendedBaseStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
 /**
  * The `CombinedStyleset` type extends the Styleset type with certain properties that provide
  * additional meaning to the styleset and allow building dependent style rules:
@@ -46,7 +46,7 @@ import { ExtendedStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue
  * ```
  */
 export declare type CombinedStyleset = Styleset & {
-    "+"?: IStyleRule | IStyleRule[];
+    "+"?: OneOrMany<IStyleRule>;
 } & {
     [K in PseudoEntity]?: CombinedStyleset;
 } & {
@@ -55,8 +55,17 @@ export declare type CombinedStyleset = Styleset & {
     [K in SelectorCombinator]?: [CssSelector, CombinedStyleset][];
 };
 /**
- * The IRule interface is a base interface that is implemented by all rules.
+ * The AnimationStyleset type defines an object containing style properties for an animation frame.
+ * Stylesets for keyframes allow custom properties (via "--") but don't allow dependent rules
+ * (because dependent rules are actually separate CSS rules). Animation styleset can extend other
+ * style rules; however, any dependent rules will be ignored.
  */
+export declare type AnimationStyleset = Styleset & {
+    "+"?: OneOrMany<IStyleRule>;
+};
+/**
+* The IRule interface is a base interface that is implemented by all rules.
+*/
 export interface IRule {
     /** SOM rule */
     readonly cssRule: CSSRule | null;
@@ -108,7 +117,7 @@ export interface IStyleRule extends IRule, IRuleWithSelector {
      * @param schedulerType ID of a registered scheduler type that is used to write the property
      * value to the DOM. If undefined, the current default scheduler will be used.
      */
-    setProp<K extends keyof ExtendedStyleset>(name: K, value: ExtendedStyleset[K], important?: boolean, schedulerType?: number): void;
+    setProp<K extends keyof ExtendedBaseStyleset>(name: K, value: ExtendedBaseStyleset[K], important?: boolean, schedulerType?: number): void;
     /**
      * Adds/replaces/removes the value of the given custmom CSS property in this rule.
      * @param customVar IVarRule object defining a custom CSS property.
@@ -158,15 +167,6 @@ export interface IIDRule extends INamedStyleRule {
  */
 export declare type AnimationWaypoint = OneOrMany<"from" | "to" | number>;
 /**
- * The AnimationStyleset type defines an object containing style properties for an animation frame.
- * Stylesets for keyframes allow custom properties (via "--") but don't allow dependent rules
- * (because dependent rules are actually separate CSS rules). Animation styleset can extend other
- * style rules; however, any dependent rules will be ignored.
- */
-export declare type AnimationStyleset = Styleset & {
-    "+"?: IStyleRule | IStyleRule[];
-};
-/**
  * The AnimationFrame type defines a single keyframe within a @keyframes rule.
  * The waypoint can be specified as "from" or "to" strings or as a number 0 to 100, which will be
  * used as a percent.
@@ -198,7 +198,7 @@ export interface IAnimationFrameRule extends IStyleRule {
 export interface IVarRule<K extends VarTemplateName = any> extends INamedEntity, ICustomVar<VarValue<K>> {
     /**
      * Name of a non-custom CSS property whose type determines the type of the custom property
-     * value. This name is a property of [[ICssVarTemplates]] interface; that is, it is either
+     * value. This name is a property of [[IVarTemplateStyleset]] interface; that is, it is either
      * a name of a CSS style property (in camel-case) or a string corresponding to one of basic
      * Mimcss types such as `"CssLength"`, `"CssColor"`, etc.
      */

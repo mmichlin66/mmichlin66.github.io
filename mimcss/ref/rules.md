@@ -416,7 +416,7 @@ class MyStyles extends StyleDefinition
 
     // Each <ol> element will reset the corresponding level of the counter to 0.
     ol = css.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
-    
+
     // Each <li> element will increment the corresponding level of the counter and
     // use it in the `::before` pseudo element. The numbers corresponding to different
     // levels within the counter will be separated by ".".
@@ -713,7 +713,7 @@ export interface IStyleRule extends IRule
      * @param important Flag indicating whether to set the "!important" flag on the property value.
      * @param schedulerType Optional scheduler type identifier.
      */
-    setProp<K extends keyof ExtendedStyleset>( name: K, value: ExtendedStyleset[K],
+    setProp<K extends keyof ExtendedBaseStyleset>( name: K, value: ExtendedBaseStyleset[K],
         important?: boolean, schedulerType?: number): void;
 
     /**
@@ -867,7 +867,7 @@ The `AnimationWaypoint` type is used to define a waypoint in an animation sequen
 ##### AnimationStyleset Type
 
 ```tsx
-export type AnimationStyleset = Styleset & { "+"?: IStyleRule | IStyleRule[] };
+export type AnimationStyleset = Styleset & { "+"?: OneOrMany<IStyleRule> };
 ```
 
 The `AnimationStyles` type defines a object containing style properties for an animation frame. Stylesets for keyframes allow custom properties (via `"--"` property) but do not allow any dependent rules. Animation styleset can extend other style rules (via `"+"` property); however, any dependent rules will be ignored.

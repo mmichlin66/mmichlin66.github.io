@@ -1,8 +1,8 @@
-import { Styleset, ExtendedStyleset, StringStyleset } from "./StyleTypes";
+import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset } from "./StyleTypes";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the
- * [[ICssStyleset]] interface via the module augmentation technique if the conversion to string
+ * [[IBaseStyleset]] interface via the module augmentation technique if the conversion to string
  * requires non-standard operations. This function should not be called for propeties whose
  * values only include numbers, strings, functions returning a string, objects whose `toString`
  * method produces the necessary string or arrays of the above types.
@@ -17,21 +17,21 @@ export declare function registerStyleProperty(name: string, toStringFunc: (v: an
  * to a CSS compliant string.
  * @param stylePropValue Value to convert.
  */
-export declare function getStylePropValue<K extends keyof ExtendedStyleset>(stylePropName: K, stylePropValue: ExtendedStyleset[K]): string;
+export declare function getStylePropValue<K extends keyof ExtendedBaseStyleset>(stylePropName: K, stylePropValue: ExtendedBaseStyleset[K]): string;
 /**
  * Sets values of the style properties from the given Styleset object to the `style` attribute
  * of the given HTML element.
- * @param elm HTML element whose styles will be set.
+ * @param elm HTML/SVG element whose styles will be set.
  * @param styleset Styleset object which provides values for style properties.
  */
-export declare function setElementStyle(elm: HTMLElement, styleset: Styleset | null | undefined, schedulerType?: number): void;
+export declare function setElementStyle(elm: ElementCSSInlineStyle, styleset: Styleset | null | undefined, schedulerType?: number): void;
 /**
  * Sets values of the style properties from the given StringStyleset object to the `style` attribute
  * of the given HTML element.
- * @param elm HTML element whose styles will be set.
+ * @param elm HTML/SVG element whose styles will be set.
  * @param styleset StringStyleset object which provides values for style properties.
  */
-export declare function setElementStringStyle(elm: HTMLElement, styleset: StringStyleset | null | undefined, schedulerType?: number): void;
+export declare function setElementStringStyle(elm: ElementCSSInlineStyle, styleset: StringStyleset | null | undefined, schedulerType?: number): void;
 /**
  * Converts the given [[Styleset]] object into an object, where each Styleset's property is
  * converted to its string value.
@@ -51,4 +51,26 @@ export declare function stylesetToStringStyleset(styleset: Styleset): StringStyl
  * returned.
  */
 export declare function diffStylesets(oldStyleset: Styleset, newStyleset: Styleset): StringStyleset | null;
+declare global {
+    interface ElementCSSInlineStyle {
+        /**
+         * Set the given value to the given style property of the element.
+         * @param name Property name
+         * @param value New property value to set.
+         * @param schedulerType Scheduler identifier. If omitted, the current default scheduler
+         * will be used.
+         */
+        setStyleProp<K extends keyof IBaseStyleset>(name: K, value: ExtendedBaseStyleset[K], schedulerType?: number): void;
+        /**
+         * Merges or replaces the element's styles with the given styleset.
+         * @param styleset Styleset to set or replace
+         * @param replace Flag indicating whether the new styleset should completely replace the
+         * existing element styles with the new styles (true) or merge the new styles with the
+         * existing ones (false). The default value is false.
+         * @param schedulerType Scheduler identifier. If omitted, the current default scheduler
+         * will be used.
+         */
+        setStyleset(styleset: Styleset, replace?: boolean, schedulerType?: number): void;
+    }
+}
 //# sourceMappingURL=StyleAPI.d.ts.map

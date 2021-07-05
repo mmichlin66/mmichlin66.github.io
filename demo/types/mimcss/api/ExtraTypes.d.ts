@@ -2,7 +2,7 @@
  * This module contains definitions of types and interfaces used to define CSS functions.
  * @module
  */
-import { CssAngle, CssLength, CssNumber, CssPosition, Extended, ExtentKeyword, IGenericProxy } from "./CoreTypes";
+import { CssAngle, CssLength, CssNumber, CssPoint, CssPosition, Extended, ExtentKeyword, IGenericProxy } from "./CoreTypes";
 import { BorderRadius_StyleType, FillRule_StyleType } from "./StyleTypes";
 /**
  * The INamedColors interface lists the names of standard Web colors. It is needed to allow developers
@@ -397,106 +397,126 @@ export interface IConicGradient extends IGradient<CssAngle> {
  * Type representing parameters for the [[crossFade]] function.
  */
 export declare type CrossFadeParam = Extended<CssImage> | [Extended<CssImage>, Extended<CssNumber>];
+/**
+ * The IFilterProxy interface represents the result of invoking one of the CSS `<filter>` functions.
+ */
 export interface IFilterProxy extends IGenericProxy<"filter"> {
 }
+/**ITransformProxy
+ * The IFilterProxy interface represents the result of invoking one of the CSS `<transform>` functions.
+ */
 export interface ITransformProxy extends IGenericProxy<"transform"> {
 }
 /**
- * The IInsetProxy interface represents the CSS inset basic shape. It is the result of invoking
- * the [[inset]] function and it can be directly assigned to a suitable style property (e.g.
+ * The IInset interface represents the CSS `inset` basic shape. It is the result of invoking
+ * the [[ExtraAPI.inset]] function and it can be directly assigned to a suitable style property (e.g.
  * clip-path). In addition it has the `round` method that can be called to specify the radii of
  * the inset rectangle's corners.
  */
-export interface IInsetProxy extends IBasicShapeProxy {
-    round(radius?: Extended<BorderRadius_StyleType>): IBasicShapeProxy;
+export interface IInset {
+    round(radius?: Extended<BorderRadius_StyleType>): this;
 }
 /**
  * Type that is used to specify a radius in [[ExtraAPI.circle]] and [[ExtraAPI.ellipse]] functions.
  */
 export declare type ShapeRadius = Extended<CssLength | "closest-side" | "farthest-side">;
 /**
- * The ICircleProxy interface represents the CSS circle basic shape. It is the result of invoking
- * the [[circle]] function and it can be directly assigned to a suitable style property (e.g.
+ * The ICircle interface represents the CSS circle basic shape. It is the result of invoking
+ * the [[ExtraAPI.circle]] function and it can be directly assigned to a suitable style property (e.g.
  * clip-path). In addition it has the `at` method that can be called to specify the position of
  * the circle's center.
  */
-export interface ICircleProxy extends IBasicShapeProxy {
-    at(pos: Extended<CssPosition>): IBasicShapeProxy;
+export interface ICircle {
+    /**
+     * Sets the position of the circle's center.
+     * @param pos Position value.
+     */
+    at(pos: Extended<CssPosition>): this;
 }
 /**
- * The IEllipseProxy interface represents the CSS ellipse basic shape. It is the result of invoking
- * the [[ellipse]] function and it can be directly assigned to a suitable style property (e.g.
+ * The IEllipse interface represents the CSS ellipse basic shape. It is the result of invoking
+ * the [[ExtraAPI.ellipse]] function and it can be directly assigned to a suitable style property (e.g.
  * clip-path). In addition it has the `at` method that can be called to specify the position of
  * the ellipse's center.
  */
-export interface IEllipseProxy extends IBasicShapeProxy {
-    at(pos: Extended<CssPosition>): IBasicShapeProxy;
+export interface IEllipse {
+    /**
+     * Sets the position of the ellipse's center.
+     * @param pos Position value.
+     */
+    at(pos: Extended<CssPosition>): this;
 }
 /**
  * The IPolygonProxy interface represents the CSS polygon basic shape. It is the result of invoking
- * the [[polygon]] function and it can be directly assigned to a suitable style property (e.g.
+ * the [[ExtraAPI.polygon | polygon]] function and it can be directly assigned to a suitable style property (e.g.
  * clip-path). In addition it has the `fill` method that can be called to specify the fill
  * rule.
  */
-export interface IPolygonProxy extends IBasicShapeProxy {
-    fill(rule: FillRule_StyleType): IBasicShapeProxy;
+export interface IPolygon {
+    /**
+     * Adds the given points to the polygon
+     * @param points
+     */
+    add(...points: CssPoint[]): this;
+    /**
+     * Sets the filling rule used to determine the inside part of the polygon
+     * @param rule
+     */
+    fill(rule: FillRule_StyleType): this;
 }
 /**
- * The IBasicShapeProxy interface represents an invocation of one the CSS `<basic-shape>`
- * functions, for example, [[circle]], [[polygon]], etc. (except the [[path]] function).
+ * The `IPathBuilder` interface represents the object that accumulates path commands that are then
+ * converted to a string parameter of the CSS `path()` function. The `IPathBuilder` interface is
+ * returned from the [[path]] function. The methods in this interface mimic the SVG path commands
+ * described in MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands" target="mdn">Path Commands</a>
  */
-export interface IBasicShapeProxy extends IGenericProxy<"basic-shape"> {
+export interface IPathBuilder {
+    /** Filling rule used to determine the interior of the path */
+    readonly rule?: FillRule_StyleType;
+    /** Move-to command with absolute coordinates. */
+    M(...params: [number, number][]): this;
+    /** Move-to command with relative coordinates. */
+    m(...params: [number, number][]): this;
+    /** Line-to command with absolute coordinates. */
+    L(...params: [number, number][]): this;
+    /** Line-to command with relative coordinates. */
+    l(...params: [number, number][]): this;
+    /** Horizontal line-to command with absolute coordinates. */
+    H(...params: number[]): this;
+    /** Horizontal line-to command with relative coordinates. */
+    h(...params: number[]): this;
+    /** Vertical line-to command with absolute coordinates. */
+    V(...params: number[]): this;
+    /** Vertical line-to command with relative coordinates. */
+    v(...params: number[]): this;
+    /** Cubic bezier curve command with absolute coordinates. */
+    C(...params: [number, number, number, number, number, number][]): this;
+    /** Cubic bezier curve command with relative coordinates. */
+    c(...params: [number, number, number, number, number, number][]): this;
+    /** Smooth cubic bezier curve command with absolute coordinates. */
+    S(...params: [number, number, number, number][]): this;
+    /** Smooth cubic bezier curve command with relative coordinates. */
+    s(...params: [number, number, number, number][]): this;
+    /** Quadratic bezier curve command with absolute coordinates. */
+    Q(...params: [number, number, number, number][]): this;
+    /** Quadratic bezier curve command with relative coordinates. */
+    q(...params: [number, number, number, number][]): this;
+    /** Smooth quadratic bezier curve command with absolute coordinates. */
+    T(...params: [number, number][]): this;
+    /** Smooth quadratic bezier curve command with relative coordinates. */
+    t(...params: [number, number][]): this;
+    /** Elliptical arc curve command with absolute coordinates. */
+    A(...params: [number, number, number, 0 | 1, 0 | 1, number, number][]): this;
+    /** Elliptical arc curve command with relative coordinates. */
+    a(...params: [number, number, number, 0 | 1, 0 | 1, number, number][]): this;
+    /** Close-path command. */
+    z(): IPathBuilder;
 }
 /**
  * The BasicShapeType represents an invocation of one the CSS `<basic-shape>` functions such as
  * [[circle]], [[polygon]], [[path]], etc.
  */
-export declare type BasicShape = IBasicShapeProxy | IPathBuilder;
-/**
- * The `IPathBuilder` interface represents the object that accumulates path commands that are then
- * converted to a string parameter of the CSS `path()` function. The `IPathBuilder` interface is
- * returned from the [[path]] function.
- */
-export interface IPathBuilder {
-    /** Move-to command with absolute coordinates. */
-    M(first: [number, number], ...next: [number, number][]): IPathBuilder;
-    /** Move-to command with relative coordinates. */
-    m(first: [number, number], ...next: [number, number][]): IPathBuilder;
-    /** Line-to command with absolute coordinates. */
-    L(first: [number, number], ...next: [number, number][]): IPathBuilder;
-    /** Line-to command with relative coordinates. */
-    l(first: [number, number], ...next: [number, number][]): IPathBuilder;
-    /** Horizontal line-to command with absolute coordinates. */
-    H(first: number, ...next: number[]): IPathBuilder;
-    /** Horizontal line-to command with relative coordinates. */
-    h(first: number, ...next: number[]): IPathBuilder;
-    /** Vertical line-to command with absolute coordinates. */
-    V(first: number, ...next: number[]): IPathBuilder;
-    /** Vertical line-to command with relative coordinates. */
-    v(first: number, ...next: number[]): IPathBuilder;
-    /** Cubic bezier curve command with absolute coordinates. */
-    C(first: [number, number, number, number, number, number], ...next: [number, number, number, number, number, number][]): IPathBuilder;
-    /** Cubic bezier curve command with relative coordinates. */
-    c(first: [number, number, number, number, number, number], ...next: [number, number, number, number, number, number][]): IPathBuilder;
-    /** Smooth cubic bezier curve command with absolute coordinates. */
-    S(first: [number, number, number, number], ...next: [number, number, number, number][]): IPathBuilder;
-    /** Smooth cubic bezier curve command with relative coordinates. */
-    s(first: [number, number, number, number], ...next: [number, number, number, number][]): IPathBuilder;
-    /** Quadratic bezier curve command with absolute coordinates. */
-    Q(first: [number, number, number, number], ...next: [number, number, number, number][]): IPathBuilder;
-    /** Quadratic bezier curve command with relative coordinates. */
-    q(first: [number, number, number, number], ...next: [number, number, number, number][]): IPathBuilder;
-    /** Smooth quadratic bezier curve command with absolute coordinates. */
-    T(first: [number, number], ...next: [number, number][]): IPathBuilder;
-    /** Smooth quadratic bezier curve command with relative coordinates. */
-    t(first: [number, number], ...next: [number, number][]): IPathBuilder;
-    /** Elliptical arc curve command with absolute coordinates. */
-    A(first: [number, number, number, 0 | 1, 0 | 1, number, number], ...next: [number, number, number, 0 | 1, 0 | 1, number, number][]): IPathBuilder;
-    /** Elliptical arc curve command with relative coordinates. */
-    a(first: [number, number, number, 0 | 1, 0 | 1, number, number], ...next: [number, number, number, 0 | 1, 0 | 1, number, number][]): IPathBuilder;
-    /** Close-path command. */
-    z(): IPathBuilder;
-}
+export declare type BasicShape = IInset | ICircle | IEllipse | IPolygon | IPathBuilder;
 /**
  * The IMinMaxProxy interface represents an invocation of the [[minmax]] function.
  */
