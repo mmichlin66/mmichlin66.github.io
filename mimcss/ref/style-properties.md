@@ -29,7 +29,7 @@ h4 { color: teal }
     background-color: beige;
     padding: 16px;
 }
-#lookup {
+#propertySearchDropdown {
     padding: 4px;
     color: blue;
 }
@@ -40,10 +40,13 @@ h4 { color: teal }
 </style>
 
 ### Search Style Properties
+<script>
+    var propertySearchPlaceholder = "propertySearchPlaceholder";
+</script>
 <div id="searchContainer">
-    <label for="lookup">Lookup Style Properties:</label>
-    <select id="lookup" onchange="gotoSelectedStyleProperty();">
-        <option value="">--Please choose a property--</option>
+    <label for="propertySearchDropdown">Lookup Style Properties:</label>
+    <select id="propertySearchDropdown" onchange="gotoSelectedStyleProperty();">
+        <option value="propertySearchPlaceholder">--Please choose a property--</option>
     </select>
 </div>
 <br/>
@@ -3748,7 +3751,6 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
 
 
 <script>
-    console.log( "We are here");
     // prepare array of all letters
     var allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -3767,8 +3769,6 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
 
     var currFirstLetter = "";
 
-    // allPropNames.forEach( (elmProp, name) =>
-    // {
     allPropElms.forEach( elmProp =>
     {
         var name = elmProp.id;
@@ -3777,7 +3777,7 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
         // add options to the search dropdown
         var elmOption = document.createElement( "option")
         elmOption.innerText = name;
-        lookup.appendChild( elmOption);
+        propertySearchDropdown.appendChild( elmOption);
 
         // check if we have a new first letter
         var firstLetter = name.substr( 0, 1);
@@ -3791,7 +3791,6 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
         var elmTop = document.createElement( "a");
         elmTop.href = "#search-style-properties";
         elmTop.innerText = "top";
-        // elmTop.style = "margin-left: 10px; font-weight: normal";
         elmTop.className = "linkFromProp";
         elmProp.appendChild( elmTop);
 
@@ -3800,7 +3799,6 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
         elmMDN.href = "https://developer.mozilla.org/en-US/docs/Web/CSS/" + name;
         elmMDN.target = "mdn";
         elmMDN.innerText = "MDN";
-        // elmMDN.style = "margin-left: 10px; font-weight: normal";
         elmMDN.className = "linkFromProp";
         elmProp.appendChild( elmMDN);
     });
@@ -3844,14 +3842,12 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
 
     function gotoSelectedStyleProperty()
     {
-        var val = lookup.value;
-        if (val)
-            gotoStyleProperty( val);
-    }
-
-    function gotoStyleProperty( prop)
-    {
-       window.location.hash = prop;
+        var prop = propertySearchDropdown.value;
+        if (prop && prop != propertySearchPlaceholder)
+        {
+            propertySearchDropdown.value = propertySearchPlaceholder;
+            window.location.hash = prop;
+        }
     }
 </script>
 
