@@ -1,4 +1,6 @@
-import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset } from "./StyleTypes";
+import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
+import { IVarRule } from "./RuleTypes";
+import { IStringProxy } from "..";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the
@@ -51,6 +53,22 @@ export declare function stylesetToStringStyleset(styleset: Styleset): StringStyl
  * returned.
  */
 export declare function diffStylesets(oldStyleset: Styleset, newStyleset: Styleset): StringStyleset | null;
+/**
+ * Returns a function representing the invocation of the `var()` CSS function for
+ * the given custom CSS property with optional fallbacks.
+ */
+export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>): IStringProxy;
+/**
+ * The WebNamespaces class contains identifiers for the known Web-related namespaces.
+ */
+export declare abstract class WebNamespaces {
+    static readonly HTML = "http://www.w3.org/1999/xhtml";
+    static readonly SVG = "http://www.w3.org/2000/svg";
+    static readonly XLink = "http://www.w3.org/1999/xlink";
+    static readonly XML = "http://www.w3.org/XML/1998/namespace";
+    static readonly XMLNS = "http://www.w3.org/2000/xmlns/";
+    static readonly MathML = "http://www.w3.org/1998/Math/MathML";
+}
 declare global {
     interface ElementCSSInlineStyle {
         /**

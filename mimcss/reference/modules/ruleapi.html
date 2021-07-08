@@ -63,6 +63,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>This module describes functions used to create rules within style definition classes.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -97,10 +104,10 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#enableshortnames" class="tsd-kind-icon">enable<wbr>Short<wbr>Names</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#forcedomupdate" class="tsd-kind-icon">forceDOMUpdate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#getdefaultschedulertype" class="tsd-kind-icon">get<wbr>Default<wbr>Scheduler<wbr>Type</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#getdefaultscheduler" class="tsd-kind-icon">get<wbr>Default<wbr>Scheduler</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#registerscheduler" class="tsd-kind-icon">register<wbr>Scheduler</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#setdefaultschedulertype" class="tsd-kind-icon">set<wbr>Default<wbr>Scheduler<wbr>Type</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#setdefaultscheduler" class="tsd-kind-icon">set<wbr>Default<wbr>Scheduler</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#unregisterscheduler" class="tsd-kind-icon">unregister<wbr>Scheduler</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a></li>
 							</ul>
@@ -374,7 +381,7 @@
 								</div>
 								<p>Counter rules don&#39;t create any CSS rules, but they create unique names that can be used
 									for <code>counter-reset</code> and <code>counter-increment</code> style properties. Counter rules are usually used
-								in conjunction with the <a href="extraapi.html#counter">counter</a> and <a href="extraapi.html#counters">counters</a> functions.</p>
+								in conjunction with the <a href="shapeapi.html#counter">counter</a> and <a href="shapeapi.html#counters">counters</a> functions.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -446,7 +453,7 @@
 					<a name="_fontface" class="tsd-anchor"></a>
 					<h3>$fontface</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$fontface<span class="tsd-signature-symbol">(</span>fontface<span class="tsd-signature-symbol">: </span><a href="fontfacetypes.html#ifontface" class="tsd-signature-type" data-tsd-kind="Type alias">IFontFace</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.ifontfacerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IFontFaceRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$fontface<span class="tsd-signature-symbol">(</span>fontface<span class="tsd-signature-symbol">: </span><a href="fonttypes.html#ifontface" class="tsd-signature-type" data-tsd-kind="Type alias">IFontFace</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.ifontfacerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IFontFaceRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -460,7 +467,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>fontface: <a href="fontfacetypes.html#ifontface" class="tsd-signature-type" data-tsd-kind="Type alias">IFontFace</a></h5>
+									<h5>fontface: <a href="fonttypes.html#ifontface" class="tsd-signature-type" data-tsd-kind="Type alias">IFontFace</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Object implementing the <code>IFontFace</code> interface defining the parameter of the
 										font to use.</p>
@@ -1318,10 +1325,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="getdefaultschedulertype" class="tsd-anchor"></a>
-					<h3>get<wbr>Default<wbr>Scheduler<wbr>Type</h3>
+					<a name="getdefaultscheduler" class="tsd-anchor"></a>
+					<h3>get<wbr>Default<wbr>Scheduler</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Scheduler<wbr>Type<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Scheduler<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1329,8 +1336,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the default scheduler type that is used by activate and deactivate functions that are
-									called without explicitly providing value to the scheduler type parameter.</p>
+									<p>Returns the current default scheduler type.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1391,10 +1397,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="setdefaultschedulertype" class="tsd-anchor"></a>
-					<h3>set<wbr>Default<wbr>Scheduler<wbr>Type</h3>
+					<a name="setdefaultscheduler" class="tsd-anchor"></a>
+					<h3>set<wbr>Default<wbr>Scheduler</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Default<wbr>Scheduler<wbr>Type<span class="tsd-signature-symbol">(</span>schedulerType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Default<wbr>Scheduler<span class="tsd-signature-symbol">(</span>schedulerType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1402,9 +1408,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the default scheduler type that is used by activate and deactivate functions that are
-										called without explicitly providing value to the scheduler type parameter. Returns the type of
-										the previous default scheduler or 0 if an error occurs (e.g. the given scheduler type ID is not
+									<p>Sets the default scheduling type that is used by activate and deactivate functions that are
+										called without explicitly providing value to the scheduling parameter. Returns the type of the
+										previous default activator or 0 if an error occurs (e.g. the given scheduler type ID is not
 									registered).</p>
 								</div>
 							</div>
@@ -1490,19 +1496,19 @@
 						<a href="../index.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="colorapi.html">ColorAPI</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="colortypes.html">Color<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="coreapi.html">CoreAPI</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="coretypes.html">Core<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="extraapi.html">ExtraAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="extratypes.html">Extra<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="fontfacetypes.html">Font<wbr>Face<wbr>Types</a>
+						<a href="fonttypes.html">Font<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="mediaapi.html">MediaAPI</a>
@@ -1510,11 +1516,23 @@
 					<li class=" tsd-kind-module">
 						<a href="mediatypes.html">Media<wbr>Types</a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="numericapi.html">NumericAPI</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="numerictypes.html">Numeric<wbr>Types</a>
+					</li>
 					<li class="current tsd-kind-module">
 						<a href="ruleapi.html">RuleAPI</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="ruletypes.html">Rule<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="shapeapi.html">ShapeAPI</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="shapetypes.html">Shape<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="styleapi.html">StyleAPI</a>
@@ -1608,7 +1626,7 @@
 						<a href="ruleapi.html#forcedomupdate" class="tsd-kind-icon">forceDOMUpdate</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#getdefaultschedulertype" class="tsd-kind-icon">get<wbr>Default<wbr>Scheduler<wbr>Type</a>
+						<a href="ruleapi.html#getdefaultscheduler" class="tsd-kind-icon">get<wbr>Default<wbr>Scheduler</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#registerscheduler" class="tsd-kind-icon">register<wbr>Scheduler</a>
@@ -1617,7 +1635,7 @@
 						<a href="ruleapi.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#setdefaultschedulertype" class="tsd-kind-icon">set<wbr>Default<wbr>Scheduler<wbr>Type</a>
+						<a href="ruleapi.html#setdefaultscheduler" class="tsd-kind-icon">set<wbr>Default<wbr>Scheduler</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#unregisterscheduler" class="tsd-kind-icon">unregister<wbr>Scheduler</a>

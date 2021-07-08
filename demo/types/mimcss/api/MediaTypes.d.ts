@@ -1,4 +1,5 @@
-import { CssAspectRatio, CssNumber, CssLength, CssResolution, IConstant, IStringProxy } from "./CoreTypes";
+import { IConstant, IStringProxy } from "./CoreTypes";
+import { CssAspectRatio, CssNumber, CssLength, CssResolution } from "./NumericTypes";
 import { ExtendedBaseStyleset } from "./StyleTypes";
 /** Possible media types */
 export declare type MediaType = "all" | "braille" | "embossed" | "handheld" | "print" | "projection" | "screen" | "speech" | "tty" | "tv";

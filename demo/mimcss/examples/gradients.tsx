@@ -8,8 +8,8 @@ class MyStyles extends css.StyleDefinition
 	linearGradient = css.$class({
 		width: 200,
 		height: 200,
-        backgroundImage: css.repeatingLinearGradient( css.Colors.pink,
-            css.Colors.burlywood, [30], [css.Colors.pink, 50]).to(15)
+        backgroundImage: css.linearGradient( css.Colors.pink,
+            css.Colors.burlywood, [30], [css.Colors.pink, 50]).to(15).repeating()
 	})
 
     // example of radial gradient

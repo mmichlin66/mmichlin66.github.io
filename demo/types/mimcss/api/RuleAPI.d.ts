@@ -1,12 +1,13 @@
 /**
- * This module describes functions used to create rules within style definition classes and some
- * helper types and functions.
+ * This module describes functions used to create rules within style definition classes.
+ * @module
  */
 import { CssSelector, PagePseudoClass } from "./CoreTypes";
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, ICssSerializer, IScheduler } from "./RuleTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, ICssSerializer } from "./RuleTypes";
 import { MediaQuery, SupportsQuery } from "./MediaTypes";
-import { IFontFace } from "./FontFaceTypes";
+import { IFontFace } from "./FontTypes";
 import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
+export { getDefaultScheduler, setDefaultScheduler, registerScheduler, unregisterScheduler } from "../rules/Scheduling";
 /**
  * Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
  * Abstract rules don't have selectors and are not inserted into the DOM. Abstract rules can
@@ -562,27 +563,6 @@ export declare function forceDOMUpdate(schedulerType?: number): void;
  * accumulated since the last activation of the given scheduling type.
  */
 export declare function cancelDOMUpdate(schedulerType?: number): void;
-/**
- * Sets the default scheduler type that is used by activate and deactivate functions that are
- * called without explicitly providing value to the scheduler type parameter. Returns the type of
- * the previous default scheduler or 0 if an error occurs (e.g. the given scheduler type ID is not
- * registered).
- */
-export declare function setDefaultSchedulerType(schedulerType: number): number;
-/**
- * Returns the default scheduler type that is used by activate and deactivate functions that are
- * called without explicitly providing value to the scheduler type parameter.
- */
-export declare function getDefaultSchedulerType(): number;
-/**
- * Registers the given scheduler object and returns the scheduler type identifier, which
- * should be used when calling activate and deactivate functions.
- */
-export declare function registerScheduler(scheduler: IScheduler): number;
-/**
- * Unregisters a scheduler object with the given scheduler type identifier.
- */
-export declare function unregisterScheduler(id: number): void;
 /**
  * Creates a new ICssSerializer object that allows adding style definition classes
  * and instances and serializing them to a string. This can be used for server-side rendering when

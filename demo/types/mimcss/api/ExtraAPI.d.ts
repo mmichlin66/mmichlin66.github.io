@@ -2,80 +2,12 @@
  * This module contains definitions of functions and classes used to define CSS functions.
  * @module ExtraAPI
  */
-import { CssAngle, CssLength, CssNumber, CssPercent, CssPoint, Extended, ExtentKeyword, IStringProxy } from "./CoreTypes";
-import { CrossFadeParam, CssColor, GradientStopOrHint, ICircle, IColorProxy, IConicGradient, IEllipse, ShapeRadius, IImageProxy, IInset, ILinearGradient, IMinMaxProxy, INamedColors, IPathBuilder, IPolygon, IRadialGradient, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IUrlFunc, IRayFunc, TimingFunctionJumpTerm, ITimingFunctionFunc, ICursorFunc } from "./ExtraTypes";
-import { ICounterRule, IIDRule, IVarRule } from "./RuleTypes";
-import { ExtendedVarValue, FillRule_StyleType, GridLineCountOrName, GridTrack, GridTrackSize, ListStyleType_StyleType, VarTemplateName } from "./StyleTypes";
-/**
- * Object whose property names are names of well-known colors and values correspond to the
- * hexadecimal representation of the RGB separations (without an alpha mask). The properties of
- * this object can be used wherever the [[CssColor]] type can be used. Since the properties are
- * of the `number` type, they can be used for manipulating the color value.
- */
-export declare let Colors: INamedColors;
-/**
- * Converts the color specified as red, green, blue separation values and an optional alpha
- * mask to a CSS color representation. Each color separation can be represented as a number with
- * the following meaning:
- *   - Integer number -255 to 255. Numbers beyond this range will be clamped. Negative numbers
- *     will be inverted.
- *   - Floating number -1.0 to 1.0 non-inclusive, which is multiplied by 100 treated as percentage.
- *     Floating numbers beyond this range will be rounded and treated as integer numbers. Negative
- *     numbers will be inverted.
- *
- * The alpha mask can be one of the following:
- *   - Floating number 0 to 1 inclusive.
- *   - Integer or floating number 1 to 100, which is divided by 100. Floating numbers will be
- *     rounded. Numbers beyond this range will be clamped.
- *   - The sign of alpha is ignored; that is, only the absolute value is considered.
- *
- * @param r Red separation value.
- * @param g Green separation value.
- * @param b Blue separation value.
- * @param a Optional alpha mask as a percentage value.
- */
-export declare function rgb(r: Extended<number>, g: Extended<number>, b: Extended<number>, a?: Extended<number>): IColorProxy;
-/**
- * Converts the color specified as hue-saturation-lightness components and an optional alpha
- * mask to a CSS color representation. This method should be used when defining CSS color
- * values in styleset properties.
- *
- * The Hue component is treated as the CSS `<angle>` type. Numbers are considered degrees.
- *
- * The Saturation and Lightness components are treated as percentages:
- *   - The sign is ignored; that is, only the absolute value is considered.
- *   - Floating number 0 to 1 inclusive are multiplied by 100 and treated as percentage.
- *   - Integer or floating number 1 to 100 are treated as percentage. Floating numbers will be
- *     rounded. Numbers beyond this range will be clamped to 100.
- *
- * The alpha mask can be one of the following:
- *   - Floating number 0 to 1 inclusive.
- *   - Integer or floating number 1 to 100, which is divided by 100. Floating numbers will be
- *     rounded. Numbers beyond this range will be clamped.
- *   - The sign of alpha is ignored; that is, only the absolute value is considered.
- *
- * @param h Hue component as an angle value.
- * @param s Saturation component as a percentage value.
- * @param l Lightness component as a percentage value.
- * @param a Optional alpha mask as a percentage value.
- */
-export declare function hsl(h: Extended<CssAngle>, s: Extended<number>, l: Extended<number>, a?: Extended<number>): IColorProxy;
-/**
- * Converts the given color and the alpha mask to the CSS Color representation. This
- * method should be used when defining CSS color values in styleset properties.
- *
- * The color can be specified as a numeric value or as a string color name.
- *
- * The alpha mask is specified as a number:
- *   - The sign is ignored; that is, only the absolute value is considered.
- *   - Number 0 to 1 inclusive, which is treated as percentage.
- *   - Number 1 to 100 inclusive, which is treated as percentage.
- *   - Numbers greater than 100 are clamped to 100;
- *
- * @param c Color value as either a number or a named color
- * @param a Alpha channel value
- */
-export declare function alpha(c: number | keyof INamedColors, a: number): IColorProxy;
+import { Extended, IStringProxy } from "./CoreTypes";
+import { CssAngle, CssLength, CssNumber, CssPercent, CssPoint } from "./NumericTypes";
+import { CssColor } from "./ColorTypes";
+import { CrossFadeParam, GradientStopOrHint, ICircle, IConicGradient, IEllipse, ShapeRadius, IImageProxy, IInset, ILinearGradient, IMinMaxProxy, IPathBuilder, IPolygon, IRadialGradient, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IUrlProxy, IRayProxy, TimingFunctionJumpTerm, ITimingFunctionProxy, ICursorProxy, ExtentKeyword, AttrTypeKeyword, AttrUnitKeyword, FillRule } from "./ExtraTypes";
+import { ICounterRule, IIDRule } from "./RuleTypes";
+import { GridLineCountOrName, GridTrack, GridTrackSize, ListStyleType_StyleType } from "./StyleTypes";
 /**
  * Function returning the ILinearGradient interface representing the `linear-gradient` CSS functions.
  *
@@ -322,7 +254,7 @@ export declare function polygon(...points: CssPoint[]): IPolygon;
 /**
  * Returns an IPathBuilder interface that allows building a CSS path.
  */
-export declare function path(fillRule?: FillRule_StyleType): IPathBuilder;
+export declare function path(fillRule?: FillRule): IPathBuilder;
 /**
 * Returns an IMinMaxProxy function representing the `minmax()` CSS function.
 */
@@ -352,31 +284,33 @@ export declare function counters(counterObj: Extended<ICounterRule | string>, se
  * will be wrapped in a `url()` invocation. The function can also accept the IIDRule object to
  * create url(#element) invocation, which is often used to address SVG elements by their IDs.
  */
-export declare function url(p: Extended<string | IIDRule>): IUrlFunc;
+export declare function url(p: Extended<string | IIDRule>): IUrlProxy;
 /**
  * Returns a function representing the CSS `url()` function.
  */
-export declare function cursor(p: Extended<string | IIDRule>): ICursorFunc;
+export declare function cursor(p: Extended<string | IIDRule>): ICursorProxy;
 /**
  * Returns a function representing the CSS `url()` function followed by two numbers
  * indicating the cursor hotspot.
  */
-export declare function cursor(p: Extended<string | IIDRule>, x: number, y: number): ICursorFunc;
+export declare function cursor(p: Extended<string | IIDRule>, x: number, y: number): ICursorProxy;
 /**
  * Returns an IRayFunc function representing invocation of the `ray()` CSS function.
  */
-export declare function ray(angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>, contain?: boolean): IRayFunc;
+export declare function ray(angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>, contain?: boolean): IRayProxy;
 /**
- * Returns a function representing the invocation of the `var()` CSS function for
- * the given custom CSS property with optional fallbacks.
+ * Returns a function representing the `attr()` CSS function. It returns IStringProxy
+ * and theoretically can be used in any style property; however, its use by browsers is currently
+ * limited to the `content` property. Also no browser currently support type, units or fallback
+ * values.
  */
-export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>): IStringProxy;
+export declare function attr(attrName: Extended<string>, typeOrUnit?: Extended<AttrTypeKeyword | AttrUnitKeyword>, fallback?: Extended<string>): IStringProxy;
 /**
  * Returns a function representing an invocation of the CSS `steps()` function.
  */
-export declare function steps(n: Extended<number>, jumpTerm?: TimingFunctionJumpTerm): ITimingFunctionFunc;
+export declare function steps(n: Extended<number>, jumpTerm?: TimingFunctionJumpTerm): ITimingFunctionProxy;
 /**
  * Returns a function representing an invocation of the CSS `cubic-bezier()` function.
  */
-export declare function cubicBezier(n1: Extended<number>, n2: Extended<number>, n3: Extended<number>, n4: Extended<number>): ITimingFunctionFunc;
+export declare function cubicBezier(n1: Extended<number>, n2: Extended<number>, n3: Extended<number>, n4: Extended<number>): ITimingFunctionProxy;
 //# sourceMappingURL=ExtraAPI.d.ts.map

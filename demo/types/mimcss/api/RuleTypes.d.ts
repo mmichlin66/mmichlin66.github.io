@@ -1,4 +1,4 @@
-import { ICustomVar, OneOrMany, PseudoEntity, CssSelector, PagePseudoClass, IParameterizedPseudoEntity, IRuleWithSelector, SelectorCombinator, IConstant } from "./CoreTypes";
+import { ICustomVar, OneOrMany, PseudoEntity, CssSelector, PagePseudoClass, IParameterizedPseudoEntity, SelectorCombinator, IConstant, IRuleWithSelector } from "./CoreTypes";
 import { ExtendedBaseStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
 /**
  * The `CombinedStyleset` type extends the Styleset type with certain properties that provide
@@ -93,12 +93,12 @@ export declare type DependentRules = {
     [K in keyof IParameterizedPseudoEntity]?: IStyleRule[];
 };
 /**
- * The IStyleRule interface represents a styling rule in a style sheet. Style rules can be used
- * anywhere where style properties can be defined: class rules, ID rules, selector rules,
- * keyframes, etc. StyleRule defines a styleset and can optionally point to one or more style rules
- * from which it inherits. A styleset combines all the properties from its own property block as
- * well as from all of style rules it inherites from.
- */
+* The IStyleRule interface represents a styling rule in a style sheet. Style rules can be used
+* anywhere where style properties can be defined: class rules, ID rules, selector rules,
+* keyframes, etc. StyleRule defines a styleset and can optionally point to one or more style rules
+* from which it inherits. A styleset combines all the properties from its own property block as
+* well as from all of style rules it inherites from.
+*/
 export interface IStyleRule extends IRule, IRuleWithSelector {
     /** SOM style rule */
     readonly cssRule: CSSStyleRule | null;
