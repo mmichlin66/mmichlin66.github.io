@@ -1,6 +1,6 @@
-import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
+import { IStringProxy } from "./CoreTypes";
 import { IVarRule } from "./RuleTypes";
-import { IStringProxy } from "..";
+import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the

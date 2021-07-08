@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CoreAPI | Mimcss Reference</title>
+	<title>SchedulingAPI | Mimcss Reference</title>
 	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -53,10 +53,10 @@
 					<a href="../index.html">Mimcss Reference</a>
 				</li>
 				<li>
-					<a href="coreapi.html">CoreAPI</a>
+					<a href="schedulingapi.html">SchedulingAPI</a>
 				</li>
 			</ul>
-			<h1>Module CoreAPI</h1>
+			<h1>Module SchedulingAPI</h1>
 		</div>
 	</div>
 </header>
@@ -70,9 +70,10 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#quoted" class="tsd-kind-icon">quoted</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#raw" class="tsd-kind-icon">raw</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#selector" class="tsd-kind-icon">selector</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="schedulingapi.html#getdefaultscheduler" class="tsd-kind-icon">get<wbr>Default<wbr>Scheduler</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="schedulingapi.html#registerscheduler" class="tsd-kind-icon">register<wbr>Scheduler</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="schedulingapi.html#setdefaultscheduler" class="tsd-kind-icon">set<wbr>Default<wbr>Scheduler</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="schedulingapi.html#unregisterscheduler" class="tsd-kind-icon">unregister<wbr>Scheduler</a></li>
 							</ul>
 						</section>
 					</div>
@@ -81,10 +82,10 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="quoted" class="tsd-anchor"></a>
-					<h3>quoted</h3>
+					<a name="getdefaultscheduler" class="tsd-anchor"></a>
+					<h3>get<wbr>Default<wbr>Scheduler</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">quoted<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iquotedproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IQuotedProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Scheduler<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -92,24 +93,18 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a function representing a string in quotation marks.</p>
+									<p>Returns the current default scheduler type.</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>val: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.iquotedproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IQuotedProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="raw" class="tsd-anchor"></a>
-					<h3>raw</h3>
+					<a name="registerscheduler" class="tsd-anchor"></a>
+					<h3>register<wbr>Scheduler</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">raw<span class="tsd-signature-symbol">(</span>parts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TemplateStringsArray</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Scheduler<span class="tsd-signature-symbol">(</span>scheduler<span class="tsd-signature-symbol">: </span><a href="../interfaces/schedulingtypes.ischeduler.html" class="tsd-signature-type" data-tsd-kind="Interface">IScheduler</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -117,35 +112,25 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>raw</code> function allows specifying arbitrary text for properties whose type normally doesn&#39;t
-										allow strings.This function is a tag function and must be invoked with the template string
-										without parentheses. The <code>raw</code> function can be used for any style property. Note, however, that
-										no validation checks are performed on the structure of the template. If the resulting string
-										isn&#39;t valid for the style property, the property will not be come part of the style rule
-									inserted into the DOM.</p>
+									<p>Registers the given scheduler object and returns the scheduler type identifier, which
+									should be used when calling activate and deactivate functions.</p>
 								</div>
-								<p><strong>Example</strong></p>
-								<pre><code class="language-typescript"><span style="color: #001080">clip</span><span style="color: #000000">-path: </span><span style="color: #795E26">raw</span><span style="color: #A31515">`polygon(50% 20%, 90% 80%, 10% 80%)`</span>
-</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>parts: <span class="tsd-signature-type">TemplateStringsArray</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>scheduler: <a href="../interfaces/schedulingtypes.ischeduler.html" class="tsd-signature-type" data-tsd-kind="Interface">IScheduler</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="selector" class="tsd-anchor"></a>
-					<h3>selector</h3>
+					<a name="setdefaultscheduler" class="tsd-anchor"></a>
+					<h3>set<wbr>Default<wbr>Scheduler</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">selector<span class="tsd-signature-symbol">(</span>parts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TemplateStringsArray</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="coretypes.html#selectoritem" class="tsd-signature-type" data-tsd-kind="Type alias">SelectorItem</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iselectorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Default<wbr>Scheduler<span class="tsd-signature-symbol">(</span>schedulerType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -153,20 +138,44 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a string representation of a selector. This function is a tag function and must be
-									invoked with the template string without parentheses.</p>
+									<p>Sets the default scheduling type that is used by activate and deactivate functions that are
+										called without explicitly providing value to the scheduling parameter. Returns the type of the
+										previous default activator or 0 if an error occurs (e.g. the given scheduler type ID is not
+									registered).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>parts: <span class="tsd-signature-type">TemplateStringsArray</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="coretypes.html#selectoritem" class="tsd-signature-type" data-tsd-kind="Type alias">SelectorItem</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>schedulerType: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.iselectorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="unregisterscheduler" class="tsd-anchor"></a>
+					<h3>unregister<wbr>Scheduler</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">unregister<wbr>Scheduler<span class="tsd-signature-symbol">(</span>schedulerType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unregisters a scheduler object with the given scheduler type identifier.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>schedulerType: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -184,7 +193,7 @@
 					<li class=" tsd-kind-module">
 						<a href="colortypes.html">Color<wbr>Types</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="coreapi.html">CoreAPI</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -211,7 +220,7 @@
 					<li class=" tsd-kind-module">
 						<a href="ruletypes.html">Rule<wbr>Types</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="schedulingapi.html">SchedulingAPI</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -234,13 +243,16 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="coreapi.html#quoted" class="tsd-kind-icon">quoted</a>
+						<a href="schedulingapi.html#getdefaultscheduler" class="tsd-kind-icon">get<wbr>Default<wbr>Scheduler</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="coreapi.html#raw" class="tsd-kind-icon">raw</a>
+						<a href="schedulingapi.html#registerscheduler" class="tsd-kind-icon">register<wbr>Scheduler</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="coreapi.html#selector" class="tsd-kind-icon">selector</a>
+						<a href="schedulingapi.html#setdefaultscheduler" class="tsd-kind-icon">set<wbr>Default<wbr>Scheduler</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="schedulingapi.html#unregisterscheduler" class="tsd-kind-icon">unregister<wbr>Scheduler</a>
 					</li>
 				</ul>
 			</nav>

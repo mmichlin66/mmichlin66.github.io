@@ -7,7 +7,6 @@ import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAni
 import { MediaQuery, SupportsQuery } from "./MediaTypes";
 import { IFontFace } from "./FontTypes";
 import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
-export { getDefaultScheduler, setDefaultScheduler, registerScheduler, unregisterScheduler } from "../rules/Scheduling";
 /**
  * Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
  * Abstract rules don't have selectors and are not inserted into the DOM. Abstract rules can

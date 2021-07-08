@@ -137,9 +137,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Style definition classes are created directly only by the <em>styled components</em> - that is,
+									<p>Style definition instances are created directly only by the <em>styled components</em> - that is,
 										components that use different styles for each instance. Otherwise, style definition
-									class instances are created when either the <a href="../modules/ruleapi.html#_use">$use</a> or <a href="../modules/ruleapi.html#activate">activate</a> function is called.</p>
+									instances are created when either the <a href="../modules/ruleapi.html#_use">$use</a>, <a href="../modules/ruleapi.html#_embed">$embed</a> or <a href="../modules/ruleapi.html#activate">activate</a> function is called.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -182,7 +182,9 @@
 									<p>Refers to the instance of the style definition class which is the owner of
 										this style definition object. The owner is the top-level class in the chain of style
 										definition classes. Through this member, all rules and other members defined in the owner
-									definition class can be accessed.</p>
+										definition class can be accessed. For top-level style definitions, this property points
+										to itself. This property can be undefined if the parent instance was not provided when
+									creating the style definition class manually.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">O</span></h4>
@@ -203,7 +205,9 @@
 								<div class="lead">
 									<p>Refers to the instance of the style definition class which is the parnt of this style
 										definition object in the chain of style definition classes. Through this member, all rules
-									and other members defined in the parent definition class can be accessed.</p>
+										and other members defined in the parent definition class can be accessed.For top-level
+										style definitions, this property is always undefined. This property can also be undefined
+									if it was not provided to the constructor when creating the style definition class manually.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">P</span></h4>
@@ -252,6 +256,12 @@
 						<a href="../modules/ruletypes.html">Rule<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/schedulingapi.html">SchedulingAPI</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/schedulingtypes.html">Scheduling<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="../modules/shapeapi.html">ShapeAPI</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -267,9 +277,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/ruletypes.schedulertype.html" class="tsd-kind-icon">Scheduler<wbr>Type</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
@@ -344,9 +351,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/ruletypes.irule.html" class="tsd-kind-icon">IRule</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ruletypes.ischeduler.html" class="tsd-kind-icon">IScheduler</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>
