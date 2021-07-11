@@ -305,4 +305,11 @@ export declare type CssAspectRatio = CssNumber | IAspectRatioProxy | "1/1" | "4/
  */
 export interface IAspectRatioProxy extends IGenericProxy<"aspect-ratio"> {
 }
+/** Type for clip style property */
+export declare type RectSide = "auto" | CssLength;
+/**
+ * The IRectProxy interface represents an invocation of the [[rect]] function.
+ */
+export interface IRectProxy extends IGenericProxy<"rect"> {
+}
 //# sourceMappingURL=NumericTypes.d.ts.map

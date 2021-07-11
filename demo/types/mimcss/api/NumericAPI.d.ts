@@ -1,5 +1,5 @@
 import { Extended } from "./CoreTypes";
-import { ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, INumberMath, IPercentMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath } from "./NumericTypes";
+import { ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, INumberMath, IPercentMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IRectProxy, RectSide } from "./NumericTypes";
 /**
  * The Num object contains methods that implement CSS mathematic functions on the `<number>`
  * CSS type.
@@ -223,4 +223,8 @@ export declare function fitContent(size: Extended<CssLength>): IFitContentProxy;
  * Returns an IAspectRatioProxy function representing the `<ratio>` CSS type.
  */
 export declare function ratio(w: CssNumber, h?: CssNumber): IAspectRatioProxy;
+/**
+ * Returns an IAspectRatioProxy function representing the `<ratio>` CSS type.
+ */
+export declare function rect(top: RectSide, right: RectSide, bottom: RectSide, left: RectSide): IRectProxy;
 //# sourceMappingURL=NumericAPI.d.ts.map

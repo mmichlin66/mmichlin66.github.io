@@ -3,9 +3,9 @@
  * @module
  */
 import { CssSelector, PagePseudoClass } from "./CoreTypes";
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, ICssSerializer } from "./RuleTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, ICssSerializer, NameGenerationMethod } from "./RuleTypes";
 import { MediaQuery, SupportsQuery } from "./MediaTypes";
-import { IFontFace } from "./FontTypes";
+import { ExtendedFontFace } from "./FontTypes";
 import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
 /**
  * Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
@@ -458,7 +458,7 @@ export declare function $gridarea(nameOverride?: string | IGridAreaRule): IGridA
  *     });
  * }
  */
-export declare function $fontface(fontface: IFontFace): IFontFaceRule;
+export declare function $fontface(fontface: ExtendedFontFace): IFontFaceRule;
 /**
  * Creates a new `@import` rule referencing the given CSS file.
  *
@@ -499,38 +499,94 @@ export declare function $media<T extends StyleDefinition>(query: MediaQuery, ins
  * entities. For a given style definition class only a single instance is created, no matter how
  * many times this function is invoked. However, if an instance, which has not yet been processed,
  * is passed, then a new set of unique names will be created for it.
+ *
+ * The `$use` function is used to reference a style definition from another style definition, for
+ * example:
+ *
+ * ```typescript
+ * class CommonStyles extends css.StyleDefinition
+ * {
+ *     error = css.$class({ color: "red"})
+ * }
+ *
+ * class PageStyles extends css.StyleDefinition
+ * {
+ *     common = css.$use( CommonStyles)
+ *
+ *     erroMessage = css.$class({
+ *         "+": this.common.error,
+ *         fontWeight: "bold"
+ *     })
+ * }
+ * ```
+ *
+ * When the `$use` function is called, the rules from the referenced style definition are not
+ * inserted into the DOM; they will be inserted when the style definition class that contains
+ * the `$use` call is activated. The same style definition class can be used from several
+ * other style definitions: as long as there is at least one referencing style definition that
+ * is activated, the rules will be in the DOM; as soon as all referencing style definitions are
+ * deactivated, the rules from the referenced definition are removed from the DOM.
  */
 export declare function $use<T extends StyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>): T | null;
 /**
  * Embeds the given style definition class into another style definition object. When activated,
  * the embedded object doesn't create its own `<style>` element but uses that of its owner. This
  * allows creating many small style definition classes instead of one huge one without incurring
- * the overhead of many `<style>` elements.
+ * the overhead of many `<style>` elements. For example, when developing a library of components,
+ * every component can define their own style definition class; however, they all can be embedded
+ * into a single style definion class for the entire library.
  *
- * Note that as opposed to the $use function, the $embed function always creates a new instance of
+ * Embedded styles should not be activated separately - they are activated when the embedding
+ * style definition class is activated.
+ *
+ * Note that as opposed to the [[$use]] function, the `$embed` function always creates a new instance of
  * the given class and doesn't associate the class with the created instance. That means that if
  * a class is embedded into more than one "owner", two separate instances of each CSS rule will be
  * created with different unique names.
+ *
+ * **Example:**
+ * ```typescript
+ * class Comp1Styles extends css.StyleDefinition { ... }
+ * class Comp2Styles extends css.StyleDefinition { ... }
+ * class Comp3Styles extends css.StyleDefinition { ... }
+ *
+ * class LibraryStyles extends css.StyleDefinition
+ * {
+ *     comp1 = css.$embed( Comp1Styles)
+ *     comp2 = css.$embed( Comp2Styles)
+ *     comp3 = css.$embed( Comp3Styles)
+ * }
+ *
+ * let libStyles = css.activate( LibraryStyles);
+ *
+ * render()
+ * {
+ *     return <div className={libStyles.comp1.someClass.name}>...>/div>
+ * }
+ * ```
  */
 export declare function $embed<T extends StyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>): T | null;
 /**
- * Sets the flag indicating whether to use optimized (short) rule names. If yes, the names
+ * Sets the method uses to generate names of CSS entities. If yes, the names
  * will be created by appending a unique number to the given prefix. If the prefix is not
  * specified, the standard prefix "n" will be used.
  *
- * By default the development version of the liberary (mimcss.dev.js) uses scoped names and the
- * production version uses short names. This function can be called to switch to the alternative
- * method of name generation in either the development or the production builds.
+ * By default the development version of the liberary (mimcss.dev.js) uses the [[UniqueScoped]]
+ * method and the production version uses the [[Optimized]] method. This function can be called to
+ * switch to the alternative method of name generation in either the development or the production
+ * builds.
  *
- * @param enable `true` to use short names of CSS entities and `false` to use scoped names.
+ * @param method Indicates what method to use.
  * @param prefix Optional string that will serve as a prefix to which unique numbers will be added
- * to generate short names. Ignored if the `enable` parameter is set to `false`.
+ * to generate optimized names. Ignored if the `method` parameter is anything other than.
  */
-export declare function enableShortNames(enable: boolean, prefix?: string): void;
+export declare function configNameGeneration(method: NameGenerationMethod, prefix?: string): void;
 /**
  * Concatenates the names of the given classes into a single string that can be assigned to a
  * `class` property of an HTML element.
- * @param classProps
+ *
+ * *Example*:
+ * @param classProps Variable argument list of either class names or class rule objects.
  */
 export declare function classes(...classProps: ClassPropType[]): string;
 /**

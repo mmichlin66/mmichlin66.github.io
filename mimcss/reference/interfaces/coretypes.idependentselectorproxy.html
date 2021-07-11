@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IAspectRatioProxy | Mimcss Reference</title>
+	<title>IDependentSelectorProxy | Mimcss Reference</title>
 	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -53,13 +53,13 @@
 					<a href="../index.html">Mimcss Reference</a>
 				</li>
 				<li>
-					<a href="../modules/numerictypes.html">NumericTypes</a>
+					<a href="../modules/coretypes.html">CoreTypes</a>
 				</li>
 				<li>
-					<a href="numerictypes.iaspectratioproxy.html">IAspectRatioProxy</a>
+					<a href="coretypes.idependentselectorproxy.html">IDependentSelectorProxy</a>
 				</li>
 			</ul>
-			<h1>Interface IAspectRatioProxy</h1>
+			<h1>Interface IDependentSelectorProxy</h1>
 		</div>
 	</div>
 </header>
@@ -70,10 +70,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="coretypes.igenericproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IGenericProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">&quot;aspect-ratio&quot;</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="coretypes.igenericproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IGenericProxy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">&quot;dependentSelector&quot;</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">IAspectRatioProxy</span>
+								<span class="target">IDependentSelectorProxy</span>
 							</li>
 						</ul>
 					</li>
@@ -82,7 +82,7 @@
 			<section class="tsd-panel">
 				<h3 class="tsd-before-signature">Callable</h3>
 				<ul class="tsd-signatures tsd-kind-interface tsd-parent-kind-module">
-					<li class="tsd-signature tsd-kind-icon">IAspect<wbr>Ratio<wbr>Proxy<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">&quot;aspect-ratio&quot;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					<li class="tsd-signature tsd-kind-icon">IDependent<wbr>Selector<wbr>Proxy<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">&quot;dependentSelector&quot;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -90,13 +90,14 @@
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>The IAspectRatioProxy interface represents an invocation of the <a href="../modules/numericapi.html#ratio">ratio</a> function.</p>
+								<p>The IDependentSelectorProxy function returns a CSS selector string. This type is returned from the
+								<a href="../modules/coreapi.html#dependentselector">dependentSelector</a> function.</p>
 							</div>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> p: <span class="tsd-signature-type">&quot;aspect-ratio&quot;</span></h5>
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> p: <span class="tsd-signature-type">&quot;dependentSelector&quot;</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -119,7 +120,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/coreapi.html">CoreAPI</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/coretypes.html">Core<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -134,7 +135,7 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/numericapi.html">NumericAPI</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/numerictypes.html">Numeric<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -165,13 +166,97 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="coretypes.iconstant.html" class="tsd-kind-icon">IConstant</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="coretypes.icustomvar.html" class="tsd-kind-icon">ICustom<wbr>Var</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="numerictypes.iaspectratioproxy.html" class="tsd-kind-icon">IAspect<wbr>Ratio<wbr>Proxy</a>
+						<a href="coretypes.idependentselectorproxy.html" class="tsd-kind-icon">IDependent<wbr>Selector<wbr>Proxy</a>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="coretypes.igenericproxy.html" class="tsd-kind-icon">IGeneric<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.iparameterizedpseudoclass.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Class</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.iparameterizedpseudoelement.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Element</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.iparameterizedpseudoentity.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.iquotedproxy.html" class="tsd-kind-icon">IQuoted<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.irulewithselector.html" class="tsd-kind-icon">IRule<wbr>With<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.iselectorproxy.html" class="tsd-kind-icon">ISelector<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.istringproxy.html" class="tsd-kind-icon">IString<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#cssdependentselector" class="tsd-kind-icon">Css<wbr>Dependent<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#cssselector" class="tsd-kind-icon">Css<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#dependentrulecombinator" class="tsd-kind-icon">Dependent<wbr>Rule<wbr>Combinator</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#dependentselectoritem" class="tsd-kind-icon">Dependent<wbr>Selector<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/coretypes.html#extended" class="tsd-kind-icon">Extended</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/coretypes.html#extendedprop" class="tsd-kind-icon">Extended<wbr>Prop</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#global_styletype" class="tsd-kind-icon">Global_<wbr><wbr>Style<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/coretypes.html#importantprop" class="tsd-kind-icon">Important<wbr>Prop</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#nthchildexpression" class="tsd-kind-icon">Nth<wbr>Child<wbr>Expression</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/coretypes.html#oneorbox" class="tsd-kind-icon">One<wbr>OrBox</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/coretypes.html#oneormany" class="tsd-kind-icon">One<wbr>OrMany</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/coretypes.html#oneorpair" class="tsd-kind-icon">One<wbr>OrPair</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#pagepseudoclass" class="tsd-kind-icon">Page<wbr>Pseudo<wbr>Class</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#pseudoclass" class="tsd-kind-icon">Pseudo<wbr>Class</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#pseudoelement" class="tsd-kind-icon">Pseudo<wbr>Element</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#pseudoentity" class="tsd-kind-icon">Pseudo<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#selectorcombinator" class="tsd-kind-icon">Selector<wbr>Combinator</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#selectoritem" class="tsd-kind-icon">Selector<wbr>Item</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

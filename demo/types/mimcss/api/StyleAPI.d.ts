@@ -49,7 +49,7 @@ export declare function stylesetToStringStyleset(styleset: Styleset): StringStyl
  * @param newStyleset
  * @returns StringStyleset object with properties that have different values in the old and new
  * stylesets. Properties that existed in the old but don't exist in the new styleset, will have
- * their values set to undefined. If there is no differences between the two stylesets null is
+ * their values set to `"unset"`. If there is no differences between the two stylesets null is
  * returned.
  */
 export declare function diffStylesets(oldStyleset: Styleset, newStyleset: Styleset): StringStyleset | null;
@@ -88,7 +88,7 @@ declare global {
          * @param schedulerType Scheduler identifier. If omitted, the current default scheduler
          * will be used.
          */
-        setStyleset(styleset: Styleset, replace?: boolean, schedulerType?: number): void;
+        setStyleset(styleset: Styleset, schedulerType?: number): void;
     }
 }
 //# sourceMappingURL=StyleAPI.d.ts.map

@@ -1,16 +1,21 @@
-import { IStringProxy, IQuotedProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
+import { IStringProxy, IQuotedProxy, SelectorItem, ISelectorProxy, DependentSelectorItem, IDependentSelectorProxy } from "./CoreTypes";
 /**
  * Returns a string representation of a selector. This function is a tag function and must be
  * invoked with the template string without parentheses.
  */
 export declare function selector(parts: TemplateStringsArray, ...params: SelectorItem[]): ISelectorProxy;
 /**
+ * Returns a string representation of a selector that can be used on dependent rules. This function
+ * is a tag function and must be invoked with the template string without parentheses.
+ */
+export declare function dependentSelector(parts: TemplateStringsArray, ...params: DependentSelectorItem[]): IDependentSelectorProxy;
+/**
  * The `raw` function allows specifying arbitrary text for properties whose type normally doesn't
  * allow strings.This function is a tag function and must be invoked with the template string
  * without parentheses. The `raw` function can be used for any style property. Note, however, that
- * no validation checks are performed on the structure of the template. If the resulting string
- * isn't valid for the style property, the property will not be come part of the style rule
- * inserted into the DOM.
+ * no validation checks are performed on the structure of the string. If the string isn't valid
+ * for the style property, the property will not become part of the style rule inserted into the
+ * DOM.
  *
  * **Example**
  *

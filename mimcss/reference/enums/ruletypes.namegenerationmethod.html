@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>StyleDefinition | Mimcss Reference</title>
+	<title>NameGenerationMethod | Mimcss Reference</title>
 	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../modules/ruletypes.html">RuleTypes</a>
 				</li>
 				<li>
-					<a href="ruletypes.styledefinition.html">StyleDefinition</a>
+					<a href="ruletypes.namegenerationmethod.html">NameGenerationMethod</a>
 				</li>
 			</ul>
-			<h1>Class StyleDefinition&lt;P, O&gt;</h1>
+			<h1>Enumeration NameGenerationMethod</h1>
 		</div>
 	</div>
 </header>
@@ -69,150 +69,106 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The StyleDefinition class is a base for all classes that contain defininitions of CSS rules.</p>
+						<p>Provides values that identify the method used to generate names of CSS named entities (e.g.
+							classes, identifiers, counters, animations, custom properties, etc.). The development version
+							of the Mimcss library uses the <code>UniqueScoped</code> method while the production version uses the
+							<code>Optimized</code> method. The <a href="../modules/ruleapi.html#confignamegeneration">configNameGeneration</a> function can be called to change the default
+						method.</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>P<span class="tsd-signature-symbol">: </span><a href="ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a> = <span class="tsd-signature-type">any</span></h4>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Parent style definition class. Parent of top-lvel class is null.</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<h4>O<span class="tsd-signature-symbol">: </span><a href="ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a> = <span class="tsd-signature-type">any</span></h4>
-						<div class="tsd-comment tsd-typography">
-							<div class="lead">
-								<p>Top-level style definition class, which is the owner of this class. The top-level
-								class is its own owner.</p>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">StyleDefinition</span>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"><a href="ruletypes.styledefinition.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Accessors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="ruletypes.styledefinition.html#_owner" class="tsd-kind-icon">$owner</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="ruletypes.styledefinition.html#_parent" class="tsd-kind-icon">$parent</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ruletypes.namegenerationmethod.html#optimized" class="tsd-kind-icon">Optimized</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ruletypes.namegenerationmethod.html#scoped" class="tsd-kind-icon">Scoped</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ruletypes.namegenerationmethod.html#uniquescoped" class="tsd-kind-icon">Unique<wbr>Scoped</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Style<wbr>Definition&lt;P, O&gt;<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Style definition instances are created directly only by the <em>styled components</em> - that is,
-										components that use different styles for each instance. Otherwise, style definition
-									instances are created when either the <a href="../modules/ruleapi.html#_use">$use</a>, <a href="../modules/ruleapi.html#_embed">$embed</a> or <a href="../modules/ruleapi.html#activate">activate</a> function is called.</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>P<span class="tsd-signature-symbol">: </span><a href="ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">&gt;</span> = <span class="tsd-signature-type">any</span></h4>
-								</li>
-								<li>
-									<h4>O<span class="tsd-signature-symbol">: </span><a href="ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span> = <span class="tsd-signature-type">any</span></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> parent: <span class="tsd-signature-type">P</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Reference to the parent style definition class</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">O</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="optimized" class="tsd-anchor"></a>
+					<h3>Optimized</h3>
+					<div class="tsd-signature tsd-kind-icon">Optimized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Names are generated using a prefix concatenated with a unique number. The default prefix is
+							<code>&quot;n&quot;</code>, which can be changed using the <a href="../modules/ruleapi.html#confignamegeneration">configNameGeneration</a> function.</p>
+						</div>
+						<p>This method is used by default in the production version of the Mimcss library.</p>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">configNameGeneration</span><span style="color: #000000">( </span><span style="color: #001080">NameGenerationMethod</span><span style="color: #000000">.</span><span style="color: #001080">Optimized</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;my_&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// class name will be generated as &quot;my_nnn&quot;, where &#039;nnn&#039; is a unique number.</span>
+<span style="color: #000000">    </span><span style="color: #001080">red</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">})</span>
+<span style="color: #000000">}</span>
+</code></pre>
+					</div>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="_owner" class="tsd-anchor"></a>
-					<h3>$owner</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> $owner<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">O</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Refers to the instance of the style definition class which is the owner of
-										this style definition object. The owner is the top-level class in the chain of style
-										definition classes. Through this member, all rules and other members defined in the owner
-										definition class can be accessed. For top-level style definitions, this property points
-										to itself. This property can be undefined if the parent instance was not provided when
-									creating the style definition class manually.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">O</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="scoped" class="tsd-anchor"></a>
+					<h3>Scoped</h3>
+					<div class="tsd-signature tsd-kind-icon">Scoped<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 3</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Names are generated using the name of the style definition class concatenated with the
+								property name defining the CSS entity. This method produces predicatable names (since no
+								unique numbers are involved) and thus is suitable for testing environments where CSS names
+								are used for identifying elements on the page. Note that if different JavaScript modules
+								have identically named classes with an identically named property, the generated name
+							will be identical</p>
+						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">configNameGeneration</span><span style="color: #000000">( </span><span style="color: #001080">NameGenerationMethod</span><span style="color: #000000">.</span><span style="color: #001080">Scoped</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// class name will be generated as &quot;MyStyles_red&quot;.</span>
+<span style="color: #000000">    </span><span style="color: #001080">red</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">})</span>
+<span style="color: #000000">}</span>
+</code></pre>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="_parent" class="tsd-anchor"></a>
-					<h3>$parent</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> $parent<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">P</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Refers to the instance of the style definition class which is the parnt of this style
-										definition object in the chain of style definition classes. Through this member, all rules
-										and other members defined in the parent definition class can be accessed.For top-level
-										style definitions, this property is always undefined. This property can also be undefined
-									if it was not provided to the constructor when creating the style definition class manually.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">P</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="uniquescoped" class="tsd-anchor"></a>
+					<h3>Unique<wbr>Scoped</h3>
+					<div class="tsd-signature tsd-kind-icon">Unique<wbr>Scoped<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Names are generated using the name of the style definition class concatenated with the
+								property name defining the CSS entity and concatenated with a unique number. The unique
+								number is needed to generate truly unique names even in the presence of identically named
+								style definition classes and properties. This method produces relatively long names and
+								should be used during development. Having the names of the class and property defining the
+							CSS entity allows developers to easily find the place where the entity is defined.</p>
+						</div>
+						<p>This method is used by default in the development version of the Mimcss library.</p>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">configNameGeneration</span><span style="color: #000000">( </span><span style="color: #001080">NameGenerationMethod</span><span style="color: #000000">.</span><span style="color: #001080">UniqueScoped</span><span style="color: #000000">);</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// class name will be generated as &quot;MyStyles_red_nnn&quot;, where &#039;nnn&#039; is a unique number.</span>
+<span style="color: #000000">    </span><span style="color: #001080">red</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">})</span>
+<span style="color: #000000">}</span>
+</code></pre>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -277,27 +233,27 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-kind-icon">Name<wbr>Generation<wbr>Method</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="ruletypes.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
+					<li class="current tsd-kind-enum tsd-parent-kind-module">
+						<a href="ruletypes.namegenerationmethod.html" class="tsd-kind-icon">Name<wbr>Generation<wbr>Method</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="ruletypes.styledefinition.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="ruletypes.namegenerationmethod.html#optimized" class="tsd-kind-icon">Optimized</a>
 							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="ruletypes.styledefinition.html#_owner" class="tsd-kind-icon">$owner</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="ruletypes.namegenerationmethod.html#scoped" class="tsd-kind-icon">Scoped</a>
 							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="ruletypes.styledefinition.html#_parent" class="tsd-kind-icon">$parent</a>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="ruletypes.namegenerationmethod.html#uniquescoped" class="tsd-kind-icon">Unique<wbr>Scoped</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/ruletypes.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/ruletypes.ianimationframerule.html" class="tsd-kind-icon">IAnimation<wbr>Frame<wbr>Rule</a>
 					</li>

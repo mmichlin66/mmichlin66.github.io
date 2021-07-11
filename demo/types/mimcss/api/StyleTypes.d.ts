@@ -1,8 +1,8 @@
 import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, IQuotedProxy } from "./CoreTypes";
-import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio } from "./NumericTypes";
+import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
+import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
 import { IUrlProxy, BasicShape, CssImage, IMinMaxProxy, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IRayProxy, ITimingFunctionProxy, ICursorProxy, BorderRadius, FillRule } from "./ShapeTypes";
-import { FontStretch_Single } from "./FontTypes";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule } from "./RuleTypes";
 /** Type for align-content style property */
 export declare type AlignContent_StyleType = "normal" | "stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "baseline" | "first baseline" | "last baseline" | "safe center" | "unsafe center" | "space-between" | "space-around" | "space-evenly";
@@ -251,7 +251,7 @@ export declare type CaretColor_StyleType = "auto" | CssColor;
 /** Type for clear style property */
 export declare type Clear_StyleType = "none" | "left" | "right" | "both" | "inline-start" | "inline-end";
 /** Type for clip style property */
-export declare type Clip_StyleType = "auto" | OneOrBox<CssLength>;
+export declare type Clip_StyleType = "auto" | IRectProxy;
 /**
  * Type representing the boundaries of a box
  */
@@ -333,36 +333,18 @@ export declare type FlexFlow_StyleType = FlexDirection_StyleType | FlexWrap_Styl
 export declare type FlexWrap_StyleType = "nowrap" | "wrap" | "wrap-reverse";
 /** Type for float style property */
 export declare type Float_StyleType = "left" | "right" | "none" | "inline-start" | "inline-end";
-/** Keywords for font style property */
-export declare type Font_SystemKeyword = "caption" | "icon" | "menu" | "message-box" | "small-caption" | "status-bar";
 /** Type for font style property */
-export declare type Font_StyleType = Font_SystemKeyword | {
+export declare type Font_StyleType = SystemFont | {
     size: Extended<CssLength>;
     family: Extended<string>;
-    style?: Extended<FontStyle_StyleType>;
+    style?: Extended<FontStyle>;
     variant?: Extended<string>;
     weight?: Extended<FontWeight_StyleType>;
-    stretch?: Extended<Exclude<FontStretch_Single, number>>;
+    stretch?: Extended<FontStretch>;
     lineHeight?: Extended<CssNumber>;
 };
-/** Type for font-kerning style property */
-export declare type FontKerning_StyleType = "auto" | "normal" | "none";
-/** Type for font-optical-sizing style property */
-export declare type FontOpticalSizing_StyleType = "auto" | "none";
-/** Type for font-size style property */
-export declare type FontSize_StyleType = "xx-small" | "x-small" | "small" | "medium" | "large" | "x-large" | "xx-large" | "xxx-large" | "larger" | "smaller" | CssLength;
-/** Type for font-stretch style property */
-export declare type FontStretch_StyleType = "normal" | "ultra-condensed" | "extra-condensed" | "condensed" | "semi-condensed" | "semi-expanded" | "expanded" | "extra-expanded" | "ultra-expanded" | CssNumber;
-/** Type for font-style style property */
-export declare type FontStyle_StyleType = "normal" | "italic" | "oblique" | CssAngle;
-/** Type for font-synthesis style property */
-export declare type FontSynthesis_StyleType = "none" | "weight" | "style" | "weight style";
-/** Type for font-variant-caps style property */
-export declare type FontVariantCaps_StyleType = "normal" | "small-caps" | "all-small-caps" | "petite-caps" | "all-petite-caps" | "unicase" | "titling-caps";
-/** Type for font-variant-position style property */
-export declare type FontVariantPosition_StyleType = "normal" | "sub" | "super";
 /** Type for font-weight style property */
-export declare type FontWeight_StyleType = "normal" | "bold" | "bolder" | "lighter" | CssNumber;
+export declare type FontWeight_StyleType = FontWeight | "bolder" | "lighter";
 /** Type for gap or grid-gap style property */
 export declare type Gap_StyleType = RowGap_StyleType | [RowGap_StyleType, ColumnGap_StyleType];
 /** Type for grid-auto-columns and grid-auto-rows style properties */
@@ -820,19 +802,19 @@ export interface IBaseStyleset {
     font?: Font_StyleType;
     fontFamily?: DefaultStyleType;
     fontFeatureSettings?: DefaultStyleType;
-    fontKerning?: FontKerning_StyleType;
-    fontOpticalSizing?: FontOpticalSizing_StyleType;
-    fontSize?: FontSize_StyleType;
+    fontKerning?: FontKerning;
+    fontOpticalSizing?: FontOpticalSizing;
+    fontSize?: FontSize;
     fontSizeAdjust?: CssNumber;
-    fontStretch?: FontStretch_StyleType;
-    fontStyle?: FontStyle_StyleType;
-    fontSynthesis?: FontSynthesis_StyleType;
+    fontStretch?: FontStretch;
+    fontStyle?: FontStyle;
+    fontSynthesis?: FontSynthesis;
     fontVariant?: DefaultStyleType;
-    fontVariantCaps?: FontVariantCaps_StyleType;
+    fontVariantCaps?: FontVariantCaps;
     fontVariantEastAsian?: DefaultStyleType;
     fontVariantLigatures?: DefaultStyleType;
     fontVariantNumeric?: DefaultStyleType;
-    fontVariantPosition?: FontVariantPosition_StyleType;
+    fontVariantPosition?: FontVariantPosition;
     fontVariationSettings?: DefaultStyleType;
     fontWeight?: FontWeight_StyleType;
     gap?: Gap_StyleType;

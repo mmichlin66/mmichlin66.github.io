@@ -100,9 +100,9 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#canceldomupdate" class="tsd-kind-icon">cancelDOMUpdate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#classes" class="tsd-kind-icon">classes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#enableshortnames" class="tsd-kind-icon">enable<wbr>Short<wbr>Names</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#forcedomupdate" class="tsd-kind-icon">forceDOMUpdate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a></li>
@@ -422,12 +422,35 @@
 									<p>Embeds the given style definition class into another style definition object. When activated,
 										the embedded object doesn&#39;t create its own <code>&lt;style&gt;</code> element but uses that of its owner. This
 										allows creating many small style definition classes instead of one huge one without incurring
-									the overhead of many <code>&lt;style&gt;</code> elements.</p>
+										the overhead of many <code>&lt;style&gt;</code> elements. For example, when developing a library of components,
+										every component can define their own style definition class; however, they all can be embedded
+									into a single style definion class for the entire library.</p>
 								</div>
-								<p>Note that as opposed to the $use function, the $embed function always creates a new instance of
+								<p>Embedded styles should not be activated separately - they are activated when the embedding
+								style definition class is activated.</p>
+								<p>Note that as opposed to the <a href="ruleapi.html#_use">$use</a> function, the <code>$embed</code> function always creates a new instance of
 									the given class and doesn&#39;t associate the class with the created instance. That means that if
 									a class is embedded into more than one &quot;owner&quot;, two separate instances of each CSS rule will be
 								created with different unique names.</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Comp1Styles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> { ... }</span>
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Comp2Styles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> { ... }</span>
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Comp3Styles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> { ... }</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">LibraryStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">comp1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$embed</span><span style="color: #000000">( </span><span style="color: #001080">Comp1Styles</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #001080">comp2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$embed</span><span style="color: #000000">( </span><span style="color: #001080">Comp2Styles</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #001080">comp3</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$embed</span><span style="color: #000000">( </span><span style="color: #001080">Comp3Styles</span><span style="color: #000000">)</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">libStyles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">LibraryStyles</span><span style="color: #000000">);</span>
+
+<span style="color: #795E26">render</span><span style="color: #000000">()</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">className</span><span style="color: #000000">={</span><span style="color: #267F99">libStyles</span><span style="color: #000000">.</span><span style="color: #267F99">comp1</span><span style="color: #000000">.</span><span style="color: #267F99">someClass</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;...&gt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -449,7 +472,7 @@
 					<a name="_fontface" class="tsd-anchor"></a>
 					<h3>$fontface</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$fontface<span class="tsd-signature-symbol">(</span>fontface<span class="tsd-signature-symbol">: </span><a href="fonttypes.html#ifontface" class="tsd-signature-type" data-tsd-kind="Type alias">IFontFace</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.ifontfacerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IFontFaceRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$fontface<span class="tsd-signature-symbol">(</span>fontface<span class="tsd-signature-symbol">: </span><a href="fonttypes.html#extendedfontface" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedFontFace</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.ifontfacerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IFontFaceRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -463,7 +486,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>fontface: <a href="fonttypes.html#ifontface" class="tsd-signature-type" data-tsd-kind="Type alias">IFontFace</a></h5>
+									<h5>fontface: <a href="fonttypes.html#extendedfontface" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedFontFace</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Object implementing the <code>IFontFace</code> interface defining the parameter of the
 										font to use.</p>
@@ -991,6 +1014,29 @@
 										many times this function is invoked. However, if an instance, which has not yet been processed,
 									is passed, then a new set of unique names will be created for it.</p>
 								</div>
+								<p>The <code>$use</code> function is used to reference a style definition from another style definition, for
+								example:</p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">CommonStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">error</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">})</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">PageStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">common</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$use</span><span style="color: #000000">( </span><span style="color: #001080">CommonStyles</span><span style="color: #000000">)</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">erroMessage</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;+&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">common</span><span style="color: #000000">.</span><span style="color: #001080">error</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">fontWeight:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;bold&quot;</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
+								<p>When the <code>$use</code> function is called, the rules from the referenced style definition are not
+									inserted into the DOM; they will be inserted when the style definition class that contains
+									the <code>$use</code> call is activated. The same style definition class can be used from several
+									other style definitions: as long as there is at least one referencing style definition that
+									is activated, the rules will be in the DOM; as soon as all referencing style definitions are
+								deactivated, the rules from the referenced definition are removed from the DOM.</p>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -1190,16 +1236,59 @@
 									<p>Concatenates the names of the given classes into a single string that can be assigned to a
 									<code>class</code> property of an HTML element.</p>
 								</div>
+								<p><em>Example</em>:</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classProps: <a href="ruletypes.html#classproptype" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>Variable argument list of either class names or class rule objects.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="confignamegeneration" class="tsd-anchor"></a>
+					<h3>config<wbr>Name<wbr>Generation</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">config<wbr>Name<wbr>Generation<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-signature-type" data-tsd-kind="Enumeration">NameGenerationMethod</a>, prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the method uses to generate names of CSS entities. If yes, the names
+										will be created by appending a unique number to the given prefix. If the prefix is not
+									specified, the standard prefix &quot;n&quot; will be used.</p>
+								</div>
+								<p>By default the development version of the liberary (mimcss.dev.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#uniquescoped">UniqueScoped</a>
+									method and the production version uses the <a href="../enums/ruletypes.namegenerationmethod.html#optimized">Optimized</a> method. This function can be called to
+									switch to the alternative method of name generation in either the development or the production
+								builds.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>method: <a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-signature-type" data-tsd-kind="Enumeration">NameGenerationMethod</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Indicates what method to use.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional string that will serve as a prefix to which unique numbers will be added
+										to generate optimized names. Ignored if the <code>method</code> parameter is anything other than.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1248,46 +1337,6 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="enableshortnames" class="tsd-anchor"></a>
-					<h3>enable<wbr>Short<wbr>Names</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">enable<wbr>Short<wbr>Names<span class="tsd-signature-symbol">(</span>enable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Sets the flag indicating whether to use optimized (short) rule names. If yes, the names
-										will be created by appending a unique number to the given prefix. If the prefix is not
-									specified, the standard prefix &quot;n&quot; will be used.</p>
-								</div>
-								<p>By default the development version of the liberary (mimcss.dev.js) uses scoped names and the
-									production version uses short names. This function can be called to switch to the alternative
-								method of name generation in either the development or the production builds.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>enable: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p><code>true</code> to use short names of CSS entities and <code>false</code> to use scoped names.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional string that will serve as a prefix to which unique numbers will be added
-										to generate short names. Ignored if the <code>enable</code> parameter is set to <code>false</code>.</p>
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1518,13 +1567,13 @@
 						<a href="ruleapi.html#classes" class="tsd-kind-icon">classes</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#enableshortnames" class="tsd-kind-icon">enable<wbr>Short<wbr>Names</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#forcedomupdate" class="tsd-kind-icon">forceDOMUpdate</a>
