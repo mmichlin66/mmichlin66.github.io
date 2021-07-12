@@ -66,7 +66,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>This modules describes numeric types as a basis for handling CSS <number>, <length>, <angle>, etc.</p>
+						<p>This modules describes numeric types as a basis for handling CSS types such as <code>&lt;number&gt;</code>, <code>&lt;length&gt;</code>, <code>&lt;angle&gt;</code>, etc.</p>
 					</div>
 				</div>
 			</section>
@@ -105,6 +105,7 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#cssaspectratio" class="tsd-kind-icon">Css<wbr>Aspect<wbr>Ratio</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#cssfrequency" class="tsd-kind-icon">Css<wbr>Frequency</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#csslength" class="tsd-kind-icon">Css<wbr>Length</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#csslengthorauto" class="tsd-kind-icon">Css<wbr>Length<wbr>OrAuto</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#cssnumber" class="tsd-kind-icon">Css<wbr>Number</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#csspercent" class="tsd-kind-icon">Css<wbr>Percent</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#csspoint" class="tsd-kind-icon">Css<wbr>Point</a></li>
@@ -118,7 +119,6 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#horizontalpositionkeyword" class="tsd-kind-icon">Horizontal<wbr>Position<wbr>Keyword</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#lengthunits" class="tsd-kind-icon">Length<wbr>Units</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#percentunits" class="tsd-kind-icon">Percent<wbr>Units</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#rectside" class="tsd-kind-icon">Rect<wbr>Side</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#resolutionunits" class="tsd-kind-icon">Resolution<wbr>Units</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#simplecssposition" class="tsd-kind-icon">Simple<wbr>Css<wbr>Position</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="numerictypes.html#timeunits" class="tsd-kind-icon">Time<wbr>Units</a></li>
@@ -213,6 +213,20 @@
 								literals, such as <code>&quot;1fr&quot;</code> and <code>&quot;100%&quot;</code>. This is in order to make it more convenient for
 								developers to write these frequently used values. Other <code>&lt;length&gt;</code> units should be specified
 							using the functions such as <a href="numericapi.html#rem">rem</a>, <a href="numericapi.html#vh">vh</a>, <a href="numericapi.html#vmin">vmin</a>, etc.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="csslengthorauto" class="tsd-anchor"></a>
+					<h3>Css<wbr>Length<wbr>OrAuto</h3>
+					<div class="tsd-signature tsd-kind-icon">Css<wbr>Length<wbr>OrAuto<span class="tsd-signature-symbol">:</span> <a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type that combines CssLength and the string literal <code>&quot;auto&quot;</code>. This type is often used when a
+								property accepts the <code>&lt;length&gt;</code> type and the <code>&quot;auto&quot;</code> literal - for example, when specifying
+							margins.</p>
 						</div>
 					</div>
 				</section>
@@ -370,18 +384,6 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Units of percent</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="rectside" class="tsd-anchor"></a>
-					<h3>Rect<wbr>Side</h3>
-					<div class="tsd-signature tsd-kind-icon">Rect<wbr>Side<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;auto&quot;</span><span class="tsd-signature-symbol"> | </span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a></div>
-					<aside class="tsd-sources">
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Type for clip style property</p>
 						</div>
 					</div>
 				</section>
@@ -578,6 +580,9 @@
 						<a href="numerictypes.html#csslength" class="tsd-kind-icon">Css<wbr>Length</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="numerictypes.html#csslengthorauto" class="tsd-kind-icon">Css<wbr>Length<wbr>OrAuto</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="numerictypes.html#cssnumber" class="tsd-kind-icon">Css<wbr>Number</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
@@ -617,9 +622,6 @@
 						<a href="numerictypes.html#percentunits" class="tsd-kind-icon">Percent<wbr>Units</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="numerictypes.html#rectside" class="tsd-kind-icon">Rect<wbr>Side</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="numerictypes.html#resolutionunits" class="tsd-kind-icon">Resolution<wbr>Units</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
@@ -655,11 +657,10 @@
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
 		</div>
 	</div>

@@ -97,6 +97,8 @@ Yes, style definition classes can contain properties that are not CSS rules. Sin
 
 When creating constants you can use either static or instance properties; however, since in most cases there will be only single instance of each type definition class created, our recommendation is to use instance properties as they are easier to work with.
 
+in addition, Mimcss provides the `$const` function that works very similarly to the `$var` function in that it allows specifying complex values compatible with the type of a given style property. The difference is that the `$const` function doesn't create any CSS entity, but simply creates a constant that can be used in other rules.
+
 Here is an example of specifying constants in a style definition class:
 
 ```tsx
@@ -105,6 +107,7 @@ class MyStyles extends css.StyleDefinition
     // define constants
     defaultPadding = 8
     defaultColor: CssColor = "black"
+    defaultBorder = css.$const( "border", [2, "dashed", "blue"])
 
     // define custom CSS prroperty
     defaultBgColor = css.$var( "color", "white")
@@ -112,14 +115,15 @@ class MyStyles extends css.StyleDefinition
     cls = css.$class({
         padding: this.defaultPadding,
         color: this.defaultColor,
-        backgroundColor: this.defaultBgColor
+        border: this.defaultBorder,
+        backgroundColor: this.defaultBgColor,
     })
 }
 ```
 
 > Note that we defined the type of the `defaultColor` property. We have to do it because otherwise, TypeScript will think that the type is `string`, which is not the type that is acceptable by the `color` style property.
 
-The most significant difference between custom properties and constants is that it is possible to change the value of a custom property, thus changing styles. This is accomplished using the `setValue` method of the custom property object:
+Aside from participation in the cascade, another significant difference between custom properties and constants is that it is possible to change the value of a custom property, thus changing styles. This is accomplished using the `setValue` method of the custom property object:
 
 ```tsx
 let styles = css.$ctivate( MyClass);

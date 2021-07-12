@@ -29,8 +29,9 @@ import * as css from "mimcss";
 class MyStyles extends css.StyleDefinition
 {
     init = [
-        css.$style( "*", { boxSizing: "border-box" }),
-        css.$style( "body", { height: "100%", margin: 0 }),
+        css.$tag( "*", { boxSizing: "border-box" }),
+        css.$tag( "body", { height: "100%", margin: 0 }),
+        css.$style( "a:hover", { color: "navy" }),
     ]
 
     vbox = css.$class({ display: "flex", flexDirection: "column" })
@@ -47,11 +48,11 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$class` and `$id` functions define style rules where the selector is a class and an element ID respectively. The `$var` function defines a custom CSS property. The `$keyframes` function defines a @keyframes (animation) rule.
+Hopefully, the rules defined above are more or less self-explanatory. The `$tag`,`$class` and `$id` functions define style rules where the selector is a tag name, a class name and an element ID respectively. The `$style` function defines a style rule that has a selector usually more complicated than a tag or class name or an element ID. The `$tag`, `$class`, `$id` and `$style` functions accept a `Styleset` object, which is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$var` function defines a custom CSS property. The `$keyframes` function defines a @keyframes (animation) rule.
 
 The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is usually not used in any way.
 
-Note that we didn't specify the name of the class (nor of the ID, animation or custom property). This is because we will never use the actual name; instead, we will use the property to refer to the class. This is a fundamental aspect of Mimcss: names are hidden from the developers, so that the latter never have a chance of misspelling the former.
+Note that we didn't specify the name of the class (nor of the ID, animation or custom property). This is because we usually don't define the names that will be used in HTML; instead, we will use the properties to refer to the class and other entities. This is a fundamental aspect of Mimcss: names are hidden from the developers, so that the developers never have a chance to misspell the names. Mimcss mechanism generates the names that will be used in HTML and makes sure that the properties, to which the rules are assigned, refer to these names.
 
 ## Rules Activation
 By now we have defined our rules with a TypeScript class, but how do we insert the rules into the DOM so that they start applying to the HTML? This process is called "activation" and is accomplished using the `activate` function.
@@ -178,7 +179,7 @@ class MyStyles extends css.StyleDefinition
     unnamed = [
         css.$import( "http://3rd.party.com/stylesheet.css"),
 
-		css.$namespace( css.WebNamespaces.SVG, "svg"),
+        css.$namespace( css.WebNamespaces.SVG, "svg"),
 
         css.$fontface({
             fontFamily: "Roboto",

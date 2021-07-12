@@ -54,9 +54,9 @@ class MyStyles extends css.StyleDefinition
     })
 
     init = [
-        css.$style( "*", { boxSizing: "border-box"}),
-        css.$style( "html", {height: "100%"}),
-        css.$style( "body", {height: "100%", margin: 0}),
+        css.$tag( "*", { boxSizing: "border-box"}),
+        css.$tag( "html", {height: "100%"}),
+        css.$tag( "body", {height: "100%", margin: 0}),
     ]
 }
 

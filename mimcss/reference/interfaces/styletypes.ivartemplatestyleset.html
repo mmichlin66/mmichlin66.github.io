@@ -708,7 +708,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="all" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> all</h3>
-					<div class="tsd-signature tsd-kind-icon">all<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">all<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#global_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">Global_StyleType</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#all">all</a></p>
 					</aside>
@@ -720,6 +720,27 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#animation">animation</a></p>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p><strong>Usage:</strong></p>
+						</div>
+						<pre><code class="language-Typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyes</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">move</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$keyframes</span><span style="color: #000000">([</span>
+<span style="color: #000000">        [</span><span style="color: #A31515">&quot;from&quot;</span><span style="color: #000000">, {top</span><span style="color: #A31515">&quot; 0}]</span><span style="color: #CD3131">,</span>
+<span style="color: #001080">        [</span><span style="color: #A31515">&quot;to&quot;</span><span style="color: #000000">, {</span><span style="color: #001080">top:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;100%&quot;</span><span style="color: #000000">}]</span>
+<span style="color: #000000">    ])</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">obj</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">animation:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">move</span><span style="color: #000000">,     </span><span style="color: #008000">// reference keyframes rule defined earlier</span>
+<span style="color: #000000">            </span><span style="color: #001080">duration:</span><span style="color: #000000"> </span><span style="color: #098658">0.5</span><span style="color: #000000">,       </span><span style="color: #008000">// 0.5 seconds</span>
+<span style="color: #000000">            </span><span style="color: #001080">func:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;ease-in-out&quot;</span><span style="color: #000000">  </span><span style="color: #008000">// pre-defined name</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">}</span>
+</code></pre>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="animationdelay" class="tsd-anchor"></a>
@@ -984,7 +1005,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderblockendstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Block<wbr>End<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>End<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>End<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderblockendstyle">borderBlockEndStyle</a></p>
 					</aside>
@@ -992,7 +1013,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderblockendwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Block<wbr>End<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>End<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>End<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderblockendwidth">borderBlockEndWidth</a></p>
 					</aside>
@@ -1016,7 +1037,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderblockstartstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Block<wbr>Start<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>Start<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>Start<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderblockstartstyle">borderBlockStartStyle</a></p>
 					</aside>
@@ -1024,7 +1045,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderblockstartwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Block<wbr>Start<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>Start<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Block<wbr>Start<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderblockstartwidth">borderBlockStartWidth</a></p>
 					</aside>
@@ -1064,7 +1085,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderbottomstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Bottom<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Bottom<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Bottom<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderbottomstyle">borderBottomStyle</a></p>
 					</aside>
@@ -1072,7 +1093,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderbottomwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Bottom<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Bottom<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Bottom<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderbottomwidth">borderBottomWidth</a></p>
 					</aside>
@@ -1168,7 +1189,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderinlineendstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Inline<wbr>End<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>End<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>End<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderinlineendstyle">borderInlineEndStyle</a></p>
 					</aside>
@@ -1176,7 +1197,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderinlineendwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Inline<wbr>End<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>End<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>End<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderinlineendwidth">borderInlineEndWidth</a></p>
 					</aside>
@@ -1200,7 +1221,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderinlinestartstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Inline<wbr>Start<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>Start<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>Start<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderinlinestartstyle">borderInlineStartStyle</a></p>
 					</aside>
@@ -1208,7 +1229,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderinlinestartwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Inline<wbr>Start<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>Start<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Inline<wbr>Start<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderinlinestartwidth">borderInlineStartWidth</a></p>
 					</aside>
@@ -1232,7 +1253,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderleftstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Left<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Left<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Left<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderleftstyle">borderLeftStyle</a></p>
 					</aside>
@@ -1240,7 +1261,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderleftwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Left<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Left<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Left<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderleftwidth">borderLeftWidth</a></p>
 					</aside>
@@ -1272,7 +1293,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderrightstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Right<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Right<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Right<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderrightstyle">borderRightStyle</a></p>
 					</aside>
@@ -1280,7 +1301,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="borderrightwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Right<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Right<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Right<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#borderrightwidth">borderRightWidth</a></p>
 					</aside>
@@ -1336,7 +1357,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="bordertopstyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Top<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Top<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Top<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#bordertopstyle">borderTopStyle</a></p>
 					</aside>
@@ -1344,7 +1365,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="bordertopwidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> border<wbr>Top<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">border<wbr>Top<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">border<wbr>Top<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#bordertopwidth">borderTopWidth</a></p>
 					</aside>
@@ -1528,7 +1549,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="columnrulestyle" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> column<wbr>Rule<wbr>Style</h3>
-					<div class="tsd-signature tsd-kind-icon">column<wbr>Rule<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">column<wbr>Rule<wbr>Style<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderstyle" class="tsd-signature-type" data-tsd-kind="Type alias">BorderStyle</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#columnrulestyle">columnRuleStyle</a></p>
 					</aside>
@@ -1536,7 +1557,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="columnrulewidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> column<wbr>Rule<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">column<wbr>Rule<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">column<wbr>Rule<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#columnrulewidth">columnRuleWidth</a></p>
 					</aside>
@@ -2192,7 +2213,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="margin" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#oneorbox" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrBox</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#oneorbox" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrBox</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#margin">margin</a></p>
 					</aside>
@@ -2200,7 +2221,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="marginblock" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Block</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Block<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#oneorpair" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrPair</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Block<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#oneorpair" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrPair</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#marginblock">marginBlock</a></p>
 					</aside>
@@ -2208,7 +2229,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="marginblockend" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Block<wbr>End</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Block<wbr>End<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Block<wbr>End<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#marginblockend">marginBlockEnd</a></p>
 					</aside>
@@ -2216,7 +2237,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="marginblockstart" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Block<wbr>Start</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Block<wbr>Start<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Block<wbr>Start<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#marginblockstart">marginBlockStart</a></p>
 					</aside>
@@ -2224,7 +2245,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="marginbottom" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Bottom</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Bottom<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Bottom<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#marginbottom">marginBottom</a></p>
 					</aside>
@@ -2232,7 +2253,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="margininline" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Inline</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Inline<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#oneorpair" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrPair</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Inline<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#oneorpair" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrPair</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#margininline">marginInline</a></p>
 					</aside>
@@ -2240,7 +2261,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="margininlineend" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Inline<wbr>End</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Inline<wbr>End<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Inline<wbr>End<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#margininlineend">marginInlineEnd</a></p>
 					</aside>
@@ -2248,7 +2269,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="margininlinestart" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Inline<wbr>Start</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Inline<wbr>Start<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Inline<wbr>Start<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#margininlinestart">marginInlineStart</a></p>
 					</aside>
@@ -2256,7 +2277,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="marginleft" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Left</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Left<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Left<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#marginleft">marginLeft</a></p>
 					</aside>
@@ -2264,7 +2285,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="marginright" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Right</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Right<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Right<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#marginright">marginRight</a></p>
 					</aside>
@@ -2272,7 +2293,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="margintop" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> margin<wbr>Top</h3>
-					<div class="tsd-signature tsd-kind-icon">margin<wbr>Top<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">margin<wbr>Top<span class="tsd-signature-symbol">:</span> <a href="../modules/numerictypes.html#csslengthorauto" class="tsd-signature-type" data-tsd-kind="Type alias">CssLengthOrAuto</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#margintop">marginTop</a></p>
 					</aside>
@@ -2560,7 +2581,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="outlinewidth" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> outline<wbr>Width</h3>
-					<div class="tsd-signature tsd-kind-icon">outline<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth_single" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth_Single</a></div>
+					<div class="tsd-signature tsd-kind-icon">outline<wbr>Width<span class="tsd-signature-symbol">:</span> <a href="../modules/styletypes.html#borderwidth" class="tsd-signature-type" data-tsd-kind="Type alias">BorderWidth</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="styletypes.ibasestyleset.html">IBaseStyleset</a>.<a href="styletypes.ibasestyleset.html#outlinewidth">outlineWidth</a></p>
 					</aside>
@@ -4919,11 +4940,10 @@
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 			</ul>
 		</div>
 	</div>

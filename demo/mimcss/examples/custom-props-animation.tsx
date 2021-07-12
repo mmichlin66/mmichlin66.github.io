@@ -79,12 +79,12 @@ class MyStyles extends css.StyleDefinition
             }
         ),
 
-        css.$style( "input", {
+        css.$tag( "input", {
             width: css.rem(12),
             marginBottom: css.rem(1)
         }),
 
-        css.$style( "label", {
+        css.$tag( "label", {
             display: "flex",
             justifyContent: "space-between",
             color: "white",

@@ -16,7 +16,7 @@ description: "Styles can be activated and optionally deactivated depending on wh
 In the previous sections, we saw that rules are defined using rule definition classes and that the `activate` function is called to insert the CSS rules into the DOM. The `deactivate` function can be called at a later moment to remove the rules from the DOM. The question arises when we should call these functions. There is no single answer that is good for all situations and this unit lists several of these situations and suggest an activation strategy for them.
 
 We should consider the following factors of the activation process:
-- Rules inserted into DOM occupy memory, increase style layout calculation time and increase the possibility of style conflicts. The less rules are in the DOM, the leaner, faster and less error-prone your application.
+- Rules inserted into DOM occupy memory, increase style layout calculation time and increase the possibility of style conflicts. The less rules in the DOM, the leaner, faster and less error-prone your application.
 - Inserting and removing rules into/from the DOM is a time consuming process - not only because the insertion/removal functions take time but mostly because of layout calculations that the browser must perform to account for the new or removed styles.
 
 These two factors are contradictory: the first factor calls for having only those styles in the DOM that are relevant for the current content, while the second factor calls for inserting all the possible styles into the DOM once and leaving them there for the lifetime of the application.
