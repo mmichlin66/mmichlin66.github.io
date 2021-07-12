@@ -33,6 +33,7 @@ The goal of the Mimcss library is to support all CSS features in a type-safe and
 - Convenience functions for specifying complex property values (e.g. colors, images, filters, shapes, calc(), etc.)
 - Type-safe support for CSS filter, transform, shape, gradient, counter and other functions.
 - Access to CSSRule-derived objects for direct rule and property manipulation.
+- Several built-in mechanisms for scheduling DOM writing activities as well as the ability to write custom scheduling mechanisms.
 
 ## Installation
 Mimcss is available as an NPM package and you can install it using the following command:
@@ -82,7 +83,7 @@ With Mimcss, you create a TypeScript class and then, in your component's TypeScr
 import * as css from "mimcss";
 
 // Define styles
-class MyStyles  extends css.StyleDefinition
+class MyStyles extends css.StyleDefinition
 {
     vbox = css.$class({
         display: "flex",
@@ -110,7 +111,7 @@ class MyComponent
 }
 ```
 
-The TypeScript variant is obviously more verbose; however, let's see what we get in return:
+The TypeScript variant is somewhat more verbose; however, let's see what we get in return:
 
 - The autocomplete mechanism of our IDE will prompt us with the list of defined names. As soon as we type `styles.` the IDE will present the list of all the properties defined in our style definition object.
 - If we change the name of or remove the property in the `MyStyles` class and forget to change it in our component's `render` method, the project will not build. Thus a compile time error will prevent a much-harder-to-find run-time error.

@@ -18,7 +18,7 @@ In regular CSS a unit of style definition is a rule. There are regular style rul
 
 In Mimcss, a stylesheet is represented by a class - called a Style Definition class. Individual rules are defined as properties of a style definition class. More precisely, a property of a style definition class can either define a single rule or be an array of rules. If the property defines a single rule, it is called a named rule because the property name allows referring to the rule by the property name. If a property is an array of rules, those rules are called unnamed rules because there is no property by which individual rules can be addressed.
 
-There are some rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names, to which these rules are attached, become the names by which these rules are referred to from the HTML rendering code.
+There are some rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names, to which these rules are assigned, become the names by which these rules are referred to from the HTML rendering code.
 
 ## Style Definitions
 Let's create a simple style definition class:
@@ -49,12 +49,12 @@ class MyStyles extends css.StyleDefinition
 
 Hopefully, the rules defined above are more or less self-explanatory. The `$style` function defines a basic style rule that has a selector string and a `Styleset` object. The `Styleset` type is defined by Mimcss as an object with property names corresponding to the camel-cased names of CSS properties. The `$style` function defines a style rule with arbitrary selector. The `$class` and `$id` functions define style rules where the selector is a class and an element ID respectively. The `$var` function defines a custom CSS property. The `$keyframes` function defines a @keyframes (animation) rule.
 
-The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is not used in any way.
+The rules that require names are assigned to the class's properties. The names of these properties will be later used as names of the corresponding CSS entities (classes, IDs, etc.) when writing TSX code. Rules that don't require names - such as simple tag rules or a universal rule (*) - are gathered into an array. The array does get assigned to a property, but this is only because the language's syntax requires it; this property name is usually not used in any way.
 
 Note that we didn't specify the name of the class (nor of the ID, animation or custom property). This is because we will never use the actual name; instead, we will use the property to refer to the class. This is a fundamental aspect of Mimcss: names are hidden from the developers, so that the latter never have a chance of misspelling the former.
 
 ## Rules Activation
-By now we have defined our rules with a TypeScript class; however, how do we insert the rules into the DOM so that they start applying to the HTML? This process is called "activation" and is accomplished using the `activate` function.
+By now we have defined our rules with a TypeScript class, but how do we insert the rules into the DOM so that they start applying to the HTML? This process is called "activation" and is accomplished using the `activate` function.
 
 ```tsx
 let myStyles = css.activate( MyStyles);
@@ -62,9 +62,9 @@ let myStyles = css.activate( MyStyles);
 
 Notice that we passed the class object to the `activate` function - we didn't create an instance of the class by ourselves. There are special situations in which you will want to create instances of the style definition class (see [Styled Components](styled-components.html) later in this guide); however, normally you pass the class object to the `activate` function and Mimcss creates an instance of it.
 
-The `$ctivate` function can be invoked multiple times for the same class - Mimcss makes sure that only a single instance is created and the rules are inserted into the DOM only once.
+The `activate` function can be invoked multiple times for the same class - Mimcss makes sure that only a single instance is created and the rules are inserted into the DOM only once.
 
-The result of the `activate` call is two-fold: first, the rules defined in the class are inserted into the DOM, and second, the `myStyles` variable can now be used to refer to rule names. Here is how we do it in a hypothetical HTML rendering code:
+The result of the `activate` call is two-fold: first, the rules defined in the class are inserted into the DOM, and second, the `myStyles` variable can now be used to refer to the rule names. Here is how we do it in a hypothetical HTML rendering code:
 
 ```tsx
 render()
@@ -83,7 +83,7 @@ If the `activate` function inserts the rules into the DOM, the `deactivate` func
 css.deactivate( myStyles);
 ```
 
-The `activate` and `deactivate` functions use the reference counting mechanism. If you call the `activate` function several times on the same style definition class, the styles will only be inserted once into the DOM. However, in order to remove them from the DOM, the `deactivate` function has to be called the same number of times.
+The `activate` and `deactivate` functions use a reference counting mechanism. If you call the `activate` function several times on the same style definition class, the styles will only be inserted once into the DOM. However, in order to remove them from the DOM, the `deactivate` function has to be called the same number of times.
 
 In many cases, the rules don't need to be removed from the DOM and should stay active for the lifetime of the application. There are, however, situations when a set of CSS rules is only used by a specific component. In this case, it is desirable that the styles will be inserted into DOM only when the component is mounted. Moreover, when the component is unmounted, it is desirable to remove the rules from the DOM. In Mimcss, this can be accomplished by placing the calls to the `activate` and `deactivate` functions into the mounting and unmounting code respectively, for example:
 
@@ -138,7 +138,7 @@ class MyStyles extends css.StyleDefinition
 
 The `$media` function accepts a style definition class that extends the `StyleDefinition` class with the generic type parameter set to the top-level style definition class.
 
-For the named rules (classes, IDs, animations and custom properties), Mimcss will create names that would be actually inserted into DOM. There is a significant caveat here though: if a nested rule is assigned to a property with the name that already exists in the enclosing class, the actual name for the nested rule will be the same as the actual name for the existing property. This is done because the group rules such as @supports, @media and @document are conditional rules and the styles defined by them are supposed to override the styles defined outside of the conditions.
+For the named rules (classes, IDs, animations and custom properties), Mimcss will create names that would be actually inserted into DOM. There is a significant caveat here though: if a nested rule is assigned to a property with the name that already exists in the enclosing class, the actual name for the nested rule will be the same as the actual name for the existing property. This is done because the group rules such as @supports and @media are conditional rules and the styles defined by them are supposed to override the styles defined outside of the conditions.
 
 The `box` property in our example is used to define a CSS class in two places: as a property of the MyStyles class and as a property of the object passed to the `$media` function. Mimcss will generate a single actual class name for the `box` property and the `margin` value of 4 pixels will be used on smaller devices while the value of 8 pixels will be used on the larger ones.
 
@@ -162,7 +162,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-In the top-level class, we defined a custom CSS variable that defines font color and in the @media rule, we referred to it using the `this.$parent.defaultColor` notation. Since we defined `MyStyles` class as a generic parameter for the StyleDefinition, the TypeScript compiler knows the type of the `$parent` property and will help us with the autocomplete feature. Note that since we only use the `$parent` property, we don't need to define the second generic type.
+In the top-level class, we defined a custom CSS variable that defines font color and in the @media rule, we referred to it using the `this.$parent.defaultColor` notation. Since we defined `MyStyles` class as a generic parameter for the `StyleDefinition` class, the TypeScript compiler knows the type of the `$parent` property and will help us with the autocomplete feature. Note that since we only use the `$parent` property, we don't need to define the second generic type.
 
 
 ## Other Rules

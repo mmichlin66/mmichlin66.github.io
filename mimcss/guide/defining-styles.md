@@ -26,9 +26,9 @@ The `Styleset` type might look similar to the built-in `CSSStyleDeclaration` typ
 
 1. The `color` property. Mimcss provides names of all the built-in colors in the `Colors` type. You can either use its properties, e.g. `Colors.dodgerblue`, or directly type `"dodgerblue"`. When you start typing color names as strings, the autocomplete feature of your IDE will prompt you with the suitable names. If you misspell the color name, it will be immediately detected. You can add new named colors using the module augmentation technique. You can also specify colors as numbers, e.g. 0xFF0000 for red, which is similar to the CSS notation `"#FF0000"` but allows you to calculate the color value programmatically without the need to convert it to string. There are also special color functions such as `rgb()` or `alpha()` that allow manipulating color values. All of these methods are of course applicable not only to the `color` property but to any property that uses color.
 
-1. The `padding` property. CSS allows specifying 1 to 4 values for the `padding` property where each of the values must specify dimension units (except for 0). In Mimcss,  the `padding` property value can be specified as a string or a number or an array of strings or numbers with 2, 3, or 4 elements. Integer numbers will be considered as `px` units, while floating point numbers will be considered as `em` units.
+1. The `padding` property. CSS allows specifying 1 to 4 values for the `padding` property where each of the values must specify dimension units (except for 0). In Mimcss,  the `padding` property value can be specified as a number or an array of numbers with 2, 3, or 4 elements. Integer numbers will be considered as `px` units, while floating point numbers will be considered as `em` units. In additions, Mimcss provides functions for every CSS unit and these functions can be used in lieu of the numbers.
 
-1. The `border` property. CSS defines the `border` property as a sequence of 1 to 3 values: width, style and color. In Mimcss you can specify the value as either a string or a number or a Color value or as a tuple of 3 elements. Moreover, Mimcss provides all possible values for the style element, so that you cannot misspell it.
+1. The `border` property. CSS defines the `border` property as a sequence of 1 to 3 values: width, style and color. In Mimcss you can specify the value as either a number or a Color value or as a tuple of 2 or 3 elements. Moreover, Mimcss provides all possible values for the style element, so that you cannot misspell it.
 
 Here are a few examples of how such styles are used for defining style rules:
 
@@ -44,13 +44,13 @@ class MyStyles extends css.StyleDefinition
     button2 = css.$class({
         backgroundColor: "yellow",          // built-in color constant
         padding: [4, 0.3],                  // 4px top and bottom, 0.3em left and right
-        border: "1px solid brown"           // defined as a string
+        border: ["solid", "brown"]          // defined as a two-element tuple
     })
 
     button3 = css.$class({
         backgroundColor: 0xFF00,            // green
         padding: [4, css.inch(0.1)],        // 4px top and bottom, 0.1in left and right
-        border: [1, "solid", "brown"]       // defined as an array
+        border: [1, "solid", "brown"]       // defined as a three element tuple
     })
 }
 ```
@@ -327,7 +327,7 @@ class MyStyles extends css.StyleDefinition
 
 The `$use` function returns the same object that is returned by the `activate` function. The difference between the `$use` and `activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
 
-It is possible to call the `$use` function outside of any style definition class - it can be assigned to a variable and then used wherever this variable is visible. There is a significant advantage, however, of calling the `$use` function from inside a style definition class: when the style definition class is activated and deactivated, all the referenced classes will be activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
+When the style definition class is activated and deactivated, all the used style definition classes are activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
 
 
 

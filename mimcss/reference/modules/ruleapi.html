@@ -94,17 +94,12 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_page" class="tsd-kind-icon">$page</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_style" class="tsd-kind-icon">$style</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#_supports" class="tsd-kind-icon">$supports</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_tag" class="tsd-kind-icon">$tag</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#_use" class="tsd-kind-icon">$use</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#_var" class="tsd-kind-icon">$var</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#activate" class="tsd-kind-icon">activate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#canceldomupdate" class="tsd-kind-icon">cancelDOMUpdate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#classes" class="tsd-kind-icon">classes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#forcedomupdate" class="tsd-kind-icon">forceDOMUpdate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a></li>
 							</ul>
 						</section>
@@ -917,13 +912,14 @@
 									<ul>
 										<li>string - allows any content but lacks type-safety checks.</li>
 										<li>any style rule, that is a rule that implements the <a href="../interfaces/ruletypes.istylerule.html">IStyleRule</a> interface. This allows
-										using prevously defined class, ID and other style rules as selector items</li>
+										using prevously defined tag, class, ID and other style rules as selector items</li>
 										<li><a href="coreapi.html#selector">selector</a> function - a tag function that allows convenient mixing of free-format strings
 										and strongly typed style rules.</li>
 									</ul>
 								</div>
-								<p>When multiple selector items are specified, they will be treated as the selector list; that is,
-								they will be separated by commas.</p>
+								<p>When multiple selector items are specified, they will be concatenated into a single string.</p>
+								<p>Note that although style rules can be used for selecting element tags, the <a href="ruleapi.html#_tag">$tag</a> function would
+								be more appropriate because it will catch misspellings of tag names.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -940,20 +936,20 @@
 										<p><strong>Examples:</strong></p>
 										<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// using string for selecting elemnet type</span>
-<span style="color: #000000">    </span><span style="color: #001080">h1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;h1&quot;</span><span style="color: #000000">, {})</span>
-
-<span style="color: #000000">    </span><span style="color: #008000">// using string for a slightly more complex selector</span>
-<span style="color: #000000">    </span><span style="color: #001080">style1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;*, ::after, ::before&quot;</span><span style="color: #000000">, {})</span>
+<span style="color: #000000">    </span><span style="color: #008000">// using a string</span>
+<span style="color: #000000">    </span><span style="color: #001080">style1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;li::before&quot;</span><span style="color: #000000">, {})</span>
 
 <span style="color: #000000">    </span><span style="color: #001080">id</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$id</span><span style="color: #000000">()</span>
 <span style="color: #000000">    </span><span style="color: #001080">cls</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">()</span>
 
-<span style="color: #000000">    </span><span style="color: #008000">// using an array of style rules. The selector will be &quot;#id, .cls&quot;</span>
-<span style="color: #000000">    </span><span style="color: #001080">style1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">cls</span><span style="color: #000000">], {})</span>
+<span style="color: #000000">    </span><span style="color: #008000">// using an array of style rules. The selector will be &quot;#id.cls&quot;</span>
+<span style="color: #000000">    </span><span style="color: #001080">style2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">id</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">cls</span><span style="color: #000000">], {})</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// using the selector function. The selector will be &quot;#id &gt; .cls&quot;</span>
-<span style="color: #000000">    </span><span style="color: #001080">style1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #795E26">selector</span><span style="color: #A31515">`[this.id] &gt; [this.cls]`</span><span style="color: #000000">, {})</span>
+<span style="color: #000000">    </span><span style="color: #001080">style3</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #795E26">selector</span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #0000FF">this</span><span style="color: #000000FF">.</span><span style="color: #001080">id</span><span style="color: #0000FF">}</span><span style="color: #A31515"> &gt; </span><span style="color: #0000FF">${</span><span style="color: #0000FF">this</span><span style="color: #000000FF">.</span><span style="color: #001080">cls</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">, {})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// using a string for selecting element tag.</span>
+<span style="color: #000000">    </span><span style="color: #001080">h1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;h1&quot;</span><span style="color: #000000">, {})</span>
 <span style="color: #000000">}</span>
 </code></pre>
 									</div>
@@ -994,6 +990,57 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.isupportsrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="_tag" class="tsd-anchor"></a>
+					<h3>$tag</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">$tag<span class="tsd-signature-symbol">(</span>tag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">&quot;*&quot;</span><span class="tsd-signature-symbol"> | </span><a href="coretypes.html#oneormany" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrMany</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">HTMLElementTagNameMap</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">SVGElementTagNameMap</span><span class="tsd-signature-symbol">&gt;</span>, styleset<span class="tsd-signature-symbol">: </span><a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleRule</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new style rule for the given HTML or SVG element tags. The <code>tag</code> parameter specifies
+										either a single tag or an array of tags. In addition, an asterisk symbol (&#39;&quot;*&quot;`) can be
+									specified to target all elements.</p>
+								</div>
+								<p>When multiple tags are specified, they will be treated as a selector list; that is, they will
+								be separated by commas.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tag: <span class="tsd-signature-type">&quot;*&quot;</span><span class="tsd-signature-symbol"> | </span><a href="coretypes.html#oneormany" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrMany</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">HTMLElementTagNameMap</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type">SVGElementTagNameMap</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>One or more element tags</p>
+									</div>
+								</li>
+								<li>
+									<h5>styleset: <a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Styleset that defines style properties for the tags.</p>
+										<p><strong>Examples:</strong></p>
+										<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// using string for selecting a single elemenet tag</span>
+<span style="color: #000000">    </span><span style="color: #001080">tr</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;tr&quot;</span><span style="color: #000000">, {})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// using array for selecting multiple elemenet tags</span>
+<span style="color: #000000">    </span><span style="color: #001080">header123</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( [</span><span style="color: #A31515">&quot;h1&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;h2&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;h3&quot;</span><span style="color: #000000">], {})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// using asterisk to address all elements</span>
+<span style="color: #000000">    </span><span style="color: #001080">all</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;*&quot;</span><span style="color: #000000">, {})</span>
+<span style="color: #000000">}</span>
+</code></pre>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.istylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleRule</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1130,70 +1177,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="activate" class="tsd-anchor"></a>
-					<h3>activate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">activate&lt;T&gt;<span class="tsd-signature-symbol">(</span>instanceOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Activates the given style definition class or instance and inserts all its rules into DOM. If
-										the input object is not an instance but a class, which is not yet associated with an instance,
-										the instance is first created and processed. Note that each style definition instance maintains
-										a reference counter of how many times it was activated and deactivated. The rules are inserted
-									into DOM only upon first activation.</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>instanceOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="canceldomupdate" class="tsd-anchor"></a>
-					<h3>cancelDOMUpdate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">cancelDOMUpdate<span class="tsd-signature-symbol">(</span>schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Removes all scheduled activations caused by the calls to the activate and deactivate functions
-									accumulated since the last activation of the given scheduling type.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="chooseclass" class="tsd-anchor"></a>
 					<h3>choose<wbr>Class</h3>
@@ -1267,10 +1250,10 @@
 										will be created by appending a unique number to the given prefix. If the prefix is not
 									specified, the standard prefix &quot;n&quot; will be used.</p>
 								</div>
-								<p>By default the development version of the liberary (mimcss.dev.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#uniquescoped">UniqueScoped</a>
-									method and the production version uses the <a href="../enums/ruletypes.namegenerationmethod.html#optimized">Optimized</a> method. This function can be called to
-									switch to the alternative method of name generation in either the development or the production
-								builds.</p>
+								<p>By default the development version of the library (mimcss.dev.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#uniquescoped">UniqueScoped</a>
+									method and the production version (mimcss.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#optimized">Optimized</a> method. This function can
+									be called to switch to the alternative method of name generation in either the development or
+								the production builds.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1289,110 +1272,6 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="createcssserializer" class="tsd-anchor"></a>
-					<h3>create<wbr>Css<wbr>Serializer</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Css<wbr>Serializer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.icssserializer.html" class="tsd-signature-type" data-tsd-kind="Interface">ICssSerializer</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a new ICssSerializer object that allows adding style definition classes
-										and instances and serializing them to a string. This can be used for server-side rendering when
-									the resultant string can be set as the content of a <code>&lt;style&gt;</code> element.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.icssserializer.html" class="tsd-signature-type" data-tsd-kind="Interface">ICssSerializer</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="deactivate" class="tsd-anchor"></a>
-					<h3>deactivate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">deactivate<span class="tsd-signature-symbol">(</span>instance<span class="tsd-signature-symbol">: </span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Deactivates the given style definition instance by removing its rules from DOM. Note that each
-										style definition instance maintains a reference counter of how many times it was activated and
-									deactivated. The rules are removed from DOM only when this reference counter goes down to 0.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>instance: <a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="forcedomupdate" class="tsd-anchor"></a>
-					<h3>forceDOMUpdate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">forceDOMUpdate<span class="tsd-signature-symbol">(</span>schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Writes to DOM all style changes caused by the calls to the activate and deactivate functions
-									accumulated since the last activation of the given scheduling type.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="serializetocss" class="tsd-anchor"></a>
-					<h3>serialize<wbr>ToCSS</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">serialize<wbr>ToCSS<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Serializes one or more style definition classes and instances and returns their CSS string
-										representation. This can be used for server-side rendering when the resultant string can be
-									set as the content of a <code>&lt;style&gt;</code> element.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-symbol">(</span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1548,17 +1427,14 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruleapi.html#_supports" class="tsd-kind-icon">$supports</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ruleapi.html#_tag" class="tsd-kind-icon">$tag</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruleapi.html#_use" class="tsd-kind-icon">$use</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruleapi.html#_var" class="tsd-kind-icon">$var</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="ruleapi.html#activate" class="tsd-kind-icon">activate</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#canceldomupdate" class="tsd-kind-icon">cancelDOMUpdate</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a>
@@ -1568,18 +1444,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#forcedomupdate" class="tsd-kind-icon">forceDOMUpdate</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a>

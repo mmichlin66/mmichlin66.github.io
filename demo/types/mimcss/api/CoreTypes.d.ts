@@ -187,11 +187,6 @@ export interface IRuleWithSelector {
 export interface ISelectorProxy extends IGenericProxy<"selector"> {
 }
 /**
- * The IDependentSelectorProxy function returns a CSS selector string. This type is returned from the
- * [[dependentSelector]] function.
- */
-export interface IDependentSelectorProxy extends IGenericProxy<"dependentSelector"> {
-}
 /** Represents properties used in the [[CombinedStyleset]] which are used to define dependent rules */
 export declare type SelectorCombinator = "," | " " | ">" | "+" | "~";
 /** Represents properties used in the [[CombinedStyleset]] which are used to define dependent rules */
@@ -243,11 +238,7 @@ export interface IParameterizedPseudoElement {
 export interface IParameterizedPseudoEntity extends IParameterizedPseudoClass, IParameterizedPseudoElement {
 }
 /** Type for a single selector token that can be used as an argument to the [[selector]] function */
-export declare type SelectorItem = keyof HTMLElementTagNameMap | IRuleWithSelector | IStringProxy | ISelectorProxy | PseudoEntity | keyof IParameterizedPseudoEntity | SelectorCombinator;
+export declare type SelectorItem = string | IRuleWithSelector | IStringProxy | ISelectorProxy;
 /** Type for a selector */
-export declare type CssSelector = OneOrMany<SelectorItem> | string;
-/** Type for a single selector token that can be used as an argument to the [[selector]] function */
-export declare type DependentSelectorItem = SelectorItem | DependentRuleCombinator | IDependentSelectorProxy;
-/** Type for a selector */
-export declare type CssDependentSelector = OneOrMany<DependentSelectorItem> | string;
+export declare type CssSelector = OneOrMany<SelectorItem>;
 //# sourceMappingURL=CoreTypes.d.ts.map

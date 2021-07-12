@@ -1,4 +1,4 @@
-import { ICustomVar, OneOrMany, PseudoEntity, PagePseudoClass, IParameterizedPseudoEntity, DependentRuleCombinator, IConstant, IRuleWithSelector, CssDependentSelector } from "./CoreTypes";
+import { ICustomVar, OneOrMany, PseudoEntity, PagePseudoClass, IParameterizedPseudoEntity, DependentRuleCombinator, IConstant, IRuleWithSelector, CssSelector } from "./CoreTypes";
 import { ExtendedBaseStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
 /**
  * The `CombinedStyleset` type extends the Styleset type with certain properties that provide
@@ -52,7 +52,7 @@ export declare type CombinedStyleset = Styleset & {
 } & {
     [K in keyof IParameterizedPseudoEntity]?: [IParameterizedPseudoEntity[K], CombinedStyleset][];
 } & {
-    [K in DependentRuleCombinator]?: [CssDependentSelector, CombinedStyleset][];
+    [K in DependentRuleCombinator]?: [CssSelector, CombinedStyleset][];
 };
 /**
  * The AnimationStyleset type defines an object containing style properties for an animation frame.
@@ -445,20 +445,5 @@ export declare const enum NameGenerationMethod {
      * ```
      */
     Scoped = 3
-}
-/**
- * The ICssSerializer interface allows adding style definition classes and objects
- * and serializing them to a single string. This can be used for server-side rendering when
- * the resultant string can be set as the content of a `<style>` element.
- */
-export interface ICssSerializer {
-    /**
-     * Adds style definition class or instance.
-     */
-    add(instOrClass: StyleDefinition | IStyleDefinitionClass): void;
-    /**
-     * Returns concatenated string representation of all CSS rules added to the context.
-     */
-    serialize(): string;
 }
 //# sourceMappingURL=RuleTypes.d.ts.map
