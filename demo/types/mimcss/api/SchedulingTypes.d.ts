@@ -1,7 +1,6 @@
 /**
  * @module
  */
-import { IStyleDefinitionClass, StyleDefinition } from "./RuleTypes";
 /**
  * The SchedulerType enumeration provides values used to define how the calls to the
  * activate and deactivate functions schedule the writing of style changes to the DOM.
@@ -41,20 +40,5 @@ export interface IScheduler {
      * Is invoked when the scheduler needs to cancel its scheduled callback or event.
      */
     cancelDOMUpdate(): void;
-}
-/**
- * The ICssSerializer interface allows adding style definition classes and objects
- * and serializing them to a single string. This can be used for server-side rendering when
- * the resultant string can be set as the content of a `<style>` element.
- */
-export interface ICssSerializer {
-    /**
-     * Adds style definition class or instance.
-     */
-    add(instOrClass: StyleDefinition | IStyleDefinitionClass): void;
-    /**
-     * Returns concatenated string representation of all CSS rules added to the context.
-     */
-    serialize(): string;
 }
 //# sourceMappingURL=SchedulingTypes.d.ts.map

@@ -1,6 +1,7 @@
 import { IStringProxy } from "./CoreTypes";
-import { IVarRule } from "./RuleTypes";
-import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
+import { IStyleDefinitionClass, IVarRule, StyleDefinition } from "./RuleTypes";
+import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue, ICssSerializer } from "./StyleTypes";
+import { MediaQuery, SupportsQuery } from "./MediaTypes";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the
@@ -58,17 +59,6 @@ export declare function diffStylesets(oldStyleset: Styleset, newStyleset: Styles
  * the given custom CSS property with optional fallbacks.
  */
 export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>): IStringProxy;
-/**
- * The WebNamespaces class contains identifiers for the known Web-related namespaces.
- */
-export declare abstract class WebNamespaces {
-    static readonly HTML = "http://www.w3.org/1999/xhtml";
-    static readonly SVG = "http://www.w3.org/2000/svg";
-    static readonly XLink = "http://www.w3.org/1999/xlink";
-    static readonly XML = "http://www.w3.org/XML/1998/namespace";
-    static readonly XMLNS = "http://www.w3.org/2000/xmlns/";
-    static readonly MathML = "http://www.w3.org/1998/Math/MathML";
-}
 declare global {
     interface ElementCSSInlineStyle {
         /**
@@ -91,4 +81,26 @@ declare global {
         setStyleset(styleset: Styleset, schedulerType?: number): void;
     }
 }
+/**
+ * Converts the given media query value to the CSS media query string. This function should be used
+ * by libraries that allow specifying the [[MediaQuery]] type for the `media` attribute of elements
+ * such as `<link>`, `<style>` and `<source>`
+ */
+export declare function mediaQueryToString(query: MediaQuery): string;
+/**
+ * Converts the given supports query value to the CSS supports query string.
+ */
+export declare function supportsQueryToString(query: SupportsQuery): string;
+/**
+ * Creates a new ICssSerializer object that allows adding style definition classes
+ * and instances and serializing them to a string. This can be used for server-side rendering when
+ * the resultant string can be set as the content of a `<style>` element.
+ */
+export declare function createCssSerializer(): ICssSerializer;
+/**
+ * Serializes one or more style definition classes and instances and returns their CSS string
+ * representation. This can be used for server-side rendering when the resultant string can be
+ * set as the content of a `<style>` element.
+ */
+export declare function serializeToCSS(...args: (StyleDefinition | IStyleDefinitionClass)[]): string;
 //# sourceMappingURL=StyleAPI.d.ts.map

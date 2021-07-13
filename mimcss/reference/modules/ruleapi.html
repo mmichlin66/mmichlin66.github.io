@@ -82,6 +82,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_classname" class="tsd-kind-icon">$classname</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#_const" class="tsd-kind-icon">$const</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_counter" class="tsd-kind-icon">$counter</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_counterstyle" class="tsd-kind-icon">$counter<wbr>Style</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#_embed" class="tsd-kind-icon">$embed</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_fontface" class="tsd-kind-icon">$fontface</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_gridarea" class="tsd-kind-icon">$gridarea</a></li>
@@ -396,6 +397,56 @@
 <span style="color: #000000">    </span><span style="color: #001080">li</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;li&quot;</span><span style="color: #000000">, {</span>
 <span style="color: #000000">        </span><span style="color: #001080">counterIncrement:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">,</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;::before&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> { </span><span style="color: #001080">content:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">counters</span><span style="color: #000000">( </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">) }</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="_counterstyle" class="tsd-anchor"></a>
+					<h3>$counter<wbr>Style</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">$counter<wbr>Style<span class="tsd-signature-symbol">(</span>counterStyleset<span class="tsd-signature-symbol">?: </span><a href="countertypes.html#extendedcounterstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedCounterStyleset</a>, nameOverride<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.icounterstylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterStyleRule</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.icounterstylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterStyleRule</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates new counter style rule. The counter style name will be created when the rule is
+										processed as part of the style definition class. The name can be also overridden by providing
+									either an explicit name or another counter style rule.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> counterStyleset: <a href="countertypes.html#extendedcounterstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedCounterStyleset</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An object that defines counter style features.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.icounterstylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterStyleRule</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String or another <code>ICounterStyleRule</code> object that determines the name of the
+											counter style. If this optional parameter is defined, the name will override the Mimcss name
+											assignment mechanism. This might be useful if there is a need for the name to match a name of
+										existing counter style.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.icounterstylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterStyleRule</a></h4>
+							<p>The <code>ICounterStyleRule</code> object that represents the counter style.</p>
+							<p><strong>Example:</strong></p>
+							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">counterStyle</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$counterStyle</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">system:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;cyclic&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">symbols:</span><span style="color: #000000"> [</span><span style="color: #A31515">&quot;one&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;two&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;three&quot;</span><span style="color: #000000">],</span>
+<span style="color: #000000">        </span><span style="color: #001080">suffix:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot; - &quot;</span>
 <span style="color: #000000">    })</span>
 <span style="color: #000000">}</span>
 </code></pre>
@@ -1334,10 +1385,10 @@
 						<a href="coretypes.html">Core<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="fonttypes.html">Font<wbr>Types</a>
+						<a href="countertypes.html">Counter<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="mediaapi.html">MediaAPI</a>
+						<a href="fonttypes.html">Font<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="mediatypes.html">Media<wbr>Types</a>
@@ -1390,6 +1441,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#_counter" class="tsd-kind-icon">$counter</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ruleapi.html#_counterstyle" class="tsd-kind-icon">$counter<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruleapi.html#_embed" class="tsd-kind-icon">$embed</a>

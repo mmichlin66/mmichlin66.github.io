@@ -1,7 +1,7 @@
 /**
  * @module
  */
-import { ICssSerializer, IScheduler } from "../api/SchedulingTypes";
+import { IScheduler } from "../api/SchedulingTypes";
 import { IStyleDefinitionClass, StyleDefinition } from "./RuleTypes";
 /**
  * Activates the given style definition class or instance and inserts all its rules into DOM. If
@@ -47,16 +47,4 @@ export declare function registerScheduler(scheduler: IScheduler): number;
  * Unregisters a scheduler object with the given scheduler type identifier.
  */
 export declare function unregisterScheduler(schedulerType: number): void;
-/**
- * Creates a new ICssSerializer object that allows adding style definition classes
- * and instances and serializing them to a string. This can be used for server-side rendering when
- * the resultant string can be set as the content of a `<style>` element.
- */
-export declare function createCssSerializer(): ICssSerializer;
-/**
- * Serializes one or more style definition classes and instances and returns their CSS string
- * representation. This can be used for server-side rendering when the resultant string can be
- * set as the content of a `<style>` element.
- */
-export declare function serializeToCSS(...args: (StyleDefinition | IStyleDefinitionClass)[]): string;
 //# sourceMappingURL=SchedulingAPI.d.ts.map

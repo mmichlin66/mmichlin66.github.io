@@ -246,6 +246,16 @@ export interface ICounterRule extends INamedEntity {
     readonly counterName: string;
 }
 /**
+ * The ICounterRule interface represents the @counter-style rule.
+ * Objects implementing this interface are returned from the [[$counterStyle]] function.
+ */
+export interface ICounterStyleRule extends IRule, INamedEntity {
+    /** SOM counter-style rule */
+    readonly cssRule: CSSRule | null;
+    /** Name of the counter */
+    readonly counterStyleName: string;
+}
+/**
  * The IImportRule interface represents the CSS @import rule.
  * Objects implementing this interface are returned from the [[$import]] function.
  */

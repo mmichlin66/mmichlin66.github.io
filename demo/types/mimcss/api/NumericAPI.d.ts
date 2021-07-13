@@ -1,5 +1,5 @@
 import { Extended } from "./CoreTypes";
-import { ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, INumberMath, IPercentMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IRectProxy, RectSide } from "./NumericTypes";
+import { ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, INumberMath, IPercentMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IRectProxy, CssLengthOrAuto } from "./NumericTypes";
 /**
  * The Num object contains methods that implement CSS mathematic functions on the `<number>`
  * CSS type.
@@ -13,7 +13,7 @@ export declare let Percent: IPercentMath;
 /**
  * Creates percent value by appenfing the `"%"` sign to the given number. This function should be
  * used whenever a `<percentage>` CSS type is used for a style property or value.
- * @category Unit Functions
+ * @category Units
  */
 export declare function percent(n: number): IPercentProxy;
 /**
@@ -24,111 +24,111 @@ export declare function percent(n: number): IPercentProxy;
 export declare let Len: ILengthMath;
 /**
  * Creates length value in quarters of an inch.
- * @category Unit Functions
+ * @category Units
  */
 export declare function Q(n: number): ILengthProxy;
 /**
  * Creates length value in ch units, which is equal to the used advance measure of the “0” (ZERO,
  * U+0030) glyph found in the font used to render it. (The advance measure of a glyph is its
  * advance width or height, whichever is in the inline axis of the element.)
- * @category Unit Functions
+ * @category Units
  */
 export declare function ch(n: number): ILengthProxy;
 /**
  * Creates length value in cantimeters.
- * @category Unit Functions
+ * @category Units
  */
 export declare function cm(n: number): ILengthProxy;
 /**
  * Creates length value in calculated font-sizes of the element.
- * @category Unit Functions
+ * @category Units
  */
 export declare function em(n: number): ILengthProxy;
 /**
  * Creates length value in heights of lowercase letter 'x' in the font.
- * @category Unit Functions
+ * @category Units
  */
 export declare function ex(n: number): ILengthProxy;
 /**
  * Creates length value in ic units.
- * @category Unit Functions
+ * @category Units
  */
 export declare function ic(n: number): ILengthProxy;
 /**
  * Creates length value in inches.
- * @category Unit Functions
+ * @category Units
  */
 export declare function inch(n: number): ILengthProxy;
 /**
  * Creates length value in line-heights of the element.
- * @category Unit Functions
+ * @category Units
  */
 export declare function lh(n: number): ILengthProxy;
 /**
  * Creates length value in millimeters.
- * @category Unit Functions
+ * @category Units
  */
 export declare function mm(n: number): ILengthProxy;
 /**
  * Creates length value in picas.
- * @category Unit Functions
+ * @category Units
  */
 export declare function pc(n: number): ILengthProxy;
 /**
  * Creates length value in points.
- * @category Unit Functions
+ * @category Units
  */
 export declare function pt(n: number): ILengthProxy;
 /**
  * Creates length value in pixels.
- * @category Unit Functions
+ * @category Units
  */
 export declare function px(n: number): ILengthProxy;
 /**
  * Creates length value in 1% of the size of the initial containing block, in the direction
  * of the root element’s block axis.
- * @category Unit Functions
+ * @category Units
  */
 export declare function vb(n: number): ILengthProxy;
 /**
  * Creates length value in 1% of the height of the viewport's initial containing block.
- * @category Unit Functions
+ * @category Units
  */
 export declare function vh(n: number): ILengthProxy;
 /**
  * Creates length value in 1% of the size of the initial containing block, in the direction
  * of the root element’s inline axis.
- * @category Unit Functions
+ * @category Units
  */
 export declare function vi(n: number): ILengthProxy;
 /**
  * Creates length value in 1% of the width of the viewport's initial containing block.
- * @category Unit Functions
+ * @category Units
  */
 export declare function vw(n: number): ILengthProxy;
 /**
  * Creates length value in fontsizes of the root element (<html>).
- * @category Unit Functions
+ * @category Units
  */
 export declare function rem(n: number): ILengthProxy;
 /**
  * Creates length value in line-heights of the root element (<html>).
- * @category Unit Functions
+ * @category Units
  */
 export declare function rlh(n: number): ILengthProxy;
 /**
  * Creates length value in the units which are a smaller value between vw and vh.
- * @category Unit Functions
+ * @category Units
  */
 export declare function vmin(n: number): ILengthProxy;
 /**
  * Creates length value in the units which are a larger value between vw and vh.
- * @category Unit Functions
+ * @category Units
  */
 export declare function vmax(n: number): ILengthProxy;
 /**
  * Creates length value for flex.
- * @category Unit Functions
+ * @category Units
  */
 export declare function fr(n: number): ILengthProxy;
 /**
@@ -139,22 +139,22 @@ export declare function fr(n: number): ILengthProxy;
 export declare let Angle: IAngleMath;
 /**
  * Creates angle value in degrees.
- * @category Unit Functions
+ * @category Units
  */
 export declare function deg(n: number): IAngleProxy;
 /**
  * Creates angle value in radians.
- * @category Unit Functions
+ * @category Units
  */
 export declare function rad(n: number): IAngleProxy;
 /**
  * Creates angle value in gradians.
- * @category Unit Functions
+ * @category Units
  */
 export declare function grad(n: number): IAngleProxy;
 /**
  * Creates angle value in turns.
- * @category Unit Functions
+ * @category Units
  */
 export declare function turn(n: number): IAngleProxy;
 /**
@@ -165,12 +165,12 @@ export declare function turn(n: number): IAngleProxy;
 export declare let Time: ITimeMath;
 /**
 * Creates time value in milliseconds.
-* @category Unit Functions
+* @category Units
 */
 export declare function ms(n: number): ITimeProxy;
 /**
  * Creates time value in seconds.
- * @category Unit Functions
+ * @category Units
  */
 export declare function s(n: number): ITimeProxy;
 /**
@@ -181,22 +181,22 @@ export declare function s(n: number): ITimeProxy;
 export declare let Resolution: IResolutionMath;
 /**
 * Creates resolution value in DPI.
-* @category Unit Functions
+* @category Units
 */
 export declare function dpi(n: number): IResolutionProxy;
 /**
  * Creates resolution value in DPCM.
- * @category Unit Functions
+ * @category Units
  */
 export declare function dpcm(n: number): IResolutionProxy;
 /**
  * Creates resolution value in DPPX.
- * @category Unit Functions
+ * @category Units
  */
 export declare function dppx(n: number): IResolutionProxy;
 /**
  * Creates resolution value in X.
- * @category Unit Functions
+ * @category Units
  */
 export declare function x(n: number): IResolutionProxy;
 /**
@@ -207,12 +207,12 @@ export declare function x(n: number): IResolutionProxy;
 export declare let Frequency: IFrequencyMath;
 /**
 * Creates frequency value in Hertz.
-* @category Unit Functions
+* @category Units
 */
 export declare function hz(n: number): IFrequencyProxy;
 /**
  * Creates frequency value in Kilo-Hertz.
- * @category Unit Functions
+ * @category Units
  */
 export declare function khz(n: number): IFrequencyProxy;
 /**
@@ -226,5 +226,5 @@ export declare function ratio(w: CssNumber, h?: CssNumber): IAspectRatioProxy;
 /**
  * Returns an IAspectRatioProxy function representing the `<ratio>` CSS type.
  */
-export declare function rect(top: RectSide, right: RectSide, bottom: RectSide, left: RectSide): IRectProxy;
+export declare function rect(top: CssLengthOrAuto, right: CssLengthOrAuto, bottom: CssLengthOrAuto, left: CssLengthOrAuto): IRectProxy;
 //# sourceMappingURL=NumericAPI.d.ts.map

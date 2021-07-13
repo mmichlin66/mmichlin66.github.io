@@ -1,5 +1,5 @@
 /**
- * This modules describes numeric types as a basis for handling CSS <number>, <length>, <angle>, etc.
+ * This modules describes numeric types as a basis for handling CSS types such as `<number>`, `<length>`, `<angle>`, etc.
  * @module
  */
 import { Extended, IGenericProxy, OneOrPair } from "./CoreTypes";
@@ -164,12 +164,17 @@ export interface ILengthProxy extends IGenericProxy<LengthUnits> {
  */
 export declare type CssLength = CssPercent | ILengthProxy | "100vh" | "100vw" | "1fr" | "2fr" | "3fr" | "4fr" | "5fr" | "6fr" | "7fr" | "8fr" | "9fr" | "10fr" | "11fr" | "12fr";
 /**
+ * Type that combines CssLength and the string literal `"auto"`. This type is often used when a
+ * property accepts the `<length>` type and the `"auto"` literal - for example, when specifying
+ * margins.
+ */
+export declare type CssLengthOrAuto = CssLength | "auto";
+/**
  * The ICssLengthMath interface contains methods that implement CSS mathematic functions on the
  * `<length>` CSS types. This interface is implemented by the [[Len]] object.
  */
 export interface ILengthMath extends INumericMath<CssLength, LengthUnits | PercentUnits> {
 }
-/** Unique string literal that distinguishes the Angle type from other numeric types */
 /** Units of angle */
 export declare type AngleUnits = "deg" | "rad" | "grad" | "turn";
 /** Proxy interface that represents values of the `<angle>` CSS type */
@@ -305,8 +310,6 @@ export declare type CssAspectRatio = CssNumber | IAspectRatioProxy | "1/1" | "4/
  */
 export interface IAspectRatioProxy extends IGenericProxy<"aspect-ratio"> {
 }
-/** Type for clip style property */
-export declare type RectSide = "auto" | CssLength;
 /**
  * The IRectProxy interface represents an invocation of the [[rect]] function.
  */

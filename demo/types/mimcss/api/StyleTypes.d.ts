@@ -1,131 +1,135 @@
-import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, IQuotedProxy } from "./CoreTypes";
-import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy } from "./NumericTypes";
+import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, IQuotedProxy, Global_StyleType } from "./CoreTypes";
+import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
 import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
 import { IUrlProxy, BasicShape, CssImage, IMinMaxProxy, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IRayProxy, ITimingFunctionProxy, ICursorProxy, BorderRadius, FillRule } from "./ShapeTypes";
-import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule } from "./RuleTypes";
-/** Type for align-content style property */
+import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule, StyleDefinition, IStyleDefinitionClass, ICounterStyleRule } from "./RuleTypes";
+/**
+ * Type for [[alignContent]] style property
+ */
 export declare type AlignContent_StyleType = "normal" | "stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "baseline" | "first baseline" | "last baseline" | "safe center" | "unsafe center" | "space-between" | "space-around" | "space-evenly";
-/** Type for align-items style property */
+/** Type for [[alignItems]] style property */
 export declare type AlignItems_StyleType = "normal" | "stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "baseline" | "first baseline" | "last baseline" | "safe center" | "unsafe center";
-/** Type for align-self style property */
+/** Type for [[alignSelf]] style property */
 export declare type AlignSelf_StyleType = "auto" | "normal" | "stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "self-start" | "self-end" | "baseline" | "first baseline" | "last baseline" | "safe center" | "unsafe center";
-/** Type for alignment-baseline style property */
+/** Type for [[alignmentBaseline]] style property */
 export declare type AlignmentBaseline_StyleType = "auto" | "baseline" | "before-edge" | "text-before-edge" | "middle" | "central" | "after-edge" | "text-after-edge" | "ideographic" | "alphabetic" | "hanging" | "mathematical" | "top" | "center" | "bottom";
 /** Type for single animation */
 export declare type Animation_Single = {
-    name?: Extended<AnimationName_Single>;
+    name?: Extended<AnimationName>;
     duration?: Extended<CssTime>;
-    func?: Extended<TimingFunction_Single>;
+    func?: Extended<TimingFunction>;
     delay?: Extended<CssTime>;
-    count?: Extended<AnimationIterationCount_Single>;
-    direction?: Extended<AnimationDirection_Single>;
-    mode?: Extended<AnimationFillMode_Single>;
-    state?: Extended<AnimationPlayState_Single>;
+    count?: Extended<AnimationIterationCount>;
+    direction?: Extended<AnimationDirection>;
+    mode?: Extended<AnimationFillMode>;
+    state?: Extended<AnimationPlayState>;
 };
-/** Type for animation style property */
+/**
+ * Type for [[animation]] style property
+ */
 export declare type Animation_StyleType = OneOrMany<Animation_Single>;
-/** Type for animation-delay style property */
+/** Type for [[animationDelay]] style property */
 export declare type AnimationDelay_StyleType = OneOrMany<CssTime>;
 /** Type for single animation direction */
-export declare type AnimationDirection_Single = "normal" | "reverse" | "alternate" | "alternate-reverse";
-/** Type for animation-direction style property */
-export declare type AnimationDirection_StyleType = OneOrMany<AnimationDirection_Single>;
-/** Type for animation-duraton style property */
+export declare type AnimationDirection = "normal" | "reverse" | "alternate" | "alternate-reverse";
+/** Type for [[animationDirection]] style property */
+export declare type AnimationDirection_StyleType = OneOrMany<AnimationDirection>;
+/** Type for [[animationDuraton]] style property */
 export declare type AnimationDuration_StyleType = OneOrMany<CssTime>;
 /** Type for single animation fill mode */
-export declare type AnimationFillMode_Single = "none" | "forwards" | "backwards" | "both";
-/** Type for animation-fill-mode style property */
-export declare type AnimationFillMode_StyleType = OneOrMany<AnimationDirection_Single>;
+export declare type AnimationFillMode = "none" | "forwards" | "backwards" | "both";
+/** Type for [[animationFillMode]] style property */
+export declare type AnimationFillMode_StyleType = OneOrMany<AnimationDirection>;
 /** Type for single animation iteration count */
-export declare type AnimationIterationCount_Single = "infinite" | CssNumber;
-/** Type for animation-iteration-count style property */
-export declare type AnimationIterationCount_StyleType = OneOrMany<AnimationIterationCount_Single>;
+export declare type AnimationIterationCount = "infinite" | CssNumber;
+/** Type for [[animationIterationCount]] style property */
+export declare type AnimationIterationCount_StyleType = OneOrMany<AnimationIterationCount>;
 /** Type for single animation name */
-export declare type AnimationName_Single = "none" | string | IAnimationRule;
-/** Type for animation-name style property */
-export declare type AnimationName_StyleType = OneOrMany<AnimationName_Single>;
+export declare type AnimationName = "none" | string | IAnimationRule;
+/** Type for [[animationName]] style property */
+export declare type AnimationName_StyleType = OneOrMany<AnimationName>;
 /** Type for single animation play state */
-export declare type AnimationPlayState_Single = "paused" | "running";
-/** Type for animation-play-state style property */
-export declare type AnimationPlayState_StyleType = OneOrMany<AnimationPlayState_Single>;
+export declare type AnimationPlayState = "paused" | "running";
+/** Type for [[animationPlayState]] style property */
+export declare type AnimationPlayState_StyleType = OneOrMany<AnimationPlayState>;
 /** Type for simple animation timing functions - those that don't have parameters */
-export declare type TimingFunction_Simple = "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out" | "step-start" | "step-end";
+export declare type TimingFunctionKeyword = "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out" | "step-start" | "step-end";
 /** Type for single animation timing function */
-export declare type TimingFunction_Single = TimingFunction_Simple | ITimingFunctionProxy;
-/** Type for animation-timing-function style property */
-export declare type AnimationTimingFunction_StyleType = OneOrMany<TimingFunction_Single>;
-/** Type for aspect-ratio style property */
+export declare type TimingFunction = TimingFunctionKeyword | ITimingFunctionProxy;
+/** Type for [[animationTimingFunction]] style property */
+export declare type AnimationTimingFunction_StyleType = OneOrMany<TimingFunction>;
+/** Type for [[aspectRatio]] style property */
 export declare type AspectRatio_StyleType = CssAspectRatio | "auto";
-/** Type for backface-visibility style property */
+/** Type for [[backfaceVisibility]] style property */
 export declare type BackfaceVisibilityMode_StyleType = "visible" | "hidden";
 /** Type for single background value */
 export declare type Background_Single = CssColor | {
     color?: Extended<CssColor>;
     image?: Extended<CssImage>;
     position?: Extended<CssPosition>;
-    size?: Extended<BackgroundSize_Single>;
-    repeat?: Extended<BackgroundRepeat_Single>;
-    attachment?: Extended<BackgroundAttachment_Single>;
-    origin?: Extended<BackgroundOrigin_Single>;
-    clip?: Extended<BackgroundClip_Single>;
+    size?: Extended<BackgroundSize>;
+    repeat?: Extended<BackgroundRepeat>;
+    attachment?: Extended<BackgroundAttachment>;
+    origin?: Extended<BackgroundOrigin>;
+    clip?: Extended<BackgroundClip>;
 };
-/** Type for background style property */
+/** Type for [[background]] style property */
 export declare type Background_StyleType = OneOrMany<Background_Single>;
 /** Type for single background attachment */
-export declare type BackgroundAttachment_Single = "scroll" | "fixed" | "local";
-/** Type for background-attachment style property */
-export declare type BackgroundAttachment_StyleType = OneOrMany<BackgroundAttachment_Single>;
+export declare type BackgroundAttachment = "scroll" | "fixed" | "local";
+/** Type for [[backgroundAttachment]] style property */
+export declare type BackgroundAttachment_StyleType = OneOrMany<BackgroundAttachment>;
 /** Type for single background blend mode */
-export declare type BackgroundBlendMode_Single = "normal" | "multiply" | "screen" | "overlay" | "darken" | "lighten" | "color-dodge" | "color-burn" | "hard-light" | "soft-light" | "difference" | "exclusion" | "hue" | "saturation" | "color" | "luminosity";
-/** Type for background-blend-mode style property */
-export declare type BackgroundBlendMode_StyleType = OneOrMany<BackgroundBlendMode_Single>;
+export declare type BackgroundBlendMode = "normal" | "multiply" | "screen" | "overlay" | "darken" | "lighten" | "color-dodge" | "color-burn" | "hard-light" | "soft-light" | "difference" | "exclusion" | "hue" | "saturation" | "color" | "luminosity";
+/** Type for [[backgroundBlendMode]] style property */
+export declare type BackgroundBlendMode_StyleType = OneOrMany<BackgroundBlendMode>;
 /** Type for single background clip */
-export declare type BackgroundClip_Single = "border-box" | "padding-box" | "content-box" | "text";
-/** Type for background-clip style property */
-export declare type BackgroundClip_StyleType = OneOrMany<BackgroundClip_Single>;
-/** Type for background-image style property */
+export declare type BackgroundClip = "border-box" | "padding-box" | "content-box" | "text";
+/** Type for [[backgroundClip]] style property */
+export declare type BackgroundClip_StyleType = OneOrMany<BackgroundClip>;
+/** Type for [[backgroundImage]] style property */
 export declare type BackgroundImage_StyleType = "none" | OneOrMany<CssImage>;
 /** Type for single background origin */
-export declare type BackgroundOrigin_Single = "border-box" | "padding-box" | "content-box" | "text";
-/** Type for background-origin style property */
-export declare type BackgroundOrigin_StyleType = OneOrMany<BackgroundOrigin_Single>;
-/** Type for background-position style property */
+export declare type BackgroundOrigin = "border-box" | "padding-box" | "content-box" | "text";
+/** Type for [[backgroundOrigin]] style property */
+export declare type BackgroundOrigin_StyleType = OneOrMany<BackgroundOrigin>;
+/** Type for [[backgroundPposition]] style property */
 export declare type BackgroundPosition_StyleType = OneOrMany<CssPosition>;
 /** Type for background-position-x single item */
-export declare type BackgroundPositionX_Single = HorizontalPositionKeyword | CssLength | [
+export declare type BackgroundPositionX = HorizontalPositionKeyword | CssLength | [
     HorizontalPositionKeyword,
     Extended<CssLength>
 ];
 /**
- * Type for background-position-x style property. To use the two-value syntax, e.g. `left 30px`,
+ * Type for [[backgroundPositionX]] style property. To use the two-value syntax, e.g. `left 30px`,
  * the values must specified as a tuple inside an array; that is: `[["left", 30]]`. If values
  * are put into a single array, they will be considered two different items and will be
  * separated by comma. For example: `["left", 30]` will become `left, 30px`.
  */
-export declare type BackgroundPositionX_StyleType = OneOrMany<BackgroundPositionX_Single>;
+export declare type BackgroundPositionX_StyleType = OneOrMany<BackgroundPositionX>;
 /** Type for background-position-y single item */
-export declare type BackgroundPositionY_Single = VerticalPositionKeyword | CssLength | [
+export declare type BackgroundPositionY = VerticalPositionKeyword | CssLength | [
     VerticalPositionKeyword,
     Extended<CssLength>
 ];
 /**
- * Type for background-position-y style property. To use the two-value syntax, e.g. `top 30px`,
+ * Type for [[backgroundPositionY]] style property. To use the two-value syntax, e.g. `top 30px`,
  * the values must specified as a tuple inside an array; that is: `[["top", 30]]`. If values
  * are put into a single array, they will be considered two different items and will be
  * separated by comma. For example: `["top", 30]` will become `top, 30px`.
  */
-export declare type BackgroundPositionY_StyleType = OneOrMany<BackgroundPositionY_Single>;
-/** Type for single background repeat */
+export declare type BackgroundPositionY_StyleType = OneOrMany<BackgroundPositionY>;
+/** Keywords for single background repeat */
 export declare type BackgroundRepeatKeyword = "repeat" | "space" | "round" | "no-repeat";
 /** Type for single background repeat */
-export declare type BackgroundRepeat_Single = "repeat-x" | "repeat-y" | OneOrPair<BackgroundRepeatKeyword>;
-/** Type for background-repeat style property */
-export declare type BackgroundRepeat_StyleType = OneOrMany<BackgroundRepeat_Single>;
+export declare type BackgroundRepeat = "repeat-x" | "repeat-y" | OneOrPair<BackgroundRepeatKeyword>;
+/** Type for [[backgroundRepeat]] style property */
+export declare type BackgroundRepeat_StyleType = OneOrMany<BackgroundRepeat>;
 /** Type for background size */
-export declare type BackgroundSize_Single = "cover" | "contain" | OneOrPair<CssLength | "auto">;
+export declare type BackgroundSize = "cover" | "contain" | OneOrPair<CssLengthOrAuto>;
 /**
- * Type for background-size style property. The background-size style can specify one or more
+ * Type for [[backgroundSize]] style property. The background-size style can specify one or more
  * comma-separated sizes, where each size can be a keyword, a length or two lengths. We model
  * this structure the following way:
  * - if the value is a string or a number, that's the only value;
@@ -136,12 +140,12 @@ export declare type BackgroundSize_Single = "cover" | "contain" | OneOrPair<CssL
  * to specify both width and height you must use array within array - even for a single size:
  * [[100,200]] wll be interpreted as "100px 200px".
  */
-export declare type BackgroundSize_StyleType = OneOrMany<BackgroundSize_Single>;
-/** Type for baseline-shift style property */
+export declare type BackgroundSize_StyleType = OneOrMany<BackgroundSize>;
+/** Type for [[baselineShift]] style property */
 export declare type BaselineShift_StyleType = "sub" | "super" | CssLength;
-/** Type for border-collapse style property */
+/** Type for [[borderCollapse]] style property */
 export declare type BorderColapse_StyleType = "collapse" | "separate";
-/** Type for border-color style property */
+/** Type for [[borderColor]] style property */
 export declare type BorderColor_StyleType = OneOrBox<CssColor>;
 /** Type for border-image style property expressed as an object. */
 export declare type BorderImage_Object = {
@@ -151,18 +155,18 @@ export declare type BorderImage_Object = {
     outset?: Extended<BorderImageOutset_StyleType>;
     repeat?: Extended<BorderImageRepeat_StyleType>;
 };
-/** Type for border-image style property. */
+/** Type for [[borderImage]] style property. */
 export declare type BorderImage_StyleType = CssImage | BorderImage_Object;
 /**
- * Type for border-image-outset style property. It is CssNumber and not CssLength because
+ * Type for [[borderImageOutset]] style property. It is CssNumber and not CssLength because
  * border-image-outset can be specified as a unitless number.
  */
 export declare type BorderImageOutset_StyleType = OneOrBox<CssNumber | ILengthProxy>;
 /** Type for border-image-repeat keywords */
 export declare type BorderImageRepeatKeyword = "stretch" | "repeat" | "round" | "space";
-/** Type for border-image-repeat style property */
+/** Type for [[borderImageRepeat]] style property */
 export declare type BorderImageRepeat_StyleType = OneOrPair<BorderImageRepeatKeyword>;
-/** Type for border-image-slice style property */
+/** Type for [[borderImageSlice]] style property */
 export declare type BorderImageSlice_StyleType = OneOrBox<CssPercent> | [
     Extended<CssPercent>,
     boolean?
@@ -182,51 +186,51 @@ export declare type BorderImageSlice_StyleType = OneOrBox<CssPercent> | [
     Extended<CssPercent>,
     boolean?
 ];
-/** Type for border-image-source style property */
+/** Type for [[borderImageSource]] style property */
 export declare type BorderImageSource_StyleType = OneOrBox<CssImage> | "none";
 /**
- * Type for border-image-width style property. It is CssNumber and not CssLength because
+ * Type for [[borderImageWidth]] style property. It is CssNumber and not CssLength because
  * border-image-width can be specified as a unitless number.
  */
 export declare type BorderImageWidth_StyleType = OneOrBox<CssNumber | ILengthProxy | "auto">;
-/** Type for border-spacing style property */
+/** Type for [[borderSpacing]] style property */
 export declare type BorderSpacing_StyleType = OneOrPair<CssLength>;
 /** Type for single border side style property */
-export declare type BorderStyle_Single = "none" | "hidden" | "dotted" | "dashed" | "solid" | "double" | "groove" | "ridge" | "inset" | "outset";
-/** Type for border-style style property */
-export declare type BorderStyle_StyleType = OneOrBox<BorderStyle_Single>;
-/** Type for border style property */
-export declare type Border_StyleType = BorderWidth_Single | BorderStyle_Single | CssColor | [
-    Extended<BorderWidth_Single>,
-    Extended<BorderStyle_Single>?,
+export declare type BorderStyle = "none" | "hidden" | "dotted" | "dashed" | "solid" | "double" | "groove" | "ridge" | "inset" | "outset";
+/** Type for [[borderStyle]] style property */
+export declare type BorderStyle_StyleType = OneOrBox<BorderStyle>;
+/** Type for [[border]] style property */
+export declare type Border_StyleType = BorderWidth | BorderStyle | CssColor | [
+    Extended<BorderWidth>,
+    Extended<BorderStyle>?,
     Extended<CssColor>?
 ] | [
-    Extended<BorderWidth_Single>,
+    Extended<BorderWidth>,
     Extended<CssColor>?,
-    Extended<BorderStyle_Single>?
+    Extended<BorderStyle>?
 ] | [
-    Extended<BorderStyle_Single>,
-    Extended<BorderWidth_Single>?,
+    Extended<BorderStyle>,
+    Extended<BorderWidth>?,
     Extended<CssColor>?
 ] | [
-    Extended<BorderStyle_Single>,
+    Extended<BorderStyle>,
     Extended<CssColor>?,
-    Extended<BorderWidth_Single>?
+    Extended<BorderWidth>?
 ] | [
     Extended<CssColor>,
-    Extended<BorderWidth_Single>?,
-    Extended<BorderStyle_Single>?
+    Extended<BorderWidth>?,
+    Extended<BorderStyle>?
 ] | [
     Extended<CssColor>,
-    Extended<BorderStyle_Single>?,
-    Extended<BorderWidth_Single>?
+    Extended<BorderStyle>?,
+    Extended<BorderWidth>?
 ];
 /** Type for border side width style property */
-export declare type BorderWidth_Single = "thin" | "medium" | "thick" | CssLength;
-/** Type for border-width style property */
-export declare type BorderWidth_StyleType = OneOrBox<BorderWidth_Single>;
+export declare type BorderWidth = "thin" | "medium" | "thick" | CssLength;
+/** Type for [[borderWidth]] style property */
+export declare type BorderWidth_StyleType = OneOrBox<BorderWidth>;
 /** Type for single box shadow. */
-export declare type BoxShadow_Single = "none" | {
+export declare type BoxShadow = "none" | {
     x: Extended<CssLength>;
     y: Extended<CssLength>;
     blur?: Extended<CssLength>;
@@ -234,15 +238,15 @@ export declare type BoxShadow_Single = "none" | {
     color?: Extended<CssColor>;
     inset?: Extended<boolean>;
 };
-/** Type for box shadow style property */
-export declare type BoxShadow_StyleType = OneOrMany<BoxShadow_Single>;
-/** Type for box-sizing style property */
+/** Type for [[boxShadow]] style property */
+export declare type BoxShadow_StyleType = OneOrMany<BoxShadow>;
+/** Type for [[boxSizing]] style property */
 export declare type BoxSizing_StyleType = "content-box" | "border-box";
-/** Type for break-after style property */
+/** Type for [[breakAfter]] style property */
 export declare type BreakAfter_StyleType = "auto" | "avoid" | "always" | "all" | "avoid-page" | "page" | "left" | "right" | "recto" | "verso" | "avoid-column" | "column" | "avoid-region" | "region";
-/** Type for break-before style property */
+/** Type for [[breakBefore]] style property */
 export declare type BreakBefore_StyleType = "auto" | "avoid" | "always" | "all" | "avoid-page" | "page" | "left" | "right" | "recto" | "verso" | "avoid-column" | "column" | "avoid-region" | "region";
-/** Type for break-inside style property */
+/** Type for [[breakInside]] style property */
 export declare type BreakInside_StyleType = "auto" | "avoid" | "avoid-page" | "avoid-column" | "avoid-region";
 /** Type for caption-side style property */
 export declare type CaptionSide_StyleType = "top" | "bottom" | "block-start" | "block-end" | "inline-start" | "inline-end";
@@ -297,11 +301,9 @@ export declare type Content_StyleType = string | "none" | "normal" | OneOrMany<C
 /** Type for counter-increment, counter-reset and counter-set style properties */
 export declare type Counter_StyleType = "none" | OneOrMany<ICounterRule | string | [ICounterRule | string, Extended<number>]>;
 /** Type for cursor pre-defined names */
-export declare type Cursor_Keyword = "auto" | "default" | "none" | "context-menu" | "help" | "pointer" | "progress" | "wait" | "cell" | "crosshair" | "text" | "vertical-text" | "alias" | "copy" | "move" | "no-drop" | "not-allowed" | "e-resize" | "n-resize" | "ne-resize" | "nw-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize" | "ew-resize" | "ns-resize" | "nesw-resize" | "nwse-resize" | "col-resize" | "row-resize" | "all-scroll" | "zoom-in" | "zoom-out" | "grab" | "grabbing";
-/** Type for cursor style property single value */
-export declare type Cursor_Single = Cursor_Keyword | IUrlProxy | ICursorProxy;
+export declare type CursorKeyword = "auto" | "default" | "none" | "context-menu" | "help" | "pointer" | "progress" | "wait" | "cell" | "crosshair" | "text" | "vertical-text" | "alias" | "copy" | "move" | "no-drop" | "not-allowed" | "e-resize" | "n-resize" | "ne-resize" | "nw-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize" | "ew-resize" | "ns-resize" | "nesw-resize" | "nwse-resize" | "col-resize" | "row-resize" | "all-scroll" | "zoom-in" | "zoom-out" | "grab" | "grabbing";
 /** Type for cursor style property */
-export declare type Cursor_StyleType = OneOrMany<Cursor_Single>;
+export declare type Cursor_StyleType = OneOrMany<CursorKeyword | IUrlProxy | ICursorProxy>;
 /** Type for direction style property */
 export declare type Direction_StyleType = "ltr" | "rtl";
 /** Type for display style property */
@@ -310,10 +312,8 @@ export declare type Display_StyleType = "block" | "inline" | "run-in" | "content
 export declare type DominantBaseline_StyleType = "auto" | "text-bottom" | "alphabetic" | "ideographic" | "middle" | "central" | "mathematical" | "hanging" | "text-top";
 /** Type for empty-cells style property */
 export declare type EmptyCells_StyleType = "show" | "hide";
-/** Type for filter and backdrop-filter style single value */
-export declare type Filter_Single = IUrlProxy | IFilterProxy;
 /** Type for filter and backdrop-filter style property */
-export declare type Filter_StyleType = OneOrMany<Filter_Single>;
+export declare type Filter_StyleType = OneOrMany<IUrlProxy | IFilterProxy>;
 /** Type for flex style property */
 export declare type Flex_StyleType = FlexBasis_StyleType | [
     Extended<CssNumber>,
@@ -321,7 +321,7 @@ export declare type Flex_StyleType = FlexBasis_StyleType | [
     Extended<FlexBasis_StyleType>
 ];
 /** Type for flex-basis style property */
-export declare type FlexBasis_StyleType = CssLength | "auto" | "content" | "fill" | "max-content" | "min-content" | "fit-content";
+export declare type FlexBasis_StyleType = CssLengthOrAuto | "content" | "fill" | "max-content" | "min-content" | "fit-content";
 /** Type for flex-direction style property */
 export declare type FlexDirection_StyleType = "row" | "row-reverse" | "column" | "column-reverse";
 /** Type for flex-flow style property */
@@ -369,7 +369,7 @@ export declare type GridArea_StyleType = OneOrBox<GridAxisSide_StyleType>;
  * Type for defining a single grid area position. The numbers are 1-based indices of the lines in
  * the following sequence: block start, inline start, block end, inline end.
  */
-export declare type GridTemplateArea_Definition = [
+export declare type GridTemplateAreaDefinition = [
     IGridAreaRule | Extended<string>,
     number,
     number,
@@ -377,7 +377,7 @@ export declare type GridTemplateArea_Definition = [
     number
 ];
 /** Type for grid-template-areas style property */
-export declare type GridTemplateAreas_StyleType = "none" | OneOrMany<IQuotedProxy> | GridTemplateArea_Definition[];
+export declare type GridTemplateAreas_StyleType = "none" | OneOrMany<IQuotedProxy> | GridTemplateAreaDefinition[];
 /** Type for grid-template-columns and grid-template-rows style properties */
 export declare type GridTemplateAxis_StyleType = "none" | OneOrMany<GridTrack> | "subgrid";
 /** Type for a single track element of grid template axis */
@@ -388,7 +388,7 @@ export declare type GridTrack = GridTrackSize | GridTrackLine;
  */
 export declare type GridTrackLine = (IGridLineRule | Extended<string>)[];
 /** Type for a single template element defining track size in grid template */
-export declare type GridTrackSize = CssLength | "min-content" | "max-content" | "auto" | IFitContentProxy | IMinMaxProxy | IRepeatProxy;
+export declare type GridTrackSize = CssLengthOrAuto | "min-content" | "max-content" | IFitContentProxy | IMinMaxProxy | IRepeatProxy;
 /** Type for hyphens style property */
 export declare type Hyphens_StyleType = "none" | "manual" | "auto";
 /** Type for image-rendering style property */
@@ -427,7 +427,7 @@ export declare type ListStyleImage_StyleType = "none" | IUrlProxy;
 /** Type for list-style-position style property */
 export declare type ListStylePosition_StyleType = "inside" | "outside";
 /** Type for list-style-type style property */
-export declare type ListStyleType_StyleType = "none" | "disc" | "circle" | "square" | "decimal" | "decimal-leading-zero" | "cjk-decimal" | "cjk-earthly-branch" | "cjk-heavenly-stem" | "cjk-ideographic" | "lower-roman" | "upper-roman" | "lower-greek" | "lower-alpha" | "lower-latin" | "upper-alpha" | "upper-latin" | "arabic-indic" | "armenian" | "bengali" | "cambodian" | "devanagari" | "georgian" | "gujarati" | "gurmukhi" | "hebrew" | "hiragana" | "hiragana-iroha" | "japanese-formal" | "japanese-informal" | "kannada" | "katakana" | "katakana-iroha" | "khmer" | "korean-hangul-formal" | "korean-hanja-formal" | "korean-hanja-informal" | "lao" | "lower-armenian" | "malayalam" | "mongolian" | "myanmar" | "oriya" | "persian" | "simp-chinese-formal" | "simp-chinese-informal" | "tamil" | "telugu" | "thai" | "tibetan" | "trad-chinese-formal" | "trad-chinese-informal" | "upper-armenian" | "disclosure-open" | "disclosure-closed";
+export declare type ListStyleType_StyleType = ICounterStyleRule | "none" | "disc" | "circle" | "square" | "decimal" | "decimal-leading-zero" | "cjk-decimal" | "cjk-earthly-branch" | "cjk-heavenly-stem" | "cjk-ideographic" | "lower-roman" | "upper-roman" | "lower-greek" | "lower-alpha" | "lower-latin" | "upper-alpha" | "upper-latin" | "arabic-indic" | "armenian" | "bengali" | "cambodian" | "devanagari" | "georgian" | "gujarati" | "gurmukhi" | "hebrew" | "hiragana" | "hiragana-iroha" | "japanese-formal" | "japanese-informal" | "kannada" | "katakana" | "katakana-iroha" | "khmer" | "korean-hangul-formal" | "korean-hanja-formal" | "korean-hanja-informal" | "lao" | "lower-armenian" | "malayalam" | "mongolian" | "myanmar" | "oriya" | "persian" | "simp-chinese-formal" | "simp-chinese-informal" | "tamil" | "telugu" | "thai" | "tibetan" | "trad-chinese-formal" | "trad-chinese-informal" | "upper-armenian" | "disclosure-open" | "disclosure-closed";
 /** Type for the margin-trim style properties */
 export declare type MarginTrim_StyleType = "none" | "in-flow" | "all";
 /** Type for the marker-start, marker-mid and marker-end style properties */
@@ -464,12 +464,12 @@ export declare type OverscrollBehavior_Single_StyleType = "contain" | "none" | "
 /** Type for the overscroll-behavior style property */
 export declare type OverscrollBehavior_StyleType = OneOrPair<OverscrollBehavior_Single_StyleType>;
 /** Type for the paint-order style property */
-export declare type PaintOrder_Keyword = "fill" | "stroke" | "markers";
+export declare type PaintOrderKeyword = "fill" | "stroke" | "markers";
 /** Type for the paint-order style property */
-export declare type PaintOrder_StyleType = "normal" | PaintOrder_Keyword | [
-    PaintOrder_Keyword,
-    PaintOrder_Keyword?,
-    PaintOrder_Keyword?
+export declare type PaintOrder_StyleType = "normal" | PaintOrderKeyword | [
+    PaintOrderKeyword,
+    PaintOrderKeyword?,
+    PaintOrderKeyword?
 ];
 /** Type for the perspective style property */
 export declare type Perspective_StyleType = "none" | CssLength;
@@ -556,7 +556,7 @@ export declare type TextDecorationStyle_StyleType = "solid" | "double" | "dotted
 /** Type for the text-decoration-skip-ink style property */
 export declare type TextDecorationSkipInk_StyleType = "none" | "auto" | "all";
 /** Type for the text-decoration-thickness style property */
-export declare type TextDecorationThickness_StyleType = "auto" | "from-font" | CssLength;
+export declare type TextDecorationThickness_StyleType = "from-font" | CssLengthOrAuto;
 export declare type TextEmphasis_StyleType = TextEmphasisStyle_StyleType | CssColor | [
     Extended<TextEmphasisStyle_StyleType>,
     Extended<CssColor>
@@ -584,14 +584,14 @@ export declare type TextOrientation_StyleType = "mixed" | "upright" | "sideways"
 /** Type for the text-overflow style property */
 export declare type TextOverflow_StyleType = OneOrPair<"clip" | "ellipsis" | "fade" | string>;
 /** Type for the single value of the text-shadow style property */
-export declare type TextShadow_Single = "none" | {
+export declare type TextShadow = "none" | {
     x: Extended<CssLength>;
     y: Extended<CssLength>;
     blur?: Extended<CssLength>;
     color?: Extended<CssColor>;
 };
 /** Type for the text-shadow style property */
-export declare type TextShadow_StyleType = OneOrMany<TextShadow_Single>;
+export declare type TextShadow_StyleType = OneOrMany<TextShadow>;
 /** Type for the text-size-adjust style property */
 export declare type TextSizeAdjust_StyleType = "none" | "auto" | CssPercent;
 /** Type for the text-transform style property */
@@ -614,19 +614,19 @@ export declare type TransformOrigin_StyleType = HorizontalPositionKeyword | Vert
 export declare type TransformStyle_StyleType = "flat" | "preserve-3d";
 /** Type for single transition */
 export declare type Transition_Single = string | {
-    property?: Extended<TransitionProperty_Single>;
+    property?: Extended<TransitionProperty>;
     duration?: Extended<CssTime>;
-    func?: Extended<TimingFunction_Single>;
+    func?: Extended<TimingFunction>;
     delay?: Extended<CssTime>;
 };
 /** Type for transition style property */
 export declare type Transition_StyleType = OneOrMany<Transition_Single>;
 /** Type for single transition-property */
-export declare type TransitionProperty_Single = "none" | "all" | keyof IBaseStyleset;
+export declare type TransitionProperty = "none" | "all" | keyof IBaseStyleset;
 /** Type for transition-property style property */
-export declare type TransitionProperty_StyleType = OneOrMany<TransitionProperty_Single>;
+export declare type TransitionProperty_StyleType = OneOrMany<TransitionProperty>;
 /** Type for transition-timing-function style property */
-export declare type TransitionTimingFunction_StyleType = OneOrMany<TimingFunction_Single>;
+export declare type TransitionTimingFunction_StyleType = OneOrMany<TimingFunction>;
 /** Type for the translate style property */
 export declare type Translate_StyleType = "none" | CssLength | [
     Extended<CssLength>,
@@ -665,11 +665,32 @@ export declare type DefaultStyleType = string;
  * augmentation technique.
  */
 export interface IBaseStyleset {
-    all?: DefaultStyleType;
+    all?: Global_StyleType;
     alignContent?: AlignContent_StyleType;
     alignItems?: AlignItems_StyleType;
     alignSelf?: AlignSelf_StyleType;
     alignmentBaseline?: AlignmentBaseline_StyleType;
+    /**
+     * **Usage:**
+     *
+     * ```Typescript
+     * class MyStyes extends css.StyleDefinition
+     * {
+     *     move = css.$keyframes([
+     *         ["from", {top" 0}],
+     *         ["to", {top: "100%"}]
+     *     ])
+     *
+     *     obj = css.$class({
+     *         animation: {
+     *             name: this.move,     // reference keyframes rule defined earlier
+     *             duration: 0.5,       // 0.5 seconds
+     *             func: "ease-in-out"  // pre-defined name
+     *         }
+     *     }
+     * }
+     * ```
+     */
     animation?: Animation_StyleType;
     animationDelay?: AnimationDelay_StyleType;
     animationDirection?: AnimationDirection_StyleType;
@@ -702,18 +723,18 @@ export interface IBaseStyleset {
     borderBlock?: Border_StyleType;
     borderBlockEnd?: Border_StyleType;
     borderBlockEndColor?: CssColor;
-    borderBlockEndStyle?: BorderStyle_Single;
-    borderBlockEndWidth?: BorderWidth_Single;
+    borderBlockEndStyle?: BorderStyle;
+    borderBlockEndWidth?: BorderWidth;
     borderBlockStart?: Border_StyleType;
     borderBlockStartColor?: CssColor;
-    borderBlockStartStyle?: BorderStyle_Single;
-    borderBlockStartWidth?: BorderWidth_Single;
+    borderBlockStartStyle?: BorderStyle;
+    borderBlockStartWidth?: BorderWidth;
     borderBottom?: Border_StyleType;
     borderBottomColor?: CssColor;
     borderBottomLeftRadius?: CssRadius;
     borderBottomRightRadius?: CssRadius;
-    borderBottomStyle?: BorderStyle_Single;
-    borderBottomWidth?: BorderWidth_Single;
+    borderBottomStyle?: BorderStyle;
+    borderBottomWidth?: BorderWidth;
     borderCollapse?: BorderColapse_StyleType;
     borderColor?: BorderColor_StyleType;
     borderImage?: BorderImage_StyleType;
@@ -725,29 +746,29 @@ export interface IBaseStyleset {
     borderInline?: Border_StyleType;
     borderInlineEnd?: Border_StyleType;
     borderInlineEndColor?: CssColor;
-    borderInlineEndStyle?: BorderStyle_Single;
-    borderInlineEndWidth?: BorderWidth_Single;
+    borderInlineEndStyle?: BorderStyle;
+    borderInlineEndWidth?: BorderWidth;
     borderInlineStart?: Border_StyleType;
     borderInlineStartColor?: CssColor;
-    borderInlineStartStyle?: BorderStyle_Single;
-    borderInlineStartWidth?: BorderWidth_Single;
+    borderInlineStartStyle?: BorderStyle;
+    borderInlineStartWidth?: BorderWidth;
     borderLeft?: Border_StyleType;
     borderLeftColor?: CssColor;
-    borderLeftStyle?: BorderStyle_Single;
-    borderLeftWidth?: BorderWidth_Single;
+    borderLeftStyle?: BorderStyle;
+    borderLeftWidth?: BorderWidth;
     borderRadius?: BorderRadius;
     borderRight?: Border_StyleType;
     borderRightColor?: CssColor;
-    borderRightStyle?: BorderStyle_Single;
-    borderRightWidth?: BorderWidth_Single;
+    borderRightStyle?: BorderStyle;
+    borderRightWidth?: BorderWidth;
     borderSpacing?: BorderSpacing_StyleType;
     borderStyle?: BorderStyle_StyleType;
     borderTop?: Border_StyleType;
     borderTopColor?: CssColor;
     borderTopLeftRadius?: CssRadius;
     borderTopRightRadius?: CssRadius;
-    borderTopStyle?: BorderStyle_Single;
-    borderTopWidth?: BorderWidth_Single;
+    borderTopStyle?: BorderStyle;
+    borderTopWidth?: BorderWidth;
     borderWidth?: BorderWidth_StyleType;
     bottom?: CssLength;
     boxShadow?: BoxShadow_StyleType;
@@ -770,8 +791,8 @@ export interface IBaseStyleset {
     columnGap?: ColumnGap_StyleType;
     columnRule?: Border_StyleType;
     columnRuleColor?: CssColor;
-    columnRuleStyle?: BorderStyle_Single;
-    columnRuleWidth?: BorderWidth_Single;
+    columnRuleStyle?: BorderStyle;
+    columnRuleWidth?: BorderWidth;
     columnSpan?: ColumnSpan_StyleType;
     columnWidth?: CssLength;
     columns?: Columns_StyleType;
@@ -853,17 +874,17 @@ export interface IBaseStyleset {
     listStyleImage?: ListStyleImage_StyleType;
     listStylePosition?: ListStylePosition_StyleType;
     listStyleType?: ListStyleType_StyleType;
-    margin?: OneOrBox<CssLength | "auto">;
-    marginBlock?: OneOrPair<CssLength | "auto">;
-    marginBlockEnd?: CssLength | "auto";
-    marginBlockStart?: CssLength | "auto";
-    marginBottom?: CssLength | "auto";
-    marginInline?: OneOrPair<CssLength | "auto">;
-    marginInlineEnd?: CssLength | "auto";
-    marginInlineStart?: CssLength | "auto";
-    marginLeft?: CssLength | "auto";
-    marginRight?: CssLength | "auto";
-    marginTop?: CssLength | "auto";
+    margin?: OneOrBox<CssLengthOrAuto>;
+    marginBlock?: OneOrPair<CssLengthOrAuto>;
+    marginBlockEnd?: CssLengthOrAuto;
+    marginBlockStart?: CssLengthOrAuto;
+    marginBottom?: CssLengthOrAuto;
+    marginInline?: OneOrPair<CssLengthOrAuto>;
+    marginInlineEnd?: CssLengthOrAuto;
+    marginInlineStart?: CssLengthOrAuto;
+    marginLeft?: CssLengthOrAuto;
+    marginRight?: CssLengthOrAuto;
+    marginTop?: CssLengthOrAuto;
     marginTrim?: MarginTrim_StyleType;
     marker?: DefaultStyleType;
     markerEnd?: Marker_StyleType;
@@ -899,7 +920,7 @@ export interface IBaseStyleset {
     outlineColor?: CssColor;
     outlineOffset?: CssLength;
     outlineStyle?: BorderStyle_StyleType;
-    outlineWidth?: BorderWidth_Single;
+    outlineWidth?: BorderWidth;
     overflow?: Overflow_StyleType;
     overflowAnchor?: OverflowAnchor_StyleType;
     overflowBlock?: Overflow_Single_StyleType;
@@ -1172,4 +1193,19 @@ export declare type Styleset = ExtendedBaseStyleset & {
 export declare type StringStyleset = {
     [K: string]: string | null | undefined;
 };
+/**
+ * The ICssSerializer interface allows adding style definition classes and objects
+ * and serializing them to a single string. This can be used for server-side rendering when
+ * the resultant string can be set as the content of a `<style>` element.
+ */
+export interface ICssSerializer {
+    /**
+     * Adds style definition class or instance.
+     */
+    add(instOrClass: StyleDefinition | IStyleDefinitionClass): void;
+    /**
+     * Returns concatenated string representation of all CSS rules added to the context.
+     */
+    serialize(): string;
+}
 //# sourceMappingURL=StyleTypes.d.ts.map

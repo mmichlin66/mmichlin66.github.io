@@ -3,9 +3,10 @@
  * @module
  */
 import { CssSelector, PagePseudoClass, OneOrMany } from "./CoreTypes";
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod } from "./RuleTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule } from "./RuleTypes";
 import { MediaQuery, SupportsQuery } from "./MediaTypes";
 import { ExtendedFontFace } from "./FontTypes";
+import { ExtendedCounterStyleset } from "./CounterTypes";
 import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
 /**
  * Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
@@ -174,10 +175,10 @@ export declare function $classname(...classes: (IClassRule | IClassNameRule | st
 export declare function $id(styleset?: CombinedStyleset, nameOverride?: string | IIDRule): IIDRule;
 /**
  * Creates a new style rule for the given HTML or SVG element tags. The `tag` parameter specifies
- * either a single tag or an array of tags. In addition an asterisk symbol ('"*"`) can be specified
- * to target all elements.
+ * either a single tag or an array of tags. In addition, an asterisk symbol ('"*"`) can be
+ * specified to target all elements.
  *
- * When multiple tags are specified, they will be treated as the selector list; that is, they will
+ * When multiple tags are specified, they will be treated as a selector list; that is, they will
  * be separated by commas.
  *
  * @param tag One or more element tags
@@ -376,6 +377,31 @@ export declare function $const<K extends VarTemplateName>(template: K, value?: E
  * }
  */
 export declare function $counter(nameOverride?: string | ICounterRule): ICounterRule;
+/**
+ * Creates new counter style rule. The counter style name will be created when the rule is
+ * processed as part of the style definition class. The name can be also overridden by providing
+ * either an explicit name or another counter style rule.
+ *
+ * @param counterStyleset An object that defines counter style features.
+ * @param nameOverride String or another `ICounterStyleRule` object that determines the name of the
+ * counter style. If this optional parameter is defined, the name will override the Mimcss name
+ * assignment mechanism. This might be useful if there is a need for the name to match a name of
+ * existing counter style.
+ * @returns The `ICounterStyleRule` object that represents the counter style.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     counterStyle = css.$counterStyle({
+ *         system: "cyclic",
+ *         symbols: ["one", "two", "three"],
+ *         suffix: " - "
+ *     })
+ * }
+ */
+export declare function $counterStyle(counterStyleset?: ExtendedCounterStyleset, nameOverride?: string | ICounterStyleRule): ICounterStyleRule;
 /**
  * Creates a new grid line rule. The line name will be created when the rule is processed as
  * part of the style definition class. The name can be also overridden by providing either an
