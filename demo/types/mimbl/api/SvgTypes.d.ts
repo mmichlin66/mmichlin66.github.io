@@ -1,5 +1,5 @@
 import { IElementProps, ReferrerPolicyPropType, FormtargetPropType, CrossoriginPropType } from "./mim";
-import { MediaQuery } from "mimcss";
+import { MediaStatement } from "mimcss";
 export interface ISvgElementProps extends IElementProps<SVGElement> {
 }
 export declare type PreserveAspectRatioPropType = "none" | "xMinYMin" | "xMidYMin" | "xMaxYMin" | "xMinYMid" | "xMidYMid" | "xMaxYMid" | "xMinYMax" | "xMidYMax" | "xMaxYMax" | "meet" | "slice";
@@ -417,7 +417,7 @@ export interface ISvgStopElementProps extends ISvgPresentationProps {
     "stop-opacity"?: string | number;
 }
 export interface ISvgStyleElementProps extends ISvgElementProps {
-    media?: MediaQuery;
+    media?: MediaStatement;
     nonce?: string;
     title?: string;
     type?: string;

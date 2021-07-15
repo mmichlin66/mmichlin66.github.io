@@ -1,8 +1,8 @@
-import { IConstant, IStringProxy } from "./CoreTypes";
+import { IConstant, IGenericProxy, IStringProxy, OneOrMany } from "./CoreTypes";
 import { CssAspectRatio, CssNumber, CssLength, CssResolution } from "./NumericTypes";
 import { ExtendedBaseStyleset } from "./StyleTypes";
 /** Possible media types */
-export declare type MediaType = "all" | "braille" | "embossed" | "handheld" | "print" | "projection" | "screen" | "speech" | "tty" | "tv";
+export declare type MediaType = "all" | "print" | "screen" | "speech";
 /**
  * Type that extends the given type with the following types:
  * - IConstant interface that allows using a constant value.
@@ -62,30 +62,30 @@ export interface IMediaFeatureset {
     maxWidth?: CssLength;
 }
 /**
- * Type representing a single set of styles as part of the @media rules. The styles in the
- * styleset are combined with the "and" operator. The entire styleset can be negated, which will
- * result in placing the "not" operator that will act on all styles in the query.
- */
-export interface ISingleMediaQuery extends IMediaFeatureset {
-    $mediaType?: MediaType;
-    $only?: boolean;
-    $negate?: boolean;
-}
-/**
- * The ExtendedSingleMediaQuery type maps all media features defined in the [[ISingleMediaQuery]]
+ * The ExtendedMediaFeatureset type maps all media features defined in the [[IMediaFeatureset]]
  * interface to the "extended" versions of their types. These extended types are defined by
  * allowing [[StringProxy]] and [[IConstant]] interfaces to the type that is defined in the
- * `ISingleMediaQuery` interface.
+ * `IMediaFeatureset` interface.
  */
-export declare type ExtendedSingleMediaQuery = {
-    [K in keyof ISingleMediaQuery]?: ExtendedFeature<ISingleMediaQuery[K]>;
+export declare type ExtendedMediaFeatureset = {
+    [K in keyof IMediaFeatureset]?: ExtendedFeature<IMediaFeatureset[K]>;
 };
 /**
+ * Represents media query returned from the [[mediaQuery]] function.
+ */
+export interface IMediaQueryProxy extends IGenericProxy<"media-query"> {
+}
+/**
+ * Type representing a single query as part of the @media rule. The features within each
+ * feature-set are combined with the "and" operator.
+ */
+export declare type MediaQuery = string | ExtendedMediaFeatureset | IMediaQueryProxy;
+/**
  * Type representing one or more queries as part of the @media rule. While multiple queries in
- * an array are combined with the "," operator, the styles within each styleset are combined with
+ * an array are combined with the "," operator, the styles within each feature-set are combined with
  * the "and" operator.
  */
-export declare type MediaQuery = string | ExtendedSingleMediaQuery | ExtendedSingleMediaQuery[];
+export declare type MediaStatement = OneOrMany<MediaQuery>;
 /**
  * Type representing a single set of styles as part of the @supports rules. The styles in the
  * styleset are combined with the "and" operator. The entire styleset can be negated, which will
@@ -96,7 +96,7 @@ export declare type MediaQuery = string | ExtendedSingleMediaQuery | ExtendedSin
  * property supports the `flex` value, we cannot check whether both `flex` and `grid` values are
  * supported. To check such criteria you must specify the query as a string.
  */
-export declare type SingleSupportsQuery = string | ExtendedBaseStyleset & {
+export declare type SupportsQuery = string | ExtendedBaseStyleset & {
     $negate?: boolean;
 };
 /**
@@ -104,5 +104,5 @@ export declare type SingleSupportsQuery = string | ExtendedBaseStyleset & {
  * an array are combined with the "or" operator, the styles within each styleset are combined with
  * the "and" operator.
  */
-export declare type SupportsQuery = SingleSupportsQuery | SingleSupportsQuery[];
+export declare type SupportsStatemnet = SupportsQuery | SupportsQuery[];
 //# sourceMappingURL=MediaTypes.d.ts.map

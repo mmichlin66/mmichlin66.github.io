@@ -9,7 +9,7 @@ export declare type CounterExtended<T> = T | IStringProxy;
 /**
  * Type for specfying counter [[system]] property.
  */
-export declare type System_CounterType = "cyclic" | "numeric" | "alphabetic" | "symbolic" | "additive" | "fixed" | number | [ListStyleType_StyleType | ICounterStyleRule | IStringProxy];
+export declare type System_CounterType = "cyclic" | "numeric" | "alphabetic" | "symbolic" | "additive" | "fixed" | number | [ListStyleType_StyleType | IStringProxy];
 /**
  * Type for specfying counter[[negative]] property.
  */
@@ -29,7 +29,7 @@ export declare type Pad_CounterType = [number, string];
 /**
  * Type for specfying counter [[fallback]] property.
  */
-export declare type Fallback_CounterType = ListStyleType_StyleType | ICounterStyleRule | IStringProxy;
+export declare type Fallback_CounterType = ListStyleType_StyleType | IStringProxy;
 /**
  * Type for specfying counter [[symbols]] property.
  */

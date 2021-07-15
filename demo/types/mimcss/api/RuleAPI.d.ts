@@ -4,7 +4,7 @@
  */
 import { CssSelector, PagePseudoClass, OneOrMany } from "./CoreTypes";
 import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, StyleDefinition, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule } from "./RuleTypes";
-import { MediaQuery, SupportsQuery } from "./MediaTypes";
+import { MediaStatement, SupportsStatemnet } from "./MediaTypes";
 import { ExtendedFontFace } from "./FontTypes";
 import { ExtendedCounterStyleset } from "./CounterTypes";
 import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
@@ -532,7 +532,7 @@ export declare function $fontface(fontface: ExtendedFontFace): IFontFaceRule;
  *     ]
  * }
  */
-export declare function $import(url: string, mediaQuery?: string | MediaQuery, supportsQuery?: string | SupportsQuery): IImportRule;
+export declare function $import(url: string, mediaQuery?: string | MediaStatement, supportsQuery?: string | SupportsStatemnet): IImportRule;
 /**
  * Creates new namespace rule.
  */
@@ -544,11 +544,11 @@ export declare function $page(pseudoClass?: PagePseudoClass, styleset?: Styleset
 /**
  * Creates a new `@supports` rule.
  */
-export declare function $supports<T extends StyleDefinition>(query: SupportsQuery, instOrClass: T | IStyleDefinitionClass<T>): ISupportsRule<T>;
+export declare function $supports<T extends StyleDefinition>(query: SupportsStatemnet, instOrClass: T | IStyleDefinitionClass<T>): ISupportsRule<T>;
 /**
  * Creates new media rule.
  */
-export declare function $media<T extends StyleDefinition>(query: MediaQuery, instOrClass: T | IStyleDefinitionClass<T>): IMediaRule<T>;
+export declare function $media<T extends StyleDefinition>(query: MediaStatement, instOrClass: T | IStyleDefinitionClass<T>): IMediaRule<T>;
 /**
  * Processes the given style definition class or instance and creates unique names for all named
  * entities. For a given style definition class only a single instance is created, no matter how

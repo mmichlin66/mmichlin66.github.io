@@ -1,7 +1,7 @@
 import { IStringProxy } from "./CoreTypes";
 import { IStyleDefinitionClass, IVarRule, StyleDefinition } from "./RuleTypes";
+import { ExtendedMediaFeatureset, IMediaQueryProxy, MediaStatement, SupportsStatemnet } from "./MediaTypes";
 import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue, ICssSerializer } from "./StyleTypes";
-import { MediaQuery, SupportsQuery } from "./MediaTypes";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the
@@ -82,15 +82,32 @@ declare global {
     }
 }
 /**
- * Converts the given media query value to the CSS media query string. This function should be used
- * by libraries that allow specifying the [[MediaQuery]] type for the `media` attribute of elements
+ * Tag function that represents a media query. This function allows expressing media queries in a
+ * natural string form while embedding media feature values in type safe manner. The string can
+ * contain any media expressions while the embedded objects must be of type IMediaFeatureset.
+ * Multiple features in the feature set will be expanded into clauses combined with the "and"
+ * operator.
+ *
+ * **Example:**
+ *
+ * class MyStyles extends StyleDefinition
+ * {
+ *     // screen and (min-width: 400px) and (max-width: 600px) and (orientation: portrait)
+ *     ifNarrowDevice = css.$media(
+ *         css.media`screen and ${{width:[400,600], orientation: "portrait"}}`, ...)
+ * }
+ */
+export declare function media(parts: TemplateStringsArray, ...params: ExtendedMediaFeatureset[]): IMediaQueryProxy;
+/**
+ * Converts the given media query value to the CSS media query string. This function can be used
+ * by libraries that allow specifying [[MediaStatement]] for the `media` attribute of elements
  * such as `<link>`, `<style>` and `<source>`
  */
-export declare function mediaQueryToString(query: MediaQuery): string;
+export declare function mediaToString(query: MediaStatement): string;
 /**
  * Converts the given supports query value to the CSS supports query string.
  */
-export declare function supportsQueryToString(query: SupportsQuery): string;
+export declare function supportsToString(query: SupportsStatemnet): string;
 /**
  * Creates a new ICssSerializer object that allows adding style definition classes
  * and instances and serializing them to a string. This can be used for server-side rendering when
