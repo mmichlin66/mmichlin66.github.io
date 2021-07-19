@@ -1,6 +1,6 @@
 import { IConstant, IGenericProxy, IStringProxy, OneOrMany } from "./CoreTypes";
 import { CssAspectRatio, CssNumber, CssLength, CssResolution } from "./NumericTypes";
-import { ExtendedBaseStyleset } from "./StyleTypes";
+import { Styleset } from "./StyleTypes";
 /** Possible media types */
 export declare type MediaType = "all" | "print" | "screen" | "speech";
 /**
@@ -71,7 +71,7 @@ export declare type ExtendedMediaFeatureset = {
     [K in keyof IMediaFeatureset]?: ExtendedFeature<IMediaFeatureset[K]>;
 };
 /**
- * Represents media query returned from the [[mediaQuery]] function.
+ * Represents media query returned from the [[media]] function.
  */
 export interface IMediaQueryProxy extends IGenericProxy<"media-query"> {
 }
@@ -87,18 +87,15 @@ export declare type MediaQuery = string | ExtendedMediaFeatureset | IMediaQueryP
  */
 export declare type MediaStatement = OneOrMany<MediaQuery>;
 /**
- * Type representing a single set of styles as part of the @supports rules. The styles in the
- * styleset are combined with the "and" operator. The entire styleset can be negated, which will
- * result in placing the "not" operator that will act on all styles in the query.
- *
- * Note that using the `ExtendedBaseStyleset` object doesn't allow for checking whether two or more
- * values of a given property are supported. For example, although we can test that the `display`
- * property supports the `flex` value, we cannot check whether both `flex` and `grid` values are
- * supported. To check such criteria you must specify the query as a string.
+ * Represents supports query returned from the [[supports]] function.
  */
-export declare type SupportsQuery = string | ExtendedBaseStyleset & {
-    $negate?: boolean;
-};
+export interface ISupportsQueryProxy extends IGenericProxy<"supports-query"> {
+}
+/**
+ * Type representing a single set of styles as part of the @supports rules. The styles in the
+ * styleset are combined with the "and" operator.
+ */
+export declare type SupportsQuery = string | Styleset | ISupportsQueryProxy;
 /**
  * Type representing one or more queries as part of the @supports rule. While multiple queries in
  * an array are combined with the "or" operator, the styles within each styleset are combined with

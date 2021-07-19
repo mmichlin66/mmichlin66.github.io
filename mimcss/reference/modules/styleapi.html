@@ -80,6 +80,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#setelementstringstyle" class="tsd-kind-icon">set<wbr>Element<wbr>String<wbr>Style</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#setelementstyle" class="tsd-kind-icon">set<wbr>Element<wbr>Style</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#stylesettostringstyleset" class="tsd-kind-icon">styleset<wbr>ToString<wbr>Styleset</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#supports" class="tsd-kind-icon">supports</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#supportstostring" class="tsd-kind-icon">supports<wbr>ToString</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="styleapi.html#usevar" class="tsd-kind-icon">usevar</a></li>
 							</ul>
@@ -198,8 +199,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Tag function that represents a media query. This function allows expressing media queries in a
-										natural string form while embedding media feature values in type safe manner. The string can
+									<p>Tag function that represents a media query. This function allows expressing media queries in
+										a natural string form while embedding media feature values in type safe manner. The string can
 										contain any media expressions while the embedded objects must be of type IMediaFeatureset.
 										Multiple features in the feature set will be expanded into clauses combined with the &quot;and&quot;
 									operator.</p>
@@ -437,6 +438,45 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="supports" class="tsd-anchor"></a>
+					<h3>supports</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">supports<span class="tsd-signature-symbol">(</span>parts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TemplateStringsArray</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="styletypes.html#styleset" class="tsd-signature-type" data-tsd-kind="Type alias">Styleset</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/mediatypes.isupportsqueryproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISupportsQueryProxy</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Tag function that represents a supports query. This function allows expressing supports
+										queries in a natural string form while embedding media feature values in type safe manner. The
+										string can contain any supports expressions while the embedded objects must be of type
+										Styleset. Multiple properties in the styleset will be expanded into clauses combined with the
+									&quot;or&quot; operator.</p>
+								</div>
+								<p><strong>Example:</strong></p>
+								<p>class MyStyles extends StyleDefinition
+									{
+									// not (transform-origin: 30px 30px 30px)
+									ifNoTransformOrigin = css.$supports(
+									css.supports<code>not (${{transform-origin: [30, 30, 30]}})</code>, ...)
+								}</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>parts: <span class="tsd-signature-type">TemplateStringsArray</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="styletypes.html#styleset" class="tsd-signature-type" data-tsd-kind="Type alias">Styleset</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/mediatypes.isupportsqueryproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISupportsQueryProxy</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="supportstostring" class="tsd-anchor"></a>
 					<h3>supports<wbr>ToString</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -588,6 +628,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="styleapi.html#stylesettostringstyleset" class="tsd-kind-icon">styleset<wbr>ToString<wbr>Styleset</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="styleapi.html#supports" class="tsd-kind-icon">supports</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="styleapi.html#supportstostring" class="tsd-kind-icon">supports<wbr>ToString</a>
