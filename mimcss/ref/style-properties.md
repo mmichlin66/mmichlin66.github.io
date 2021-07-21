@@ -7,17 +7,7 @@ description: "Describes types of every supported CSS style property."
 
 # Mimcss Reference: Style Properties
 
-This page describes types of CSS style properties used in Mimcss in alphabetical order. Note that in addition to the type specified for the property, all properties accept the following types:
-
-- `undefined` - the type that means that the style property should not be considered a part of the style rule.
-
-- `export type Global_StyleType = "inherit" | "initial" | "unset" | "revert"` - global CSS style property values.
-
-- `export interface IStringProxy extends IGenericProxy<"string"> {}` - a function that returns a `string`. This can be either the Mimcss `raw()` function or any custom function that returns a string. Note that the custom function will be called without any parameters.
-
-- `export interface ICustomVar<T = any>` - the interface that is implemented by the custom CSS property rules. This allows using custom CSS properties as values of style properties provided the type of the custom CSS property is compatible with the type of the style property.
-
-- `export type ImportantProp<T> = { "!": T | ICustomVar<T> | IStringProxy }` - allows specifying any of the above types while indicating that the property must be marked `"!important"`.
+This page describes types of CSS style properties used in Mimcss in alphabetical order.
 
 <style>
 .capital { font-size: 24px; font-weight: bold; }
@@ -28,6 +18,7 @@ h4 { color: teal }
     border: 1px solid blue;
     background-color: beige;
     padding: 16px;
+    margin: 0 1em;
 }
 #propertySearchDropdown {
     padding: 4px;
@@ -49,7 +40,18 @@ h4 { color: teal }
         <option value="propertySearchPlaceholder">--Please choose a property--</option>
     </select>
 </div>
-<br/>
+
+Note that in addition to the type specified for the property, all properties accept the following types:
+
+- `undefined` - the type that means that the style property should not be considered a part of the style rule.
+
+- `export type Global_StyleType = "inherit" | "initial" | "unset" | "revert"` - global CSS style property values.
+
+- `export interface IStringProxy extends IGenericProxy<"string"> {}` - a function that returns a `string`. This can be either the Mimcss `raw()` function or any custom function that returns a string. Note that the custom function will be called without any parameters.
+
+- `export interface ICustomVar<T = any>` - the interface that is implemented by the custom CSS property rules. This allows using custom CSS properties as values of style properties provided the type of the custom CSS property is compatible with the type of the style property.
+
+- `export type ImportantProp<T> = { "!": T | ICustomVar<T> | IStringProxy }` - allows specifying any of the above types while indicating that the property must be marked `"!important"`.
 
 #### align-content
 
@@ -124,6 +126,26 @@ The `animation` property can be specified as a string, as a single `Animation_Si
 | direction | [animation-direction](#animation-direction) |
 | mode | [animation-fill-mode](#animation-fill-mode) |
 | state | [animation-play-state](#animation-play-state) |
+
+**Examples:**
+
+```typescript
+class MyStyes extends css.StyleDefinition
+{
+    move = css.$keyframes([
+        ["from", {top: 0}],
+        ["to", {top: "100%"}]
+    ])
+
+    obj = css.$class({
+        animation: {
+            name: this.move,     // reference keyframes rule defined earlier
+            duration: 0.5,       // 0.5 seconds
+            func: "ease-in-out"  // pre-defined name
+        }
+    }
+}
+```
 
 **See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [CssTime](/mimcss/reference.html#modules/coretypes.html#csstime)
 
@@ -986,6 +1008,12 @@ bottom: CssLength;
 
 **See Also:** [CssLength](/mimcss/reference.html#modules/coretypes.html#csslength)
 
+#### box-decoration-break
+
+```tsx
+boxDecorationBreak?: BoxDecorationBreak_StyleType;
+```
+
 #### box-shadow
 
 ```tsx
@@ -1569,6 +1597,12 @@ fontKerning: FontKerning_StyleType;
 export type FontKerning_StyleType = "auto" | "normal" | "none";
 ```
 
+#### font-language-override
+
+```tsx
+fontLanguageOverride?: DefaultStyleType;
+```
+
 #### font-optical-sizing
 
 ```tsx
@@ -2022,6 +2056,12 @@ export type GridTrackLine = (IGridLineRule | Extended<string>)[];
 The usage of the `grid-template-rows` property is identical to that of the [grid-template-columns](#grid-template-columns) property.
 
 **See Also:** [CssLength](/mimcss/reference.html#modules/coretypes.html#csslength), [IMinMaxProxy](/mimcss/reference.html#interfaces/coretypes_.iminmaxproxy.html), [IFitContentProxy](/mimcss/reference.html#interfaces/coretypes_.ifitcontentproxy.html), [IRepeatProxy](/mimcss/reference.html#interfaces/coretypes_.irepeatproxy.html), [IGridLineRule](/mimcss/reference.html#interfaces/ruletypes_.igridlinerule.html), [Extended](/mimcss/reference.html#modules/coretypes.html#extended)
+
+#### hanging-punctuation
+
+```tsx
+hangingPunctuation?: DefaultStyleType;
+```
 
 #### height
 
@@ -3806,7 +3846,7 @@ export type Zoom_StyleType = "normal" | "reset" | CssPercent;
     function createAlphabet( selectedLetter, elm)
     {
         var elmAlphabet = document.createElement( "div");
-        elmAlphabet.style = "font-weight: bold; background-color: blue; padding: 6px; margin-top: 1.2em";
+        elmAlphabet.style = "font-weight: bold; background-color: blue; padding: 6px; margin: 1.2em 1em 0";
         elm.parentNode.insertBefore( elmAlphabet, elm);
 
         for( let letter of allLetters)

@@ -1,6 +1,6 @@
 import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, IQuotedProxy, Global_StyleType } from "./CoreTypes";
 import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto } from "./NumericTypes";
-import { CssColor } from "./ColorTypes";
+import { CssColor, CssNonNumericColor } from "./ColorTypes";
 import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
 import { IUrlProxy, BasicShape, CssImage, IMinMaxProxy, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IRayProxy, ITimingFunctionProxy, ICursorProxy, BorderRadius, FillRule } from "./ShapeTypes";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule, StyleDefinition, IStyleDefinitionClass, ICounterStyleRule } from "./RuleTypes";
@@ -200,29 +200,29 @@ export declare type BorderStyle = "none" | "hidden" | "dotted" | "dashed" | "sol
 /** Type for [[borderStyle]] style property */
 export declare type BorderStyle_StyleType = OneOrBox<BorderStyle>;
 /** Type for [[border]] style property */
-export declare type Border_StyleType = BorderWidth | BorderStyle | CssColor | [
+export declare type Border_StyleType = BorderWidth | BorderStyle | CssNonNumericColor | [
     Extended<BorderWidth>,
-    Extended<BorderStyle>?,
+    Extended<BorderStyle>,
     Extended<CssColor>?
 ] | [
     Extended<BorderWidth>,
-    Extended<CssColor>?,
+    Extended<CssColor>,
     Extended<BorderStyle>?
 ] | [
     Extended<BorderStyle>,
-    Extended<BorderWidth>?,
+    Extended<BorderWidth>,
     Extended<CssColor>?
 ] | [
     Extended<BorderStyle>,
-    Extended<CssColor>?,
+    Extended<CssColor>,
     Extended<BorderWidth>?
 ] | [
-    Extended<CssColor>,
-    Extended<BorderWidth>?,
+    Extended<CssNonNumericColor>,
+    Extended<BorderWidth>,
     Extended<BorderStyle>?
 ] | [
-    Extended<CssColor>,
-    Extended<BorderStyle>?,
+    Extended<CssNonNumericColor>,
+    Extended<BorderStyle>,
     Extended<BorderWidth>?
 ];
 /** Type for border side width style property */
@@ -671,6 +671,8 @@ export interface IBaseStyleset {
     alignSelf?: AlignSelf_StyleType;
     alignmentBaseline?: AlignmentBaseline_StyleType;
     /**
+     * CSS animation property: [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
+     *
      * **Usage:**
      *
      * ```Typescript

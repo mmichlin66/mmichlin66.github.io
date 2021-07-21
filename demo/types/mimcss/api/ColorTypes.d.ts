@@ -228,5 +228,5 @@ export declare type CssColor = "transparent" | "currentcolor" | keyof INamedColo
  * come into conflict with a numeric representation of width. Therefore, for the `border` property,
  * only non-numeric color representation is allowed.
  */
-export declare type CssNonNumericColor = "transparent" | "currentcolor" | keyof INamedColors | IColorProxy | SystemColors;
+export declare type CssNonNumericColor = Exclude<CssColor, number>;
 //# sourceMappingURL=ColorTypes.d.ts.map

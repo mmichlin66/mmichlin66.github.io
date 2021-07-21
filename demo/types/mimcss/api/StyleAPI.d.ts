@@ -55,8 +55,32 @@ export declare function stylesetToStringStyleset(styleset: Styleset): StringStyl
  */
 export declare function diffStylesets(oldStyleset: Styleset, newStyleset: Styleset): StringStyleset | null;
 /**
- * Returns a function representing the invocation of the `var()` CSS function for
- * the given custom CSS property with optional fallbacks.
+ * Returns a function representing the invocation of the `var()` CSS function for the given custom
+ * CSS property with optional fallbacks. Usually, when you want to refer to a custom CSS property
+ * in style rules, it is enough to just refer to the style definition property created using the
+ * [[$var]] function; however, if you want to provide a fallback value, you must use this function.
+ *
+ * ** Example:**
+ *
+ * ```typescript
+ * class MyStyles extends StyleDefinition
+ * {
+ *     // create custom CSS property but without an assigned value; it can be assigned
+ *     // later programmatically
+ *     bgColor = css.$var( "color")
+ *
+ *     div = css.$tag( "div", {
+ *         // use the custom CSS property with the given fallback value
+ *         backgroundColor: css.usevar( this.bgColor, "beige")
+ *     })
+ * }
+ * ```
+ *
+ * @typeparam K Key of the [[IVarTemplateStyleset]] interface that determines the type of the
+ * custom CSS property and of the fallback value.
+ * @param varObj Custom CSS property object created using the [[$var]] function.
+ * @param fallback Fallback value that will be used if the custom CSS property isnt set.
+ * @returns
  */
 export declare function usevar<K extends VarTemplateName>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>): IStringProxy;
 declare global {
@@ -84,18 +108,20 @@ declare global {
 /**
  * Tag function that represents a media query. This function allows expressing media queries in
  * a natural string form while embedding media feature values in type safe manner. The string can
- * contain any media expressions while the embedded objects must be of type IMediaFeatureset.
+ * contain any media expressions while the embedded objects must be of type [[IMediaFeatureset]].
  * Multiple features in the feature set will be expanded into clauses combined with the "and"
  * operator.
  *
  * **Example:**
  *
+ * ```typescript
  * class MyStyles extends StyleDefinition
  * {
  *     // screen and (min-width: 400px) and (max-width: 600px) and (orientation: portrait)
  *     ifNarrowDevice = css.$media(
  *         css.media`screen and ${{width:[400,600], orientation: "portrait"}}`, ...)
  * }
+ * ```
  */
 export declare function media(parts: TemplateStringsArray, ...params: ExtendedMediaFeatureset[]): IMediaQueryProxy;
 /**
@@ -113,12 +139,14 @@ export declare function mediaToString(query: MediaStatement): string;
  *
  * **Example:**
  *
+ * ```typescript
  * class MyStyles extends StyleDefinition
  * {
  *     // not (transform-origin: 30px 30px 30px)
  *     ifNoTransformOrigin = css.$supports(
  *         css.supports`not (${{transform-origin: [30, 30, 30]}})`, ...)
  * }
+ * ```
  */
 export declare function supports(parts: TemplateStringsArray, ...params: Styleset[]): ISupportsQueryProxy;
 /**

@@ -12,18 +12,25 @@ layout: default
 			<a class="menuitem" href="/mimbl/about.html">About</a><br/><br>
 			<b>Guide</b>
 			<ul>
-			{% for item in site.data.mimblGuide %}
-				<li><a href="/mimbl/{{ item.file }}">{{ item.title }}</a></li>
-			{% endfor %}
+                {% for item in site.data.mimblGuide %}
+                    <li><a href="/mimbl/{{ item.file }}">{{ item.title }}</a></li>
+                {% endfor %}
 			</ul>
 			<b>Other</b>
 			<ul>
-			<li><a href="/mimbl/playground.html">Playground</a></li>
-			<li><a href="/mimbl/reference.html">Reference</a></li>
-            <li><a href="https://www.npmjs.com/package/mimbl" target="NPM">NPM Page</a></li>
-            <li><a href="https://github.com/mmichlin66/mimbl" target="GitHub">GitHub Page</a></li>
-    </ul>
-    </div>
+                <li><a href="/mimbl/playground.html">Playground</a></li>
+                <li><a href="/mimbl/reference.html">Reference</a></li>
+                <li><a href="https://www.npmjs.com/package/mimbl" target="NPM">NPM Page</a></li>
+                <li><a href="https://github.com/mmichlin66/mimbl" target="GitHub">GitHub Page</a></li>
+            </ul>
+        </div>
+
+		<div class="left-sidebar-bottom">
+            <a href="https://www.npmjs.com/package/mimbl">
+                <img src="https://img.shields.io/npm/v/mimbl.svg?&style=flat-square&color=success"
+                alt="Mimbl npm version">
+            </a>
+        </div>
 	</div>
 
 	<div class="content-container">

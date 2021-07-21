@@ -201,17 +201,18 @@
 								<div class="lead">
 									<p>Tag function that represents a media query. This function allows expressing media queries in
 										a natural string form while embedding media feature values in type safe manner. The string can
-										contain any media expressions while the embedded objects must be of type IMediaFeatureset.
+										contain any media expressions while the embedded objects must be of type <a href="../interfaces/mediatypes.imediafeatureset.html">IMediaFeatureset</a>.
 										Multiple features in the feature set will be expanded into clauses combined with the &quot;and&quot;
 									operator.</p>
 								</div>
 								<p><strong>Example:</strong></p>
-								<p>class MyStyles extends StyleDefinition
-									{
-									// screen and (min-width: 400px) and (max-width: 600px) and (orientation: portrait)
-									ifNarrowDevice = css.$media(
-									css.media<code>screen and ${{width:[400,600], orientation: &quot;portrait&quot;}}</code>, ...)
-								}</p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// screen and (min-width: 400px) and (max-width: 600px) and (orientation: portrait)</span>
+<span style="color: #000000">    </span><span style="color: #001080">ifNarrowDevice</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$media</span><span style="color: #000000">(</span>
+<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #795E26">media</span><span style="color: #A31515">`screen and </span><span style="color: #0000FF">${</span><span style="color: #000000FF">{</span><span style="color: #001080">width:</span><span style="color: #000000FF">[</span><span style="color: #098658">400</span><span style="color: #000000FF">,</span><span style="color: #098658">600</span><span style="color: #000000FF">], </span><span style="color: #001080">orientation:</span><span style="color: #000000FF"> </span><span style="color: #A31515">&quot;portrait&quot;</span><span style="color: #000000FF">}</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">, ...)</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -456,12 +457,13 @@
 									&quot;or&quot; operator.</p>
 								</div>
 								<p><strong>Example:</strong></p>
-								<p>class MyStyles extends StyleDefinition
-									{
-									// not (transform-origin: 30px 30px 30px)
-									ifNoTransformOrigin = css.$supports(
-									css.supports<code>not (${{transform-origin: [30, 30, 30]}})</code>, ...)
-								}</p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// not (transform-origin: 30px 30px 30px)</span>
+<span style="color: #000000">    </span><span style="color: #001080">ifNoTransformOrigin</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$supports</span><span style="color: #000000">(</span>
+<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #795E26">supports</span><span style="color: #A31515">`not (</span><span style="color: #0000FF">${</span><span style="color: #000000FF">{transform-</span><span style="color: #001080">origin:</span><span style="color: #000000FF"> [</span><span style="color: #098658">30</span><span style="color: #000000FF">, </span><span style="color: #098658">30</span><span style="color: #000000FF">, </span><span style="color: #098658">30</span><span style="color: #000000FF">]}</span><span style="color: #0000FF">}</span><span style="color: #A31515">)`</span><span style="color: #000000">, ...)</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -513,23 +515,48 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a function representing the invocation of the <code>var()</code> CSS function for
-									the given custom CSS property with optional fallbacks.</p>
+									<p>Returns a function representing the invocation of the <code>var()</code> CSS function for the given custom
+										CSS property with optional fallbacks. Usually, when you want to refer to a custom CSS property
+										in style rules, it is enough to just refer to the style definition property created using the
+									<a href="ruleapi.html#_var">$var</a> function; however, if you want to provide a fallback value, you must use this function.</p>
 								</div>
+								<p>** Example:**</p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// create custom CSS property but without an assigned value; it can be assigned</span>
+<span style="color: #000000">    </span><span style="color: #008000">// later programmatically</span>
+<span style="color: #000000">    </span><span style="color: #001080">bgColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">)</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">div</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;div&quot;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">        </span><span style="color: #008000">// use the custom CSS property with the given fallback value</span>
+<span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">usevar</span><span style="color: #000000">( </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">bgColor</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;beige&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
 									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/styletypes.ivartemplatestyleset.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarTemplateStyleset</a></h4>
+									<div class="tsd-comment tsd-typography">
+										<p>Key of the <a href="../interfaces/styletypes.ivartemplatestyleset.html">IVarTemplateStyleset</a> interface that determines the type of the
+										custom CSS property and of the fallback value.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>varObj: <a href="../interfaces/ruletypes.ivarrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Custom CSS property object created using the <a href="ruleapi.html#_var">$var</a> function.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fallback: <a href="styletypes.html#extendedvarvalue" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedVarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Fallback value that will be used if the custom CSS property isnt set.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></h4>
