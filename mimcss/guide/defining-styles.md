@@ -15,7 +15,6 @@ description: "Mimcss uses the full power of the TypeScript typing system to defi
 * [Pseudo Classes and Pseudo Elements](#pseudo-classes-and-pseudo-elements)
 * [Complex Dependent Selectors](#complex-dependent-selectors)
 * [Selector Combinators](#selector-combinators)
-* [Referencing External Style Definitions](#referencing-external-style-definitions)
 
 ## Styleset
 Styles are defined using style rules, which usually accept some kind of selector and an object that gives values to a set of standard CSS style properties - such as `color`, `margin`, etc. This object is called a *styleset* and is defined by Mimcss using the `Styleset` type.
@@ -284,50 +283,5 @@ class MyStyles extends css.StyleDefinition
     })
 }
 ```
-
-
-## Referencing External Style Definitions
-So far we used a single style definition class in our examples. In practice, it is usually desirable to divide application styles into several areas and use a separate style definition class for each of them. The styles defined by these classes are not usually completely isolated from one another though; that is, rules from one definition class may need to use the rules from another one. For example, a rule in class *A* may need to extend the rule from class *B* or a selector may need to combine CSS classes from two or more style definition classes.
-
-Mimcss allows one style definition class to reference another one via the `$use` function as in the following example:
-
-```tsx
-// CommonStyles.ts
-class CommonStyles extends css.StyleDefinition
-{
-    vbox = css.$class({
-        display: "flex",
-        flexDirection: "column"
-    })
-
-    standout = css.$class({
-        boxShadow: { x: 10, y: 5, blur: 5, color: "red" }
-    })
-}
-
-// MyStyles.ts
-import {CommonStyles} from "./CommonStyles"
-
-class MyStyles extends css.StyleDefinition
-{
-    common = css.$use( CommonStyles)
-
-    sidebar = css.$class({ "+": this.common.vbox,
-        position: "absolute",
-        width: css.em(15),
-        height: css.em(50)
-    })
-
-    rightbar = css.$class({ "+": [this.sidebar, this.common.standout],
-        width: css.em(10),
-        left: css.em(1)
-    })
-}
-```
-
-The `$use` function returns the same object that is returned by the `activate` function. The difference between the `$use` and `activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
-
-When the style definition class is activated and deactivated, all the used style definition classes are activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
-
 
 

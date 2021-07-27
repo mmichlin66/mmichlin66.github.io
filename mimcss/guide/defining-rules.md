@@ -7,20 +7,20 @@ description: "Mimcss uses TypeScript classes to mimic a CSS stylesheets and uses
 
 # Mimcss Guide: Defining Rules
 
-* [Rule Definitions](#rule-definitions)
 * [Style Definitions](#style-definitions)
 * [Rules Activation](#rules-activation)
+* [Referencing External Style Definitions](#referencing-external-style-definitions)
 * [Grouping Rules](#grouping-rules)
 * [Other Rules](#other-rules)
-
-## Rule Definitions
-In regular CSS a unit of style definition is a rule. There are regular style rules that define a selector followed by a styleset, and at-rules: @import, @font-face, @keyframes, @media, @supports and others. Rules such as @media and @support are conditional grouping rules; that is, they define a condition and a set of nested rules, which, in turn, might be style rules or at-rules. Multiple rules are combined into a CSS file, which is sometimes called a stylesheet.
-
-In Mimcss, a stylesheet is represented by a class - called a Style Definition class. Individual rules are defined as properties of a style definition class. More precisely, a property of a style definition class can either define a single rule or be an array of rules. If the property defines a single rule, it is called a named rule because the property name allows referring to the rule by the property name. If a property is an array of rules, those rules are called unnamed rules because there is no property by which individual rules can be addressed.
-
-There are some rule types that are almost always defined as named rules: classes, IDs, custom properties and animations. The property names, to which these rules are assigned, become the names by which these rules are referred to from the HTML rendering code.
+* [Style Definition Class Properties](#style-definition-class-properties)
 
 ## Style Definitions
+In regular CSS, a unit of style definition is a rule. There are regular style rules that define a selector followed by a styleset, and at-rules: @import, @font-face, @keyframes, @media, @supports and others. Rules such as @media and @support are conditional grouping rules; that is, they define a condition and a set of nested rules, which, in turn, might be style rules or at-rules. Multiple rules are combined into a CSS file, which is sometimes called a stylesheet.
+
+In Mimcss, a stylesheet is represented by a class - called a Style Definition Class. Individual rules are defined as properties of a style definition class. More precisely, a property of a style definition class can either define a single rule or be an array of rules. If the property defines a single rule, it is called a named rule because the property name allows referring to the rule by the property name. If a property is an array of rules, those rules are called unnamed rules because there is no property by which individual rules can be addressed.
+
+There are some rule types that are almost always defined as named rules: classes, IDs, custom properties, animations, counters, grid lines and areas. The property names, to which these rules are assigned, become the names by which these rules are referred to from the HTML rendering code. Other rules, such as tags, media and supports rules can be defined in an array without an explicit property associated with the rule. Note, however, that even for these rules it can be beneficial to be assigned to a property as each rule can be accessed at run time to manipulate the CSS styles the rule defines. Note also, that even rules defined in an array can be accessed via array indexes - this is a regular TypeScript class after all.
+
 Let's create a simple style definition class:
 
 ```tsx
@@ -28,12 +28,6 @@ import * as css from "mimcss";
 
 class MyStyles extends css.StyleDefinition
 {
-    init = [
-        css.$tag( "*", { boxSizing: "border-box" }),
-        css.$tag( "body", { height: "100%", margin: 0 }),
-        css.$style( "a:hover", { color: "navy" }),
-    ]
-
     vbox = css.$class({ display: "flex", flexDirection: "column" })
 
     standout = css.$id({ boxShadow: {color: "red", blur: 4} });
@@ -45,6 +39,12 @@ class MyStyles extends css.StyleDefinition
         [ 50, { top: css.percent(50) } ],
         [ "to", { top: "100%" } ]
     ])
+
+    init = [
+        css.$tag( "*", { boxSizing: "border-box" }),
+        css.$tag( "body", { height: "100%", margin: 0 }),
+        css.$style( "a:hover", { color: "navy" }),
+    ]
 }
 ```
 
@@ -78,7 +78,7 @@ render()
 
 The return value of the `activate` method is the instance of the style definition class. Properties created using one of the rule definition functions (`$class`, `$id`, etc.) implement different interfaces for different types of rules. The rules that produce names (such as class name or animation name) have the `name` property. In addition, each rule interface contains a reference to the Style Object Model rule objects such as CSSStyleRule. These can be used to manipulate styles programmatically.
 
-If the `activate` function inserts the rules into the DOM, the `deactivate` function removes the rules from the DOM:
+While the `activate` function inserts the rules into the DOM, the `deactivate` function removes the rules from the DOM:
 
 ```tsx
 css.deactivate( myStyles);
@@ -116,9 +116,54 @@ What if multiple instances of the component are used at the same time? No proble
 
 There are more sophisticated activation strategies possible and they are discussed in [Activation Strategies](activation-strategies.html) unit.
 
-Activating and deactivating style definitions is a DOM writing activity. Without the proper care writing to the DOM can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling*. The `activate` and `deactivate` functions have an optional parameter `schedulerType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the `setDefaultSchedulerType` function.
+Activating and deactivating style definitions is a DOM writing activity. Without the proper care writing to the DOM can have adverse effects such as layout thrashing. Mimcss provides several methods of *activation scheduling*. The `activate` and `deactivate` functions have an optional parameter `schedulerType` that can be used to specify what scheduling/activation method to use. Alternatively (and preferably) a default scheduling method can be set using the [setDefaultSchedulerType](/mimcss/reference/modules/schedulingapi.html#setdefaultscheduler) function.
 
 Mimcss supports several built-in scheduler types and allows the library users to create their own schedulers. For more information see the [Activation Scheduling](activation-scheduling.html) unit.
+
+
+## Referencing External Style Definitions
+So far we used a single style definition class in our examples. In practice, it is usually desirable to divide application styles into several areas and use a separate style definition class for each of them. The styles defined by these classes are not usually completely isolated from one another though; that is, rules from one definition class may need to use the rules from another one. For example, a rule in class *A* may need to extend the rule from class *B* or a selector may need to combine CSS classes from two or more style definition classes.
+
+Mimcss allows one style definition class to reference another one via the `$use` function as in the following example:
+
+```tsx
+// CommonStyles.ts
+class CommonStyles extends css.StyleDefinition
+{
+    vbox = css.$class({
+        display: "flex",
+        flexDirection: "column"
+    })
+
+    standout = css.$class({
+        boxShadow: { x: 10, y: 5, blur: 5, color: "red" }
+    })
+}
+
+// MyStyles.ts
+import {CommonStyles} from "./CommonStyles"
+
+class MyStyles extends css.StyleDefinition
+{
+    common = css.$use( CommonStyles)
+
+    sidebar = css.$class({ "+": this.common.vbox,
+        position: "absolute",
+        width: css.em(15),
+        height: css.em(50)
+    })
+
+    rightbar = css.$class({ "+": [this.sidebar, this.common.standout],
+        width: css.em(10),
+        left: css.em(1)
+    })
+}
+```
+
+The `$use` function returns the same object that is returned by the `activate` function. The difference between the `$use` and `activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
+
+When the style definition class is activated and deactivated, all the used style definition classes are activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
+
 
 ## Grouping Rules
 CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled in the same way as the top-level style definition class. The only difference is that for the grouping rules it is beneficial (but optional) to pass the class name of the parent as a generic parameter. Here is an example of the @media rule:
@@ -196,7 +241,15 @@ class MyStyles extends css.StyleDefinition
 
 Under the CSS specification, @import and @namespace rules should precede all style rules in the style sheet. Mimcss doesn't impose such a restriction: when Mimcss inserts the CSS rules into the DOM, it creates the @import statements first and the @namespace rules second, followed by other rules - regardless of their position in the style definition class. Mimcss will ignore any @import and @namespace rules specified under the nested grouping rules, such as @media and @supports - also in accordance with the CSS specification.
 
+
+## Style Definition Class Properties
+Style definition classes are regular TypeScript classes and thus can have any types of properties and methods. Since the main purpose of a style definition class is to define CSS style and at-rules, the majority of properties will be used to define those CSS rules by having properties initialized using functions like `$tag`, `$class`, `$id`, `$style`, etc. Note that property initializations are actually part of object construction, which run even before the body of the constructor does.
+
+Properties can refer to other properties defined in the same class using the `this.` notation. The only requirement is that if property A uses property B, property A must be defined *after* property B.
+
+Depending on the function used to initialize a property, it has a type that may allow some actions on the property value after the style definition has been activated (and thus there is an instance of the style definition class). For example, all style properties have a method `setValue`, which allows setting a value of a CSS property at run-time. You can also create methods in the style definition class that manipulate property values. This can be useful if you want to change values of multiple properties at once.
+
+
+
 The majority of CSS rules require specifying values for the style properties and that's what the next unit will cover.
-
-
 
