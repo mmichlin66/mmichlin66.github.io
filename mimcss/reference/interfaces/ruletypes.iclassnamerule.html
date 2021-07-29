@@ -69,9 +69,13 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The IClassNameRule interface represents a combination of two or more class names. It can be
-						used to make it easier to create elements with more than one CSS class.</p>
+						<p>The <code>IClassNameRule</code> interface represents a combination of two or more class names. It can be
+							used to make it easier to create elements with more than one CSS class. This interface is
+						returned from the <a href="../modules/ruleapi.html#_classname">$classname</a> function.</p>
 					</div>
+					<p>Objects implementing the <code>IClassNameRule</code> interface have the <code>name</code> property that contains the
+						combined class name, e.g. <code>&quot;class1 class2&quot;</code>. The <code>cssClassName</code> property contains the combined
+					selector, e.g. <code>&quot;&quot;.class1.class2&quot;</code>.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -213,9 +217,6 @@
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-kind-icon">Name<wbr>Generation<wbr>Method</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/ruletypes.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.ianimationframerule.html" class="tsd-kind-icon">IAnimation<wbr>Frame<wbr>Rule</a>
 					</li>
@@ -287,6 +288,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.irule.html" class="tsd-kind-icon">IRule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="ruletypes.istyledefinition.html" class="tsd-kind-icon">IStyle<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>

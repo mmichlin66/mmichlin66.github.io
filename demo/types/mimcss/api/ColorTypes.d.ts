@@ -159,7 +159,7 @@ export interface INamedColors {
 }
 /**
  * The IColorProxy interface represents an invocation of one of CSS functions that are used for
- * specifying colors. This interface is returned from functions like: rgb(), alpha(), etc.
+ * specifying colors. This interface is returned from functions like: [[rgb]], [[alpha]], etc.
  */
 export interface IColorProxy extends IGenericProxy<"color"> {
 }
@@ -178,7 +178,7 @@ export declare type SystemColors = "ActiveText" | "ButtonFace" | "ButtonText" | 
  *     ignored.
  *   - floating point part of the number is treated as percents of alpha channel. If there is no
  *     floating part, alpha is 1.
- * - functions: [[rgb]], [[hsl]], [[alpha]] as well as any function that returns the IColorProxy type.
+ * - functions: [[rgb]], [[hsl]], [[alpha]] as well as any function that returns the [[IColorProxy]] type.
  *
  * **Examples:**
  *

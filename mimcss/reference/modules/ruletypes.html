@@ -74,12 +74,6 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/ruletypes.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/ruletypes.ianimationframerule.html" class="tsd-kind-icon">IAnimation<wbr>Frame<wbr>Rule</a></li>
@@ -101,6 +95,7 @@
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/ruletypes.inamespacerule.html" class="tsd-kind-icon">INamespace<wbr>Rule</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/ruletypes.ipagerule.html" class="tsd-kind-icon">IPage<wbr>Rule</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/ruletypes.irule.html" class="tsd-kind-icon">IRule</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-kind-icon">IStyle<wbr>Definition</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/ruletypes.istylerule.html" class="tsd-kind-icon">IStyle<wbr>Rule</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/ruletypes.isupportsrule.html" class="tsd-kind-icon">ISupports<wbr>Rule</a></li>
@@ -131,9 +126,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The AnimationFrame type defines a single keyframe within a @keyframes rule.
+							<p>The AnimationFrame type defines a single keyframe within a <code>@keyframes</code> rule.
 								The waypoint can be specified as &quot;from&quot; or &quot;to&quot; strings or as a number 0 to 100, which will be
-							used as a percent.</p>
+							treated as percents.</p>
 						</div>
 					</div>
 				</section>
@@ -161,7 +156,7 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The AnimationWaypoint type defines a type that can be used to define a waypoint in an
-							animation sequence.</p>
+							animation sequence. When a waypoint is specified as a number, it is treated as percents.</p>
 						</div>
 					</div>
 				</section>
@@ -173,7 +168,14 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type for defining the class property of HTML elements.</p>
+							<p>Type for defining the <code>class</code> property of HTML elements. It can be expressed in one of the
+							following ways:</p>
+							<ul>
+								<li>as a string.</li>
+								<li>as a class rule returned form the <a href="ruleapi.html#_class">$class</a> function.</li>
+								<li>as a class name rule returned form the <a href="ruleapi.html#_classname">$classname</a> function.</li>
+								<li>as an array of the above.</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -305,9 +307,6 @@
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-kind-icon">Name<wbr>Generation<wbr>Method</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/ruletypes.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/ruletypes.ianimationframerule.html" class="tsd-kind-icon">IAnimation<wbr>Frame<wbr>Rule</a>
 					</li>
@@ -364,6 +363,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/ruletypes.irule.html" class="tsd-kind-icon">IRule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-kind-icon">IStyle<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>

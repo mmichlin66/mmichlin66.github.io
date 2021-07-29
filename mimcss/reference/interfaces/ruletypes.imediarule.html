@@ -78,7 +78,7 @@
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a> = <span class="tsd-signature-type">any</span></h4>
+						<h4>T<span class="tsd-signature-symbol">: </span><a href="ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a> = <span class="tsd-signature-type">any</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -102,7 +102,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ruletypes.imediarule.html#condition" class="tsd-kind-icon">condition</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="ruletypes.imediarule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.imediarule.html#mql" class="tsd-kind-icon">mql</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ruletypes.imediarule.html#rules" class="tsd-kind-icon">rules</a></li>
 							</ul>
 						</section>
@@ -111,6 +113,14 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="condition" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> condition</h3>
+					<div class="tsd-signature tsd-kind-icon">condition<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="ruletypes.igrouprule.html">IGroupRule</a>.<a href="ruletypes.igrouprule.html#condition">condition</a></p>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="cssrule" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> css<wbr>Rule</h3>
@@ -121,6 +131,19 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>SOM media rule</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="mql" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> mql</h3>
+					<div class="tsd-signature tsd-kind-icon">mql<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MediaQueryList</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Returns <code>MediaQueryList</code> object that allows programmatic checking whether the document matches
+							the media statement and also allows listening to its <code>change</code> event</p>
 						</div>
 					</div>
 				</section>
@@ -198,9 +221,6 @@
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
 						<a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-kind-icon">Name<wbr>Generation<wbr>Method</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/ruletypes.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.ianimationframerule.html" class="tsd-kind-icon">IAnimation<wbr>Frame<wbr>Rule</a>
 					</li>
@@ -245,8 +265,14 @@
 					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.imediarule.html" class="tsd-kind-icon">IMedia<wbr>Rule</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="ruletypes.imediarule.html#condition" class="tsd-kind-icon">condition</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 								<a href="ruletypes.imediarule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ruletypes.imediarule.html#mql" class="tsd-kind-icon">mql</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="ruletypes.imediarule.html#rules" class="tsd-kind-icon">rules</a>
@@ -269,6 +295,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.irule.html" class="tsd-kind-icon">IRule</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="ruletypes.istyledefinition.html" class="tsd-kind-icon">IStyle<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>

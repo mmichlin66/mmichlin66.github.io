@@ -130,50 +130,62 @@ export interface IStyleRule extends IRule, IRuleWithSelector {
     setCustomProp<K extends VarTemplateName>(customVar: IVarRule<K>, value: ExtendedVarValue<K>, important?: boolean, schedulerType?: number): void;
 }
 /**
- * The INamedStyleRule interface combines IStyleRule and INamedEntity interfaces. This is used
+ * The `INamedStyleRule` interface combines IStyleRule and INamedEntity interfaces. This is used
  * for class and ID rules.
  */
 export interface INamedStyleRule extends IStyleRule, INamedEntity {
 }
 /**
- * The IClassRule interface represents a style rule where the selector is a single class name.
+ * The `IClassRule` interface represents a style rule where the selector is a single class name.
+ * This interface is returned from the [[$class]] function.
  */
 export interface IClassRule extends INamedStyleRule {
-    /** Name of the class prefixed with "." */
+    /** Name of the class prefixed with `"."` */
     readonly cssClassName: string;
 }
 /**
- * The IClassNameRule interface represents a combination of two or more class names. It can be
- * used to make it easier to create elements with more than one CSS class.
+ * The `IClassNameRule` interface represents a combination of two or more class names. It can be
+ * used to make it easier to create elements with more than one CSS class. This interface is
+ * returned from the [[$classname]] function.
+ *
+ * Objects implementing the `IClassNameRule` interface have the `name` property that contains the
+ * combined class name, e.g. `"class1 class2"`. The `cssClassName` property contains the combined
+ * selector, e.g. `"".class1.class2"`.
  */
 export interface IClassNameRule extends INamedEntity, IRuleWithSelector {
     /** Name of all the class names prefixed with "." */
     readonly cssClassName: string;
 }
 /**
- * Type for defining the class property of HTML elements.
+ * Type for defining the `class` property of HTML elements. It can be expressed in one of the
+ * following ways:
+ * - as a string.
+ * - as a class rule returned form the [[$class]] function.
+ * - as a class name rule returned form the [[$classname]] function.
+ * - as an array of the above.
  */
 export declare type ClassPropType = string | IClassRule | IClassNameRule | ClassPropType[];
 /**
- * The IIDRule interface represents a style rule where the selector is a single element ID.
+ * The `IIDRule` interface represents a style rule where the selector is a single element ID.
+ * This interface is returned from the [[$id]] function.
  */
 export interface IIDRule extends INamedStyleRule {
-    /** Name of the element ID prefixed with "#" */
+    /** Element identifier prefixed with `"#"` */
     readonly cssIDName: string;
 }
 /**
  * The AnimationWaypoint type defines a type that can be used to define a waypoint in an
- * animation sequence.
+ * animation sequence. When a waypoint is specified as a number, it is treated as percents.
  */
 export declare type AnimationWaypoint = OneOrMany<"from" | "to" | number>;
 /**
- * The AnimationFrame type defines a single keyframe within a @keyframes rule.
+ * The AnimationFrame type defines a single keyframe within a `@keyframes` rule.
  * The waypoint can be specified as "from" or "to" strings or as a number 0 to 100, which will be
- * used as a percent.
+ * treated as percents.
  */
 export declare type AnimationFrame = [AnimationWaypoint, AnimationStyleset];
 /**
- * The IAnimationRule interface represents the @keyframes rule.
+ * The IAnimationRule interface represents the `@keyframes` rule.
  * Objects implementing this interface are returned from the [[$keyframes]] function.
  */
 export interface IAnimationRule extends IRule, INamedEntity {
@@ -183,7 +195,7 @@ export interface IAnimationRule extends IRule, INamedEntity {
     readonly frameRules: IAnimationFrameRule[];
 }
 /**
- * The IAnimationFrameRule interface represents a single frame in the @keyframes rule.
+ * The IAnimationFrameRule interface represents a single frame in the `@keyframes` rule.
  */
 export interface IAnimationFrameRule extends IStyleRule {
     /** Identifier of the waypoint */
@@ -218,7 +230,7 @@ export interface IVarRule<K extends VarTemplateName = any> extends INamedEntity,
  * the `template` parameter can be used. These are called constants, because they provide the
  * convenient and lightweight way of defining values that are unchanged during the application
  * lifetime. Although constants are defined very similarly to custom properties (see the
- * [[IVarRule]] function), they cannot participate in the cascade and cannot be redefined under
+ * [[IVarRule]] interface), they cannot participate in the cascade and cannot be redefined under
  * elements. Constant can, however, use any expression that satisfies the type defined by the
  * `template` parameter including other constants, custom properties and functions.
  * Objects implementing this interface are returned from the [[$const]] function.
@@ -242,21 +254,31 @@ export interface IConstRule<K extends VarTemplateName = any> extends IConstant<V
  * Objects implementing this interface are returned from the [[$counter]] function.
  */
 export interface ICounterRule extends INamedEntity {
-    /** Name of the counter */
+    /**
+     * Name of the counter - this property returns the same value as the `name` property
+     * inherited from the [[INamedEntity]] interface. This property is only needed to distinguish
+     * this interface from others.
+     * @ignore
+     */
     readonly counterName: string;
 }
 /**
- * The ICounterRule interface represents the @counter-style rule.
+ * The ICounterRule interface represents the `@counter-style` rule.
  * Objects implementing this interface are returned from the [[$counterStyle]] function.
  */
 export interface ICounterStyleRule extends IRule, INamedEntity {
     /** SOM counter-style rule */
     readonly cssRule: CSSRule | null;
-    /** Name of the counter */
+    /**
+     * Name of the counter style - this property returns the same value as the `name` property
+     * inherited from the [[INamedEntity]] interface. This property is only needed to distinguish
+     * this interface from others.
+     * @ignore
+     */
     readonly counterStyleName: string;
 }
 /**
- * The IImportRule interface represents the CSS @import rule.
+ * The IImportRule interface represents the CSS `@import` rule.
  * Objects implementing this interface are returned from the [[$import]] function.
  */
 export interface IImportRule extends IRule {
@@ -264,7 +286,7 @@ export interface IImportRule extends IRule {
     readonly cssRule: CSSImportRule | null;
 }
 /**
- * The IFontFaceRule interface represents the CSS @font-face rule.
+ * The IFontFaceRule interface represents the CSS `@font-face` rule.
  * Objects implementing this interface are returned from the [[$fontface]] function.
  */
 export interface IFontFaceRule extends IRule {
@@ -272,7 +294,7 @@ export interface IFontFaceRule extends IRule {
     readonly cssRule: CSSFontFaceRule | null;
 }
 /**
- * The INamespaceRule interface represents the CSS @namespace rule.
+ * The INamespaceRule interface represents the CSS `@namespace` rule.
  * Objects implementing this interface are returned from the [[$namespace]] function.
  */
 export interface INamespaceRule extends IRule {
@@ -284,12 +306,12 @@ export interface INamespaceRule extends IRule {
     readonly cssRule: CSSNamespaceRule | null;
 }
 /**
- * The IPageRule interface represents the CSS @page rule.
+ * The IPageRule interface represents the CSS `@page` rule.
  * Objects implementing this interface are returned from the [[$page]] function.
  */
 export interface IPageRule extends IStyleRule {
     /** Optional name of the page pseudo style (e.g. "":first") */
-    readonly pseudoClass: PagePseudoClass | undefined;
+    readonly pseudoClass?: PagePseudoClass | undefined;
     /** SOM page rule */
     readonly cssRule: CSSPageRule | null;
 }
@@ -323,48 +345,44 @@ export interface IGridAreaRule extends INamedEntity {
     readonly endLine: IGridLineRule;
 }
 /**
- * The StyleDefinition class is a base for all classes that contain defininitions of CSS rules.
- * @typeparam P Parent style definition class. Parent of top-lvel class is null.
+ * The `IStyleDefinition` interface represents a class that contain defininitions of CSS rules.
+ * This interface is implemented by the [[StyleDefinition]] class and is not intended to be
+ * implemented by developers
+ *
+ * @typeparam P Parent style definition class. Parent of a top-level class is null.
  * @typeparam O Top-level style definition class, which is the owner of this class. The top-level
  * class is its own owner.
  */
-export declare abstract class StyleDefinition<P extends StyleDefinition = any, O extends StyleDefinition = any> {
-    /**
-     * Style definition instances are created directly only by the *styled components* - that is,
-     * components that use different styles for each instance. Otherwise, style definition
-     * instances are created when either the [[$use]], [[$embed]] or [[activate]] function is called.
-     * @param parent Reference to the parent style definition class
-     */
-    constructor(parent?: P);
+export interface IStyleDefinition<P extends IStyleDefinition = any, O extends IStyleDefinition = any> {
     /**
      * Refers to the instance of the style definition class which is the parnt of this style
      * definition object in the chain of style definition classes. Through this member, all rules
-     * and other members defined in the parent definition class can be accessed.For top-level
+     * and other members defined in the parent definition class can be accessed. For top-level
      * style definitions, this property is always undefined. This property can also be undefined
      * if it was not provided to the constructor when creating the style definition class manually.
      */
-    get $parent(): P | undefined;
+    readonly $parent: P | undefined;
     /**
      * Refers to the instance of the style definition class which is the owner of
      * this style definition object. The owner is the top-level class in the chain of style
      * definition classes. Through this member, all rules and other members defined in the owner
      * definition class can be accessed. For top-level style definitions, this property points
-     * to itself. This property can be undefined if the parent instance was not provided when
-     * creating the style definition class manually.
+     * to itself.
      */
-    get $owner(): O | undefined;
+    readonly $owner: O | undefined;
 }
 /**
  * "Constructor" interface defining how style definition classes can be created.
  */
-export interface IStyleDefinitionClass<T extends StyleDefinition<P, O> = any, P extends StyleDefinition = any, O extends StyleDefinition = any> {
+export interface IStyleDefinitionClass<T extends IStyleDefinition<P, O> = any, P extends IStyleDefinition = any, O extends IStyleDefinition = any> {
     /** All style definition classes should conform to this constructor */
     new (parent?: P): T;
 }
 /**
  * The IGroupRule interface represents a grouping CSS rule.
  */
-export interface IGroupRule<T extends StyleDefinition = any> extends IRule {
+export interface IGroupRule<T extends IStyleDefinition = any> extends IRule {
+    readonly condition: string;
     readonly rules: T;
     /** SOM supports rule */
     readonly cssRule: CSSGroupingRule | null;
@@ -373,7 +391,7 @@ export interface IGroupRule<T extends StyleDefinition = any> extends IRule {
  * The ISupportsRule interface represents the CSS @supports rule.
  * Objects implementing this interface are returned from the [[$supports]] function.
  */
-export interface ISupportsRule<T extends StyleDefinition = any> extends IGroupRule<T> {
+export interface ISupportsRule<T extends IStyleDefinition = any> extends IGroupRule<T> {
     /** Flag indicated whether the browser supports this rule's query */
     readonly isSupported: boolean;
     /** SOM supports rule */
@@ -383,7 +401,12 @@ export interface ISupportsRule<T extends StyleDefinition = any> extends IGroupRu
  * The IMediaRule interface represents the CSS @media rule.
  * Objects implementing this interface are returned from the [[$media]] function.
  */
-export interface IMediaRule<T extends StyleDefinition = any> extends IGroupRule<T> {
+export interface IMediaRule<T extends IStyleDefinition = any> extends IGroupRule<T> {
+    /**
+     * Returns `MediaQueryList` object that allows programmatic checking whether the document matches
+     * the media statement and also allows listening to its `change` event
+     */
+    readonly mql: MediaQueryList;
     /** SOM media rule */
     readonly cssRule: CSSMediaRule | null;
 }

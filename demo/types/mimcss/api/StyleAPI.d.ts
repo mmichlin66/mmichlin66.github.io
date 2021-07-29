@@ -1,6 +1,6 @@
 import { IStringProxy } from "./CoreTypes";
-import { IStyleDefinitionClass, IVarRule, StyleDefinition } from "./RuleTypes";
-import { ExtendedMediaFeatureset, IMediaQueryProxy, ISupportsQueryProxy, MediaStatement, SupportsStatemnet } from "./MediaTypes";
+import { IStyleDefinitionClass, IVarRule, IStyleDefinition } from "./RuleTypes";
+import { ExtendedMediaFeatureset, IMediaQueryProxy, ISupportsQueryProxy, MediaStatement, SupportsStatement } from "./MediaTypes";
 import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue, ICssSerializer } from "./StyleTypes";
 /**
  * Registers the given function to be used for converting values of the given style property to
@@ -152,7 +152,7 @@ export declare function supports(parts: TemplateStringsArray, ...params: Stylese
 /**
  * Converts the given supports query value to the CSS supports query string.
  */
-export declare function supportsToString(query: SupportsStatemnet): string;
+export declare function supportsToString(query: SupportsStatement): string;
 /**
  * Creates a new ICssSerializer object that allows adding style definition classes
  * and instances and serializing them to a string. This can be used for server-side rendering when
@@ -164,5 +164,5 @@ export declare function createCssSerializer(): ICssSerializer;
  * representation. This can be used for server-side rendering when the resultant string can be
  * set as the content of a `<style>` element.
  */
-export declare function serializeToCSS(...args: (StyleDefinition | IStyleDefinitionClass)[]): string;
+export declare function serializeToCSS(...args: (IStyleDefinition | IStyleDefinitionClass)[]): string;
 //# sourceMappingURL=StyleAPI.d.ts.map

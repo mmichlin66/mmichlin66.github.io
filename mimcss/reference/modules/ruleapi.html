@@ -75,6 +75,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/ruleapi.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_abstract" class="tsd-kind-icon">$abstract</a></li>
@@ -125,20 +131,8 @@
 										Abstract rules don&#39;t have selectors and are not inserted into the DOM. Abstract rules can
 									themselves extend other rules - both abstract and non-abstract.</p>
 								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>styleset: <a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Styleset that will be inherited by style rules that extend this abstract rule.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.istylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleRule</a></h4>
-							<p><code>IStyleRule</code> object that should be used by the derived rules in the <code>&quot;+&quot;</code> property.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #001080">colorBox</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$abstract</span><span style="color: #000000">({</span>
 <span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;orange&quot;</span><span style="color: #000000">,</span>
@@ -162,6 +156,18 @@
 <span style="color: #000000">    })</span>
 <span style="color: #000000">}</span>
 </code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>styleset: <a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Styleset that will be inherited by style rules that extend this abstract rule.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.istylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleRule</a></h4>
+							<p><code>IStyleRule</code> object that should be used by the derived rules in the <code>&quot;+&quot;</code> property.</p>
 						</li>
 					</ul>
 				</section>
@@ -185,6 +191,26 @@
 								</div>
 								<p>The returned <a href="../interfaces/ruletypes.iclassrule.html">IClassRule</a> interface has the <code>name</code> property that should be used to assign
 								the class to an HTML element</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">vbox</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;flex&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">flexDirection:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;column&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">alignItems:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;center&quot;</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">styles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">MyClasses</span><span style="color: #000000">);</span>
+<span style="color: #000000">...</span>
+<span style="color: #001080">render</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">class</span><span style="color: #000000">={</span><span style="color: #267F99">styles</span><span style="color: #000000">.</span><span style="color: #267F99">vbox</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;</span>
+<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">Hello</span><span style="color: #000000">&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">World</span><span style="color: #000000">!&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">    &lt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -207,26 +233,6 @@
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.iclassrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassRule</a></h4>
 							<p><code>IClassRule</code> object that should be used for getting the class name and for accessing
 							the style properties if needed.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">vbox</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;flex&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">flexDirection:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;column&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">alignItems:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;center&quot;</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-<span style="color: #000000">...</span>
-<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">styles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">MyClasses</span><span style="color: #000000">);</span>
-<span style="color: #000000">...</span>
-<span style="color: #001080">render</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">class</span><span style="color: #000000">={</span><span style="color: #267F99">styles</span><span style="color: #000000">.</span><span style="color: #267F99">vbox</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;</span>
-<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">Hello</span><span style="color: #000000">&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
-<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">World</span><span style="color: #000000">!&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
-<span style="color: #000000">    &lt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -246,18 +252,8 @@
 										&quot;synonym&quot; that is easier to apply to an element&#39;s class attribute than an array of two or
 									more class rules.</p>
 								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classes: <span class="tsd-signature-symbol">(</span><a href="../interfaces/ruletypes.iclassrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iclassnamerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.iclassnamerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassNameRule</a></h4>
-							<p><code>IClassNameRule</code> object whose <code>name</code> property contains the combined class name. The
-							<code>cssClassName</code> property contains the combined selector, e.g. <code>.class1.class2</code>.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// declare class - just to be used later</span>
 <span style="color: #000000">    </span><span style="color: #001080">spaced</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">class</span><span style="color: #000000">()</span>
@@ -267,9 +263,7 @@
 <span style="color: #000000">        </span><span style="color: #001080">flexDirection:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;column&quot;</span><span style="color: #000000">,</span>
 <span style="color: #000000">        </span><span style="color: #001080">alignItems:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;center&quot;</span><span style="color: #000000">,</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;&amp;&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [</span>
-<span style="color: #000000">            [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">spaced</span><span style="color: #000000">, {</span>
-<span style="color: #000000">                </span><span style="color: #001080">gap:</span><span style="color: #000000"> </span><span style="color: #098658">8</span>
-<span style="color: #000000">            }</span>
+<span style="color: #000000">            [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">spaced</span><span style="color: #000000">, {</span><span style="color: #001080">gap:</span><span style="color: #000000"> </span><span style="color: #098658">8</span><span style="color: #000000">}]</span>
 <span style="color: #000000">        ]</span>
 <span style="color: #000000">    })</span>
 
@@ -277,18 +271,28 @@
 <span style="color: #000000">    </span><span style="color: #001080">spacedVbox</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$classname</span><span style="color: #000000">( </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">vbox</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">spaced</span><span style="color: #000000">)</span>
 <span style="color: #000000">}</span>
 <span style="color: #000000">...</span>
-<span style="color: #001080">let</span><span style="color: #000000"> </span><span style="color: #001080">styles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">MyClasses</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">styles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">MyClasses</span><span style="color: #000000">);</span>
 <span style="color: #000000">...</span>
 <span style="color: #001080">render</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// without spacedVbox, the class would be: {[styles.vbox.name, styles.spaced.name]}</span>
-<span style="color: #000000">    return &lt;div </span><span style="color: #001080">class</span><span style="color: #000000">={styles.spacedVbox.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;</span>
-<span style="color: #000000">        &lt;span&gt;Hello&lt;/span&gt;</span>
-<span style="color: #000000">        &lt;span&gt;World!&lt;/span&gt;</span>
-<span style="color: #000000">    &lt;/div&gt;</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">class</span><span style="color: #000000">={</span><span style="color: #267F99">styles</span><span style="color: #000000">.</span><span style="color: #267F99">spacedVbox</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;</span>
+<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">Hello</span><span style="color: #000000">&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">World</span><span style="color: #000000">!&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">    &lt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
 <span style="color: #000000">}</span>
-
 </code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classes: <span class="tsd-signature-symbol">(</span><a href="../interfaces/ruletypes.iclassrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iclassnamerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.iclassnamerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassNameRule</a></h4>
+							<p><code>IClassNameRule</code> object whose <code>name</code> property contains the combined class name, e.g.
+								<code>&quot;class1 class2&quot;</code>. The <code>cssClassName</code> property contains the combined selector, e.g.
+							<code>&quot;&quot;.class1.class2&quot;</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -315,6 +319,16 @@
 								<p>No CSS rules are created for costants and due to this fact constants are preferable to custom
 									properties unless the intention is to change the variable value at run-time or to redefine its
 								value under different style rules.</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// defining and using custom CSS property</span>
+<span style="color: #000000">    </span><span style="color: #001080">defaultTextColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$const</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #001080">para</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;p&quot;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">        </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">defaultTextColor</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -342,16 +356,6 @@
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.iconstrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IConstRule</a></h4>
 							<p>The <code>IConstRule</code> object that represents the value of the constant. The value is
 							computed once when the style definition is processed.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// defining and using custom CSS property</span>
-<span style="color: #000000">    </span><span style="color: #001080">defaultTextColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$const</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">)</span>
-<span style="color: #000000">    </span><span style="color: #001080">para</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;p&quot;</span><span style="color: #000000">, {</span>
-<span style="color: #000000">        </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">defaultTextColor</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -374,6 +378,17 @@
 								<p>Counter rules don&#39;t create any CSS rules, but they create unique names that can be used
 									for <code>counter-reset</code> and <code>counter-increment</code> style properties. Counter rules are usually used
 								in conjunction with the <a href="shapeapi.html#counter">counter</a> and <a href="shapeapi.html#counters">counters</a> functions.</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">counter</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$counter</span><span style="color: #000000">()</span>
+<span style="color: #000000">    </span><span style="color: #001080">ol</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;ol&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">counterReset:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">, </span><span style="color: #001080">listStyleType:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;none&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    </span><span style="color: #001080">li</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;li&quot;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">        </span><span style="color: #001080">counterIncrement:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;::before&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> { </span><span style="color: #001080">content:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">counters</span><span style="color: #000000">( </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">) }</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -389,17 +404,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a></h4>
 							<p>The <code>ICounterRule</code> object that represents the counter.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">counter</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$counter</span><span style="color: #000000">()</span>
-<span style="color: #000000">    </span><span style="color: #001080">ol</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;ol&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">counterReset:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">, </span><span style="color: #001080">listStyleType:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;none&quot;</span><span style="color: #000000"> })</span>
-<span style="color: #000000">    </span><span style="color: #001080">li</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;li&quot;</span><span style="color: #000000">, {</span>
-<span style="color: #000000">        </span><span style="color: #001080">counterIncrement:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #A31515">&quot;::before&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> { </span><span style="color: #001080">content:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">counters</span><span style="color: #000000">( </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">counter</span><span style="color: #000000">) }</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -419,6 +423,16 @@
 										processed as part of the style definition class. The name can be also overridden by providing
 									either an explicit name or another counter style rule.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">counterStyle</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$counterStyle</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">system:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;cyclic&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">symbols:</span><span style="color: #000000"> [</span><span style="color: #A31515">&quot;one&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;two&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;three&quot;</span><span style="color: #000000">],</span>
+<span style="color: #000000">        </span><span style="color: #001080">suffix:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot; - &quot;</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -440,16 +454,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.icounterstylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterStyleRule</a></h4>
 							<p>The <code>ICounterStyleRule</code> object that represents the counter style.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">counterStyle</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$counterStyle</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">system:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;cyclic&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">symbols:</span><span style="color: #000000"> [</span><span style="color: #A31515">&quot;one&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;two&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;three&quot;</span><span style="color: #000000">],</span>
-<span style="color: #000000">        </span><span style="color: #001080">suffix:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot; - &quot;</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -501,16 +505,21 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruleapi.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either style definition class or an instanc of a style definition class.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+							<p>An instance of the style definition class, which will be activated and deactivated
+							along with the enclosing style definition.</p>
 						</li>
 					</ul>
 				</section>
@@ -528,6 +537,17 @@
 								<div class="lead">
 									<p>Creates a new <code>@font-face</code> rule.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">font</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$fontface</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">fontFamily:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;Roboto&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">fontStyle:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;italic&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">fontWeight:</span><span style="color: #000000"> </span><span style="color: #098658">700</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">src:</span><span style="color: #000000"> {</span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;roboto.woff&#039;</span><span style="color: #000000">, </span><span style="color: #001080">format:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;woff&#039;</span><span style="color: #000000">}</span>
+<span style="color: #000000">    });</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -541,17 +561,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.ifontfacerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IFontFaceRule</a></h4>
 							<p>The <code>IFontFaceRule</code> object that represents the @font-face rule.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">font</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$fontface</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">fontFamily:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;Roboto&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">fontStyle:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;italic&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">fontWeight:</span><span style="color: #000000"> </span><span style="color: #098658">700</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">src:</span><span style="color: #000000"> {</span><span style="color: #001080">url:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;roboto.woff&#039;</span><span style="color: #000000">, </span><span style="color: #001080">format:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;woff&#039;</span><span style="color: #000000">}</span>
-<span style="color: #000000">    });</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -577,23 +586,8 @@
 								can be type-safely referred to from style rules.</p>
 								<p>Every grid area defines two grid line rules in each direction, which can be accessed using the
 								<a href="../interfaces/ruletypes.igridarearule.html#startline">IGridAreaRule.startLine</a> and <a href="../interfaces/ruletypes.igridarearule.html#endline">IGridAreaRule.endLine</a> properties.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.igridarearule.html" class="tsd-signature-type" data-tsd-kind="Interface">IGridAreaRule</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>String or another <code>IGridAreaRule</code> object that determines the name of the
-											area. If this optional parameter is defined, the name will override the Mimcss name
-											assignment mechanism. This might be useful if there is a need for the name to match a name of
-										existing grid area.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.igridarearule.html" class="tsd-signature-type" data-tsd-kind="Interface">IGridAreaRule</a></h4>
-							<p>The <code>IGridAreaRule</code> object that represents the grid area.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #001080">headerArea</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$gridarea</span><span style="color: #000000">();</span>
 <span style="color: #000000">    </span><span style="color: #001080">mainArea</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$gridarea</span><span style="color: #000000">();</span>
@@ -619,6 +613,21 @@
 <span style="color: #000000">    })</span>
 <span style="color: #000000">}</span>
 </code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOverride: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.igridarearule.html" class="tsd-signature-type" data-tsd-kind="Interface">IGridAreaRule</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>String or another <code>IGridAreaRule</code> object that determines the name of the
+											area. If this optional parameter is defined, the name will override the Mimcss name
+											assignment mechanism. This might be useful if there is a need for the name to match a name of
+										existing grid area.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.igridarearule.html" class="tsd-signature-type" data-tsd-kind="Interface">IGridAreaRule</a></h4>
+							<p>The <code>IGridAreaRule</code> object that represents the grid area.</p>
 						</li>
 					</ul>
 				</section>
@@ -641,6 +650,27 @@
 								</div>
 								<p>No CSS rule is created for grid lines - these objects are solely used for creating names, which
 								can be type-safely referred to from style rules.</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">gridLineFirst</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$gridline</span><span style="color: #000000">()</span>
+<span style="color: #000000">    </span><span style="color: #001080">gridLineLast</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$gridline</span><span style="color: #000000">()</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">grid</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;grid&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">gridTemplateColumns:</span><span style="color: #000000"> [ [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineFirst</span><span style="color: #000000">], </span><span style="color: #A31515">&quot;1fr&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;2fr&quot;</span><span style="color: #000000">, [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineLast</span><span style="color: #000000">] ],</span>
+<span style="color: #000000">        </span><span style="color: #001080">gridTemplateRows:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">repeat</span><span style="color: #000000">( </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;1fr&quot;</span><span style="color: #000000">),</span>
+<span style="color: #000000">    })</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">first</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">gridColumnStart:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineFirst</span><span style="color: #000000">,</span>
+<span style="color: #000000">    })</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">last</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">gridColumnEnd:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineLast</span><span style="color: #000000">,</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -664,27 +694,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.igridlinerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IGridLineRule</a></h4>
 							<p>The <code>IGridLineRule</code> object that represents the grid line.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">gridLineFirst</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$gridline</span><span style="color: #000000">()</span>
-<span style="color: #000000">    </span><span style="color: #001080">gridLineLast</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$gridline</span><span style="color: #000000">()</span>
-
-<span style="color: #000000">    </span><span style="color: #001080">grid</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;grid&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">gridTemplateColumns:</span><span style="color: #000000"> [ [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineFirst</span><span style="color: #000000">], </span><span style="color: #A31515">&quot;1fr&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;2fr&quot;</span><span style="color: #000000">, [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineLast</span><span style="color: #000000">] ],</span>
-<span style="color: #000000">        </span><span style="color: #001080">gridTemplateRows:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">repeat</span><span style="color: #000000">( </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;1fr&quot;</span><span style="color: #000000">),</span>
-<span style="color: #000000">    })</span>
-
-<span style="color: #000000">    </span><span style="color: #001080">first</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">gridColumnStart:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineFirst</span><span style="color: #000000">,</span>
-<span style="color: #000000">    })</span>
-
-<span style="color: #000000">    </span><span style="color: #001080">last</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">gridColumnEnd:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">gridLineLast</span><span style="color: #000000">,</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -708,6 +717,26 @@
 								</div>
 								<p>The returned <a href="../interfaces/ruletypes.iidrule.html">IIDRule</a> interface has the <code>name</code> property that should be used to assign
 								the ID to an HTML element.</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">container</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$id</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;flex&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">flexDirection:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;column&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">alignItems:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;center&quot;</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">...</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">styles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">MyClasses</span><span style="color: #000000">);</span>
+<span style="color: #000000">...</span>
+<span style="color: #001080">render</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">id</span><span style="color: #000000">={</span><span style="color: #267F99">styles</span><span style="color: #000000">.</span><span style="color: #267F99">container</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;</span>
+<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">Hello</span><span style="color: #000000">&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">World</span><span style="color: #000000">!&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">    &lt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -729,26 +758,6 @@
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a></h4>
 							<p><code>IIDRule</code> object that should be used for getting the ID name and for accessing
 							the style properties if needed.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">container</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$id</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;flex&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">flexDirection:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;column&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">alignItems:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;center&quot;</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-<span style="color: #000000">...</span>
-<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">styles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">MyClasses</span><span style="color: #000000">);</span>
-<span style="color: #000000">...</span>
-<span style="color: #001080">render</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">id</span><span style="color: #000000">={</span><span style="color: #267F99">styles</span><span style="color: #000000">.</span><span style="color: #267F99">container</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;</span>
-<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">Hello</span><span style="color: #000000">&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
-<span style="color: #000000">        &lt;</span><span style="color: #267F99">span</span><span style="color: #000000">&gt;</span><span style="color: #001080">World</span><span style="color: #000000">!&lt;/</span><span style="color: #001080">span</span><span style="color: #000000">&gt;</span>
-<span style="color: #000000">    &lt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -756,7 +765,7 @@
 					<a name="_import" class="tsd-anchor"></a>
 					<h3>$import</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">$import<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, mediaQuery<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="mediatypes.html#mediastatement" class="tsd-signature-type" data-tsd-kind="Type alias">MediaStatement</a>, supportsQuery<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="mediatypes.html#supportsstatemnet" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatemnet</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.iimportrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IImportRule</a></li>
+						<li class="tsd-signature tsd-kind-icon">$import<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, mediaQuery<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="mediatypes.html#mediastatement" class="tsd-signature-type" data-tsd-kind="Type alias">MediaStatement</a>, supportsQuery<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="mediatypes.html#supportsstatement" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.iimportrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IImportRule</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -766,6 +775,15 @@
 								<div class="lead">
 									<p>Creates a new <code>@import</code> rule referencing the given CSS file.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">importedCssFiles</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$import</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;common-3rdparty.css&quot;</span><span style="color: #000000">),</span>
+<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$import</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;small-screen-3rdparty.css&quot;</span><span style="color: #000000">, {</span><span style="color: #001080">maxWidth:</span><span style="color: #000000"> </span><span style="color: #098658">600</span><span style="color: #000000">}),</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -780,20 +798,11 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mediaQuery: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="mediatypes.html#mediastatement" class="tsd-signature-type" data-tsd-kind="Type alias">MediaStatement</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> supportsQuery: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="mediatypes.html#supportsstatemnet" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatemnet</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> supportsQuery: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="mediatypes.html#supportsstatement" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatement</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.iimportrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IImportRule</a></h4>
 							<p>The <code>IImportRule</code> object that represents the <code>@import</code> rule.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">importedCssFiles</span><span style="color: #000000"> = [</span>
-<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$import</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;common-3rdparty.css&quot;</span><span style="color: #000000">),</span>
-<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$import</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;small-screen-3rdparty.css&quot;</span><span style="color: #000000">, {</span><span style="color: #001080">maxWidth:</span><span style="color: #000000"> </span><span style="color: #098658">600</span><span style="color: #000000">}),</span>
-<span style="color: #000000">    ]</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -817,6 +826,19 @@
 								</div>
 								<p>The returned <a href="../interfaces/ruletypes.ianimationrule.html">IAnimationRule</a> interface represents an object that should be used when
 								using the keyframes name in the <code>animation-name</code> or <code>animation</code> style properties.</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">vanish</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$keyframes</span><span style="color: #000000">([</span>
+<span style="color: #000000">        [</span><span style="color: #098658">0</span><span style="color: #000000">, { </span><span style="color: #001080">opacity:</span><span style="color: #000000"> </span><span style="color: #098658">100</span><span style="color: #000000"> }],</span>
+<span style="color: #000000">           [</span><span style="color: #098658">100</span><span style="color: #000000">, { </span><span style="color: #001080">opacity:</span><span style="color: #000000"> </span><span style="color: #098658">0</span><span style="color: #000000"> }],</span>
+<span style="color: #000000">    ])</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">vanishingBlock</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">animation:</span><span style="color: #000000"> { </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">vanish</span><span style="color: #000000">, </span><span style="color: #001080">duration:</span><span style="color: #000000"> </span><span style="color: #098658">2000</span><span style="color: #000000">, </span><span style="color: #001080">count:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;infinite&quot;</span><span style="color: #000000">, </span><span style="color: #001080">direction:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;alternate&quot;</span><span style="color: #000000"> }</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -839,19 +861,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.ianimationrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IAnimationRule</a></h4>
 							<p><code>IAnimationRule</code> object that should be used for getting the animation name.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">vanish</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$keyframes</span><span style="color: #000000">([</span>
-<span style="color: #000000">        [</span><span style="color: #098658">0</span><span style="color: #000000">, { </span><span style="color: #001080">opacity:</span><span style="color: #000000"> </span><span style="color: #098658">100</span><span style="color: #000000"> }],</span>
-<span style="color: #000000">           [</span><span style="color: #098658">100</span><span style="color: #000000">, { </span><span style="color: #001080">opacity:</span><span style="color: #000000"> </span><span style="color: #098658">0</span><span style="color: #000000"> }],</span>
-<span style="color: #000000">    ])</span>
-
-<span style="color: #000000">    </span><span style="color: #001080">vanishingBlock</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">animation:</span><span style="color: #000000"> { </span><span style="color: #001080">name:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">vanish</span><span style="color: #000000">, </span><span style="color: #001080">duration:</span><span style="color: #000000"> </span><span style="color: #098658">2000</span><span style="color: #000000">, </span><span style="color: #001080">count:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;infinite&quot;</span><span style="color: #000000">, </span><span style="color: #001080">direction:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;alternate&quot;</span><span style="color: #000000"> }</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -859,7 +868,7 @@
 					<a name="_media" class="tsd-anchor"></a>
 					<h3>$media</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">$media&lt;T&gt;<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><a href="mediatypes.html#mediastatement" class="tsd-signature-type" data-tsd-kind="Type alias">MediaStatement</a>, instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.imediarule.html" class="tsd-signature-type" data-tsd-kind="Interface">IMediaRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">$media&lt;T&gt;<span class="tsd-signature-symbol">(</span>statement<span class="tsd-signature-symbol">: </span><a href="mediatypes.html#mediastatement" class="tsd-signature-type" data-tsd-kind="Type alias">MediaStatement</a>, instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.imediarule.html" class="tsd-signature-type" data-tsd-kind="Interface">IMediaRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -867,25 +876,45 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates new media rule.</p>
+									<p>Creates new <code>@media</code> rule.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">})</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">ifNarrowScreen</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$media</span><span style="color: #000000">( { </span><span style="color: #001080">maxWidth:</span><span style="color: #000000"> </span><span style="color: #098658">800</span><span style="color: #000000"> },</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000">&lt;</span><span style="color: #267F99">MyStyles</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">        {</span>
+<span style="color: #000000">            </span><span style="color: #001080">cls</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;pink&quot;</span><span style="color: #000000">})</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    )</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruleapi.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>query: <a href="mediatypes.html#mediastatement" class="tsd-signature-type" data-tsd-kind="Type alias">MediaStatement</a></h5>
+									<h5>statement: <a href="mediatypes.html#mediastatement" class="tsd-signature-type" data-tsd-kind="Type alias">MediaStatement</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Media statement containing one or more media queries.</p>
+									</div>
 								</li>
 								<li>
 									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either style definition class or an instance of a style defintion class.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.imediarule.html" class="tsd-signature-type" data-tsd-kind="Interface">IMediaRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><code>IMediaRule</code> object representing the media rule</p>
 						</li>
 					</ul>
 				</section>
@@ -901,19 +930,34 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates new namespace rule.</p>
+									<p>Creates new <code>@namespace</code> rule.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">init</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$namespace</span><span style="color: #000000">( </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #001080">WebNamespaces</span><span style="color: #000000">.</span><span style="color: #0070C1">SVG</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;svg&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>namespace: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Namespace string - use the <a href="../enums/coretypes.webnamespaces.html">WebNamespaces</a> for well-known namespaces.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Prefix string to use for the namespace.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.inamespacerule.html" class="tsd-signature-type" data-tsd-kind="Interface">INamespaceRule</a></h4>
+							<p>The <code>INamespaceRule</code> object that represents the namespace rule.</p>
 						</li>
 					</ul>
 				</section>
@@ -929,19 +973,34 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates new page rule.</p>
+									<p>Creates new <code>@page</code> rule.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">init</span><span style="color: #000000"> = [</span>
+<span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$page</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;:first&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">margin:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;auto&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pseudoClass: <a href="coretypes.html#pagepseudoclass" class="tsd-signature-type" data-tsd-kind="Type alias">PagePseudoClass</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional name of the page pseudo style.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> styleset: <a href="styletypes.html#styleset" class="tsd-signature-type" data-tsd-kind="Type alias">Styleset</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Styles to apply.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.ipagerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IPageRule</a></h4>
+							<p>The <code>IPageRule</code> object that represents the page rule.</p>
 						</li>
 					</ul>
 				</section>
@@ -971,21 +1030,8 @@
 								<p>When multiple selector items are specified, they will be concatenated into a single string.</p>
 								<p>Note that although style rules can be used for selecting element tags, the <a href="ruleapi.html#_tag">$tag</a> function would
 								be more appropriate because it will catch misspellings of tag names.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>selector: <a href="coretypes.html#cssselector" class="tsd-signature-type" data-tsd-kind="Type alias">CssSelector</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>One or more <a href="coretypes.html#selectoritem">SelectorItem</a> objects</p>
-									</div>
-								</li>
-								<li>
-									<h5>styleset: <a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Styleset that defines style properties for this selector.</p>
-										<p><strong>Examples:</strong></p>
-										<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+								<p><strong>Examples:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// using a string</span>
 <span style="color: #000000">    </span><span style="color: #001080">style1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;li::before&quot;</span><span style="color: #000000">, {})</span>
@@ -1003,10 +1049,24 @@
 <span style="color: #000000">    </span><span style="color: #001080">h1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;h1&quot;</span><span style="color: #000000">, {})</span>
 <span style="color: #000000">}</span>
 </code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>selector: <a href="coretypes.html#cssselector" class="tsd-signature-type" data-tsd-kind="Type alias">CssSelector</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>One or more <a href="coretypes.html#selectoritem">SelectorItem</a> objects</p>
+									</div>
+								</li>
+								<li>
+									<h5>styleset: <a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Styleset that defines style properties for this selector.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.istylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleRule</a></h4>
+							<p><code>IStyleRule</code> object representing the style rule.</p>
 						</li>
 					</ul>
 				</section>
@@ -1014,7 +1074,7 @@
 					<a name="_supports" class="tsd-anchor"></a>
 					<h3>$supports</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">$supports&lt;T&gt;<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><a href="mediatypes.html#supportsstatemnet" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatemnet</a>, instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.isupportsrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">$supports&lt;T&gt;<span class="tsd-signature-symbol">(</span>statement<span class="tsd-signature-symbol">: </span><a href="mediatypes.html#supportsstatement" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatement</a>, instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.isupportsrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1024,23 +1084,43 @@
 								<div class="lead">
 									<p>Creates a new <code>@supports</code> rule.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">})</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">ifGridSupported</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$media</span><span style="color: #000000">( { </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;grid&quot;</span><span style="color: #000000"> },</span>
+<span style="color: #000000">        </span><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000">&lt;</span><span style="color: #267F99">MyStyles</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">        {</span>
+<span style="color: #000000">            </span><span style="color: #001080">cls</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;pink&quot;</span><span style="color: #000000">})</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    )</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruleapi.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>query: <a href="mediatypes.html#supportsstatemnet" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatemnet</a></h5>
+									<h5>statement: <a href="mediatypes.html#supportsstatement" class="tsd-signature-type" data-tsd-kind="Type alias">SupportsStatement</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Supports statement containing one or more supports queries.</p>
+									</div>
 								</li>
 								<li>
 									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either style definition class or an instance of a style defintion class.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.isupportsrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ISupportsRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p><code>ISupportsRule</code> object representing the supports rule</p>
 						</li>
 					</ul>
 				</section>
@@ -1057,11 +1137,24 @@
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Creates a new style rule for the given HTML or SVG element tags. The <code>tag</code> parameter specifies
-										either a single tag or an array of tags. In addition, an asterisk symbol (&#39;&quot;*&quot;`) can be
+										either a single tag or an array of tags. In addition, an asterisk symbol (<code>&quot;*&quot;</code>) can be
 									specified to target all elements.</p>
 								</div>
 								<p>When multiple tags are specified, they will be treated as a selector list; that is, they will
 								be separated by commas.</p>
+								<p><strong>Examples:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// using string for selecting a single elemenet tag</span>
+<span style="color: #000000">    </span><span style="color: #001080">tr</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;tr&quot;</span><span style="color: #000000">, {})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// using array for selecting multiple elemenet tags</span>
+<span style="color: #000000">    </span><span style="color: #001080">header123</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( [</span><span style="color: #A31515">&quot;h1&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;h2&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;h3&quot;</span><span style="color: #000000">], {})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// using asterisk to address all elements</span>
+<span style="color: #000000">    </span><span style="color: #001080">all</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;*&quot;</span><span style="color: #000000">, {})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1075,23 +1168,11 @@
 									<h5>styleset: <a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Styleset that defines style properties for the tags.</p>
-										<p><strong>Examples:</strong></p>
-										<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// using string for selecting a single elemenet tag</span>
-<span style="color: #000000">    </span><span style="color: #001080">tr</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;tr&quot;</span><span style="color: #000000">, {})</span>
-
-<span style="color: #000000">    </span><span style="color: #008000">// using array for selecting multiple elemenet tags</span>
-<span style="color: #000000">    </span><span style="color: #001080">header123</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( [</span><span style="color: #A31515">&quot;h1&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;h2&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;h3&quot;</span><span style="color: #000000">], {})</span>
-
-<span style="color: #000000">    </span><span style="color: #008000">// using asterisk to address all elements</span>
-<span style="color: #000000">    </span><span style="color: #001080">all</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;*&quot;</span><span style="color: #000000">, {})</span>
-<span style="color: #000000">}</span>
-</code></pre>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.istylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleRule</a></h4>
+							<p><code>IStyleRule</code> object representing the tag rule.</p>
 						</li>
 					</ul>
 				</section>
@@ -1139,16 +1220,21 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruletypes.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruleapi.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Either style definition class or an instanc of a style definition class.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+							<p>An instance of the style definition class, which will be activated and deactivated
+							along with the enclosing style definition.</p>
 						</li>
 					</ul>
 				</section>
@@ -1173,6 +1259,22 @@
 								</div>
 								<p>Custom properties defined using the <code>$var</code> function are included into the <code>:root {}</code> block;
 								however, they can be redefined with different values under any style rule.</p>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// define and use custom CSS property</span>
+<span style="color: #000000">    </span><span style="color: #001080">importantTextColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #001080">important</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">importantTextColor</span>
+<span style="color: #000000">    })</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// use different value for the custom property under another CSS class</span>
+<span style="color: #000000">    </span><span style="color: #001080">special</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;+&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">important</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">importantTextColor</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;maroon&quot;</span><span style="color: #000000">] ]</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -1209,22 +1311,6 @@
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.ivarrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>The <code>IVarRule</code> object that represents the custom property. Any usage of this object in
 							style properties or function parameters is substituted by the <code>var()</code> CSS function invocation.</p>
-							<p><strong>Example:</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// define and use custom CSS property</span>
-<span style="color: #000000">    </span><span style="color: #001080">importantTextColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">)</span>
-<span style="color: #000000">    </span><span style="color: #001080">important</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">importantTextColor</span>
-<span style="color: #000000">    })</span>
-
-<span style="color: #000000">    </span><span style="color: #008000">// use different value for the custom property under another CSS class</span>
-<span style="color: #000000">    </span><span style="color: #001080">special</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
-<span style="color: #000000">        </span><span style="color: #A31515">&quot;+&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">important</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">importantTextColor</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;maroon&quot;</span><span style="color: #000000">] ]</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</li>
 					</ul>
 				</section>
@@ -1247,11 +1333,10 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classProps: <a href="ruletypes.html#classproptype" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+							<p>The first non-empty class name from the input array or null if all inputs are empty.</p>
 						</li>
 					</ul>
 				</section>
@@ -1270,7 +1355,6 @@
 									<p>Concatenates the names of the given classes into a single string that can be assigned to a
 									<code>class</code> property of an HTML element.</p>
 								</div>
-								<p><em>Example</em>:</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1282,6 +1366,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+							<p>The string that combines all class names (separated with space) from the input array.</p>
 						</li>
 					</ul>
 				</section>
@@ -1297,9 +1382,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the method uses to generate names of CSS entities. If yes, the names
-										will be created by appending a unique number to the given prefix. If the prefix is not
-									specified, the standard prefix &quot;n&quot; will be used.</p>
+									<p>Sets the method uses to generate names of CSS entities. If yes, the names will be created by
+										appending a unique number to the given prefix. If the prefix is not specified, the standard
+									prefix &quot;n&quot; will be used.</p>
 								</div>
 								<p>By default the development version of the library (mimcss.dev.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#uniquescoped">UniqueScoped</a>
 									method and the production version (mimcss.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#optimized">Optimized</a> method. This function can
@@ -1318,7 +1403,8 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional string that will serve as a prefix to which unique numbers will be added
-										to generate optimized names. Ignored if the <code>method</code> parameter is anything other than.</p>
+											to generate optimized names. Ignored if the <code>method</code> parameter is anything other than
+										<a href="../enums/ruletypes.namegenerationmethod.html#optimized">NameGenerationMethod.Optimized</a>.</p>
 									</div>
 								</li>
 							</ul>
@@ -1427,6 +1513,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/ruleapi.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#_abstract" class="tsd-kind-icon">$abstract</a>
 					</li>

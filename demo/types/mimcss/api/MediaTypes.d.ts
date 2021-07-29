@@ -76,12 +76,12 @@ export declare type ExtendedMediaFeatureset = {
 export interface IMediaQueryProxy extends IGenericProxy<"media-query"> {
 }
 /**
- * Type representing a single query as part of the @media rule. The features within each
+ * Type representing a single query as part of the`@media` rule. The features within each
  * feature-set are combined with the "and" operator.
  */
 export declare type MediaQuery = string | ExtendedMediaFeatureset | IMediaQueryProxy;
 /**
- * Type representing one or more queries as part of the @media rule. While multiple queries in
+ * Type representing one or more queries as part of the `@media` rule. While multiple queries in
  * an array are combined with the "," operator, the styles within each feature-set are combined with
  * the "and" operator.
  */
@@ -92,14 +92,14 @@ export declare type MediaStatement = OneOrMany<MediaQuery>;
 export interface ISupportsQueryProxy extends IGenericProxy<"supports-query"> {
 }
 /**
- * Type representing a single set of styles as part of the @supports rules. The styles in the
+ * Type representing a single set of styles as part of the `@supports` rules. The styles in the
  * styleset are combined with the "and" operator.
  */
 export declare type SupportsQuery = string | Styleset | ISupportsQueryProxy;
 /**
- * Type representing one or more queries as part of the @supports rule. While multiple queries in
+ * Type representing one or more queries as part of the `@supports` rule. While multiple queries in
  * an array are combined with the "or" operator, the styles within each styleset are combined with
  * the "and" operator.
  */
-export declare type SupportsStatemnet = SupportsQuery | SupportsQuery[];
+export declare type SupportsStatement = OneOrMany<SupportsQuery>;
 //# sourceMappingURL=MediaTypes.d.ts.map

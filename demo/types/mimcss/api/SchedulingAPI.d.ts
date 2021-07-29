@@ -2,7 +2,7 @@
  * @module
  */
 import { IScheduler } from "../api/SchedulingTypes";
-import { IStyleDefinitionClass, StyleDefinition } from "./RuleTypes";
+import { IStyleDefinitionClass, IStyleDefinition } from "./RuleTypes";
 /**
  * Activates the given style definition class or instance and inserts all its rules into DOM. If
  * the input object is not an instance but a class, which is not yet associated with an instance,
@@ -10,13 +10,13 @@ import { IStyleDefinitionClass, StyleDefinition } from "./RuleTypes";
  * a reference counter of how many times it was activated and deactivated. The rules are inserted
  * into DOM only upon first activation.
  */
-export declare function activate<T extends StyleDefinition>(instanceOrClass: T | IStyleDefinitionClass<T>, schedulerType?: number): T | null;
+export declare function activate<T extends IStyleDefinition>(instanceOrClass: T | IStyleDefinitionClass<T>, schedulerType?: number): T | null;
 /**
  * Deactivates the given style definition instance by removing its rules from DOM. Note that each
  * style definition instance maintains a reference counter of how many times it was activated and
  * deactivated. The rules are removed from DOM only when this reference counter goes down to 0.
  */
-export declare function deactivate(instance: StyleDefinition, schedulerType?: number): void;
+export declare function deactivate(instance: IStyleDefinition, schedulerType?: number): void;
 /**
  * Writes to DOM all style changes caused by the calls to the activate and deactivate functions
  * accumulated since the last activation of the given scheduling type.

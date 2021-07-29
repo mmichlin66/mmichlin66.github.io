@@ -187,13 +187,11 @@
 									type of style properties (e.g. <code>transform</code>) cannot be assigned to an incompatible style property
 								(e.g. <code>filter</code>).</p>
 							</div>
-							<p>All CSS properties should accept string as the type of their value even if normally
-								they accept other types (e.g a set of string literals as <code>&quot;red&quot; | &quot;green&quot; | ...</code> for the
-								color) property. This is because in addition to their normal values any property
-								can use custom CSS property in the form <code>var(--propname)</code>. However, if we add string type
-								to the set of string literals (e.g. <code>&quot;red&quot; | &quot;green&quot; | string</code>), this throws off the
-								Intellisense and it doesn&#39;t prompt developers for the possible values. The <code>IGenericProxy</code>
-							can be used instead of string and this solves the Intellisense issue.</p>
+							<p>Developers don&#39;t implement this interface directly; instead, the interfaces derived from this
+								interface are implemented by different Mimcss functions. For example, <a href="coretypes.istringproxy.html">IStringProxy</a> interface
+								is implemented by the <a href="../modules/coreapi.html#raw">raw</a> function, <a href="shapetypes.itransformproxy.html">ITransformProxy</a> interface is implemented by the
+								<a href="../modules/shapeapi.html#scale">scale</a>, <a href="../modules/shapeapi.html#translate">translate</a> and other functions, <a href="shapetypes.ifilterproxy.html">IFilterProxy</a> interface is implemented by
+							<a href="../modules/shapeapi.html#opacity">opacity</a>, <a href="../modules/shapeapi.html#contrast">contrast</a> and other functions, and so on.</p>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">

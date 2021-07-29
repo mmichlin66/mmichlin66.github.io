@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IGridLineRule | Mimcss Reference</title>
+	<title>IStyleDefinition | Mimcss Reference</title>
 	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../modules/ruletypes.html">RuleTypes</a>
 				</li>
 				<li>
-					<a href="ruletypes.igridlinerule.html">IGridLineRule</a>
+					<a href="ruletypes.istyledefinition.html">IStyleDefinition</a>
 				</li>
 			</ul>
-			<h1>Interface IGridLineRule</h1>
+			<h1>Interface IStyleDefinition&lt;P, O&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -69,23 +69,46 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The IGridLineRule interface represents a definition of a named grid line.
-							Objects implementing this interface are returned from the <a href="../modules/ruleapi.html#_gridline">$gridline</a> function or created
-						when a grid area is defined using the <a href="../modules/ruleapi.html#_gridarea">$gridarea</a> function.</p>
+						<p>The <code>IStyleDefinition</code> interface represents a class that contain defininitions of CSS rules.
+							This interface is implemented by the <a href="../classes/ruleapi.styledefinition.html">StyleDefinition</a> class and is not intended to be
+						implemented by developers</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>P<span class="tsd-signature-symbol">: </span><a href="ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a> = <span class="tsd-signature-type">any</span></h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Parent style definition class. Parent of a top-level class is null.</p>
+							</div>
+						</div>
+					</li>
+					<li>
+						<h4>O<span class="tsd-signature-symbol">: </span><a href="ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a> = <span class="tsd-signature-type">any</span></h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Top-level style definition class, which is the owner of this class. The top-level
+								class is its own owner.</p>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="ruletypes.inamedentity.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedEntity</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">IGridLineRule</span>
-							</li>
-						</ul>
+						<span class="target">IStyleDefinition</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/ruleapi.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -95,9 +118,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.igridlinerule.html#areaname" class="tsd-kind-icon">area<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.igridlinerule.html#isstartendornone" class="tsd-kind-icon">is<wbr>Start<wbr>End<wbr>OrNone</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ruletypes.igridlinerule.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.istyledefinition.html#_owner" class="tsd-kind-icon">$owner</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.istyledefinition.html#_parent" class="tsd-kind-icon">$parent</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,44 +128,34 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="areaname" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> area<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">area<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="_owner" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> $owner</h3>
+					<div class="tsd-signature tsd-kind-icon">$owner<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">O</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Name of the grid area of which the line is either a start or an end line. It is defined
-							only if the line name ends with &quot;-start&quot; or &quot;-end&quot;.</p>
+							<p>Refers to the instance of the style definition class which is the owner of
+								this style definition object. The owner is the top-level class in the chain of style
+								definition classes. Through this member, all rules and other members defined in the owner
+								definition class can be accessed. For top-level style definitions, this property points
+							to itself.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="isstartendornone" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> is<wbr>Start<wbr>End<wbr>OrNone</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Start<wbr>End<wbr>OrNone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="_parent" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> $parent</h3>
+					<div class="tsd-signature tsd-kind-icon">$parent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">P</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Flag indicating whether the line is a start or end line of a grid area. The value is true
-								if this is the start line; false if this is the end line; and undefined if the line is
-							not related to any area.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="name" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="ruletypes.inamedentity.html">INamedEntity</a>.<a href="ruletypes.inamedentity.html#name">name</a></p>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Rule&#39;s name - this is a unique name that is assigned by the Mimcss infrastructure. This name
-								doesn&#39;t have the prefix that is used when referring to classes (.), IDs (#) and custom CSS
-							properties (--).</p>
+							<p>Refers to the instance of the style definition class which is the parnt of this style
+								definition object in the chain of style definition classes. Through this member, all rules
+								and other members defined in the parent definition class can be accessed. For top-level
+								style definitions, this property is always undefined. This property can also be undefined
+							if it was not provided to the constructor when creating the style definition class manually.</p>
 						</div>
 					</div>
 				</section>
@@ -240,24 +252,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.igridarearule.html" class="tsd-kind-icon">IGrid<wbr>Area<wbr>Rule</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.igridlinerule.html" class="tsd-kind-icon">IGrid<wbr>Line<wbr>Rule</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ruletypes.igridlinerule.html#areaname" class="tsd-kind-icon">area<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ruletypes.igridlinerule.html#isstartendornone" class="tsd-kind-icon">is<wbr>Start<wbr>End<wbr>OrNone</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="ruletypes.igridlinerule.html#name" class="tsd-kind-icon">name</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.igrouprule.html" class="tsd-kind-icon">IGroup<wbr>Rule</a>
 					</li>
@@ -285,9 +282,21 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.irule.html" class="tsd-kind-icon">IRule</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.istyledefinition.html" class="tsd-kind-icon">IStyle<wbr>Definition</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ruletypes.istyledefinition.html#_owner" class="tsd-kind-icon">$owner</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ruletypes.istyledefinition.html#_parent" class="tsd-kind-icon">$parent</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.istyledefinitionclass.html" class="tsd-kind-icon">IStyle<wbr>Definition<wbr>Class</a>
 					</li>
