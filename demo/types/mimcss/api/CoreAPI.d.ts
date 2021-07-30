@@ -1,4 +1,4 @@
-import { IStringProxy, IQuotedProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
+import { IStringProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
 /**
  * Returns a string representation of a selector. This function is a tag function and must be
  * invoked with the template string without parentheses.
@@ -15,12 +15,8 @@ export declare function selector(parts: TemplateStringsArray, ...params: Selecto
  * **Example:**
  *
  * ```typescript
- * clip-path: raw`polygon(50% 20%, 90% 80%, 10% 80%)`
+ * clipPath: css.raw`polygon(50% 20%, 90% 80%, 10% 80%)`
  * ```
  */
 export declare function raw(parts: TemplateStringsArray, ...params: any[]): IStringProxy;
-/**
- * Returns a function representing a string in quotation marks.
- */
-export declare function quoted(val: any): IQuotedProxy;
 //# sourceMappingURL=CoreAPI.d.ts.map

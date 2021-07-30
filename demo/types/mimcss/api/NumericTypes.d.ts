@@ -1,7 +1,3 @@
-/**
- * This modules describes numeric types as a basis for handling CSS types such as `<number>`, `<length>`, `<angle>`, etc.
- * @module
- */
 import { Extended, IGenericProxy, OneOrPair } from "./CoreTypes";
 /**
  * The INumberBaseMath interface contains methods that implement CSS mathematical functions on the
@@ -277,7 +273,7 @@ export declare type CssPosition = SimpleCssPosition | [
     Extended<CssLength>?
 ];
 /** Type for a single corner radius */
-export declare type CssRadius = OneOrPair<CssLength>;
+export declare type CssRadius = OneOrPair<Extended<CssLength>>;
 /**
  * The CssAspectRatio interface represents the CSS `<ratio>` type. This type can be used for the
  * `aspect-ratio` CSS property although this property is not implemented yet by most of the

@@ -1,11 +1,8 @@
-/**
- * This module contains definitions of types and interfaces used to define CSS colors.
- * @module
- */
 import { IGenericProxy } from "./CoreTypes";
 /**
- * The INamedColors interface lists the names of standard Web colors. It is needed to allow developers
- * to add new named colors through module augmentation technique.
+ * The `INamedColors` interface lists the names of standard Web colors. It is needed to allow developers
+ * to add new named colors through module augmentation technique. This interface is implemented by the
+ * [[Colors]] object, which provides numeric values for the standard Web colors.
  */
 export interface INamedColors {
     readonly black: number;
@@ -158,13 +155,13 @@ export interface INamedColors {
     readonly rebeccapurple: number;
 }
 /**
- * The IColorProxy interface represents an invocation of one of CSS functions that are used for
+ * The `IColorProxy` interface represents an invocation of one of CSS functions that are used for
  * specifying colors. This interface is returned from functions like: [[rgb]], [[alpha]], etc.
  */
 export interface IColorProxy extends IGenericProxy<"color"> {
 }
 /**
- * The SystemColors type defines keywords for system colors that are used in forced-color mode
+ * The `SystemColors` type defines keywords for system colors that are used in forced-color mode
  * (but can be also used in the regular mode).
  */
 export declare type SystemColors = "ActiveText" | "ButtonFace" | "ButtonText" | "Canvas" | "CanvasText" | "Field" | "FieldText" | "GrayText" | "Highlight" | "HighlightText" | "LinkText" | "VisitedText";
@@ -223,7 +220,7 @@ export declare type CssColor = "transparent" | "currentcolor" | keyof INamedColo
  * - functions: [[rgb]], [[hsl]], [[alpha]] as well as any function that returns the IColorProxy type.
  *
  * Non-numeric representation of color is sometimes required where it can conflict with numeric
- * representations of other style properties. For example, the `border` property allows specifying
+ * representations of other style properties. For example, the [[border]] property allows specifying
  * border width, style and color in any order. In this case a numeric representation of color could
  * come into conflict with a numeric representation of width. Therefore, for the `border` property,
  * only non-numeric color representation is allowed.

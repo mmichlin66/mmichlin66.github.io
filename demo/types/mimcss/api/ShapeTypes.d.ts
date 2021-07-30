@@ -1,7 +1,3 @@
-/**
- * This module contains definitions of types and interfaces used to define CSS functions.
- * @module
- */
 import { Extended, IGenericProxy, OneOrBox, OneOrPair } from "./CoreTypes";
 import { AngleUnits, CssAngle, CssLength, CssNumber, CssPoint, CssPosition, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
@@ -187,7 +183,7 @@ export interface IFilterProxy extends IGenericProxy<"filter"> {
 export interface ITransformProxy extends IGenericProxy<"transform"> {
 }
 /** Type for border-radius style property */
-export declare type BorderRadius = OneOrPair<OneOrBox<CssLength>>;
+export declare type BorderRadius = OneOrPair<OneOrBox<Extended<CssLength>>>;
 /**
  * Type that is used to specify a radius in [circle]] and [ellipse]] functions.
  */

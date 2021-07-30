@@ -13,7 +13,7 @@ export declare type System_CounterType = "cyclic" | "numeric" | "alphabetic" | "
 /**
  * Type for specfying counter[[negative]] property.
  */
-export declare type Negative_CounterType = OneOrPair<string>;
+export declare type Negative_CounterType = OneOrPair<CounterExtended<string>>;
 /**
  * Type for specfying counter [[prefix]] and [[suffix]] properties.
  */
@@ -21,7 +21,7 @@ export declare type PrefixSuffix_CounterType = string | CssImage;
 /**
  * Type for specfying counter [[range]] property.
  */
-export declare type Range_CounterType = "auto" | OneOrMany<["infinite" | number, "infinite" | number]>;
+export declare type Range_CounterType = "auto" | OneOrMany<CounterExtended<["infinite" | number, "infinite" | number]>>;
 /**
  * Type for specfying counter [[pad]] property.
  */
@@ -33,11 +33,11 @@ export declare type Fallback_CounterType = ListStyleType_StyleType | IStringProx
 /**
  * Type for specfying counter [[symbols]] property.
  */
-export declare type Symbols_CounterType = OneOrMany<string>;
+export declare type Symbols_CounterType = OneOrMany<CounterExtended<string>>;
 /**
  * Type for specfying counter [[additiveSymbols]] property.
  */
-export declare type AdditiveSymbols_CounterType = OneOrMany<[string | CssImage, number] | [number, string | CssImage]>;
+export declare type AdditiveSymbols_CounterType = OneOrMany<CounterExtended<[string | CssImage, number] | [number, string | CssImage]>>;
 /**
  * Type for specfying counter [[speakAs]] property.
  */

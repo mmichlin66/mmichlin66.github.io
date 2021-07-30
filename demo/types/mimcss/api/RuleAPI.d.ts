@@ -1,7 +1,3 @@
-/**
- * This module describes functions used to create rules within style definition classes.
- * @module
- */
 import { CssSelector, PagePseudoClass, OneOrMany } from "./CoreTypes";
 import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule, IStyleDefinition } from "./RuleTypes";
 import { MediaStatement, SupportsStatement } from "./MediaTypes";

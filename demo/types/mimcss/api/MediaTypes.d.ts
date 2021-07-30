@@ -1,4 +1,4 @@
-import { IConstant, IGenericProxy, IStringProxy, OneOrMany } from "./CoreTypes";
+import { IConstant, IGenericProxy, IStringProxy, OneOrMany, OneOrPair } from "./CoreTypes";
 import { CssAspectRatio, CssNumber, CssLength, CssResolution } from "./NumericTypes";
 import { Styleset } from "./StyleTypes";
 /** Possible media types */
@@ -13,7 +13,7 @@ export declare type ExtendedFeature<T> = T | IConstant<T> | IStringProxy | null 
  * Type for a media feature that can be specified either as a single value or as a range between
  * two values of the given type.
  */
-export declare type OneOrRange<T> = T | [ExtendedFeature<T>, ExtendedFeature<T>?];
+export declare type OneOrRange<T> = OneOrPair<ExtendedFeature<T>>;
 /**
  * Interface representing the type of objects that can be assigned to the style property of HTML
  * and SVG elements.
