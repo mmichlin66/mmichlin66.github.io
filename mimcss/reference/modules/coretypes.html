@@ -143,7 +143,7 @@
 						<p>The ampersand symbol can be either preceeded or folowed by a combinator character, which allows
 							easy-to-use combination of a parent selector with the specified selector using the given
 						combinator.</p>
-						<p>** Example:**</p>
+						<p><strong>Example:</strong></p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// class that doesn&#039;t define its own styles and is only used in combinations</span>
@@ -281,11 +281,32 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type for expression An+B, which is used for parameterized pseudo classes like <code>nth-child</code>. It
+							<p>Type for expression An+B, which is used for parameterized pseudo classes like <code>:nth-child</code>. It
 								can be a string, a single number or a tuple with one or two numbers. If it is a single number,
 								the &#39;n&#39; in An+B will not be used - as in <code>nth-child(2)</code>. If it is a tuple, the &#39;n&#39; will be used
-							even if the second tuple&#39;s element is not provided.</p>
+							even if the tuple&#39;s second element is not provided.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">p</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;p&quot;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;:nth-of-type&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [</span>
+
+<span style="color: #000000">            </span><span style="color: #008000">// css: p:nth-of-type(1)</span>
+<span style="color: #000000">            [</span><span style="color: #098658">1</span><span style="color: #000000">, { </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000"> }],</span>
+
+<span style="color: #000000">            </span><span style="color: #008000">// css: p:nth-of-type(3n)</span>
+<span style="color: #000000">            [[</span><span style="color: #098658">3</span><span style="color: #000000">], { </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;green&quot;</span><span style="color: #000000"> }],</span>
+
+<span style="color: #000000">            </span><span style="color: #008000">// css: p:nth-of-type(2n+1)</span>
+<span style="color: #000000">            [[</span><span style="color: #098658">2</span><span style="color: #000000">,</span><span style="color: #098658">1</span><span style="color: #000000">], { </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000"> }],</span>
+
+<span style="color: #000000">            </span><span style="color: #008000">// css: p:nth-of-type(odd)</span>
+<span style="color: #000000">            [</span><span style="color: #A31515">&quot;odd&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;yellow&quot;</span><span style="color: #000000"> }],</span>
+<span style="color: #000000">        ],</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
@@ -403,32 +424,62 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Represents print-related pseudo classes - those that can be specified with the @page CSS rule</p>
+							<p>Represents print-related pseudo classes - those that can be specified with the <code>@page</code> CSS rule</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">page</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$page</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;:first&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">margin:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;auto&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="pseudoclass" class="tsd-anchor"></a>
 					<h3>Pseudo<wbr>Class</h3>
-					<div class="tsd-signature tsd-kind-icon">Pseudo<wbr>Class<span class="tsd-signature-symbol">:</span> <a href="coretypes.html#pagepseudoclass" class="tsd-signature-type" data-tsd-kind="Type alias">PagePseudoClass</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:active&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:any-link&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:blank&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:checked&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:default&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:defined&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:disabled&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:empty&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:enabled&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:first-child&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:first-of-type&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:fullscreen&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:focus&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:focus-visible&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:focus-Within&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:hover&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:indeterminate&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:in-range&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:invalid&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:last-child&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:last-of-type&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:link&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:only-child&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:only-of-type&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:optional&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:out-of-range&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:placeholder-shown&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:read-only&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:read-write&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:required&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:root&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:scope&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:target&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:valid&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:visited&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:dir(rtl)&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:dir(ltr)&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Pseudo<wbr>Class<span class="tsd-signature-symbol">:</span> <a href="coretypes.html#pagepseudoclass" class="tsd-signature-type" data-tsd-kind="Type alias">PagePseudoClass</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:active&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:any-link&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:blank&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:checked&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:default&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:defined&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:disabled&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:empty&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:enabled&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:first-child&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:first-of-type&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:fullscreen&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:focus&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:focus-visible&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:focus-within&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:hover&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:indeterminate&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:in-range&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:invalid&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:last-child&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:last-of-type&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:link&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:only-child&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:only-of-type&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:optional&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:out-of-range&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:placeholder-shown&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:read-only&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:read-write&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:required&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:root&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:scope&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:target&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:valid&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:visited&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:dir(rtl)&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;:dir(ltr)&quot;</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Represents pseudo classes</p>
+							<p>Represents pseudo classes that can be used as properties in the <a href="ruletypes.html#combinedstyleset">CombinedStyleset</a> object to
+								define dependent rules. Note that this type only contains pseudo classes that don&#39;t require
+							parameters. For parameterized pseudo classes, see the <a href="../interfaces/coretypes.iparameterizedpseudoclass.html">IParameterizedPseudoClass</a> interface.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">class1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;:hover&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> { </span><span style="color: #001080">opacity:</span><span style="color: #000000"> </span><span style="color: #098658">0.7</span><span style="color: #000000"> },</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="pseudoelement" class="tsd-anchor"></a>
 					<h3>Pseudo<wbr>Element</h3>
-					<div class="tsd-signature tsd-kind-icon">Pseudo<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;::after&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::backdrop&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::before&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::cue&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::firstLetter&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::firstLine&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::grammarError&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::marker&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::placeholder&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::selection&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::spellingError&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Pseudo<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;::after&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::backdrop&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::before&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::cue&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::first-letter&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::first-line&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::grammar-error&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::marker&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::placeholder&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::selection&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;::spelling-error&quot;</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Represents pseudo elements</p>
+							<p>Represents pseudo elements that can be used as properties in the <a href="ruletypes.html#combinedstyleset">CombinedStyleset</a> object to
+								define dependent rules. Note that this type only contains pseudo elements that don&#39;t require
+							parameters. For parameterized pseudo elements, see the <a href="../interfaces/coretypes.iparameterizedpseudoelement.html">IParameterizedPseudoElement</a> interface.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">exciting</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;::after&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">content:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot; &lt;- EXCITING!&quot;</span>
+<span style="color: #000000">            </span><span style="color: #001080">color</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;green&quot;</span>
+<span style="color: #000000">        },</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">

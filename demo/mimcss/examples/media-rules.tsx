@@ -1,5 +1,6 @@
-﻿// This example is taken from the article of Chris Coyier on css-tricks.com with names and emails changed
+﻿// This example is taken from the article of Chris Coyier on css-tricks.com with names and emails changed.
 // https://css-tricks.com/css-media-queries/
+// Resize your broser window to see the effects
 
 import * as mim from "mimbl";
 import * as css from "mimcss"
@@ -84,7 +85,7 @@ class MyStyles extends css.StyleDefinition
         }
     )
 
-    // Specifying range as an array, which wil be translated to min-width and max-width features
+    // Specifying range as an array, which will be translated to min-width and max-width features
     ifMedium = css.$media( { width: [700, 1000] },
         class extends css.StyleDefinition<MyStyles>
         {

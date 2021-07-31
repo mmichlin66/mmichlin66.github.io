@@ -3,7 +3,7 @@ import { ICounterStyleRule } from "./RuleTypes";
 import { CssImage } from "./ShapeTypes";
 import { ListStyleType_StyleType } from "./StyleTypes";
 /**
- * Type that extends the given type with the IStringProxy interface that allows specifying raw string value.
+ * Type that extends the given type with the [[IStringProxy]] interface that allows specifying raw string value.
  */
 export declare type CounterExtended<T> = T | IStringProxy;
 /**

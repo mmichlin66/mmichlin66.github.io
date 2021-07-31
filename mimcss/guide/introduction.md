@@ -27,7 +27,7 @@ The goal of the Mimcss library is to support all CSS features in a type-safe and
 - Custom CSS properties are supported in a type safe manner.
 - Style rules can be nested and can extend other style rules.
 - All pseudo styles and pseudo elements are supported using convenient and compact notation.
-- Type safety and autocomplete support for CSS property values to eliminate misspellings.
+- Type safety and autocompletion support for CSS property values to eliminate misspellings.
 - Using numbers for default units of length, angle, percent and other CSS property types.
 - Using Booleans, numbers, tuples, arrays, objects and functions (in addition to strings) when specifying CSS property values to increase convenience and eliminate misspellings.
 - Convenience functions for specifying complex property values (e.g. colors, images, filters, shapes, calc(), etc.)

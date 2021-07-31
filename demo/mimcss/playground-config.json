@@ -96,7 +96,7 @@
         },
         {
             "name": "Scheduling",
-            "path": "mimcss/examples/under-construction.tsx",
+            "path": "mimcss/examples/scheduling.tsx",
             "description": "Demonstrates custom scheduler."
         }
     ],
