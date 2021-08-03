@@ -103,8 +103,8 @@
 						<div class="lead">
 							<p>Type that extends the given type with the following types:</p>
 							<ul>
-								<li>IConstant interface that allows using a constant value.</li>
-								<li>IStringProxy interface that allows specifying raw string value.</li>
+								<li><a href="../interfaces/coretypes.iconstant.html">IConstant</a> interface that allows using a constant value.</li>
+								<li><a href="../interfaces/coretypes.istringproxy.html">IStringProxy</a> interface that allows specifying raw string value.</li>
 							</ul>
 						</div>
 					</div>
@@ -123,10 +123,10 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The ExtendedMediaFeatureset type maps all media features defined in the <a href="../interfaces/mediatypes.imediafeatureset.html">IMediaFeatureset</a>
+							<p>The <code>ExtendedMediaFeatureset</code> type maps all media features defined in the <a href="../interfaces/mediatypes.imediafeatureset.html">IMediaFeatureset</a>
 								interface to the &quot;extended&quot; versions of their types. These extended types are defined by
 								allowing [[StringProxy]] and <a href="../interfaces/coretypes.iconstant.html">IConstant</a> interfaces to the type that is defined in the
-							<code>IMediaFeatureset</code> interface.</p>
+							<a href="../interfaces/mediatypes.imediafeatureset.html">IMediaFeatureset</a> interface.</p>
 						</div>
 					</div>
 				</section>
@@ -141,6 +141,13 @@
 							<p>Type representing a single query as part of the<code>@media</code> rule. The features within each
 							feature-set are combined with the &quot;and&quot; operator.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// css: @media (max-width: 400px) and (max-height: 400px) {...}</span>
+<span style="color: #000000">    </span><span style="color: #001080">ifNarrowAndShort</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$media</span><span style="color: #000000">( {</span><span style="color: #001080">maxWidth:</span><span style="color: #000000"> </span><span style="color: #098658">400</span><span style="color: #000000">, </span><span style="color: #001080">maxHeight:</span><span style="color: #000000"> </span><span style="color: #098658">400</span><span style="color: #000000">}, ...)</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
@@ -155,6 +162,13 @@
 								an array are combined with the &quot;,&quot; operator, the styles within each feature-set are combined with
 							the &quot;and&quot; operator.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// css: @media (min-width: 1000px), (min-height: 1000px) {...}</span>
+<span style="color: #000000">    </span><span style="color: #001080">ifWideOrTall</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$media</span><span style="color: #000000">( [{</span><span style="color: #001080">minWidth:</span><span style="color: #000000"> </span><span style="color: #098658">1000</span><span style="color: #000000">}, {</span><span style="color: #001080">minHeight:</span><span style="color: #000000"> </span><span style="color: #098658">1000</span><span style="color: #000000">}], ...)</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">

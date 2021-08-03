@@ -164,7 +164,7 @@
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/styletypes.ibasestyleset.html" class="tsd-signature-type" data-tsd-kind="Interface">IBaseStyleset</a></h4>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/styletypes.istyleset.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleset</a></h4>
 								</li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -268,7 +268,7 @@
 								<div class="lead">
 									<p>Registers the given function to be used for converting values of the given style property to
 										string. The <code>registerStyleProperty</code> function must be used after adding the property to the
-										<a href="../interfaces/styletypes.ibasestyleset.html">IBaseStyleset</a> interface via the module augmentation technique if the conversion to string
+										<a href="../interfaces/styletypes.istyleset.html">IStyleset</a> interface via the module augmentation technique if the conversion to string
 										requires non-standard operations. This function should not be called for propeties whose
 										values only include numbers, strings, functions returning a string, objects whose <code>toString</code>
 									method produces the necessary string or arrays of the above types.</p>
@@ -520,7 +520,7 @@
 										in style rules, it is enough to just refer to the style definition property created using the
 									<a href="ruleapi.html#_var">$var</a> function; however, if you want to provide a fallback value, you must use this function.</p>
 								</div>
-								<p>** Example:**</p>
+								<p><strong>Example:</strong></p>
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// create custom CSS property but without an assigned value; it can be assigned</span>

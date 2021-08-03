@@ -9,7 +9,7 @@ description: "Describes types of stylesets used to define style rules including 
 
 This page describes the different types of stylesets Mimcss uses.
 
-- [IBaseStyleset Interface](#icssstyleset-interface)
+- [IStyleset Interface](#icssstyleset-interface)
 - [ExtendedBaseStyleset Type](#extendedstyleset-type)
   - [Global_StyleType Type](#global_styletype-type)
   - [ICustomVar Interface](#icustomvar-interface)
@@ -38,7 +38,7 @@ This page describes the different types of stylesets Mimcss uses.
   - [IParameterizedPseudoElement Interface](#iparameterizedpseudoelement-interface)
   - [IParameterizedPseudoEntity Interface](#iparameterizedpseudoentity-interface)
 
-In Mimcss, the term *styleset* describes an object with style properties. Stylesets are used to set values to style properties when defining style rules; therefore, the basic styleset described by the `IBaseStyleset` interface contains properties corresponding to the CSS properties. In order to make the life of developers easier, Mimcss defines a number of additional stylesets described by interfaces extending or using the `IBaseStyleset` interface. The additional properties or property types defined in these interfaces provide for the following features:
+In Mimcss, the term *styleset* describes an object with style properties. Stylesets are used to set values to style properties when defining style rules; therefore, the basic styleset described by the `IStyleset` interface contains properties corresponding to the CSS properties. In order to make the life of developers easier, Mimcss defines a number of additional stylesets described by interfaces extending or using the `IStyleset` interface. The additional properties or property types defined in these interfaces provide for the following features:
 
 - Allowing special types to be assigned to all properties.
 - Defining custom CSS properties.
@@ -47,27 +47,27 @@ In Mimcss, the term *styleset* describes an object with style properties. Styles
 
 In most cases, developers using Mimcss don't directly use the types described in this document. These types are mostly act "behind the scenes" making IDEs to enforce the rules defined by these types as developers write the code setting values to style properties. In some advanced scenarios, however, these types can be used directly.
 
-## IBaseStyleset Interface
+## IStyleset Interface
 
-The `IBaseStyleset` interface is the basic interface that defines names and types of the CSS style properties. Each property has its own type, which are described in the [Style Properties](style-properties.html) document. We don't list its properties here because there is a lot of them. You can find the interface defined in the file `StyleTypes.d.ts`, which is included with the Mimcss NPM package.
+The `IStyleset` interface is the basic interface that defines names and types of the CSS style properties. Each property has its own type, which are described in the [Style Properties](style-properties.html) document. We don't list its properties here because there is a lot of them. You can find the interface defined in the file `StyleTypes.d.ts`, which is included with the Mimcss NPM package.
 
 ## ExtendedBaseStyleset Type
 
 ```tsx
-export type ExtendedBaseStyleset = { [K in keyof IBaseStyleset]: ExtendedProp<IBaseStyleset[K]> }
+export type ExtendedBaseStyleset = { [K in keyof IStyleset]: ExtendedProp<IStyleset[K]> }
 ```
 
-In CSSOM, style properties are part of the `CSSStyleDeclaration` type, where each property is defined as having the `string` type. In Mimcss, the `IBaseStyleset` defines different types for different properties so that it is easier and less error-prone for developers to set their values. There are, however, some values that are common to all style properties, for example:
+In CSSOM, style properties are part of the `CSSStyleDeclaration` type, where each property is defined as having the `string` type. In Mimcss, the `IStyleset` defines different types for different properties so that it is easier and less error-prone for developers to set their values. There are, however, some values that are common to all style properties, for example:
 
 - All style properties can have one of the *global* values: `inherit`, `initial`, `unset`, or `revert`.
 - All style properties can be set using a custom CSS property via the `var()` function.
 - All style properties can have the `!important` flag set.
 
-The `ExtendedBaseStyleset` interface extends the `IBaseStyleset` interface and changes the type of each style property to include additional types. As a result, if a style property was defined in the `IBaseStyleset` interface as having the type `T`, this property can be specified as one of the following types in the `ExtendedBaseStyleset` object:
+The `ExtendedBaseStyleset` interface extends the `IStyleset` interface and changes the type of each style property to include additional types. As a result, if a style property was defined in the `IStyleset` interface as having the type `T`, this property can be specified as one of the following types in the `ExtendedBaseStyleset` object:
 
 - `T` - the original type as declared in the `ICssInterface`.
 - `ICustomVar<T>` - a custom CSS property that yields type `T`.
-- `StringProxy` - a function returning a string such as `raw()`, which allows assigning strings even to the properties whose type declared in the `IBaseStyleset` interface doesn't allow strings.
+- `StringProxy` - a function returning a string such as `raw()`, which allows assigning strings even to the properties whose type declared in the `IStyleset` interface doesn't allow strings.
 - `undefined` - allows to omit the property.
 - `ImportantProp<T>` - adds the `!important` flag to the property value.
 - One of the global keywords: `inherit`, `initial`, `unset`, or `revert`.
@@ -168,7 +168,7 @@ The `Styleset` type extends the `ExtendedBaseStyleset` type adding to it the `"-
 #### IVarTemplateStyleset Interface
 
 ```tsx
-export interface IVarTemplateStyleset extends IBaseStyleset
+export interface IVarTemplateStyleset extends IStyleset
 {
     /** Allows having CSS variables that accept value of any type */
     "any"?: any;
@@ -214,7 +214,7 @@ export interface IVarTemplateStyleset extends IBaseStyleset
 }
 ```
 
-The `IVarTemplateStyleset` interface maps template names to the types, which can be used for defining custom CSS properties (a.k.a. variables). Normally, variables are defined using the names of the style properties and their type is determined by the type of this property in the `IBaseStyleset` interface. Sometimes, however, there is a need to define variables of some other types, for which there is no suitable style property. The `IVarTemplateStyleset` interface provides many basic types and it can also be extended using the TypeScript's module augmentation.
+The `IVarTemplateStyleset` interface maps template names to the types, which can be used for defining custom CSS properties (a.k.a. variables). Normally, variables are defined using the names of the style properties and their type is determined by the type of this property in the `IStyleset` interface. Sometimes, however, there is a need to define variables of some other types, for which there is no suitable style property. The `IVarTemplateStyleset` interface provides many basic types and it can also be extended using the TypeScript's module augmentation.
 
 #### VarTemplateName Type
 

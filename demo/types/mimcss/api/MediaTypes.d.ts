@@ -5,8 +5,8 @@ import { Styleset } from "./StyleTypes";
 export declare type MediaType = "all" | "print" | "screen" | "speech";
 /**
  * Type that extends the given type with the following types:
- * - IConstant interface that allows using a constant value.
- * - IStringProxy interface that allows specifying raw string value.
+ * - [[IConstant]] interface that allows using a constant value.
+ * - [[IStringProxy]] interface that allows specifying raw string value.
  */
 export declare type ExtendedFeature<T> = T | IConstant<T> | IStringProxy | null | undefined;
 /**
@@ -62,10 +62,10 @@ export interface IMediaFeatureset {
     maxWidth?: CssLength;
 }
 /**
- * The ExtendedMediaFeatureset type maps all media features defined in the [[IMediaFeatureset]]
+ * The `ExtendedMediaFeatureset` type maps all media features defined in the [[IMediaFeatureset]]
  * interface to the "extended" versions of their types. These extended types are defined by
  * allowing [[StringProxy]] and [[IConstant]] interfaces to the type that is defined in the
- * `IMediaFeatureset` interface.
+ * [[IMediaFeatureset]] interface.
  */
 export declare type ExtendedMediaFeatureset = {
     [K in keyof IMediaFeatureset]?: ExtendedFeature<IMediaFeatureset[K]>;
@@ -78,12 +78,32 @@ export interface IMediaQueryProxy extends IGenericProxy<"media-query"> {
 /**
  * Type representing a single query as part of the`@media` rule. The features within each
  * feature-set are combined with the "and" operator.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     // css: @media (max-width: 400px) and (max-height: 400px) {...}
+ *     ifNarrowAndShort = css.$media( {maxWidth: 400, maxHeight: 400}, ...)
+ * }
+ * ```
  */
 export declare type MediaQuery = string | ExtendedMediaFeatureset | IMediaQueryProxy;
 /**
  * Type representing one or more queries as part of the `@media` rule. While multiple queries in
  * an array are combined with the "," operator, the styles within each feature-set are combined with
  * the "and" operator.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     // css: @media (min-width: 1000px), (min-height: 1000px) {...}
+ *     ifWideOrTall = css.$media( [{minWidth: 1000}, {minHeight: 1000}], ...)
+ * }
+ * ```
  */
 export declare type MediaStatement = OneOrMany<MediaQuery>;
 /**

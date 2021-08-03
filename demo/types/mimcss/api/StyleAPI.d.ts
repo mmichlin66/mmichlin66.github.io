@@ -1,11 +1,11 @@
 import { IStringProxy } from "./CoreTypes";
 import { IStyleDefinitionClass, IVarRule, IStyleDefinition } from "./RuleTypes";
 import { ExtendedMediaFeatureset, IMediaQueryProxy, ISupportsQueryProxy, MediaStatement, SupportsStatement } from "./MediaTypes";
-import { Styleset, ExtendedBaseStyleset, StringStyleset, IBaseStyleset, VarTemplateName, ExtendedVarValue, ICssSerializer } from "./StyleTypes";
+import { Styleset, ExtendedBaseStyleset, StringStyleset, IStyleset, VarTemplateName, ExtendedVarValue, ICssSerializer } from "./StyleTypes";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the
- * [[IBaseStyleset]] interface via the module augmentation technique if the conversion to string
+ * [[IStyleset]] interface via the module augmentation technique if the conversion to string
  * requires non-standard operations. This function should not be called for propeties whose
  * values only include numbers, strings, functions returning a string, objects whose `toString`
  * method produces the necessary string or arrays of the above types.
@@ -60,7 +60,7 @@ export declare function diffStylesets(oldStyleset: Styleset, newStyleset: Styles
  * in style rules, it is enough to just refer to the style definition property created using the
  * [[$var]] function; however, if you want to provide a fallback value, you must use this function.
  *
- * ** Example:**
+ * **Example:**
  *
  * ```typescript
  * class MyStyles extends StyleDefinition
@@ -92,7 +92,7 @@ declare global {
          * @param schedulerType Scheduler identifier. If omitted, the current default scheduler
          * will be used.
          */
-        setStyleProp<K extends keyof IBaseStyleset>(name: K, value: ExtendedBaseStyleset[K], schedulerType?: number): void;
+        setStyleProp<K extends keyof IStyleset>(name: K, value: ExtendedBaseStyleset[K], schedulerType?: number): void;
         /**
          * Merges or replaces the element's styles with the given styleset.
          * @param styleset Styleset to set or replace

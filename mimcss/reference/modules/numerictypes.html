@@ -156,7 +156,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The CssAspectRatio interface represents the CSS <code>&lt;ratio&gt;</code> type. This type can be used for the
+							<p>The <code>CssAspectRatio</code> type represents the CSS <code>&lt;ratio&gt;</code> type. This type can be used for the
 								<code>aspect-ratio</code> CSS property although this property is not implemented yet by most of the
 								browsers. More frequently though this type is used by the <code>aspect-ratio</code> media feature in a
 							<code>@media</code> rule.</p>
@@ -200,12 +200,17 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type for single style property of the <code>&lt;length&gt;</code> CSS type. Integer numbers are interpreted as
-								having the <code>&quot;px&quot;</code> units and floating point numbers are interpreted as having the <code>&quot;em&quot;</code> units.
-								In addition to numbers and the <a href="../interfaces/numerictypes.ilengthproxy.html">ILengthProxy</a> interface it also allows several string
-								literals, such as <code>&quot;1fr&quot;</code> and <code>&quot;100%&quot;</code>. This is in order to make it more convenient for
-								developers to write these frequently used values. Other <code>&lt;length&gt;</code> units should be specified
-							using the functions such as <a href="numericapi.html#rem">rem</a>, <a href="numericapi.html#vh">vh</a>, <a href="numericapi.html#vmin">vmin</a>, etc.</p>
+							<p>Type for single style property of the <code>&lt;length&gt; | &lt;percentage&gt;</code> CSS type. Values of this type
+							can be specifed as:</p>
+							<ul>
+								<li>one of pre-defined strings like <code>&quot;100vh&quot;</code> or <code>&quot;1fr&quot;</code></li>
+								<li>return value from the length unit functions such as <a href="numericapi.html#rem">rem</a>, <a href="numericapi.html#vh">vh</a>, <a href="numericapi.html#vmin">vmin</a>, <a href="numericapi.html#percent-1">percent</a>, etc.</li>
+								<li>a number:<ul>
+										<li>if the number is an integer, it is interpreted as <code>&quot;px&quot;</code> units</li>
+										<li>if the number is a floating point, it is interpreted as <code>&quot;em&quot;</code> units</li>
+									</ul>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -217,7 +222,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type that combines CssLength and the string literal <code>&quot;auto&quot;</code>. This type is often used when a
+							<p>Type that combines <a href="numerictypes.html#csslength">CssLength</a> and the string literal <code>&quot;auto&quot;</code>. This type is often used when a
 								property accepts the <code>&lt;length&gt;</code> type and the <code>&quot;auto&quot;</code> literal - for example, when specifying
 							margins.</p>
 						</div>
@@ -243,7 +248,16 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type for single style property of the <code>&lt;percent&gt;</code> CSS type</p>
+							<p>Type for style properties of the <code>&lt;percentage&gt;</code> CSS type. Values of this type can be specifed as:</p>
+							<ul>
+								<li>one of pre-defined strings like <code>&quot;100%&quot;</code></li>
+								<li>return value from the <a href="numericapi.html#percent-1">percent</a> function</li>
+								<li>a number:<ul>
+										<li>if the number is an integer, it is taken as is and a percent sign is appended to it</li>
+										<li>if the number is a floating point, it is multiplied by 100 and a percent sign is appended to it</li>
+									</ul>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</section>
@@ -299,7 +313,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="csssize" class="tsd-anchor"></a>
 					<h3>Css<wbr>Size</h3>
-					<div class="tsd-signature tsd-kind-icon">Css<wbr>Size<span class="tsd-signature-symbol">:</span> <a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;max-content&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;min-content&quot;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/numerictypes.ifitcontentproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFitContentProxy</a></div>
+					<div class="tsd-signature tsd-kind-icon">Css<wbr>Size<span class="tsd-signature-symbol">:</span> <a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;max-content&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;min-content&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;fit-content&quot;</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/numerictypes.ifitcontentproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFitContentProxy</a></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">

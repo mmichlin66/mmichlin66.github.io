@@ -15,7 +15,7 @@ import { IStringProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
  *
  *     // css: ul.c1:hover {...}
  *     c1 = css.$class()
- *     s2 = css.$style( css.selector`ul.${this.s1}:hover`, {...})
+ *     s2 = css.$style( css.selector`ul.${this.c1}:hover`, {...})
  * }
  * ```
  */

@@ -555,10 +555,11 @@ export declare type CaretColor_StyleType = "auto" | CssColor;
  */
 export declare type Clear_StyleType = "none" | "left" | "right" | "both" | "inline-start" | "inline-end";
 /**
- * Type for [[IBaseStyleset.clip|clip]] style property
+ * Type for [[IStyleset.clip|clip]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/clip
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#clip
  * @category Style Property
+ * @deprecated The CSS `clip` property and `rect()` function are deprecated.
  */
 export declare type Clip_StyleType = "auto" | IRectProxy;
 /**
@@ -596,7 +597,7 @@ export declare type ColorInterpolation_StyleType = "auto" | "sRGB" | "linearRGB"
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#column-count
  * @category Style Property
  */
-export declare type ColumnCount_StyleType = "auto" | number;
+export declare type ColumnCount_StyleType = "auto" | CssNumber;
 /**
  * Type for [[columnFill]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
@@ -639,7 +640,7 @@ export declare type Columns_StyleType = "auto" | CssNumber | Exclude<CssLength, 
     "auto" | Extended<CssNumber>
 ];
 /**
- * Type for [[IBaseStyleset.contain|contain]] style property
+ * Type for [[IStyleset.contain|contain]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/contain
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#contain
  * @category Style Property
@@ -663,14 +664,14 @@ export declare type CssCounter = "none" | OneOrMany<Extended<ICounterRule | stri
  */
 export declare type CursorKeyword = "auto" | "default" | "none" | "context-menu" | "help" | "pointer" | "progress" | "wait" | "cell" | "crosshair" | "text" | "vertical-text" | "alias" | "copy" | "move" | "no-drop" | "not-allowed" | "e-resize" | "n-resize" | "ne-resize" | "nw-resize" | "s-resize" | "se-resize" | "sw-resize" | "w-resize" | "ew-resize" | "ns-resize" | "nesw-resize" | "nwse-resize" | "col-resize" | "row-resize" | "all-scroll" | "zoom-in" | "zoom-out" | "grab" | "grabbing";
 /**
- * Type for [[IBaseStyleset.cursor|cursor]] style property
+ * Type for [[IStyleset.cursor|cursor]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/cursor
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#cursor
  * @category Style Property
  */
 export declare type Cursor_StyleType = OneOrMany<Extended<CursorKeyword | IUrlProxy | ICursorProxy>>;
 /**
- * Type for [[IBaseStyleset.direction|direction]] style property
+ * Type for [[IStyleset.direction|direction]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/direction
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#direction
  * @category Style Property
@@ -925,7 +926,7 @@ export declare type LetterSpacing_StyleType = "normal" | CssLength;
  */
 export declare type LineBreak_StyleType = "auto" | "loose" | "normal" | "strict" | "anywhere";
 /**
- * Type for [[IBaseStyleset.lineHeight|lineHeight]] style property
+ * Type for [[IStyleset.lineHeight|lineHeight]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#line-height
  * @category Style Property
@@ -1130,7 +1131,7 @@ export declare type PlaceSelf_StyleType = AlignSelf_StyleType | [Extended<AlignS
  */
 export declare type PointerEvents_StyleType = "auto" | "none" | "visiblePainted" | "visibleFill" | "visibleStroke" | "visible" | "painted" | "fill" | "stroke" | "all";
 /**
- * Type for the [[IBaseStyleset.position|position]] style property
+ * Type for the [[IStyleset.position|position]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/position
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#position
  * @category Style Property
@@ -1151,7 +1152,7 @@ export declare type Quotes_StyleType = "none" | "auto" | Extended<string>[];
  */
 export declare type Resize_StyleType = "none" | "both" | "horizontal" | "vertical" | "block" | "inline";
 /**
- * Type for [[IBaseStyleset.rotate|rotate]] style property
+ * Type for [[IStyleset.rotate|rotate]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/rotate
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#rotate
  * @category Style Property
@@ -1170,7 +1171,7 @@ export declare type Rotate_StyleType = "none" | CssAngle | ["x" | "y" | "z", Ext
  */
 export declare type RowGap_StyleType = CssLength;
 /**
- * Type for the [[IBaseStyleset.scale|scale]] style property
+ * Type for the [[IStyleset.scale|scale]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scale
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#scale
  * @category Style Property
@@ -1484,7 +1485,7 @@ export declare type Transition_StyleType = OneOrMany<Extended<Transition_Single>
  * Type for single transition-property
  * @category Style Helper
  */
-export declare type TransitionProperty = "none" | "all" | keyof IBaseStyleset;
+export declare type TransitionProperty = "none" | "all" | keyof IStyleset;
 /**
  * Type for [[transitionProperty]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property
@@ -1500,7 +1501,7 @@ export declare type TransitionProperty_StyleType = OneOrMany<Extended<Transition
  */
 export declare type TransitionTimingFunction_StyleType = OneOrMany<Extended<TimingFunction>>;
 /**
- * Type for the [[IBaseStyleset.translate|translate]] style property
+ * Type for the [[IStyleset.translate|translate]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/translate
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#translate
  * @category Style Property
@@ -1558,7 +1559,7 @@ export declare type WhiteSpace_StyleType = "normal" | "pre" | "nowrap" | "pre-wr
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#will-change
  * @category Style Property
  */
-export declare type WillChange_StyleType = "auto" | OneOrMany<Extended<"scroll-position" | "contents" | Exclude<keyof IBaseStyleset, "willChange">>>;
+export declare type WillChange_StyleType = "auto" | OneOrMany<Extended<"scroll-position" | "contents" | Exclude<keyof IStyleset, "willChange">>>;
 /**
  * Type for the [[wordBreak]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/word-break
@@ -1604,7 +1605,7 @@ export declare type DefaultStyleType = string;
  * appears in this interface. Also it is possible to add aditional properties via module
  * augmentation technique.
  */
-export interface IBaseStyleset {
+export interface IStyleset {
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/all
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#all
@@ -2083,6 +2084,7 @@ export interface IBaseStyleset {
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/clip
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#clip
+     * @deprecated The CSS `clip` property and `rect()` function are deprecated.
      */
     clip?: Clip_StyleType;
     /**
@@ -2684,7 +2686,7 @@ export interface IBaseStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-height
      */
-    maxHeight?: CssLength;
+    maxHeight?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-inline-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-inline-size
@@ -2694,7 +2696,7 @@ export interface IBaseStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-width
      */
-    maxWidth?: CssLength;
+    maxWidth?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-block-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-block-size
@@ -2704,7 +2706,7 @@ export interface IBaseStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-height
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-height
      */
-    minHeight?: CssLength;
+    minHeight?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-inline-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-inline-size
@@ -2714,7 +2716,7 @@ export interface IBaseStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-width
      */
-    minWidth?: CssLength;
+    minWidth?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mix-blend-mode
@@ -3487,24 +3489,24 @@ export interface IBaseStyleset {
     zoom?: Zoom_StyleType;
 }
 /**
- * The ExtendedBaseStyleset type maps all CSS properties defined in the [[IBaseStyleset]] interface to the
+ * The ExtendedBaseStyleset type maps all CSS properties defined in the [[IStyleset]] interface to the
  * "extended" versions of their types. These extended types are defined by adding basic keywords
  * (e.g. "unset", "initial", etc.) as well as [[StringProxy]] and [[ICustomVar]] to the type that
- * is defined in the IBaseStyleset interface.
+ * is defined in the IStyleset interface.
  * @category Styleset
  */
 export declare type ExtendedBaseStyleset = {
-    [K in keyof IBaseStyleset]?: ExtendedProp<IBaseStyleset[K]>;
+    [K in keyof IStyleset]?: ExtendedProp<IStyleset[K]>;
 };
 /**
  * The `IVarTemplateStyleset` interface maps template names to the types, which can be used for
  * defining custom CSS properties (a.k.a. variables). Normally, variables are defined using the
  * names of the style properties and their type is determined by the type of this property in the
- * [[IBaseStyleset]] interface. Sometimes, however, there is a need to define variables of some other
- * types, for which there is no suitable style property. The IVarTemplateStyleset interface provides
+ * [[IStyleset]] interface. Sometimes, however, there is a need to define variables of some other
+ * types, for which there is no suitable style property. The `IVarTemplateStyleset` interface provides
  * many basic types and it can also be extended using the TypeScript's module augmentation.
  */
-export interface IVarTemplateStyleset extends IBaseStyleset {
+export interface IVarTemplateStyleset extends IStyleset {
     /** Allows having CSS variables and constants that accept value of any type */
     "any"?: any;
     /** Allows having CSS variables and constants that accept a string value */

@@ -69,8 +69,19 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The ICssAngleMath interface contains methods that implement CSS mathematic functions on the
-						<code>&lt;angle&gt;</code> CSS types. This interface is implemented by the <a href="../modules/numericapi.html#angle">Angle</a> object.</p>
+						<p>The <code>IAngleMath</code> interface contains methods that implement CSS mathematic functions on the
+							<code>&lt;angle&gt;</code> CSS types. This interface is implemented by the <a href="../modules/numericapi.html#angle">Angle</a> object.
+							Type for single style property of the <code>&lt;length&gt; | &lt;percentage&gt;</code> CSS type. Values of this type
+						can be specifed as:</p>
+						<ul>
+							<li>one of pre-defined strings like <code>&quot;100vh&quot;</code> or <code>&quot;1fr&quot;</code></li>
+							<li>return value from the length unit functions such as <a href="../modules/numericapi.html#rem">rem</a>, <a href="../modules/numericapi.html#vh">vh</a>, <a href="../modules/numericapi.html#vmin">vmin</a>, <a href="../modules/numericapi.html#percent-1">percent</a>, etc.</li>
+							<li>a number:<ul>
+									<li>if the number is an integer, it is interpreted as <code>&quot;deg&quot;</code> units</li>
+									<li>if the number is a floating point, it is interpreted as <code>&quot;turn&quot;</code> units</li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
