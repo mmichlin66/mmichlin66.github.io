@@ -137,9 +137,10 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The <code>Angle</code> object contains methods that implement CSS mathematic functions on the <code>&lt;angle&gt;</code>
-								CSS type by appending an angle unit suffix.
-							Integer numbers use <code>&quot;deg&quot;</code>; floating point numbers use <code>&quot;turn&quot;</code>.</p>
+							<p>The <code>Angle</code> object contains methods that implement CSS mathematic functions on the
+								<code>&lt;angle&gt; | &lt;percentage&gt;</code> CSS type. It implements the <a href="../interfaces/numerictypes.inumericmath.html">INumericMath</a> interface and thus
+								allows using the methods such as <a href="../interfaces/numerictypes.inumericmath.html#min">min</a>, <a href="../interfaces/numerictypes.inumericmath.html#max">max</a>, <a href="../interfaces/numerictypes.inumericmath.html#calc">calc</a> and <a href="../interfaces/numerictypes.inumericmath.html#clamp">clamp</a> with parameters
+							of the <a href="numerictypes.html#cssangle">CssAngle</a> type.</p>
 						</div>
 					</div>
 				</section>
@@ -151,9 +152,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The <code>Frequency</code> object contains methods that implement CSS mathematic functions on the
-								<code>&lt;frequency&gt;</code> CSS type by appending a frequency unit suffix.
-							Integer numbers use <code>&quot;Hz&quot;</code>; floating point numbers use <code>&quot;kHz&quot;</code>.</p>
+							<p>The <code>Frequency</code> object contains methods that implement CSS mathematic functions on the <code>&lt;frequency&gt;</code>
+								CSS type. It implements the <a href="../interfaces/numerictypes.inumericmath.html">INumericMath</a> interface and thus allows using the methods such
+							as <a href="../interfaces/numerictypes.inumericmath.html#min">min</a>, <a href="../interfaces/numerictypes.inumericmath.html#max">max</a>, <a href="../interfaces/numerictypes.inumericmath.html#calc">calc</a> and <a href="../interfaces/numerictypes.inumericmath.html#clamp">clamp</a> with parameters of the <a href="numerictypes.html#cssfrequency">CssFrequency</a> type.</p>
 						</div>
 					</div>
 				</section>
@@ -165,10 +166,22 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The <code>Len</code> object contains methods that implement CSS mathematic functions on the <code>&lt;length&gt;</code>
-								CSS type by appending a length unit suffix.
-							Integer numbers use <code>&quot;px&quot;</code>; floating point numbers use <code>&quot;em&quot;</code>.</p>
+							<p>The <code>Len</code> object contains methods that implement CSS mathematic functions on the
+								<code>&lt;length&gt; | &lt;percentage&gt;</code> CSS type. It implements the <a href="../interfaces/numerictypes.inumericmath.html">INumericMath</a> interface and thus
+								allows using the methods such as <a href="../interfaces/numerictypes.inumericmath.html#min">min</a>, <a href="../interfaces/numerictypes.inumericmath.html#max">max</a>, <a href="../interfaces/numerictypes.inumericmath.html#calc">calc</a> and <a href="../interfaces/numerictypes.inumericmath.html#clamp">clamp</a> with parameters
+							of the <a href="numerictypes.html#csslength">CssLength</a> type.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">defaultPadding</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;CssLength&quot;</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">)</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// calc( 200px - (2 * var(--defaultPadding)))</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">width:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #001080">Len</span><span style="color: #A31515">.</span><span style="color: #795E26">calc</span><span style="color: #A31515">` 200px - (2 * </span><span style="color: #0000FF">${</span><span style="color: #0000FF">this</span><span style="color: #000000FF">.</span><span style="color: #001080">defaultPadding</span><span style="color: #0000FF">}</span><span style="color: #A31515">)`</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
@@ -180,8 +193,22 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The <code>Num</code> object contains methods that implement CSS mathematic functions on the <code>&lt;number&gt;</code>
-							CSS type.</p>
+								CSS type. It implements the <a href="../interfaces/numerictypes.inumericmath.html">INumericMath</a> interface and thus allows using the methods such
+							as <a href="../interfaces/numerictypes.inumericmath.html#min">min</a>, <a href="../interfaces/numerictypes.inumericmath.html#max">max</a>, <a href="../interfaces/numerictypes.inumericmath.html#calc">calc</a> and <a href="../interfaces/numerictypes.inumericmath.html#clamp">clamp</a> with parameters of the <a href="numerictypes.html#cssnumber">CssNumber</a> type.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// define custom CSS property - note that its value can be changed</span>
+<span style="color: #000000">    </span><span style="color: #008000">// programmatically</span>
+<span style="color: #000000">    </span><span style="color: #001080">columnQty</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;CssNumber&quot;</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">)</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// max( 5, var(--columnQty))</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">columns:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #001080">Num</span><span style="color: #000000">.</span><span style="color: #795E26">max</span><span style="color: #000000">( </span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">columnQty</span><span style="color: #000000">)</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
@@ -193,8 +220,21 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The <code>Percent</code> object contains methods that implement CSS mathematic functions on the
-							<code>&lt;percentage&gt;</code> CSS type by appending a <code>&quot;%&quot;</code> unit suffix.</p>
+								<code>&lt;percentage&gt;</code> CSS type. It implements the <a href="../interfaces/numerictypes.inumericmath.html">INumericMath</a> interface and thus allows using
+								the methods such as <a href="../interfaces/numerictypes.inumericmath.html#min">min</a>, <a href="../interfaces/numerictypes.inumericmath.html#max">max</a>, <a href="../interfaces/numerictypes.inumericmath.html#calc">calc</a> and <a href="../interfaces/numerictypes.inumericmath.html#clamp">clamp</a> with parameters of the
+							<a href="numerictypes.html#csspercent">CssPercent</a> type.</p>
 						</div>
+						<p><strong>Example:</strong></p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">initialZoom</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;CssPercent&quot;</span><span style="color: #000000">, </span><span style="color: #098658">1.5</span><span style="color: #000000">)</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// min( 0.5, var(--initialZoom))</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">zoom:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #001080">Percent</span><span style="color: #000000">.</span><span style="color: #795E26">min</span><span style="color: #000000">( </span><span style="color: #098658">0.5</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">initialZoom</span><span style="color: #000000">)</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
@@ -206,8 +246,9 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The <code>Resolution</code> object contains methods that implement CSS mathematic functions on the
-								<code>&lt;resolution&gt;</code> CSS type by appending a resolution unit suffix.
-							Integer numbers use <code>&quot;dpi&quot;</code>; floating point numbers use <code>&quot;dpcm&quot;</code>.</p>
+								<code>&lt;resolution&gt;</code> CSS type. It implements the <a href="../interfaces/numerictypes.inumericmath.html">INumericMath</a> interface and thus allows using
+								the methods such as <a href="../interfaces/numerictypes.inumericmath.html#min">min</a>, <a href="../interfaces/numerictypes.inumericmath.html#max">max</a>, <a href="../interfaces/numerictypes.inumericmath.html#calc">calc</a> and <a href="../interfaces/numerictypes.inumericmath.html#clamp">clamp</a> with parameters of the
+							<a href="numerictypes.html#cssresolution">CssResolution</a> type.</p>
 						</div>
 					</div>
 				</section>
@@ -219,7 +260,9 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The T<code>ime object contains methods that implement CSS mathematic functions on the </code><time><code>CSS type by appending a time unit suffix. Integer numbers use</code>&quot;ms&quot;<code>; floating point numbers use </code>&quot;s&quot;`.</p>
+							<p>The <code>Time</code> object contains methods that implement CSS mathematic functions on the <code>&lt;time&gt;</code>
+								CSS type. It implements the <a href="../interfaces/numerictypes.inumericmath.html">INumericMath</a> interface and thus allows using the methods such
+							as <a href="../interfaces/numerictypes.inumericmath.html#min">min</a>, <a href="../interfaces/numerictypes.inumericmath.html#max">max</a>, <a href="../interfaces/numerictypes.inumericmath.html#calc">calc</a> and <a href="../interfaces/numerictypes.inumericmath.html#clamp">clamp</a> with parameters of the <a href="numerictypes.html#csstime">CssTime</a> type.</p>
 						</div>
 					</div>
 				</section>
@@ -913,7 +956,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates length value in fontsizes of the root element (<html>).</p>
+									<p>Creates length value in font-sizes of the root element (<html>).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>

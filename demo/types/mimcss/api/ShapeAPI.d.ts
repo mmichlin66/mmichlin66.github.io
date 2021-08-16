@@ -274,7 +274,7 @@ export declare function translate3d(x: Extended<CssLength>, y: Extended<CssLengt
  */
 export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>, o3?: Extended<CssLength>, o4?: Extended<CssLength>): IInset;
 /**
- * Returns an ICircle objectn representing the `circle()` CSS function.
+ * Returns an ICircle object representing the `circle()` CSS function.
  *
  * *Example:*
  *

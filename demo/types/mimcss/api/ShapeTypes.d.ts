@@ -1,5 +1,5 @@
-import { Extended, IGenericProxy, OneOrBox, OneOrPair } from "./CoreTypes";
-import { AngleUnits, CssAngle, CssLength, CssNumber, CssPoint, CssPosition, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits } from "./NumericTypes";
+import { Extended, IGenericProxy } from "./CoreTypes";
+import { AngleUnits, BorderRadius, CssAngle, CssLength, CssNumber, CssPoint, CssPosition, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
 /**
  * Type representing extent for the [[radialGradient]] or [[ray]] functions.
@@ -182,8 +182,6 @@ export interface IFilterProxy extends IGenericProxy<"filter"> {
  */
 export interface ITransformProxy extends IGenericProxy<"transform"> {
 }
-/** Type for border-radius style property */
-export declare type BorderRadius = OneOrPair<OneOrBox<Extended<CssLength>>>;
 /**
  * Type that is used to specify a radius in [circle]] and [ellipse]] functions.
  */

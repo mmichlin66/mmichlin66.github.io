@@ -1,4 +1,4 @@
-import { Extended, IGenericProxy, OneOrPair } from "./CoreTypes";
+import { Extended, IGenericProxy, OneOrBox, OneOrPair } from "./CoreTypes";
 /**
  * The `INumberBaseMath` interface contains methods that implement CSS mathematical functions on the
  * numeric CSS types. This interface is extended by dimension-specific interfaces such as
@@ -255,20 +255,32 @@ export declare type CssPoint = [Extended<CssLength>, Extended<CssLength>];
 export declare type HorizontalPositionKeyword = "left" | "center" | "right";
 /** Type of a value specifying the horizontal position */
 export declare type HorizontalPosition = HorizontalPositionKeyword | CssLength;
+/** Type describing horizontal position CSS type consisting of 2 values using a tuple */
+export declare type HorizontalPositionTuple = [Extended<HorizontalPositionKeyword>, Extended<CssLength>];
 /** Vertical position keywords */
 export declare type VerticalPositionKeyword = "top" | "center" | "bottom";
 /** Type of a value specifying the vertical position */
 export declare type VerticalPosition = VerticalPositionKeyword | CssLength;
-/** Type describing a simple 1 or two values `<position>` CSS type */
-export declare type SimpleCssPosition = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength | [
+/** Type describing vertical position CSS type consisting of 2 values using a tuple */
+export declare type VerticalPositionTuple = [Extended<VerticalPositionKeyword>, Extended<CssLength>];
+/** Type describing `<position-x>` CSS type consisting of up to 2 values */
+export declare type CssPositionX = HorizontalPosition | HorizontalPositionTuple;
+/** Type describing multiple `<position-x>` CSS types consisting of up to 2 values */
+export declare type CssMultiPositionX = CssPositionX | ([Extended<HorizontalPosition>] | Extended<HorizontalPositionTuple>)[];
+/** Type describing `<position-y>` CSS type consisting of up to 2 values */
+export declare type CssPositionY = VerticalPosition | VerticalPositionTuple;
+/** Type describing multiple `<position-y>` CSS types consisting of up to 2 values */
+export declare type CssMultiPositionY = CssPositionY | ([Extended<VerticalPosition>] | Extended<VerticalPositionTuple>)[];
+/** Type describing a single item in the `<position>` CSS type */
+export declare type CssPositionItem = HorizontalPositionKeyword | VerticalPositionKeyword | CssLength;
+/** Type describing `<position>` CSS type consisting of 1 to 4 values using touples */
+export declare type CssPositionTuple = [
     Extended<HorizontalPosition>,
     Extended<VerticalPosition>
 ] | [
     Extended<VerticalPosition>,
     Extended<HorizontalPosition>
-];
-/** Type describing the full up to 4 values `<position>` CSS type */
-export declare type CssPosition = SimpleCssPosition | [
+] | [
     Extended<HorizontalPositionKeyword>,
     Extended<VerticalPositionKeyword>,
     Extended<CssLength>
@@ -287,8 +299,16 @@ export declare type CssPosition = SimpleCssPosition | [
     Extended<HorizontalPositionKeyword>,
     Extended<CssLength>?
 ];
+/** Type describing `<position>` CSS type consisting of up to 4 values */
+export declare type CssPosition = CssPositionItem | CssPositionTuple;
+/** Type describing multiple `<position>` CSS types consisting of up to 4 values */
+export declare type CssMultiPosition = CssPosition | ([Extended<CssPositionItem>] | Extended<CssPositionTuple>)[];
 /** Type for a single corner radius */
 export declare type CssRadius = OneOrPair<Extended<CssLength>>;
+/** Type for border-radius style property */
+export declare type BorderRadiusItem = [Extended<CssLength>, Extended<CssLength>?, Extended<CssLength>?, Extended<CssLength>?];
+/** Type for border-radius style property */
+export declare type BorderRadius = OneOrBox<Extended<CssLength>> | [BorderRadiusItem, BorderRadiusItem];
 /**
  * The IAspectRatioProxy interface represents an invocation of the [[ratio]] function.
  */

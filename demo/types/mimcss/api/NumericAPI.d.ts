@@ -2,12 +2,45 @@ import { Extended } from "./CoreTypes";
 import { ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy, IFrequencyProxy, CssLength, IFitContentProxy, CssNumber, IAspectRatioProxy, INumberMath, IPercentMath, ILengthMath, IAngleMath, ITimeMath, IResolutionMath, IFrequencyMath, IRectProxy } from "./NumericTypes";
 /**
  * The `Num` object contains methods that implement CSS mathematic functions on the `<number>`
- * CSS type.
+ * CSS type. It implements the [[INumericMath]] interface and thus allows using the methods such
+ * as [[min]], [[max]], [[calc]] and [[clamp]] with parameters of the [[CssNumber]] type.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     // define custom CSS property - note that its value can be changed
+ *     // programmatically
+ *     columnQty = css.$var( "CssNumber", 3)
+ *
+ *     // max( 5, var(--columnQty))
+ *     cls1 = css.$class({
+ *         columns: css.Num.max( 5, this.columnQty)
+ *     })
+ * }
+ * ```
  */
 export declare let Num: INumberMath;
 /**
  * The `Percent` object contains methods that implement CSS mathematic functions on the
- * `<percentage>` CSS type by appending a `"%"` unit suffix.
+ * `<percentage>` CSS type. It implements the [[INumericMath]] interface and thus allows using
+ * the methods such as [[min]], [[max]], [[calc]] and [[clamp]] with parameters of the
+ * [[CssPercent]] type.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     initialZoom = css.var( "CssPercent", 1.5)
+ *
+ *     // min( 0.5, var(--initialZoom))
+ *     cls1 = css.$class({
+ *         zoom: css.Percent.min( 0.5, this.initialZoom)
+ *     })
+ * }
+ * ```
  */
 export declare let Percent: IPercentMath;
 /**
@@ -17,9 +50,24 @@ export declare let Percent: IPercentMath;
  */
 export declare function percent(n: number): IPercentProxy;
 /**
- * The `Len` object contains methods that implement CSS mathematic functions on the `<length>`
- * CSS type by appending a length unit suffix.
- * Integer numbers use `"px"`; floating point numbers use `"em"`.
+ * The `Len` object contains methods that implement CSS mathematic functions on the
+ * `<length> | <percentage>` CSS type. It implements the [[INumericMath]] interface and thus
+ * allows using the methods such as [[min]], [[max]], [[calc]] and [[clamp]] with parameters
+ * of the [[CssLength]] type.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     defaultPadding = css.var( "CssLength", 8)
+ *
+ *     // calc( 200px - (2 * var(--defaultPadding)))
+ *     cls1 = css.$class({
+ *         width: css.Len.calc` 200px - (2 * ${this.defaultPadding})`
+ *     })
+ * }
+ * ```
  */
 export declare let Len: ILengthMath;
 /**
@@ -107,7 +155,7 @@ export declare function vi(n: number): ILengthProxy;
  */
 export declare function vw(n: number): ILengthProxy;
 /**
- * Creates length value in fontsizes of the root element (<html>).
+ * Creates length value in font-sizes of the root element (<html>).
  * @category Units
  */
 export declare function rem(n: number): ILengthProxy;
@@ -132,9 +180,10 @@ export declare function vmax(n: number): ILengthProxy;
  */
 export declare function fr(n: number): ILengthProxy;
 /**
- * The `Angle` object contains methods that implement CSS mathematic functions on the `<angle>`
- * CSS type by appending an angle unit suffix.
- * Integer numbers use `"deg"`; floating point numbers use `"turn"`.
+ * The `Angle` object contains methods that implement CSS mathematic functions on the
+ * `<angle> | <percentage>` CSS type. It implements the [[INumericMath]] interface and thus
+ * allows using the methods such as [[min]], [[max]], [[calc]] and [[clamp]] with parameters
+ * of the [[CssAngle]] type.
  */
 export declare let Angle: IAngleMath;
 /**
@@ -158,9 +207,9 @@ export declare function grad(n: number): IAngleProxy;
  */
 export declare function turn(n: number): IAngleProxy;
 /**
- * The T`ime object contains methods that implement CSS mathematic functions on the `<time>`
- * CSS type by appending a time unit suffix.
- * Integer numbers use `"ms"`; floating point numbers use `"s"`.
+ * The `Time` object contains methods that implement CSS mathematic functions on the `<time>`
+ * CSS type. It implements the [[INumericMath]] interface and thus allows using the methods such
+ * as [[min]], [[max]], [[calc]] and [[clamp]] with parameters of the [[CssTime]] type.
  */
 export declare let Time: ITimeMath;
 /**
@@ -175,8 +224,9 @@ export declare function ms(n: number): ITimeProxy;
 export declare function s(n: number): ITimeProxy;
 /**
  * The `Resolution` object contains methods that implement CSS mathematic functions on the
- * `<resolution>` CSS type by appending a resolution unit suffix.
- * Integer numbers use `"dpi"`; floating point numbers use `"dpcm"`.
+ * `<resolution>` CSS type. It implements the [[INumericMath]] interface and thus allows using
+ * the methods such as [[min]], [[max]], [[calc]] and [[clamp]] with parameters of the
+ * [[CssResolution]] type.
  */
 export declare let Resolution: IResolutionMath;
 /**
@@ -200,9 +250,9 @@ export declare function dppx(n: number): IResolutionProxy;
  */
 export declare function x(n: number): IResolutionProxy;
 /**
- * The `Frequency` object contains methods that implement CSS mathematic functions on the
- * `<frequency>` CSS type by appending a frequency unit suffix.
- * Integer numbers use `"Hz"`; floating point numbers use `"kHz"`.
+ * The `Frequency` object contains methods that implement CSS mathematic functions on the `<frequency>`
+ * CSS type. It implements the [[INumericMath]] interface and thus allows using the methods such
+ * as [[min]], [[max]], [[calc]] and [[clamp]] with parameters of the [[CssFrequency]] type.
  */
 export declare let Frequency: IFrequencyMath;
 /**

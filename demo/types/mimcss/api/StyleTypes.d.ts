@@ -1,8 +1,8 @@
 import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, Global_StyleType } from "./CoreTypes";
-import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto } from "./NumericTypes";
+import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius } from "./NumericTypes";
 import { CssColor, CssNonNumericColor } from "./ColorTypes";
 import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
-import { IUrlProxy, BasicShape, CssImage, IMinMaxProxy, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IRayProxy, ITimingFunctionProxy, ICursorProxy, BorderRadius, FillRule } from "./ShapeTypes";
+import { IUrlProxy, BasicShape, CssImage, IMinMaxProxy, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IRayProxy, ITimingFunctionProxy, ICursorProxy, FillRule } from "./ShapeTypes";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule, IStyleDefinition, IStyleDefinitionClass, ICounterStyleRule } from "./RuleTypes";
 /**
  * Type for [[alignContent]] style property.
@@ -234,51 +234,6 @@ export declare type BackgroundOrigin = "border-box" | "padding-box" | "content-b
  * @category Style Property
  */
 export declare type BackgroundOrigin_StyleType = OneOrMany<Extended<BackgroundOrigin>>;
-/**
- * Type for [[backgroundPosition]] style property
- * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
- * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#background-position
- * @category Style Property
- */
-export declare type BackgroundPosition_StyleType = OneOrMany<Extended<CssPosition>>;
-/**
- * Type for background-position-x single item
- * @category Style Helper
- */
-export declare type BackgroundPositionX = HorizontalPositionKeyword | CssLength | [
-    HorizontalPositionKeyword,
-    Extended<CssLength>
-];
-/**
- * Type for [[backgroundPositionX]] style property. To use the two-value syntax, e.g. `left 30px`,
- * the values must specified as a tuple inside an array; that is: `[["left", 30]]`. If values
- * are put into a single array, they will be considered two different items and will be
- * separated by comma. For example: `["left", 30]` will become `left, 30px`.
- *
- * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-x
- * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#background-position-x
- * @category Style Property
- */
-export declare type BackgroundPositionX_StyleType = OneOrMany<Extended<BackgroundPositionX>>;
-/**
- * Type for background-position-y single item
- * @category Style Helper
- */
-export declare type BackgroundPositionY = VerticalPositionKeyword | CssLength | [
-    VerticalPositionKeyword,
-    Extended<CssLength>
-];
-/**
- * Type for [[backgroundPositionY]] style property. To use the two-value syntax, e.g. `top 30px`,
- * the values must specified as a tuple inside an array; that is: `[["top", 30]]`. If values
- * are put into a single array, they will be considered two different items and will be
- * separated by comma. For example: `["top", 30]` will become `top, 30px`.
- *
- * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-y
- * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#background-position-y
- * @category Style Property
- */
-export declare type BackgroundPositionY_StyleType = OneOrMany<Extended<BackgroundPositionY>>;
 /**
  * Keywords for single background repeat
  * @category Style Helper
@@ -988,6 +943,27 @@ export declare type MarginTrim_StyleType = "none" | "in-flow" | "all";
  */
 export declare type Marker_StyleType = "none" | IIDRule;
 /**
+ * Type for the [[maskComposite]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-composite
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-composite
+ * @category Style Property
+ */
+export declare type MaskCompositeKeyword = "add" | "subtract" | "intersect" | "exclude";
+/**
+ * Type for the [[maskMode]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-mode
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-mode
+ * @category Style Property
+ */
+export declare type MaskModeKeyword = "alpha" | "luminance" | "match-source";
+/**
+ * Type for the [[maskType]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-type
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-type
+ * @category Style Property
+ */
+export declare type MaskTypeKeyword = "alpha" | "luminance";
+/**
  * Type for the [[objectFit]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#object-fit
@@ -1024,6 +1000,12 @@ export declare type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | Basi
     GeometryBoxKeyword,
     BasicShape
 ];
+/**
+ * Type for [[offsetPosition]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/offset-position
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#offset-position
+ */
+export declare type OffsetPosition_StyleType = "auto" | CssPosition;
 /**
  * Type for the [[offsetRotate]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/offset-rotate
@@ -1730,17 +1712,17 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#background-position
      */
-    backgroundPosition?: BackgroundPosition_StyleType;
+    backgroundPosition?: CssMultiPosition;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-x
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#background-position-x
      */
-    backgroundPositionX?: BackgroundPositionX_StyleType;
+    backgroundPositionX?: CssMultiPositionX;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-y
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#background-position-y
      */
-    backgroundPositionY?: BackgroundPositionY_StyleType;
+    backgroundPositionY?: CssMultiPositionY;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#background-repeat
@@ -2648,25 +2630,40 @@ export interface IStyleset {
      */
     mask?: DefaultStyleType;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-clip
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-clip
+     */
+    maskClip?: OneOrMany<Extended<GeometryBoxKeyword>>;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-composite
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-composite
      */
-    maskComposite?: DefaultStyleType;
+    maskComposite?: OneOrMany<Extended<MaskCompositeKeyword>>;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-image
      */
-    maskImage?: DefaultStyleType;
+    maskImage?: OneOrMany<Extended<CssImage>>;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-position
-     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-position
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-mode
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-mode
      */
-    maskPosition?: DefaultStyleType;
+    maskMode?: OneOrMany<Extended<MaskModeKeyword>>;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-origin
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-origin
+     */
+    maskOrigin?: OneOrMany<Extended<GeometryBoxKeyword>>;
+    /**
+    * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-position
+    * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-position
+    */
+    maskPosition?: CssMultiPosition;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-repeat
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-repeat
      */
-    maskRepeat?: DefaultStyleType;
+    maskRepeat?: OneOrMany<Extended<BackgroundRepeat>>;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-size
@@ -2676,7 +2673,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-type
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#mask-type
      */
-    maskType?: DefaultStyleType;
+    maskType?: MaskTypeKeyword;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-block-size
@@ -2756,7 +2753,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/offset-position
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#offset-position
      */
-    offsetPosition?: CssPosition;
+    offsetPosition?: OffsetPosition_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/offset-rotate
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#offset-rotate
@@ -3531,6 +3528,8 @@ export interface IVarTemplateStyleset extends IStyleset {
     CssPoint?: CssPoint;
     /** Allows having CSS variables and constants that accept a `<position>` CSS value */
     CssPosition?: CssPosition;
+    /** Allows having CSS variables and constants that accept multiple `<position>` CSS values */
+    CssMultiPosition?: CssMultiPosition;
     /** Allows having CSS variables and constants that accept a `<radius>` CSS value */
     CssRadius?: CssRadius;
     /** Allows having CSS variables and constants that accept a `<ratio>` CSS value */
