@@ -284,6 +284,17 @@ A Bezier function is represented as a four element tuple where each element is a
 
 **See Also:** [OneOrMany](/mimcss/reference.html#modules/coretypes.html#oneormany), [Extended](/mimcss/reference.html#modules/coretypes.html#extended)
 
+#### appearance
+
+```tsx
+appearance: Appearance_StyleType;
+
+/** Type for appearance style property */
+export type Appearance_StyleType = "none" | "auto" | "textfield" | "menulist-button" |
+    "searchfield" | "textarea" | "push-button" | "slider-horizontal" | "checkbox" | "radio" |
+    "square-button" | "menulist" | "listbox" | "meter" | "progress-bar" | "button";
+```
+
 #### aspect-ratio
 
 ```tsx
@@ -514,10 +525,10 @@ export type BaselineShift_StyleType = "sub" | "super" | CssLength;
 #### block-size
 
 ```tsx
-blockSize: CssLength;
+blockSize: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### border
 
@@ -1149,6 +1160,15 @@ color: CssColor;
 ```
 
 **See Also:** [CssColor](/mimcss/reference.html#modules/colortypes.html#csscolor)
+
+#### color-adjust
+
+```tsx
+colorAdjust: ColorAdjust_StyleType;
+
+/** Type for color-adjust style property */
+export type ColorAdjust_StyleType = "economy" | "exact";
+```
 
 #### color-interpolation
 
@@ -2091,10 +2111,18 @@ export type ImageRendering_StyleType = "auto" | "crisp-edges" | "pixelated";
 #### inline-size
 
 ```tsx
-inlineSize: CssLength;
+inlineSize: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
+
+#### initial-letter
+
+```tsx
+initialLetter: OneOrPair<CssNumber>;
+```
+
+**See Also:** [CssNumber](/mimcss/reference.html#modules/numerictypes.html#cssnumber), [OneOrPair](/mimcss/reference.html#modules/coretypes.html#oneorpair)
 
 #### isolation
 
@@ -2353,66 +2381,66 @@ export type Marker_StyleType = "none" | IIDRule;
 #### max-block-size
 
 ```tsx
-maxBlockSize: CssLength;
+maxBlockSize: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### max-height
 
 ```tsx
-maxHeight: CssLength;
+maxHeight: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### max-inline-size
 
 ```tsx
-maxInlineSize: CssLength;
+maxInlineSize: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### max-width
 
 ```tsx
-maxWidth: CssLength;
+maxWidth: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### min-block-size
 
 ```tsx
-minBlockSize: CssLength;
+minBlockSize: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### min-height
 
 ```tsx
-minHeight: CssLength;
+minHeight: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### min-inline-size
 
 ```tsx
-minInlineSize: CssLength;
+minInlineSize: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### min-width
 
 ```tsx
-minWidth: CssLength;
+minWidth: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### object-fit
 
@@ -3230,10 +3258,12 @@ stroke: CssColor;
 #### tab-size
 
 ```tsx
-tabSize: CssLength;
+tabSize: CssNumber | ILengthProxy;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+If you want to specify the value as a `<length>` type - that is, with one of the length units - you have to use one of the unit functions such as `px()`, `em()`, etc.
+
+**See Also:** [CssNumber](/mimcss/reference.html#modules/numerictypes.html#cssnumber)
 
 #### table-layout
 
@@ -3398,6 +3428,14 @@ export type TextEmphasisFill = "filled" | "open";
 
 **See Also:** [Extended](/mimcss/reference.html#modules/coretypes.html#extended)
 
+#### text-fill-color
+
+```tsx
+textFillColor: CssColor;
+```
+
+**See Also:** [CssColor](/mimcss/reference.html#modules/colortypes.html#csscolor)
+
 #### text-indent
 
 ```tsx
@@ -3469,6 +3507,38 @@ export type TextSizeAdjust_StyleType = "none" | "auto" | CssPercent;
 ```
 
 **See Also:** [CssPercent](/mimcss/reference.html#modules/coretypes.html#csspercent)
+
+#### text-stroke
+
+```tsx
+textStroke: TextStroke_StyleType;
+```
+
+The `text-stroke` property is a shorthand property that can be specified as a number, as a keyword, as a tuple or as an object. The fields of the object correspond to the extended types of the following longhand properties:
+
+| Field | CSS longhand property |
+| :--- | :--- |
+| width | [text-stroke-width](#text-stroke-width) |
+| color | [text-stroke-color](#text-stroke-color) |
+
+
+**See Also:** [TextStroke_StyleType](/mimcss/reference.html#modules/styletypes.html#textstroke_styletype)
+
+#### text-stroke-color
+
+```tsx
+textStrokeColor: CssColor;
+```
+
+**See Also:** [CssColor](/mimcss/reference.html#modules/colortypes.html#csscolor)
+
+#### text-stroke-width
+
+```tsx
+textStrokeWidth: LineWidth;
+```
+
+**See Also:** [LineWidth](/mimcss/reference.html#modules/styletypes.html#linewidth)
 
 #### text-transform
 
@@ -3717,10 +3787,10 @@ widows: CssNumber;
 #### width
 
 ```tsx
-width: CssLength;
+width: CssSize;
 ```
 
-**See Also:** [CssLength](/mimcss/reference.html#modules/numerictypes.html#csslength)
+**See Also:** [CssSize](/mimcss/reference.html#modules/numerictypes.html#csssize)
 
 #### will-change
 

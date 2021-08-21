@@ -239,7 +239,7 @@ export declare type CssFrequency = number | IFrequencyProxy;
 export interface IFrequencyMath extends INumericMath<CssFrequency, FrequencyUnits> {
 }
 /** Type for `width`, `height`, `block-size` and `inline-size` style properties */
-export declare type CssSize = CssLength | "auto" | "max-content" | "min-content" | "fit-content" | IFitContentProxy;
+export declare type CssSize = "auto" | "max-content" | "min-content" | "fit-content" | "stretch" | CssLength | IFitContentProxy;
 /**
  * The IFitContentProxy interface represents an invocation of the CSS `fit-content()` function. It
  * is returned from the [[fitContent]] function.

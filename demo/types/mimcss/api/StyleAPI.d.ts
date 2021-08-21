@@ -32,7 +32,7 @@ export declare function setElementStyle(elm: ElementCSSInlineStyle, styleset: St
  * Sets values of the style properties from the given StringStyleset object to the `style` attribute
  * of the given HTML element.
  * @param elm HTML/SVG element whose styles will be set.
- * @param styleset StringStyleset object which provides values for style properties.
+ * @param styleset [[StringStyleset]] object which provides values for style properties.
  */
 export declare function setElementStringStyle(elm: ElementCSSInlineStyle, styleset: StringStyleset | null | undefined, schedulerType?: number): void;
 /**

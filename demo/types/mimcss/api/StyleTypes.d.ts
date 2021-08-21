@@ -128,6 +128,13 @@ export declare type AnimationPlayState = "paused" | "running";
  */
 export declare type AnimationPlayState_StyleType = OneOrMany<Extended<AnimationPlayState>>;
 /**
+ * Type for [[appearance]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#appearance
+ * @category Style Property
+ */
+export declare type Appearance_StyleType = "none" | "auto" | "textfield" | "menulist-button" | "searchfield" | "textarea" | "push-button" | "slider-horizontal" | "checkbox" | "radio" | "square-button" | "menulist" | "listbox" | "meter" | "progress-bar" | "button";
+/**
  * Type for simple animation timing functions - those that don't have parameters
  * @category Style Helper
  */
@@ -397,43 +404,45 @@ export declare type BorderStyle_StyleType = OneOrBox<Extended<BorderStyle>>;
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border
  * @category Style Property
  */
-export declare type Border_StyleType = BorderWidth | BorderStyle | CssNonNumericColor | [
-    Extended<BorderWidth>,
+export declare type Border_StyleType = LineWidth | BorderStyle | CssNonNumericColor | [
+    Extended<LineWidth>,
     Extended<BorderStyle>,
     Extended<CssColor>?
 ] | [
-    Extended<BorderWidth>,
+    Extended<LineWidth>,
     Extended<CssColor>,
     Extended<BorderStyle>?
 ] | [
     Extended<BorderStyle>,
-    Extended<BorderWidth>,
+    Extended<LineWidth>,
     Extended<CssColor>?
 ] | [
     Extended<BorderStyle>,
     Extended<CssColor>,
-    Extended<BorderWidth>?
+    Extended<LineWidth>?
 ] | [
     Extended<CssNonNumericColor>,
-    Extended<BorderWidth>,
+    Extended<LineWidth>,
     Extended<BorderStyle>?
 ] | [
     Extended<CssNonNumericColor>,
     Extended<BorderStyle>,
-    Extended<BorderWidth>?
+    Extended<LineWidth>?
 ];
 /**
- * Type for border side width style property
+ * Type used for several style properties that allow defining line width as a `<length>` CSS
+ * type as well as keywords such as `thin` and `thick`. For example, see the [[borderWidth]]
+ * property.
  * @category Style Helper
  */
-export declare type BorderWidth = "thin" | "medium" | "thick" | CssLength;
+export declare type LineWidth = "thin" | "medium" | "thick" | CssLength;
 /**
  * Type for [[borderWidth]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-width
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-width
  * @category Style Property
  */
-export declare type BorderWidth_StyleType = OneOrBox<Extended<BorderWidth>>;
+export declare type BorderWidth_StyleType = OneOrBox<Extended<LineWidth>>;
 /**
  * Type for [[boxDecorationBreak]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/box-decoration-break
@@ -539,6 +548,13 @@ export declare type ClipPath_StyleType = "none" | IUrlProxy | BasicShape | Geome
  * @category Style Property
  */
 export declare type ClipRule_StyleType = "nonzero" | "evenodd";
+/**
+ * Type for [[colorAdjust]] and color-adjust style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-adjust
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#color-adjust
+ * @category Style Property
+ */
+export declare type ColorAdjust_StyleType = "economy" | "exact";
 /**
  * Type for [[colorInterpolation]] and color-interpolation-filters style properties
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation
@@ -839,6 +855,13 @@ export declare type Hyphens_StyleType = "none" | "manual" | "auto";
  */
 export declare type ImageRendering_StyleType = "auto" | "crisp-edges" | "pixelated";
 /**
+ * Type for [[initialLetter]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#initial-letter
+ * @category Style Property
+ */
+export declare type InitialLetter_StyleType = OneOrPair<CssNumber>;
+/**
  * Type for [[isolation]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/isolation
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#isolation
@@ -880,6 +903,13 @@ export declare type LetterSpacing_StyleType = "normal" | CssLength;
  * @category Style Property
  */
 export declare type LineBreak_StyleType = "auto" | "loose" | "normal" | "strict" | "anywhere";
+/**
+ * Type for [[lineClamp]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-clamp
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#line-clamp
+ * @category Style Property
+ */
+export declare type LineClamp_StyleType = "none" | CssNumber | [Extended<CssNumber>, Extended<string>];
 /**
  * Type for [[IStyleset.lineHeight|lineHeight]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
@@ -1226,6 +1256,13 @@ export declare type ShapeOutside_StyleType = IUrlProxy | BasicShape | GeometryBo
  */
 export declare type ShapeRendering_StyleType = "auto" | "optimizeSpeed" | "crispEdges" | "geometricPrecision";
 /**
+ * Type for the [[tabSize]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/tab-size
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#tab-size
+ * @category Style Property
+ */
+export declare type TabSize_StyleType = CssNumber | ILengthProxy;
+/**
  * Type for the [[tableLayout]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#table-layout
@@ -1393,6 +1430,22 @@ export declare type TextShadow_StyleType = OneOrMany<Extended<TextShadow>>;
  * @category Style Property
  */
 export declare type TextSizeAdjust_StyleType = "none" | "auto" | CssPercent;
+/**
+ * Type for the [[textStroke]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-stroke
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-stroke
+ * @category Style Property
+ */
+export declare type TextStroke_StyleType = LineWidth | CssNonNumericColor | [
+    Extended<LineWidth>,
+    Extended<CssColor>
+] | [
+    Extended<CssNonNumericColor>,
+    LineWidth
+] | {
+    width: Extended<LineWidth>;
+    color: Extended<CssColor>;
+};
 /**
  * Type for the [[textTransform]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
@@ -1575,6 +1628,7 @@ export declare type ZIndex_StyleType = "auto" | CssNumber;
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/zoom
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#zoom
  * @category Style Property
+ * @deprecated
  */
 export declare type Zoom_StyleType = "normal" | "reset" | CssPercent;
 /**
@@ -1658,6 +1712,11 @@ export interface IStyleset {
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#animation-timing-function
      */
     animationTimingFunction?: AnimationTimingFunction_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#appearance
+     */
+    appearance?: Appearance_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#aspect-ratio
@@ -1782,7 +1841,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-block-end-width
      */
-    borderBlockEndWidth?: BorderWidth;
+    borderBlockEndWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-block-start
@@ -1802,7 +1861,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-block-start-width
      */
-    borderBlockStartWidth?: BorderWidth;
+    borderBlockStartWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-bottom
@@ -1832,7 +1891,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-bottom-width
      */
-    borderBottomWidth?: BorderWidth;
+    borderBottomWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-collapse
@@ -1897,7 +1956,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-inline-end-width
      */
-    borderInlineEndWidth?: BorderWidth;
+    borderInlineEndWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-inline-start
@@ -1917,7 +1976,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-inline-start-width
      */
-    borderInlineStartWidth?: BorderWidth;
+    borderInlineStartWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-left
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-left
@@ -1937,7 +1996,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-left-width
      */
-    borderLeftWidth?: BorderWidth;
+    borderLeftWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-radius
@@ -1962,7 +2021,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-right-width
      */
-    borderRightWidth?: BorderWidth;
+    borderRightWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-spacing
@@ -2002,7 +2061,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-top-width
      */
-    borderTopWidth?: BorderWidth;
+    borderTopWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#border-width
@@ -2085,6 +2144,11 @@ export interface IStyleset {
      */
     color?: CssColor;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-adjust
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#color-adjust
+     */
+    colorAdjust?: ColorAdjust_StyleType;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#color-interpolation
      */
@@ -2128,7 +2192,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#column-rule-width
      */
-    columnRuleWidth?: BorderWidth;
+    columnRuleWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/column-span
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#column-span
@@ -2480,6 +2544,11 @@ export interface IStyleset {
      */
     inlineSize?: CssSize;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#initial-letter
+     */
+    initialLetter?: InitialLetter_StyleType;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/isolation
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#isolation
      */
@@ -2519,6 +2588,11 @@ export interface IStyleset {
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#line-break
      */
     lineBreak?: LineBreak_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-clamp
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#line-clamp
+     */
+    lineClamp?: LineClamp_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#line-height
@@ -2678,7 +2752,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-block-size
      */
-    maxBlockSize?: CssLength;
+    maxBlockSize?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-height
@@ -2688,7 +2762,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-inline-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-inline-size
      */
-    maxInlineSize?: CssLength;
+    maxInlineSize?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#max-width
@@ -2698,7 +2772,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-block-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-block-size
      */
-    minBlockSize?: CssLength;
+    minBlockSize?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-height
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-height
@@ -2708,7 +2782,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-inline-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-inline-size
      */
-    minInlineSize?: CssLength;
+    minInlineSize?: CssSize;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/min-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#min-width
@@ -2798,7 +2872,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#outline-width
      */
-    outlineWidth?: BorderWidth;
+    outlineWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#overflow
@@ -3228,7 +3302,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/tab-size
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#tab-size
      */
-    tabSize?: CssLength;
+    tabSize?: TabSize_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#table-layout
@@ -3305,6 +3379,11 @@ export interface IStyleset {
      */
     textEmphasisStyle?: TextEmphasisStyle_StyleType;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-fill-color
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-fill-color
+     */
+    textFillColor?: CssColor;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-indent
      */
@@ -3345,9 +3424,24 @@ export interface IStyleset {
      */
     textSizeAdjust?: TextSizeAdjust_StyleType;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
-     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-transform
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-stroke
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-stroke
      */
+    textStroke: TextStroke_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-stroke-color
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-stroke-color
+     */
+    textStrokeColor?: CssColor;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-stroke-width
+     * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-stroke-width
+     */
+    textStrokeWidth?: LineWidth;
+    /**
+    * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-transform
+    * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#text-transform
+    */
     textTransform?: TextTransform_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-position
@@ -3482,6 +3576,7 @@ export interface IStyleset {
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/zoom
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#zoom
+     * @deprecated
      */
     zoom?: Zoom_StyleType;
 }
