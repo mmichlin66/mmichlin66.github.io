@@ -82,7 +82,6 @@
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#_const" class="tsd-kind-icon">$const</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_counter" class="tsd-kind-icon">$counter</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_counterstyle" class="tsd-kind-icon">$counter<wbr>Style</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#_embed" class="tsd-kind-icon">$embed</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_fontface" class="tsd-kind-icon">$fontface</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_gridarea" class="tsd-kind-icon">$gridarea</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#_gridline" class="tsd-kind-icon">$gridline</a></li>
@@ -100,6 +99,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#classes" class="tsd-kind-icon">classes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a></li>
 							</ul>
 						</section>
@@ -447,72 +447,6 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.icounterstylerule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterStyleRule</a></h4>
 							<p>The <code>ICounterStyleRule</code> object that represents the counter style.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="_embed" class="tsd-anchor"></a>
-					<h3>$embed</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">$embed&lt;T&gt;<span class="tsd-signature-symbol">(</span>instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Embeds the given style definition class into another style definition object. When activated,
-										the embedded object doesn&#39;t create its own <code>&lt;style&gt;</code> element but uses that of its owner. This
-										allows creating many small style definition classes instead of one huge one without incurring
-										the overhead of many <code>&lt;style&gt;</code> elements. For example, when developing a library of components,
-										every component can define their own style definition class; however, they all can be embedded
-									into a single style definion class for the entire library.</p>
-								</div>
-								<p>Embedded styles should not be activated separately - they are activated when the embedding
-								style definition class is activated.</p>
-								<p>Note that as opposed to the <a href="ruleapi.html#_use">$use</a> function, the <code>$embed</code> function always creates a new instance of
-									the given class and doesn&#39;t associate the class with the created instance. That means that if
-									a class is embedded into more than one &quot;owner&quot;, two separate instances of each CSS rule will be
-								created with different unique names.</p>
-								<p><strong>Example:</strong></p>
-								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Comp1Styles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> { ... }</span>
-<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Comp2Styles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> { ... }</span>
-<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">Comp3Styles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> { ... }</span>
-
-<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">LibraryStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">comp1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$embed</span><span style="color: #000000">( </span><span style="color: #001080">Comp1Styles</span><span style="color: #000000">)</span>
-<span style="color: #000000">    </span><span style="color: #001080">comp2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$embed</span><span style="color: #000000">( </span><span style="color: #001080">Comp2Styles</span><span style="color: #000000">)</span>
-<span style="color: #000000">    </span><span style="color: #001080">comp3</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$embed</span><span style="color: #000000">( </span><span style="color: #001080">Comp3Styles</span><span style="color: #000000">)</span>
-<span style="color: #000000">}</span>
-
-<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">libStyles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">( </span><span style="color: #001080">LibraryStyles</span><span style="color: #000000">);</span>
-
-<span style="color: #795E26">render</span><span style="color: #000000">()</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">className</span><span style="color: #000000">={</span><span style="color: #267F99">libStyles</span><span style="color: #000000">.</span><span style="color: #267F99">comp1</span><span style="color: #000000">.</span><span style="color: #267F99">someClass</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;...&gt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
-<span style="color: #000000">}</span>
-</code></pre>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../classes/ruleapi.styledefinition.html" class="tsd-signature-type" data-tsd-kind="Class">StyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Either style definition class or an instanc of a style definition class.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
-							<p>An instance of the style definition class, which will be activated and deactivated
-							along with the enclosing style definition.</p>
 						</li>
 					</ul>
 				</section>
@@ -1221,7 +1155,7 @@
 								<li>
 									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Either style definition class or an instanc of a style definition class.</p>
+										<p>Either style definition class or an instance of a style definition class.</p>
 									</div>
 								</li>
 							</ul>
@@ -1406,6 +1340,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="embedded" class="tsd-anchor"></a>
+					<h3>embedded</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">embedded<span class="tsd-signature-symbol">(</span>category<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Decorator function for style definition classes that will be embedded into an embedding
+										container for the given category. All style definitions for a given category will be activated
+									and deactivated together and their rules will be inserted into a single <code>&lt;style&gt;</code> element.</p>
+								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #000000">@</span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">embedded</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;widgets&quot;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">FirstWidgetStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> {...}</span>
+
+<span style="color: #000000">@</span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">embedded</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;widgets&quot;</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">SecondWidgetStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> {...}</span>
+</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>category: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="virtual" class="tsd-anchor"></a>
 					<h3>virtual</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -1527,9 +1495,6 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#_counterstyle" class="tsd-kind-icon">$counter<wbr>Style</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="ruleapi.html#_embed" class="tsd-kind-icon">$embed</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#_fontface" class="tsd-kind-icon">$fontface</a>
 					</li>
@@ -1580,6 +1545,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a>

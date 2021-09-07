@@ -37,7 +37,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any, O
     /**
      * Style definition instances are created directly only by the *styled components* - that is,
      * components that use different styles for each instance. Otherwise, style definition
-     * instances are created when either the [[$use]], [[$embed]] or [[activate]] function is called.
+     * instances are created when either the [[$use]] or [[activate]] function is called.
      * @param parent Reference to the parent style definition class
      */
     constructor(parent?: P);
@@ -714,53 +714,26 @@ export declare function $media<T extends StyleDefinition>(statement: MediaStatem
  * is activated, the rules will be in the DOM; as soon as all referencing style definitions are
  * deactivated, the rules from the referenced definition are removed from the DOM.
  *
- * @param instOrClass Either style definition class or an instanc of a style definition class.
+ * @param instOrClass Either style definition class or an instance of a style definition class.
  * @returns An instance of the style definition class, which will be activated and deactivated
  * along with the enclosing style definition.
  */
 export declare function $use<T extends StyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>): T | null;
 /**
- * Embeds the given style definition class into another style definition object. When activated,
- * the embedded object doesn't create its own `<style>` element but uses that of its owner. This
- * allows creating many small style definition classes instead of one huge one without incurring
- * the overhead of many `<style>` elements. For example, when developing a library of components,
- * every component can define their own style definition class; however, they all can be embedded
- * into a single style definion class for the entire library.
- *
- * Embedded styles should not be activated separately - they are activated when the embedding
- * style definition class is activated.
- *
- * Note that as opposed to the [[$use]] function, the `$embed` function always creates a new instance of
- * the given class and doesn't associate the class with the created instance. That means that if
- * a class is embedded into more than one "owner", two separate instances of each CSS rule will be
- * created with different unique names.
+ * Decorator function for style definition classes that will be embedded into an embedding
+ * container for the given category. All style definitions for a given category will be activated
+ * and deactivated together and their rules will be inserted into a single `<style>` element.
  *
  * **Example:**
  * ```typescript
- * class Comp1Styles extends css.StyleDefinition { ... }
- * class Comp2Styles extends css.StyleDefinition { ... }
- * class Comp3Styles extends css.StyleDefinition { ... }
+ * @css.embedded("widgets")
+ * class FirstWidgetStyles extends css.StyleDefinition {...}
  *
- * class LibraryStyles extends css.StyleDefinition
- * {
- *     comp1 = css.$embed( Comp1Styles)
- *     comp2 = css.$embed( Comp2Styles)
- *     comp3 = css.$embed( Comp3Styles)
- * }
- *
- * let libStyles = css.activate( LibraryStyles);
- *
- * render()
- * {
- *     return <div className={libStyles.comp1.someClass.name}>...>/div>
- * }
+ * @css.embedded("widgets")
+ * class SecondWidgetStyles extends css.StyleDefinition {...}
  * ```
- *
- * @param instOrClass Either style definition class or an instanc of a style definition class.
- * @returns An instance of the style definition class, which will be activated and deactivated
- * along with the enclosing style definition.
  */
-export declare function $embed<T extends StyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>): T | null;
+export declare function embedded(category: string): ClassDecorator;
 /**
  * Sets the method uses to generate names of CSS entities. If yes, the names will be created by
  * appending a unique number to the given prefix. If the prefix is not specified, the standard

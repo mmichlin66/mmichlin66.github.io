@@ -10,8 +10,9 @@ description: "Mimcss uses TypeScript classes to mimic a CSS stylesheets and uses
 * [Style Definitions](#style-definitions)
 * [Rules Activation](#rules-activation)
 * [Referencing External Style Definitions](#referencing-external-style-definitions)
+* [Embedding Style Definitions](#embedding-style-definitions)
 * [Grouping Rules](#grouping-rules)
-* [Other Rules](#other-rules)
+* [Other Rules Types](#other-rules-types)
 * [Style Definition Class Properties](#style-definition-class-properties)
 
 ## Style Definitions
@@ -165,6 +166,38 @@ The `$use` function returns the same object that is returned by the `activate` f
 When the style definition class is activated and deactivated, all the used style definition classes are activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
 
 
+## Embedding Style Definitions
+When creating a set of components, developers often define small stylesheets for each component, which contain only styles for that single component. These small stylesheets are later combined into a bigger CSS files either explicitly using the @import CSS rule or via the compile-time tools. This is necessary to reduce the number of CSS files that are loaded into a Web page.
+
+In Mimcss, the small stylesheets would be created as separate style definition classes. Normally, each style definition class creates its own `<style>` element when activated. With small style definition files defined for each component, the number of `<style>` elements would be the same as the number of components - which can be quite a big number. In order to reduce the number of `<style>` elements, Mimcss allows marking style definition classes as "embedded" by applying the `@embedded` TypeScript decorator. The decorator takes a string parameter called "category". All style definition classes marked as embedded with the same category string will be "embedded" in a single `<style>` element.
+
+For example, developers of a widget library can create a separate style definition class for each widget component - maybe co-locating the styles and the component code in the same files. Marking all these small style definition classes as embedded with the same category string will make all rules defined in all of these classes to be inserted into a single `<style>` element.
+
+```tsx
+// WidgetAAA.tsx
+@css.embedded("myLibWidgets")
+class WidgetAAAStyles extends css.StyleDefinition
+{
+    aaa = css.$class( { background: css.Colors.orange, color: -css.Colors.orange })
+}
+
+let aaaStyles = css.activate(WidgetAAAStyles);
+```
+
+```tsx
+// WidgetBBB.tsx
+@css.embedded("myLibWidgets")
+class WidgetBBBStyles extends css.StyleDefinition
+{
+    bbb = css.$class( { background: css.Colors.green, color: -css.Colors.green })
+}
+
+let bbbStyles = css.activate(WidgetBBBStyles);
+```
+
+After being decorated with `@embedded`, the style definition classes are activated as usual. In the example above, the classes are activated right after being defined; however, it is possible to activate the classes only when needed and deactivate them when they are not needed any longer. Activating one embedded class will insert rules from all classes marked with the same category. Activating multiple embedded classes will insert the rules only once; however, in order to remove the rules (if desired at all), all activated classes must be deactivated.
+
+
 ## Grouping Rules
 CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled in the same way as the top-level style definition class. The only difference is that for the grouping rules it is beneficial (but optional) to pass the class name of the parent as a generic parameter. Here is an example of the @media rule:
 
@@ -182,7 +215,7 @@ class MyStyles extends css.StyleDefinition
 }
 ```
 
-The `$media` function accepts a style definition class that extends the `StyleDefinition` class with the generic type parameter set to the top-level style definition class.
+The `$media` function accepts a style definition class that extends the `StyleDefinition` class with the generic type parameter set to the parent style definition class.
 
 For the named rules (classes, IDs, animations and custom properties), Mimcss will create names that would be actually inserted into DOM. There is a significant caveat here though: if a nested rule is assigned to a property with the name that already exists in the enclosing class, the actual name for the nested rule will be the same as the actual name for the existing property. This is done because the group rules such as @supports and @media are conditional rules and the styles defined by them are supposed to override the styles defined outside of the conditions.
 
@@ -211,7 +244,7 @@ class MyStyles extends css.StyleDefinition
 In the top-level class, we defined a custom CSS variable that defines font color and in the @media rule, we referred to it using the `this.$parent.defaultColor` notation. Since we defined `MyStyles` class as a generic parameter for the `StyleDefinition` class, the TypeScript compiler knows the type of the `$parent` property and will help us with the autocomplete feature. Note that since we only use the `$parent` property, we don't need to define the second generic type.
 
 
-## Other Rules
+## Other Rule Types
 Mimcss supports all CSS rules except @charset - the latter is not needed because developers don't actually write text-based CSS files. We already covered style and grouping rules. What's left are rules like @import, @namespace, @font-face and @page.
 
 The @import rule allows bringing in an external CSS sheet from a given URL. Mimcss is not "all or nothing" library: it can coexist with regular CSS files - whether defined in the same project or as external resources.
@@ -243,7 +276,7 @@ Under the CSS specification, @import and @namespace rules should precede all sty
 
 
 ## Style Definition Class Properties
-Style definition classes are regular TypeScript classes and thus can have any types of properties and methods. Since the main purpose of a style definition class is to define CSS style and at-rules, the majority of properties will be used to define those CSS rules by having properties initialized using functions like `$tag`, `$class`, `$id`, `$style`, etc. Note that property initializations are actually part of object construction, which run even before the body of the constructor does.
+Style definition classes are regular TypeScript classes and thus can have any types of properties and methods. Since the main purpose of a style definition class is to define CSS style and at-rules, the majority of properties will be used to define those CSS rules by having properties initialized using functions like `$tag`, `$class`, `$id`, `$style`, etc. Note that property initializations are actually part of object construction, which run even before the body of the constructor (if given) does.
 
 Properties can refer to other properties defined in the same class using the `this.` notation. The only requirement is that if property A uses property B, property A must be defined *after* property B.
 
