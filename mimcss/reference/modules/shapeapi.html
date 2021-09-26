@@ -442,16 +442,34 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>blur()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>blur()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: blur(0)</span>
+<span style="color: #000000">    </span><span style="color: #001080">sharp</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">blur</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: blur(2px)</span>
+<span style="color: #000000">    </span><span style="color: #001080">blurred</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">blur</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: blur(1.5em)</span>
+<span style="color: #000000">    </span><span style="color: #001080">superBlurred</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">blur</span><span style="color: #000000">(</span><span style="color: #098658">1.5</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>r: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Radius of the blur.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -467,16 +485,32 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>brightness()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>brightness()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: brightness(150%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">bright</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">brightness</span><span style="color: #000000">(</span><span style="color: #098658">150</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: brightness(50%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">dim</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">brightness</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value interpreted as percentage. Integer number is used as is while  floating point
+										numbers are multiplied by 100.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -492,16 +526,32 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>contrast()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>contrast()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: contrast(150%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">highContrast</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">contrast</span><span style="color: #000000">(</span><span style="color: #098658">150</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: contrast(50%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">lowContrast</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">contrast</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value interpreted as percentage. Integer number is used as is while  floating point
+										numbers are multiplied by 100.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -517,8 +567,21 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>dropShadow()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>dropShadow()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: drop-shadow(30px 10px 4px blue)</span>
+<span style="color: #000000">    </span><span style="color: #001080">blurredShadow</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">dropShadow</span><span style="color: #000000">( </span><span style="color: #098658">30</span><span style="color: #000000">, </span><span style="color: #098658">10</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">, </span><span style="color: #098658">4</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: drop-shadow(2.5em -1.5em green)</span>
+<span style="color: #000000">    </span><span style="color: #001080">sharpShadow</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">dropShadow</span><span style="color: #000000">( </span><span style="color: #098658">2.5</span><span style="color: #000000">, -</span><span style="color: #098658">1.5</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;green&quot;</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: drop-shadow(0 0 20px orange)</span>
+<span style="color: #000000">    </span><span style="color: #001080">haloShadow</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">dropShadow</span><span style="color: #000000">( </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;orange&quot;</span><span style="color: #000000">, 20</span><span style="color: #001080">px</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -537,17 +600,20 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> color: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Color of the shadow.</p>
+										<p>Color of the shadow. If undefined, the color of the shadow is taken from the color
+										property.</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> blur: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Value of the shadow&#39;s blurring. The default value is 1 pixel.</p>
+										<p>Value of the shadow&#39;s blurring. If undefined, the shadow will be sharp (not blurred).</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -563,16 +629,32 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>grayscale()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>grayscale()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: grayscale(100%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">gray</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">grayscale</span><span style="color: #000000">(</span><span style="color: #098658">100</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: grayscale(50%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">halfColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">grayscale</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value interpreted as percentage. Integer number is used as is while  floating point
+										numbers are multiplied by 100.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -588,16 +670,31 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>hue-rotate()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>hue-rotate()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: hue-rotate(90deg)</span>
+<span style="color: #000000">    </span><span style="color: #001080">toTheRight</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">hueRotate</span><span style="color: #000000">(</span><span style="color: #098658">90</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: hue-rotate(-0.25turn)</span>
+<span style="color: #000000">    </span><span style="color: #001080">toTheLeft</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">blur</span><span style="color: #000000">(-</span><span style="color: #098658">0.25</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The relative change in hue of the input sample.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -613,16 +710,35 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>invert()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>invert()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: invert(100%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">inverted</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">invert</span><span style="color: #000000">(</span><span style="color: #098658">100</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: invert(75%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">somewhatnverted</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">invert</span><span style="color: #000000">(</span><span style="color: #098658">0.75</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: invert(50%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">gray</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">invert</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value interpreted as percentage. Integer number is used as is while  floating point
+										numbers are multiplied by 100.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -638,16 +754,29 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>opacity()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>opacity()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: opacity(50%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">halfTransparent</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">opacity</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value interpreted as percentage. Integer number is used as is while  floating point
+										numbers are multiplied by 100.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -663,16 +792,32 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>saturate()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>saturate()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: saturate(150%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">superSaturated</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">saturate</span><span style="color: #000000">(</span><span style="color: #098658">150</span><span style="color: #000000">)})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// filter: saturate(50%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">underSaturated</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">saturate</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value interpreted as percentage. Integer number is used as is while  floating point
+										numbers are multiplied by 100.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>
@@ -688,16 +833,29 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IFilterProxy function representing the <code>sepia()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>sepia()</code> CSS function.</p>
 								</div>
+								<p><strong>Example</strong></p>
+								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// filter: sepia(100%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">vintage</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">filter:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">sepia</span><span style="color: #000000">(</span><span style="color: #098658">100</span><span style="color: #000000">)})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Value interpreted as percentage. Integer number is used as is while  floating point
+										numbers are multiplied by 100.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
+							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
+							CSS functions</p>
 						</li>
 					</ul>
 				</section>

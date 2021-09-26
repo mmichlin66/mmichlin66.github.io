@@ -70,7 +70,7 @@ class Theme extends css.StyleDefinition
 
     label = css.$class();
 
-    input = css.$style( "input", { backgroundColor: this.bgColor, color: this.frColor })
+    input = css.$tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
 }
 
 let theme: Theme = null;
