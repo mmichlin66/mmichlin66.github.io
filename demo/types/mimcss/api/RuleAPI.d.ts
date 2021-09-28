@@ -1,5 +1,5 @@
 import { CssSelector, PagePseudoClass, OneOrMany } from "./CoreTypes";
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule, IStyleDefinition } from "./RuleTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule, IStyleDefinition, CombinedClassStyleset } from "./RuleTypes";
 import { MediaStatement, SupportsStatement } from "./MediaTypes";
 import { ExtendedFontFace } from "./FontTypes";
 import { ExtendedCounterStyleset } from "./CounterTypes";
@@ -136,7 +136,7 @@ export declare function $abstract(styleset: CombinedStyleset): IStyleRule;
  * @returns `IClassRule` object that should be used for getting the class name and for accessing
  * the style properties if needed.
  */
-export declare function $class(styleset?: CombinedStyleset, nameOverride?: string | IClassRule): IClassRule;
+export declare function $class(styleset?: CombinedClassStyleset, nameOverride?: string | IClassRule): IClassRule;
 /**
  * Creates a new class name rule, which combines one or more other class names. This creates a
  * "synonym" that is easier to apply to an element's class attribute than an array of two or

@@ -51,9 +51,9 @@ class MyStyles extends css.StyleDefinition
 		// using negative number for inverted color and fraction for opacity
 		backgroundColor: -(0x2BC4A2 + 0.7),
 
-		// define clip-path using Mimcss polygon function and a helper function that returns of points.
-		// This can be useful when generating path dynamically based on some internal data. Note that
-		// what units to use is also specified dynamically.
+		// define clip-path using Mimcss polygon function and a helper function that returns array
+        // of points. This can be useful when generating path dynamically based on some internal
+        // data. Note that what units to use is also specified dynamically.
 		clipPath: css.polygon( ...flatCoordsToCssPoints( "%", 0,0, 70,0, 100,50, 70,100, 0,100, 30,50)),
 
 		// define animation using object notation, which is less error prone

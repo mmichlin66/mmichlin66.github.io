@@ -148,12 +148,14 @@ class MyStyles extends css.StyleDefinition
 {
     common = css.$use( CommonStyles)
 
+    // extend the "vbox" CSS class from the CommonStyles stylesheet
     sidebar = css.$class({ "+": this.common.vbox,
         position: "absolute",
         width: css.em(15),
         height: css.em(50)
     })
 
+    // extend two CSS classes
     rightbar = css.$class({ "+": [this.sidebar, this.common.standout],
         width: css.em(10),
         left: css.em(1)

@@ -109,6 +109,7 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="ruletypes.html#animationstyleset" class="tsd-kind-icon">Animation<wbr>Styleset</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="ruletypes.html#animationwaypoint" class="tsd-kind-icon">Animation<wbr>Waypoint</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="ruletypes.html#classproptype" class="tsd-kind-icon">Class<wbr>Prop<wbr>Type</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="ruletypes.html#combinedclassstyleset" class="tsd-kind-icon">Combined<wbr>Class<wbr>Styleset</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="ruletypes.html#combinedstyleset" class="tsd-kind-icon">Combined<wbr>Styleset</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="ruletypes.html#dependentrules" class="tsd-kind-icon">Dependent<wbr>Rules</a></li>
 							</ul>
@@ -177,6 +178,54 @@
 								<li>as an array of the above.</li>
 							</ul>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="combinedclassstyleset" class="tsd-anchor"></a>
+					<h3>Combined<wbr>Class<wbr>Styleset</h3>
+					<div class="tsd-signature tsd-kind-icon">Combined<wbr>Class<wbr>Styleset<span class="tsd-signature-symbol">:</span> <a href="ruletypes.html#combinedstyleset" class="tsd-signature-type" data-tsd-kind="Type alias">CombinedStyleset</a><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-symbol">{ </span>++<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#oneormany" class="tsd-signature-type" data-tsd-kind="Type alias">OneOrMany</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ruletypes.iclassrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassRule</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iclassnamerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassNameRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <code>CombinedClassStyleset</code> type extends the CombinedStyleset type with the &quot;++&quot; property, which
+								allows combining multiple class rules. Note that the &quot;+&quot; (single plus) property allows deriving
+								from any base style rules (not necessarily classes) and the style properties from the base rules
+								are simply copied to the new rule. Additionally, even if class rules were among the base rules,
+							the names of the base classes are lost.</p>
+						</div>
+						<p>The &quot;++&quot; (double plus) property is different and it only applies to class rules and only allows
+							deriving from class rules. The style properties from the base classes are not copied to the new
+							rule; instead, the name of the new class becomes a concatenation of the new rule name and the
+						names of all base classes.</p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">redFG</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    </span><span style="color: #001080">whiteBG</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;white&quot;</span><span style="color: #000000"> })</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">emphasized</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&quot;++&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">redFG</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">whiteBG</span><span style="color: #000000">],</span>
+<span style="color: #000000">        </span><span style="color: #001080">fontWeight:</span><span style="color: #000000"> </span><span style="color: #098658">700</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						<p>This will translate to the following CSS (in reality, class names are auto-generated):</p>
+						<pre><code class="language-css"><span style="color: #800000">.redFG</span><span style="color: #000000"> { </span><span style="color: #FF0000">color</span><span style="color: #000000">: </span><span style="color: #0451A5">red</span><span style="color: #000000">; }</span>
+<span style="color: #800000">.whiteBG</span><span style="color: #000000"> { backgroundColor: </span><span style="color: #0451A5">white</span><span style="color: #000000">; }</span>
+<span style="color: #800000">.emphasized.redFG.whiteBG</span><span style="color: #000000"> { fontWeight: </span><span style="color: #098658">700</span><span style="color: #000000">; }</span>
+</code></pre>
+						<p>Note that when the MyStyles is activated and the emphasized property is applied to an element,
+							the class name will be not just &quot;emphasized&quot;, but &quot;emphasized redFG whiteBG&quot;. That is, the
+						following rendering function</p>
+						<pre><code class="language-typescript"><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">styles</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">activate</span><span style="color: #000000">(</span><span style="color: #001080">MyStyles</span><span style="color: #000000">);</span>
+<span style="color: #795E26">render</span><span style="color: #000000">()</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> &lt;</span><span style="color: #267F99">div</span><span style="color: #000000"> </span><span style="color: #267F99">className</span><span style="color: #000000">={</span><span style="color: #267F99">styles</span><span style="color: #000000">.</span><span style="color: #267F99">emphasized</span><span style="color: #000000">.</span><span style="color: #001080">name</span><span style="color: #000000">}&gt;</span><span style="color: #001080">Important</span><span style="color: #000000"> </span><span style="color: #001080">stuff</span><span style="color: #000000">&lt;/</span><span style="color: #001080">div</span><span style="color: #000000">&gt;</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						<p>will generate the following HTML:</p>
+						<pre><code class="language-html"><span style="color: #800000">&lt;div</span><span style="color: #000000"> </span><span style="color: #FF0000">className</span><span style="color: #000000">=</span><span style="color: #0000FF">&quot;emphasized redFG whiteBG&quot;</span><span style="color: #800000">&gt;</span><span style="color: #000000">Important stuff</span><span style="color: #800000">&lt;/div&gt;</span>
+</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
@@ -390,6 +439,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="ruletypes.html#classproptype" class="tsd-kind-icon">Class<wbr>Prop<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="ruletypes.html#combinedclassstyleset" class="tsd-kind-icon">Combined<wbr>Class<wbr>Styleset</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="ruletypes.html#combinedstyleset" class="tsd-kind-icon">Combined<wbr>Styleset</a>

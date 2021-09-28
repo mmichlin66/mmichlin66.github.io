@@ -70,7 +70,7 @@ export declare function conicGradient(...stopsOrHints: GradientStopOrHint<CssAng
  */
 export declare function crossFade(...args: CrossFadeParam[]): IImageProxy;
 /**
- * Returns an IFilterProxy function representing the `brightness()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `brightness()` CSS function.
  *
  * **Example**
  *
@@ -93,7 +93,7 @@ export declare function crossFade(...args: CrossFadeParam[]): IImageProxy;
  */
 export declare function brightness(p: Extended<CssPercent>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `contrast()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `contrast()` CSS function.
  *
  * **Example**
  *
@@ -116,7 +116,7 @@ export declare function brightness(p: Extended<CssPercent>): IFilterProxy;
  */
 export declare function contrast(p: Extended<CssPercent>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `grayscale()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `grayscale()` CSS function.
  *
  * **Example**
  *
@@ -139,7 +139,7 @@ export declare function contrast(p: Extended<CssPercent>): IFilterProxy;
  */
 export declare function grayscale(p: Extended<CssPercent>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `invert()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `invert()` CSS function.
  *
  * **Example**
  *
@@ -165,7 +165,7 @@ export declare function grayscale(p: Extended<CssPercent>): IFilterProxy;
  */
 export declare function invert(p: Extended<CssPercent>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `opacity()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `opacity()` CSS function.
  *
  * **Example**
  *
@@ -185,7 +185,7 @@ export declare function invert(p: Extended<CssPercent>): IFilterProxy;
  */
 export declare function opacity(p: Extended<CssPercent>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `saturate()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `saturate()` CSS function.
  *
  * **Example**
  *
@@ -208,7 +208,7 @@ export declare function opacity(p: Extended<CssPercent>): IFilterProxy;
  */
 export declare function saturate(p: Extended<CssPercent>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `sepia()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `sepia()` CSS function.
  *
  * **Example**
  *
@@ -228,7 +228,7 @@ export declare function saturate(p: Extended<CssPercent>): IFilterProxy;
  */
 export declare function sepia(p: Extended<CssPercent>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `blur()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `blur()` CSS function.
  *
  * **Example**
  *
@@ -253,7 +253,7 @@ export declare function sepia(p: Extended<CssPercent>): IFilterProxy;
  */
 export declare function blur(r: Extended<CssLength>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `dropShadow()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `dropShadow()` CSS function.
  *
  * **Example**
  *
@@ -283,7 +283,7 @@ export declare function blur(r: Extended<CssLength>): IFilterProxy;
  */
 export declare function dropShadow(x: Extended<CssLength>, y: Extended<CssLength>, color?: Extended<CssColor>, blur?: Extended<CssLength>): IFilterProxy;
 /**
- * Returns an IFilterProxy function representing the `hue-rotate()` CSS function.
+ * Returns an [[IFilterProxy]] function representing the `hue-rotate()` CSS function.
  *
  * **Example**
  *

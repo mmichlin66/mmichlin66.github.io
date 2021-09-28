@@ -144,9 +144,48 @@ The above code is equivalent to the following CSS (except that actual names woul
 }
 ```
 
-Reusing another style rule simply means that Mimcss copies all style properties from the rules being reused and then applies our own style properties. Notice how the `width` property from the `rightbar` class overrode the value of this property defined in the `sidebar` class.
+The `"+"` property allows any style rule to extend any other style rule. For example, an animation styleset used in a `$keyframes` rule can extend an `$id` rule. Extending another style rule via the `"+"` property simply means that Mimcss copies all style properties from the rules being extended and then applies our own style properties. Notice how the `width` property from the `rightbar` class overrode the value of this property defined in the `sidebar` class.
 
-> We considered implementing a different model of re-using class names, in which the resultant CSS would only list non-inherited style properties for each class, but the actual name created for the derived class would contain names of both classes, e.g. "vbox sidebar". The advantage of this approach is in smaller code; however, the big obstacle (and as we decided - unsurmountable) is that there would be no reliable way to override classes in grouping conditional rules such as @media and @supports. Classes inside the conditional rules usually have the same names as the classes declared outside but provide different styles. There is no way to ensure, however, that the inheritance chains of the classes inside the conditional rules would be exactly the same as the chains outside; therefore, the names would be different and the overriding will not work. In addition, it is quite convenient that rules within a grouping rule "extend" the same rules from the top-level class overriding only several of the properties. And, of course, creating a name like "sidebar sidebar" wouldn't make any sense.
+When a class rule extends other class rules, there is a different method that provides more efficient extension mechanism. A special property `"++"` (double plus) can specify one or more class rules. In this case, there is no copying of style properties; instead, the name generated for the extending class will contain the names of the extended classes. Consider the following example:
+
+```tsx
+class MyStyles extends css.StyleDefinition
+{
+    redFG = css.$class({ color: "red" })
+    whiteBG = css.$class({ backgroundColor: "white" })
+
+    emphasized = css.$class({
+        "++": [this.redFG, this.whiteBG],
+        fontWeight: 700
+    })
+}
+```
+
+This will translate to the following CSS (in reality, class names are auto-generated):
+
+```css
+.redFG { color: red; }
+.whiteBG { backgroundColor: white; }
+.emphasized.redFG.whiteBG { fontWeight: 700; }
+```
+
+When the `MyStyles` class is activated and the `emphasized` property is applied to an HTML element, the class name will be not just "emphasized", but "emphasized redFG whiteBG". That is, the following rendering function
+
+```tsx
+let styles = css.activate(MyStyles);
+render()
+{
+    return <div className={styles.emphasized.name}>Important stuff</div>
+}
+```
+
+will generate the following HTML:
+
+```html
+<div className="emphasized redFG whiteBG">Important stuff</div>
+```
+
+> Note that since using the double plus property changes the name generation mechanism, caution must be exercised when using it for classes whose name should be consistent when used in different style definition classes; in particular, when defining media rules and when using style definition class inheritance for theming (which will be discussed later in this guide).
 
 ### Dependent Styles
 
@@ -244,7 +283,7 @@ class MyStyles extends css.StyleDefinition
         padding: 4,
         "&": [
             [ "tr > &, li > &", { padding: 0 }],
-            [this.solid, { border: "solid" }],
+            [ this.solid, { border: "solid" }],
             [ css.selector`& > ${this.myspan}`, { border: "dashed" }]
         ]
     })
@@ -256,7 +295,7 @@ The second tuple specifies the ID rule object. The selector string obtained for 
 The third tuple uses the `selector` function to create a selector that combines two classes. As in the first tuple, the ampersand symbol stands for the class name behind the `mydiv` property. The `selector` function allows specifying multiple placeholders; therefore, it is possible to create arbitrary complex selectors that involve multiple classes, IDs, tags, pseudo classes and pseudo elements.
 
 #### Selector Combinators
-The `selector()` function allows building very complex selectors; however, it is quite verbose. For simpler cases, the `CombinedStyleset` type provides several *combinator* properties that make it easy to combine the "parent" selector with another selector. These combinator properties are named using the ampersand symbol prefixed or followed by one of the CSS selector combinator symbols:
+The `selector()` function allows building very complex selectors; however, it is quite verbose. For simpler cases, the `CombinedStyleset` type provides several *combinator* properties that make it easy to combine a parent selector with another selector. These combinator properties are named using the ampersand symbol prefixed or followed by one of the CSS selector combinator symbols:
 
 - `"& "` and `" &"` for descendants
 - `"&>"` and `">&"` for immediate children

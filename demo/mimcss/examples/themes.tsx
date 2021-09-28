@@ -125,17 +125,17 @@ class SquareTheme extends Theme
 
     box = css.$class({
         "+": this.boxBase,
-        borderStyle: "dotted"
+        borderLeftWidth: 10
     })
 
     button = css.$class({
         "+": this.buttonBase,
-        borderStyle: "dotted"
+        borderLeftWidth: 10
     })
 
     input = css.$class({
         "+": this.inputBase,
-        borderStyle: "dotted"
+        borderLeftWidth: 10
     })
 }
 
