@@ -131,14 +131,7 @@ Mimcss allows one style definition class to reference another one via the `$use`
 // CommonStyles.ts
 class CommonStyles extends css.StyleDefinition
 {
-    vbox = css.$class({
-        display: "flex",
-        flexDirection: "column"
-    })
-
-    standout = css.$class({
-        boxShadow: { x: 10, y: 5, blur: 5, color: "red" }
-    })
+    shadow = css.$var( "boxShadow", { x: 10, y: 5, blur: 5, color: "gray" })
 }
 
 // MyStyles.ts
@@ -148,24 +141,17 @@ class MyStyles extends css.StyleDefinition
 {
     common = css.$use( CommonStyles)
 
-    // extend the "vbox" CSS class from the CommonStyles stylesheet
-    sidebar = css.$class({ "+": this.common.vbox,
+    // use the boxShadow custom CSS property from the CommonStyles stylesheet
+    sidebar = css.$class({
+        boxShadow: this.common.boxShadow,
         position: "absolute",
         width: css.em(15),
         height: css.em(50)
     })
-
-    // extend two CSS classes
-    rightbar = css.$class({ "+": [this.sidebar, this.common.standout],
-        width: css.em(10),
-        left: css.em(1)
-    })
 }
 ```
 
-The `$use` function returns the same object that is returned by the `activate` function. The difference between the `$use` and `activate` functions is that the former doesn't insert the rules into the DOM - it only makes them available for referencing.
-
-When the style definition class is activated and deactivated, all the used style definition classes are activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
+The `$use` function returns the instance of the referenced style definition class. When our style definition class is activated and deactivated, all the referenced style definition classes are activated and deactivated too. This provides a nice encapsulation of the referenced classes and makes the style definition classes self-contained units.
 
 
 ## Embedding Style Definitions

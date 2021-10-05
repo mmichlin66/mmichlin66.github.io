@@ -182,7 +182,7 @@ render()
 will generate the following HTML:
 
 ```html
-<div className="emphasized redFG whiteBG">Important stuff</div>
+<div class="emphasized redFG whiteBG">Important stuff</div>
 ```
 
 > Note that since using the double plus property changes the name generation mechanism, caution must be exercised when using it for classes whose name should be consistent when used in different style definition classes; in particular, when defining media rules and when using style definition class inheritance for theming (which will be discussed later in this guide).

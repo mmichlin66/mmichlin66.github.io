@@ -71,6 +71,7 @@
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/ruleapi.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/ruleapi.themedefinition.html" class="tsd-kind-icon">Theme<wbr>Definition</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -249,15 +250,11 @@
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// declare class - just to be used later</span>
-<span style="color: #000000">    </span><span style="color: #001080">spaced</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">class</span><span style="color: #000000">()</span>
+<span style="color: #000000">    </span><span style="color: #001080">spaced</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">class</span><span style="color: #000000">({</span><span style="color: #001080">gap:</span><span style="color: #000000"> </span><span style="color: #098658">8</span><span style="color: #000000">})</span>
 
 <span style="color: #000000">    </span><span style="color: #001080">vbox</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
 <span style="color: #000000">        </span><span style="color: #001080">display:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;flex&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">flexDirection:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;column&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #001080">alignItems:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;center&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">        </span><span style="color: #A31515">&quot;&amp;&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [</span>
-<span style="color: #000000">            [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">spaced</span><span style="color: #000000">, {</span><span style="color: #001080">gap:</span><span style="color: #000000"> </span><span style="color: #098658">8</span><span style="color: #000000">}]</span>
-<span style="color: #000000">        ]</span>
+<span style="color: #000000">        </span><span style="color: #001080">flexDirection:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;column&quot;</span>
 <span style="color: #000000">    })</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// use $classname rule to combine the names of classes vbox and spaced</span>
@@ -285,7 +282,7 @@
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ruletypes.iclassnamerule.html" class="tsd-signature-type" data-tsd-kind="Interface">IClassNameRule</a></h4>
 							<p><code>IClassNameRule</code> object whose <code>name</code> property contains the combined class name, e.g.
 								<code>&quot;class1 class2&quot;</code>. The <code>cssClassName</code> property contains the combined selector, e.g.
-							<code>&quot;&quot;.class1.class2&quot;</code>.</p>
+							<code>&quot;.class1.class2&quot;</code>.</p>
 						</li>
 					</ul>
 				</section>
@@ -1476,6 +1473,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../classes/ruleapi.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../classes/ruleapi.themedefinition.html" class="tsd-kind-icon">Theme<wbr>Definition</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#_abstract" class="tsd-kind-icon">$abstract</a>

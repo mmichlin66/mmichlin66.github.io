@@ -59,41 +59,41 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any, O
     get $owner(): O | undefined;
 }
 /**
-* Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
-* Abstract rules don't have selectors and are not inserted into the DOM. Abstract rules can
-* themselves extend other rules - both abstract and non-abstract.
-*
-* **Example:**
-*
-* ```typescript
-* class MyStyles extends css.StyleDefinition
-* {
-*     colorBox = css.$abstract({
-*         backgroundColor: "orange",
-*         borderRadius: css.percent(10),
-*         border: [4, "solid", "red"],
-*         ":hover": {
-*             opacity: 0.7
-*         }
-*     })
-*
-*     box1 = css.$class({
-*         "+": this.colorBox,
-*         width: 200,
-*         height: 200,
-*     })
-*
-*     box2 = css.$class({
-*         "+": this.colorBox,
-*         width: 600,
-*         height: 400,
-*     })
-* }
-* ```
-*
-* @param styleset Styleset that will be inherited by style rules that extend this abstract rule.
-* @returns `IStyleRule` object that should be used by the derived rules in the `"+"` property.
-*/
+ * Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
+ * Abstract rules don't have selectors and are not inserted into the DOM. Abstract rules can
+ * themselves extend other rules - both abstract and non-abstract.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     colorBox = css.$abstract({
+ *         backgroundColor: "orange",
+ *         borderRadius: css.percent(10),
+ *         border: [4, "solid", "red"],
+ *         ":hover": {
+ *             opacity: 0.7
+ *         }
+ *     })
+ *
+ *     box1 = css.$class({
+ *         "+": this.colorBox,
+ *         width: 200,
+ *         height: 200,
+ *     })
+ *
+ *     box2 = css.$class({
+ *         "+": this.colorBox,
+ *         width: 600,
+ *         height: 400,
+ *     })
+ * }
+ * ```
+ *
+ * @param styleset Styleset that will be inherited by style rules that extend this abstract rule.
+ * @returns `IStyleRule` object that should be used by the derived rules in the `"+"` property.
+ */
 export declare function $abstract(styleset: CombinedStyleset): IStyleRule;
 /**
  * Creates a new class rule. The class name will be created when the rule is processed as part of
@@ -148,15 +148,11 @@ export declare function $class(styleset?: CombinedClassStyleset, nameOverride?: 
  * class MyStyles extends css.StyleDefinition
  * {
  *     // declare class - just to be used later
- *     spaced = css.class()
+ *     spaced = css.class({gap: 8})
  *
  *     vbox = css.$class({
  *         display: "flex",
- *         flexDirection: "column",
- *         alignItems: "center",
- *         "&": [
- *             [this.spaced, {gap: 8}]
- *         ]
+ *         flexDirection: "column"
  *     })
  *
  *     // use $classname rule to combine the names of classes vbox and spaced
@@ -175,10 +171,11 @@ export declare function $class(styleset?: CombinedClassStyleset, nameOverride?: 
  * }
  * ```
  *
- * @param ...classes List of class names specified either as a string or `IClassRule` objects.
+ * @param ...classes List of class names specified either as a string or [[IClassRule]] or
+ * [[IClassNameRule]] objects.
  * @returns `IClassNameRule` object whose `name` property contains the combined class name, e.g.
  * `"class1 class2"`. The `cssClassName` property contains the combined selector, e.g.
- * `"".class1.class2"`.
+ * `".class1.class2"`.
  */
 export declare function $classname(...classes: (IClassRule | IClassNameRule | string)[]): IClassNameRule;
 /**
@@ -779,4 +776,18 @@ export declare function chooseClass(...classProps: ClassPropType[]): string | nu
  * post-constructor code.
  */
 export declare function virtual(target: any, name: string): void;
+/**
+ * The `ThemeDefinition` class is a base for all classes that define themes. In addition to
+ * being a style definition class, themes provide some extra capabilities related to style
+ * inheritance and theme activation.
+ *
+ * @typeparam P Parent style definition class. Parent of a top-level class is null.
+ * @typeparam O Top-level style definition class, which is the owner of this class. The top-level
+ * class is its own owner.
+ */
+export declare abstract class ThemeDefinition<P extends StyleDefinition = any, O extends StyleDefinition = any> extends StyleDefinition<P, O> {
+    constructor(parent?: P);
+    set(t: any, p: PropertyKey, v: any, r: any): boolean;
+    ownKeys(t: any): ArrayLike<string | symbol>;
+}
 //# sourceMappingURL=RuleAPI.d.ts.map

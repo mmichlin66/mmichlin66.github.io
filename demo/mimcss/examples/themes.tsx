@@ -8,26 +8,22 @@ import * as css from "mimcss"
 
 
 // Use abstract style definition class as a theme interface
-abstract class Theme extends css.StyleDefinition
+class Theme extends css.ThemeDefinition
 {
-    // define several abstract properties for rules that must be overridden in the derined style
+    // define several properties for rules that must be overridden in the derined style
     // definition classes. These rules define the names that will be used when rendering HTML.
-    // We don't have to use the abstract keyword, but doing this forces the derived classes to
-    // provide definitions for these rueles (otherwise, the TypeScript compiler will not be happy).
-	abstract box = css.$class()
-	abstract button = css.$class()
-    abstract input = css.$class()
+	box = css.$class()
+	button = css.$class()
+    input = css.$class()
 
     // define several custom CSS properties that are used by rules of this class. We don't provide
     // values for these variables but we specify the CSS property names (in camel form) that
-    // define the types of these variables. The @virtual decorator is necessary here because
-    // although these variables are used by the rules in this base class, we want the values to
-    // be those assigned in the derived classes.
-    @css.virtual fontFamily = css.$var( "fontFamily")
-    @css.virtual fontStyle = css.$var( "fontStyle")
-    @css.virtual fontSize = css.$var( "fontSize")
-    @css.virtual borderColor = css.$var( "color")
-    @css.virtual boxBgColor = css.$var( "color")
+    // define the types of these variables.
+    fontFamily = css.$var( "fontFamily")
+    fontStyle = css.$var( "fontStyle")
+    fontSize = css.$var( "fontSize")
+    borderColor = css.$var( "color")
+    boxBgColor = css.$const( "color")
 
     grid = css.$class({
         display: "grid",
@@ -85,14 +81,12 @@ abstract class Theme extends css.StyleDefinition
 // Define style definition class for our "round" theme
 class RoundTheme extends Theme
 {
-    // override values of custom CSS properties. Note that since these properties were defined
-    // using the @virtual decorator in the base class, the values we provide here will be taken
-    // by the rules defined in the base class.
+    // override values of custom CSS properties.
     fontFamily = css.$var( "fontFamily", "Verdana")
     fontStyle = css.$var( "fontStyle", 45)
     fontSize = css.$var( "fontSize", 24)
     borderColor = css.$var( "color", "blue")
-    boxBgColor = css.$var( "color", "cyan")
+    boxBgColor = css.$const( "color", "cyan")
 
     // override the rules that were declared in the base class.
     box = css.$class({
@@ -114,14 +108,14 @@ class RoundTheme extends Theme
 
 
 // Define style definition class for our "square" theme - this is very similar to what we did with
-// the RoundTheme class - we just need to specify differen values for some properties.
+// the RoundTheme class - we just need to specify different values for some properties.
 class SquareTheme extends Theme
 {
     fontFamily = css.$var( "fontFamily", "monospace")
     fontStyle = css.$var( "fontStyle", "normal")
     fontSize = css.$var( "fontSize", 24)
     borderColor = css.$var( "color", "red")
-    boxBgColor = css.$var( "color", "lightpink")
+    boxBgColor = css.$const( "color", "lightpink")
 
     box = css.$class({
         "+": this.boxBase,
@@ -144,9 +138,8 @@ class SquareTheme extends Theme
 // Define component that allows to change themes
 export class Themes extends mim.Component
 {
-    // property that holds the currently ative theme. Notice that we use the base abstract class
-    // as a type for this property. When we render HTML we will use this property to refer to the
-    // class rules.
+    // property that holds the currently ative theme. Notice that we use the base class as a type
+    // for this property. When we render HTML we will use this property to refer to the class rules.
     private theme: Theme;
 
     // propert that holds the name of the current theme - to facilitate switching.
