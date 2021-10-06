@@ -30,10 +30,8 @@ import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
  * ```
  *
  * @typeparam P Parent style definition class. Parent of a top-level class is null.
- * @typeparam O Top-level style definition class, which is the owner of this class. The top-level
- * class is its own owner.
  */
-export declare abstract class StyleDefinition<P extends StyleDefinition = any, O extends StyleDefinition = any> implements IStyleDefinition<P, O> {
+export declare abstract class StyleDefinition<P extends StyleDefinition = any> implements IStyleDefinition<P> {
     /**
      * Style definition instances are created directly only by the *styled components* - that is,
      * components that use different styles for each instance. Otherwise, style definition
@@ -49,14 +47,6 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any, O
      * if it was not provided to the constructor when creating the style definition class manually.
      */
     get $parent(): P | undefined;
-    /**
-     * Refers to the instance of the style definition class which is the owner of
-     * this style definition object. The owner is the top-level class in the chain of style
-     * definition classes. Through this member, all rules and other members defined in the owner
-     * definition class can be accessed. For top-level style definitions, this property points
-     * to itself.
-     */
-    get $owner(): O | undefined;
 }
 /**
  * Creates a new abstract rule, which defines a styleset that can be extended by other style rules.
@@ -782,10 +772,8 @@ export declare function virtual(target: any, name: string): void;
  * inheritance and theme activation.
  *
  * @typeparam P Parent style definition class. Parent of a top-level class is null.
- * @typeparam O Top-level style definition class, which is the owner of this class. The top-level
- * class is its own owner.
  */
-export declare abstract class ThemeDefinition<P extends StyleDefinition = any, O extends StyleDefinition = any> extends StyleDefinition<P, O> {
+export declare abstract class ThemeDefinition<P extends StyleDefinition = any> extends StyleDefinition<P> {
     constructor(parent?: P);
     set(t: any, p: PropertyKey, v: any, r: any): boolean;
     ownKeys(t: any): ArrayLike<string | symbol>;
