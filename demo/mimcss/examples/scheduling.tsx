@@ -68,9 +68,9 @@ let delaySchedulerID = css.registerScheduler( new DelayScheduler());
 // Declare styles for our themes and define several themes
 class ThemeBase extends css.StyleDefinition
 {
-    @css.virtual clr = css.$const("color")
+    @css.virtual clr = this.$const("color")
 
-    happy = css.$class({
+    happy = this.$class({
         fontSize: 40,
         fontWeight: "bold",
         padding: 0.5,
@@ -82,12 +82,12 @@ class ThemeBase extends css.StyleDefinition
 }
 
 // Define several themes
-class BlueTheme extends ThemeBase { clr = css.$const("color", "dodgerblue") }
-class GreenTheme extends ThemeBase { clr = css.$const("color", "darkgreen") }
-class OrangeTheme extends ThemeBase { clr = css.$const("color", "orange") }
-class RedTheme extends ThemeBase { clr = css.$const("color", "red") }
-class BrownTheme extends ThemeBase { clr = css.$const("color", "brown") }
-class PurpleTheme extends ThemeBase { clr = css.$const("color", "purple") }
+class BlueTheme extends ThemeBase { clr = this.$const("color", "dodgerblue") }
+class GreenTheme extends ThemeBase { clr = this.$const("color", "darkgreen") }
+class OrangeTheme extends ThemeBase { clr = this.$const("color", "orange") }
+class RedTheme extends ThemeBase { clr = this.$const("color", "red") }
+class BrownTheme extends ThemeBase { clr = this.$const("color", "brown") }
+class PurpleTheme extends ThemeBase { clr = this.$const("color", "purple") }
 
 let themes = [BlueTheme, GreenTheme, OrangeTheme, RedTheme, BrownTheme, PurpleTheme];
 

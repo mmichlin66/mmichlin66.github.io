@@ -34,13 +34,13 @@ Consider the following example, where we have two classes (that might be coming 
 /* MyStyles.ts */
 export class MyStyles extends css.StyleDefinition
 {
-    emphasized = css.$class({ color: "red", fontWeight: 700 });
+    emphasized = this.$class({ color: "red", fontWeight: 700 });
 });
 
 /* OtherStyles.ts */
 export class OtherStyles extends css.StyleDefinition
 {
-    emphasized = css.$class({ color: "orange", fontStyle: "italic" });
+    emphasized = this.$class({ color: "orange", fontStyle: "italic" });
 });
 
 /* MyComponent.tsx */
@@ -68,7 +68,7 @@ There are situations when we need to bypass the Mimcss name auto-generation. One
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    box = css.$class( { margin: 8 }, "box-class-name")
+    box = this.$class( { margin: 8 }, "box-class-name")
 }
 ```
 
@@ -80,9 +80,9 @@ import {LibStyles} from "lib"
 
 class MyStyles extends css.StyleDefinition
 {
-    lib = css.$use(LibStyles)
+    lib = this.$use(LibStyles)
 
-    box = css.$class( { margin: 8 }, this.lib.box)
+    box = this.$class( { margin: 8 }, this.lib.box)
 }
 ```
 
@@ -92,12 +92,12 @@ Conditional grouping rules such as `@media` and `@supports` posit a different pr
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    box = css.$class( { margin: 8 })
+    box = this.$class( { margin: 8 })
 
-    ifSmallScreen = css.$media( { maxWidth: 600 },
+    ifSmallScreen = this.$media( { maxWidth: 600 },
         class extends css.StyleDefinition<MyStyles>
         {
-            box = css.$class({ margin: 4 })
+            box = this.$class({ margin: 4 })
         }
     )
 }

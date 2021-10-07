@@ -29,22 +29,22 @@ import * as css from "mimcss";
 
 class MyStyles extends css.StyleDefinition
 {
-    vbox = css.$class({ display: "flex", flexDirection: "column" })
+    vbox = this.$class({ display: "flex", flexDirection: "column" })
 
-    standout = css.$id({ boxShadow: {color: "red", blur: 4} });
+    standout = this.$id({ boxShadow: {color: "red", blur: 4} });
 
-    defaultColor = css.$var({ "color", "black" });
+    defaultColor = this.$var({ "color", "black" });
 
-    move = css.$keyframes([
+    move = this.$keyframes([
         [ "from", { top: 0} ],
         [ 50, { top: css.percent(50) } ],
         [ "to", { top: "100%" } ]
     ])
 
     init = [
-        css.$tag( "*", { boxSizing: "border-box" }),
-        css.$tag( "body", { height: "100%", margin: 0 }),
-        css.$style( "a:hover", { color: "navy" }),
+        this.$tag( "*", { boxSizing: "border-box" }),
+        this.$tag( "body", { height: "100%", margin: 0 }),
+        this.$style( "a:hover", { color: "navy" }),
     ]
 }
 ```
@@ -131,7 +131,7 @@ Mimcss allows one style definition class to reference another one via the `$use`
 // CommonStyles.ts
 class CommonStyles extends css.StyleDefinition
 {
-    shadow = css.$var( "boxShadow", { x: 10, y: 5, blur: 5, color: "gray" })
+    shadow = this.$var( "boxShadow", { x: 10, y: 5, blur: 5, color: "gray" })
 }
 
 // MyStyles.ts
@@ -139,10 +139,10 @@ import {CommonStyles} from "./CommonStyles"
 
 class MyStyles extends css.StyleDefinition
 {
-    common = css.$use( CommonStyles)
+    common = this.$use( CommonStyles)
 
     // use the boxShadow custom CSS property from the CommonStyles stylesheet
-    sidebar = css.$class({
+    sidebar = this.$class({
         boxShadow: this.common.boxShadow,
         position: "absolute",
         width: css.em(15),
@@ -166,7 +166,7 @@ For example, developers of a widget library can create a separate style definiti
 @css.embedded("myLibWidgets")
 class WidgetAAAStyles extends css.StyleDefinition
 {
-    aaa = css.$class( { background: css.Colors.orange, color: -css.Colors.orange })
+    aaa = this.$class( { background: css.Colors.orange, color: -css.Colors.orange })
 }
 
 let aaaStyles = css.activate(WidgetAAAStyles);
@@ -177,7 +177,7 @@ let aaaStyles = css.activate(WidgetAAAStyles);
 @css.embedded("myLibWidgets")
 class WidgetBBBStyles extends css.StyleDefinition
 {
-    bbb = css.$class( { background: css.Colors.green, color: -css.Colors.green })
+    bbb = this.$class( { background: css.Colors.green, color: -css.Colors.green })
 }
 
 let bbbStyles = css.activate(WidgetBBBStyles);
@@ -192,12 +192,12 @@ CSS defines several grouping rules: @supports, @media and @document. These rules
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    box = css.$class( { margin: 8 })
+    box = this.$class( { margin: 8 })
 
-    ifSmallScreen = css.$media( { maxWidth: 600 },
+    ifSmallScreen = this.$media( { maxWidth: 600 },
         class extends css.StyleDefinition<MyStyles>
         {
-            box = css.$class({ margin: 4 })
+            box = this.$class({ margin: 4 })
         }
     )
 }
@@ -216,12 +216,12 @@ For the grouping rules, the `$parent` property allows referencing rules defined 
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    defaultColor = css.$var( "color", "blue")
+    defaultColor = this.$var( "color", "blue")
 
-    ifSmallScreen = css.$media( { maxWidth: 600 },
+    ifSmallScreen = this.$media( { maxWidth: 600 },
         class extends css.StyleDefinition<MyStyles>
         {
-            p = css.$style( "p", { color: this.$parent.defultColor })
+            p = this.$style( "p", { color: this.$parent.defultColor })
         }
     )
 }
@@ -241,17 +241,17 @@ Mimcss supports the @import , @namespace, @font-face and @page via the `$import`
 class MyStyles extends css.StyleDefinition
 {
     unnamed = [
-        css.$import( "http://3rd.party.com/stylesheet.css"),
+        this.$import( "http://3rd.party.com/stylesheet.css"),
 
-        css.$namespace( css.WebNamespaces.SVG, "svg"),
+        this.$namespace( css.WebNamespaces.SVG, "svg"),
 
-        css.$fontface({
+        this.$fontface({
             fontFamily: "Roboto",
             fontWeight: 700,
             src: [ {url: "roboto.woff", format: "woff"} ]
         })
 
-        css.$page( ":first", {
+        this.$page( ":first", {
             margin: [css.inch(3), css.inch(1)]
         })
     ]

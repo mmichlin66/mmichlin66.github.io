@@ -11,40 +11,40 @@ class MyStyles extends css.StyleDefinition
     bgImage = css.conicGradient( css.Colors.red, css.Colors.orange, css.Colors.yellow, css.Colors.green,
         css.Colors.lightblue, css.Colors.blue, css.Colors.violet, css.Colors.red).from(0.5).at("center")
 
-	colorBox = css.$class({
+	colorBox = this.$class({
 		width: 200,
 		height: 200,
         backgroundImage: this.bgImage,
 		":hover": { opacity: 0.7 },
 	});
 
-	polygon = css.$class({
+	polygon = this.$class({
 		"+": this.colorBox,
 		clipPath: css.polygon( [20,20], [180,20], [20, 180], [180,180]).fill( "nonzero"),
 	})
 
-	ellipse = css.$class({
+	ellipse = this.$class({
 		"+": this.colorBox,
 		clipPath: css.ellipse( 75, 50).at( ["center", css.percent(35)]),
 	})
 
-	circle = css.$class({
+	circle = this.$class({
 		"+": this.colorBox,
 		clipPath: css.circle( "closest-side").at( [ 130, css.percent(65)]),
 	})
 
-	inset = css.$class({
+	inset = this.$class({
 		"+": this.colorBox,
 		clipPath: css.inset( css.percent(15)).round( 8),
 	})
 
-	container = css.$class({
+	container = this.$class({
         display: "flex",
 		flexWrap: "wrap",
 		justifyContent: "space-around",
 	})
 
-	outerBox = css.$class({
+	outerBox = this.$class({
 		border: [2, "solid", "blue"],
 	})
 }

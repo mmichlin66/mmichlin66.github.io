@@ -173,8 +173,8 @@
 							following ways:</p>
 							<ul>
 								<li>as a string.</li>
-								<li>as a class rule returned form the <a href="ruleapi.html#_class">$class</a> function.</li>
-								<li>as a class name rule returned form the <a href="ruleapi.html#_classname">$classname</a> function.</li>
+								<li>as a class rule returned form the <a href="../classes/ruleapi.styledefinition.html#_class">$class</a> function.</li>
+								<li>as a class name rule returned form the <a href="../classes/ruleapi.styledefinition.html#_classname">$classname</a> function.</li>
 								<li>as an array of the above.</li>
 							</ul>
 						</div>
@@ -200,10 +200,10 @@
 						names of all base classes.</p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">redFG</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000"> })</span>
-<span style="color: #000000">    </span><span style="color: #001080">whiteBG</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;white&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    </span><span style="color: #001080">redFG</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    </span><span style="color: #001080">whiteBG</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;white&quot;</span><span style="color: #000000"> })</span>
 
-<span style="color: #000000">    </span><span style="color: #001080">emphasized</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">emphasized</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;++&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">redFG</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">whiteBG</span><span style="color: #000000">],</span>
 <span style="color: #000000">        </span><span style="color: #001080">fontWeight:</span><span style="color: #000000"> </span><span style="color: #098658">700</span>
 <span style="color: #000000">    })</span>
@@ -255,12 +255,12 @@
 								the selector will be simply appended to the parent selector.</li>
 							</ul>
 						</div>
-						<p>Functions that return style rules (e.g. <a href="ruleapi.html#_class">$class</a>) accept the <code>CombinedStyleset</code> as a parameter,
+						<p>Functions that return style rules (e.g. <a href="../classes/ruleapi.styledefinition.html#_class">$class</a>) accept the <code>CombinedStyleset</code> as a parameter,
 						for example:</p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">class1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({})</span>
-<span style="color: #000000">    </span><span style="color: #001080">class2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">class1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({})</span>
+<span style="color: #000000">    </span><span style="color: #001080">class2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
 <span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;white&quot;</span><span style="color: #000000">,</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;:hover&quot;</span><span style="color: #001080"> :</span><span style="color: #000000"> { </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;grey&quot;</span><span style="color: #000000"> },</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;&amp;&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [</span>

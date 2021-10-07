@@ -11,11 +11,11 @@ import { IStringProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
  * class MyStyles extends css.StyleDefinition
  * {
  *     // css: ul > li {...}
- *     s1 = css.$style( css.selector`ul > li`, {...})
+ *     s1 = this.$style( css.selector`ul > li`, {...})
  *
  *     // css: ul.c1:hover {...}
- *     c1 = css.$class()
- *     s2 = css.$style( css.selector`ul.${this.c1}:hover`, {...})
+ *     c1 = this.$class()
+ *     s2 = this.$style( css.selector`ul.${this.c1}:hover`, {...})
  * }
  * ```
  */
@@ -33,7 +33,7 @@ export declare function selector(parts: TemplateStringsArray, ...params: Selecto
  * ```typescript
  * class MyStyles extends css.StyleDefinition
  * {
- *     poly = css.$class({
+ *     poly = this.$class({
  *         clipPath: css.raw`polygon(50% 20%, 90% 80%, 10% 80%)`
  *     })
  * }

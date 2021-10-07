@@ -43,21 +43,21 @@ The `CssColor` type is used to set values of properties that accept the CSS `<co
   - `rgb()`, `hsl()`, `alpha()` as well as any function that returns the `ColorProxy` type.
 
 **Example.**
- 
+
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
     // color name
-    purple = css.$class({ color: "purple" })
+    purple = this.$class({ color: "purple" })
 
     // positive number
-    red = css.$class({ color: 0xFF0000 })
+    red = this.$class({ color: 0xFF0000 })
 
     // negative number - inverted color (same as 0x00FFFF)
-    cyan = css.$class({ color: -0xFF0000 })
+    cyan = this.$class({ color: -0xFF0000 })
 
     // floating point number - alpha channel
-    halfGreen = css.$class({ color: 0x00FF00 + 0.5 })
+    halfGreen = this.$class({ color: 0x00FF00 + 0.5 })
 }
 ```
 
@@ -90,16 +90,16 @@ The `Colors` object implements the `INamedColors` interface and thus contains pr
 Since the properties of the `Colors` object are numbers, they can be used in any mathematical operations - something that cannot be done with color names.
 
 **Example.**
- 
+
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
     // the following two classes have identical effect
-    red1 = css.$class({ color: "red" })
-    red2 = css.$class({ color: css.Colors.red })
+    red1 = this.$class({ color: "red" })
+    red2 = this.$class({ color: css.Colors.red })
 
     // color with alpha channel
-    halfGreen = css.$class({ color: css.Colors.green + 0.5 })
+    halfGreen = this.$class({ color: css.Colors.green + 0.5 })
 }
 ```
 
@@ -191,7 +191,7 @@ css.Colors.myFavColor = 0x123456;
 // Use it just as any other named color.
 class MyStyles extends css.StyleDefinition
 {
-    anchor = css.$style( "a", {
+    anchor = this.$style( "a", {
         color: "myColor",
         ":hover": { color: css.alpha( "myColor", 0.7) }
     })

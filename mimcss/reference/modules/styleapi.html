@@ -209,7 +209,7 @@
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// screen and (min-width: 400px) and (max-width: 600px) and (orientation: portrait)</span>
-<span style="color: #000000">    </span><span style="color: #001080">ifNarrowDevice</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$media</span><span style="color: #000000">(</span>
+<span style="color: #000000">    </span><span style="color: #001080">ifNarrowDevice</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$media</span><span style="color: #000000">(</span>
 <span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #795E26">media</span><span style="color: #A31515">`screen and </span><span style="color: #0000FF">${</span><span style="color: #000000FF">{</span><span style="color: #001080">width:</span><span style="color: #000000FF">[</span><span style="color: #098658">400</span><span style="color: #000000FF">,</span><span style="color: #098658">600</span><span style="color: #000000FF">], </span><span style="color: #001080">orientation:</span><span style="color: #000000FF"> </span><span style="color: #A31515">&quot;portrait&quot;</span><span style="color: #000000FF">}</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">, ...)</span>
 <span style="color: #000000">}</span>
 </code></pre>
@@ -460,7 +460,7 @@
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// not (transform-origin: 30px 30px 30px)</span>
-<span style="color: #000000">    </span><span style="color: #001080">ifNoTransformOrigin</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$supports</span><span style="color: #000000">(</span>
+<span style="color: #000000">    </span><span style="color: #001080">ifNoTransformOrigin</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$supports</span><span style="color: #000000">(</span>
 <span style="color: #000000">        </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #795E26">supports</span><span style="color: #A31515">`not (</span><span style="color: #0000FF">${</span><span style="color: #000000FF">{transform-</span><span style="color: #001080">origin:</span><span style="color: #000000FF"> [</span><span style="color: #098658">30</span><span style="color: #000000FF">, </span><span style="color: #098658">30</span><span style="color: #000000FF">, </span><span style="color: #098658">30</span><span style="color: #000000FF">]}</span><span style="color: #0000FF">}</span><span style="color: #A31515">)`</span><span style="color: #000000">, ...)</span>
 <span style="color: #000000">}</span>
 </code></pre>
@@ -518,16 +518,16 @@
 									<p>Returns a function representing the invocation of the <code>var()</code> CSS function for the given custom
 										CSS property with optional fallbacks. Usually, when you want to refer to a custom CSS property
 										in style rules, it is enough to just refer to the style definition property created using the
-									<a href="ruleapi.html#_var">$var</a> function; however, if you want to provide a fallback value, you must use this function.</p>
+									<a href="../classes/ruleapi.styledefinition.html#_var">$var</a> function; however, if you want to provide a fallback value, you must use this function.</p>
 								</div>
 								<p><strong>Example:</strong></p>
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// create custom CSS property but without an assigned value; it can be assigned</span>
 <span style="color: #000000">    </span><span style="color: #008000">// later programmatically</span>
-<span style="color: #000000">    </span><span style="color: #001080">bgColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    </span><span style="color: #001080">bgColor</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">)</span>
 
-<span style="color: #000000">    </span><span style="color: #001080">div</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;div&quot;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">    </span><span style="color: #001080">div</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;div&quot;</span><span style="color: #000000">, {</span>
 <span style="color: #000000">        </span><span style="color: #008000">// use the custom CSS property with the given fallback value</span>
 <span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">usevar</span><span style="color: #000000">( </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">bgColor</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;beige&quot;</span><span style="color: #000000">)</span>
 <span style="color: #000000">    })</span>
@@ -549,7 +549,7 @@
 								<li>
 									<h5>varObj: <a href="../interfaces/ruletypes.ivarrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Custom CSS property object created using the <a href="ruleapi.html#_var">$var</a> function.</p>
+										<p>Custom CSS property object created using the <a href="../classes/ruleapi.styledefinition.html#_var">$var</a> function.</p>
 									</div>
 								</li>
 								<li>

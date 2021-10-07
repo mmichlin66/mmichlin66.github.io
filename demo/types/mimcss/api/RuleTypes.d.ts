@@ -24,8 +24,8 @@ import { ExtendedBaseStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarV
  * ```typescript
  * class MyStyles extends css.StyleDefinition
  * {
- *     class1 = css.$class({})
- *     class2 = css.$class({
+ *     class1 = this.$class({})
+ *     class2 = this.$class({
  *         backgroundColor: "white",
  *         ":hover" : { backgroundColor: "grey" },
  *         "&": [
@@ -69,10 +69,10 @@ export declare type CombinedStyleset = Styleset & {
  * ```typescript
  * class MyStyles extends css.StyleDefinition
  * {
- *     redFG = css.$class({ color: "red" })
- *     whiteBG = css.$class({ backgroundColor: "white" })
+ *     redFG = this.$class({ color: "red" })
+ *     whiteBG = this.$class({ backgroundColor: "white" })
  *
- *     emphasized = css.$class({
+ *     emphasized = this.$class({
  *         "++": [this.redFG, this.whiteBG],
  *         fontWeight: 700
  *     })
@@ -413,7 +413,7 @@ export interface IStyleDefinition<P extends IStyleDefinition = any> {
      * style definitions, this property is always undefined. This property can also be undefined
      * if it was not provided to the constructor when creating the style definition class manually.
      */
-    readonly $parent: P | undefined;
+    readonly $parent?: P;
 }
 /**
  * "Constructor" interface defining how style definition classes can be created.
@@ -479,7 +479,7 @@ export declare const enum NameGenerationMethod {
      * class MyStyles extends css.StyleDefinition
      * {
      *     // class name will be generated as "MyStyles_red_nnn", where 'nnn' is a unique number.
-     *     red = css.$class({ color: "red"})
+     *     red = this.$class({ color: "red"})
      * }
      * ```
      */
@@ -497,7 +497,7 @@ export declare const enum NameGenerationMethod {
      * class MyStyles extends css.StyleDefinition
      * {
      *     // class name will be generated as "my_nnn", where 'nnn' is a unique number.
-     *     red = css.$class({ color: "red"})
+     *     red = this.$class({ color: "red"})
      * }
      * ```
      */
@@ -517,7 +517,7 @@ export declare const enum NameGenerationMethod {
      * class MyStyles extends css.StyleDefinition
      * {
      *     // class name will be generated as "MyStyles_red".
-     *     red = css.$class({ color: "red"})
+     *     red = this.$class({ color: "red"})
      * }
      * ```
      */

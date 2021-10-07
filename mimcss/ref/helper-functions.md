@@ -71,35 +71,35 @@ The `to()` method allows setting the angle of the linear gradient.
 class MyStyles extends css.StyleDefinition
 {
     // Simple linear gradient going from top to bottom.
-    cls1 = css.$class({
+    cls1 = this.$class({
         backgroundImage: css.linearGradient( "red", "blue")
     })
 
     // Linear gradient going towards the top with color hint at 30%. Note that hints are specified
     // as single number arrays and not just as numbers.
-    cls2 = css.$class({
+    cls2 = this.$class({
         backgroundImage: css.linearGradient( "red", [30], "blue").to("top")
     })
 
     // Linear gradient going towards the right-bottom corner.
-    cls3 = css.$class({
+    cls3 = this.$class({
         backgroundImage: css.linearGradient( "red", "blue").to("bottom right")
     })
 
     // Repeating linear gradient going towards the right side. The yellow color stop is at
     // 25% and the second red stop is at 50%.
-    cls4 = css.$class({
+    cls4 = this.$class({
         backgroundImage: css.repeatingLinearGradient("red", ["yellow", 25], ["red", 50]).to("right")
     })
 
     // Repeating linear gradient going towards the right side. The yellow color stop is at
     // 25% and the second red stop is at 50%.
-    cls5 = css.$class({
+    cls5 = this.$class({
         backgroundImage: css.repeatingLinearGradient("red", ["yellow", 25], ["red", 50]).to("right")
     })
 
     // Repeating linear gradient going with the angle of 45 degrees.
-    cls6 = css.$class({
+    cls6 = this.$class({
         backgroundImage: css.repeatingLinearGradient("red", ["yellow", 25], ["red", 50]).to(45)
     })
 }
@@ -135,34 +135,34 @@ The `at()` method is used to specify the position of the center of the gradient 
 class MyStyles extends css.StyleDefinition
 {
     // Simple radial gradient with the center positioned at the center of the box
-    cls1 = css.$class({
+    cls1 = this.$class({
         backgroundImage: css.radialGradient( "red", "blue")
     })
 
     // Radial gradient with the center positioned at the middle of the right side
-    cls2 = css.$class({
+    cls2 = this.$class({
         backgroundImage: css.radialGradient( "red", [30], "blue").at(["right", "center"])
     })
 
     // Circular radial gradient with absolute size.
-    cls3 = css.$class({
+    cls3 = this.$class({
         backgroundImage: css.radialGradient( "red", "blue", "yellow").circle(css.Len.px(50))
     })
 
     // Elliptical radial gradient with size defined by the closest corner. The yellow color stop is at
     // 50% and the second red stop is at 90%.
-    cls4 = css.$class({
+    cls4 = this.$class({
         backgroundImage: css.radialGradient( "red", ["yellow", 50], ["red", 90]).ellipse("closest-corner")
     })
 
     // Repeating circular radial gradient going up to the farthest side.
-    cls5 = css.$class({
+    cls5 = this.$class({
         backgroundImage: css.repeatingRadialGradient( "red", ["yellow", 25], ["red", 50]).circle("farthest-side")
     })
 
     // Repeating circular radial gradient going up to the closest side positioned close to the
     // bottom left corner.
-    cls6 = css.$class({
+    cls6 = this.$class({
         backgroundImage: css.repeatingRadialGradient( "red", ["yellow", 25], ["red", 50])
             .circle(50).at(["left", 3.5, "bottom", 3.5])
     })
@@ -193,23 +193,23 @@ The `at()` method is used to specify the position of the center of the conic sha
 class MyStyles extends css.StyleDefinition
 {
     // Conic gradient with the center positioned at the center of the box
-    cls1 = css.$class({
+    cls1 = this.$class({
         backgroundImage: css.conicGradient( "red", "blue")
     })
 
     // Conic gradient with the center positioned at the middle of the right side
-    cls2 = css.$class({
+    cls2 = this.$class({
         backgroundImage: css.conicGradient( "red", [30], "blue").at(["right", "center"])
     })
 
     // Conic gradient starting with the angle of 30 degrees.
-    cls3 = css.$class({
+    cls3 = this.$class({
         backgroundImage: css.conicGradient( "red", "blue", "yellow").from(30)
     })
 
     // Conic gradient starting with the angle of 30 degrees and positioned at the middle of the
     // right side.
-    cls4 = css.$class({
+    cls4 = this.$class({
         backgroundImage: css.conicGradient ( "red", ["yellow", 50], ["red", 90])
             .from(30).at(["right", "center"])
     })

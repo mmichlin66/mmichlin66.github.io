@@ -64,13 +64,13 @@ Mimcss allows defining and using custom properties while helping developers avoi
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    specialColor = css.$var( "color", "blue")
+    specialColor = this.$var( "color", "blue")
 
-    specialContainer = css.$class({
+    specialContainer = this.$class({
          "--": [ [this.specialColor, "green"] ]
     })
 
-    special = css.$class({ color: this.specialColor })
+    special = this.$class({ color: this.specialColor })
 }
 ```
 
@@ -107,12 +107,12 @@ class MyStyles extends css.StyleDefinition
     // define constants
     defaultPadding = 8
     defaultColor: CssColor = "black"
-    defaultBorder = css.$const( "border", [2, "dashed", "blue"])
+    defaultBorder = this.$const( "border", [2, "dashed", "blue"])
 
     // define custom CSS prroperty
-    defaultBgColor = css.$var( "color", "white")
+    defaultBgColor = this.$var( "color", "white")
 
-    cls = css.$class({
+    cls = this.$class({
         padding: this.defaultPadding,
         color: this.defaultColor,
         border: this.defaultBorder,
@@ -126,7 +126,7 @@ class MyStyles extends css.StyleDefinition
 Aside from participation in the cascade, another significant difference between custom properties and constants is that it is possible to change the value of a custom property, thus changing styles. This is accomplished using the `setValue` method of the custom property object:
 
 ```tsx
-let styles = css.$ctivate( MyClass);
+let styles = this.$ctivate( MyClass);
 styles.defaultBgColor.setValue( "yellow");
 
 ```

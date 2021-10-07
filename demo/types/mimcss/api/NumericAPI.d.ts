@@ -12,10 +12,10 @@ import { ILengthProxy, IPercentProxy, IAngleProxy, ITimeProxy, IResolutionProxy,
  * {
  *     // define custom CSS property - note that its value can be changed
  *     // programmatically
- *     columnQty = css.$var( "CssNumber", 3)
+ *     columnQty = this.$var( "CssNumber", 3)
  *
  *     // max( 5, var(--columnQty))
- *     cls1 = css.$class({
+ *     cls1 = this.$class({
  *         columns: css.Num.max( 5, this.columnQty)
  *     })
  * }
@@ -36,7 +36,7 @@ export declare let Num: INumberMath;
  *     initialZoom = css.var( "CssPercent", 1.5)
  *
  *     // min( 0.5, var(--initialZoom))
- *     cls1 = css.$class({
+ *     cls1 = this.$class({
  *         zoom: css.Percent.min( 0.5, this.initialZoom)
  *     })
  * }
@@ -63,7 +63,7 @@ export declare function percent(n: number): IPercentProxy;
  *     defaultPadding = css.var( "CssLength", 8)
  *
  *     // calc( 200px - (2 * var(--defaultPadding)))
- *     cls1 = css.$class({
+ *     cls1 = this.$class({
  *         width: css.Len.calc` 200px - (2 * ${this.defaultPadding})`
  *     })
  * }

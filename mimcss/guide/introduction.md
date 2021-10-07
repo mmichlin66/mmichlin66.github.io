@@ -86,12 +86,12 @@ import * as css from "mimcss";
 // Define styles
 class MyStyles extends css.StyleDefinition
 {
-    vbox = css.$class({
+    vbox = this.$class({
         display: "flex",
         flexDirection: "column",
     });
 
-    importantElement = css.$id({
+    importantElement = this.$id({
         color: 0xFFCC88,
         fontWeight: 700,
     });

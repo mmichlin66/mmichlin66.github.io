@@ -15,12 +15,12 @@ Let's look at a simple example and see what Mimcss does in the presence of inher
 ```tsx
 class Base extends css.StyleDefinition
 {
-    textInput = css.$class({ padding: 4 })
+    textInput = this.$class({ padding: 4 })
 }
 
 class Derived extends Base
 {
-    button = css.$class({ padding: 8 })
+    button = this.$class({ padding: 8 })
 }
 
 let derived = css.activate(Base);
@@ -33,12 +33,12 @@ Interesting things start happening when the derived class overrides a property f
 ```tsx
 class Base extends css.StyleDefinition
 {
-    textInput = css.$class({ padding: 4 })
+    textInput = this.$class({ padding: 4 })
 }
 
 class Derived extends Base
 {
-    textInput = css.$class({ padding: 8 })
+    textInput = this.$class({ padding: 8 })
 }
 
 let derived = css.activate(Derived);
@@ -51,7 +51,7 @@ Let's now have another style definition class that derives from the same `Base` 
 ```tsx
 class AnotherDerived extends Base
 {
-    textInput = css.$class({ padding: 16 })
+    textInput = this.$class({ padding: 16 })
 }
 
 let anotherDerived = css.activate(AnotherDerived);
@@ -65,12 +65,12 @@ The idea of "style virtualization" is to have a base "interface" that "declares"
 ```tsx
 class Theme extends css.StyleDefinition
 {
-    @css.virtual bgColor = css.$var( "color")
-    @css.virtual frColor = css.$var( "color")
+    @css.virtual bgColor = this.$var( "color")
+    @css.virtual frColor = this.$var( "color")
 
-    label = css.$class();
+    label = this.$class();
 
-    input = css.$tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
+    input = this.$tag( "input", { backgroundColor: this.bgColor, color: this.frColor })
 }
 
 let theme: Theme = null;
@@ -89,16 +89,16 @@ render()
 
 class BlueTheme extends Theme
 {
-    bgColor = css.$var( "color", Colors.cyan)
-    frColor = css.$var( "color", Colors.navy)
-    label = css.$class({ color: Colors.darkblue})
+    bgColor = this.$var( "color", Colors.cyan)
+    frColor = this.$var( "color", Colors.navy)
+    label = this.$class({ color: Colors.darkblue})
 }
 
 class BeigeTheme extends Theme
 {
-    bgColor = css.$var( "color", Colors.beige)
-    frColor = css.$var( "color", Colors.brown)
-    label = css.$class({ color: Colors.darkorange})
+    bgColor = this.$var( "color", Colors.beige)
+    frColor = this.$var( "color", Colors.brown)
+    label = this.$class({ color: Colors.darkorange})
 }
 
 theme = css.activate( BlueTheme);

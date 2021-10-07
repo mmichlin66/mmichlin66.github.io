@@ -54,9 +54,9 @@ The goal of Mimcss is to boost the developers' productivity by increasing conven
     ```tsx
     class MyStyles extends css.StyleDefinition
     {
-        defaultColor = css.$var( "color", "red");
+        defaultColor = this.$var( "color", "red");
 
-        cls = css.$class({
+        cls = this.$class({
             // this will work because "backgroundColor" property is of the same type as "color"
             backgroundColor: this.defaultColor,
 
@@ -99,10 +99,10 @@ Mimcss also implements functions named after every unit allowed for the above CS
 class MyStyles extends css.StyleDefinition
 {
     // This will work because the 'cm()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.cm(1.5) })
+    cls1 = this.$class({ left: css.cm(1.5) })
 
     // This will NOT compile because the 'rad()' function returns type incompatible with the 'left' property
-    cls2 = css.$class({ left: css.rad(1) })
+    cls2 = this.$class({ left: css.rad(1) })
 }
 ```
 
@@ -115,10 +115,10 @@ The `min()` and `max()` functions accept a variable number of parameters of the 
 class MyStyles extends css.StyleDefinition
 {
     // This will work because the 'Len.min()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.Len.min( 100, 10.5, css.inch(1.5), css.percent(50)) })
+    cls1 = this.$class({ left: css.Len.min( 100, 10.5, css.inch(1.5), css.percent(50)) })
 
     // This will NOT compile because the 'Angle.min()' function returns type incompatible with the 'left' property
-    cls2 = css.$class({ left: css.Angle.min( 45, 0.25, css.rad(1)) })
+    cls2 = this.$class({ left: css.Angle.min( 45, 0.25, css.rad(1)) })
 }
 ```
 
@@ -128,10 +128,10 @@ The `clamp()` function accepts three parameters of the corresponding numeric typ
 class MyStyles extends css.StyleDefinition
 {
     // This will work because the 'Len.clamp()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.Len.clamp( 100,  css.inch(1.5), css.percent(50)) })
+    cls1 = this.$class({ left: css.Len.clamp( 100,  css.inch(1.5), css.percent(50)) })
 
     // This will NOT compile because the 'Angle.min()' function returns type incompatible with the 'left' property
-    cls2 = css.$class({ left: css.Angle.clamp( 45, 0.25, css.rad(1)) })
+    cls2 = this.$class({ left: css.Angle.clamp( 45, 0.25, css.rad(1)) })
 }
 ```
 
@@ -141,14 +141,14 @@ The `calc()` function is a tag function accepting a template string with embedde
 class MyStyles extends css.StyleDefinition
 {
     // This will work because the 'Len.calc()' function returns type compatible with the 'left' property
-    cls1 = css.$class({ left: css.Len.calc`(100% - ${100} - ${css.Len.cm(2)}) / 2` })
+    cls1 = this.$class({ left: css.Len.calc`(100% - ${100} - ${css.Len.cm(2)}) / 2` })
 
     // This will NOT work because the type of the second parameter is not compatible with the 'Len.calc()'
     // function parameter type
-    cls2 = css.$class({ left: css.Len.calc`(100% - ${100} - ${css.Angle.deg(30)}) / 2` })
+    cls2 = this.$class({ left: css.Len.calc`(100% - ${100} - ${css.Angle.deg(30)}) / 2` })
 
     // This will NOT compile because the 'Angle.calc()' function returns type incompatible with the 'left' property
-    cls3 = css.$class({ left: css.Angle.calc`(100% - ${100} - ${css.Angle.deg(30)}) / 2` })
+    cls3 = this.$class({ left: css.Angle.calc`(100% - ${100} - ${css.Angle.deg(30)}) / 2` })
 }
 ```
 
@@ -169,22 +169,22 @@ Here are the examples of using different ways of assigning color values:
 class MyStyles extends css.StyleDefinition
 {
     // Named color
-    cls1 = css.$class({ color: "red" })
+    cls1 = this.$class({ color: "red" })
 
     // Property of the Colors object
-    cls2 = css.$class({ color: css.Colors.red })
+    cls2 = this.$class({ color: css.Colors.red })
 
     // Numeric value
-    cls3 = css.$class({ color: 0xFF0000 })
+    cls3 = this.$class({ color: 0xFF0000 })
 
     // rgb() function with alpha channel
-    cls4 = css.$class({ color: css.rgb( 255, 0, 0, 0.5) })
+    cls4 = this.$class({ color: css.rgb( 255, 0, 0, 0.5) })
 
     // alpha() function with named color
-    cls5 = css.$class({ color: css.alpha( "red", 0.5) })
+    cls5 = this.$class({ color: css.alpha( "red", 0.5) })
 
     // raw() function
-    cls6 = css.$class({ color: css.raw`#CCC` })
+    cls6 = this.$class({ color: css.raw`#CCC` })
 }
 ```
 
@@ -208,7 +208,7 @@ The above code makes the TypeScript compiler believe that every object implement
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    cls = css.$class({ color: "myFavColor" })
+    cls = this.$class({ color: "myFavColor" })
 }
 ```
 
@@ -235,21 +235,21 @@ The following list gives a brief description of the complex properties:
     class MyStyles extends css.StyleDefinition
     {
         // single raw string
-        cls1 = css.$class({ margin: css.raw`4px 8px` })
+        cls1 = this.$class({ margin: css.raw`4px 8px` })
 
         // single number (all four sides wil be set to 8px)
-        cls2 = css.$class({ margin: 8 })
+        cls2 = this.$class({ margin: 8 })
 
         // tuple with two elements - number
-        cls3 = css.$class({ margin: [4, 1.2] })
+        cls3 = this.$class({ margin: [4, 1.2] })
 
         // a single castom variable (4px for top, 0.5em for left and right, "auto" for bottom)
-        defaultMargin = css.$var( "margin", [4, 0.5, "auto"])
-        cls4 = css.$class({ margin: this.defaultMargin })
+        defaultMargin = this.$var( "margin", [4, 0.5, "auto"])
+        cls4 = this.$class({ margin: this.defaultMargin })
 
         // tuple with four elements mixing numbers, strings and custom variables
-        defaultTopMargin = css.$var( "CssLength", 8)
-        cls5 = css.$class({ margin: [this.defaultTopMargin, "auto", 0.5, 4] })
+        defaultTopMargin = this.$var( "CssLength", 8)
+        cls5 = this.$class({ margin: [this.defaultTopMargin, "auto", 0.5, 4] })
     }
     ```
 
@@ -265,15 +265,15 @@ The following list gives a brief description of the complex properties:
     ```tsx
     class MyStyles extends css.StyleDefinition
     {
-        move = css.$keyframes( [
+        move = this.$keyframes( [
             [ "from", { top: 0 } ],
             [ 50, { top: 150 } ],
             [ "to", { top: "100%" } ]
         ])
 
-        defaultDuration = css.$var( "CssTime", 1200)
+        defaultDuration = this.$var( "CssTime", 1200)
 
-        cls = css.$class({
+        cls = this.$class({
             animation: { name: this.move, duration: this.defaultDuration }
         })
     }
@@ -332,7 +332,7 @@ Since the `IFilterProxy` and `ITransformProxy` interfaces are incompatible due t
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    myClass = css.$class({
+    myClass = this.$class({
         filter: css.scale(0.5),     // COMPILATION ERROR !!!
         transform: css.blur(0.5)    // COMPILATION ERROR !!!
     })

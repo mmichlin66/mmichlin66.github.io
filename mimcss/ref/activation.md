@@ -70,7 +70,7 @@ The `activate` function can be called many time on the same style definition cla
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    red = css.$class({ color: "red" })
+    red = this.$class({ color: "red" })
 }
 
 let myStyles = css.activate( MyStyles);
@@ -96,7 +96,7 @@ The optional `schedulerType` parameter can be set to designate the scheduler typ
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    red = css.$class({ color: "red" })
+    red = this.$class({ color: "red" })
 }
 
 class MyComponent
@@ -169,7 +169,7 @@ try
 
     // ensure that the style changes are written to the DOM
     css.forceDOMUpdate();
-    
+
 }
 catch( err)
 {

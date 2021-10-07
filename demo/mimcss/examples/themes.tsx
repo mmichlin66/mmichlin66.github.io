@@ -12,20 +12,20 @@ class Theme extends css.ThemeDefinition
 {
     // define several properties for rules that must be overridden in the derined style
     // definition classes. These rules define the names that will be used when rendering HTML.
-	box = css.$class()
-	button = css.$class()
-    input = css.$class()
+	box = this.$class()
+	button = this.$class()
+    input = this.$class()
 
     // define several custom CSS properties that are used by rules of this class. We don't provide
     // values for these variables but we specify the CSS property names (in camel form) that
     // define the types of these variables.
-    fontFamily = css.$var( "fontFamily")
-    fontStyle = css.$var( "fontStyle")
-    fontSize = css.$var( "fontSize")
-    borderColor = css.$var( "color")
-    boxBgColor = css.$const( "color")
+    fontFamily = this.$var( "fontFamily")
+    fontStyle = this.$var( "fontStyle")
+    fontSize = this.$var( "fontSize")
+    borderColor = this.$var( "color")
+    boxBgColor = this.$const( "color")
 
-    grid = css.$class({
+    grid = this.$class({
         display: "grid",
         gridTemplateColumns: css.repeat(2, "1fr"),
         gridTemplateRows: css.repeat(2, "1fr"),
@@ -39,7 +39,7 @@ class Theme extends css.ThemeDefinition
     // use $abstract rule because the following rules are only used as bases for the rules in the
     // derived style definition classes. Using the $abstract rule means that we will not create
     // actual CSS SOM objects for them.
-    boxBase = css.$abstract({
+    boxBase = this.$abstract({
         display: "flex",
         padding: 24,
         border: [3, "solid", this.borderColor],
@@ -49,7 +49,7 @@ class Theme extends css.ThemeDefinition
         backgroundColor: this.boxBgColor
     })
 
-    buttonBase = css.$abstract({
+    buttonBase = this.$abstract({
         padding: 16,
         border: [3, "solid", this.borderColor],
         fontFamily: this.fontFamily,
@@ -59,7 +59,7 @@ class Theme extends css.ThemeDefinition
         ":hover": { opacity: 0.7 }
     })
 
-    inputBase = css.$abstract({
+    inputBase = this.$abstract({
         padding: 16,
         border: [3, "solid", this.borderColor],
         fontFamily: this.fontFamily,
@@ -68,7 +68,7 @@ class Theme extends css.ThemeDefinition
     })
 
     other = [
-        css.$style( 'button, input[type="text"]', {
+        this.$style( 'button, input[type="text"]', {
             fontFamily: this.fontFamily,
             fontSize: this.fontSize,
             ":focus": { outline: "none" }
@@ -82,24 +82,24 @@ class Theme extends css.ThemeDefinition
 class RoundTheme extends Theme
 {
     // override values of custom CSS properties.
-    fontFamily = css.$var( "fontFamily", "Verdana")
-    fontStyle = css.$var( "fontStyle", 45)
-    fontSize = css.$var( "fontSize", 24)
-    borderColor = css.$var( "color", "blue")
-    boxBgColor = css.$const( "color", "cyan")
+    fontFamily = this.$var( "fontFamily", "Verdana")
+    fontStyle = this.$var( "fontStyle", 45)
+    fontSize = this.$var( "fontSize", 24)
+    borderColor = this.$var( "color", "blue")
+    boxBgColor = this.$const( "color", "cyan")
 
     // override the rules that were declared in the base class.
-    box = css.$class({
+    box = this.$class({
         "+": this.boxBase,
         borderRadius: 16
     })
 
-    button = css.$class({
+    button = this.$class({
         "+": this.buttonBase,
         borderRadius: 16
     })
 
-    input = css.$class({
+    input = this.$class({
         "+": this.inputBase,
         borderRadius: 16,
     })
@@ -111,23 +111,23 @@ class RoundTheme extends Theme
 // the RoundTheme class - we just need to specify different values for some properties.
 class SquareTheme extends Theme
 {
-    fontFamily = css.$var( "fontFamily", "monospace")
-    fontStyle = css.$var( "fontStyle", "normal")
-    fontSize = css.$var( "fontSize", 24)
-    borderColor = css.$var( "color", "red")
-    boxBgColor = css.$const( "color", "lightpink")
+    fontFamily = this.$var( "fontFamily", "monospace")
+    fontStyle = this.$var( "fontStyle", "normal")
+    fontSize = this.$var( "fontSize", 24)
+    borderColor = this.$var( "color", "red")
+    boxBgColor = this.$const( "color", "lightpink")
 
-    box = css.$class({
+    box = this.$class({
         "+": this.boxBase,
         borderLeftWidth: 10
     })
 
-    button = css.$class({
+    button = this.$class({
         "+": this.buttonBase,
         borderLeftWidth: 10
     })
 
-    input = css.$class({
+    input = this.$class({
         "+": this.inputBase,
         borderLeftWidth: 10
     })

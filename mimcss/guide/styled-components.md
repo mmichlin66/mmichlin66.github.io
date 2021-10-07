@@ -48,7 +48,7 @@ import * as css from "mimcss"
 class ColorBoxStyles extends css.StyleDefinition
 {
     // box size and border are hard-coded
-    box = css.$class({ width: 200, height: 200, border: [1, "solid", "black"] })
+    box = this.$class({ width: 200, height: 200, border: [1, "solid", "black"] })
 
     // background color is passed
     constructor( bgColor: css.CssColor)
@@ -110,7 +110,7 @@ Note how we defined the `box` class without the `backgroundColor` property and a
 class ColorBoxStyles extends css.StyleDefinition
 {
     // box size and border are hard-coded
-    box = css.$class({
+    box = this.$class({
         width: 200,
         height: 200,
         border: [1, "solid", "black"],
@@ -160,14 +160,14 @@ We have seen in this guide how we can reference rules defined in a different sty
 ```tsx
 class CommonStyles extends css.StyleDefinition
 {
-    red = css.$class({ color: "red" })
+    red = this.$class({ color: "red" })
 }
 
 class MyStyles extends css.StyleDefinition
 {
-    common = css.$use( CommonStyles)
+    common = this.$use( CommonStyles)
 
-    superRed = css.$class({ "+": this.common.red, fontWeight: "bold" })
+    superRed = this.$class({ "+": this.common.red, fontWeight: "bold" })
 }
 ```
 
@@ -178,14 +178,14 @@ This is quite logical if you want to re-use some common rules that are the same 
 ```tsx
 class Style1 extends css.StyleDefinition
 {
-    red = css.$class({ color: "red" })
+    red = this.$class({ color: "red" })
 }
 
 class Style2 extends css.StyleDefinition
 {
-    style1 = css.$use( new Style1())
+    style1 = this.$use( new Style1())
 
-    superRed = css.$class({ "+": this.style2.red, fontWeight: "bold" })
+    superRed = this.$class({ "+": this.style2.red, fontWeight: "bold" })
 }
 ```
 
@@ -198,17 +198,17 @@ Grouping rules like @media and @supports are another place we used style definit
 class ColorBoxStyles extends css.StyleDefinition
 {
     // box size and border are hard-coded
-    box = css.$class({
+    box = this.$class({
         width: 200,
         height: 200,
         border: [1, "solid", "black"],
         backgroundColor: this.bgColor
     })
 
-    ifSmallDevice = css.$media( { maxWidth: 600 },
+    ifSmallDevice = this.$media( { maxWidth: 600 },
         new class extends css.StyleDefinition<ColorBoxStyles>
         {
-            box = css.$class({
+            box = this.$class({
                 "+": this.$parent.box,
                 width: 100,
                 height: 100,

@@ -34,19 +34,19 @@ Here are a few examples of how such styles are used for defining style rules:
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    button1 = css.$class({
+    button1 = this.$class({
         backgroundColor: css.Colors.blue,   // built-in color property
         padding: 4,                         // 4px for all sides
         border: 2                           // 2px width with default style and color
     })
 
-    button2 = css.$class({
+    button2 = this.$class({
         backgroundColor: "yellow",          // built-in color constant
         padding: [4, 0.3],                  // 4px top and bottom, 0.3em left and right
         border: ["solid", "brown"]          // defined as a two-element tuple
     })
 
-    button3 = css.$class({
+    button3 = this.$class({
         backgroundColor: 0xFF00,            // green
         padding: [4, css.inch(0.1)],        // 4px top and bottom, 0.1in left and right
         border: [1, "solid", "brown"]       // defined as a three element tuple
@@ -65,10 +65,10 @@ CSS allows adding the `!important` flag to any style property to increase its sp
 class MyClass extends css.StyleDefinition
 {
     // .isNotImportant { min-width: 20px; }
-    isNotImportant = css.$class({ minWidth: 20 })
+    isNotImportant = this.$class({ minWidth: 20 })
 
     // .isImportant { min-width: 20px !important }
-    isImportant = css.$class({ minWidth: { "!": 20 } })
+    isImportant = this.$class({ minWidth: { "!": 20 } })
 }
 ```
 
@@ -87,24 +87,24 @@ With CSS pre-processors, the idea of a style rule re-using other rules (a.k.a. s
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    vbox = css.$class({
+    vbox = this.$class({
         display: "flex",
         flexDirection: "column"
     })
 
     // extend the vbox class
-    sidebar = css.$class({ "+": this.vbox,
+    sidebar = this.$class({ "+": this.vbox,
         position: "absolute",
         width: css.em(15),
         height: css.em(50)
     })
 
-    standout = css.$class({
+    standout = this.$class({
         boxShadow: { blur: 4, color: "red" }
     })
 
     // extend two clases: sidebar and standout
-    rightbar = css.$class({ "+": [this.sidebar, this.standout],
+    rightbar = this.$class({ "+": [this.sidebar, this.standout],
         width: css.em(10),
         left: css.em(1)
     })
@@ -151,10 +151,10 @@ When a class rule extends other class rules, there is a different method that pr
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    redFG = css.$class({ color: "red" })
-    whiteBG = css.$class({ backgroundColor: "white" })
+    redFG = this.$class({ color: "red" })
+    whiteBG = this.$class({ backgroundColor: "white" })
 
-    emphasized = css.$class({
+    emphasized = this.$class({
         "++": [this.redFG, this.whiteBG],
         fontWeight: 700
     })
@@ -227,7 +227,7 @@ Mimcss allows names of all pseudo entities as properties in the `CombinedStylese
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    mydiv = css.$class({
+    mydiv = this.$class({
         backgroundColor: "white",
         padding: 4,
         ":hover": { backgroundColor: "pink" }
@@ -249,7 +249,7 @@ Here is the Mimcss code:
 ```tsx
 class MyClass extends css.StyleDefinition
 {
-    anchor = css.$style( "a", { color: "blue",
+    anchor = this.$style( "a", { color: "blue",
         ":first-child": { color: "green",
             ":visited": { color: "pink",
                 ":hover" { color: "maroon" }
@@ -275,10 +275,10 @@ Here is how the second part of our CSS example above is expressed in Mimcss:
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    myspan = css.$class({ padding: 4 })
-    solid = css.$id();
+    myspan = this.$class({ padding: 4 })
+    solid = this.$id();
 
-    mydiv = css.$class({
+    mydiv = this.$class({
         backgroundColor: "white",
         padding: 4,
         "&": [
@@ -308,9 +308,9 @@ With these properties, it is easy to specify selectors that combine the parent s
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    cls1 = css.$class({})
+    cls1 = this.$class({})
 
-    cls2 = css.$class({
+    cls2 = this.$class({
         // will produce selector .cls2.cls1
         "&": [[ this.cls1, { color: "red" } ]]
 

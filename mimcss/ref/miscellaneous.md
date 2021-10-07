@@ -34,10 +34,10 @@ Sometimes, however, there is a need to use strings even for properties that don'
 ```tsx
 class MyStyle extends css.StyleDefinition
 {
-    defaultBorderWidth = css.$var( "CssLength", 1)
-    defaultBorderStyle = css.$var( "borderStyle", "solid")
+    defaultBorderWidth = this.$var( "CssLength", 1)
+    defaultBorderStyle = this.$var( "borderStyle", "solid")
 
-    blueBorder = css.$class({ border: css.raw`${this.defaultBorderWidth} ${this.defaultBorderStyle} blue` })
+    blueBorder = this.$class({ border: css.raw`${this.defaultBorderWidth} ${this.defaultBorderStyle} blue` })
 }
 ```
 
@@ -63,11 +63,11 @@ The `quoted()` function returns a `IUrlProxy` interface representing a string in
 class MyStyle extends css.StyleDefinition
 {
     // link to an image
-    startListItem = css.$style( "li::after", { content: css.url("assets/star.gif") })
+    startListItem = this.$style( "li::after", { content: css.url("assets/star.gif") })
 
     // define ID for an SVG element and use it for setting background-image property
-    svgID = css.$id()
-    svgRef = css.$class({ backgroundImage: css.url(this.svgID) })
+    svgID = this.$id()
+    svgRef = this.$class({ backgroundImage: css.url(this.svgID) })
 }
 ```
 
@@ -89,11 +89,11 @@ The CSS `url()` function also allows specifying an ID of an element within the d
 class MyStyle extends css.StyleDefinition
 {
     // link to an image
-    startListItem = css.$style( "li::after", { content: css.url("assets/star.gif") })
+    startListItem = this.$style( "li::after", { content: css.url("assets/star.gif") })
 
     // define ID for an SVG element and use it for setting background-image property
-    svgID = css.$id()
-    svgRef = css.$class({ backgroundImage: css.url(this.svgID) })
+    svgID = this.$id()
+    svgRef = this.$class({ backgroundImage: css.url(this.svgID) })
 }
 ```
 
@@ -121,7 +121,7 @@ The `attr()` function returns the IStringProxy interface representing the `attr(
 ```tsx
 class MyStyle extends css.StyleDefinition
 {
-    startListItem = css.$style( "[data-tooltip]:hover::after", {
+    startListItem = this.$style( "[data-tooltip]:hover::after", {
         content: css.attr("data-tooltip")
     })
 }
@@ -145,11 +145,11 @@ The `counter()` function returns the IStringProxy interface representing the CSS
 class MyStyle extends css.StyleDefinition
 {
     // define counter object
-    counter1 = css.$counter();
+    counter1 = this.$counter();
 
-    ol = css.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
-    
-    li = css.$style( "li", {
+    ol = this.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
+
+    li = this.$style( "li", {
         counterIncrement: this.counter,
         "::before": { content: css.counter( this.counter, "upper-roman", " ") }
     })
@@ -171,11 +171,11 @@ The `counters()` function returns a IStringProxy interface representing the CSS 
 ```tsx
 class MyStyle extends css.StyleDefinition
 {
-    counter = css.$counter();
+    counter = this.$counter();
 
-    ol = css.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
-    
-    li = css.$style( "li", {
+    ol = this.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
+
+    li = this.$style( "li", {
         counterIncrement: this.counter,
         "::before": { content: css.counters( this.counter, ".", "hebrew", " ") }
     })

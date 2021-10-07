@@ -125,12 +125,12 @@ The `animation` property can be specified as a single object or as an array of o
 ```typescript
 class MyStyes extends css.StyleDefinition
 {
-    slidein = css.$keyframes([
+    slidein = this.$keyframes([
         ["from", {marginLeft: css.percent(-20)}],
         ["to", {marginLeft: "100%"}]
     ])
 
-    obj = css.$class({
+    obj = this.$class({
         animation: {
             name: this.slidein,
             duration: 3000,
@@ -328,13 +328,13 @@ The `backdrop-filter` property can be specified either as a string or using the 
 class MyStyles extends css.StyleDefinition
 {
     // url for SVG filter
-    cls1 = css.$class({ bacdropFilter: css.url("filters.svg#filter1") })
+    cls1 = this.$class({ bacdropFilter: css.url("filters.svg#filter1") })
 
     // brightness of 70%
-    cls2 = css.$class({ bacdropFilter: css.brightness(70) })
+    cls2 = this.$class({ bacdropFilter: css.brightness(70) })
 
     // multiple backdrop filters
-    cls3 = css.$class({ bacdropFilter: [css.dropShadow(16, 16, "red", 10), invert(75)] })
+    cls3 = this.$class({ bacdropFilter: [css.dropShadow(16, 16, "red", 10), invert(75)] })
 }
 ```
 
@@ -550,19 +550,19 @@ The `border` style property can be specified as either a string, a border width 
 class MyStyles extends css.StyleDefinition
 {
     // border width of 3px
-    cls1 = css.$class({ border: 3) })
+    cls1 = this.$class({ border: 3) })
 
     // border of dashed style
-    cls2 = css.$class({ border: "dashed" })
+    cls2 = this.$class({ border: "dashed" })
 
     // border of red color
-    cls3 = css.$class({ border: "red" })
+    cls3 = this.$class({ border: "red" })
 
     // border as a string
-    cls4 = css.$class({ border: "3px dashed red" })
+    cls4 = this.$class({ border: "3px dashed red" })
 
     // border as an array
-    cls5 = css.$class({ border: [3, "dashed", "red"] })
+    cls5 = this.$class({ border: [3, "dashed", "red"] })
 }
 ```
 
@@ -1455,13 +1455,13 @@ The `filter` property can be specified either as a string or using the Mimcss `u
 class MyStyles extends css.StyleDefinition
 {
     // url for SVG filter
-    cls1 = css.$class({ filter: css.url("filters.svg#filter1") })
+    cls1 = this.$class({ filter: css.url("filters.svg#filter1") })
 
     // brightness of 70%
-    cls2 = css.$class({ filter: css.brightness(70) })
+    cls2 = this.$class({ filter: css.brightness(70) })
 
     // multiple filters
-    cls3 = css.$class({ filter: [css.dropShadow(16, 16, "red", 10), invert(75)] })
+    cls3 = this.$class({ filter: [css.dropShadow(16, 16, "red", 10), invert(75)] })
 }
 ```
 
@@ -1969,13 +1969,13 @@ The coordinates correspond to track numbers occupied by the area within the grid
 class MyStyles extends css.StyleDefinition
 {
     // define grid areas on the page
-    header = css.$gridarea();
-    main = css.$gridarea();
-    footer = css.$gridarea();
-    left = css.$gridarea();
-    right = css.$gridarea();
+    header = this.$gridarea();
+    main = this.$gridarea();
+    footer = this.$gridarea();
+    left = this.$gridarea();
+    right = this.$gridarea();
 
-	grid = css.$class({
+	grid = this.$class({
         // define grid of 5 rows by 5 columns
         display: "grid",
         gridTemplateColumns: css.repeat( 5, "1fr"),
@@ -2023,24 +2023,24 @@ export type GridTrackLine = (IGridLineRule | Extended<string>)[];
 class MyStyles extends css.StyleDefinition
 {
     // 100px 1fr 10%
-	grid1 = css.$class({
+	grid1 = this.$class({
         gridTemplateColumns: 100, "1fr", css.percent(10)),
     })
 
     // repeat(3, 1fr)
-	grid2 = css.$class({
+	grid2 = this.$class({
         gridTemplateColumns: css.repeat( 3, "1fr"),
     })
 
     // use explicit and line names and defined line rules
-    lastLine = css.$gridline();
-	grid3 = css.$class({
+    lastLine = this.$gridline();
+	grid3 = this.$class({
         gridTemplateColumns: [ ["first-line"], "1fr", "2fr", [this.lastLine] ]
     })
 
     // use lines defined by a grid area
-    mainArea = css.$gridarea();
-	grid4 = css.$class({
+    mainArea = this.$gridarea();
+	grid4 = this.$class({
         gridTemplateColumns: [ css.percent(10), [this.mainArea.startLine], css.repeat(4, "1fr"),
             [this.mainArea.lastLine], css.percent(10)]
     })

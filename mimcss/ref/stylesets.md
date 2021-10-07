@@ -317,9 +317,9 @@ Functions that return style rules (e.g. `$class`) accept the `CombinedStyleset` 
 ```tsx
 class MyStyles extends css.StyleDefinition
 {
-    class1 = css.$class({})
+    class1 = this.$class({})
 
-    class2 = css.$class({
+    class2 = this.$class({
         backgroundColor: "white",
         ":hover" : { backgroundColor: "grey" },
         "&": [

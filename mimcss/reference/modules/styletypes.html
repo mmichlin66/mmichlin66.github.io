@@ -635,7 +635,7 @@
 							<code>&quot;--&quot;&quot;</code> property of the Styleset type.</p>
 						</div>
 						<p><code>CustomVar_StyleType</code> objects should be mostly used to override custom properties that have
-							previously been defined at the top-level using the <a href="ruleapi.html#_var">$var</a> function. That way you can have a
+							previously been defined at the top-level using the <a href="../classes/ruleapi.styledefinition.html#_var">$var</a> function. That way you can have a
 							&quot;global&quot; value of a custom property and assign a different value to it under a certain CSS
 						selector.</p>
 						<p>The values of the type can be specified as either a two-item or a three-item tuple. The
@@ -657,11 +657,11 @@
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// define global custom CSS property and re-define its value under &quot;brown&quot; class.</span>
-<span style="color: #000000">    </span><span style="color: #001080">mainColor</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;black&quot;</span><span style="color: #000000">);</span>
-<span style="color: #000000">    </span><span style="color: #001080">brown</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">mainColor</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;brown&quot;</span><span style="color: #000000">] ] })</span>
+<span style="color: #000000">    </span><span style="color: #001080">mainColor</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;black&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #001080">brown</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ [</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">mainColor</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;brown&quot;</span><span style="color: #000000">] ] })</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// define custom CSS property with the given name under &quot;blue&quot; class.</span>
-<span style="color: #000000">    </span><span style="color: #001080">blue</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ [</span><span style="color: #A31515">&quot;different-color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">] ] })</span>
+<span style="color: #000000">    </span><span style="color: #001080">blue</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ [</span><span style="color: #A31515">&quot;different-color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">] ] })</span>
 <span style="color: #000000">});</span>
 </code></pre>
 						<p>This is equivalent to the following CSS:</p>
@@ -926,7 +926,7 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The VarTemplateName type defines the keys (strings) that can be used as templates for defining
-							custom CSS properties using the <a href="ruleapi.html#_var">$var</a> function.</p>
+							custom CSS properties using the <a href="../classes/ruleapi.styledefinition.html#_var">$var</a> function.</p>
 						</div>
 					</div>
 				</section>

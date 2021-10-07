@@ -10,13 +10,13 @@ import * as css from "mimcss"
 class MyStyles extends css.StyleDefinition
 {
     // Define simple animation of the offset-distance property
-	moveOffset = css.$keyframes([
+	moveOffset = this.$keyframes([
 		[0, { offsetDistance: 0 }],
 		[100, { offsetDistance: "100%" }],
 	])
 
 	// define properties common to both variants
-	base = css.$abstract({
+	base = this.$abstract({
 		width: 40,
 		height: 40,
 		margin: 20,
@@ -34,7 +34,7 @@ class MyStyles extends css.StyleDefinition
 		]
 	})
 
-	variant1 = css.$class({
+	variant1 = this.$class({
 		"+": this.base,
 		backgroundColor: 0x2BC4A2,
 
@@ -45,7 +45,7 @@ class MyStyles extends css.StyleDefinition
 		animation: css.raw`${this.moveOffset} 5000ms infinite alternate ease-in-out`,
 	})
 
-	variant2 = css.$class({
+	variant2 = this.$class({
 		"+": this.base,
 
 		// using negative number for inverted color and fraction for opacity
@@ -66,7 +66,7 @@ class MyStyles extends css.StyleDefinition
 		},
 	})
 
-	container = css.$class({
+	container = this.$class({
         display: "flex",
 		// justifyContent: "space-around",
 	})

@@ -122,7 +122,7 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Type for a CSS selector. This type is used to produce arbitrary complex selectors used by the
-							<a href="ruleapi.html#_style">$style</a> function.</p>
+							<a href="../classes/ruleapi.styledefinition.html#_style">$style</a> function.</p>
 						</div>
 					</div>
 				</section>
@@ -147,10 +147,10 @@
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// class that doesn&#039;t define its own styles and is only used in combinations</span>
-<span style="color: #000000">    </span><span style="color: #001080">class1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">()</span>
+<span style="color: #000000">    </span><span style="color: #001080">class1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">()</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// &quot;parent class&quot;</span>
-<span style="color: #000000">    </span><span style="color: #001080">class2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">class2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
 
 <span style="color: #000000">        </span><span style="color: #008000">// css: .class2 { backgroundColor: white; }</span>
 <span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;white&quot;</span><span style="color: #000000">,</span>
@@ -251,7 +251,7 @@
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// Equivalent to CSS: .cls1 { color: red; background-color: beige !important; }</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
 <span style="color: #000000">        </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">,</span>
 <span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> { </span><span style="color: #A31515">&quot;!&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;beige&quot;</span><span style="color: #000000"> }</span>
 <span style="color: #000000">    })</span>
@@ -289,7 +289,7 @@
 						<p><strong>Example:</strong></p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">p</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;p&quot;</span><span style="color: #000000">, {</span>
+<span style="color: #000000">    </span><span style="color: #001080">p</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;p&quot;</span><span style="color: #000000">, {</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;:nth-of-type&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [</span>
 
 <span style="color: #000000">            </span><span style="color: #008000">// css: p:nth-of-type(1)</span>
@@ -333,16 +333,16 @@
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// single value</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> </span><span style="color: #098658">4</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> </span><span style="color: #098658">4</span><span style="color: #000000"> })</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// two values</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> [</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">] })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> [</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">] })</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// three values</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls3</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> [</span><span style="color: #098658">6</span><span style="color: #000000">, </span><span style="color: #098658">6</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">] })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls3</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> [</span><span style="color: #098658">6</span><span style="color: #000000">, </span><span style="color: #098658">6</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">] })</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// four values</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls4</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> [</span><span style="color: #098658">4</span><span style="color: #000000">, </span><span style="color: #098658">6</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">, </span><span style="color: #098658">12</span><span style="color: #000000">] })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls4</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">margin:</span><span style="color: #000000"> [</span><span style="color: #098658">4</span><span style="color: #000000">, </span><span style="color: #098658">6</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">, </span><span style="color: #098658">12</span><span style="color: #000000">] })</span>
 <span style="color: #000000">}</span>
 </code></pre>
 							</div>
@@ -372,10 +372,10 @@
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// single value</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">transform:</span><span style="color: #000000"> </span><span style="color: #795E26">scale</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">) })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">transform:</span><span style="color: #000000"> </span><span style="color: #795E26">scale</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">) })</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// several values</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">transform:</span><span style="color: #000000"> [</span><span style="color: #795E26">scale</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">, </span><span style="color: #795E26">rotate</span><span style="color: #000000">(</span><span style="color: #098658">90</span><span style="color: #000000">), </span><span style="color: #795E26">translateX</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">))] })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">transform:</span><span style="color: #000000"> [</span><span style="color: #795E26">scale</span><span style="color: #000000">(</span><span style="color: #098658">0.5</span><span style="color: #000000">, </span><span style="color: #795E26">rotate</span><span style="color: #000000">(</span><span style="color: #098658">90</span><span style="color: #000000">), </span><span style="color: #795E26">translateX</span><span style="color: #000000">(</span><span style="color: #098658">200</span><span style="color: #000000">))] })</span>
 <span style="color: #000000">}</span>
 </code></pre>
 							</div>
@@ -406,10 +406,10 @@
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
 <span style="color: #000000">    </span><span style="color: #008000">// single value</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">overflow:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;auto&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">overflow:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;auto&quot;</span><span style="color: #000000"> })</span>
 
 <span style="color: #000000">    </span><span style="color: #008000">// two values</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">overflow:</span><span style="color: #000000"> [</span><span style="color: #A31515">&quot;scroll&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;hidden&quot;</span><span style="color: #000000">] })</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">overflow:</span><span style="color: #000000"> [</span><span style="color: #A31515">&quot;scroll&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;hidden&quot;</span><span style="color: #000000">] })</span>
 <span style="color: #000000">}</span>
 </code></pre>
 							</div>
@@ -429,7 +429,7 @@
 						<p><strong>Example:</strong></p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">page</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$page</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;:first&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">margin:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;auto&quot;</span><span style="color: #000000"> })</span>
+<span style="color: #000000">    </span><span style="color: #001080">page</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$page</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;:first&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">margin:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;auto&quot;</span><span style="color: #000000"> })</span>
 <span style="color: #000000">}</span>
 </code></pre>
 					</div>
@@ -449,7 +449,7 @@
 						<p><strong>Example:</strong></p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">class1</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">class1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
 <span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">,</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;:hover&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> { </span><span style="color: #001080">opacity:</span><span style="color: #000000"> </span><span style="color: #098658">0.7</span><span style="color: #000000"> },</span>
 <span style="color: #000000">    })</span>
@@ -472,7 +472,7 @@
 						<p><strong>Example:</strong></p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #001080">exciting</span><span style="color: #000000"> = </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">    </span><span style="color: #001080">exciting</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
 <span style="color: #000000">        </span><span style="color: #A31515">&quot;::after&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> {</span>
 <span style="color: #000000">            </span><span style="color: #001080">content:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot; &lt;- EXCITING!&quot;</span>
 <span style="color: #000000">            </span><span style="color: #001080">color</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;green&quot;</span>

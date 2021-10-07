@@ -223,7 +223,7 @@ CSS classes can be specified using properties from Mimcss Style Definition class
 // Define styles for our component
 class MyStyles extends css.StyleDefinition
 {
-    blue = css.$class({ color: css.Colors.blue })
+    blue = this.$class({ color: css.Colors.blue })
 }
 
 let styles = css.activate( MyStyles);
@@ -248,7 +248,7 @@ render()
 }
 ```
 
-The `id` property of an element can also be specified as either a regular string or a property from a style definition class (instead of `css.$class` the `css.$id` function must be used).
+The `id` property of an element can also be specified as either a regular string or a property from a style definition class (instead of `this.$class` the `this.$id` function must be used).
 
 The `style` property is specified as an object whose type is defined by Mimcss. This object contains all the CSS properties in their lowerCamel case. Every property has a defined type, so some can be specified as strings others as numbers, yet others as arrays, tuples, functions, objects or a combination of all the above. For dimensional properties such as length and angle, values can be specified as a number, in which case the default prefix corresponding to the type will be appended. The default prefix also depends on whether the number is integer or floating point.
 

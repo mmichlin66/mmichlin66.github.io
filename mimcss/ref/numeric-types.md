@@ -89,23 +89,23 @@ export let Num: ICssNumberMath;
 class MyStyles extends css.StyleDefinition
 {
     // Both integer and floating point numbers are simply converted to strings
-    cls1 = css.$class({ flexGrow: 3 }) // "3"
-    cls2 = css.$class({ flexGrow: 1.5 }) // "1.5"
+    cls1 = this.$class({ flexGrow: 3 }) // "3"
+    cls2 = this.$class({ flexGrow: 1.5 }) // "1.5"
 
     // A custom CSS variable can be declared to have the CssNumber type
-    defaultFlexGrow = css.$var( "CssNumber", 2) }) // :root { --defaultFlexGrow: 2 }
+    defaultFlexGrow = this.$var( "CssNumber", 2) }) // :root { --defaultFlexGrow: 2 }
 
     // Number can be specified using a custom CSS variable
-    cls3 = css.$class({ flexGrow: this.defaultFlexGrow }) // "var(--defaultFlexGrow)"
+    cls3 = this.$class({ flexGrow: this.defaultFlexGrow }) // "var(--defaultFlexGrow)"
 
     // Number can be specified using the min/max/clamp function
-    cls4 = css.$class({ flexGrow: css.Num.min( 4, this.defaultFlexGrow) }) // "min( 4, var(defaultFlexGrow))"
+    cls4 = this.$class({ flexGrow: css.Num.min( 4, this.defaultFlexGrow) }) // "min( 4, var(defaultFlexGrow))"
 
     // Number can be specified using the calc function
-    cls5 = css.$class({ flexGrow: css.Num.calc`2 * ${this.defaultFlexGrow}` }) // "calc(2 * var(--defaultFlexGrow))"
+    cls5 = this.$class({ flexGrow: css.Num.calc`2 * ${this.defaultFlexGrow}` }) // "calc(2 * var(--defaultFlexGrow))"
 
     // Number cannot be specified as a string but you can use the `raw` function to wrap a string
-    cls6 = css.$class({ flexGrow: css.raw`20` }) // "20"
+    cls6 = this.$class({ flexGrow: css.raw`20` }) // "20"
 }
 ```
 
@@ -158,27 +158,27 @@ export function percent( n: number): IPercentProxy;
 class MyStyles extends css.StyleDefinition
 {
     // Integer numbers are converted to strings by appending the '%' units
-    cls1 = css.$class({ zoom: 100 }) // "100%"
+    cls1 = this.$class({ zoom: 100 }) // "100%"
 
     // Both integer and floating point numbers are converted to strings by uppending `"%"`.
     // Numbers between -1 and 1 (not inclusive) are first multiplied by 100.
-    cls2 = css.$class({ zoom: 100 }) // "100%"
-    cls3 = css.$class({ zoom: 0.75 }) // "75%"
+    cls2 = this.$class({ zoom: 100 }) // "100%"
+    cls3 = this.$class({ zoom: 0.75 }) // "75%"
 
     // Percent can be specified using the css.percent() function
-    cls4 = css.$class({ zoom: css.percent(30) }) // "30%"
+    cls4 = this.$class({ zoom: css.percent(30) }) // "30%"
 
     // A custom CSS variable can be declared to have the CssPercent type
-    defaultZoom = css.$var( "CssPercent", 0.85) // :root { --defaultZoom: 85% }
+    defaultZoom = this.$var( "CssPercent", 0.85) // :root { --defaultZoom: 85% }
 
     // Percent can be specified using a custom CSS variable
-    cls5 = css.$class({ zoom: this.defaultZoom }) // "var(--defaultZoom)"
+    cls5 = this.$class({ zoom: this.defaultZoom }) // "var(--defaultZoom)"
 
     // Percent can be specified using the min/max/clamp function
-    cls6 = css.$class({ zoom: css.min( 80, this.defaultZoom) }) // "min( 80%, var(--defaultZoom))"
+    cls6 = this.$class({ zoom: css.min( 80, this.defaultZoom) }) // "min( 80%, var(--defaultZoom))"
 
     // Percent can be specified using the calc function
-    cls7 = css.$class({ zoom: css.Percent.calc`1.1 * ${this.defaultZoom}` }) // "calc(1.1 * var(--defaultZoom))"
+    cls7 = this.$class({ zoom: css.Percent.calc`1.1 * ${this.defaultZoom}` }) // "calc(1.1 * var(--defaultZoom))"
 }
 ```
 
@@ -303,30 +303,30 @@ export function fr( n: number): ILengthProxy;
 class MyStyles extends css.StyleDefinition
 {
     // Integer numbers are converted to strings by appending the 'px' units
-    cls1 = css.$class({ width: 100 }) // "100px"
+    cls1 = this.$class({ width: 100 }) // "100px"
 
     // Floating point numbers are converted to strings by appending the 'em' units
-    cls2 = css.$class({ width:  0.5 }) // "0.5em"
+    cls2 = this.$class({ width:  0.5 }) // "0.5em"
 
     // Length can be specified as a string
-    cls3 = css.$class({ width: "3rem" }) // "3rem"
+    cls3 = this.$class({ width: "3rem" }) // "3rem"
 
     // Length can be specified using one of the "unit" methods
-    cls4 = css.$class({ width: css.inch(2) }) // "2in"
-    cls5 = css.$class({ width: css.vmax(2) }) // "2vmax"
-    cls6 = css.$class({ width: css.percent(80) }) // "80%"
+    cls4 = this.$class({ width: css.inch(2) }) // "2in"
+    cls5 = this.$class({ width: css.vmax(2) }) // "2vmax"
+    cls6 = this.$class({ width: css.percent(80) }) // "80%"
 
     // A custom CSS variable can be declared to have the CssLength type
-    defaultLength = css.$var( "CssLength", 400) // :root { --defaultLength: 400px }
+    defaultLength = this.$var( "CssLength", 400) // :root { --defaultLength: 400px }
 
     // Length can be specified using a custom CSS variable
-    cls7 = css.$class({ width: this.defaultLength }) // "var(--defaultLength)"
+    cls7 = this.$class({ width: this.defaultLength }) // "var(--defaultLength)"
 
     // Length can be specified using the min/max/clamp function
-    cls8 = css.$class({ width: css.Len.min( 200, 15.5, this.defaultLength, "60%") }) // "min( 200px, 15em, var(--defaultLength), 60%)"
+    cls8 = this.$class({ width: css.Len.min( 200, 15.5, this.defaultLength, "60%") }) // "min( 200px, 15em, var(--defaultLength), 60%)"
 
     // Length can be specified using the calc function
-    cls9 = css.$class({ width: css.Len.calc`(100% - ${this.defaultLength}) / 2` }) // "calc((100% - var(--defaultLength)) / 2)"
+    cls9 = this.$class({ width: css.Len.calc`(100% - ${this.defaultLength}) / 2` }) // "calc((100% - var(--defaultLength)) / 2)"
 }
 ```
 
@@ -386,29 +386,29 @@ export function s( n: number): ITimeProxy;
 class MyStyles extends css.StyleDefinition
 {
     // Integer numbers are converted to strings by appending the 'px' units
-    cls1 = css.$class({ animationDuration: 700 }) // "700ms"
+    cls1 = this.$class({ animationDuration: 700 }) // "700ms"
 
     // Floating point numbers are converted to strings by appending the 's' units
-    cls2 = css.$class({ animationDuration: 2.5 }) // "2.5s"
+    cls2 = this.$class({ animationDuration: 2.5 }) // "2.5s"
 
     // Time can be specified as a string
-    cls3 = css.$class({ animationDuration: "1300ms" }) // "1300ms"
+    cls3 = this.$class({ animationDuration: "1300ms" }) // "1300ms"
 
     // Time can be specified using one of the "unit" methods
-    cls4 = css.$class({ animationDuration: css.s(2) }) // "2s"
-    cls5 = css.$class({ animationDuration: css.ms(200) }) // "200ms"
+    cls4 = this.$class({ animationDuration: css.s(2) }) // "2s"
+    cls5 = this.$class({ animationDuration: css.ms(200) }) // "200ms"
 
     // A custom CSS variable can be declared to have the CssTime type
-    defaultTime = css.$var( "CssTime", 300); // :root { --defaultTime: 300ms }
+    defaultTime = this.$var( "CssTime", 300); // :root { --defaultTime: 300ms }
 
     // Time can be specified using a custom CSS variable
-    cls6 = css.$class({ animationDuration: this.defaultTime }) // "var(--defaultTime)"
+    cls6 = this.$class({ animationDuration: this.defaultTime }) // "var(--defaultTime)"
 
     // Time can be specified using the min/max/clamp function
-    cls7 = css.$class({ animationDuration: css.Time.min( 700, this.defaultTime) }) // "min( 700ms, var(--defaultTime))"
+    cls7 = this.$class({ animationDuration: css.Time.min( 700, this.defaultTime) }) // "min( 700ms, var(--defaultTime))"
 
     // Time can be specified using the calc function
-    cls8 = css.$class({ animationDuration: css.Time.calc`1300ms - ${700} + ${this.defaultTime}` }) // "calc(1300ms - 700ms + var(--defaultTime))"
+    cls8 = this.$class({ animationDuration: css.Time.calc`1300ms - ${700} + ${this.defaultTime}` }) // "calc(1300ms - 700ms + var(--defaultTime))"
 }
 ```
 
@@ -482,29 +482,29 @@ export function turn( n: number): IAngleProxy;
 class MyStyles extends css.StyleDefinition
 {
     // Integer numbers are converted to strings by appending the 'deg' units
-    cls1 = css.$class({ fontStyle: 45 }) // "45deg"
+    cls1 = this.$class({ fontStyle: 45 }) // "45deg"
 
     // Floating point numbers are converted to strings by appending the 'turn' units
-    cls2 = css.$class({ fontStyle: 0.5 }) // "0.5turn"
+    cls2 = this.$class({ fontStyle: 0.5 }) // "0.5turn"
 
     // Angle can be specified as a string
-    cls3 = css.$class({ fontStyle: "1.3rad" }) // "1.3rad"
+    cls3 = this.$class({ fontStyle: "1.3rad" }) // "1.3rad"
 
     // Angle can be specified using one of the "unit" methods
-    cls4 = css.$class({ fontStyle: css.deg(30) }) // "30deg"
-    cls5 = css.$class({ fontStyle: css.rad(1.5) }) // "1.5rad"
+    cls4 = this.$class({ fontStyle: css.deg(30) }) // "30deg"
+    cls5 = this.$class({ fontStyle: css.rad(1.5) }) // "1.5rad"
 
     // A custom CSS variable can be declared to have the CssAngle type
-    defaultAngle = css.$var( "CssAngle", 45); // :root { --defaultAngle: 45deg }
+    defaultAngle = this.$var( "CssAngle", 45); // :root { --defaultAngle: 45deg }
 
     // Angle can be specified using a custom CSS variable
-    cls6 = css.$class({ fontStyle: this.defaultAngle }) // "var(--defaultAngle)"
+    cls6 = this.$class({ fontStyle: this.defaultAngle }) // "var(--defaultAngle)"
 
     // Angle can be specified using the min/max/clamp function
-    cls7 = css.$class({ fontStyle: css.Angle.min( 45, this.defaultAngle) }) // "min( 45deg, var(--defaultAngle))"
+    cls7 = this.$class({ fontStyle: css.Angle.min( 45, this.defaultAngle) }) // "min( 45deg, var(--defaultAngle))"
 
     // Angle can be specified using the calc function
-    cls8 = css.$class({ fontStyle: css.Angle.calc`0.4 - ${30} + ${this.defaultAngle}` }) // "calc(0.4turn - 30deg + var(--defaultAngle))"
+    cls8 = this.$class({ fontStyle: css.Angle.calc`0.4 - ${30} + ${this.defaultAngle}` }) // "calc(0.4turn - 30deg + var(--defaultAngle))"
 }
 ```
 
@@ -565,24 +565,24 @@ export type SimpleCssPosition = HorizontalPositionKeyword | VerticalPositionKeyw
 class MyStyles extends css.StyleDefinition
 {
     // Single keyword value
-    cls1 = css.$class({ offsetPosition: "center" }) // "center"
-    cls2 = css.$class({ offsetPosition: "top" }) // "top"
+    cls1 = this.$class({ offsetPosition: "center" }) // "center"
+    cls2 = this.$class({ offsetPosition: "top" }) // "top"
 
     // Single numeric value
-    cls3 = css.$class({ offsetPosition: 25 }) // "25px"
-    cls4 = css.$class({ offsetPosition: 0.7 }) // "0.7em"
+    cls3 = this.$class({ offsetPosition: 25 }) // "25px"
+    cls4 = this.$class({ offsetPosition: 0.7 }) // "0.7em"
 
     // Multiple values
-    cls5 = css.$class({ offsetPosition: ["left", "top"] }) // "left top"
-    cls6 = css.$class({ offsetPosition: ["left", 25, "top"] }) // "left 25px top"
-    cls7 = css.$class({ offsetPosition: ["right", "bottom", 1.5] }) // "left top 1.5em"
-    cls8 = css.$class({ offsetPosition: ["center", 25, "top", "10%"] }) // "center 25px top 10%"
+    cls5 = this.$class({ offsetPosition: ["left", "top"] }) // "left top"
+    cls6 = this.$class({ offsetPosition: ["left", 25, "top"] }) // "left 25px top"
+    cls7 = this.$class({ offsetPosition: ["right", "bottom", 1.5] }) // "left top 1.5em"
+    cls8 = this.$class({ offsetPosition: ["center", 25, "top", "10%"] }) // "center 25px top 10%"
 
     // A custom CSS variable can be declared to have the CssPosition type
-    startPos = css.$var( "CssPosition", ["center", 25, "top", "10%"]) }) // :root { --startPos: center 25px top 10% }
+    startPos = this.$var( "CssPosition", ["center", 25, "top", "10%"]) }) // :root { --startPos: center 25px top 10% }
 
     // Position can be specified using a custom CSS variable
-    cls9 = css.$class({ offsetPosition: this.startPos }) // "var(--startPos)"
+    cls9 = this.$class({ offsetPosition: this.startPos }) // "var(--startPos)"
 }
 ```
 
@@ -601,18 +601,18 @@ export type CssRadius = OneOrPair<CssLength>;
 class MyStyles extends css.StyleDefinition
 {
     // Single value
-    cls1 = css.$class({ borderTopLeftRadius: 4 }) // "4px"
-    cls2 = css.$class({ borderTopLeftRadius: 0.3 }) // "0.3em"
+    cls1 = this.$class({ borderTopLeftRadius: 4 }) // "4px"
+    cls2 = this.$class({ borderTopLeftRadius: 0.3 }) // "0.3em"
 
     // Two values
-    cls3 = css.$class({ borderTopLeftRadius: [2, 4] }) // "2px 4px"
-    cls4 = css.$class({ borderTopLeftRadius: [0.3, 0.5] }) // "0.3em 0.5em"
+    cls3 = this.$class({ borderTopLeftRadius: [2, 4] }) // "2px 4px"
+    cls4 = this.$class({ borderTopLeftRadius: [0.3, 0.5] }) // "0.3em 0.5em"
 
     // A custom CSS variable can be declared to have the CssRadius type (within style definition class)
-    defaultRadius = css.$var( "CssRadius", [2, 4]); // :root { --defaultRadius: 2, 4 }
+    defaultRadius = this.$var( "CssRadius", [2, 4]); // :root { --defaultRadius: 2, 4 }
 
     // Radius can be specified using a custom CSS variable
-    cls5 = css.$class({ borderTopLeftRadius: this.defaultRadius }) // "var(--defaultRadius)"
+    cls5 = this.$class({ borderTopLeftRadius: this.defaultRadius }) // "var(--defaultRadius)"
 }
 ```
 

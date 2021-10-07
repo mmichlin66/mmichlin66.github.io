@@ -98,12 +98,12 @@ The `$abstract` function creates a new abstract style rule, which defines a styl
 class MyStyles extends css.StyleDefinition
 {
     // Define styles common to all headers.
-    headerBase = css.$abstract({ fontWeight: 700, fontFamily: Verdana, color: "navy" })
+    headerBase = this.$abstract({ fontWeight: 700, fontFamily: Verdana, color: "navy" })
 
     // Define styles for concrete header elements extending the headerBase abstract rule.
-    h1 = css.$style( "h1", { "+": this.headerBase, fontSize: 24 })
-    h2 = css.$style( "h2", { "+": this.headerBase, fontSize: 20 })
-    h3 = css.$style( "h3", { "+": this.headerBase, fontSize: 18 })
+    h1 = this.$style( "h1", { "+": this.headerBase, fontSize: 24 })
+    h2 = this.$style( "h2", { "+": this.headerBase, fontSize: 20 })
+    h3 = this.$style( "h3", { "+": this.headerBase, fontSize: 18 })
 }
 ```
 
@@ -126,7 +126,7 @@ The returned object implements the `IClassRule` interface that has the property 
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    red = css.$class({ color: "red" })
+    red = this.$class({ color: "red" })
 }
 
 let myStyles = css.activate( MyStyles);
@@ -154,7 +154,7 @@ The returned object implements the `IIDRule` interface that has the property `na
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    importantElement = css.$id({ color: "red" })
+    importantElement = this.$id({ color: "red" })
 }
 
 let myStyles = css.activate( MyStyles);
@@ -181,13 +181,13 @@ The `$style` function creates a CSS style rule for an arbitrary complex selector
 class MyStyles extends StyleDefinition
 {
     // all elements will be measured using the border box.
-    all = css.$style( "*", { boxSizing: "border-box" })
+    all = this.$style( "*", { boxSizing: "border-box" })
 
     // first <li> element under <ul> element will be red.
-    li = css.$style( "ul > li:first-child", { color: "red" })
+    li = this.$style( "ul > li:first-child", { color: "red" })
 
     // define class without actual styles - just for using in the next rule.
-    striped = css.$class()
+    striped = this.$class()
 
     // every odd row in a "striped" table will have a light-grey background.
     row = css.style( css.selector`table${this.striped} tr:nth-child(odd)`, { backgroundColor: "lightgrey" })
@@ -211,7 +211,7 @@ The `$keyframes` function accepts an array of `AnimationFrame` objects, each def
 ```tsx
 class MyStyles extends StyleDefinition
 {
-	move = css.$keyframes( [
+	move = this.$keyframes( [
 		[ "from", { top: 0 } ],
 		[ 50, { top: "50%" } ],
 		[ "to"], { top: "100%" } ]
@@ -234,7 +234,7 @@ The `$page` function creates a new `@page` CSS rule.
 ```tsx
 class MyStyles extends StyleDefinition
 {
-	firstPage = css.$page( ":first", { margin: ["2in", "1in"] })
+	firstPage = this.$page( ":first", { margin: ["2in", "1in"] })
 }
 ```
 
@@ -255,7 +255,7 @@ The `$import` function creates a new `@import` CSS rule. This function is used t
 class MyStyles extends StyleDefinition
 {
 	imports = [
-        css.$import( "smallDevice.css", { maxWidth: 600 })
+        this.$import( "smallDevice.css", { maxWidth: 600 })
     ]
 }
 ```
@@ -276,8 +276,8 @@ The `$namespace` function creates a new `@namespace` CSS rule. CSS requires that
 class MyStyles extends StyleDefinition
 {
     namespaces: [
-		css.$namespace( css.WebNamespaces.HTML),
-        css.$namespace( css.WebNamespaces.SVG, "svg"),
+		this.$namespace( css.WebNamespaces.HTML),
+        this.$namespace( css.WebNamespaces.SVG, "svg"),
     ]
 }
 ```
@@ -297,7 +297,7 @@ The `$fontface` function creates a new `@font-face` CSS rule.
 ```tsx
 class MyStyles extends StyleDefinition
 {
-	roboto = css.$fontface( {
+	roboto = this.$fontface( {
 		fontFamily: "Roboto",
 		fontWeight: 700,
 		src: [
@@ -325,10 +325,10 @@ The generic `T` parameter is the type of the class or instance that the function
 ```tsx
 class MyStyles extends StyleDefinition
 {
-	ifGridSupported = css.$supports( { display: "grid" },
+	ifGridSupported = this.$supports( { display: "grid" },
 		class extends css.StyleDefinition<MyStyles>
 		{
-			gridContainer = css.$class( {
+			gridContainer = this.$class( {
                 gridTemplateColumns: "repeat(3, 1fr)"
                 gridTemplateRows: "repeat(4, 200px)"
             })
@@ -357,12 +357,12 @@ The generic `T` parameter is the type of the class or instance that the function
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    inputText = css.$class( { margin: 4 })
+    inputText = this.$class( { margin: 4 })
 
-	ifSmallDevice = css.$media( { maxWidth: 600 },
+	ifSmallDevice = this.$media( { maxWidth: 600 },
 		class extends css.StyleDefinition<MyStyles>
 		{
-			inputText = css.$class( { margin: 2 })
+			inputText = this.$class( { margin: 2 })
 		}
 	)
 }
@@ -387,10 +387,10 @@ Although the `IVarRule` interface exposes the `name` property, which contains th
 class MyStyles extends StyleDefinition
 {
     // creates :root { --defaultColor: black; } rule
-    defaultColor = css.$var( "color", "black")
+    defaultColor = this.$var( "color", "black")
 
     // creates p { color: var(--defaultColor); } rule
-    p = css.$style( "p", { color: this.defaultColor })
+    p = this.$style( "p", { color: this.defaultColor })
 }
 ```
 
@@ -412,15 +412,15 @@ Counters are not real CSS rules, but since they are named objects they can be de
 class MyStyles extends StyleDefinition
 {
     // Define a counter object.
-    counter = css.$counter();
+    counter = this.$counter();
 
     // Each <ol> element will reset the corresponding level of the counter to 0.
-    ol = css.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
+    ol = this.$style( "ol", { counterReset: this.counter, listStyleType: "none" })
 
     // Each <li> element will increment the corresponding level of the counter and
     // use it in the `::before` pseudo element. The numbers corresponding to different
     // levels within the counter will be separated by ".".
-    li = css.$style( "li", {
+    li = this.$style( "li", {
         counterIncrement: this.counter,
         "::before": { content: css.counters( this.counter, ".", "hebrew") }
     })
@@ -462,15 +462,15 @@ Whether the `$gridline` function creates a *start* or *end* line depends on the 
 class MyStyles extends StyleDefinition
 {
     // Define a simple grid line object with auto-generated name.
-    line = css.$gridline();
+    line = this.$gridline();
 
     // Define grid line objects that can be used as start and end lines for the "header" grid area.
-    headerStart = css.$gridline( "header", true);
-    headerEnd = css.$gridline( "header", false);
+    headerStart = this.$gridline( "header", true);
+    headerEnd = this.$gridline( "header", false);
 
     // Use the above grid lines to define grid template columns. Note that line names should be
     // specified as array elements
-    grid = css.$class({
+    grid = this.$class({
         gridTemplateColumns: [ [this.headerStart], 200, "2fr", [this.headerEnd], "1fr", [this.line] ]
     })
 }
@@ -496,13 +496,13 @@ Each grid area object defines two lines - start of the area and end of the area 
 class MyStyles extends StyleDefinition
 {
     // Define a simple grid line object with auto-generated name.
-    main = css.$gridarea();
+    main = this.$gridarea();
 
     // Define grid area with the given name.
-    header = css.$gridarea( "header");
+    header = this.$gridarea( "header");
 
     // Use the start and end lines of the above grid area to define grid template rows.
-    grid = css.$class({
+    grid = this.$class({
         gridTemplateRowss: [
             [this.header.startLine], 100, [this.header.endLine, this.main.startLine],
             "1fr", [this.main.endLine]
@@ -532,12 +532,12 @@ The `$use` function is a convenient means of dividing style definitions into sep
 ```tsx
 class SharedStyles extends StyleDefinition
 {
-    anchor = css.$style( "a", { color: "blue" })
+    anchor = this.$style( "a", { color: "blue" })
 }
 
 class MyStyles extends StyleDefinition
 {
-    shared = css.$use( SharedStyles)
+    shared = this.$use( SharedStyles)
 
     myAnchor = css.style( "a", {
         "+": this.shared.anchor,
@@ -570,18 +570,18 @@ The `$embed` function is a convenient means of dividing style definitions into s
 ```tsx
 class InputStyles extends StyleDefinition
 {
-    input = css.$style( "input", { border: "1 solid blue" })
+    input = this.$style( "input", { border: "1 solid blue" })
 }
 
 class AnchorStyles extends StyleDefinition
 {
-    anchor = css.$style( "a", { color: "blue" })
+    anchor = this.$style( "a", { color: "blue" })
 }
 
 class MyStyles extends StyleDefinition
 {
-    inputs = css.$embed( InputStyles)
-    anchors = css.$embed( AnchorStyles)
+    inputs = this.$embed( InputStyles)
+    anchors = this.$embed( AnchorStyles)
 }
 
 // A single <style> element  will be created that will include rules from all
@@ -604,7 +604,7 @@ The `enableShortNames` function sets the flag indicating whether to use optimize
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    myClass = css.$class({ color: "red" })
+    myClass = this.$class({ color: "red" })
 }
 
 if (optimize)
@@ -634,8 +634,8 @@ The `selector` function returns a string representation of a selector. This func
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    dataTable = css.$class({ borderCollapse: "collapse" })
-    mainTableHeader = css.$style(css.selector`article table${this.dataTable} tr > th`, {
+    dataTable = this.$class({ borderCollapse: "collapse" })
+    mainTableHeader = this.$style(css.selector`article table${this.dataTable} tr > th`, {
         backgroundColor: "lightgrey"
     })
 }
@@ -656,9 +656,9 @@ The `classes` function concatenates the names of the given classes into a single
 ```tsx
 class MyStyles extends StyleDefinition
 {
-    red = css.$class({ color: "red" })
+    red = this.$class({ color: "red" })
 
-    bold = css.$class({ fontWeight: 700 })
+    bold = this.$class({ fontWeight: 700 })
 }
 
 this.myStyles = css.activate( MyStyles);
@@ -754,7 +754,7 @@ The types and interfaces used in the definition of the `DependentRules` type are
 class MyStyles extends css.StyleDefinition
 {
     // Define class with a dependent rule.
-    class1 = css.$class({
+    class1 = this.$class({
         backgroundColor: "cyan",
         ":hover": { opacity: 0.8 }
     })

@@ -29,7 +29,7 @@ The first approach is probably the simplest and is as close to the behavior of t
 ```tsx
 export class CommonStyles extends css.StyleDefinition
 {
-    vbox = css.$class({ display: "flex", flexDirection: "column" })
+    vbox = this.$class({ display: "flex", flexDirection: "column" })
 }
 
 export let commonStyles = css.activate( CommonStyles);

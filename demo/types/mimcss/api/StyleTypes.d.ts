@@ -3681,11 +3681,11 @@ export declare type ExtendedVarValue<K extends VarTemplateName> = ExtendedProp<V
  * class MyStyles extends css.StyleDefinition
  * {
  *     // define global custom CSS property and re-define its value under "brown" class.
- *     mainColor = css.$var( "color", "black");
- *     brown = css.$class({ "--": [ [this.mainColor, "brown"] ] })
+ *     mainColor = this.$var( "color", "black");
+ *     brown = this.$class({ "--": [ [this.mainColor, "brown"] ] })
 
  *     // define custom CSS property with the given name under "blue" class.
- *     blue = css.$class({ "--": [ ["different-color", "color", "blue"] ] })
+ *     blue = this.$class({ "--": [ ["different-color", "color", "blue"] ] })
  * });
  * ```
  *

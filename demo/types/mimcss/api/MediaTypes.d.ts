@@ -85,7 +85,7 @@ export interface IMediaQueryProxy extends IGenericProxy<"media-query"> {
  * class MyStyles extends css.StyleDefinition
  * {
  *     // css: @media (max-width: 400px) and (max-height: 400px) {...}
- *     ifNarrowAndShort = css.$media( {maxWidth: 400, maxHeight: 400}, ...)
+ *     ifNarrowAndShort = this.$media( {maxWidth: 400, maxHeight: 400}, ...)
  * }
  * ```
  */
@@ -101,7 +101,7 @@ export declare type MediaQuery = string | ExtendedMediaFeatureset | IMediaQueryP
  * class MyStyles extends css.StyleDefinition
  * {
  *     // css: @media (min-width: 1000px), (min-height: 1000px) {...}
- *     ifWideOrTall = css.$media( [{minWidth: 1000}, {minHeight: 1000}], ...)
+ *     ifWideOrTall = this.$media( [{minWidth: 1000}, {minHeight: 1000}], ...)
  * }
  * ```
  */

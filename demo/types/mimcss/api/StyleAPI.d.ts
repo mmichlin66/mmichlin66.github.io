@@ -67,9 +67,9 @@ export declare function diffStylesets(oldStyleset: Styleset, newStyleset: Styles
  * {
  *     // create custom CSS property but without an assigned value; it can be assigned
  *     // later programmatically
- *     bgColor = css.$var( "color")
+ *     bgColor = this.$var( "color")
  *
- *     div = css.$tag( "div", {
+ *     div = this.$tag( "div", {
  *         // use the custom CSS property with the given fallback value
  *         backgroundColor: css.usevar( this.bgColor, "beige")
  *     })
@@ -118,7 +118,7 @@ declare global {
  * class MyStyles extends StyleDefinition
  * {
  *     // screen and (min-width: 400px) and (max-width: 600px) and (orientation: portrait)
- *     ifNarrowDevice = css.$media(
+ *     ifNarrowDevice = this.$media(
  *         css.media`screen and ${{width:[400,600], orientation: "portrait"}}`, ...)
  * }
  * ```
@@ -143,7 +143,7 @@ export declare function mediaToString(query: MediaStatement): string;
  * class MyStyles extends StyleDefinition
  * {
  *     // not (transform-origin: 30px 30px 30px)
- *     ifNoTransformOrigin = css.$supports(
+ *     ifNoTransformOrigin = this.$supports(
  *         css.supports`not (${{transform-origin: [30, 30, 30]}})`, ...)
  * }
  * ```
