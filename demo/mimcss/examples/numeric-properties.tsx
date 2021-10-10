@@ -19,7 +19,7 @@ class MyStyles extends css.StyleDefinition
 
         // using unit functions
         width: css.percent(95),
-        height: css.inch(3),
+        height: css.inch(2),
 
         border: [1, "solid", "black"],
         overflow: "auto",

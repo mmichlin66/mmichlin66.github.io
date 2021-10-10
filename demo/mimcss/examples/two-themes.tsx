@@ -67,7 +67,7 @@ class MyStyles extends css.StyleDefinition
 
 
 // Define our component
-export class TwoThemes extends mim.Component
+class TwoThemes extends mim.Component
 {
     private styles: MyStyles;
 

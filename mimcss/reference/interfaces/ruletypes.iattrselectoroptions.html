@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ISupportsRule | Mimcss Reference</title>
+	<title>IAttrSelectorOptions | Mimcss Reference</title>
 	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../modules/ruletypes.html">RuleTypes</a>
 				</li>
 				<li>
-					<a href="ruletypes.isupportsrule.html">ISupportsRule</a>
+					<a href="ruletypes.iattrselectoroptions.html">IAttrSelectorOptions</a>
 				</li>
 			</ul>
-			<h1>Interface ISupportsRule&lt;T&gt;</h1>
+			<h1>Interface IAttrSelectorOptions</h1>
 		</div>
 	</div>
 </header>
@@ -69,29 +69,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The ISupportsRule interface represents the CSS @supports rule.
-						Objects implementing this interface are returned from the <a href="../classes/ruleapi.styledefinition.html#_supports">$supports</a> function.</p>
+						<p>The <code>IAttrParams</code> interface represents an attribute condition clause that defines parameters
+						for a single attribute in an attribute selector.</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a> = <span class="tsd-signature-type">any</span></h4>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="ruletypes.igrouprule.html" class="tsd-signature-type" data-tsd-kind="Interface">IGroupRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">ISupportsRule</span>
-							</li>
-						</ul>
+						<span class="target">IAttrSelectorOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -102,10 +89,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ruletypes.isupportsrule.html#condition" class="tsd-kind-icon">condition</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="ruletypes.isupportsrule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.isupportsrule.html#issupported" class="tsd-kind-icon">is<wbr>Supported</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="ruletypes.isupportsrule.html#rules" class="tsd-kind-icon">rules</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.iattrselectoroptions.html#ci" class="tsd-kind-icon">ci</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.iattrselectoroptions.html#ns" class="tsd-kind-icon">ns</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.iattrselectoroptions.html#op" class="tsd-kind-icon">op</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ruletypes.iattrselectoroptions.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,46 +100,56 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="condition" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> condition</h3>
-					<div class="tsd-signature tsd-kind-icon">condition<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ci" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ci</h3>
+					<div class="tsd-signature tsd-kind-icon">ci<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="ruletypes.igrouprule.html">IGroupRule</a>.<a href="ruletypes.igrouprule.html#condition">condition</a></p>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-					<a name="cssrule" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> css<wbr>Rule</h3>
-					<div class="tsd-signature tsd-kind-icon">css<wbr>Rule<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">CSSSupportsRule</span></div>
-					<aside class="tsd-sources">
-						<p>Overrides <a href="ruletypes.igrouprule.html">IGroupRule</a>.<a href="ruletypes.igrouprule.html#cssrule">cssRule</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>CSSOM supports rule</p>
+							<p>Flag indicating whether or not attribute value comparison is case-sensitive. The default
+							value is <code>false</code>; that is, the comparison is case-sensitive.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="issupported" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> is<wbr>Supported</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="ns" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ns</h3>
+					<div class="tsd-signature tsd-kind-icon">ns<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Flag indicated whether the browser supports this rule&#39;s query</p>
+							<p>Namespace of the attribute</p>
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a name="rules" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> rules</h3>
-					<div class="tsd-signature tsd-kind-icon">rules<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="op" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> op</h3>
+					<div class="tsd-signature tsd-kind-icon">op<span class="tsd-signature-symbol">:</span> <a href="../enums/ruletypes.attrselectoroperation.html" class="tsd-signature-type" data-tsd-kind="Enumeration">AttrSelectorOperation</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="ruletypes.igrouprule.html">IGroupRule</a>.<a href="ruletypes.igrouprule.html#rules">rules</a></p>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Operation that defines the attribute value comparison behavior. The default value is
+							<a href="../enums/ruletypes.attrselectoroperation.html#equal">AttrSelectorOperation.Equal</a>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="value" class="tsd-anchor"></a>
+					<h3>value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Value to which the attribute value is compared. If not specified, the selector only looks
+							for the presence of the attribute.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -232,9 +229,27 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.iattrrule.html" class="tsd-kind-icon">IAttr<wbr>Rule</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.iattrselectoroptions.html" class="tsd-kind-icon">IAttr<wbr>Selector<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ruletypes.iattrselectoroptions.html#ci" class="tsd-kind-icon">ci</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ruletypes.iattrselectoroptions.html#ns" class="tsd-kind-icon">ns</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ruletypes.iattrselectoroptions.html#op" class="tsd-kind-icon">op</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ruletypes.iattrselectoroptions.html#value" class="tsd-kind-icon">value</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.iclassnamerule.html" class="tsd-kind-icon">IClass<wbr>Name<wbr>Rule</a>
 					</li>
@@ -295,27 +310,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="ruletypes.istylerule.html" class="tsd-kind-icon">IStyle<wbr>Rule</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.isupportsrule.html" class="tsd-kind-icon">ISupports<wbr>Rule</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="ruletypes.isupportsrule.html#condition" class="tsd-kind-icon">condition</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="ruletypes.isupportsrule.html#cssrule" class="tsd-kind-icon">css<wbr>Rule</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ruletypes.isupportsrule.html#issupported" class="tsd-kind-icon">is<wbr>Supported</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="ruletypes.isupportsrule.html#rules" class="tsd-kind-icon">rules</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="ruletypes.ivarrule.html" class="tsd-kind-icon">IVar<wbr>Rule</a>
 					</li>

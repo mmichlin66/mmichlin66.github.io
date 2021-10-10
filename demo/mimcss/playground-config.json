@@ -44,22 +44,29 @@
 
     "examples": [
         { "name": "Templates" },
+
         {
             "name": "Basic Template",
             "path": "mimcss/examples/basic-template.tsx",
-            "description": "Empty style definition and component classes"
+            "description": "Empty style definition and component classes."
         },
 
         { "name": "Basic" },
+
         {
             "name": "Hello World!",
             "path": "mimcss/examples/hello-world.tsx",
-            "description": "Simple but real example of defining styles"
+            "description": "Simple but real example of defining styles."
+        },
+        {
+            "name": "Selectors",
+            "path": "mimcss/examples/selectors.tsx",
+            "description": "Demonstrates different types of style rule selectors."
         },
         {
             "name": "Numeric Properties",
             "path": "mimcss/examples/numeric-properties.tsx",
-            "description": "Demonstrates defining styles that include units of different dimensions"
+            "description": "Demonstrates defining styles that include units of different dimensions."
         },
         {
             "name": "Dynamic CSS Properties",
@@ -88,6 +95,7 @@
         },
 
         { "name": "Advanced" },
+
         {
             "name": "Themes",
             "path": "mimcss/examples/themes.tsx",
