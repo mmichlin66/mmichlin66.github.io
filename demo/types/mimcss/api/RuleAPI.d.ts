@@ -83,7 +83,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param styleset Styleset that will be inherited by style rules that extend this abstract rule.
      * @returns `IStyleRule` object that should be used by the derived rules in the `"+"` property.
      */
-    $abstract(styleset: CombinedStyleset): IStyleRule;
+    protected $abstract(styleset: CombinedStyleset): IStyleRule;
     /**
      * Creates a new class rule. The class name will be created when the rule is processed as part of
      * the style definition class. The name can be also overridden by providing either an explicit
@@ -125,7 +125,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @returns `IClassRule` object that should be used for getting the class name and for accessing
      * the style properties if needed.
      */
-    $class(styleset?: CombinedClassStyleset, nameOverride?: string | IClassRule): IClassRule;
+    protected $class(styleset?: CombinedClassStyleset, nameOverride?: string | IClassRule): IClassRule;
     /**
      * Creates a new class name rule, which combines one or more other class names. This creates a
      * "synonym" that is easier to apply to an element's class attribute than an array of two or
@@ -166,7 +166,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * `"class1 class2"`. The `cssClassName` property contains the combined selector, e.g.
      * `".class1.class2"`.
      */
-    $classname(...classes: (IClassRule | IClassNameRule | string)[]): IClassNameRule;
+    protected $classname(...classes: (IClassRule | IClassNameRule | string)[]): IClassNameRule;
     /**
      * Creates a new ID rule. The ID name will be created when the rule is processed as part of
      * the style definition class. The name can be also overridden by providing either an explicit
@@ -207,7 +207,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @returns `IIDRule` object that should be used for getting the ID name and for accessing
      * the style properties if needed.
      */
-    $id(styleset?: CombinedStyleset, nameOverride?: string | IIDRule): IIDRule;
+    protected $id(styleset?: CombinedStyleset, nameOverride?: string | IIDRule): IIDRule;
     /**
      * Creates a new style rule for the given HTML or SVG element tags. The `tag` parameter specifies
      * either a single tag or an array of tags. In addition, an asterisk symbol (`"*"`) can be
@@ -236,7 +236,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param styleset Styleset that defines style properties for the tags.
      * @returns `IStyleRule` object representing the tag rule.
      */
-    $tag(tag: "*" | OneOrMany<(keyof HTMLElementTagNameMap) | (keyof SVGElementTagNameMap)>, styleset: CombinedStyleset): IStyleRule;
+    protected $tag(tag: "*" | OneOrMany<(keyof HTMLElementTagNameMap) | (keyof SVGElementTagNameMap)>, styleset: CombinedStyleset): IStyleRule;
     /**
      * Creates a new style rule with an arbitrary complex selector. Selectors can be specified as
      * one or array of [[SelectorItem]] objects where each `SelectorItem` is one of the following
@@ -278,7 +278,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param styleset Styleset that defines style properties for this selector.
      * @returns `IStyleRule` object representing the style rule.
      */
-    $style(selector: CssSelector, styleset: CombinedStyleset): IStyleRule;
+    protected $style(selector: CssSelector, styleset: CombinedStyleset): IStyleRule;
     /**
      * Creates new animation rule. The animation name will be created when the rule is processed as
      * part of the style definition class. The name can be also overridden by providing either an
@@ -313,7 +313,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * another animation.
      * @returns `IAnimationRule` object that should be used for getting the animation name.
      */
-    $keyframes(frames?: AnimationFrame[], nameOverride?: string | IAnimationRule): IAnimationRule;
+    protected $keyframes(frames?: AnimationFrame[], nameOverride?: string | IAnimationRule): IAnimationRule;
     /**
      * Creates new custom variable object that defines a custom CSS property. The variable name will
      * be created when the rule is processed as part of the style definition class. The name can be
@@ -355,7 +355,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @returns The `IVarRule` object that represents the custom property. Any usage of this object in
      * style properties or function parameters is substituted by the `var()` CSS function invocation.
      */
-    $var<K extends VarTemplateName>(template: K, value?: ExtendedVarValue<K>, nameOverride?: string | IVarRule<K>): IVarRule<K>;
+    protected $var<K extends VarTemplateName>(template: K, value?: ExtendedVarValue<K>, nameOverride?: string | IVarRule<K>): IVarRule<K>;
     /**
      * Creates a "constant" that can be used anywhere the type defined by the `template` parameter can
      * be used. They are called constants, because they provide a convenient and lightweight way of
@@ -389,7 +389,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @returns The `IConstRule` object that represents the value of the constant. The value is
      * computed once when the style definition is processed.
      */
-    $const<K extends VarTemplateName>(template: K, value?: ExtendedVarValue<K>): IConstRule;
+    protected $const<K extends VarTemplateName>(template: K, value?: ExtendedVarValue<K>): IConstRule;
     /**
      * Creates new counter object. The counter name will be created when the rule is processed as
      * part of the style definition class. The name can be also overridden by providing either an
@@ -419,7 +419,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * existing counter.
      * @returns The `ICounterRule` object that represents the counter.
      */
-    $counter(nameOverride?: string | ICounterRule): ICounterRule;
+    protected $counter(nameOverride?: string | ICounterRule): ICounterRule;
     /**
      * Creates new counter style rule. The counter style name will be created when the rule is
      * processed as part of the style definition class. The name can be also overridden by providing
@@ -445,7 +445,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * existing counter style.
      * @returns The `ICounterStyleRule` object that represents the counter style.
      */
-    $counterStyle(counterStyleset?: ExtendedCounterStyleset, nameOverride?: string | ICounterStyleRule): ICounterStyleRule;
+    protected $counterStyle(counterStyleset?: ExtendedCounterStyleset, nameOverride?: string | ICounterStyleRule): ICounterStyleRule;
     /**
      * Creates a new grid line rule. The line name will be created when the rule is processed as
      * part of the style definition class. The name can be also overridden by providing either an
@@ -488,7 +488,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * `"-end"` is appended; if the flag is undefined, no suffix is appended to the rule name.
      * @returns The `IGridLineRule` object that represents the grid line.
      */
-    $gridline(nameOverride?: string | IGridLineRule, isStartEndOrNone?: boolean): IGridLineRule;
+    protected $gridline(nameOverride?: string | IGridLineRule, isStartEndOrNone?: boolean): IGridLineRule;
     /**
      * Creates a new grid area rule. The area name will be created when the rule is processed as
      * part of the style definition class. The name can be also overridden by providing either an
@@ -538,7 +538,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * existing grid area.
      * @returns The `IGridAreaRule` object that represents the grid area.
      */
-    $gridarea(nameOverride?: string | IGridAreaRule): IGridAreaRule;
+    protected $gridarea(nameOverride?: string | IGridAreaRule): IGridAreaRule;
     /**
      * Creates a new `@font-face` rule.
      *
@@ -560,7 +560,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * font to use.
      * @returns The `IFontFaceRule` object that represents the @font-face rule.
      */
-    $fontface(fontface: ExtendedFontFace): IFontFaceRule;
+    protected $fontface(fontface: ExtendedFontFace): IFontFaceRule;
     /**
      * Creates a new `@import` rule referencing the given CSS file.
      *
@@ -580,7 +580,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * page where the Mimcss library is invoked.
      * @returns The `IImportRule` object that represents the `@import` rule.
      */
-    $import(url: string, mediaQuery?: string | MediaStatement, supportsQuery?: string | SupportsStatement): IImportRule;
+    protected $import(url: string, mediaQuery?: string | MediaStatement, supportsQuery?: string | SupportsStatement): IImportRule;
     /**
      * Creates new `@namespace` rule.
      *
@@ -599,7 +599,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param prefix Prefix string to use for the namespace.
      * @returns The `INamespaceRule` object that represents the namespace rule.
      */
-    $namespace(namespace: string, prefix?: string): INamespaceRule;
+    protected $namespace(namespace: string, prefix?: string): INamespaceRule;
     /**
      * Creates new `@page` rule.
      *
@@ -618,7 +618,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param styleset Styles to apply.
      * @returns The `IPageRule` object that represents the page rule.
      */
-    $page(pseudoClass?: PagePseudoClass, styleset?: Styleset): IPageRule;
+    protected $page(pseudoClass?: PagePseudoClass, styleset?: Styleset): IPageRule;
     /**
      * Creates a new `@supports` rule.
      *
@@ -642,7 +642,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param instOrClass Either style definition class or an instance of a style defintion class.
      * @returns `ISupportsRule` object representing the supports rule
      */
-    $supports(statement: SupportsStatement, instOrClass: StyleDefinition<StyleDefinition<P>> | IStyleDefinitionClass<StyleDefinition<StyleDefinition<P>>>): ISupportsRule<StyleDefinition<StyleDefinition<P>>>;
+    protected $supports(statement: SupportsStatement, instOrClass: StyleDefinition<StyleDefinition<P>> | IStyleDefinitionClass<StyleDefinition<StyleDefinition<P>>>): ISupportsRule<StyleDefinition<StyleDefinition<P>>>;
     /**
      * Creates new `@media` rule.
      *
@@ -666,7 +666,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param instOrClass Either style definition class or an instance of a style defintion class.
      * @returns `IMediaRule` object representing the media rule
      */
-    $media(statement: MediaStatement, instOrClass: StyleDefinition<StyleDefinition<P>> | IStyleDefinitionClass<StyleDefinition<StyleDefinition<P>>>): IMediaRule<StyleDefinition<StyleDefinition<P>>>;
+    protected $media(statement: MediaStatement, instOrClass: StyleDefinition<StyleDefinition<P>> | IStyleDefinitionClass<StyleDefinition<StyleDefinition<P>>>): IMediaRule<StyleDefinition<StyleDefinition<P>>>;
     /**
      * Processes the given style definition class or instance and creates unique names for all named
      * entities. For a given style definition class only a single instance is created, no matter how
@@ -704,7 +704,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @returns An instance of the style definition class, which will be activated and deactivated
      * along with the enclosing style definition.
      */
-    $use<T extends StyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>): T;
+    protected $use<T extends StyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>): T;
 }
 /**
  * Decorator function for style definition classes that will be embedded into an embedding
@@ -775,7 +775,5 @@ export declare function virtual(target: any, name: string): void;
  */
 export declare abstract class ThemeDefinition<P extends StyleDefinition = any> extends StyleDefinition<P> {
     constructor(parent?: P);
-    set(t: any, p: PropertyKey, v: any, r: any): boolean;
-    ownKeys(t: any): ArrayLike<string | symbol>;
 }
 //# sourceMappingURL=RuleAPI.d.ts.map

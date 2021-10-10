@@ -625,7 +625,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="customvar_styletype" class="tsd-anchor"></a>
 					<h3>Custom<wbr>Var_<wbr><wbr>Style<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Custom<wbr>Var_<wbr><wbr>Style<wbr>Type&lt;K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="../interfaces/ruletypes.ivarrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="styletypes.html#extendedvarvalue" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedVarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><a href="styletypes.html#extendedvarvalue" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedVarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span></div>
+					<div class="tsd-signature tsd-kind-icon">Custom<wbr>Var_<wbr><wbr>Style<wbr>Type&lt;K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="../interfaces/ruletypes.ivarrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="styletypes.html#extendedvarvalue" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedVarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">, </span><a href="styletypes.html#extendedvarvalue" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedVarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -638,8 +638,9 @@
 							previously been defined at the top-level using the <a href="../classes/ruleapi.styledefinition.html#_var">$var</a> function. That way you can have a
 							&quot;global&quot; value of a custom property and assign a different value to it under a certain CSS
 						selector.</p>
-						<p>The values of the type can be specified as either a two-item or a three-item tuple. The
-							two-item tuple is used with a previously defined custom CSS property represented by an <a href="../interfaces/ruletypes.ivarrule.html">IVarRule</a>
+						<p>The values of the type can be specified as either a two-item or a three-item tuple or as style
+						definition class or style definition object.</p>
+						<p>The two-item tuple is used with a previously defined custom CSS property represented by an <a href="../interfaces/ruletypes.ivarrule.html">IVarRule</a>
 						object:</p>
 						<ul>
 							<li>The first item is the <a href="../interfaces/ruletypes.ivarrule.html">IVarRule</a> object.</li>
@@ -653,6 +654,9 @@
 							custom property value.</li>
 							<li>The third item is the value</li>
 						</ul>
+						<p>If a style definition class or style definition object are specified, then all custom properties
+							defined in this style definition with their values are inserted into the styleset. If the style
+						definition is not processed yet, it is processed right away.</p>
 						<p>Use the <code>CustomVar_StyleType</code> type in the following manner:</p>
 						<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
 <span style="color: #000000">{</span>
@@ -662,12 +666,28 @@
 
 <span style="color: #000000">    </span><span style="color: #008000">// define custom CSS property with the given name under &quot;blue&quot; class.</span>
 <span style="color: #000000">    </span><span style="color: #001080">blue</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ [</span><span style="color: #A31515">&quot;different-color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">] ] })</span>
-<span style="color: #000000">});</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// take all custom CSS properties from the given theme.</span>
+<span style="color: #000000">    </span><span style="color: #001080">yellow</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #A31515">&quot;--&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> [ </span><span style="color: #001080">YellowTheme</span><span style="color: #000000"> ] })</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">YellowTheme</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">bg</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;yellow&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #001080">fg</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;brown&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #001080">link</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;orange&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
 </code></pre>
 						<p>This is equivalent to the following CSS:</p>
-						<pre><code class="language-css"><span style="color: #800000">:root</span><span style="color: #000000"> { </span><span style="color: #FF0000">--MyStyles_mainColor</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;black&quot;</span><span style="color: #000000">; }</span>
-<span style="color: #800000">.brown</span><span style="color: #000000"> { </span><span style="color: #FF0000">--MyStyles_mainColor</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;brown&quot;</span><span style="color: #000000">; }</span>
-<span style="color: #800000">.blue</span><span style="color: #000000"> { </span><span style="color: #FF0000">--different-color</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">; }</span>
+						<pre><code class="language-css"><span style="color: #800000">:root</span><span style="color: #000000"> { </span><span style="color: #FF0000">--MyStyles_mainColor</span><span style="color: #000000">: </span><span style="color: #0451A5">black</span><span style="color: #000000">; }</span>
+<span style="color: #800000">.brown</span><span style="color: #000000"> { </span><span style="color: #FF0000">--MyStyles_mainColor</span><span style="color: #000000">: </span><span style="color: #0451A5">brown</span><span style="color: #000000">; }</span>
+<span style="color: #800000">.blue</span><span style="color: #000000"> { </span><span style="color: #FF0000">--different-color</span><span style="color: #000000">: </span><span style="color: #0451A5">blue</span><span style="color: #000000">; }</span>
+<span style="color: #800000">.yellow</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">  </span><span style="color: #FF0000">--bg</span><span style="color: #000000">: </span><span style="color: #0451A5">yellow</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #FF0000">--fg</span><span style="color: #000000">: </span><span style="color: #0451A5">brown</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #FF0000">--link</span><span style="color: #000000">: </span><span style="color: #0451A5">orange</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span>
 </code></pre>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>

@@ -3662,8 +3662,10 @@ export declare type ExtendedVarValue<K extends VarTemplateName> = ExtendedProp<V
  * "global" value of a custom property and assign a different value to it under a certain CSS
  * selector.
  *
- * The values of the type can be specified as either a two-item or a three-item tuple. The
- * two-item tuple is used with a previously defined custom CSS property represented by an [[IVarRule]]
+ * The values of the type can be specified as either a two-item or a three-item tuple or as style
+ * definition class or style definition object.
+ *
+ * The two-item tuple is used with a previously defined custom CSS property represented by an [[IVarRule]]
  * object:
  * - The first item is the [[IVarRule]] object.
  * - The second item is the value
@@ -3675,6 +3677,10 @@ export declare type ExtendedVarValue<K extends VarTemplateName> = ExtendedProp<V
  * custom property value.
  * - The third item is the value
  *
+ * If a style definition class or style definition object are specified, then all custom properties
+ * defined in this style definition with their values are inserted into the styleset. If the style
+ * definition is not processed yet, it is processed right away.
+ *
  * Use the `CustomVar_StyleType` type in the following manner:
  *
  * ```typescript
@@ -3683,25 +3689,45 @@ export declare type ExtendedVarValue<K extends VarTemplateName> = ExtendedProp<V
  *     // define global custom CSS property and re-define its value under "brown" class.
  *     mainColor = this.$var( "color", "black");
  *     brown = this.$class({ "--": [ [this.mainColor, "brown"] ] })
-
+ *
  *     // define custom CSS property with the given name under "blue" class.
  *     blue = this.$class({ "--": [ ["different-color", "color", "blue"] ] })
- * });
+ *
+ *     // take all custom CSS properties from the given theme.
+ *     yellow = this.$class({ "--": [ YellowTheme ] })
+ * }
+ *
+ * class YellowTheme extends css.StyleDefinition
+ * {
+ *     bg = this.$var( "color", "yellow");
+ *     fg = this.$var( "color", "brown");
+ *     link = this.$var( "color", "orange");
+ * }
  * ```
  *
  * This is equivalent to the following CSS:
  *
  * ```css
- * :root { --MyStyles_mainColor: "black"; }
- * .brown { --MyStyles_mainColor: "brown"; }
- * .blue { --different-color: "blue"; }
+ * :root { --MyStyles_mainColor: black; }
+ * .brown { --MyStyles_mainColor: brown; }
+ * .blue { --different-color: blue; }
+ * .yellow
+ * {
+ *   --bg: yellow;
+ *   --fg: brown;
+ *   --link: orange;
+ * }
  * ```
  * @category Style Helper
  */
 export declare type CustomVar_StyleType<K extends VarTemplateName = any> = [
     IVarRule<K>,
     ExtendedVarValue<K>
-] | [string, K, ExtendedVarValue<K>];
+] | [
+    string,
+    K,
+    ExtendedVarValue<K>
+] | IStyleDefinitionClass | IStyleDefinition;
 /**
  * Type representing a collection of style properties and their values. In addition to the
  * properties representing the standard CSS styles, this type also includes the "--" property,
