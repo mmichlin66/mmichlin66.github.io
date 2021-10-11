@@ -11,7 +11,7 @@ import * as css from "mimcss"
 export class DelayScheduler implements css.IScheduler
 {
     // you can change the value (in milliseconds) to play with the delay
-    private static delay = 500;
+    private static delay = 1000;
 
     // Handle returned by setTimeout function.
 	private timeoutHandle = 0;

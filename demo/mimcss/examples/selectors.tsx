@@ -28,11 +28,12 @@ class MyStyles extends css.StyleDefinition
 
     // all <p> elements that have the title attribute, which starts with "https://",
     // will be orange
-    byTitleStart = this.$attr( "p", {
-        title: { value: "https://", op: css.AttrSelectorOperation.StartsWith }
-    }, { backgroundColor: "orange" })
+    byTitleStart = this.$attr( "p",
+        { title: {value: "https://", op: css.AttrSelectorOperation.StartsWith} },
+        { backgroundColor: "orange" }
+    )
 
-    // all <p> elements, whcih are the last in the list of <p> elements, will be lightgreen
+    // all <p> elements, which are the last in the list of <p> elements, will be lightgreen
     lastP = this.$style( "p", {
         ":last-of-type": {backgroundColor: "lightgreen"}
     })

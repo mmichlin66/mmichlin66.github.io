@@ -52,7 +52,7 @@ class MyStyles extends css.StyleDefinition
         // the "++" property makes CSS class name "block top"
         "++": this.block,
 
-        // the "--" property references the LightTheme class, whcih copies the
+        // the "--" property references the LightTheme class, which copies the
         // values of custom CSS properties defined in this class under our ruleset
         "--": [LightTheme],
     })

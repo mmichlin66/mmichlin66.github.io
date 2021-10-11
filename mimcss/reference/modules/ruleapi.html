@@ -77,10 +77,13 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#activate" class="tsd-kind-icon">activate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#classes" class="tsd-kind-icon">classes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#getactivethemeinstance" class="tsd-kind-icon">get<wbr>Active<wbr>Theme<wbr>Instance</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a></li>
 							</ul>
 						</section>
@@ -89,6 +92,44 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="activate" class="tsd-anchor"></a>
+					<h3>activate</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">activate&lt;T&gt;<span class="tsd-signature-symbol">(</span>instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Activates the given style definition class or instance and inserts all its rules into DOM. If
+										the input object is not an instance but a class, which is not yet associated with an instance,
+										the instance is first created and processed. Note that each style definition instance maintains
+										a reference counter of how many times it was activated and deactivated. The rules are inserted
+									into DOM only upon first activation.</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="chooseclass" class="tsd-anchor"></a>
 					<h3>choose<wbr>Class</h3>
@@ -188,6 +229,36 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="deactivate" class="tsd-anchor"></a>
+					<h3>deactivate</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">deactivate<span class="tsd-signature-symbol">(</span>instance<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Deactivates the given style definition instance by removing its rules from DOM. Note that each
+										style definition instance maintains a reference counter of how many times it was activated and
+									deactivated. The rules are removed from DOM only when this reference counter goes down to 0.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>instance: <a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="embedded" class="tsd-anchor"></a>
 					<h3>embedded</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -218,6 +289,36 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getactivethemeinstance" class="tsd-anchor"></a>
+					<h3>get<wbr>Active<wbr>Theme<wbr>Instance</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Active<wbr>Theme<wbr>Instance<span class="tsd-signature-symbol">(</span>themeClass<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the theme definition object, which is currently active for the given theme.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>themeClass: <a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Theme definition class</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h4>
+							<p>Theme instance, which is currently active for the given theme class or undefined
+							if no instance is currently active.</p>
 						</li>
 					</ul>
 				</section>
@@ -328,6 +429,9 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../classes/ruleapi.themedefinition.html" class="tsd-kind-icon">Theme<wbr>Definition</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="ruleapi.html#activate" class="tsd-kind-icon">activate</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a>
 					</li>
@@ -338,7 +442,13 @@
 						<a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ruleapi.html#getactivethemeinstance" class="tsd-kind-icon">get<wbr>Active<wbr>Theme<wbr>Instance</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a>

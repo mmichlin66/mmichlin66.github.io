@@ -826,4 +826,25 @@ export declare function virtual(target: any, name: string): void;
 export declare abstract class ThemeDefinition<P extends StyleDefinition = any> extends StyleDefinition<P> {
     constructor(parent?: P);
 }
+/**
+ * Activates the given style definition class or instance and inserts all its rules into DOM. If
+ * the input object is not an instance but a class, which is not yet associated with an instance,
+ * the instance is first created and processed. Note that each style definition instance maintains
+ * a reference counter of how many times it was activated and deactivated. The rules are inserted
+ * into DOM only upon first activation.
+ */
+export declare function activate<T extends IStyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>, schedulerType?: number): T | null;
+/**
+ * Deactivates the given style definition instance by removing its rules from DOM. Note that each
+ * style definition instance maintains a reference counter of how many times it was activated and
+ * deactivated. The rules are removed from DOM only when this reference counter goes down to 0.
+ */
+export declare function deactivate(instance: IStyleDefinition, schedulerType?: number): void;
+/**
+ * Returns the theme definition object, which is currently active for the given theme.
+ * @param themeClass Theme definition class
+ * @returns Theme instance, which is currently active for the given theme class or undefined
+ * if no instance is currently active.
+ */
+export declare function getActiveThemeInstance(themeClass: IStyleDefinitionClass<ThemeDefinition>): ThemeDefinition | undefined;
 //# sourceMappingURL=RuleAPI.d.ts.map

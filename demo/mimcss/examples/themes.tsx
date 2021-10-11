@@ -181,7 +181,6 @@ export class Themes extends mim.Component
         if (this.currentTheme !== "round")
         {
             this.currentTheme = "round";
-            css.deactivate( this.theme);
             this.theme = css.activate( RoundTheme);
         }
     }
@@ -191,7 +190,6 @@ export class Themes extends mim.Component
         if (this.currentTheme !== "square")
         {
             this.currentTheme = "square";
-            css.deactivate( this.theme);
             this.theme = css.activate( SquareTheme);
         }
     }
