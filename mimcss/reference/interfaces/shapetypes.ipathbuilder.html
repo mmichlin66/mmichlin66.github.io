@@ -69,10 +69,10 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The <code>IPathBuilder</code> interface represents the object that accumulates path commands that are then
-							converted to a string parameter of the CSS <code>path()</code> function. The <code>IPathBuilder</code> interface is
-							returned from the <a href="../modules/shapeapi.html#path">path</a> function. The methods in this interface mimic the SVG path commands
-						described in MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands" target="mdn">Path Commands</a></p>
+						<p>The IPathBuilder interface extends the <a href="shapetypes.ipathfunc.html">IPathFunc</a> interface and adds several methods that allow
+							adding path commands. It is the result of invoking the <a href="../modules/shapeapi.html#path">path</a> function. The methods in this
+							interface mimic the SVG path commands described in MDN:
+						<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands" target="mdn">Path Commands</a></p>
 					</div>
 				</div>
 			</section>
@@ -80,7 +80,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IPathBuilder</span>
+						<a href="shapetypes.ipathfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPathFunc</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">IPathBuilder</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -88,10 +93,12 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#rule" class="tsd-kind-icon">rule</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="shapetypes.ipathbuilder.html#fn" class="tsd-kind-icon">fn</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="shapetypes.ipathbuilder.html#items" class="tsd-kind-icon">items</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="shapetypes.ipathbuilder.html#rule" class="tsd-kind-icon">rule</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -107,6 +114,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#t" class="tsd-kind-icon">T</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#v" class="tsd-kind-icon">V</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#a-1" class="tsd-kind-icon">a</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#c-1" class="tsd-kind-icon">c</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#h-1" class="tsd-kind-icon">h</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="shapetypes.ipathbuilder.html#l-1" class="tsd-kind-icon">l</a></li>
@@ -121,17 +129,39 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="rule" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> rule</h3>
-					<div class="tsd-signature tsd-kind-icon">rule<span class="tsd-signature-symbol">:</span> <a href="../modules/shapetypes.html#fillrule" class="tsd-signature-type" data-tsd-kind="Type alias">FillRule</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="fn" class="tsd-anchor"></a>
+					<h3>fn</h3>
+					<div class="tsd-signature tsd-kind-icon">fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;path&quot;</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="shapetypes.ipathfunc.html">IPathFunc</a>.<a href="shapetypes.ipathfunc.html#fn">fn</a></p>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="items" class="tsd-anchor"></a>
+					<h3>items</h3>
+					<div class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">:</span> <a href="../modules/shapetypes.html#pathcommand" class="tsd-signature-type" data-tsd-kind="Type alias">PathCommand</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="shapetypes.ipathfunc.html">IPathFunc</a>.<a href="shapetypes.ipathfunc.html#items">items</a></p>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Filling rule used to determine the interior of the path</p>
+							<p>Array of path commands</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="rule" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> rule</h3>
+					<div class="tsd-signature tsd-kind-icon">rule<span class="tsd-signature-symbol">:</span> <a href="../modules/shapetypes.html#fillrule" class="tsd-signature-type" data-tsd-kind="Type alias">FillRule</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="shapetypes.ipathfunc.html">IPathFunc</a>.<a href="shapetypes.ipathfunc.html#rule">rule</a></p>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Path filling rule</p>
 						</div>
 					</div>
 				</section>
@@ -382,6 +412,29 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="shapetypes.ipathbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IPathBuilder</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="add" class="tsd-anchor"></a>
+					<h3>add</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>command<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, params<span class="tsd-signature-symbol">?: </span><a href="../modules/shapetypes.html#pathcommandparam" class="tsd-signature-type" data-tsd-kind="Type alias">PathCommandParam</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="shapetypes.ipathbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IPathBuilder</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>command: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> params: <a href="../modules/shapetypes.html#pathcommandparam" class="tsd-signature-type" data-tsd-kind="Type alias">PathCommandParam</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="shapetypes.ipathbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IPathBuilder</a></h4>
@@ -670,42 +723,18 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.icircle.html" class="tsd-kind-icon">ICircle</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.iconicgradient.html" class="tsd-kind-icon">IConic<wbr>Gradient</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.icursorproxy.html" class="tsd-kind-icon">ICursor<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.iellipse.html" class="tsd-kind-icon">IEllipse</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.ifilterproxy.html" class="tsd-kind-icon">IFilter<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="shapetypes.igradient.html" class="tsd-kind-icon">IGradient</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.iimageproxy.html" class="tsd-kind-icon">IImage<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.iinset.html" class="tsd-kind-icon">IInset</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.ilineargradient.html" class="tsd-kind-icon">ILinear<wbr>Gradient</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.iminmaxproxy.html" class="tsd-kind-icon">IMin<wbr>Max<wbr>Proxy</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
 						<a href="shapetypes.ipathbuilder.html" class="tsd-kind-icon">IPath<wbr>Builder</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="shapetypes.ipathbuilder.html#fn" class="tsd-kind-icon">fn</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="shapetypes.ipathbuilder.html#items" class="tsd-kind-icon">items</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 								<a href="shapetypes.ipathbuilder.html#rule" class="tsd-kind-icon">rule</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
@@ -739,6 +768,9 @@
 								<a href="shapetypes.ipathbuilder.html#a-1" class="tsd-kind-icon">a</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="shapetypes.ipathbuilder.html#add" class="tsd-kind-icon">add</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="shapetypes.ipathbuilder.html#c-1" class="tsd-kind-icon">c</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
@@ -769,66 +801,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.ipolygon.html" class="tsd-kind-icon">IPolygon</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.iradialgradient.html" class="tsd-kind-icon">IRadial<wbr>Gradient</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.irayproxy.html" class="tsd-kind-icon">IRay<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.irepeatproxy.html" class="tsd-kind-icon">IRepeat<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.ispanproxy.html" class="tsd-kind-icon">ISpan<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.itimingfunctionproxy.html" class="tsd-kind-icon">ITiming<wbr>Function<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.itransformproxy.html" class="tsd-kind-icon">ITransform<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="shapetypes.iurlproxy.html" class="tsd-kind-icon">IUrl<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#attrtypekeyword" class="tsd-kind-icon">Attr<wbr>Type<wbr>Keyword</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#attrunitkeyword" class="tsd-kind-icon">Attr<wbr>Unit<wbr>Keyword</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#basicshape" class="tsd-kind-icon">Basic<wbr>Shape</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#crossfadeparam" class="tsd-kind-icon">Cross<wbr>Fade<wbr>Param</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#cssimage" class="tsd-kind-icon">Css<wbr>Image</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#extentkeyword" class="tsd-kind-icon">Extent<wbr>Keyword</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#fillrule" class="tsd-kind-icon">Fill<wbr>Rule</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/shapetypes.html#gradientstoporhint" class="tsd-kind-icon">Gradient<wbr>Stop<wbr>OrHint</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#lineargradientangle" class="tsd-kind-icon">Linear<wbr>Gradient<wbr>Angle</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#shaperadius" class="tsd-kind-icon">Shape<wbr>Radius</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#sideorcorner" class="tsd-kind-icon">Side<wbr>OrCorner</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/shapetypes.html#timingfunctionjumpterm" class="tsd-kind-icon">Timing<wbr>Function<wbr>Jump<wbr>Term</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -848,7 +820,6 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">

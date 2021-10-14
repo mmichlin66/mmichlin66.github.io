@@ -153,7 +153,7 @@
 					<a name="circle" class="tsd-anchor"></a>
 					<h3>circle</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">circle<span class="tsd-signature-symbol">(</span>radius<span class="tsd-signature-symbol">?: </span><a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.icircle.html" class="tsd-signature-type" data-tsd-kind="Interface">ICircle</a></li>
+						<li class="tsd-signature tsd-kind-icon">circle<span class="tsd-signature-symbol">(</span>r<span class="tsd-signature-symbol">?: </span><a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.icirclebuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ICircleBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -161,7 +161,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ICircle object representing the <code>circle()</code> CSS function.</p>
+									<p>Returns an ICircleBuilder object representing the <code>circle()</code> CSS function.</p>
 								</div>
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript"><span style="color: #000000">clipPath: </span><span style="color: #795E26">circle</span><span style="color: #000000">( </span><span style="color: #098658">100</span><span style="color: #000000">)</span>
@@ -172,10 +172,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> radius: <a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> r: <a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.icircle.html" class="tsd-signature-type" data-tsd-kind="Interface">ICircle</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.icirclebuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ICircleBuilder</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -183,8 +183,8 @@
 					<a name="ellipse" class="tsd-anchor"></a>
 					<h3>ellipse</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">ellipse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iellipse.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipse</a></li>
-						<li class="tsd-signature tsd-kind-icon">ellipse<span class="tsd-signature-symbol">(</span>radiusX<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a>, radiusY<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iellipse.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipse</a></li>
+						<li class="tsd-signature tsd-kind-icon">ellipse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iellipsebuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipseBuilder</a></li>
+						<li class="tsd-signature tsd-kind-icon">ellipse<span class="tsd-signature-symbol">(</span>rx<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a>, ry<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iellipsebuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipseBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -192,20 +192,20 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IEllipse object representing the <code>ellipse()</code> CSS function.</p>
+									<p>Returns an IEllipseBuilder object representing the <code>ellipse()</code> CSS function.</p>
 								</div>
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript"><span style="color: #000000">clipPath: </span><span style="color: #795E26">ellipse</span><span style="color: #000000">().</span><span style="color: #795E26">at</span><span style="color: #000000">( [</span><span style="color: #A31515">&quot;top&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;50%&quot;</span><span style="color: #000000">])</span>
 </code></pre>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iellipse.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipse</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iellipsebuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipseBuilder</a></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IEllipse object representing the <code>ellipse()</code> CSS function.</p>
+									<p>Returns an IEllipseBuilder object representing the <code>ellipse()</code> CSS function.</p>
 								</div>
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript"><span style="color: #000000">clipPath: </span><span style="color: #795E26">ellipse</span><span style="color: #000000">( </span><span style="color: #098658">100</span><span style="color: #000000">, </span><span style="color: #098658">50</span><span style="color: #000000">)</span>
@@ -216,13 +216,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>radiusX: <a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a></h5>
+									<h5>rx: <a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a></h5>
 								</li>
 								<li>
-									<h5>radiusY: <a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a></h5>
+									<h5>ry: <a href="shapetypes.html#shaperadius" class="tsd-signature-type" data-tsd-kind="Type alias">ShapeRadius</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iellipse.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipse</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iellipsebuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IEllipseBuilder</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -230,7 +230,7 @@
 					<a name="inset" class="tsd-anchor"></a>
 					<h3>inset</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">inset<span class="tsd-signature-symbol">(</span>o1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o2<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o3<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o4<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iinset.html" class="tsd-signature-type" data-tsd-kind="Interface">IInset</a></li>
+						<li class="tsd-signature tsd-kind-icon">inset<span class="tsd-signature-symbol">(</span>o1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o2<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o3<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, o4<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iinsetbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IInsetBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -238,7 +238,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IInsetProxy function representing the <code>inset()</code> CSS function.</p>
+									<p>Returns an IInsetBuilder object representing the <code>inset()</code> CSS function.</p>
 								</div>
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript"><span style="color: #000000">clipPath: </span><span style="color: #795E26">inset</span><span style="color: #000000">( </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">percent</span><span style="color: #000000">(</span><span style="color: #098658">15</span><span style="color: #000000">))</span>
@@ -261,7 +261,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> o4: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iinset.html" class="tsd-signature-type" data-tsd-kind="Interface">IInset</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iinsetbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IInsetBuilder</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -277,7 +277,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IPathBuilder interface that allows building a CSS path.</p>
+									<p>Returns an IPathBuilder object that allows building a CSS path.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -294,7 +294,7 @@
 					<a name="polygon" class="tsd-anchor"></a>
 					<h3>polygon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>points<span class="tsd-signature-symbol">: </span><a href="numerictypes.html#csspoint" class="tsd-signature-type" data-tsd-kind="Type alias">CssPoint</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipolygon.html" class="tsd-signature-type" data-tsd-kind="Interface">IPolygon</a></li>
+						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>points<span class="tsd-signature-symbol">: </span><a href="numerictypes.html#csspoint" class="tsd-signature-type" data-tsd-kind="Type alias">CssPoint</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipolygonbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IPolygonBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -302,7 +302,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IPolygon interface representing the <code>polygon()</code> CSS function.</p>
+									<p>Returns an IPolygon object representing the <code>polygon()</code> CSS function.</p>
 								</div>
 								<p><em>Example:</em></p>
 								<pre><code class="language-typescript"><span style="color: #000000">clipPath: </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">polygon</span><span style="color: #000000">( [</span><span style="color: #098658">0</span><span style="color: #000000">,</span><span style="color: #098658">100</span><span style="color: #000000">], [</span><span style="color: #098658">50</span><span style="color: #000000">,</span><span style="color: #098658">0</span><span style="color: #000000">], [</span><span style="color: #098658">100</span><span style="color: #000000">,</span><span style="color: #098658">100</span><span style="color: #000000">])</span>
@@ -316,7 +316,7 @@
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>points: <a href="numerictypes.html#csspoint" class="tsd-signature-type" data-tsd-kind="Type alias">CssPoint</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipolygon.html" class="tsd-signature-type" data-tsd-kind="Interface">IPolygon</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipolygonbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IPolygonBuilder</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -324,7 +324,7 @@
 					<a name="ray" class="tsd-anchor"></a>
 					<h3>ray</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">ray<span class="tsd-signature-symbol">(</span>angle<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, size<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="shapetypes.html#extentkeyword" class="tsd-signature-type" data-tsd-kind="Type alias">ExtentKeyword</a><span class="tsd-signature-symbol"> | </span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, contain<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irayproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IRayProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">ray<span class="tsd-signature-symbol">(</span>angle<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, size<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="shapetypes.html#extentkeyword" class="tsd-signature-type" data-tsd-kind="Type alias">ExtentKeyword</a><span class="tsd-signature-symbol"> | </span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, contain<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irayfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRayFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -332,7 +332,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IRayFunc function representing invocation of the <code>ray()</code> CSS function.</p>
+									<p>Returns an IRay object representing invocation of the <code>ray()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -347,7 +347,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> contain: <span class="tsd-signature-type">boolean</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irayproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IRayProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irayfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRayFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -358,7 +358,7 @@
 					<a name="counter" class="tsd-anchor"></a>
 					<h3>counter</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">counter<span class="tsd-signature-symbol">(</span>counterObj<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, style<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span>, textAfter<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, textBefore<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">counter<span class="tsd-signature-symbol">(</span>counterObj<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, style<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -366,8 +366,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a function representing the CSS <code>counter()</code> function with additional
-									optional strings added after and/or before the counter.</p>
+									<p>Returns a representation of the CSS <code>counter()</code> function with additional optional strings
+									added after and/or before the counter.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -377,12 +377,6 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> textAfter: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> textBefore: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></h4>
@@ -393,7 +387,7 @@
 					<a name="counters" class="tsd-anchor"></a>
 					<h3>counters</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">counters<span class="tsd-signature-symbol">(</span>counterObj<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, separator<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, style<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span>, textAfter<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, textBefore<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">counters<span class="tsd-signature-symbol">(</span>counterObj<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, sep<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, style<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -401,8 +395,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a function representing the CSS <code>counters()</code> function with the given
-									separator string and additional optional strings added after and/or before the counter.</p>
+									<p>Returns a representation of the CSS <code>counters()</code> function with the given separator string
+									and additional optional strings added after and/or before the counter.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -411,16 +405,10 @@
 									<h5>counterObj: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>separator: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>sep: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> textAfter: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> textBefore: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></h4>
@@ -434,7 +422,7 @@
 					<a name="blur" class="tsd-anchor"></a>
 					<h3>blur</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">blur<span class="tsd-signature-symbol">(</span>r<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">blur<span class="tsd-signature-symbol">(</span>r<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iblurfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IBlurFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -442,7 +430,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>blur()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.iblurfunc.html">IBlurFunc</a> object representing the <code>blur()</code> CSS function parameters.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -467,9 +455,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iblurfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IBlurFunc</a></h4>
+							<p>The <code>IBlurFunc</code> interface containing the blur radius</p>
 						</li>
 					</ul>
 				</section>
@@ -477,7 +464,7 @@
 					<a name="brightness" class="tsd-anchor"></a>
 					<h3>brightness</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">brightness<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">brightness<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -485,7 +472,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>brightness()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ipercentfilterfunc.html">IPercentFilterFunc</a> object representing the <code>brightness()</code> CSS function.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -508,9 +495,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></h4>
+							<p>The <code>IPercentFilterFunc</code> interface containing percentage value</p>
 						</li>
 					</ul>
 				</section>
@@ -518,7 +504,7 @@
 					<a name="contrast" class="tsd-anchor"></a>
 					<h3>contrast</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">contrast<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">contrast<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -526,7 +512,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>contrast()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ipercentfilterfunc.html">IPercentFilterFunc</a> object representing the <code>contrast()</code> CSS function.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -549,9 +535,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></h4>
+							<p>The <code>IPercentFilterFunc</code> interface containing percentage value</p>
 						</li>
 					</ul>
 				</section>
@@ -559,7 +544,7 @@
 					<a name="dropshadow" class="tsd-anchor"></a>
 					<h3>drop<wbr>Shadow</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">drop<wbr>Shadow<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, color<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span>, blur<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">drop<wbr>Shadow<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, color<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span>, blur<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.idropshadowfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IDropShadowFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -567,7 +552,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>dropShadow()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.idropshadowfunc.html">IDropShadowFunc</a> object representing the <code>dropShadow()</code> CSS function parameters.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -611,9 +596,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.idropshadowfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IDropShadowFunc</a></h4>
+							<p>The <code>IDropShadowFunc</code> interface containing the shadow parameters.</p>
 						</li>
 					</ul>
 				</section>
@@ -621,7 +605,7 @@
 					<a name="grayscale" class="tsd-anchor"></a>
 					<h3>grayscale</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">grayscale<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">grayscale<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -629,7 +613,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>grayscale()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ipercentfilterfunc.html">IPercentFilterFunc</a> object representing the <code>grayscale()</code> CSS function.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -652,9 +636,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></h4>
+							<p>The <code>IPercentFilterFunc</code> interface containing percentage value</p>
 						</li>
 					</ul>
 				</section>
@@ -662,7 +645,7 @@
 					<a name="huerotate" class="tsd-anchor"></a>
 					<h3>hue<wbr>Rotate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">hue<wbr>Rotate<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">hue<wbr>Rotate<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ihuerotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHueRotateFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -670,7 +653,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>hue-rotate()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ihuerotatefunc.html">IHueRotateFunc</a> object representing the <code>hue-rotate()</code> CSS function parameters.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -692,9 +675,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ihuerotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHueRotateFunc</a></h4>
+							<p>The <code>IHueRotateFunc</code> interface containing the hue rotation angle</p>
 						</li>
 					</ul>
 				</section>
@@ -702,7 +684,7 @@
 					<a name="invert" class="tsd-anchor"></a>
 					<h3>invert</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">invert<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">invert<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -710,7 +692,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>invert()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ipercentfilterfunc.html">IPercentFilterFunc</a> object representing the <code>invert()</code> CSS function.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -736,9 +718,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></h4>
+							<p>The <code>IPercentFilterFunc</code> interface containing percentage value</p>
 						</li>
 					</ul>
 				</section>
@@ -746,7 +727,7 @@
 					<a name="opacity" class="tsd-anchor"></a>
 					<h3>opacity</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">opacity<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">opacity<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -754,7 +735,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>opacity()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ipercentfilterfunc.html">IPercentFilterFunc</a> object representing the <code>opacity()</code> CSS function.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -774,9 +755,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></h4>
+							<p>The <code>IPercentFilterFunc</code> interface containing percentage value</p>
 						</li>
 					</ul>
 				</section>
@@ -784,7 +764,7 @@
 					<a name="saturate" class="tsd-anchor"></a>
 					<h3>saturate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">saturate<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">saturate<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -792,7 +772,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>saturate()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ipercentfilterfunc.html">IPercentFilterFunc</a> object representing the <code>saturate()</code> CSS function.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -815,9 +795,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></h4>
+							<p>The <code>IPercentFilterFunc</code> interface containing percentage value</p>
 						</li>
 					</ul>
 				</section>
@@ -825,7 +804,7 @@
 					<a name="sepia" class="tsd-anchor"></a>
 					<h3>sepia</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">sepia<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">sepia<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -833,7 +812,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="../interfaces/shapetypes.ifilterproxy.html">IFilterProxy</a> function representing the <code>sepia()</code> CSS function.</p>
+									<p>Returns an <a href="../interfaces/shapetypes.ipercentfilterfunc.html">IPercentFilterFunc</a> object representing the <code>sepia()</code> CSS function.</p>
 								</div>
 								<p><strong>Example</strong></p>
 								<pre><code class="language-tsx"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -853,9 +832,8 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ifilterproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IFilterProxy</a></h4>
-							<p>The <code>IFilterProxy</code> callable interface that distinguishes filter functions from other
-							CSS functions</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ipercentfilterfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPercentFilterFunc</a></h4>
+							<p>The <code>IPercentFilterFunc</code> interface containing percentage value</p>
 						</li>
 					</ul>
 				</section>
@@ -866,7 +844,7 @@
 					<a name="minmax" class="tsd-anchor"></a>
 					<h3>minmax</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">minmax<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><a href="styletypes.html#gridtracksize" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrackSize</a>, max<span class="tsd-signature-symbol">: </span><a href="styletypes.html#gridtracksize" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrackSize</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iminmaxproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IMinMaxProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">minmax<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><a href="styletypes.html#gridtracksize" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrackSize</a>, max<span class="tsd-signature-symbol">: </span><a href="styletypes.html#gridtracksize" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrackSize</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iminmaxfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IMinMaxFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -874,7 +852,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IMinMaxProxy function representing the <code>minmax()</code> CSS function.</p>
+									<p>Returns an IMinMax function representing the <code>minmax()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -886,7 +864,7 @@
 									<h5>max: <a href="styletypes.html#gridtracksize" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrackSize</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iminmaxproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IMinMaxProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iminmaxfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IMinMaxFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -894,7 +872,7 @@
 					<a name="repeat" class="tsd-anchor"></a>
 					<h3>repeat</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">repeat<span class="tsd-signature-symbol">(</span>count<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto-fill&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto-fit&quot;</span>, <span class="tsd-signature-symbol">...</span>tracks<span class="tsd-signature-symbol">: </span><a href="styletypes.html#gridtrack" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrack</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irepeatproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IRepeatProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">repeat<span class="tsd-signature-symbol">(</span>count<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto-fill&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;auto-fit&quot;</span>, <span class="tsd-signature-symbol">...</span>tracks<span class="tsd-signature-symbol">: </span><a href="styletypes.html#gridtrack" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrack</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irepeatfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRepeatFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -902,7 +880,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an IRepeatProxy function representing the <code>repeat()</code> CSS function.</p>
+									<p>Returns an IRepeat function representing the <code>repeat()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -914,7 +892,7 @@
 									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>tracks: <a href="styletypes.html#gridtrack" class="tsd-signature-type" data-tsd-kind="Type alias">GridTrack</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irepeatproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IRepeatProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irepeatfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRepeatFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -922,7 +900,7 @@
 					<a name="span" class="tsd-anchor"></a>
 					<h3>span</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">span<span class="tsd-signature-symbol">(</span>countOrName<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span>, nameOrCount<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ispanproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISpanProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">span<span class="tsd-signature-symbol">(</span>p1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span>, p2<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.igridspanfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IGridSpanFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -930,7 +908,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ISpanProxy function representing the <code>span</code> expression for grid layouts. If the first
+									<p>Returns an IGridSpanFunc function representing the <code>span</code> expression for grid layouts. If the first
 										parameter is a number, the second parameter (if defined) must be a name; if the first parameter
 									is a name, the second parameter (if defined) must be a number.</p>
 								</div>
@@ -938,13 +916,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>countOrName: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>p1: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> nameOrCount: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> p2: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#gridlinecountorname" class="tsd-signature-type" data-tsd-kind="Type alias">GridLineCountOrName</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ispanproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISpanProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.igridspanfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IGridSpanFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -955,7 +933,7 @@
 					<a name="conicgradient" class="tsd-anchor"></a>
 					<h3>conic<wbr>Gradient</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">conic<wbr>Gradient<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iconicgradient.html" class="tsd-signature-type" data-tsd-kind="Interface">IConicGradient</a></li>
+						<li class="tsd-signature tsd-kind-icon">conic<wbr>Gradient<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>stops<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iconicgradientbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IConicGradientBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -976,14 +954,14 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stops: <a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Variable argument list specifying stops or hints that will be added to
 										the gradient definition.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iconicgradient.html" class="tsd-signature-type" data-tsd-kind="Interface">IConicGradient</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iconicgradientbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IConicGradientBuilder</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1016,7 +994,7 @@
 					<a name="lineargradient" class="tsd-anchor"></a>
 					<h3>linear<wbr>Gradient</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">linear<wbr>Gradient<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ilineargradient.html" class="tsd-signature-type" data-tsd-kind="Interface">ILinearGradient</a></li>
+						<li class="tsd-signature tsd-kind-icon">linear<wbr>Gradient<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>stops<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.ilineargradientbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ILinearGradientBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1024,7 +1002,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Function returning the ILinearGradient interface representing the <code>linear-gradient</code> CSS functions.</p>
+									<p>Function returning the ILinearGradientBuilder interface representing the <code>linear-gradient</code> CSS functions.</p>
 								</div>
 								<p><em>Examples:</em></p>
 								<pre><code class="language-typescript"><span style="color: #000000">backgroundImage: </span><span style="color: #795E26">linearGradient</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">)</span>
@@ -1037,14 +1015,14 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stops: <a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Variable argument list specifying stops or hints that will be added to
 										the gradient definition.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ilineargradient.html" class="tsd-signature-type" data-tsd-kind="Interface">ILinearGradient</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.ilineargradientbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ILinearGradientBuilder</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1052,7 +1030,7 @@
 					<a name="radialgradient" class="tsd-anchor"></a>
 					<h3>radial<wbr>Gradient</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">radial<wbr>Gradient<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>stopsOrHints<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iradialgradient.html" class="tsd-signature-type" data-tsd-kind="Interface">IRadialGradient</a></li>
+						<li class="tsd-signature tsd-kind-icon">radial<wbr>Gradient<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>stops<span class="tsd-signature-symbol">: </span><a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iradialgradientbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IRadialGradientBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1075,14 +1053,14 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stopsOrHints: <a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>stops: <a href="shapetypes.html#gradientstoporhint" class="tsd-signature-type" data-tsd-kind="Type alias">GradientStopOrHint</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Variable argument list specifying stops or hints that will be added to
 										the gradient definition.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iradialgradient.html" class="tsd-signature-type" data-tsd-kind="Interface">IRadialGradient</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iradialgradientbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IRadialGradientBuilder</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1127,8 +1105,8 @@
 					<a name="cursor" class="tsd-anchor"></a>
 					<h3>cursor</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">cursor<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.icursorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorProxy</a></li>
-						<li class="tsd-signature tsd-kind-icon">cursor<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span>, x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.icursorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">cursor<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.icursorfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorFunc</a></li>
+						<li class="tsd-signature tsd-kind-icon">cursor<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span>, x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.icursorfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1145,7 +1123,7 @@
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.icursorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.icursorfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorFunc</a></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
@@ -1168,7 +1146,7 @@
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.icursorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.icursorfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICursorFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1176,7 +1154,7 @@
 					<a name="url" class="tsd-anchor"></a>
 					<h3>url</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iurlproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IUrlProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">(</span>p<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iurlfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IUrlFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1195,7 +1173,7 @@
 									<h5>p: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.iidrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IIDRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iurlproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IUrlProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iurlfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IUrlFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1206,7 +1184,7 @@
 					<a name="matrix" class="tsd-anchor"></a>
 					<h3>matrix</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">matrix<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, tx<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, ty<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">matrix<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, tx<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, ty<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.imatrixfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IMatrixFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1214,7 +1192,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>matrix()</code> CSS function.</p>
+									<p>Returns an IMatrixFunc object representing the <code>matrix()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1238,7 +1216,7 @@
 									<h5>ty: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.imatrixfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IMatrixFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1246,7 +1224,7 @@
 					<a name="matrix3d" class="tsd-anchor"></a>
 					<h3>matrix3d</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">matrix3d<span class="tsd-signature-symbol">(</span>a1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">matrix3d<span class="tsd-signature-symbol">(</span>a1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, b4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, c4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, d4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.imatrix3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IMatrix3dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1254,7 +1232,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>matrix3d()</code> CSS function.</p>
+									<p>Returns an IMatrix3dFunc function representing the <code>matrix3d()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1308,7 +1286,7 @@
 									<h5>d4: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.imatrix3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IMatrix3dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1316,7 +1294,7 @@
 					<a name="perspective" class="tsd-anchor"></a>
 					<h3>perspective</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">perspective<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">perspective<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iperspectivefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPerspectiveFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1324,7 +1302,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>perspective()</code> CSS function.</p>
+									<p>Returns an IPerspectiveFunc function representing the <code>perspective()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1333,7 +1311,7 @@
 									<h5>d: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iperspectivefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IPerspectiveFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1341,7 +1319,7 @@
 					<a name="rotate" class="tsd-anchor"></a>
 					<h3>rotate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1349,7 +1327,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>rotate()</code> CSS function.</p>
+									<p>Returns an IRotateFunc function representing the <code>rotate()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1358,7 +1336,7 @@
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1366,7 +1344,7 @@
 					<a name="rotate3d" class="tsd-anchor"></a>
 					<h3>rotate3d</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">rotate3d<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, z<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">rotate3d<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, z<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irotate3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotate3dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1374,7 +1352,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>rotate3d()</code> CSS function.</p>
+									<p>Returns an IRotate3dFunc function representing the <code>rotate3d()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1392,7 +1370,7 @@
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irotate3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotate3dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1400,7 +1378,7 @@
 					<a name="rotatex" class="tsd-anchor"></a>
 					<h3>rotateX</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">rotateX<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">rotateX<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1417,7 +1395,7 @@
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1425,7 +1403,7 @@
 					<a name="rotatey" class="tsd-anchor"></a>
 					<h3>rotateY</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">rotateY<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">rotateY<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1442,7 +1420,7 @@
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1450,7 +1428,7 @@
 					<a name="rotatez" class="tsd-anchor"></a>
 					<h3>rotateZ</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">rotateZ<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">rotateZ<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1467,7 +1445,7 @@
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.irotatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRotateFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1475,7 +1453,7 @@
 					<a name="scale" class="tsd-anchor"></a>
 					<h3>scale</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>sx<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, sy<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>sx<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, sy<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iscalefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScaleFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1483,7 +1461,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>scale()</code> CSS function.</p>
+									<p>Returns an IScaleFunc function representing the <code>scale()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1495,7 +1473,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sy: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iscalefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScaleFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1503,7 +1481,7 @@
 					<a name="scale3d" class="tsd-anchor"></a>
 					<h3>scale3d</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">scale3d<span class="tsd-signature-symbol">(</span>sx<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, sy<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, sz<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">scale3d<span class="tsd-signature-symbol">(</span>sx<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, sy<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span>, sz<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iscale3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale3dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1511,7 +1489,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>scale3d()</code> CSS function.</p>
+									<p>Returns an IScale3dFunc function representing the <code>scale3d()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1526,7 +1504,7 @@
 									<h5>sz: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iscale3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale3dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1534,7 +1512,7 @@
 					<a name="scalex" class="tsd-anchor"></a>
 					<h3>scaleX</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">scaleX<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">scaleX<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iscale1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1542,7 +1520,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>scaleX()</code> CSS function.</p>
+									<p>Returns an IScale1dFunc function representing the <code>scaleX()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1551,7 +1529,7 @@
 									<h5>s: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iscale1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1559,7 +1537,7 @@
 					<a name="scaley" class="tsd-anchor"></a>
 					<h3>scaleY</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">scaleY<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">scaleY<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iscale1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1567,7 +1545,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>scaleY()</code> CSS function.</p>
+									<p>Returns an IScale1dFunc function representing the <code>scaleY()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1576,7 +1554,7 @@
 									<h5>s: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iscale1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1584,7 +1562,7 @@
 					<a name="scalez" class="tsd-anchor"></a>
 					<h3>scaleZ</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">scaleZ<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">scaleZ<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iscale1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1592,7 +1570,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>scaleZ()</code> CSS function.</p>
+									<p>Returns an IScale1dFunc function representing the <code>scaleZ()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1601,7 +1579,7 @@
 									<h5>s: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssnumber" class="tsd-signature-type" data-tsd-kind="Type alias">CssNumber</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iscale1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IScale1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1609,7 +1587,7 @@
 					<a name="skew" class="tsd-anchor"></a>
 					<h3>skew</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">skew<span class="tsd-signature-symbol">(</span>ax<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, ay<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">skew<span class="tsd-signature-symbol">(</span>ax<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, ay<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iskewfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ISkewFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1617,7 +1595,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>skew()</code> CSS function.</p>
+									<p>Returns an ISkewFunc function representing the <code>skew()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1629,7 +1607,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> ay: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iskewfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ISkewFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1637,7 +1615,7 @@
 					<a name="skewx" class="tsd-anchor"></a>
 					<h3>skewX</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">skewX<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">skewX<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iskew1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ISkew1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1645,7 +1623,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>skewX()</code> CSS function.</p>
+									<p>Returns an ISkew1dFunc function representing the <code>skewX()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1654,7 +1632,7 @@
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iskew1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ISkew1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1662,7 +1640,7 @@
 					<a name="skewy" class="tsd-anchor"></a>
 					<h3>skewY</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">skewY<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">skewY<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.iskew1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ISkew1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1670,7 +1648,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>skewY()</code> CSS function.</p>
+									<p>Returns an ISkew1dFunc function representing the <code>skewY()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1679,7 +1657,7 @@
 									<h5>a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.iskew1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ISkew1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1687,7 +1665,7 @@
 					<a name="translate" class="tsd-anchor"></a>
 					<h3>translate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itranslatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslateFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1695,7 +1673,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>translate()</code> CSS function.</p>
+									<p>Returns an ITranslateFunc function representing the <code>translate()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1707,7 +1685,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> y: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itranslatefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslateFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1715,7 +1693,7 @@
 					<a name="translate3d" class="tsd-anchor"></a>
 					<h3>translate3d</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">translate3d<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, z<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">translate3d<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, y<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span>, z<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itranslate3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate3dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1723,7 +1701,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>translate3d()</code> CSS function.</p>
+									<p>Returns an ITranslate3dFunc function representing the <code>translate3d()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1738,7 +1716,7 @@
 									<h5>z: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itranslate3dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate3dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1746,7 +1724,7 @@
 					<a name="translatex" class="tsd-anchor"></a>
 					<h3>translateX</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">translateX<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">translateX<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itranslate1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1754,7 +1732,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>translateX()</code> CSS function.</p>
+									<p>Returns an ITranslate1dFunc function representing the <code>translateX()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1763,7 +1741,7 @@
 									<h5>d: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itranslate1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1771,7 +1749,7 @@
 					<a name="translatey" class="tsd-anchor"></a>
 					<h3>translateY</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">translateY<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">translateY<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itranslate1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1779,7 +1757,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>translateY()</code> CSS function.</p>
+									<p>Returns an ITranslate1dFunc function representing the <code>translateY()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1788,7 +1766,7 @@
 									<h5>d: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itranslate1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1796,7 +1774,7 @@
 					<a name="translatez" class="tsd-anchor"></a>
 					<h3>translateZ</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">translateZ<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">translateZ<span class="tsd-signature-symbol">(</span>d<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itranslate1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate1dFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1804,7 +1782,7 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an ITransformProxy function representing the <code>translateZ()</code> CSS function.</p>
+									<p>Returns an ITranslate1dFunc function representing the <code>translateZ()</code> CSS function.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1813,7 +1791,7 @@
 									<h5>d: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csslength" class="tsd-signature-type" data-tsd-kind="Type alias">CssLength</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itransformproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITransformProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itranslate1dfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ITranslate1dFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1824,7 +1802,7 @@
 					<a name="cubicbezier" class="tsd-anchor"></a>
 					<h3>cubic<wbr>Bezier</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">cubic<wbr>Bezier<span class="tsd-signature-symbol">(</span>n1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, n2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, n3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, n4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itimingfunctionproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITimingFunctionProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">cubic<wbr>Bezier<span class="tsd-signature-symbol">(</span>n1<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, n2<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, n3<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, n4<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.icubicbezierfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICubicBezierFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1850,7 +1828,7 @@
 									<h5>n4: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itimingfunctionproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITimingFunctionProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.icubicbezierfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICubicBezierFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1858,7 +1836,7 @@
 					<a name="steps" class="tsd-anchor"></a>
 					<h3>steps</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">steps<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, jumpTerm<span class="tsd-signature-symbol">?: </span><a href="shapetypes.html#timingfunctionjumpterm" class="tsd-signature-type" data-tsd-kind="Type alias">TimingFunctionJumpTerm</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.itimingfunctionproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITimingFunctionProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">steps<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, j<span class="tsd-signature-symbol">?: </span><a href="shapetypes.html#timingfunctionjumpterm" class="tsd-signature-type" data-tsd-kind="Type alias">TimingFunctionJumpTerm</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/shapetypes.istepsfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IStepsFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1875,10 +1853,10 @@
 									<h5>n: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> jumpTerm: <a href="shapetypes.html#timingfunctionjumpterm" class="tsd-signature-type" data-tsd-kind="Type alias">TimingFunctionJumpTerm</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> j: <a href="shapetypes.html#timingfunctionjumpterm" class="tsd-signature-type" data-tsd-kind="Type alias">TimingFunctionJumpTerm</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.itimingfunctionproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ITimingFunctionProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/shapetypes.istepsfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IStepsFunc</a></h4>
 						</li>
 					</ul>
 				</section>

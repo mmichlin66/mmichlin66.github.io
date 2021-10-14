@@ -2,7 +2,7 @@ import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, Global_StyleTyp
 import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius } from "./NumericTypes";
 import { CssColor, CssNonNumericColor } from "./ColorTypes";
 import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
-import { IUrlProxy, BasicShape, CssImage, IMinMaxProxy, IRepeatProxy, ISpanProxy, IFilterProxy, ITransformProxy, IRayProxy, ITimingFunctionProxy, ICursorProxy, FillRule } from "./ShapeTypes";
+import { IUrlFunc, BasicShape, CssImage, IMinMaxFunc, IRepeatFunc, IGridSpanFunc, FilterFuncs, ICursorFunc, FillRule, IRayFunc, IStepsFunc, ICubicBezierFunc, TransformFuncs } from "./ShapeTypes";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule, IStyleDefinition, IStyleDefinitionClass, ICounterStyleRule } from "./RuleTypes";
 /**
  * Type for [[alignContent]] style property.
@@ -143,14 +143,14 @@ export declare type TimingFunctionKeyword = "linear" | "ease" | "ease-in" | "eas
  * Type for single animation timing function
  * @category Style Helper
  */
-export declare type TimingFunction = TimingFunctionKeyword | ITimingFunctionProxy;
+export declare type TimingFunction = TimingFunctionKeyword | IStepsFunc | ICubicBezierFunc;
 /**
- * Type for [[animationTimingFunction]] style property
+ * Type for [[animationTimingFunction]] and [[transitionTimingFunction]] style properties
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#animation-timing-function
  * @category Style Property
  */
-export declare type AnimationTimingFunction_StyleType = OneOrMany<Extended<TimingFunction>>;
+export declare type TimingFunction_StyleType = OneOrMany<Extended<TimingFunction>>;
 /**
  * Type for [[aspectRatio]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio
@@ -537,7 +537,7 @@ export declare type GeometryBoxKeyword = "margin-box" | "border-box" | "padding-
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#clip-pat
  * @category Style Property
  */
-export declare type ClipPath_StyleType = "none" | IUrlProxy | BasicShape | GeometryBoxKeyword | [
+export declare type ClipPath_StyleType = "none" | IUrlFunc | BasicShape | GeometryBoxKeyword | [
     GeometryBoxKeyword,
     BasicShape
 ];
@@ -623,7 +623,7 @@ export declare type Contain_StyleType = "none" | "strict" | "content" | "size" |
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#content
  * @category Style Property
  */
-export declare type Content_StyleType = string | "none" | "normal" | OneOrMany<Extended<CssImage | "open-quote" | "close-quote" | "no-open-quote" | "no-close-quote">>;
+export declare type Content_StyleType = string | "none" | "normal" | OneOrMany<Extended<CssImage | "open-quote" | "close-quote" | "no-open-quote" | "no-close-quote" | string>>;
 /**
  * Type for [[counterIncrement]], [[counterReset]] and [[counterSet]] style properties
  * @category Style Helper
@@ -640,7 +640,7 @@ export declare type CursorKeyword = "auto" | "default" | "none" | "context-menu"
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#cursor
  * @category Style Property
  */
-export declare type Cursor_StyleType = OneOrMany<Extended<CursorKeyword | IUrlProxy | ICursorProxy>>;
+export declare type Cursor_StyleType = OneOrMany<Extended<CursorKeyword | IUrlFunc | ICursorFunc>>;
 /**
  * Type for [[IStyleset.direction|direction]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/direction
@@ -675,7 +675,7 @@ export declare type EmptyCells_StyleType = "show" | "hide";
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#filter
  * @category Style Property
  */
-export declare type Filter_StyleType = OneOrMany<Extended<IUrlProxy | IFilterProxy>>;
+export declare type Filter_StyleType = OneOrMany<Extended<IUrlFunc | FilterFuncs>>;
 /**
  * Type for [[flex]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/flex
@@ -780,7 +780,7 @@ export declare type GridLineCountOrName = CssNumber | IGridAreaRule | IGridLineR
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#grid-column-start
  * @category Style Property
  */
-export declare type GridAxisSide_StyleType = "auto" | GridLineCountOrName | ISpanProxy | [
+export declare type GridAxisSide_StyleType = "auto" | GridLineCountOrName | IGridSpanFunc | [
     Extended<CssNumber>,
     IGridAreaRule | IGridLineRule
 ];
@@ -839,7 +839,7 @@ export declare type GridTrackLine = (IGridLineRule | Extended<string>)[];
  * Type for a single template element defining track size in grid template
  * @category Style Helper
  */
-export declare type GridTrackSize = CssLengthOrAuto | "min-content" | "max-content" | IFitContentProxy | IMinMaxProxy | IRepeatProxy;
+export declare type GridTrackSize = CssLengthOrAuto | "min-content" | "max-content" | IFitContentProxy | IMinMaxFunc | IRepeatFunc;
 /**
  * Type for [[hyphens]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens
@@ -943,7 +943,7 @@ export declare type ListStyle_StyleType = ListStyleType_StyleType | ListStylePos
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#list-style-image
  * @category Style Property
  */
-export declare type ListStyleImage_StyleType = "none" | IUrlProxy;
+export declare type ListStyleImage_StyleType = "none" | IUrlFunc;
 /**
  * Type for [[listStylePosition]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position
@@ -1026,7 +1026,7 @@ export declare type OffsetAnchor_StyleType = "auto" | CssPosition;
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#offset-path
  * @category Style Property
  */
-export declare type OffsetPath_StyleType = "none" | IRayProxy | IUrlProxy | BasicShape | GeometryBoxKeyword | [
+export declare type OffsetPath_StyleType = "none" | IRayFunc | IUrlFunc | BasicShape | GeometryBoxKeyword | [
     GeometryBoxKeyword,
     BasicShape
 ];
@@ -1247,7 +1247,7 @@ export declare type ScrollSnapType_StyleType = "none" | [
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#shape-outside
  * @category Style Property
  */
-export declare type ShapeOutside_StyleType = IUrlProxy | BasicShape | GeometryBoxKeyword | CssImage;
+export declare type ShapeOutside_StyleType = IUrlFunc | BasicShape | GeometryBoxKeyword | CssImage;
 /**
  * Type for the [[shapeRendering]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/shape-rendering
@@ -1473,7 +1473,7 @@ export declare type TouchAction_StyleType = "auto" | "none" | "manipulation" | "
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#transform
  * @category Style Property
  */
-export declare type Transform_StyleType = "none" | OneOrMany<Extended<ITransformProxy>>;
+export declare type Transform_StyleType = "none" | OneOrMany<Extended<TransformFuncs>>;
 /**
  * Type for [[transformBox]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-box
@@ -1528,13 +1528,6 @@ export declare type TransitionProperty = "none" | "all" | keyof IStyleset;
  * @category Style Property
  */
 export declare type TransitionProperty_StyleType = OneOrMany<Extended<TransitionProperty>>;
-/**
- * Type for [[transitionTimingFunction]] style property
- * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function
- * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#transition-timing-function
- * @category Style Property
- */
-export declare type TransitionTimingFunction_StyleType = OneOrMany<Extended<TimingFunction>>;
 /**
  * Type for the [[IStyleset.translate|translate]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/translate
@@ -1711,7 +1704,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#animation-timing-function
      */
-    animationTimingFunction?: AnimationTimingFunction_StyleType;
+    animationTimingFunction?: TimingFunction_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#appearance
@@ -3502,7 +3495,7 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#transition-timing-function
      */
-    transitionTimingFunction?: TransitionTimingFunction_StyleType;
+    transitionTimingFunction?: TimingFunction_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/translate
      * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#translate
