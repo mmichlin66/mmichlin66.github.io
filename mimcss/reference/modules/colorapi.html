@@ -78,6 +78,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#alpha" class="tsd-kind-icon">alpha</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#hsl" class="tsd-kind-icon">hsl</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#lab" class="tsd-kind-icon">lab</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#lch" class="tsd-kind-icon">lch</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#registercolor" class="tsd-kind-icon">register<wbr>Color</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#rgb" class="tsd-kind-icon">rgb</a></li>
 							</ul>
 						</section>
@@ -88,7 +91,7 @@
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="colors" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagLet">Let</span> Colors</h3>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> Colors</h3>
 					<div class="tsd-signature tsd-kind-icon">Colors<span class="tsd-signature-symbol">:</span> <a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 					</aside>
@@ -108,7 +111,7 @@
 					<a name="alpha" class="tsd-anchor"></a>
 					<h3>alpha</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">alpha<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a>, a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.icolorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">alpha<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a>, a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.ialphafunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IAlphaFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -154,7 +157,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.icolorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorProxy</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ialphafunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IAlphaFunc</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -162,7 +165,7 @@
 					<a name="hsl" class="tsd-anchor"></a>
 					<h3>hsl</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">hsl<span class="tsd-signature-symbol">(</span>h<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, l<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.icolorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">hsl<span class="tsd-signature-symbol">(</span>h<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, s<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span>, l<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.ihslfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHslFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -199,26 +202,152 @@
 									</div>
 								</li>
 								<li>
-									<h5>s: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>s: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Saturation component as a percentage value.</p>
 									</div>
 								</li>
 								<li>
-									<h5>l: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>l: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Lightness component as a percentage value.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional alpha mask as a percentage value.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.icolorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorProxy</a></h4>
-							<p>The IColorProxy function representing the invocation of the hsla CSS function</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ihslfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHslFunc</a></h4>
+							<p>The IHslFunc object representing the invocation of the <code>hsl()</code> CSS function</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="lab" class="tsd-anchor"></a>
+					<h3>lab</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">lab<span class="tsd-signature-symbol">(</span>l<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span>, da<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, db<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.ilabfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILabFunc</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the color specified as L<em>a</em>b* components and an optional alpha
+										mask to a CSS color representation. This method should be used when defining CSS color
+									values in styleset properties.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>l: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>CIE Lightness component</p>
+									</div>
+								</li>
+								<li>
+									<h5>da: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Distance along the a axis in the Lab colorspace</p>
+									</div>
+								</li>
+								<li>
+									<h5>db: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Distance along the b axis in the Lab colorspace</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional alpha mask as a percentage value.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ilabfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILabFunc</a></h4>
+							<p>The ILabFunc object representing the invocation of the <code>lab()</code> CSS function</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="lch" class="tsd-anchor"></a>
+					<h3>lch</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">lch<span class="tsd-signature-symbol">(</span>l<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span>, c<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, h<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.ilchfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILchFunc</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the color specified as lightness-chroma-hue components and an optional alpha
+										mask to a CSS color representation. This method should be used when defining CSS color
+									values in styleset properties.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>l: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>CIE Lightness component</p>
+									</div>
+								</li>
+								<li>
+									<h5>c: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Chroma component</p>
+									</div>
+								</li>
+								<li>
+									<h5>h: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#cssangle" class="tsd-signature-type" data-tsd-kind="Type alias">CssAngle</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Hue component as an angle value.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional alpha mask as a percentage value.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ilchfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILchFunc</a></h4>
+							<p>The ILchFunc object representing the invocation of the <code>lch()</code> CSS function</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="registercolor" class="tsd-anchor"></a>
+					<h3>register<wbr>Color</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Color<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers a new custom color or changes the name of the</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -226,7 +355,7 @@
 					<a name="rgb" class="tsd-anchor"></a>
 					<h3>rgb</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">rgb<span class="tsd-signature-symbol">(</span>r<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, g<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, b<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.icolorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">rgb<span class="tsd-signature-symbol">(</span>r<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolorseparation" class="tsd-signature-type" data-tsd-kind="Type alias">CssColorSeparation</a><span class="tsd-signature-symbol">&gt;</span>, g<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolorseparation" class="tsd-signature-type" data-tsd-kind="Type alias">CssColorSeparation</a><span class="tsd-signature-symbol">&gt;</span>, b<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolorseparation" class="tsd-signature-type" data-tsd-kind="Type alias">CssColorSeparation</a><span class="tsd-signature-symbol">&gt;</span>, a<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.irgbfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRgbFunc</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -256,32 +385,32 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>r: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>r: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolorseparation" class="tsd-signature-type" data-tsd-kind="Type alias">CssColorSeparation</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Red separation value.</p>
 									</div>
 								</li>
 								<li>
-									<h5>g: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>g: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolorseparation" class="tsd-signature-type" data-tsd-kind="Type alias">CssColorSeparation</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Green separation value.</p>
 									</div>
 								</li>
 								<li>
-									<h5>b: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>b: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolorseparation" class="tsd-signature-type" data-tsd-kind="Type alias">CssColorSeparation</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Blue separation value.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional alpha mask as a percentage value.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.icolorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorProxy</a></h4>
-							<p>The IColorProxy function representing the invocation of the hsla CSS function</p>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.irgbfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRgbFunc</a></h4>
+							<p>The IRgbFunc object representing the invocation of the <code>rgb()</code> CSS function</p>
 						</li>
 					</ul>
 				</section>
@@ -356,6 +485,15 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="colorapi.html#hsl" class="tsd-kind-icon">hsl</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="colorapi.html#lab" class="tsd-kind-icon">lab</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="colorapi.html#lch" class="tsd-kind-icon">lch</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="colorapi.html#registercolor" class="tsd-kind-icon">register<wbr>Color</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="colorapi.html#rgb" class="tsd-kind-icon">rgb</a>

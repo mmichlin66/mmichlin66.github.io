@@ -1,13 +1,20 @@
 import { Extended } from "./CoreTypes";
-import { CssAngle } from "./NumericTypes";
-import { IColorProxy, INamedColors } from "./ColorTypes";
+import { CssAngle, CssPercent } from "./NumericTypes";
+import { CssColorSeparation, IAlphaFunc, IHslFunc, ILabFunc, ILchFunc, INamedColors, IRgbFunc } from "./ColorTypes";
 /**
  * Object whose property names are the well-known Web color names while values correspond to the
  * hexadecimal representation of the RGB separations (without an alpha mask). The properties of
  * this object can be used wherever the [[CssColor]] type can be used. Since the properties are
  * of the `number` type, they can be used for manipulating the color value.
 */
-export declare let Colors: INamedColors;
+export declare const Colors: INamedColors;
+/**
+ * Registers a new custom color or changes the name of the
+ * @param name
+ * @param value
+ * @returns
+ */
+export declare function registerColor(name: keyof INamedColors, value: number): boolean;
 /**
  * Converts the color specified as red, green, blue separation values and an optional alpha
  * mask to a CSS color representation. Each color separation can be represented as a number with
@@ -28,9 +35,9 @@ export declare let Colors: INamedColors;
  * @param g Green separation value.
  * @param b Blue separation value.
  * @param a Optional alpha mask as a percentage value.
- * @return The IColorProxy function representing the invocation of the hsla CSS function
+ * @return The IRgbFunc object representing the invocation of the `rgb()` CSS function
  */
-export declare function rgb(r: Extended<number>, g: Extended<number>, b: Extended<number>, a?: Extended<number>): IColorProxy;
+export declare function rgb(r: Extended<CssColorSeparation>, g: Extended<CssColorSeparation>, b: Extended<CssColorSeparation>, a?: Extended<CssPercent>): IRgbFunc;
 /**
  * Converts the color specified as hue-saturation-lightness components and an optional alpha
  * mask to a CSS color representation. This method should be used when defining CSS color
@@ -54,9 +61,33 @@ export declare function rgb(r: Extended<number>, g: Extended<number>, b: Extende
  * @param s Saturation component as a percentage value.
  * @param l Lightness component as a percentage value.
  * @param a Optional alpha mask as a percentage value.
- * @return The IColorProxy function representing the invocation of the hsla CSS function
+ * @return The IHslFunc object representing the invocation of the `hsl()` CSS function
  */
-export declare function hsl(h: Extended<CssAngle>, s: Extended<number>, l: Extended<number>, a?: Extended<number>): IColorProxy;
+export declare function hsl(h: Extended<CssAngle>, s: Extended<CssPercent>, l: Extended<CssPercent>, a?: Extended<CssPercent>): IHslFunc;
+/**
+ * Converts the color specified as L*a*b* components and an optional alpha
+ * mask to a CSS color representation. This method should be used when defining CSS color
+ * values in styleset properties.
+ *
+ * @param l CIE Lightness component
+ * @param da Distance along the a axis in the Lab colorspace
+ * @param db Distance along the b axis in the Lab colorspace
+ * @param a Optional alpha mask as a percentage value.
+ * @returns The ILabFunc object representing the invocation of the `lab()` CSS function
+ */
+export declare function lab(l: Extended<CssPercent>, da: Extended<number>, db: Extended<number>, a?: Extended<CssPercent>): ILabFunc;
+/**
+ * Converts the color specified as lightness-chroma-hue components and an optional alpha
+ * mask to a CSS color representation. This method should be used when defining CSS color
+ * values in styleset properties.
+ *
+ * @param l CIE Lightness component
+ * @param c Chroma component
+ * @param h Hue component as an angle value.
+ * @param a Optional alpha mask as a percentage value.
+ * @returns The ILchFunc object representing the invocation of the `lch()` CSS function
+ */
+export declare function lch(l: Extended<CssPercent>, c: Extended<number>, h: Extended<CssAngle>, a?: Extended<CssPercent>): ILchFunc;
 /**
  * Converts the given color and the alpha mask to the CSS Color representation. This
  * method should be used when defining CSS color values in styleset properties.
@@ -84,5 +115,5 @@ export declare function hsl(h: Extended<CssAngle>, s: Extended<number>, l: Exten
  * @param c Color value as either a number or a named color
  * @param a Alpha channel value
  */
-export declare function alpha(c: number | keyof INamedColors, a: number): IColorProxy;
+export declare function alpha(c: number | keyof INamedColors, a: number): IAlphaFunc;
 //# sourceMappingURL=ColorAPI.d.ts.map

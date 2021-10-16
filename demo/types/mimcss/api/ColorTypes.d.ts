@@ -1,4 +1,5 @@
-import { IGenericProxy } from "./CoreTypes";
+import { Extended, ICssFuncObject } from "./CoreTypes";
+import { CssAngle, CssPercent } from "./NumericTypes";
 /**
  * The `INamedColors` interface lists the names of standard Web colors. It is needed to allow developers
  * to add new named colors through module augmentation technique. This interface is implemented by the
@@ -155,16 +156,69 @@ export interface INamedColors {
     readonly rebeccapurple: number;
 }
 /**
- * The `IColorProxy` interface represents an invocation of one of CSS functions that are used for
- * specifying colors. This interface is returned from functions like: [[rgb]], [[alpha]], etc.
- */
-export interface IColorProxy extends IGenericProxy<"color"> {
-}
-/**
  * The `SystemColors` type defines keywords for system colors that are used in forced-color mode
  * (but can be also used in the regular mode).
  */
 export declare type SystemColors = "ActiveText" | "ButtonFace" | "ButtonText" | "Canvas" | "CanvasText" | "Field" | "FieldText" | "GrayText" | "Highlight" | "HighlightText" | "LinkText" | "VisitedText";
+/**
+ * Represents a single color separation in the `rgb()` CSS function. It can be expressed as either
+ * a number or a string. Strings are interprested as is and can be used to specify percentage
+ * values. Numbers less than 1 are multiplied by 100 and interpreted as percents.
+ */
+export declare type CssColorSeparation = number | string | CssPercent;
+/**
+ * Represents an invocation of the CSS `rgb()/rgba()` function. This interface is returned from the
+ * [[rgb]] function. Developers can use this structure wherever CssColor is accepted.
+ */
+export interface IRgbFunc extends ICssFuncObject {
+    fn: "rgb";
+    r: Extended<CssColorSeparation>;
+    g: Extended<CssColorSeparation>;
+    b: Extended<CssColorSeparation>;
+    a?: Extended<CssPercent>;
+}
+/**
+ * Represents an invocation of the CSS `hsl()/hsla()` function. This interface is returned from the
+ * [[hsl]] function. Developers can use this structure wherever CssColor is accepted.
+ */
+export interface IHslFunc extends ICssFuncObject {
+    fn: "hsl";
+    h: Extended<CssAngle>;
+    s: Extended<CssPercent>;
+    l: Extended<CssPercent>;
+    a?: Extended<CssPercent>;
+}
+/**
+ * Represents an invocation of the CSS `lch()` function. This interface is returned from the
+ * [[lch]] function. Developers can use this structure wherever CssColor is accepted.
+ */
+export interface ILchFunc extends ICssFuncObject {
+    fn: "lch";
+    l: Extended<CssPercent>;
+    c: Extended<number>;
+    h: Extended<CssAngle>;
+    a?: Extended<CssPercent>;
+}
+/**
+ * Represents an invocation of the CSS `lab()` function. This interface is returned from the
+ * [[lab]] function. Developers can use this structure wherever CssColor is accepted.
+ */
+export interface ILabFunc extends ICssFuncObject {
+    fn: "lab";
+    l: Extended<CssPercent>;
+    da: Extended<number>;
+    db: Extended<number>;
+    a?: Extended<CssPercent>;
+}
+/**
+ * Represents an invocation of the [[alpha]] function. Developers can use this structure wherever
+ * CssColor is accepted.
+ */
+export interface IAlphaFunc extends ICssFuncObject {
+    fn: "alpha";
+    c: number | keyof INamedColors;
+    a: number;
+}
 /**
  * Type for CSS color. Color can be represented using the following types:
  * - keywords: any string that is a name of a property in the [[INamedColors]] interface or of the
@@ -211,7 +265,7 @@ export declare type SystemColors = "ActiveText" | "ButtonFace" | "ButtonText" | 
  * }
  * ```
  */
-export declare type CssColor = "transparent" | "currentcolor" | keyof INamedColors | number | IColorProxy | SystemColors;
+export declare type CssColor = number | keyof INamedColors | "transparent" | "currentcolor" | SystemColors | IRgbFunc | IHslFunc | ILchFunc | ILabFunc | IAlphaFunc;
 /**
  * Type for CSS color that exclude numeric color representation. Color can be represented using
  * the following types:
