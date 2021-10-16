@@ -36,7 +36,7 @@ export declare type AlignmentBaseline_StyleType = "auto" | "baseline" | "before-
  * Type for single animation. Used by [[Animation_StyleType]].
  * @category Style Helper
  */
-export declare type Animation_Single = {
+export declare type Animation_Single = string | {
     name?: Extended<AnimationName>;
     duration?: Extended<CssTime>;
     func?: Extended<TimingFunction>;
