@@ -1,15 +1,15 @@
-import { IStringProxy, OneOrMany, OneOrPair } from "./CoreTypes";
+import { IRawProxy, OneOrMany, OneOrPair } from "./CoreTypes";
 import { ICounterStyleRule } from "./RuleTypes";
 import { CssImage } from "./ShapeTypes";
 import { ListStyleType_StyleType } from "./StyleTypes";
 /**
- * Type that extends the given type with the [[IStringProxy]] interface that allows specifying raw string value.
+ * Type that extends the given type with the [[IRawProxy]] interface that allows specifying raw string value.
  */
-export declare type CounterExtended<T> = T | IStringProxy;
+export declare type CounterExtended<T> = T | IRawProxy;
 /**
  * Type for specifying counter [[system]] property.
  */
-export declare type System_CounterType = "cyclic" | "numeric" | "alphabetic" | "symbolic" | "additive" | "fixed" | number | [ListStyleType_StyleType | IStringProxy];
+export declare type System_CounterType = "cyclic" | "numeric" | "alphabetic" | "symbolic" | "additive" | "fixed" | number | [ListStyleType_StyleType | IRawProxy];
 /**
  * Type for specifying counter[[negative]] property.
  */
@@ -92,7 +92,7 @@ export interface ICounterStyleset {
 /**
  * The ExtendedCounterStyleset type maps all `@counter-style` properties defined in the [[ICounterStyleset]]
  * interface to the "extended" versions of their types. These extended types are defined using the
- * [[CounterExtended]] generic type, which adds [[IStringProxy]] to the type that is defined in the
+ * [[CounterExtended]] generic type, which adds [[IRawProxy]] to the type that is defined in the
  * IBaseCounterStyleset interface.
  */
 export declare type ExtendedCounterStyleset = {

@@ -1,9 +1,9 @@
-import { Extended, IStringProxy } from "./CoreTypes";
+import { Extended } from "./CoreTypes";
 import { CssAngle, CssLength, CssNumber, CssPercent, CssPoint } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
-import { CrossFadeParam, GradientStopOrHint, ShapeRadius, IImageProxy, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, IUrlFunc, TimingFunctionJumpTerm, ICursorFunc, ExtentKeyword, AttrTypeKeyword, AttrUnitKeyword, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IStepsFunc, ICubicBezierFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder } from "./ShapeTypes";
-import { ICounterRule, IIDRule } from "./RuleTypes";
-import { GridLineCountOrName, GridTrack, GridTrackSize, ListStyleType_StyleType } from "./StyleTypes";
+import { CrossFadeParam, GradientStopOrHint, ShapeRadius, IImageProxy, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, IUrlFunc, TimingFunctionJumpTerm, ICursorFunc, ExtentKeyword, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IStepsFunc, ICubicBezierFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder } from "./ShapeTypes";
+import { IIDRule } from "./RuleTypes";
+import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
 /**
  * Function returning the ILinearGradientBuilder interface representing the `linear-gradient` CSS functions.
  *
@@ -521,20 +521,6 @@ export declare function repeat(count: Extended<CssNumber> | "auto-fill" | "auto-
  */
 export declare function span(p1: Extended<GridLineCountOrName>, p2?: Extended<GridLineCountOrName>): IGridSpanFunc;
 /**
- * Returns a representation of the CSS `counter()` function with additional optional strings
- * added after and/or before the counter.
- *
- * @category Counter
- */
-export declare function counter(counterObj: Extended<ICounterRule | string>, style?: Extended<ListStyleType_StyleType>): IStringProxy;
-/**
- * Returns a representation of the CSS `counters()` function with the given separator string
- * and additional optional strings added after and/or before the counter.
- *
- * @category Counter
- */
-export declare function counters(counterObj: Extended<ICounterRule | string>, sep: Extended<string>, style?: Extended<ListStyleType_StyleType>): IStringProxy;
-/**
  * Returns a function representing the CSS `url()` function. The string parameter
  * will be wrapped in a `url()` invocation. The function can also accept the IIDRule object to
  * create url(#element) invocation, which is often used to address SVG elements by their IDs.
@@ -555,15 +541,6 @@ export declare function cursor(p: Extended<string | IIDRule>): ICursorFunc;
  * @category Miscellaneous
  */
 export declare function cursor(p: Extended<string | IIDRule>, x: number, y: number): ICursorFunc;
-/**
- * Returns a function representing the `attr()` CSS function. It returns IStringProxy
- * and theoretically can be used in any style property; however, its use by browsers is currently
- * limited to the `content` property. Also no browser currently support type, units or fallback
- * values.
- *
- * @category Miscellaneous
- */
-export declare function attr(attrName: Extended<string>, typeOrUnit?: Extended<AttrTypeKeyword | AttrUnitKeyword>, fallback?: Extended<string>): IStringProxy;
 /**
  * Returns a function representing an invocation of the CSS `steps()` function.
  *

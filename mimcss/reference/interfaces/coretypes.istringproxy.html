@@ -90,42 +90,9 @@
 						</aside>
 						<div class="tsd-comment tsd-typography">
 							<div class="lead">
-								<p>The <code>IStringProxy</code> interface represents a function that returns a string. This function is part
-									of type definition for all CSS properties - even for those that don&#39;t have <code>string</code> as part of
-								their type.</p>
+								<p>Represents a callable interface that is returned by functions that can be used in string
+								context, such as <a href="../modules/styleapi.html#attr">attr</a> and <a href="../modules/styleapi.html#counter">counter</a>.</p>
 							</div>
-							<p>All CSS properties should accept string as the type of their value even if normally
-								they accept other types (e.g a set of string literals as <code>&quot;red&quot; | &quot;green&quot; | ...</code> for the
-								color) property. This is because in addition to their normal values any property
-								can use custom CSS property in the form <code>var(--propname)</code>. However, if we add string type
-								to the set of string literals (e.g. <code>&quot;red&quot; | &quot;green&quot; | string</code>), this throws off the
-								Intellisense and it doesn&#39;t prompt developers for the possible values. The <code>IStringProxy</code>
-							interface is used instead of string and this solves the Intellisense issue.</p>
-							<p>This function is returned from the <a href="../modules/coreapi.html#raw">raw</a> function, which allows by-passing the property
-								typing rules and specifying a string directly. This might be useful, when a string value is
-							obtained from some external calculations.</p>
-							<p>Developers can create their own functions that return this callable interface and then invoke
-								these functions to assign values to style properties. Just make sure that the returned string
-								is the correct CSS string. Mimcss will use the string returned from custom functions without
-								checking its correctness. If the string is invalid for the property it is assigned to, the
-							resulting CSS rule will not have that property.</p>
-							<p><strong>Example</strong></p>
-							<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// using `raw` function</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">border:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #A31515">.</span><span style="color: #795E26">raw</span><span style="color: #A31515">`1px solid brown`</span><span style="color: #000000"> })</span>
-
-<span style="color: #000000">    </span><span style="color: #008000">// using custom function</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ clip-</span><span style="color: #001080">path:</span><span style="color: #000000"> </span><span style="color: #795E26">randomCircle</span><span style="color: #000000">()})</span>
-<span style="color: #000000">}</span>
-
-<span style="color: #008000">// create CSS circle function with random radius between 30 and 50 pixels</span>
-<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">randomCircle</span><span style="color: #000000">(): </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">IStringProxy</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// returns a function that returns a string</span>
-<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #A31515">`circle(</span><span style="color: #0000FF">${</span><span style="color: #267F99">Math</span><span style="color: #000000FF">.</span><span style="color: #795E26">floor</span><span style="color: #000000FF">(</span><span style="color: #267F99">Math</span><span style="color: #000000FF">.</span><span style="color: #795E26">random</span><span style="color: #000000FF">() </span><span style="color: #000000">*</span><span style="color: #000000FF"> </span><span style="color: #098658">21</span><span style="color: #000000FF">) </span><span style="color: #000000">+</span><span style="color: #000000FF"> </span><span style="color: #098658">30</span><span style="color: #0000FF">}</span><span style="color: #A31515">)`</span><span style="color: #000000">;</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
@@ -224,6 +191,9 @@
 						<a href="coretypes.iparameterizedpseudoentity.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="coretypes.irawproxy.html" class="tsd-kind-icon">IRaw<wbr>Proxy</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="coretypes.irulewithselector.html" class="tsd-kind-icon">IRule<wbr>With<wbr>Selector</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
@@ -238,6 +208,9 @@
 				<ul class="after-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/coretypes.html#cssselector" class="tsd-kind-icon">Css<wbr>Selector</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/coretypes.html#cssstring" class="tsd-kind-icon">Css<wbr>String</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="../modules/coretypes.html#dependentrulecombinator" class="tsd-kind-icon">Dependent<wbr>Rule<wbr>Combinator</a>

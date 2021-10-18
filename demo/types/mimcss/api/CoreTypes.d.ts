@@ -11,10 +11,9 @@ export declare type Global_StyleType = "inherit" | "initial" | "unset" | "revert
  * (e.g. `filter`).
  *
  * Developers don't implement this interface directly; instead, the interfaces derived from this
- * interface are implemented by different Mimcss functions. For example, [[IStringProxy]] interface
- * is implemented by the [[raw]] function, [[ITransformProxy]] interface is implemented by the
- * [[scale]], [[translate]] and other functions, [[IFilterProxy]] interface is implemented by
- * [[opacity]], [[contrast]] and other functions, and so on.
+ * interface are implemented by different Mimcss functions. For example, [[IRawProxy]] interface
+ * is implemented by the [[raw]] function, [[IStringProxy]] interface is implemented by the
+ * [[attr]], [[counter]] and [[counters]] functions, and so on.
  *
  * @typeParam T String constant that is used to differentiate between proxies used for different
  * purposes. The parameter `p` of this callable interface is of type T but it is not used
@@ -32,21 +31,22 @@ export interface ICssFuncObject {
     fn: string;
 }
 /**
- * The `IStringProxy` interface represents a function that returns a string. This function is part
- * of type definition for all CSS properties - even for those that don't have `string` as part of
- * their type.
+ * The `IRawProxy` interface represents a function that returns a string, which is ready to be
+ * used in CSS rules. This function is part of type definition for all CSS properties - even for
+ * those that don't have `string` as part of their type.
  *
  * All CSS properties should accept string as the type of their value even if normally
  * they accept other types (e.g a set of string literals as `"red" | "green" | ...` for the
  * color) property. This is because in addition to their normal values any property
  * can use custom CSS property in the form `var(--propname)`. However, if we add string type
  * to the set of string literals (e.g. `"red" | "green" | string`), this throws off the
- * Intellisense and it doesn't prompt developers for the possible values. The `IStringProxy`
+ * Intellisense and it doesn't prompt developers for the possible values. The `IRawProxy`
  * interface is used instead of string and this solves the Intellisense issue.
  *
- * This function is returned from the [[raw]] function, which allows by-passing the property
- * typing rules and specifying a string directly. This might be useful, when a string value is
- * obtained from some external calculations.
+ * In addition, sometimes it can be easier for the developers to specify an already pre-formatted
+ * CSS string as property value - maybe because it is obtained from some external source. The
+ * `IRawProxy` callabcle interface is returned from the [[raw]] function, which allows by-passing
+ * the property typing rules and specifying a string directly.
  *
  * Developers can create their own functions that return this callable interface and then invoke
  * these functions to assign values to style properties. Just make sure that the returned string
@@ -66,15 +66,26 @@ export interface ICssFuncObject {
  * }
  *
  * // create CSS circle function with random radius between 30 and 50 pixels
- * function randomCircle(): css.IStringProxy
+ * function randomCircle(): css.IRawProxy
  * {
  *     // returns a function that returns a string
  *     return () => `circle(${Math.floor(Math.random() * 21) + 30})`;
  * }
  * ```
  */
+export interface IRawProxy extends IGenericProxy<"raw"> {
+}
+/**
+ * Represents a callable interface that is returned by functions that can be used in string
+ * context, such as [[attr]] and [[counter]].
+ */
 export interface IStringProxy extends IGenericProxy<"string"> {
 }
+/**
+ * Represents the `<string>` CSS type, which is either a quated string or functions that can be
+ * used in string context, such as `attr()` and `counter()`
+ */
+export declare type CssString = string | IStringProxy;
 /**
  * The `ICustomVar` interface represents a custom property with values of the given type. Every
  * style property can accept a custom CSS property value in the form of the `var()` CSS
@@ -118,12 +129,12 @@ export interface IConstant<T = any> {
  * Type that extends the given type with the following types:
  * - [[ICustomVar]] interface that allows using a CSS custom property rule value.
  * - [[IConstant]] interface that allows using a constant rule value.
- * - [[IStringProxy]] interface that allows specifying a function that returns a raw string value.
+ * - [[IRawProxy]] interface that allows specifying a function that returns a raw string value.
  *
  * Developers don't usually use this type directly - it is used by Mimcss to define style property
  * types as well as function parameter types.
  */
-export declare type Extended<T> = T | ICustomVar<T> | IConstant<T> | IStringProxy | null | undefined;
+export declare type Extended<T> = T | ICustomVar<T> | IConstant<T> | IRawProxy | null | undefined;
 /**
  * Type that encapsulates the type of property in an object with a single "!" property. This
  * type is used to indicate that the property value must be flagged as "!important".
@@ -141,13 +152,13 @@ export declare type Extended<T> = T | ICustomVar<T> | IConstant<T> | IStringProx
  * ```
  */
 export declare type ImportantProp<T> = {
-    "!": ExtendedProp<T>;
+    "!": Extended<T> | Global_StyleType;
 };
 /**
  * The ExtendedProp extends the given generic type with the following elements:
  * - [[ICustomVar]] interface that allows using a CSS custom property rule value.
  * - [[IConstant]] interface that allows using a constant rule value.
- * - [[IStringProxy]] interface that allows specifying raw string value.
+ * - [[IRawProxy]] interface that allows specifying raw string value.
  * - Object with a single property "!", which is used to mark a property as "!important".
  * - [[Global_StyleType]], which allows any property to be assigned the global values such as
  *   "initial", "inherit", "unset" and "revert".
@@ -369,7 +380,7 @@ export declare type PseudoEntity = PseudoClass | PseudoElement;
  * }
  * ```
  */
-export declare type NthChildExpression = "odd" | "even" | number | [number, number?] | string | IStringProxy;
+export declare type NthChildExpression = "odd" | "even" | number | [number, number?] | string | IRawProxy;
 /**
  * The `IParameterizedPseudoClass` interface maps names of pseudo classes that require parameters
  * to the types that are used to specify these parameters. When a parameterized pseudo class is
@@ -408,7 +419,7 @@ export interface IParameterizedPseudoEntity extends IParameterizedPseudoClass, I
 /**
  * Type for a single selector token that can be used as an argument to the [[selector]] function
  */
-export declare type SelectorItem = string | SelectorCombinator | IRuleWithSelector | IStringProxy | ISelectorProxy;
+export declare type SelectorItem = string | SelectorCombinator | IRuleWithSelector | IRawProxy | ISelectorProxy;
 /**
  * Type for a CSS selector. This type is used to produce arbitrary complex selectors used by the
  * [[$style]] function.

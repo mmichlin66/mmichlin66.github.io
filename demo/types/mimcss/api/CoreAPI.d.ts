@@ -1,4 +1,4 @@
-import { IStringProxy, SelectorItem, ISelectorProxy } from "./CoreTypes";
+import { SelectorItem, ISelectorProxy, IRawProxy } from "./CoreTypes";
 /**
  * Returns a string representation of a selector. This function is a tag function and must be
  * invoked with the template string without parentheses. This function can be used wherever the
@@ -39,5 +39,5 @@ export declare function selector(parts: TemplateStringsArray, ...params: Selecto
  * }
  * ```
  */
-export declare function raw(parts: TemplateStringsArray, ...params: any[]): IStringProxy;
+export declare function raw(parts: TemplateStringsArray, ...params: any[]): IRawProxy;
 //# sourceMappingURL=CoreAPI.d.ts.map

@@ -1,9 +1,17 @@
-import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, Global_StyleType } from "./CoreTypes";
-import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius } from "./NumericTypes";
+import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, Global_StyleType, CssString } from "./CoreTypes";
+import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius, AngleUnits, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits } from "./NumericTypes";
 import { CssColor, CssNonNumericColor } from "./ColorTypes";
-import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
+import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStretchKeyword, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
 import { IUrlFunc, BasicShape, CssImage, IMinMaxFunc, IRepeatFunc, IGridSpanFunc, FilterFuncs, ICursorFunc, FillRule, IRayFunc, IStepsFunc, ICubicBezierFunc, TransformFuncs } from "./ShapeTypes";
 import { IVarRule, IAnimationRule, ICounterRule, IIDRule, IGridLineRule, IGridAreaRule, IStyleDefinition, IStyleDefinitionClass, ICounterStyleRule } from "./RuleTypes";
+/**
+ * Type representing keywords used to define a type used in the CSS `attr()` function.
+ */
+export declare type AttrTypeKeyword = "string" | "color" | "url" | "integer" | "number" | "length" | "angle" | "time" | "frequency";
+/**
+ * Type representing keywords used to define a unit used in the CSS `attr()` function.
+ */
+export declare type AttrUnitKeyword = PercentUnits | LengthUnits | TimeUnits | AngleUnits | ResolutionUnits | FrequencyUnits;
 /**
  * Type for [[alignContent]] style property.
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
@@ -623,7 +631,14 @@ export declare type Contain_StyleType = "none" | "strict" | "content" | "size" |
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#content
  * @category Style Property
  */
-export declare type Content_StyleType = string | "none" | "normal" | OneOrMany<Extended<CssImage | "open-quote" | "close-quote" | "no-open-quote" | "no-close-quote" | string>>;
+export declare type ContentItem = "open-quote" | "close-quote" | "no-open-quote" | "no-close-quote" | CssString | CssImage;
+/**
+ * Type for [[content]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/content
+ * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#content
+ * @category Style Property
+ */
+export declare type Content_StyleType = string | "none" | "normal" | OneOrMany<Extended<ContentItem>>;
 /**
  * Type for [[counterIncrement]], [[counterReset]] and [[counterSet]] style properties
  * @category Style Helper
@@ -731,13 +746,13 @@ export declare type Float_StyleType = "left" | "right" | "none" | "inline-start"
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#font
  * @category Style Property
  */
-export declare type Font_StyleType = SystemFont | {
-    size: Extended<CssLength>;
+export declare type Font_StyleType = SystemFont | [string, CssLength] | [CssLength, string] | {
     family: Extended<string>;
+    size: Extended<CssLength>;
     style?: Extended<FontStyle>;
     variant?: Extended<string>;
     weight?: Extended<FontWeight_StyleType>;
-    stretch?: Extended<FontStretch>;
+    stretch?: Extended<FontStretchKeyword>;
     lineHeight?: Extended<CssNumber>;
 };
 /**
@@ -1155,7 +1170,7 @@ export declare type Position_StyleType = "static" | "relative" | "absolute" | "s
  * - Mimcss usage: https://mmichlin66.github.io/mimcss/ref/style-properties.html#quotes
  * @category Style Property
  */
-export declare type Quotes_StyleType = "none" | "auto" | Extended<string>[];
+export declare type Quotes_StyleType = "none" | "auto" | OneOrMany<[Extended<CssString>, Extended<CssString>]>;
 /**
  * Type for the [[resize]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/resize

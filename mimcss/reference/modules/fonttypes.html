@@ -87,6 +87,7 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="fonttypes.html#fontsrcformat" class="tsd-kind-icon">Font<wbr>Src<wbr>Format</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="fonttypes.html#fontsrc_fontfacetype" class="tsd-kind-icon">Font<wbr>Src_<wbr><wbr>Font<wbr>Face<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="fonttypes.html#fontstretch" class="tsd-kind-icon">Font<wbr>Stretch</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="fonttypes.html#fontstretchkeyword" class="tsd-kind-icon">Font<wbr>Stretch<wbr>Keyword</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="fonttypes.html#fontstretch_fontfacetype" class="tsd-kind-icon">Font<wbr>Stretch_<wbr><wbr>Font<wbr>Face<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="fonttypes.html#fontstyle" class="tsd-kind-icon">Font<wbr>Style</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="fonttypes.html#fontstyle_fontfacetype" class="tsd-kind-icon">Font<wbr>Style_<wbr><wbr>Font<wbr>Face<wbr>Type</a></li>
@@ -113,7 +114,7 @@
 						<div class="lead">
 							<p>The <code>ExtendedFontFace</code> type maps all @font-face properties defined in the <a href="../interfaces/fonttypes.ifontface.html">IFontFace</a>
 								interface to the &quot;extended&quot; versions of their types. These extended types are defined using the
-								<a href="fonttypes.html#fontfaceextended">FontFaceExtended</a> generic type, which adds <a href="../interfaces/coretypes.istringproxy.html">IStringProxy</a> to the type
+								<a href="fonttypes.html#fontfaceextended">FontFaceExtended</a> generic type, which adds <a href="../interfaces/coretypes.irawproxy.html">IRawProxy</a> to the type
 							that is defined in the <a href="../interfaces/fonttypes.ifontface.html">IFontFace</a> interface.</p>
 						</div>
 					</div>
@@ -133,12 +134,12 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="fontfaceextended" class="tsd-anchor"></a>
 					<h3>Font<wbr>Face<wbr>Extended</h3>
-					<div class="tsd-signature tsd-kind-icon">Font<wbr>Face<wbr>Extended&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></div>
+					<div class="tsd-signature tsd-kind-icon">Font<wbr>Face<wbr>Extended&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/coretypes.irawproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IRawProxy</a></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type that extends the given type with the <a href="../interfaces/coretypes.istringproxy.html">IStringProxy</a> interface that allows specifying raw string value.</p>
+							<p>Type that extends the given type with the <a href="../interfaces/coretypes.irawproxy.html">IRawProxy</a> interface that allows specifying raw string value.</p>
 						</div>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -235,12 +236,24 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="fontstretch" class="tsd-anchor"></a>
 					<h3>Font<wbr>Stretch</h3>
-					<div class="tsd-signature tsd-kind-icon">Font<wbr>Stretch<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;normal&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;ultra-condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;extra-condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;semi-condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;semi-expanded&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;expanded&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;extra-expanded&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;ultra-expanded&quot;</span><span class="tsd-signature-symbol"> | </span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a></div>
+					<div class="tsd-signature tsd-kind-icon">Font<wbr>Stretch<span class="tsd-signature-symbol">:</span> <a href="fonttypes.html#fontstretchkeyword" class="tsd-signature-type" data-tsd-kind="Type alias">FontStretchKeyword</a><span class="tsd-signature-symbol"> | </span><a href="numerictypes.html#csspercent" class="tsd-signature-type" data-tsd-kind="Type alias">CssPercent</a></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Type for specfying <a href="../interfaces/styletypes.istyleset.html#fontstretch">IStyleset.fontStretch</a> properties.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="fontstretchkeyword" class="tsd-anchor"></a>
+					<h3>Font<wbr>Stretch<wbr>Keyword</h3>
+					<div class="tsd-signature tsd-kind-icon">Font<wbr>Stretch<wbr>Keyword<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;normal&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;ultra-condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;extra-condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;semi-condensed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;semi-expanded&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;expanded&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;extra-expanded&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;ultra-expanded&quot;</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type for specfying keywords <a href="../interfaces/styletypes.istyleset.html#fontstretch">IStyleset.fontStretch</a> properties.</p>
 						</div>
 					</div>
 				</section>
@@ -450,6 +463,9 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="fonttypes.html#fontstretch" class="tsd-kind-icon">Font<wbr>Stretch</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="fonttypes.html#fontstretchkeyword" class="tsd-kind-icon">Font<wbr>Stretch<wbr>Keyword</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="fonttypes.html#fontstretch_fontfacetype" class="tsd-kind-icon">Font<wbr>Stretch_<wbr><wbr>Font<wbr>Face<wbr>Type</a>

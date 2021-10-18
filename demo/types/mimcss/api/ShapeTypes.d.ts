@@ -1,5 +1,5 @@
 import { Extended, ICssFuncObject, IGenericProxy } from "./CoreTypes";
-import { AngleUnits, BorderRadius, CssAngle, CssLength, CssNumber, CssPercent, CssPoint, CssPosition, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits } from "./NumericTypes";
+import { BorderRadius, CssAngle, CssLength, CssNumber, CssPercent, CssPoint, CssPosition } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
 import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
 import { IIDRule } from "./RuleTypes";
@@ -717,14 +717,6 @@ export interface ICursorFunc extends ICssFuncObject {
     /** Y-coordinate of the cursor hotspot */
     y?: number;
 }
-/**
- * Type representing keywords used to define a type used in the CSS `attr()` function.
- */
-export declare type AttrTypeKeyword = "string" | "color" | "url" | "integer" | "number" | "length" | "angle" | "time" | "frequency";
-/**
- * Type representing keywords used to define a unit used in the CSS `attr()` function.
- */
-export declare type AttrUnitKeyword = PercentUnits | LengthUnits | TimeUnits | AngleUnits | ResolutionUnits | FrequencyUnits;
 /** Type for step animation timing function jump-term */
 export declare type TimingFunctionJumpTerm = "jump-start" | "jump-end" | "jump-none" | "jump-both" | "start" | "end";
 /**
