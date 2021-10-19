@@ -770,7 +770,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
  * class SecondWidgetStyles extends css.StyleDefinition {...}
  * ```
  */
-export declare function embedded(category: string): ClassDecorator;
+export declare const embedded: (category: string) => ClassDecorator;
 /**
  * Sets the method uses to generate names of CSS entities. If yes, the names will be created by
  * appending a unique number to the given prefix. If the prefix is not specified, the standard
@@ -786,7 +786,7 @@ export declare function embedded(category: string): ClassDecorator;
  * to generate optimized names. Ignored if the `method` parameter is anything other than
  * [[NameGenerationMethod.Optimized]].
  */
-export declare function configNameGeneration(method: NameGenerationMethod, prefix?: string): void;
+export declare const configNameGeneration: (method: NameGenerationMethod, prefix?: string | undefined) => void;
 /**
  * Concatenates the names of the given classes into a single string that can be assigned to a
  * `class` property of an HTML element.
@@ -794,13 +794,13 @@ export declare function configNameGeneration(method: NameGenerationMethod, prefi
  * @param classProps Variable argument list of either class names or class rule objects.
  * @returns The string that combines all class names (separated with space) from the input array.
  */
-export declare function classes(...classProps: ClassPropType[]): string;
+export declare const classes: (...classProps: ClassPropType[]) => string;
 /**
  * Chooses the first non-null name from the given list of classes.
  * @param classProps
  * @returns The first non-empty class name from the input array or null if all inputs are empty.
  */
-export declare function chooseClass(...classProps: ClassPropType[]): string | null;
+export declare const chooseClass: (...classProps: ClassPropType[]) => string | null;
 /**
  * Decorator that should be applied to a rule if it is defined and used in the same style
  * definition class but then is overridden in a derived style definition class. The problem
@@ -815,7 +815,7 @@ export declare function chooseClass(...classProps: ClassPropType[]): string | nu
  * rule, the first rule will see the overridden value of the rule when accessed in the
  * post-constructor code.
  */
-export declare function virtual(target: any, name: string): void;
+export declare const virtual: (target: any, name: string) => void;
 /**
  * The `ThemeDefinition` class is a base for all classes that define themes. In addition to
  * being a style definition class, themes provide some extra capabilities related to style
@@ -833,18 +833,18 @@ export declare abstract class ThemeDefinition<P extends StyleDefinition = any> e
  * a reference counter of how many times it was activated and deactivated. The rules are inserted
  * into DOM only upon first activation.
  */
-export declare function activate<T extends IStyleDefinition>(instOrClass: T | IStyleDefinitionClass<T>, schedulerType?: number): T | null;
+export declare const activate: <T extends IStyleDefinition<any>>(instOrClass: T | IStyleDefinitionClass<T, any>, schedulerType?: number | undefined) => T | null;
 /**
  * Deactivates the given style definition instance by removing its rules from DOM. Note that each
  * style definition instance maintains a reference counter of how many times it was activated and
  * deactivated. The rules are removed from DOM only when this reference counter goes down to 0.
  */
-export declare function deactivate(instance: IStyleDefinition, schedulerType?: number): void;
+export declare const deactivate: (instance: IStyleDefinition, schedulerType?: number | undefined) => void;
 /**
  * Returns the theme definition object, which is currently active for the given theme.
  * @param themeClass Theme definition class
  * @returns Theme instance, which is currently active for the given theme class or undefined
  * if no instance is currently active.
  */
-export declare function getActiveThemeInstance(themeClass: IStyleDefinitionClass<ThemeDefinition>): ThemeDefinition | undefined;
+export declare const getActiveThemeInstance: (themeClass: IStyleDefinitionClass<ThemeDefinition>) => ThemeDefinition | undefined;
 //# sourceMappingURL=RuleAPI.d.ts.map

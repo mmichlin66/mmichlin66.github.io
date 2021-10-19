@@ -22,7 +22,7 @@ import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
  *
  * @category Image
  */
-export declare function linearGradient(...stops: GradientStopOrHint<CssLength>[]): ILinearGradientBuilder;
+export declare const linearGradient: (...stops: GradientStopOrHint<CssLength>[]) => ILinearGradientBuilder;
 /**
  * Function returning the IRadialGradient interface representing the `radial-gradient` CSS functions.
  *
@@ -43,7 +43,7 @@ export declare function linearGradient(...stops: GradientStopOrHint<CssLength>[]
  *
  * @category Image
  */
-export declare function radialGradient(...stops: GradientStopOrHint<CssLength>[]): IRadialGradientBuilder;
+export declare const radialGradient: (...stops: GradientStopOrHint<CssLength>[]) => IRadialGradientBuilder;
 /**
  * Function returning the IConicGradient interface representing the `radial-gradient` CSS functions.
  *
@@ -62,13 +62,13 @@ export declare function radialGradient(...stops: GradientStopOrHint<CssLength>[]
  *
  * @category Image
  */
-export declare function conicGradient(...stops: GradientStopOrHint<CssAngle>[]): IConicGradientBuilder;
+export declare const conicGradient: (...stops: GradientStopOrHint<CssAngle>[]) => IConicGradientBuilder;
 /**
  * Returns an ImageProxy function representing the `cross-fade()` CSS function.
  *
  * @category Image
  */
-export declare function crossFade(...args: CrossFadeParam[]): IImageProxy;
+export declare const crossFade: (...args: CrossFadeParam[]) => IImageProxy;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `brightness()` CSS function.
  *
@@ -90,7 +90,7 @@ export declare function crossFade(...args: CrossFadeParam[]): IImageProxy;
  * @returns The `IPercentFilterFunc` interface containing percentage value
  * @category Filter
  */
-export declare function brightness(p: Extended<CssPercent>): IPercentFilterFunc;
+export declare const brightness: (p: Extended<CssPercent>) => IPercentFilterFunc;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `contrast()` CSS function.
  *
@@ -112,7 +112,7 @@ export declare function brightness(p: Extended<CssPercent>): IPercentFilterFunc;
  * @returns The `IPercentFilterFunc` interface containing percentage value
  * @category Filter
  */
-export declare function contrast(p: Extended<CssPercent>): IPercentFilterFunc;
+export declare const contrast: (p: Extended<CssPercent>) => IPercentFilterFunc;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `grayscale()` CSS function.
  *
@@ -134,7 +134,7 @@ export declare function contrast(p: Extended<CssPercent>): IPercentFilterFunc;
  * @returns The `IPercentFilterFunc` interface containing percentage value
  * @category Filter
  */
-export declare function grayscale(p: Extended<CssPercent>): IPercentFilterFunc;
+export declare const grayscale: (p: Extended<CssPercent>) => IPercentFilterFunc;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `invert()` CSS function.
  *
@@ -159,7 +159,7 @@ export declare function grayscale(p: Extended<CssPercent>): IPercentFilterFunc;
  * @returns The `IPercentFilterFunc` interface containing percentage value
  * @category Filter
  */
-export declare function invert(p: Extended<CssPercent>): IPercentFilterFunc;
+export declare const invert: (p: Extended<CssPercent>) => IPercentFilterFunc;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `opacity()` CSS function.
  *
@@ -178,7 +178,7 @@ export declare function invert(p: Extended<CssPercent>): IPercentFilterFunc;
  * @returns The `IPercentFilterFunc` interface containing percentage value
  * @category Filter
  */
-export declare function opacity(p: Extended<CssPercent>): IPercentFilterFunc;
+export declare const opacity: (p: Extended<CssPercent>) => IPercentFilterFunc;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `saturate()` CSS function.
  *
@@ -200,7 +200,7 @@ export declare function opacity(p: Extended<CssPercent>): IPercentFilterFunc;
  * @returns The `IPercentFilterFunc` interface containing percentage value
  * @category Filter
  */
-export declare function saturate(p: Extended<CssPercent>): IPercentFilterFunc;
+export declare const saturate: (p: Extended<CssPercent>) => IPercentFilterFunc;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `sepia()` CSS function.
  *
@@ -219,7 +219,7 @@ export declare function saturate(p: Extended<CssPercent>): IPercentFilterFunc;
  * @returns The `IPercentFilterFunc` interface containing percentage value
  * @category Filter
  */
-export declare function sepia(p: Extended<CssPercent>): IPercentFilterFunc;
+export declare const sepia: (p: Extended<CssPercent>) => IPercentFilterFunc;
 /**
  * Returns an [[IBlurFunc]] object representing the `blur()` CSS function parameters.
  *
@@ -243,7 +243,7 @@ export declare function sepia(p: Extended<CssPercent>): IPercentFilterFunc;
  * @returns The `IBlurFunc` interface containing the blur radius
  * @category Filter
  */
-export declare function blur(r: Extended<CssLength>): IBlurFunc;
+export declare const blur: (r: Extended<CssLength>) => IBlurFunc;
 /**
  * Returns an [[IDropShadowFunc]] object representing the `dropShadow()` CSS function parameters.
  *
@@ -272,7 +272,7 @@ export declare function blur(r: Extended<CssLength>): IBlurFunc;
  *
  * @category Filter
  */
-export declare function dropShadow(x: Extended<CssLength>, y: Extended<CssLength>, color?: Extended<CssColor>, blur?: Extended<CssLength>): IDropShadowFunc;
+export declare const dropShadow: (x: Extended<CssLength>, y: Extended<CssLength>, color?: Extended<CssColor>, blur?: Extended<CssLength>) => IDropShadowFunc;
 /**
  * Returns an [[IHueRotateFunc]] object representing the `hue-rotate()` CSS function parameters.
  *
@@ -293,133 +293,133 @@ export declare function dropShadow(x: Extended<CssLength>, y: Extended<CssLength
  * @returns The `IHueRotateFunc` interface containing the hue rotation angle
  * @category Filter
  */
-export declare function hueRotate(a: Extended<CssAngle>): IHueRotateFunc;
+export declare const hueRotate: (a: Extended<CssAngle>) => IHueRotateFunc;
 /**
  * Returns an IMatrixFunc object representing the `matrix()` CSS function.
  *
  * @category Transform
  */
-export declare function matrix(a: Extended<CssNumber>, b: Extended<CssNumber>, c: Extended<CssNumber>, d: Extended<CssNumber>, tx: Extended<CssNumber>, ty: Extended<CssNumber>): IMatrixFunc;
+export declare const matrix: (a: Extended<CssNumber>, b: Extended<CssNumber>, c: Extended<CssNumber>, d: Extended<CssNumber>, tx: Extended<CssNumber>, ty: Extended<CssNumber>) => IMatrixFunc;
 /**
  * Returns an IMatrix3dFunc function representing the `matrix3d()` CSS function.
  *
  * @category Transform
  */
-export declare function matrix3d(a1: Extended<CssNumber>, b1: Extended<CssNumber>, c1: Extended<CssNumber>, d1: Extended<CssNumber>, a2: Extended<CssNumber>, b2: Extended<CssNumber>, c2: Extended<CssNumber>, d2: Extended<CssNumber>, a3: Extended<CssNumber>, b3: Extended<CssNumber>, c3: Extended<CssNumber>, d3: Extended<CssNumber>, a4: Extended<CssNumber>, b4: Extended<CssNumber>, c4: Extended<CssNumber>, d4: Extended<CssNumber>): IMatrix3dFunc;
+export declare const matrix3d: (a1: Extended<CssNumber>, b1: Extended<CssNumber>, c1: Extended<CssNumber>, d1: Extended<CssNumber>, a2: Extended<CssNumber>, b2: Extended<CssNumber>, c2: Extended<CssNumber>, d2: Extended<CssNumber>, a3: Extended<CssNumber>, b3: Extended<CssNumber>, c3: Extended<CssNumber>, d3: Extended<CssNumber>, a4: Extended<CssNumber>, b4: Extended<CssNumber>, c4: Extended<CssNumber>, d4: Extended<CssNumber>) => IMatrix3dFunc;
 /**
  * Returns an IPerspectiveFunc function representing the `perspective()` CSS function.
  *
  * @category Transform
  */
-export declare function perspective(d: Extended<CssLength>): IPerspectiveFunc;
+export declare const perspective: (d: Extended<CssLength>) => IPerspectiveFunc;
 /**
  * Returns an IRotateFunc function representing the `rotate()` CSS function.
  *
  * @category Transform
  */
-export declare function rotate(a: Extended<CssAngle>): IRotateFunc;
+export declare const rotate: (a: Extended<CssAngle>) => IRotateFunc;
 /**
  * Returns an ITransformProxy function representing the `rotateX()` CSS function.
  *
  * @category Transform
  */
-export declare function rotateX(a: Extended<CssAngle>): IRotateFunc;
+export declare const rotateX: (a: Extended<CssAngle>) => IRotateFunc;
 /**
  * Returns an ITransformProxy function representing the `rotateY()` CSS function.
  *
  * @category Transform
  */
-export declare function rotateY(a: Extended<CssAngle>): IRotateFunc;
+export declare const rotateY: (a: Extended<CssAngle>) => IRotateFunc;
 /**
  * Returns an ITransformProxy function representing the `rotateZ()` CSS function.
  *
  * @category Transform
  */
-export declare function rotateZ(a: Extended<CssAngle>): IRotateFunc;
+export declare const rotateZ: (a: Extended<CssAngle>) => IRotateFunc;
 /**
  * Returns an IRotate3dFunc function representing the `rotate3d()` CSS function.
  *
  * @category Transform
  */
-export declare function rotate3d(x: Extended<CssNumber>, y: Extended<CssNumber>, z: Extended<CssNumber>, a: Extended<CssAngle>): IRotate3dFunc;
+export declare const rotate3d: (x: Extended<CssNumber>, y: Extended<CssNumber>, z: Extended<CssNumber>, a: Extended<CssAngle>) => IRotate3dFunc;
 /**
  * Returns an IScaleFunc function representing the `scale()` CSS function.
  *
  * @category Transform
  */
-export declare function scale(sx: Extended<CssNumber>, sy?: Extended<CssNumber>): IScaleFunc;
+export declare const scale: (sx: Extended<CssNumber>, sy?: Extended<CssNumber>) => IScaleFunc;
 /**
  * Returns an IScale1dFunc function representing the `scaleX()` CSS function.
  *
  * @category Transform
  */
-export declare function scaleX(s: Extended<CssNumber>): IScale1dFunc;
+export declare const scaleX: (s: Extended<CssNumber>) => IScale1dFunc;
 /**
  * Returns an IScale1dFunc function representing the `scaleY()` CSS function.
  *
  * @category Transform
  */
-export declare function scaleY(s: Extended<CssNumber>): IScale1dFunc;
+export declare const scaleY: (s: Extended<CssNumber>) => IScale1dFunc;
 /**
  * Returns an IScale1dFunc function representing the `scaleZ()` CSS function.
  *
  * @category Transform
  */
-export declare function scaleZ(s: Extended<CssNumber>): IScale1dFunc;
+export declare const scaleZ: (s: Extended<CssNumber>) => IScale1dFunc;
 /**
  * Returns an IScale3dFunc function representing the `scale3d()` CSS function.
  *
  * @category Transform
  */
-export declare function scale3d(sx: Extended<CssNumber>, sy: Extended<CssNumber>, sz: Extended<CssNumber>): IScale3dFunc;
+export declare const scale3d: (sx: Extended<CssNumber>, sy: Extended<CssNumber>, sz: Extended<CssNumber>) => IScale3dFunc;
 /**
  * Returns an ISkewFunc function representing the `skew()` CSS function.
  *
  * @category Transform
  */
-export declare function skew(ax: Extended<CssAngle>, ay?: Extended<CssAngle>): ISkewFunc;
+export declare const skew: (ax: Extended<CssAngle>, ay?: Extended<CssAngle>) => ISkewFunc;
 /**
  * Returns an ISkew1dFunc function representing the `skewX()` CSS function.
  *
  * @category Transform
  */
-export declare function skewX(a: Extended<CssAngle>): ISkew1dFunc;
+export declare const skewX: (a: Extended<CssAngle>) => ISkew1dFunc;
 /**
  * Returns an ISkew1dFunc function representing the `skewY()` CSS function.
  *
  * @category Transform
  */
-export declare function skewY(a: Extended<CssAngle>): ISkew1dFunc;
+export declare const skewY: (a: Extended<CssAngle>) => ISkew1dFunc;
 /**
  * Returns an ITranslateFunc function representing the `translate()` CSS function.
  *
  * @category Transform
  */
-export declare function translate(x: Extended<CssLength>, y?: Extended<CssLength>): ITranslateFunc;
+export declare const translate: (x: Extended<CssLength>, y?: Extended<CssLength>) => ITranslateFunc;
 /**
  * Returns an ITranslate1dFunc function representing the `translateX()` CSS function.
  *
  * @category Transform
  */
-export declare function translateX(d: Extended<CssLength>): ITranslate1dFunc;
+export declare const translateX: (d: Extended<CssLength>) => ITranslate1dFunc;
 /**
  * Returns an ITranslate1dFunc function representing the `translateY()` CSS function.
  *
  * @category Transform
  */
-export declare function translateY(d: Extended<CssLength>): ITranslate1dFunc;
+export declare const translateY: (d: Extended<CssLength>) => ITranslate1dFunc;
 /**
  * Returns an ITranslate1dFunc function representing the `translateZ()` CSS function.
  *
  * @category Transform
  */
-export declare function translateZ(d: Extended<CssLength>): ITranslate1dFunc;
+export declare const translateZ: (d: Extended<CssLength>) => ITranslate1dFunc;
 /**
  * Returns an ITranslate3dFunc function representing the `translate3d()` CSS function.
  *
  * @category Transform
  */
-export declare function translate3d(x: Extended<CssLength>, y: Extended<CssLength>, z: Extended<CssLength>): ITranslate3dFunc;
+export declare const translate3d: (x: Extended<CssLength>, y: Extended<CssLength>, z: Extended<CssLength>) => ITranslate3dFunc;
 /**
  * Returns an IInsetBuilder object representing the `inset()` CSS function.
  *
@@ -433,7 +433,7 @@ export declare function translate3d(x: Extended<CssLength>, y: Extended<CssLengt
  *
  * @category Basic Shape
  */
-export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>, o3?: Extended<CssLength>, o4?: Extended<CssLength>): IInsetBuilder;
+export declare const inset: (o1: Extended<CssLength>, o2?: Extended<CssLength>, o3?: Extended<CssLength>, o4?: Extended<CssLength>) => IInsetBuilder;
 /**
  * Returns an ICircleBuilder object representing the `circle()` CSS function.
  *
@@ -447,7 +447,7 @@ export declare function inset(o1: Extended<CssLength>, o2?: Extended<CssLength>,
  *
  * @category Basic Shape
  */
-export declare function circle(r?: ShapeRadius): ICircleBuilder;
+export declare const circle: (r?: ShapeRadius) => ICircleBuilder;
 /**
  * Returns an IEllipseBuilder object representing the `ellipse()` CSS function.
  *
@@ -487,31 +487,31 @@ export declare function ellipse(rx: ShapeRadius, ry: ShapeRadius): IEllipseBuild
  *
  * @category Basic Shape
  */
-export declare function polygon(...points: CssPoint[]): IPolygonBuilder;
+export declare const polygon: (...points: CssPoint[]) => IPolygonBuilder;
 /**
  * Returns an IPathBuilder object that allows building a CSS path.
  *
  * @category Basic Shape
  */
-export declare function path(fillRule?: FillRule): IPathBuilder;
+export declare const path: (fillRule?: FillRule | undefined) => IPathBuilder;
 /**
  * Returns an IRay object representing invocation of the `ray()` CSS function.
  *
  * @category Basic Shape
  */
-export declare function ray(angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>, contain?: boolean): IRayFunc;
+export declare const ray: (angle: Extended<CssAngle>, size?: Extended<ExtentKeyword | CssLength>, contain?: boolean | undefined) => IRayFunc;
 /**
 * Returns an IMinMax function representing the `minmax()` CSS function.
 *
 * @category Grid
 */
-export declare function minmax(min: GridTrackSize, max: GridTrackSize): IMinMaxFunc;
+export declare const minmax: (min: GridTrackSize, max: GridTrackSize) => IMinMaxFunc;
 /**
  * Returns an IRepeat function representing the `repeat()` CSS function.
  *
  * @category Grid
  */
-export declare function repeat(count: Extended<CssNumber> | "auto-fill" | "auto-fit", ...tracks: GridTrack[]): IRepeatFunc;
+export declare const repeat: (count: Extended<CssNumber> | "auto-fill" | "auto-fit", ...tracks: GridTrack[]) => IRepeatFunc;
 /**
  * Returns an IGridSpanFunc function representing the `span` expression for grid layouts. If the first
  * parameter is a number, the second parameter (if defined) must be a name; if the first parameter
@@ -519,7 +519,7 @@ export declare function repeat(count: Extended<CssNumber> | "auto-fill" | "auto-
  *
  * @category Grid
  */
-export declare function span(p1: Extended<GridLineCountOrName>, p2?: Extended<GridLineCountOrName>): IGridSpanFunc;
+export declare const span: (p1: Extended<GridLineCountOrName>, p2?: Extended<GridLineCountOrName>) => IGridSpanFunc;
 /**
  * Returns a function representing the CSS `url()` function. The string parameter
  * will be wrapped in a `url()` invocation. The function can also accept the IIDRule object to
@@ -527,7 +527,7 @@ export declare function span(p1: Extended<GridLineCountOrName>, p2?: Extended<Gr
  *
  * @category Miscellaneous
  */
-export declare function url(p: Extended<string | IIDRule>): IUrlFunc;
+export declare const url: (p: Extended<string | IIDRule>) => IUrlFunc;
 /**
  * Returns a function representing the CSS `url()` function.
  *
@@ -546,11 +546,11 @@ export declare function cursor(p: Extended<string | IIDRule>, x: number, y: numb
  *
  * @category Transition and Animation
  */
-export declare function steps(n: Extended<number>, j?: TimingFunctionJumpTerm): IStepsFunc;
+export declare const steps: (n: Extended<number>, j?: TimingFunctionJumpTerm | undefined) => IStepsFunc;
 /**
  * Returns a function representing an invocation of the CSS `cubic-bezier()` function.
  *
  * @category Transition and Animation
  */
-export declare function cubicBezier(n1: Extended<number>, n2: Extended<number>, n3: Extended<number>, n4: Extended<number>): ICubicBezierFunc;
+export declare const cubicBezier: (n1: Extended<number>, n2: Extended<number>, n3: Extended<number>, n4: Extended<number>) => ICubicBezierFunc;
 //# sourceMappingURL=ShapeAPI.d.ts.map

@@ -19,7 +19,7 @@ import { SelectorItem, ISelectorProxy, IRawProxy } from "./CoreTypes";
  * }
  * ```
  */
-export declare function selector(parts: TemplateStringsArray, ...params: SelectorItem[]): ISelectorProxy;
+export declare const selector: (parts: TemplateStringsArray, ...params: SelectorItem[]) => ISelectorProxy;
 /**
  * The `raw` function allows specifying arbitrary text for properties whose type normally doesn't
  * allow strings.This function is a tag function and must be invoked with the template string
@@ -39,5 +39,5 @@ export declare function selector(parts: TemplateStringsArray, ...params: Selecto
  * }
  * ```
  */
-export declare function raw(parts: TemplateStringsArray, ...params: any[]): IRawProxy;
+export declare const raw: (parts: TemplateStringsArray, ...params: any[]) => IRawProxy;
 //# sourceMappingURL=CoreAPI.d.ts.map

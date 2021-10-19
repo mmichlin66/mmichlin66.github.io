@@ -14,7 +14,7 @@ export declare const Colors: INamedColors;
  * @param value
  * @returns
  */
-export declare function registerColor(name: keyof INamedColors, value: number): boolean;
+export declare const registerColor: (name: keyof INamedColors, value: number) => boolean;
 /**
  * Converts the color specified as red, green, blue separation values and an optional alpha
  * mask to a CSS color representation. Each color separation can be represented as a number with
@@ -37,7 +37,7 @@ export declare function registerColor(name: keyof INamedColors, value: number): 
  * @param a Optional alpha mask as a percentage value.
  * @return The IRgbFunc object representing the invocation of the `rgb()` CSS function
  */
-export declare function rgb(r: Extended<CssColorSeparation>, g: Extended<CssColorSeparation>, b: Extended<CssColorSeparation>, a?: Extended<CssPercent>): IRgbFunc;
+export declare const rgb: (r: Extended<CssColorSeparation>, g: Extended<CssColorSeparation>, b: Extended<CssColorSeparation>, a?: Extended<CssPercent>) => IRgbFunc;
 /**
  * Converts the color specified as hue-saturation-lightness components and an optional alpha
  * mask to a CSS color representation. This method should be used when defining CSS color
@@ -63,7 +63,7 @@ export declare function rgb(r: Extended<CssColorSeparation>, g: Extended<CssColo
  * @param a Optional alpha mask as a percentage value.
  * @return The IHslFunc object representing the invocation of the `hsl()` CSS function
  */
-export declare function hsl(h: Extended<CssAngle>, s: Extended<CssPercent>, l: Extended<CssPercent>, a?: Extended<CssPercent>): IHslFunc;
+export declare const hsl: (h: Extended<CssAngle>, s: Extended<CssPercent>, l: Extended<CssPercent>, a?: Extended<CssPercent>) => IHslFunc;
 /**
  * Converts the color specified as L*a*b* components and an optional alpha
  * mask to a CSS color representation. This method should be used when defining CSS color
@@ -75,7 +75,7 @@ export declare function hsl(h: Extended<CssAngle>, s: Extended<CssPercent>, l: E
  * @param a Optional alpha mask as a percentage value.
  * @returns The ILabFunc object representing the invocation of the `lab()` CSS function
  */
-export declare function lab(l: Extended<CssPercent>, da: Extended<number>, db: Extended<number>, a?: Extended<CssPercent>): ILabFunc;
+export declare const lab: (l: Extended<CssPercent>, da: Extended<number>, db: Extended<number>, a?: Extended<CssPercent>) => ILabFunc;
 /**
  * Converts the color specified as lightness-chroma-hue components and an optional alpha
  * mask to a CSS color representation. This method should be used when defining CSS color
@@ -87,7 +87,7 @@ export declare function lab(l: Extended<CssPercent>, da: Extended<number>, db: E
  * @param a Optional alpha mask as a percentage value.
  * @returns The ILchFunc object representing the invocation of the `lch()` CSS function
  */
-export declare function lch(l: Extended<CssPercent>, c: Extended<number>, h: Extended<CssAngle>, a?: Extended<CssPercent>): ILchFunc;
+export declare const lch: (l: Extended<CssPercent>, c: Extended<number>, h: Extended<CssAngle>, a?: Extended<CssPercent>) => ILchFunc;
 /**
  * Converts the given color and the alpha mask to the CSS Color representation. This
  * method should be used when defining CSS color values in styleset properties.
@@ -115,5 +115,5 @@ export declare function lch(l: Extended<CssPercent>, c: Extended<number>, h: Ext
  * @param c Color value as either a number or a named color
  * @param a Alpha channel value
  */
-export declare function alpha(c: number | keyof INamedColors, a: number): IAlphaFunc;
+export declare const alpha: (c: number | keyof INamedColors, a: number) => IAlphaFunc;
 //# sourceMappingURL=ColorAPI.d.ts.map
