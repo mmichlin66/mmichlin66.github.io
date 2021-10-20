@@ -1,4 +1,4 @@
-import { IRawProxy, OneOrMany, OneOrPair } from "./CoreTypes";
+import { IRawProxy } from "./CoreTypes";
 import { ICounterStyleRule } from "./RuleTypes";
 import { CssImage } from "./ShapeTypes";
 import { ListStyleType_StyleType } from "./StyleTypes";
@@ -6,6 +6,8 @@ import { ListStyleType_StyleType } from "./StyleTypes";
  * Type that extends the given type with the [[IRawProxy]] interface that allows specifying raw string value.
  */
 export declare type CounterExtended<T> = T | IRawProxy;
+export declare type CounterOneOrPair<T> = T | [CounterExtended<T>, CounterExtended<T>?];
+export declare type CounterOneOrMany<T> = T | CounterExtended<T>[];
 /**
  * Type for specifying counter [[system]] property.
  */
@@ -13,7 +15,7 @@ export declare type System_CounterType = "cyclic" | "numeric" | "alphabetic" | "
 /**
  * Type for specifying counter[[negative]] property.
  */
-export declare type Negative_CounterType = OneOrPair<CounterExtended<string>>;
+export declare type Negative_CounterType = CounterOneOrPair<string>;
 /**
  * Type for specifying counter [[prefix]] and [[suffix]] properties.
  */
@@ -21,7 +23,7 @@ export declare type PrefixSuffix_CounterType = string | CssImage;
 /**
  * Type for specifying counter [[range]] property.
  */
-export declare type Range_CounterType = "auto" | OneOrMany<CounterExtended<["infinite" | number, "infinite" | number]>>;
+export declare type Range_CounterType = "auto" | CounterOneOrMany<["infinite" | number, "infinite" | number]>;
 /**
  * Type for specifying counter [[pad]] property.
  */
@@ -33,11 +35,11 @@ export declare type Fallback_CounterType = ListStyleType_StyleType;
 /**
  * Type for specifying counter [[symbols]] property.
  */
-export declare type Symbols_CounterType = OneOrMany<CounterExtended<string>>;
+export declare type Symbols_CounterType = CounterOneOrMany<string>;
 /**
  * Type for specifying counter [[additiveSymbols]] property.
  */
-export declare type AdditiveSymbols_CounterType = OneOrMany<CounterExtended<[string | CssImage, number] | [number, string | CssImage]>>;
+export declare type AdditiveSymbols_CounterType = CounterOneOrMany<[string | CssImage, number] | [number, string | CssImage]>;
 /**
  * Type for specifying counter [[speakAs]] property.
  */

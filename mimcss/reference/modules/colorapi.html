@@ -76,7 +76,6 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#alpha" class="tsd-kind-icon">alpha</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#hsl" class="tsd-kind-icon">hsl</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#lab" class="tsd-kind-icon">lab</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#lch" class="tsd-kind-icon">lch</a></li>
@@ -108,60 +107,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="alpha" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> alpha</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">alpha<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a>, a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.ialphafunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IAlphaFunc</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Converts the given color and the alpha mask to the CSS Color representation. This
-									method should be used when defining CSS color values in styleset properties.</p>
-								</div>
-								<p>The color can be specified as a numeric value or as a color name from the <a href="../interfaces/colortypes.inamedcolors.html">INamedColors</a>
-								interface - including colors added using the module augmentation technique.</p>
-								<p>The alpha mask is specified as a number:</p>
-								<ul>
-									<li>The sign is ignored; that is, only the absolute value is considered.</li>
-									<li>Number 0 to 1 inclusive, which is treated as percentage.</li>
-									<li>Number 1 to 100 inclusive, which is treated as percentage.</li>
-									<li>Numbers greater than 100 are clamped to 100;</li>
-								</ul>
-								<p><strong>Examples</strong></p>
-								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// applying alpha to a numeric color</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">alpha</span><span style="color: #000000">( </span><span style="color: #098658">0xAA00AA</span><span style="color: #000000">, </span><span style="color: #098658">0.5</span><span style="color: #000000">) })</span>
-
-<span style="color: #000000">    </span><span style="color: #008000">// applying alpha to a named color</span>
-<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({ </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">alpha</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;darkolivegreen&quot;</span><span style="color: #000000">, </span><span style="color: #098658">0.5</span><span style="color: #000000">) })</span>
-<span style="color: #000000">}</span>
-</code></pre>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>c: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Color value as either a number or a named color</p>
-									</div>
-								</li>
-								<li>
-									<h5>a: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Alpha channel value</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ialphafunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IAlphaFunc</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="hsl" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> hsl</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -187,10 +132,15 @@
 								</ul>
 								<p>The alpha mask can be one of the following:</p>
 								<ul>
-									<li>Floating number 0 to 1 inclusive.</li>
-									<li>Integer or floating number 1 to 100, which is divided by 100. Floating numbers will be
-									rounded. Numbers beyond this range will be clamped.</li>
-									<li>The sign of alpha is ignored; that is, only the absolute value is considered.</li>
+									<li><p>Floating number 0 to 1 inclusive.</p>
+									</li>
+									<li><p>Integer or floating number 1 to 100, which is divided by 100. Floating numbers will be
+										rounded. Numbers beyond this range will be clamped.</p>
+									</li>
+									<li><p>The sign of alpha is ignored; that is, only the absolute value is considered.</p>
+									</li>
+									<li><p>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl()</a></p>
+									</li>
 								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -221,7 +171,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ihslfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHslFunc</a></h4>
-							<p>The IHslFunc object representing the invocation of the <code>hsl()</code> CSS function</p>
+							<p>The <code>IHslFunc</code> object representing the invocation of the <code>hsl()</code> CSS function</p>
 						</li>
 					</ul>
 				</section>
@@ -237,10 +187,13 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Converts the color specified as L<em>a</em>b* components and an optional alpha
+									<p>Converts the color specified as L*a*b* components and an optional alpha
 										mask to a CSS color representation. This method should be used when defining CSS color
 									values in styleset properties.</p>
 								</div>
+								<ul>
+									<li>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab()">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lab()</a></li>
+								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -270,7 +223,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ilabfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILabFunc</a></h4>
-							<p>The ILabFunc object representing the invocation of the <code>lab()</code> CSS function</p>
+							<p>The <code>ILabFunc</code> object representing the invocation of the <code>lab()</code> CSS function</p>
 						</li>
 					</ul>
 				</section>
@@ -290,6 +243,9 @@
 										mask to a CSS color representation. This method should be used when defining CSS color
 									values in styleset properties.</p>
 								</div>
+								<ul>
+									<li>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch()">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/lch()</a></li>
+								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -319,7 +275,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.ilchfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILchFunc</a></h4>
-							<p>The ILchFunc object representing the invocation of the <code>lch()</code> CSS function</p>
+							<p>The <code>ILchFunc</code> object representing the invocation of the <code>lch()</code> CSS function</p>
 						</li>
 					</ul>
 				</section>
@@ -335,19 +291,28 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Registers a new custom color or changes the name of the</p>
+									<p>Registers a new custom color or changes the value of the existing custom color. The name of the
+										custom color should have been already added to the <a href="../interfaces/colortypes.inamedcolors.html">INamedColors</a> interface using the module
+									augmentation technique. Note that values of standard Web colors cannot be changed.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>name: <span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Color name. This name cannot be a name of the standard Web color.</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Color value to assign to the given named color.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>Flag indicating whether the operation was successful.</p>
 						</li>
 					</ul>
 				</section>
@@ -376,10 +341,15 @@
 								</div>
 								<p>The alpha mask can be one of the following:</p>
 								<ul>
-									<li>Floating number 0 to 1 inclusive.</li>
-									<li>Integer or floating number 1 to 100, which is divided by 100. Floating numbers will be
-									rounded. Numbers beyond this range will be clamped.</li>
-									<li>The sign of alpha is ignored; that is, only the absolute value is considered.</li>
+									<li><p>Floating number 0 to 1 inclusive.</p>
+									</li>
+									<li><p>Integer or floating number 1 to 100, which is divided by 100. Floating numbers will be
+										rounded. Numbers beyond this range will be clamped.</p>
+									</li>
+									<li><p>The sign of alpha is ignored; that is, only the absolute value is considered.</p>
+									</li>
+									<li><p>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb()">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb()</a></p>
+									</li>
 								</ul>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -410,7 +380,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.irgbfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRgbFunc</a></h4>
-							<p>The IRgbFunc object representing the invocation of the <code>rgb()</code> CSS function</p>
+							<p>The <code>IRgbFunc</code> object representing the invocation of the <code>rgb()</code> CSS function</p>
 						</li>
 					</ul>
 				</section>
@@ -479,9 +449,6 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="colorapi.html#colors" class="tsd-kind-icon">Colors</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="colorapi.html#alpha" class="tsd-kind-icon">alpha</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="colorapi.html#hsl" class="tsd-kind-icon">hsl</a>

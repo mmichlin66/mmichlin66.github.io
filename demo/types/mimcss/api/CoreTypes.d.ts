@@ -188,7 +188,7 @@ export declare type ExtendedProp<T> = Extended<T> | ImportantProp<T> | Global_St
  * }
  * ```
  */
-export declare type OneOrPair<T> = T | [T, T?];
+export declare type OneOrPair<T> = T | [Extended<T>, Extended<T>?];
 /**
  * Type for box-like properties that can have 1 to 4 values of the given type. This type is used
  * for style properties that specify values for the four sides of an element box and have rules how
@@ -216,7 +216,7 @@ export declare type OneOrPair<T> = T | [T, T?];
  * }
  * ```
  */
-export declare type OneOrBox<T> = T | [T, T?, T?, T?];
+export declare type OneOrBox<T> = T | [Extended<T>, Extended<T>?, Extended<T>?, Extended<T>?];
 /**
  * Type for properties that can have 1 or more values of the given type. It is used by many style
  * properties such as `animation` and all its longhands, `background` and all its longhands,
@@ -237,7 +237,7 @@ export declare type OneOrBox<T> = T | [T, T?, T?, T?];
  * }
  * ```
  */
-export declare type OneOrMany<T> = T | T[];
+export declare type OneOrMany<T> = T | Extended<T>[];
 /**
  * The `IRuleWithSelector` interface represents an entity that has a selector string. These include
  * all style rules ([[IStyleRule]] interface) and class name rule ([[IClassNameRule]] interface).

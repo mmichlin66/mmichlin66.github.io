@@ -70,7 +70,6 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.ialphafunc.html" class="tsd-kind-icon">IAlpha<wbr>Func</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.ihslfunc.html" class="tsd-kind-icon">IHsl<wbr>Func</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.ilabfunc.html" class="tsd-kind-icon">ILab<wbr>Func</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.ilchfunc.html" class="tsd-kind-icon">ILch<wbr>Func</a></li>
@@ -95,7 +94,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="csscolor" class="tsd-anchor"></a>
 					<h3>Css<wbr>Color</h3>
-					<div class="tsd-signature tsd-kind-icon">Css<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;transparent&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;currentcolor&quot;</span><span class="tsd-signature-symbol"> | </span><a href="colortypes.html#systemcolors" class="tsd-signature-type" data-tsd-kind="Type alias">SystemColors</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.irgbfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRgbFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ihslfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHslFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ilchfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILchFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ilabfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILabFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ialphafunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IAlphaFunc</a></div>
+					<div class="tsd-signature tsd-kind-icon">Css<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;transparent&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;currentcolor&quot;</span><span class="tsd-signature-symbol"> | </span><a href="colortypes.html#systemcolors" class="tsd-signature-type" data-tsd-kind="Type alias">SystemColors</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.irgbfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRgbFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ihslfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHslFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ilchfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILchFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ilabfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILabFunc</a></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -112,7 +111,7 @@
 										floating part, alpha is 1.</li>
 									</ul>
 								</li>
-								<li>functions: <a href="colorapi.html#rgb">rgb</a>, <a href="colorapi.html#hsl">hsl</a>, <a href="colorapi.html#alpha">alpha</a> as well as any function that returns the [[IColorProxy]] type.</li>
+								<li>functions: <a href="colorapi.html#rgb">rgb</a>, <a href="colorapi.html#hsl">hsl</a>, <a href="colorapi.html#lch">lch</a>, <a href="colorapi.html#lab">lab</a>, [[alpha]].</li>
 							</ul>
 						</div>
 						<p><strong>Examples:</strong></p>
@@ -175,7 +174,7 @@
 							<ul>
 								<li>keywords: any string that is a name of a property in the <a href="../interfaces/colortypes.inamedcolors.html">INamedColors</a> interface or of the
 								<a href="colortypes.html#systemcolors">SystemColors</a> type.</li>
-								<li>functions: <a href="colorapi.html#rgb">rgb</a>, <a href="colorapi.html#hsl">hsl</a>, <a href="colorapi.html#alpha">alpha</a> as well as any function that returns the IColorProxy type.</li>
+								<li>functions: <a href="colorapi.html#rgb">rgb</a>, <a href="colorapi.html#hsl">hsl</a>, [[alpha]] as well as any function that returns the IColorProxy type.</li>
 							</ul>
 						</div>
 						<p>Non-numeric representation of color is sometimes required where it can conflict with numeric
@@ -261,9 +260,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/colortypes.ialphafunc.html" class="tsd-kind-icon">IAlpha<wbr>Func</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/colortypes.ihslfunc.html" class="tsd-kind-icon">IHsl<wbr>Func</a>
 					</li>

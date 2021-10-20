@@ -286,7 +286,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @param styleset Styleset that defines style properties.
      * @returns `IAttrRule` object representing the attribute selector rule.
      */
-    protected $attr(tag: ElementTagName | IClassRule | IIDRule, attrs: OneOrMany<string | AttrsDef>, styleset?: CombinedStyleset): IAttrRule;
+    protected $attr(tag: ElementTagName | IClassRule | IIDRule, attrs: string | AttrsDef | (string | AttrsDef)[], styleset?: CombinedStyleset): IAttrRule;
     /**
      * Creates a new style rule with an arbitrary complex selector. Selectors can be specified as
      * one or array of [[SelectorItem]] objects where each `SelectorItem` is one of the following

@@ -1,4 +1,4 @@
-import { IConstant, IGenericProxy, IRawProxy, OneOrMany, OneOrPair } from "./CoreTypes";
+import { IConstant, IGenericProxy, IRawProxy } from "./CoreTypes";
 import { CssAspectRatio, CssNumber, CssLength, CssResolution } from "./NumericTypes";
 import { Styleset } from "./StyleTypes";
 /** Possible media types */
@@ -13,7 +13,7 @@ export declare type ExtendedFeature<T> = T | IConstant<T> | IRawProxy | null | u
  * Type for a media feature that can be specified either as a single value or as a range between
  * two values of the given type.
  */
-export declare type OneOrRange<T> = OneOrPair<ExtendedFeature<T>>;
+export declare type OneOrRange<T> = T | [ExtendedFeature<T>, ExtendedFeature<T>?];
 /**
  * Interface representing the type of objects that can be assigned to the style property of HTML
  * and SVG elements.
@@ -105,7 +105,7 @@ export declare type MediaQuery = string | ExtendedMediaFeatureset | IMediaQueryP
  * }
  * ```
  */
-export declare type MediaStatement = OneOrMany<MediaQuery>;
+export declare type MediaStatement = MediaQuery | MediaQuery[];
 /**
  * Represents supports query returned from the [[supports]] function.
  */
@@ -121,5 +121,5 @@ export declare type SupportsQuery = string | Styleset | ISupportsQueryProxy;
  * an array are combined with the "or" operator, the styles within each styleset are combined with
  * the "and" operator.
  */
-export declare type SupportsStatement = OneOrMany<SupportsQuery>;
+export declare type SupportsStatement = SupportsQuery | SupportsQuery[];
 //# sourceMappingURL=MediaTypes.d.ts.map

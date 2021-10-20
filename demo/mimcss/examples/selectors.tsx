@@ -29,7 +29,7 @@ class MyStyles extends css.StyleDefinition
     // all <p> elements that have the title attribute, which starts with "https://",
     // will be orange
     byTitleStart = this.$attr( "p",
-        { title: {value: "https://", op: css.AttrSelectorOperation.StartsWith} },
+        { title: {v: "https://", op: css.AttrSelectorOperation.StartsWith} },
         { backgroundColor: "orange" }
     )
 

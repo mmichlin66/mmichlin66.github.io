@@ -1,4 +1,4 @@
-import { ICustomVar, OneOrMany, PseudoEntity, PagePseudoClass, IParameterizedPseudoEntity, DependentRuleCombinator, IConstant, IRuleWithSelector, CssSelector } from "./CoreTypes";
+import { ICustomVar, PseudoEntity, PagePseudoClass, IParameterizedPseudoEntity, DependentRuleCombinator, IConstant, IRuleWithSelector, CssSelector } from "./CoreTypes";
 import { ExtendedBaseStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
 /**
  * Type that combines names of all HTML and SVG tags
@@ -50,7 +50,7 @@ export declare type ElementTagName = (keyof HTMLElementTagNameMap) | (keyof SVGE
  * ```
  */
 export declare type CombinedStyleset = Styleset & {
-    "+"?: OneOrMany<IStyleRule>;
+    "+"?: IStyleRule | IStyleRule[];
 } & {
     [K in PseudoEntity]?: CombinedStyleset;
 } & {
@@ -110,8 +110,14 @@ export declare type CombinedStyleset = Styleset & {
 ```
  */
 export declare type CombinedClassStyleset = CombinedStyleset & {
-    "++"?: OneOrMany<IClassRule | IClassNameRule | string>;
+    "++"?: ParentClassType | ParentClassType[];
 };
+/**
+ * Represents types that can be used to inherit from an already defined CSS class. This type is
+ * used in the `"++"` property of the [[CombinedClassStyleset]] type, whcih allows CSS classes
+ * to include definitions of other CSS classes.
+ */
+export declare type ParentClassType = string | IClassRule | IClassNameRule;
 /**
  * The AnimationStyleset type defines an object containing style properties for an animation frame.
  * Stylesets for keyframes allow custom properties (via "--") but don't allow dependent rules
@@ -119,7 +125,7 @@ export declare type CombinedClassStyleset = CombinedStyleset & {
  * style rules; however, any dependent rules will be ignored.
  */
 export declare type AnimationStyleset = Styleset & {
-    "+"?: OneOrMany<IStyleRule>;
+    "+"?: IStyleRule | IStyleRule[];
 };
 /**
 * The IRule interface is a base interface that is implemented by all rules.
@@ -251,7 +257,7 @@ export interface IAttrSelectorOptions {
      * Value to which the attribute value is compared. If not specified, the selector only looks
      * for the presence of the attribute.
      */
-    value: string | boolean | number;
+    v: string | boolean | number;
     /** Namespace of the attribute */
     ns?: string;
     /**
@@ -288,7 +294,7 @@ export interface IAttrRule extends IStyleRule {
  * The AnimationWaypoint type defines a type that can be used to define a waypoint in an
  * animation sequence. When a waypoint is specified as a number, it is treated as percents.
  */
-export declare type AnimationWaypoint = OneOrMany<"from" | "to" | number>;
+export declare type AnimationWaypoint = "from" | "to" | number | ("from" | "to" | number)[];
 /**
  * The AnimationFrame type defines a single keyframe within a `@keyframes` rule.
  * The waypoint can be specified as "from" or "to" strings or as a number 0 to 100, which will be
