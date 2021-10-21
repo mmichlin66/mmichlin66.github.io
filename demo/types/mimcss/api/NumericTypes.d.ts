@@ -304,11 +304,11 @@ export declare type CssPosition = CssPositionItem | CssPositionTuple;
 /** Type describing multiple `<position>` CSS types consisting of up to 4 values */
 export declare type CssMultiPosition = CssPosition | ([Extended<CssPositionItem>] | Extended<CssPositionTuple>)[];
 /** Type for a single corner radius */
-export declare type CssRadius = OneOrPair<Extended<CssLength>>;
+export declare type CssRadius = OneOrPair<CssLength>;
 /** Type for border-radius style property */
 export declare type BorderRadiusItem = [Extended<CssLength>, Extended<CssLength>?, Extended<CssLength>?, Extended<CssLength>?];
 /** Type for border-radius style property */
-export declare type BorderRadius = OneOrBox<Extended<CssLength>> | [BorderRadiusItem, BorderRadiusItem];
+export declare type BorderRadius = OneOrBox<CssLength> | [BorderRadiusItem, BorderRadiusItem];
 /**
  * The IAspectRatioProxy interface represents an invocation of the [[ratio]] function.
  */

@@ -424,7 +424,7 @@ export declare type SelectorItem = string | SelectorCombinator | IRuleWithSelect
  * Type for a CSS selector. This type is used to produce arbitrary complex selectors used by the
  * [[$style]] function.
  */
-export declare type CssSelector = OneOrMany<Extended<SelectorItem>>;
+export declare type CssSelector = OneOrMany<SelectorItem>;
 /**
  * The WebNamespaces enumeration provides identifiers for the known Web-related namespaces.
  */

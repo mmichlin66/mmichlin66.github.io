@@ -1,5 +1,5 @@
 import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, Global_StyleType, CssString } from "./CoreTypes";
-import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius, AngleUnits, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits } from "./NumericTypes";
+import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius, AngleUnits, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits, IPercentProxy } from "./NumericTypes";
 import { CssColor, CssNonNumericColor } from "./ColorTypes";
 import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStretchKeyword, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
 import { IUrlFunc, BasicShape, CssImage, IMinMaxFunc, IRepeatFunc, IGridSpanFunc, FilterFuncs, ICursorFunc, FillRule, IRayFunc, IStepsFunc, ICubicBezierFunc, TransformFuncs } from "./ShapeTypes";
@@ -298,7 +298,7 @@ export declare type BorderImage_Object = {
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-image
  * @category Style Property
  */
-export declare type BorderImage_StyleType = CssImage | BorderImage_Object;
+export declare type BorderImage_StyleType = CssImage | BorderImage_Object | string;
 /**
  * Type for [[borderImageOutset]] style property. It is CssNumber and not CssLength because
  * border-image-outset can be specified as a unitless number.
@@ -322,31 +322,19 @@ export declare type BorderImageRepeat_StyleType = OneOrPair<BorderImageRepeatKey
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice
  * @category Style Property
  */
-export declare type BorderImageSlice_StyleType = OneOrBox<CssPercent> | [
-    Extended<CssPercent>,
-    boolean?
-] | [
-    Extended<CssPercent>,
-    Extended<CssPercent>,
-    boolean?
-] | [
-    Extended<CssPercent>,
-    Extended<CssPercent>,
-    Extended<CssPercent>,
-    boolean?
-] | [
-    Extended<CssPercent>,
-    Extended<CssPercent>,
-    Extended<CssPercent>,
-    Extended<CssPercent>,
-    boolean?
+export declare type BorderImageSlice_StyleType = OneOrBox<CssNumber | IPercentProxy | "fill"> | [
+    Extended<CssNumber | IPercentProxy>,
+    Extended<CssNumber | IPercentProxy>,
+    Extended<CssNumber | IPercentProxy>,
+    Extended<CssNumber | IPercentProxy>,
+    "fill"
 ];
 /**
  * Type for [[borderImageSource]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-source
  * @category Style Property
  */
-export declare type BorderImageSource_StyleType = OneOrBox<CssImage> | "none";
+export declare type BorderImageSource_StyleType = CssImage | "none";
 /**
  * Type for [[borderImageWidth]] style property. It is CssNumber and not CssLength because
  * border-image-width can be specified as a unitless number.
@@ -519,6 +507,12 @@ export declare type ColorAdjust_StyleType = "economy" | "exact";
  * @category Style Property
  */
 export declare type ColorInterpolation_StyleType = "auto" | "sRGB" | "linearRGB";
+/**
+ * Type for [[colorScheme]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-count
+ * @category Style Property
+ */
+export declare type ColorScheme_StyleType = "normal" | OneOrMany<"light" | "dark" | string>;
 /**
  * Type for [[columnCount]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/column-count
@@ -708,6 +702,12 @@ export declare type Font_StyleType = SystemFont | [string, CssLength] | [CssLeng
  */
 export declare type FontWeight_StyleType = FontWeight | "bolder" | "lighter";
 /**
+ * Type for [[forcedColorAdjust]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust
+ * @category Style Property
+ */
+export declare type ForcedColorAdjust_StyleType = "auto" | "none";
+/**
  * Type for [[gap]] or [[gridGap]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/gap
  * @category Style Property
@@ -798,6 +798,12 @@ export declare type GridTrackSize = CssLengthOrAuto | "min-content" | "max-conte
  * @category Style Property
  */
 export declare type Hyphens_StyleType = "none" | "manual" | "auto";
+/**
+ * Type for [[imageOrientation]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation
+ * @category Style Property
+ */
+export declare type ImageOrientation_StyleType = "none" | "from-image";
 /**
  * Type for [[imageRendering]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering
@@ -908,6 +914,31 @@ export declare type MarginTrim_StyleType = "none" | "in-flow" | "all";
  */
 export declare type Marker_StyleType = "none" | IIDRule;
 /**
+ * Type for the [[maskBorder]] style properties
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border
+ * @category Style Property
+ */
+export declare type MaskBorder_Object = {
+    source: Extended<BorderImageSource_StyleType>;
+    slice?: Extended<BorderImageSlice_StyleType>;
+    width?: Extended<BorderImageWidth_StyleType>;
+    outset?: Extended<BorderImageOutset_StyleType>;
+    repeat?: Extended<BorderImageRepeat_StyleType>;
+    mode?: Extended<MaskBorderMode_StyleType>;
+};
+/**
+ * Type for [[maskBorder]] style property.
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border
+ * @category Style Property
+ */
+export declare type MaskBorder_StyleType = CssImage | MaskBorder_Object | string;
+/**
+ * Type for [[maskBorderMode]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-mode
+ * @category Style Property
+ */
+export declare type MaskBorderMode_StyleType = "luminance" | "alpha";
+/**
  * Type for the [[maskComposite]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-composite
  * @category Style Property
@@ -925,6 +956,12 @@ export declare type MaskModeKeyword = "alpha" | "luminance" | "match-source";
  * @category Style Property
  */
 export declare type MaskTypeKeyword = "alpha" | "luminance";
+/**
+ * Type for the [[mathStyle]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/math-style
+ * @category Style Property
+ */
+export declare type MathStyle_StyleType = "normal" | "compact";
 /**
  * Type for the [[objectFit]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
@@ -982,10 +1019,16 @@ export declare type OverflowKeyword = "visible" | "hidden" | "clip" | "scroll" |
 export declare type Overflow_StyleType = OneOrPair<OverflowKeyword>;
 /**
  * Type for the [[overflowAnchor]] style property
- * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-ancho
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor
  * @category Style Property
  */
 export declare type OverflowAnchor_StyleType = "auto" | "none";
+/**
+ * Type for the [[overflowClipMargin]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-clip-margin
+ * @category Style Property
+ */
+export declare type OverflowClipMargin_StyleType = CssLength | "border-box" | "padding-box" | "content-box";
 /**
  * Type for the [[overflowWrap]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap
@@ -1111,6 +1154,12 @@ export declare type ScrollbarColor_StyleType = "auto" | "dark" | "light" | [
     Extended<CssColor>,
     Extended<CssColor>
 ];
+/**
+ * Type for the [[scrollbarGutter]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter
+ * @category Style Property
+ */
+export declare type ScrollbarGutter_StyleType = "auto" | "stable" | "stable both-edges";
 /**
  * Type for the [[scrollbarWidth]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width
@@ -1290,7 +1339,13 @@ export declare type TextOrientation_StyleType = "mixed" | "upright" | "sideways"
  */
 export declare type TextOverflow_StyleType = OneOrPair<"clip" | "ellipsis" | "fade" | string>;
 /**
- * Type for the single value of the text-shadow style property
+ * Type for the [[textRendering]] style property
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering
+ * @category Style Property
+ */
+export declare type TextRendering_StyleType = "auto" | "optimizeSpeed" | "optimizeLegibility" | "geometricPrecision";
+/**
+ * Type for the single value of the tex"t-shadow style property
  * @category Style Helper
  */
 export declare type TextShadow = "none" | {
@@ -1638,6 +1693,10 @@ export interface IStyleset {
      */
     borderBlock?: Border_StyleType;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-color
+     */
+    borderBlockColor?: OneOrPair<CssColor>;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end
      */
     borderBlockEnd?: Border_StyleType;
@@ -1669,6 +1728,14 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start-width
      */
     borderBlockStartWidth?: LineWidth;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-style
+     */
+    borderBlockStyle?: BorderStyle;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-width
+     */
+    borderBlockWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom
      */
@@ -1702,6 +1769,14 @@ export interface IStyleset {
      */
     borderColor?: BorderColor_StyleType;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-end-end-radius
+     */
+    borderEndEndRadius?: CssRadius;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-end-start-radius
+     */
+    borderEndStartRadius?: CssRadius;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-image
      */
     borderImage?: BorderImage_StyleType;
@@ -1730,8 +1805,12 @@ export interface IStyleset {
      */
     borderInline?: Border_StyleType;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-color
      */
+    borderInlineColor?: OneOrPair<CssColor>;
+    /**
+    * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end
+    */
     borderInlineEnd?: Border_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-color
@@ -1761,6 +1840,14 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start-width
      */
     borderInlineStartWidth?: LineWidth;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-style
+     */
+    borderInlineStyle?: BorderStyle;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-width
+     */
+    borderInlineWidth?: LineWidth;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-left
      */
@@ -1801,6 +1888,14 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing
      */
     borderSpacing?: BorderSpacing_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-start-end-radius
+     */
+    borderStartEndRadius?: CssRadius;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-start-start-radius
+     */
+    borderStartStartRadius?: CssRadius;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-style
      */
@@ -1887,7 +1982,7 @@ export interface IStyleset {
      */
     clipPath?: ClipPath_StyleType;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/clip-rule
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule
      */
     clipRule?: ClipRule_StyleType;
     /**
@@ -1899,13 +1994,17 @@ export interface IStyleset {
      */
     colorAdjust?: ColorAdjust_StyleType;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation
      */
     colorInterpolation?: ColorInterpolation_StyleType;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-filters
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color-interpolation-filters
      */
     colorInterpolationFilters?: ColorInterpolation_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme
+     */
+    colorScheme?: ColorScheme_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/column-count
      */
@@ -1955,6 +2054,7 @@ export interface IStyleset {
      */
     content?: Content_StyleType;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility
      */
     contentVisibility?: ContentVisibility_StyleType;
     /**
@@ -2094,12 +2194,16 @@ export interface IStyleset {
      */
     fontVariant?: DefaultStyleType;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-caps
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates
      */
+    fontVariantAlternates?: DefaultStyleType;
+    /**
+    * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-caps
+    */
     fontVariantCaps?: FontVariantCaps;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-east-asian
-     */
+      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-east-asian
+      */
     fontVariantEastAsian?: DefaultStyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures
@@ -2118,9 +2222,13 @@ export interface IStyleset {
      */
     fontVariationSettings?: DefaultStyleType;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/fontW-wight
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/font-wight
      */
     fontWeight?: FontWeight_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust
+     */
+    forcedColorAdjust?: ForcedColorAdjust_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/gap
      */
@@ -2210,17 +2318,49 @@ export interface IStyleset {
      */
     hyphens?: Hyphens_StyleType;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation
+     */
+    imageOrientation?: ImageOrientation_StyleType;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering
      */
     imageRendering?: ImageRendering_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter
+     */
+    initialLetter?: InitialLetter_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inline-size
      */
     inlineSize?: CssSize;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset
      */
-    initialLetter?: InitialLetter_StyleType;
+    inset?: OneOrBox<CssLengthOrAuto>;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block
+     */
+    insetBlock?: OneOrPair<CssLengthOrAuto>;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-end
+     */
+    insetBlockEnd?: CssLengthOrAuto;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-start
+     */
+    insetBlockStart?: CssLengthOrAuto;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline
+     */
+    insetInline?: OneOrPair<CssLengthOrAuto>;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end
+     */
+    insetInlineEnd?: CssLengthOrAuto;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start
+     */
+    insetInlineStart?: CssLengthOrAuto;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/isolation
      */
@@ -2346,6 +2486,34 @@ export interface IStyleset {
      */
     mask?: DefaultStyleType;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-image
+     */
+    maskBorder?: MaskBorder_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-outset
+     */
+    maskBorderMode?: MaskBorderMode_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-outset
+     */
+    maskBorderOutset?: BorderImageOutset_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-repeat
+     */
+    maskBorderRepeat?: BorderImageRepeat_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-slice
+     */
+    maskBorderSlice?: BorderImageSlice_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-source
+     */
+    maskBorderSource?: BorderImageSource_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-width
+     */
+    maskBorderWidth?: BorderImageWidth_StyleType;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-clip
      */
     maskClip?: OneOrMany<GeometryBoxKeyword>;
@@ -2381,6 +2549,10 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/mask-type
      */
     maskType?: MaskTypeKeyword;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/math-style
+     */
+    mathStyle?: MathStyle_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size
      */
@@ -2494,6 +2666,10 @@ export interface IStyleset {
      */
     overflowBlock?: OverflowKeyword;
     /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-clip-margin
+     */
+    overflowClipMargin?: OverflowClipMargin_StyleType;
+    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-inline
      */
     overflowInline?: OverflowKeyword;
@@ -2574,10 +2750,6 @@ export interface IStyleset {
      */
     paddingTop?: CssLength;
     /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/paint-order
-     */
-    paintOrder?: PaintOrder_StyleType;
-    /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-after
      */
     pageBreakAfter?: BreakAfter_StyleType;
@@ -2589,6 +2761,10 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-inside
      */
     pageBreakInside?: BreakInside_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/paint-order
+     */
+    paintOrder?: PaintOrder_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/perspective
      */
@@ -2653,14 +2829,6 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scale
      */
     scale?: Scale_StyleType;
-    /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color
-     */
-    scrollbarColor?: ScrollbarColor_StyleType;
-    /**
-     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width
-     */
-    scrollbarWidth?: ScrollbarWidth_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
      */
@@ -2765,6 +2933,18 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type
      */
     scrollSnapType?: ScrollSnapType_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-color
+     */
+    scrollbarColor?: ScrollbarColor_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-gutter
+     */
+    scrollbarGutter?: ScrollbarGutter_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width
+     */
+    scrollbarWidth?: ScrollbarWidth_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/shape-image-threshold
      */
@@ -2913,6 +3093,10 @@ export interface IStyleset {
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
      */
     textOverflow?: TextOverflow_StyleType;
+    /**
+     * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering
+     */
+    textRendering?: TextRendering_StyleType;
     /**
      * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow
      */
