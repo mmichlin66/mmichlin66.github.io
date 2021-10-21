@@ -1,4 +1,5 @@
-import { SelectorItem, ISelectorProxy, IRawProxy } from "./CoreTypes";
+import { SelectorItem, ISelectorProxy, IRawProxy, Extended, IUrlFunc, ICursorFunc } from "./CoreTypes";
+import { IIDRule } from "./RuleTypes";
 /**
  * Returns a string representation of a selector. This function is a tag function and must be
  * invoked with the template string without parentheses. This function can be used wherever the
@@ -40,4 +41,25 @@ export declare const selector: (parts: TemplateStringsArray, ...params: Selector
  * ```
  */
 export declare const raw: (parts: TemplateStringsArray, ...params: any[]) => IRawProxy;
+/**
+ * Returns a function representing the CSS `url()` function. The string parameter
+ * will be wrapped in a `url()` invocation. The function can also accept the IIDRule object to
+ * create url(#element) invocation, which is often used to address SVG elements by their IDs.
+ *
+ * @category Miscellaneous
+ */
+export declare const url: (p: Extended<string | IIDRule>) => IUrlFunc;
+/**
+ * Returns a function representing the CSS `url()` function.
+ *
+ * @category Miscellaneous
+ */
+export declare function cursor(p: Extended<string | IIDRule>): ICursorFunc;
+/**
+ * Returns a function representing the CSS `url()` function followed by two numbers
+ * indicating the cursor hotspot.
+ *
+ * @category Miscellaneous
+ */
+export declare function cursor(p: Extended<string | IIDRule>, x: number, y: number): ICursorFunc;
 //# sourceMappingURL=CoreAPI.d.ts.map

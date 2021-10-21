@@ -70,6 +70,10 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.icolorcontrastfunc.html" class="tsd-kind-icon">IColor<wbr>Contrast<wbr>Func</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.icolormixbuilder.html" class="tsd-kind-icon">IColor<wbr>Mix<wbr>Builder</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.icolormixfunc.html" class="tsd-kind-icon">IColor<wbr>Mix<wbr>Func</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.icsscolorfunc.html" class="tsd-kind-icon">ICss<wbr>Color<wbr>Func</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.ihslfunc.html" class="tsd-kind-icon">IHsl<wbr>Func</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.ilabfunc.html" class="tsd-kind-icon">ILab<wbr>Func</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/colortypes.ilchfunc.html" class="tsd-kind-icon">ILch<wbr>Func</a></li>
@@ -80,6 +84,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="colortypes.html#colorspace" class="tsd-kind-icon">Color<wbr>Space</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="colortypes.html#csscolor" class="tsd-kind-icon">Css<wbr>Color</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="colortypes.html#csscolorseparation" class="tsd-kind-icon">Css<wbr>Color<wbr>Separation</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="colortypes.html#cssnonnumericcolor" class="tsd-kind-icon">Css<wbr>Non<wbr>Numeric<wbr>Color</a></li>
@@ -92,9 +97,21 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="colorspace" class="tsd-anchor"></a>
+					<h3>Color<wbr>Space</h3>
+					<div class="tsd-signature tsd-kind-icon">Color<wbr>Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;srgb&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;hsl&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;hwb&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;xyz&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;lab&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;lch&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;oklab&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;oklch&quot;</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Represents color spaces that CSS works with.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="csscolor" class="tsd-anchor"></a>
 					<h3>Css<wbr>Color</h3>
-					<div class="tsd-signature tsd-kind-icon">Css<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;transparent&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;currentcolor&quot;</span><span class="tsd-signature-symbol"> | </span><a href="colortypes.html#systemcolors" class="tsd-signature-type" data-tsd-kind="Type alias">SystemColors</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.irgbfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IRgbFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ihslfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IHslFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ilchfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILchFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.ilabfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ILabFunc</a></div>
+					<div class="tsd-signature tsd-kind-icon">Css<wbr>Color<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/colortypes.inamedcolors.html" class="tsd-signature-type" data-tsd-kind="Interface">INamedColors</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;transparent&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;currentcolor&quot;</span><span class="tsd-signature-symbol"> | </span><a href="colortypes.html#systemcolors" class="tsd-signature-type" data-tsd-kind="Type alias">SystemColors</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/colortypes.icsscolorfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICssColorFunc</a></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -261,6 +278,18 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/colortypes.icolorcontrastfunc.html" class="tsd-kind-icon">IColor<wbr>Contrast<wbr>Func</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/colortypes.icolormixbuilder.html" class="tsd-kind-icon">IColor<wbr>Mix<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/colortypes.icolormixfunc.html" class="tsd-kind-icon">IColor<wbr>Mix<wbr>Func</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/colortypes.icsscolorfunc.html" class="tsd-kind-icon">ICss<wbr>Color<wbr>Func</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/colortypes.ihslfunc.html" class="tsd-kind-icon">IHsl<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
@@ -274,6 +303,9 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/colortypes.irgbfunc.html" class="tsd-kind-icon">IRgb<wbr>Func</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="colortypes.html#colorspace" class="tsd-kind-icon">Color<wbr>Space</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="colortypes.html#csscolor" class="tsd-kind-icon">Css<wbr>Color</a>

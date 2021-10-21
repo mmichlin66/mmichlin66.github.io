@@ -1,6 +1,5 @@
-import { IRawProxy } from "./CoreTypes";
+import { CssImage, IRawProxy } from "./CoreTypes";
 import { ICounterStyleRule } from "./RuleTypes";
-import { CssImage } from "./ShapeTypes";
 import { ListStyleType_StyleType } from "./StyleTypes";
 /**
  * Type that extends the given type with the [[IRawProxy]] interface that allows specifying raw string value.

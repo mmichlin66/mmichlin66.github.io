@@ -1,6 +1,6 @@
 import { Extended } from "./CoreTypes";
 import { CssAngle, CssPercent } from "./NumericTypes";
-import { CssColorSeparation, IHslFunc, ILabFunc, ILchFunc, INamedColors, IRgbFunc } from "./ColorTypes";
+import { ColorSpace, CssColor, CssColorSeparation, IColorContrastFunc, IColorMixBuilder, IHslFunc, ILabFunc, ILchFunc, INamedColors, IRgbFunc } from "./ColorTypes";
 /**
  * Object whose property names are the well-known Web color names while values correspond to the
  * hexadecimal representation of the RGB separations (without an alpha mask). The properties of
@@ -99,4 +99,41 @@ export declare const lab: (l: Extended<CssPercent>, da: Extended<number>, db: Ex
  * @returns The `ILchFunc` object representing the invocation of the `lch()` CSS function
  */
 export declare const lch: (l: Extended<CssPercent>, c: Extended<number>, h: Extended<CssAngle>, a?: Extended<CssPercent>) => ILchFunc;
+/**
+ * Implements the `color-contrast()` CSS property.
+ *
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-contrast()
+ *
+ * @param c Color to which the list of colors in the `vs` property will be compared
+ * @param vs List of colors from which to select the most contrasting to the base color.
+ * @returns The `IColorContrastFunc` object representing the invocation of the `color-contrast()`
+ * CSS function
+ */
+export declare const colorContrast: (c: Extended<CssColor>, ...vs: Extended<CssColor>[]) => IColorContrastFunc;
+/**
+ * Implements the `color-mix()` CSS property.
+ *
+ * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-nix()
+ *
+ * **Examples**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefnition
+ * {
+ *     // color-mix( "blue", "red")
+ *     cls1 = this.$class({
+ *         color: css.colorMix().mix("blue").with("red");
+ *     })
+ *
+ *     // color-mix( in srgb, "blue 30%", "red" 60%)
+ *     cls2 = this.$class({
+ *         color: css.colorMix("srgb").mix( "blue", 30).with("red", 60);
+ *     })
+ * }
+ * ```
+ *
+ * @param cs Color space. Default is "lch".
+ * @returns The `IColorMixBuilder` object that allows adding colors and optional percentages to mix
+ */
+export declare const colorMix: (cs?: Extended<ColorSpace>) => IColorMixBuilder;
 //# sourceMappingURL=ColorAPI.d.ts.map

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IParameterizedPseudoElement | Mimcss Reference</title>
+	<title>IColorContrastFunc | Mimcss Reference</title>
 	<meta name="description" content="Documentation for Mimcss Reference">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -53,13 +53,13 @@
 					<a href="../index.html">Mimcss Reference</a>
 				</li>
 				<li>
-					<a href="../modules/coretypes.html">CoreTypes</a>
+					<a href="../modules/colortypes.html">ColorTypes</a>
 				</li>
 				<li>
-					<a href="coretypes.iparameterizedpseudoelement.html">IParameterizedPseudoElement</a>
+					<a href="colortypes.icolorcontrastfunc.html">IColorContrastFunc</a>
 				</li>
 			</ul>
-			<h1>Interface IParameterizedPseudoElement</h1>
+			<h1>Interface IColorContrastFunc</h1>
 		</div>
 	</div>
 </header>
@@ -69,10 +69,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The <code>IParameterizedPseudoElement</code> interface maps names of pseudo elements that require parameters
-							to the types that can be used to specify these parameters. When a parameterized pseudo element
-							is used as a property in the <a href="../modules/ruletypes.html#combinedstyleset">CombinedStyleset</a> object, the value should be of the type from
-						this interface.</p>
+						<p>Represents an invocation of the CSS <code>color-contrast()</code> function. This interface is returned from the
+						<a href="../modules/colorapi.html#colorcontrast">colorContrast</a> function. Developers can use this structure wherever <a href="../modules/colortypes.html#csscolor">CssColor</a> is accepted.</p>
 					</div>
 				</div>
 			</section>
@@ -80,10 +78,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IParameterizedPseudoElement</span>
+						<a href="colortypes.icsscolorfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICssColorFunc</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="coretypes.iparameterizedpseudoentity.html" class="tsd-signature-type" data-tsd-kind="Interface">IParameterizedPseudoEntity</a>
+								<span class="target">IColorContrastFunc</span>
 							</li>
 						</ul>
 					</li>
@@ -96,8 +94,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="coretypes.iparameterizedpseudoelement.html#__part" class="tsd-kind-icon">::part</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="coretypes.iparameterizedpseudoelement.html#__slotted" class="tsd-kind-icon">::slotted</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="colortypes.icolorcontrastfunc.html#c" class="tsd-kind-icon">c</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="colortypes.icolorcontrastfunc.html#fn" class="tsd-kind-icon">fn</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="colortypes.icolorcontrastfunc.html#vs" class="tsd-kind-icon">vs</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,18 +105,36 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="__part" class="tsd-anchor"></a>
-					<h3>::part</h3>
-					<div class="tsd-signature tsd-kind-icon">::part<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="c" class="tsd-anchor"></a>
+					<h3>c</h3>
+					<div class="tsd-signature tsd-kind-icon">c<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Color to which the list of colors in the <code>vs</code> property will be compared</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+					<a name="fn" class="tsd-anchor"></a>
+					<h3>fn</h3>
+					<div class="tsd-signature tsd-kind-icon">fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;color-contrast&quot;</span></div>
+					<aside class="tsd-sources">
+						<p>Overrides <a href="colortypes.icsscolorfunc.html">ICssColorFunc</a>.<a href="colortypes.icsscolorfunc.html#fn">fn</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="__slotted" class="tsd-anchor"></a>
-					<h3>::slotted</h3>
-					<div class="tsd-signature tsd-kind-icon">::slotted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="vs" class="tsd-anchor"></a>
+					<h3>vs</h3>
+					<div class="tsd-signature tsd-kind-icon">vs<span class="tsd-signature-symbol">:</span> <a href="../modules/coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>List of colors from which to select the most contrasting to the base color</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -130,13 +147,13 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/colorapi.html">ColorAPI</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../modules/colortypes.html">Color<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/coreapi.html">CoreAPI</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/coretypes.html">Core<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -182,122 +199,62 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/coretypes.webnamespaces.html" class="tsd-kind-icon">Web<wbr>Namespaces</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="coretypes.iconstant.html" class="tsd-kind-icon">IConstant</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.icssfuncobject.html" class="tsd-kind-icon">ICss<wbr>Func<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.icssgradientfunc.html" class="tsd-kind-icon">ICss<wbr>Gradient<wbr>Func</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.icursorfunc.html" class="tsd-kind-icon">ICursor<wbr>Func</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="coretypes.icustomvar.html" class="tsd-kind-icon">ICustom<wbr>Var</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="coretypes.igenericproxy.html" class="tsd-kind-icon">IGeneric<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.iimageproxy.html" class="tsd-kind-icon">IImage<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.iparameterizedpseudoclass.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Class</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.iparameterizedpseudoelement.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Element</a>
+						<a href="colortypes.icolorcontrastfunc.html" class="tsd-kind-icon">IColor<wbr>Contrast<wbr>Func</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="coretypes.iparameterizedpseudoelement.html#__part" class="tsd-kind-icon">::part</a>
+								<a href="colortypes.icolorcontrastfunc.html#c" class="tsd-kind-icon">c</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+								<a href="colortypes.icolorcontrastfunc.html#fn" class="tsd-kind-icon">fn</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="coretypes.iparameterizedpseudoelement.html#__slotted" class="tsd-kind-icon">::slotted</a>
+								<a href="colortypes.icolorcontrastfunc.html#vs" class="tsd-kind-icon">vs</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.iparameterizedpseudoentity.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Entity</a>
+						<a href="colortypes.icolormixbuilder.html" class="tsd-kind-icon">IColor<wbr>Mix<wbr>Builder</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.irawproxy.html" class="tsd-kind-icon">IRaw<wbr>Proxy</a>
+						<a href="colortypes.icolormixfunc.html" class="tsd-kind-icon">IColor<wbr>Mix<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.irulewithselector.html" class="tsd-kind-icon">IRule<wbr>With<wbr>Selector</a>
+						<a href="colortypes.icsscolorfunc.html" class="tsd-kind-icon">ICss<wbr>Color<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.iselectorproxy.html" class="tsd-kind-icon">ISelector<wbr>Proxy</a>
+						<a href="colortypes.ihslfunc.html" class="tsd-kind-icon">IHsl<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.istringproxy.html" class="tsd-kind-icon">IString<wbr>Proxy</a>
+						<a href="colortypes.ilabfunc.html" class="tsd-kind-icon">ILab<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="coretypes.iurlfunc.html" class="tsd-kind-icon">IUrl<wbr>Func</a>
+						<a href="colortypes.ilchfunc.html" class="tsd-kind-icon">ILch<wbr>Func</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="colortypes.inamedcolors.html" class="tsd-kind-icon">INamed<wbr>Colors</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="colortypes.irgbfunc.html" class="tsd-kind-icon">IRgb<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#cssimage" class="tsd-kind-icon">Css<wbr>Image</a>
+						<a href="../modules/colortypes.html#colorspace" class="tsd-kind-icon">Color<wbr>Space</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#cssselector" class="tsd-kind-icon">Css<wbr>Selector</a>
+						<a href="../modules/colortypes.html#csscolor" class="tsd-kind-icon">Css<wbr>Color</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#cssstring" class="tsd-kind-icon">Css<wbr>String</a>
+						<a href="../modules/colortypes.html#csscolorseparation" class="tsd-kind-icon">Css<wbr>Color<wbr>Separation</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#dependentrulecombinator" class="tsd-kind-icon">Dependent<wbr>Rule<wbr>Combinator</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/coretypes.html#extended" class="tsd-kind-icon">Extended</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/coretypes.html#extendedprop" class="tsd-kind-icon">Extended<wbr>Prop</a>
+						<a href="../modules/colortypes.html#cssnonnumericcolor" class="tsd-kind-icon">Css<wbr>Non<wbr>Numeric<wbr>Color</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#extentkeyword" class="tsd-kind-icon">Extent<wbr>Keyword</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#global_styletype" class="tsd-kind-icon">Global_<wbr><wbr>Style<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/coretypes.html#importantprop" class="tsd-kind-icon">Important<wbr>Prop</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#nthchildexpression" class="tsd-kind-icon">Nth<wbr>Child<wbr>Expression</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/coretypes.html#oneorbox" class="tsd-kind-icon">One<wbr>OrBox</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/coretypes.html#oneormany" class="tsd-kind-icon">One<wbr>OrMany</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../modules/coretypes.html#oneorpair" class="tsd-kind-icon">One<wbr>OrPair</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#pagepseudoclass" class="tsd-kind-icon">Page<wbr>Pseudo<wbr>Class</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#pseudoclass" class="tsd-kind-icon">Pseudo<wbr>Class</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#pseudoelement" class="tsd-kind-icon">Pseudo<wbr>Element</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#pseudoentity" class="tsd-kind-icon">Pseudo<wbr>Entity</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#selectorcombinator" class="tsd-kind-icon">Selector<wbr>Combinator</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="../modules/coretypes.html#selectoritem" class="tsd-kind-icon">Selector<wbr>Item</a>
+						<a href="../modules/colortypes.html#systemcolors" class="tsd-kind-icon">System<wbr>Colors</a>
 					</li>
 				</ul>
 			</nav>

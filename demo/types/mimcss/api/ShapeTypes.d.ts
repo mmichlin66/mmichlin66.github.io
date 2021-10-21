@@ -1,53 +1,34 @@
-import { Extended, ICssFuncObject, IGenericProxy } from "./CoreTypes";
+import { CssImage, Extended, ExtentKeyword, ICssFuncObject, ICssGradientFunc } from "./CoreTypes";
 import { BorderRadius, CssAngle, CssLength, CssNumber, CssPercent, CssPoint, CssPosition } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
 import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
-import { IIDRule } from "./RuleTypes";
 /**
- * Type representing extent for the [[radialGradient]] or [[ray]] functions.
+ * Type representing either color stop or color hint for the `<gradient>` CSS functions. Color
+ * stop is represented by either a simple color value or a two-to-three element tuple. In this
+ * tuple, the first item is the color value, the second item is the distance/angle of where the
+ * color starts and the optional third item is the distance/angle where the color stops.
+ *
+ * Hint value is expressed as a single-item array that contains a single CSS numeric value.
+ * Although hint is a single number, it must be enclosed in an array to distinguish it from color
+ * values because any numeric values in the gradient functions are interpreted as colors.
+ *
+ * For linear and radial gradients numeric values are of type [[CssLength]]; for conic gradients,
+ * these are of type [[CssAngle]]. Percents can be used for all types of gradients.
+ *
+ * **Examples:**
+ *
+ * ```typescript
+ * // linear gradient with 50px hint
+ * linearGradient( Colors.red, [50], Colors.blue)
+ *
+ * // radial gradient with a second color starting at 20%
+ * radialGradient( "red", ["blue", css.percent(20)], "yellow")
+ *
+ * // conic gradient with a second color starting at 0.4turn and stopping at 0.6turn
+ * conicGradient( "red", ["blue", 0.4, 0.6], "yellow")
+ * ```
+ * @typeparam T Type of numeric values used for hints and color stops.
  */
-export declare type ExtentKeyword = "closest-corner" | "closest-side" | "farthest-corner" | "farthest-side";
-/**
-* The ImageProxy interface represents an invocation of one of CSS functions that are used for
-* specifying images. This interface is returned from functions like [[linearGradient]],
-* [[crossFade]] and others.
-*/
-export interface IImageProxy extends IGenericProxy<"image"> {
-}
-/**
- * The CssImage type represents a type used for CSS properties that accept the `<image>` type.
- * Image can be specified either using the [[url]] function that returns the [[IUrlFunc]]
- * interface or any of the functions that return the [[IImageProxy]] interface such as
- * [[linearGradient]], [[crossFade]] and others.
- */
-export declare type CssImage = IUrlFunc | IImageProxy | ILinearGradientFunc | IRadialGradientFunc | IConicGradientFunc;
-/**
-* Type representing either color stop or color hint for the `<gradient>` CSS functions. Color
-* stop is represented by either a simple color value or a two-to-three element tuple. In this
-* tuple, the first item is the color value, the second item is the distance/angle of where the
-* color starts and the optional third item is the distance/angle where the color stops.
-*
-* Hint value is expressed as a single-item array that contains a single CSS numeric value.
-* Although hint is a single number, it must be enclosed in an array to distinguish it from color
-* values because any numeric values in the gradient functions are interpreted as colors.
-*
-* For linear and radial gradients numeric values are of type [[CssLength]]; for conic gradients,
-* these are of type [[CssAngle]]. Percents can be used for all types of gradients.
-*
-* **Examples:**
-*
-* ```typescript
-* // linear gradient with 50px hint
-* linearGradient( Colors.red, [50], Colors.blue)
-*
-* // radial gradient with a second color starting at 20%
-* radialGradient( "red", ["blue", css.percent(20)], "yellow")
-*
-* // conic gradient with a second color starting at 0.4turn and stopping at 0.6turn
-* conicGradient( "red", ["blue", 0.4, 0.6], "yellow")
-* ```
-* @typeparam T Type of numeric values used for hints and color stops.
-*/
 export declare type GradientStopOrHint<T extends (CssLength | CssAngle)> = Extended<CssColor> | [Extended<CssColor>, Extended<T>, Extended<T>?] | [Extended<T>];
 /**
  * Type that enumerates possible values of the side-or-corner for the [[linearGradient]] function.
@@ -82,7 +63,7 @@ export declare type LinearGradientAngle = Extended<CssAngle> | SideOrCorner;
  * @typeparam T Type of numeric values used for hints and color stops.
  * @category Image
  */
-export interface IGradientFunc<T extends (CssLength | CssAngle)> extends ICssFuncObject {
+export interface IGradientFunc<T extends (CssLength | CssAngle)> extends ICssGradientFunc {
     /** flag indicating whether the gradient is repeating */
     repeat?: boolean;
     /** Array of stops and hints */
@@ -692,30 +673,6 @@ export interface IGridSpanFunc extends ICssFuncObject {
     p1: Extended<GridLineCountOrName>;
     /** Second span argument */
     p2?: Extended<GridLineCountOrName>;
-}
-/**
- * The IUrlFunc interface represents an invocation of the CSS `url()` function. It is returned from
- * the [[url]] function.
- * @category Miscellaneous
- */
-export interface IUrlFunc extends ICssFuncObject {
-    fn: "url";
-    /** URL or reference to the ID rule identifying an SVG element */
-    p: Extended<string | IIDRule>;
-}
-/**
- * The ICursorFunc interface represents an invocation of the CSS `url()` function with two optional
- * numbers indicating the cursor's hotspot.
- * @category Miscellaneous
- */
-export interface ICursorFunc extends ICssFuncObject {
-    fn: "cursor";
-    /** Cursor URL or reference to the ID rule identifying an SVG element */
-    url: Extended<string | IIDRule>;
-    /** X-coordinate of the cursor hotspot */
-    x?: number;
-    /** Y-coordinate of the cursor hotspot */
-    y?: number;
 }
 /** Type for step animation timing function jump-term */
 export declare type TimingFunctionJumpTerm = "jump-start" | "jump-end" | "jump-none" | "jump-both" | "start" | "end";

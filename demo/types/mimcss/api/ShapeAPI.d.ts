@@ -1,8 +1,7 @@
-import { Extended } from "./CoreTypes";
+import { Extended, ExtentKeyword, IImageProxy } from "./CoreTypes";
 import { CssAngle, CssLength, CssNumber, CssPercent, CssPoint } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
-import { CrossFadeParam, GradientStopOrHint, ShapeRadius, IImageProxy, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, IUrlFunc, TimingFunctionJumpTerm, ICursorFunc, ExtentKeyword, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IStepsFunc, ICubicBezierFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder } from "./ShapeTypes";
-import { IIDRule } from "./RuleTypes";
+import { CrossFadeParam, GradientStopOrHint, ShapeRadius, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, TimingFunctionJumpTerm, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IStepsFunc, ICubicBezierFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder } from "./ShapeTypes";
 import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
 /**
  * Function returning the ILinearGradientBuilder interface representing the `linear-gradient` CSS functions.
@@ -520,27 +519,6 @@ export declare const repeat: (count: Extended<CssNumber> | "auto-fill" | "auto-f
  * @category Grid
  */
 export declare const span: (p1: Extended<GridLineCountOrName>, p2?: Extended<GridLineCountOrName>) => IGridSpanFunc;
-/**
- * Returns a function representing the CSS `url()` function. The string parameter
- * will be wrapped in a `url()` invocation. The function can also accept the IIDRule object to
- * create url(#element) invocation, which is often used to address SVG elements by their IDs.
- *
- * @category Miscellaneous
- */
-export declare const url: (p: Extended<string | IIDRule>) => IUrlFunc;
-/**
- * Returns a function representing the CSS `url()` function.
- *
- * @category Miscellaneous
- */
-export declare function cursor(p: Extended<string | IIDRule>): ICursorFunc;
-/**
- * Returns a function representing the CSS `url()` function followed by two numbers
- * indicating the cursor hotspot.
- *
- * @category Miscellaneous
- */
-export declare function cursor(p: Extended<string | IIDRule>, x: number, y: number): ICursorFunc;
 /**
  * Returns a function representing an invocation of the CSS `steps()` function.
  *

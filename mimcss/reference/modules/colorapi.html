@@ -76,6 +76,8 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#colorcontrast" class="tsd-kind-icon">color<wbr>Contrast</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#colormix" class="tsd-kind-icon">color<wbr>Mix</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#hsl" class="tsd-kind-icon">hsl</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#lab" class="tsd-kind-icon">lab</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="colorapi.html#lch" class="tsd-kind-icon">lch</a></li>
@@ -106,6 +108,91 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="colorcontrast" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> color<wbr>Contrast</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">color<wbr>Contrast<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span>, <span class="tsd-signature-symbol">...</span>vs<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.icolorcontrastfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorContrastFunc</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Implements the <code>color-contrast()</code> CSS property.</p>
+								</div>
+								<ul>
+									<li>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-contrast()">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-contrast()</a></li>
+								</ul>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>c: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Color to which the list of colors in the <code>vs</code> property will be compared</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>vs: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#csscolor" class="tsd-signature-type" data-tsd-kind="Type alias">CssColor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>List of colors from which to select the most contrasting to the base color.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.icolorcontrastfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorContrastFunc</a></h4>
+							<p>The <code>IColorContrastFunc</code> object representing the invocation of the <code>color-contrast()</code>
+							CSS function</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="colormix" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> color<wbr>Mix</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">color<wbr>Mix<span class="tsd-signature-symbol">(</span>cs<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#colorspace" class="tsd-signature-type" data-tsd-kind="Type alias">ColorSpace</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/colortypes.icolormixbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorMixBuilder</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Implements the <code>color-mix()</code> CSS property.</p>
+								</div>
+								<ul>
+									<li>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-nix()">https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-nix()</a></li>
+								</ul>
+								<p><strong>Examples</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefnition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #008000">// color-mix( &quot;blue&quot;, &quot;red&quot;)</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">colorMix</span><span style="color: #000000">().</span><span style="color: #795E26">mix</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">).</span><span style="color: #795E26">with</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">);</span>
+<span style="color: #000000">    })</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// color-mix( in srgb, &quot;blue 30%&quot;, &quot;red&quot; 60%)</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls2</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({</span>
+<span style="color: #000000">        </span><span style="color: #001080">color:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">colorMix</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;srgb&quot;</span><span style="color: #000000">).</span><span style="color: #795E26">mix</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;blue&quot;</span><span style="color: #000000">, </span><span style="color: #098658">30</span><span style="color: #000000">).</span><span style="color: #795E26">with</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;red&quot;</span><span style="color: #000000">, </span><span style="color: #098658">60</span><span style="color: #000000">);</span>
+<span style="color: #000000">    })</span>
+<span style="color: #000000">}</span>
+</code></pre>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> cs: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="colortypes.html#colorspace" class="tsd-signature-type" data-tsd-kind="Type alias">ColorSpace</a><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Color space. Default is &quot;lch&quot;.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/colortypes.icolormixbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">IColorMixBuilder</a></h4>
+							<p>The <code>IColorMixBuilder</code> object that allows adding colors and optional percentages to mix</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="hsl" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> hsl</h3>
@@ -449,6 +536,12 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-variable tsd-parent-kind-module">
 						<a href="colorapi.html#colors" class="tsd-kind-icon">Colors</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="colorapi.html#colorcontrast" class="tsd-kind-icon">color<wbr>Contrast</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="colorapi.html#colormix" class="tsd-kind-icon">color<wbr>Mix</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="colorapi.html#hsl" class="tsd-kind-icon">hsl</a>
