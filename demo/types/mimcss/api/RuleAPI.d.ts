@@ -841,10 +841,11 @@ export declare const activate: <T extends IStyleDefinition<any>>(instOrClass: T 
  */
 export declare const deactivate: (instance: IStyleDefinition, schedulerType?: number | undefined) => void;
 /**
- * Returns the theme definition object, which is currently active for the given theme.
- * @param themeClass Theme definition class
+ * Returns the theme definition object, which is currently active for the given theme declaration
+ * class.
+ * @param themeClass Theme declaration class
  * @returns Theme instance, which is currently active for the given theme class or undefined
  * if no instance is currently active.
  */
-export declare const getActiveThemeInstance: (themeClass: IStyleDefinitionClass<ThemeDefinition>) => ThemeDefinition | undefined;
+export declare const getActiveTheme: (themeClass: IStyleDefinitionClass<ThemeDefinition>) => ThemeDefinition | undefined;
 //# sourceMappingURL=RuleAPI.d.ts.map

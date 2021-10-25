@@ -1,6 +1,6 @@
 import { Extended } from "./CoreTypes";
 import { CssAngle, CssPercent } from "./NumericTypes";
-import { ColorSpace, CssColor, CssColorSeparation, IColorContrastFunc, IColorMixBuilder, IHslFunc, ILabFunc, ILchFunc, INamedColors, IRgbFunc } from "./ColorTypes";
+import { CssColor, CssColorSeparation, IColorContrastFunc, IColorMixBuilder, IHslFunc, ILabFunc, ILchFunc, INamedColors, IRgbFunc } from "./ColorTypes";
 /**
  * Object whose property names are the well-known Web color names while values correspond to the
  * hexadecimal representation of the RGB separations (without an alpha mask). The properties of
@@ -122,12 +122,12 @@ export declare const colorContrast: (c: Extended<CssColor>, ...vs: Extended<CssC
  * {
  *     // color-mix( "blue", "red")
  *     cls1 = this.$class({
- *         color: css.colorMix().mix("blue").with("red");
+ *         color: css.colorMix("blue").with("red");
  *     })
  *
  *     // color-mix( in srgb, "blue 30%", "red" 60%)
  *     cls2 = this.$class({
- *         color: css.colorMix("srgb").mix( "blue", 30).with("red", 60);
+ *         color: css.colorMix("blue", 30).with("red", 60).in("srgb");
  *     })
  * }
  * ```
@@ -135,5 +135,5 @@ export declare const colorContrast: (c: Extended<CssColor>, ...vs: Extended<CssC
  * @param cs Color space. Default is "lch".
  * @returns The `IColorMixBuilder` object that allows adding colors and optional percentages to mix
  */
-export declare const colorMix: (cs?: Extended<ColorSpace>) => IColorMixBuilder;
+export declare const colorMix: (c: Extended<CssColor>, p?: Extended<CssPercent>) => IColorMixBuilder;
 //# sourceMappingURL=ColorAPI.d.ts.map

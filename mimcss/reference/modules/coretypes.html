@@ -74,22 +74,14 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Image Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.icssgradientfunc.html" class="tsd-kind-icon">ICss<wbr>Gradient<wbr>Func</a></li>
-							</ul>
-							<h3>Miscellaneous Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.icursorfunc.html" class="tsd-kind-icon">ICursor<wbr>Func</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.iurlfunc.html" class="tsd-kind-icon">IUrl<wbr>Func</a></li>
-							</ul>
-							<h3>Other Interfaces</h3>
+							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/coretypes.iconstant.html" class="tsd-kind-icon">IConstant</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.icssfuncobject.html" class="tsd-kind-icon">ICss<wbr>Func<wbr>Object</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.icssimagefunc.html" class="tsd-kind-icon">ICss<wbr>Image<wbr>Func</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.icursorfunc.html" class="tsd-kind-icon">ICursor<wbr>Func</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/coretypes.icustomvar.html" class="tsd-kind-icon">ICustom<wbr>Var</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/coretypes.igenericproxy.html" class="tsd-kind-icon">IGeneric<wbr>Proxy</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.iimageproxy.html" class="tsd-kind-icon">IImage<wbr>Proxy</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.iparameterizedpseudoclass.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Class</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.iparameterizedpseudoelement.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Element</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.iparameterizedpseudoentity.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Entity</a></li>
@@ -97,6 +89,7 @@
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.irulewithselector.html" class="tsd-kind-icon">IRule<wbr>With<wbr>Selector</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.iselectorproxy.html" class="tsd-kind-icon">ISelector<wbr>Proxy</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.istringproxy.html" class="tsd-kind-icon">IString<wbr>Proxy</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/coretypes.iurlfunc.html" class="tsd-kind-icon">IUrl<wbr>Func</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -131,15 +124,15 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="cssimage" class="tsd-anchor"></a>
 					<h3>Css<wbr>Image</h3>
-					<div class="tsd-signature tsd-kind-icon">Css<wbr>Image<span class="tsd-signature-symbol">:</span> <a href="../interfaces/coretypes.iurlfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IUrlFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/coretypes.icssgradientfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICssGradientFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/coretypes.iimageproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IImageProxy</a></div>
+					<div class="tsd-signature tsd-kind-icon">Css<wbr>Image<span class="tsd-signature-symbol">:</span> <a href="../interfaces/coretypes.iurlfunc.html" class="tsd-signature-type" data-tsd-kind="Interface">IUrlFunc</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/coretypes.icssimagefunc.html" class="tsd-signature-type" data-tsd-kind="Interface">ICssImageFunc</a></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The CssImage type represents a type used for CSS properties that accept the <code>&lt;image&gt;</code> type.
 								Image can be specified either using the <a href="coreapi.html#url">url</a> function that returns the <a href="../interfaces/coretypes.iurlfunc.html">IUrlFunc</a>
-								interface or any of the functions that return the <a href="../interfaces/coretypes.iimageproxy.html">IImageProxy</a> interface such as
-							<a href="shapeapi.html#lineargradient">linearGradient</a>, <a href="shapeapi.html#crossfade">crossFade</a> and others.</p>
+								interface or any of the functions that return the [[IImageProxy]] or <a href="../interfaces/coretypes.icssimagefunc.html">ICssImageFunc</a>
+							interface such as <a href="shapeapi.html#lineargradient">linearGradient</a> and <a href="shapeapi.html#crossfade">crossFade</a>.</p>
 						</div>
 					</div>
 				</section>
@@ -646,7 +639,7 @@
 						<a href="../interfaces/coretypes.icssfuncobject.html" class="tsd-kind-icon">ICss<wbr>Func<wbr>Object</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/coretypes.icssgradientfunc.html" class="tsd-kind-icon">ICss<wbr>Gradient<wbr>Func</a>
+						<a href="../interfaces/coretypes.icssimagefunc.html" class="tsd-kind-icon">ICss<wbr>Image<wbr>Func</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/coretypes.icursorfunc.html" class="tsd-kind-icon">ICursor<wbr>Func</a>
@@ -656,9 +649,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="../interfaces/coretypes.igenericproxy.html" class="tsd-kind-icon">IGeneric<wbr>Proxy</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/coretypes.iimageproxy.html" class="tsd-kind-icon">IImage<wbr>Proxy</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/coretypes.iparameterizedpseudoclass.html" class="tsd-kind-icon">IParameterized<wbr>Pseudo<wbr>Class</a>

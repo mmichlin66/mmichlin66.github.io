@@ -83,7 +83,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#getactivethemeinstance" class="tsd-kind-icon">get<wbr>Active<wbr>Theme<wbr>Instance</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#getactivetheme" class="tsd-kind-icon">get<wbr>Active<wbr>Theme</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a></li>
 							</ul>
 						</section>
@@ -293,10 +293,10 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="getactivethemeinstance" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Active<wbr>Theme<wbr>Instance</h3>
+					<a name="getactivetheme" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Active<wbr>Theme</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Active<wbr>Theme<wbr>Instance<span class="tsd-signature-symbol">(</span>themeClass<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Active<wbr>Theme<span class="tsd-signature-symbol">(</span>themeClass<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -304,7 +304,8 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the theme definition object, which is currently active for the given theme.</p>
+									<p>Returns the theme definition object, which is currently active for the given theme declaration
+									class.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -312,7 +313,7 @@
 								<li>
 									<h5>themeClass: <a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Theme definition class</p>
+										<p>Theme declaration class</p>
 									</div>
 								</li>
 							</ul>
@@ -448,7 +449,7 @@
 						<a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#getactivethemeinstance" class="tsd-kind-icon">get<wbr>Active<wbr>Theme<wbr>Instance</a>
+						<a href="ruleapi.html#getactivetheme" class="tsd-kind-icon">get<wbr>Active<wbr>Theme</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a>

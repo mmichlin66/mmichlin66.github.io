@@ -1,4 +1,4 @@
-import { CssImage, Extended, ExtentKeyword, ICssFuncObject, ICssGradientFunc } from "./CoreTypes";
+import { CssImage, Extended, ExtentKeyword, ICssFuncObject, ICssImageFunc } from "./CoreTypes";
 import { BorderRadius, CssAngle, CssLength, CssNumber, CssPercent, CssPoint, CssPosition } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
 import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
@@ -63,7 +63,7 @@ export declare type LinearGradientAngle = Extended<CssAngle> | SideOrCorner;
  * @typeparam T Type of numeric values used for hints and color stops.
  * @category Image
  */
-export interface IGradientFunc<T extends (CssLength | CssAngle)> extends ICssGradientFunc {
+export interface IGradientFunc<T extends (CssLength | CssAngle)> extends ICssImageFunc {
     /** flag indicating whether the gradient is repeating */
     repeat?: boolean;
     /** Array of stops and hints */
@@ -182,10 +182,9 @@ export interface IRadialGradientBuilder extends IRadialGradientFunc, IGradientBu
     at(pos: Extended<CssPosition>): this;
 }
 /**
- * Represents an object that produces either `conic-gradient` or
- * `repeating-conic-gradient` CSS function. It can be directly assigned to a suitable style
- * property (e.g. background-image). Objects implementing this interface can be used whereever
- * gradients are used.
+ * Represents an invocation of the `conic-gradient` or `repeating-conic-gradient` CSS function.
+ * It can be directly assigned to a suitable style property (e.g. `background-image`). Objects
+ * implementing this interface can be used wherever the CSS `<image>` type is used.
  * @category Image
  */
 export interface IConicGradientFunc extends IGradientFunc<CssAngle> {
@@ -198,7 +197,7 @@ export interface IConicGradientFunc extends IGradientFunc<CssAngle> {
 /**
  * Represents an object that produces either `conic-gradient` or
  * `repeating-conic-gradient` CSS function. It can be directly assigned to a suitable style
- * property (e.g. background-image). In addition it has the `from` and `at` methods that can be
+ * property (e.g. `background-image`). In addition it has the `from` and `at` methods that can be
  * called to specify the starting angle and center of the gradient.
  * @category Image
  */
@@ -214,6 +213,47 @@ export interface IConicGradientBuilder extends IConicGradientFunc, IGradientBuil
      * @param pos Position value
      */
     at(pos: Extended<CssPosition>): this;
+}
+/**
+ * Represents an invocation of the `cross-fade()` CSS function. It can be directly assigned to
+ * a suitable style property (e.g. `background-image`). Objects implementing this interface can be
+ * used wherever the CSS `<image>` type is used.
+ * @category Image
+ */
+export interface ICrossFadeFunc extends ICssImageFunc {
+    fn: "cross-fade";
+    /**
+     * Parameters of the old signature of the function. This property is ignored if the `image`
+     * property is defined.
+     */
+    old?: [Extended<CssImage>, Extended<CssImage>, Extended<CssPercent>];
+    /**
+     * Array of tuples where the first element is an image and the second, optional, element is
+     * the percentage of this image to be used.
+     */
+    images?: [Extended<CssImage>, Extended<CssPercent>?][];
+    /** Optional color as the last image */
+    c?: Extended<CssColor>;
+}
+/**
+ * Represents an invocation of the `cross-fade()` CSS function. It can be directly assigned to
+ * a suitable style property (e.g. `background-image`). Objects implementing this interface can be
+ * used wherever the CSS `<image>` type is used. In addition, it has convenient methods that
+ * can gradually build the parameters of the `cross-fade()` function.
+ * @category Image
+ */
+export interface ICrossFadeBuilder extends ICrossFadeFunc {
+    /**
+     * Adds one or more images with optional percentages.
+     * @param images Array where each item is either a single image or a tuple of image and
+     * percentage
+     */
+    add(...images: (Extended<CssImage> | [Extended<CssImage>, Extended<CssPercent>])[]): this;
+    /**
+     * Sets the color that can be used in place of the last image.
+     * @param pos Position value
+     */
+    color(c: Extended<CssColor>): this;
 }
 /**
  * Type representing parameters for the [[crossFade]] function.

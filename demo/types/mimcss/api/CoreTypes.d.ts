@@ -429,7 +429,6 @@ export declare type CssSelector = OneOrMany<SelectorItem>;
 /**
  * The IUrlFunc interface represents an invocation of the CSS `url()` function. It is returned from
  * the [[url]] function.
- * @category Miscellaneous
  */
 export interface IUrlFunc extends ICssFuncObject {
     fn: "url";
@@ -439,7 +438,6 @@ export interface IUrlFunc extends ICssFuncObject {
 /**
  * The ICursorFunc interface represents an invocation of the CSS `url()` function with two optional
  * numbers indicating the cursor's hotspot.
- * @category Miscellaneous
  */
 export interface ICursorFunc extends ICssFuncObject {
     fn: "cursor";
@@ -455,29 +453,20 @@ export interface ICursorFunc extends ICssFuncObject {
  */
 export declare type ExtentKeyword = "closest-corner" | "closest-side" | "farthest-corner" | "farthest-side";
 /**
- * Represents an object that produces either `linear-gradient` or
- * `repeating-linear-gradient` CSS function. It can be directly assigned to a suitable style
- * property (e.g. background-image). Objects implementing this interface can be used whereever
- * gradients are used.
- * @category Image
+ * Represents an object that produces one of CSS gradient function. It can be directly assigned to
+ * a suitable style property (e.g. background-image). Objects implementing this interface can be
+ * used whereever gradients are used.
  */
-export interface ICssGradientFunc extends ICssFuncObject {
-    fn: "linear-gradient" | "radial-gradient" | "conic-gradient";
-}
-/**
- * The ImageProxy interface represents an invocation of one of CSS functions that are used for
- * specifying images. This interface is returned from functions like [[linearGradient]],
- * [[crossFade]] and others.
- */
-export interface IImageProxy extends IGenericProxy<"image"> {
+export interface ICssImageFunc extends ICssFuncObject {
+    fn: "linear-gradient" | "radial-gradient" | "conic-gradient" | "cross-fade";
 }
 /**
  * The CssImage type represents a type used for CSS properties that accept the `<image>` type.
  * Image can be specified either using the [[url]] function that returns the [[IUrlFunc]]
- * interface or any of the functions that return the [[IImageProxy]] interface such as
- * [[linearGradient]], [[crossFade]] and others.
+ * interface or any of the functions that return the [[IImageProxy]] or [[ICssImageFunc]]
+ * interface such as [[linearGradient]] and [[crossFade]].
  */
-export declare type CssImage = IUrlFunc | ICssGradientFunc | IImageProxy;
+export declare type CssImage = IUrlFunc | ICssImageFunc;
 /**
  * The WebNamespaces enumeration provides identifiers for the known Web-related namespaces.
  */

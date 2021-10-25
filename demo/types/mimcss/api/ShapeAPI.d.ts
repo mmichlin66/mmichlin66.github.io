@@ -1,7 +1,7 @@
-import { Extended, ExtentKeyword, IImageProxy } from "./CoreTypes";
+import { CssImage, Extended, ExtentKeyword } from "./CoreTypes";
 import { CssAngle, CssLength, CssNumber, CssPercent, CssPoint } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
-import { CrossFadeParam, GradientStopOrHint, ShapeRadius, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, TimingFunctionJumpTerm, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IStepsFunc, ICubicBezierFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder } from "./ShapeTypes";
+import { GradientStopOrHint, ShapeRadius, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, TimingFunctionJumpTerm, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IStepsFunc, ICubicBezierFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder, ICrossFadeBuilder, ICrossFadeFunc } from "./ShapeTypes";
 import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
 /**
  * Function returning the ILinearGradientBuilder interface representing the `linear-gradient` CSS functions.
@@ -67,7 +67,8 @@ export declare const conicGradient: (...stops: GradientStopOrHint<CssAngle>[]) =
  *
  * @category Image
  */
-export declare const crossFade: (...args: CrossFadeParam[]) => IImageProxy;
+export declare function crossFade(old: [Extended<CssImage>, Extended<CssImage>, Extended<CssPercent>]): ICrossFadeFunc;
+export declare function crossFade(...images: (Extended<CssImage> | [Extended<CssImage>, Extended<CssPercent>])[]): ICrossFadeBuilder;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `brightness()` CSS function.
  *
