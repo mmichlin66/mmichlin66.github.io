@@ -1,5 +1,5 @@
 import { Extended, OneOrPair, OneOrBox, OneOrMany, ExtendedProp, Global_StyleType, CssString, CssImage, ICursorFunc, IUrlFunc } from "./CoreTypes";
-import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius, AngleUnits, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits, IPercentProxy } from "./NumericTypes";
+import { CssNumber, CssPosition, CssTime, CssLength, CssAngle, CssPercent, CssFrequency, CssResolution, CssRadius, HorizontalPositionKeyword, VerticalPositionKeyword, CssPoint, IFitContentProxy, ILengthProxy, CssSize, CssAspectRatio, IRectProxy, CssLengthOrAuto, CssMultiPosition, CssMultiPositionX, CssMultiPositionY, BorderRadius, AngleUnits, FrequencyUnits, LengthUnits, PercentUnits, ResolutionUnits, TimeUnits } from "./NumericTypes";
 import { CssColor, CssNonNumericColor } from "./ColorTypes";
 import { FontKerning, FontOpticalSizing, FontSize, FontStretch, FontStretchKeyword, FontStyle, FontSynthesis, FontVariantCaps, FontVariantPosition, FontWeight, SystemFont } from "./FontTypes";
 import { BasicShape, IMinMaxFunc, IRepeatFunc, IGridSpanFunc, FilterFuncs, FillRule, IRayFunc, IStepsFunc, ICubicBezierFunc, TransformFuncs } from "./ShapeTypes";
@@ -161,7 +161,7 @@ export declare type BackfaceVisibilityMode_StyleType = "visible" | "hidden";
  * Type for single background value
  * @category Style Helper
  */
-export declare type Background_Single = CssColor | {
+export declare type Background_Single = CssColor | CssImage | {
     color?: Extended<CssColor>;
     image?: Extended<CssImage>;
     position?: Extended<CssPosition>;
@@ -320,13 +320,15 @@ export declare type BorderImageRepeat_StyleType = OneOrPair<BorderImageRepeatKey
 /**
  * Type for [[borderImageSlice]] style property
  * - MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice
+ *
+ * Note: numeric values are treated as is - without appending the percent sign to them.
  * @category Style Property
  */
-export declare type BorderImageSlice_StyleType = OneOrBox<CssNumber | IPercentProxy | "fill"> | [
-    Extended<CssNumber | IPercentProxy>,
-    Extended<CssNumber | IPercentProxy>,
-    Extended<CssNumber | IPercentProxy>,
-    Extended<CssNumber | IPercentProxy>,
+export declare type BorderImageSlice_StyleType = OneOrBox<CssPercent | "fill"> | [
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    Extended<CssPercent>,
+    Extended<CssPercent>,
     "fill"
 ];
 /**

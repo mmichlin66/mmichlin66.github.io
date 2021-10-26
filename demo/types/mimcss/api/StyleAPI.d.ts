@@ -1,7 +1,6 @@
-import { Extended, IRawProxy, IStringProxy } from "./CoreTypes";
-import { IStyleDefinitionClass, IVarRule, IStyleDefinition, ICounterRule } from "./RuleTypes";
+import { IStyleDefinitionClass, IStyleDefinition } from "./RuleTypes";
 import { ExtendedMediaFeatureset, IMediaQueryProxy, ISupportsQueryProxy, MediaStatement, SupportsStatement } from "./MediaTypes";
-import { Styleset, ExtendedBaseStyleset, StringStyleset, IStyleset, ExtendedVarValue, ICssSerializer, AttrTypeKeyword, AttrUnitKeyword, ListStyleType_StyleType } from "./StyleTypes";
+import { Styleset, ExtendedBaseStyleset, StringStyleset, IStyleset, ICssSerializer } from "./StyleTypes";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the
@@ -36,6 +35,11 @@ export declare const setElementStyle: (elm: ElementCSSInlineStyle, styleset: Sty
  */
 export declare const setElementStringStyle: (elm: ElementCSSInlineStyle, styleset: StringStyleset | null | undefined, schedulerType?: number | undefined) => void;
 /**
+ * Serializes the given [[Styleset]] to a string.
+ * @param styleset
+ */
+export declare const stylesetToString: (styleset: Styleset) => string;
+/**
  * Converts the given [[Styleset]] object into an object, where each Styleset's property is
  * converted to its string value.
  * @param styleset
@@ -54,65 +58,6 @@ export declare const stylesetToStringStyleset: (styleset: Styleset) => StringSty
  * returned.
  */
 export declare const diffStylesets: (oldStyleset: Styleset, newStyleset: Styleset) => StringStyleset | null;
-/**
- * Returns a function representing the `attr()` CSS function. It returns IStringProxy and
- * theoretically can be used in any style property wherever the CSS `<string>` type is accepted;
- * however, its use by browsers is currently limited to the `content` property. Also not all
- * browsers currently support type, units or fallback values.
- *
- * @category Miscellaneous
- */
-export declare const attr: (attrName: Extended<string>, typeOrUnit?: Extended<AttrTypeKeyword | AttrUnitKeyword>, fallback?: Extended<string>) => IStringProxy;
-/**
- * Returns a representation of the CSS `counter()` function with an optional counter style.
- *
- * @param c Counter name or counter rule object
- * @returns ICounterFunc object representing the invocation of the `counter()` CSS function
- * @category Miscellaneous
- */
-export declare const counter: (counterObj: Extended<ICounterRule | string>, style?: Extended<ListStyleType_StyleType>) => IStringProxy;
-/**
- * Returns a representation of the CSS `counters()` function with the given separator and
- * an optional counter style.
- *
- * @param counterObj Counter name or counter rule object
- * @param sep Separator string between multiple counters
- * @param style Counter style
- * @returns ICounterFunc object representing the invocation of the `counter()` CSS function
- * @category Miscellaneous
- */
-export declare const counters: (counterObj: Extended<ICounterRule | string>, sep: Extended<string>, style?: Extended<ListStyleType_StyleType>) => IStringProxy;
-/**
- * Returns a function representing the invocation of the `var()` CSS function for the given custom
- * CSS property with optional fallbacks. Usually, when you want to refer to a custom CSS property
- * in style rules, it is enough to just refer to the style definition property created using the
- * [[$var]] function; however, if you want to provide a fallback value, you must use this function.
- *
- * **Example:**
- *
- * ```typescript
- * class MyStyles extends StyleDefinition
- * {
- *     // create custom CSS property but without an assigned value; it can be assigned
- *     // later programmatically
- *     bgColor = this.$var( "color")
- *
- *     div = this.$tag( "div", {
- *         // use the custom CSS property with the given fallback value
- *         backgroundColor: css.usevar( this.bgColor, "beige")
- *     })
- * }
- * ```
- *
- * @typeparam K Key of the [[IVarTemplateStyleset]] interface that determines the type of the
- * custom CSS property and of the fallback value.
- * @param varObj Custom CSS property object created using the [[$var]] function.
- * @param fallback Fallback value that will be used if the custom CSS property isnt set.
- * @returns The `IRawProxy` callable interface, whcih allows the `usevar` function to be called
- * in any context.
- * @category Miscellaneous
- */
-export declare const usevar: <K extends keyof import("./StyleTypes").IVarTemplateStyleset>(varObj: IVarRule<K>, fallback?: ExtendedVarValue<K>) => IRawProxy;
 declare global {
     interface ElementCSSInlineStyle {
         /**

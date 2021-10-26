@@ -68,14 +68,7 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Miscellaneous Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#attr" class="tsd-kind-icon">attr</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#counter" class="tsd-kind-icon">counter</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#counters" class="tsd-kind-icon">counters</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="styleapi.html#usevar" class="tsd-kind-icon">usevar</a></li>
-							</ul>
-							<h3>Other Functions</h3>
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#diffstylesets" class="tsd-kind-icon">diff<wbr>Stylesets</a></li>
@@ -86,6 +79,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#serializetocss" class="tsd-kind-icon">serialize<wbr>ToCSS</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#setelementstringstyle" class="tsd-kind-icon">set<wbr>Element<wbr>String<wbr>Style</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#setelementstyle" class="tsd-kind-icon">set<wbr>Element<wbr>Style</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#stylesettostring" class="tsd-kind-icon">styleset<wbr>ToString</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#stylesettostringstyleset" class="tsd-kind-icon">styleset<wbr>ToString<wbr>Styleset</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#supports" class="tsd-kind-icon">supports</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="styleapi.html#supportstostring" class="tsd-kind-icon">supports<wbr>ToString</a></li>
@@ -95,177 +89,7 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Miscellaneous Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="attr" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> attr</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">attr<span class="tsd-signature-symbol">(</span>attrName<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, typeOrUnit<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#attrtypekeyword" class="tsd-signature-type" data-tsd-kind="Type alias">AttrTypeKeyword</a><span class="tsd-signature-symbol"> | </span><a href="styletypes.html#attrunitkeyword" class="tsd-signature-type" data-tsd-kind="Type alias">AttrUnitKeyword</a><span class="tsd-signature-symbol">&gt;</span>, fallback<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a function representing the <code>attr()</code> CSS function. It returns IStringProxy and
-										theoretically can be used in any style property wherever the CSS <code>&lt;string&gt;</code> type is accepted;
-										however, its use by browsers is currently limited to the <code>content</code> property. Also not all
-									browsers currently support type, units or fallback values.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>attrName: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> typeOrUnit: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#attrtypekeyword" class="tsd-signature-type" data-tsd-kind="Type alias">AttrTypeKeyword</a><span class="tsd-signature-symbol"> | </span><a href="styletypes.html#attrunitkeyword" class="tsd-signature-type" data-tsd-kind="Type alias">AttrUnitKeyword</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fallback: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="counter" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> counter</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">counter<span class="tsd-signature-symbol">(</span>counterObj<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol">&gt;</span>, style<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a representation of the CSS <code>counter()</code> function with an optional counter style.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>counterObj: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></h4>
-							<p>ICounterFunc object representing the invocation of the <code>counter()</code> CSS function</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="counters" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> counters</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">counters<span class="tsd-signature-symbol">(</span>counterObj<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol">&gt;</span>, sep<span class="tsd-signature-symbol">: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, style<span class="tsd-signature-symbol">?: </span><a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a representation of the CSS <code>counters()</code> function with the given separator and
-									an optional counter style.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>counterObj: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.icounterrule.html" class="tsd-signature-type" data-tsd-kind="Interface">ICounterRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Counter name or counter rule object</p>
-									</div>
-								</li>
-								<li>
-									<h5>sep: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Separator string between multiple counters</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> style: <a href="coretypes.html#extended" class="tsd-signature-type" data-tsd-kind="Type alias">Extended</a><span class="tsd-signature-symbol">&lt;</span><a href="styletypes.html#liststyletype_styletype" class="tsd-signature-type" data-tsd-kind="Type alias">ListStyleType_StyleType</a><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Counter style</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.istringproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IStringProxy</a></h4>
-							<p>ICounterFunc object representing the invocation of the <code>counter()</code> CSS function</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="usevar" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> usevar</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">usevar&lt;K&gt;<span class="tsd-signature-symbol">(</span>varObj<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.ivarrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, fallback<span class="tsd-signature-symbol">?: </span><a href="styletypes.html#extendedvarvalue" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedVarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.irawproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IRawProxy</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns a function representing the invocation of the <code>var()</code> CSS function for the given custom
-										CSS property with optional fallbacks. Usually, when you want to refer to a custom CSS property
-										in style rules, it is enough to just refer to the style definition property created using the
-									<a href="../classes/ruleapi.styledefinition.html#_var">$var</a> function; however, if you want to provide a fallback value, you must use this function.</p>
-								</div>
-								<p><strong>Example:</strong></p>
-								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">StyleDefinition</span>
-<span style="color: #000000">{</span>
-<span style="color: #000000">    </span><span style="color: #008000">// create custom CSS property but without an assigned value; it can be assigned</span>
-<span style="color: #000000">    </span><span style="color: #008000">// later programmatically</span>
-<span style="color: #000000">    </span><span style="color: #001080">bgColor</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$var</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;color&quot;</span><span style="color: #000000">)</span>
-
-<span style="color: #000000">    </span><span style="color: #001080">div</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$tag</span><span style="color: #000000">( </span><span style="color: #A31515">&quot;div&quot;</span><span style="color: #000000">, {</span>
-<span style="color: #000000">        </span><span style="color: #008000">// use the custom CSS property with the given fallback value</span>
-<span style="color: #000000">        </span><span style="color: #001080">backgroundColor:</span><span style="color: #000000"> </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">usevar</span><span style="color: #000000">( </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">bgColor</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;beige&quot;</span><span style="color: #000000">)</span>
-<span style="color: #000000">    })</span>
-<span style="color: #000000">}</span>
-</code></pre>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/styletypes.ivartemplatestyleset.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarTemplateStyleset</a></h4>
-									<div class="tsd-comment tsd-typography">
-										<p>Key of the <a href="../interfaces/styletypes.ivartemplatestyleset.html">IVarTemplateStyleset</a> interface that determines the type of the
-										custom CSS property and of the fallback value.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>varObj: <a href="../interfaces/ruletypes.ivarrule.html" class="tsd-signature-type" data-tsd-kind="Interface">IVarRule</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Custom CSS property object created using the <a href="../classes/ruleapi.styledefinition.html#_var">$var</a> function.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fallback: <a href="styletypes.html#extendedvarvalue" class="tsd-signature-type" data-tsd-kind="Type alias">ExtendedVarValue</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Fallback value that will be used if the custom CSS property isnt set.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.irawproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">IRawProxy</a></h4>
-							<p>The <code>IRawProxy</code> callable interface, whcih allows the <code>usevar</code> function to be called
-							in any context.</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Other Functions</h2>
+				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="createcssserializer" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> create<wbr>Css<wbr>Serializer</h3>
@@ -587,6 +411,33 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="stylesettostring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> styleset<wbr>ToString</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">styleset<wbr>ToString<span class="tsd-signature-symbol">(</span>styleset<span class="tsd-signature-symbol">: </span><a href="styletypes.html#styleset" class="tsd-signature-type" data-tsd-kind="Type alias">Styleset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Serializes the given <a href="styletypes.html#styleset">Styleset</a> to a string.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>styleset: <a href="styletypes.html#styleset" class="tsd-signature-type" data-tsd-kind="Type alias">Styleset</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="stylesettostringstyleset" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> styleset<wbr>ToString<wbr>Styleset</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -743,15 +594,6 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="styleapi.html#attr" class="tsd-kind-icon">attr</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="styleapi.html#counter" class="tsd-kind-icon">counter</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="styleapi.html#counters" class="tsd-kind-icon">counters</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="styleapi.html#createcssserializer" class="tsd-kind-icon">create<wbr>Css<wbr>Serializer</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
@@ -779,6 +621,9 @@
 						<a href="styleapi.html#setelementstyle" class="tsd-kind-icon">set<wbr>Element<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="styleapi.html#stylesettostring" class="tsd-kind-icon">styleset<wbr>ToString</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="styleapi.html#stylesettostringstyleset" class="tsd-kind-icon">styleset<wbr>ToString<wbr>Styleset</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
@@ -786,9 +631,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="styleapi.html#supportstostring" class="tsd-kind-icon">supports<wbr>ToString</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="styleapi.html#usevar" class="tsd-kind-icon">usevar</a>
 					</li>
 				</ul>
 			</nav>

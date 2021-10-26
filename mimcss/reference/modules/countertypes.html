@@ -79,7 +79,6 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="countertypes.html#additivesymbols_countertype" class="tsd-kind-icon">Additive<wbr>Symbols_<wbr><wbr>Counter<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="countertypes.html#counterextended" class="tsd-kind-icon">Counter<wbr>Extended</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="countertypes.html#counteroneormany" class="tsd-kind-icon">Counter<wbr>One<wbr>OrMany</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="countertypes.html#counteroneorpair" class="tsd-kind-icon">Counter<wbr>One<wbr>OrPair</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="countertypes.html#extendedcounterstyleset" class="tsd-kind-icon">Extended<wbr>Counter<wbr>Styleset</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="countertypes.html#fallback_countertype" class="tsd-kind-icon">Fallback_<wbr><wbr>Counter<wbr>Type</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="countertypes.html#negative_countertype" class="tsd-kind-icon">Negative_<wbr><wbr>Counter<wbr>Type</a></li>
@@ -116,7 +115,8 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type that extends the given type with the <a href="../interfaces/coretypes.irawproxy.html">IRawProxy</a> interface that allows specifying raw string value.</p>
+							<p>Type that extends the given type with the <a href="../interfaces/coretypes.irawproxy.html">IRawProxy</a> interface that allows specifying a raw
+							string value.</p>
 						</div>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -132,19 +132,12 @@
 					<div class="tsd-signature tsd-kind-icon">Counter<wbr>One<wbr>OrMany&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="countertypes.html#counterextended" class="tsd-signature-type" data-tsd-kind="Type alias">CounterExtended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 					</aside>
-					<h4 class="tsd-type-parameters-title">Type parameters</h4>
-					<ul class="tsd-type-parameters">
-						<li>
-							<h4>T</h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="counteroneorpair" class="tsd-anchor"></a>
-					<h3>Counter<wbr>One<wbr>OrPair</h3>
-					<div class="tsd-signature tsd-kind-icon">Counter<wbr>One<wbr>OrPair&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><a href="countertypes.html#counterextended" class="tsd-signature-type" data-tsd-kind="Type alias">CounterExtended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="countertypes.html#counterextended" class="tsd-signature-type" data-tsd-kind="Type alias">CounterExtended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">]</span></div>
-					<aside class="tsd-sources">
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Type that allows specifying either the given type or an array with elements of the extended
+							variant of this type.</p>
+						</div>
+					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
@@ -175,14 +168,14 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Type for specifying counter <a href="../interfaces/countertypes.icounterstyleset.html#fallback">fallback</a> property.</p>
+							<p>Type for specifying counter [[fallback]] property.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
 					<a name="negative_countertype" class="tsd-anchor"></a>
 					<h3>Negative_<wbr><wbr>Counter<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Negative_<wbr><wbr>Counter<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="countertypes.html#counteroneorpair" class="tsd-signature-type" data-tsd-kind="Type alias">CounterOneOrPair</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">Negative_<wbr><wbr>Counter<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><a href="countertypes.html#counterextended" class="tsd-signature-type" data-tsd-kind="Type alias">CounterExtended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="countertypes.html#counterextended" class="tsd-signature-type" data-tsd-kind="Type alias">CounterExtended</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -337,9 +330,6 @@
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="countertypes.html#counteroneormany" class="tsd-kind-icon">Counter<wbr>One<wbr>OrMany</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="countertypes.html#counteroneorpair" class="tsd-kind-icon">Counter<wbr>One<wbr>OrPair</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
 						<a href="countertypes.html#extendedcounterstyleset" class="tsd-kind-icon">Extended<wbr>Counter<wbr>Styleset</a>
