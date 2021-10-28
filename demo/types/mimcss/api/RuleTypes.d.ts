@@ -332,6 +332,12 @@ export interface IVarRule<K extends VarTemplateName = any> extends INamedEntity,
      * Mimcss types such as `"CssLength"`, `"CssColor"`, etc.
      */
     readonly template: K;
+    /** Custom CSS property name prefixed with `"--"` */
+    readonly cssVarName: string;
+    /**
+     * Gets the value of the property.
+     */
+    getValue(): ExtendedVarValue<K>;
     /**
      * Sets new value of this custom CSS property at the global level; that is, under `:root`. To
      * set a value of the CSS custom property under a certain CSS rule, use the
@@ -490,7 +496,7 @@ export interface IStyleDefinitionClass<T extends IStyleDefinition<P> = any, P ex
  */
 export interface IGroupRule<T extends IStyleDefinition = any> extends IRule {
     readonly condition: string;
-    readonly rules: T;
+    readonly definition: T;
     /** CSSOM grouping rule */
     readonly cssRule: CSSGroupingRule | null;
 }

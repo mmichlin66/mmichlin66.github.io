@@ -833,7 +833,7 @@ export declare abstract class ThemeDefinition<P extends StyleDefinition = any> e
  * a reference counter of how many times it was activated and deactivated. The rules are inserted
  * into DOM only upon first activation.
  */
-export declare const activate: <T extends IStyleDefinition<any>>(instOrClass: T | IStyleDefinitionClass<T, any>, schedulerType?: number | undefined) => T | null;
+export declare const activate: <T extends IStyleDefinition<any>>(instOrClass: T | IStyleDefinitionClass<T, any>, schedulerType?: number | undefined) => T;
 /**
  * Deactivates the given style definition instance by removing its rules from DOM. Note that each
  * style definition instance maintains a reference counter of how many times it was activated and

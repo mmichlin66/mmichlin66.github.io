@@ -161,7 +161,7 @@ export declare type BackfaceVisibilityMode_StyleType = "visible" | "hidden";
  * Type for single background value
  * @category Style Helper
  */
-export declare type Background_Single = CssColor | CssImage | {
+export declare type Background_Single = string | CssColor | CssImage | {
     color?: Extended<CssColor>;
     image?: Extended<CssImage>;
     position?: Extended<CssPosition>;
