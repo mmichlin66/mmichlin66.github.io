@@ -93,8 +93,18 @@
             "path": "mimcss/examples/media-rules.tsx",
             "description": "Demonstrates responsve layout using media queries."
         },
+        {
+            "name": "Filters",
+            "path": "mimcss/examples/filters.tsx",
+            "description": "Demonstrates CSS filter functions."
+        },
+        {
+            "name": "Transforms",
+            "path": "mimcss/examples/transforms.tsx",
+            "description": "Demonstrates CSS transform functions."
+        },
 
-        { "name": "Advanced" },
+        { "name": "Theming" },
 
         {
             "name": "Themes",
@@ -104,8 +114,11 @@
         {
             "name": "Two Themes",
             "path": "mimcss/examples/two-themes.tsx",
-            "description": "Demonstrates using two thems at the same time."
+            "description": "Demonstrates using two themes at the same time."
         },
+
+        { "name": "Advanced" },
+
         {
             "name": "Scheduling",
             "path": "mimcss/examples/scheduling.tsx",

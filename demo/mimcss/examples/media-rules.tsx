@@ -1,6 +1,6 @@
 ﻿// This example is taken from the article of Chris Coyier on css-tricks.com with names and emails changed.
 // https://css-tricks.com/css-media-queries/
-// Resize your broser window to see the effects
+// Resize your browser window to see the effects
 
 import * as mim from "mimbl";
 import * as css from "mimcss"
