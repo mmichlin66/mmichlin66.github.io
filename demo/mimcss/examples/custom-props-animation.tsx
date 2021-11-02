@@ -33,13 +33,19 @@ class MyStyles extends css.StyleDefinition
             css.rotate( this.rotate)
         ],
 
-        // redefine custom properties to give each block a different color and transition duration
-        ":nth-of-type": [
-            [1, { "--": [ [this.hue, 120], [this.duration, 2000] ] }],
-            [2, { "--": [ [this.hue, 0], [this.duration, 3000] ] }],
-            [3, { "--": [ [this.hue, 40], [this.duration, 4000] ] }],
-            [4, { "--": [ [this.hue, 200], [this.duration, 5000] ] }],
-        ],
+        // redefine custom properties to give each block a different color and transition duration.
+        // The beauty of CSS-in-JS is that we can use the full power of JvaScript to create styles;
+        // for example, the following line creates an array of custom CSS property re-definitions
+        // for the ":nth-of-type" pseudo class. The commented out section below shows how to create
+        // it manually.
+        ":nth-of-type": [1,2,3,4].map( i => [i, { "--": [ [this.hue, i*90 - 50], [this.duration, i*1000] ] }]),
+
+        // ":nth-of-type": [
+        //     [1, { "--": [ [this.hue,  40], [this.duration, 1000] ] }],
+        //     [2, { "--": [ [this.hue, 130], [this.duration, 2000] ] }],
+        //     [3, { "--": [ [this.hue, 220], [this.duration, 3000] ] }],
+        //     [4, { "--": [ [this.hue, 310], [this.duration, 4000] ] }],
+        // ],
 
         // define transition using the custom property for duration
         transition: { property: "transform", duration: this.duration, func: "linear" },

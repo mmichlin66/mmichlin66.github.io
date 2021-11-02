@@ -38,10 +38,10 @@ class MyStyles extends css.StyleDefinition
 	saturate = this.$class({ filter: css.saturate(60) })
 	sepia = this.$class({ filter: css.sepia(80) })
 
-    // for `blur()`, the parameter is `<length>': 2px in this case
+    // for `blur()`, the parameter is `<length>`: 2px in this case
     blur = this.$class({ filter: css.blur(2) })
 
-    // for `hueRotate()`, the parameter is `<angle>': 90deg in this case
+    // for `hueRotate()`, the parameter is `<angle>`: 90deg in this case
 	hueRotate = this.$class({ filter: css.hueRotate(90) })
 
     // applying multiple shadows

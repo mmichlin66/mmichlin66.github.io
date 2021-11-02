@@ -11,7 +11,7 @@ description: "Mimcss uses TypeScript classes to mimic a CSS stylesheets and uses
 * [Rules Activation](#rules-activation)
 * [Referencing External Style Definitions](#referencing-external-style-definitions)
 * [Embedding Style Definitions](#embedding-style-definitions)
-* [Grouping Rules](#grouping-rules)
+* [Conditional Grouping Rules](#conditional-grouping-rules)
 * [Other Rules Types](#other-rules-types)
 * [Style Definition Class Properties](#style-definition-class-properties)
 
@@ -186,8 +186,8 @@ let bbbStyles = css.activate(WidgetBBBStyles);
 After being decorated with `@embedded`, the style definition classes are activated as usual. In the example above, the classes are activated right after being defined; however, it is possible to activate the classes only when needed and deactivate them when they are not needed any longer. Activating one embedded class will insert rules from all classes marked with the same category. Activating multiple embedded classes will insert the rules only once; however, in order to remove the rules (if desired at all), all activated classes must be deactivated.
 
 
-## Grouping Rules
-CSS defines several grouping rules: @supports, @media and @document. These rules contain other CSS rules. In Mimcss, these rules are modeled in the same way as the top-level style definition class. The only difference is that for the grouping rules it is beneficial (but optional) to pass the class name of the parent as a generic parameter. Here is an example of the @media rule:
+## Conditional Grouping Rules
+CSS defines several conditional rules, such as @supports and @media. These rules contain other CSS rules. In Mimcss, these rules are modeled in the same way as the top-level style definition class. The only difference is that for the grouping rules it is beneficial (but optional) to pass the class name of the parent as a generic parameter. Here is an example of the @media rule:
 
 ```tsx
 class MyStyles extends css.StyleDefinition

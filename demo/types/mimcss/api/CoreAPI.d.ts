@@ -1,4 +1,4 @@
-import { SelectorItem, ISelectorProxy, IRawProxy, Extended, IUrlFunc, ICursorFunc, IStringProxy } from "./CoreTypes";
+import { SelectorItem, ISelectorProxy, IRawProxy, Extended, IUrlFunc, ICursorFunc, IStringProxy, SelectorCombinator, CssSelector, ISelectorBuilder, IParameterizedPseudoEntity } from "./CoreTypes";
 import { ICounterRule, IIDRule, IVarRule } from "./RuleTypes";
 import { AttrTypeKeyword, AttrUnitKeyword, ExtendedVarValue, ListStyleType_StyleType } from "./StyleTypes";
 /**
@@ -16,12 +16,23 @@ import { AttrTypeKeyword, AttrUnitKeyword, ExtendedVarValue, ListStyleType_Style
  *     s1 = this.$style( css.selector`ul > li`, {...})
  *
  *     // css: ul.c1:hover {...}
- *     c1 = this.$class()
+ *     c1 = this.$class({...})
  *     s2 = this.$style( css.selector`ul.${this.c1}:hover`, {...})
  * }
  * ```
  */
 export declare const selector: (parts: TemplateStringsArray, ...params: SelectorItem[]) => ISelectorProxy;
+/**
+ * Creates selector builder object that provides means to build complex selectors from multiple
+ * selector items of all possible kinds including tags, classess, IDs, attributes, pseudo classes
+ * and pseudo elements combined with CSS combinators.
+ * @param items List of selector items to initialize the complex selector. If multiple items are
+ * specified, they are treated as list; that is, they are combined with the `","` combinator.
+ * @returns
+ */
+export declare function sel(...items: CssSelector[]): ISelectorBuilder;
+export declare function sel(combinator: SelectorCombinator, ...items: CssSelector[]): ISelectorBuilder;
+export declare function sel<T extends keyof IParameterizedPseudoEntity>(entity: T, param: IParameterizedPseudoEntity[T]): ISelectorBuilder;
 /**
  * The `raw` function allows specifying arbitrary text for properties whose type normally doesn't
  * allow strings.This function is a tag function and must be invoked with the template string

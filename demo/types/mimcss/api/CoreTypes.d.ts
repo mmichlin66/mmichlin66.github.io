@@ -240,9 +240,13 @@ export declare type OneOrBox<T> = T | [Extended<T>, Extended<T>?, Extended<T>?, 
  */
 export declare type OneOrMany<T> = T | Extended<T>[];
 /**
- * The `IRuleWithSelector` interface represents an entity that has a selector string. These include
- * all style rules ([[IStyleRule]] interface) and class name rule ([[IClassNameRule]] interface).
+ * Type that combines names of all HTML and SVG tags
  */
+export declare type ElementTagName = (keyof HTMLElementTagNameMap) | (keyof SVGElementTagNameMap) | "*";
+/**
+* The `IRuleWithSelector` interface represents an entity that has a selector string. These include
+* all style rules ([[IStyleRule]] interface) and class name rule ([[IClassNameRule]] interface).
+*/
 export interface IRuleWithSelector {
     /** CSS rule selector string */
     readonly selectorText: string;
@@ -256,7 +260,7 @@ export interface ISelectorProxy extends IGenericProxy<"selector"> {
 /**
  * Represents CSS selector combinators used when creating complex CSS selectors.
  */
-export declare type SelectorCombinator = "," | " " | ">" | "+" | "~";
+export declare type SelectorCombinator = "," | " " | ">" | "+" | "~" | "||";
 /**
  * Represents properties used in the [[CombinedStyleset]] which are used to define dependent rules.
  * Property values are defined as arrays of two-element tuples each defining a selector and a
@@ -328,7 +332,7 @@ export declare type PagePseudoClass = ":blank" | ":first" | ":left" | ":right";
  * }
  * ```
  */
-export declare type PseudoClass = PagePseudoClass | ":active" | ":any-link" | ":blank" | ":checked" | ":default" | ":defined" | ":disabled" | ":empty" | ":enabled" | ":first-child" | ":first-of-type" | ":fullscreen" | ":focus" | ":focus-visible" | ":focus-within" | ":hover" | ":indeterminate" | ":in-range" | ":invalid" | ":last-child" | ":last-of-type" | ":link" | ":only-child" | ":only-of-type" | ":optional" | ":out-of-range" | ":placeholder-shown" | ":read-only" | ":read-write" | ":required" | ":root" | ":scope" | ":target" | ":valid" | ":visited" | ":dir(rtl)" | ":dir(ltr)";
+export declare type PseudoClass = PagePseudoClass | ":active" | ":any-link" | ":autofill" | ":blank" | ":checked" | ":default" | ":defined" | ":disabled" | ":empty" | ":enabled" | ":first-child" | ":first-of-type" | ":fullscreen" | ":focus" | ":focus-visible" | ":focus-within" | ":host" | ":hover" | ":indeterminate" | ":in-range" | ":invalid" | ":last-child" | ":last-of-type" | ":left" | ":link" | ":only-child" | ":only-of-type" | ":optional" | ":out-of-range" | ":paused" | ":placeholder-shown" | ":read-only" | ":read-write" | ":required" | ":right" | ":root" | ":scope" | ":target" | ":valid" | ":visited";
 /**
  * Represents pseudo elements that can be used as properties in the [[CombinedStyleset]] object to
  * define dependent rules. Note that this type only contains pseudo elements that don't require
@@ -381,7 +385,11 @@ export declare type PseudoEntity = PseudoClass | PseudoElement;
  * }
  * ```
  */
-export declare type NthChildExpression = "odd" | "even" | number | [number, number?] | string | IRawProxy;
+export declare type NthExpression = "odd" | "even" | number | [number, number?] | string | IRawProxy;
+/**
+ * Defines the type for the text direction used for the `":dir"` pseudo element
+ */
+export declare type Direction = "rtl" | "ltr";
 /**
  * The `IParameterizedPseudoClass` interface maps names of pseudo classes that require parameters
  * to the types that are used to specify these parameters. When a parameterized pseudo class is
@@ -389,17 +397,18 @@ export declare type NthChildExpression = "odd" | "even" | number | [number, numb
  * this interface.
  */
 export interface IParameterizedPseudoClass {
-    ":has": string;
+    ":dir": Direction;
+    ":has": CssSelector | [SelectorCombinator, CssSelector];
     ":host": string;
     ":host-context": string;
-    ":is": string;
+    ":is": CssSelector;
     ":lang": string;
-    ":not": string;
-    ":nth-child": NthChildExpression;
-    ":nth-of-type": NthChildExpression;
-    ":nth-last-child": NthChildExpression;
-    ":nth-last-of-type": NthChildExpression;
-    ":where": string;
+    ":not": CssSelector;
+    ":nth-child": NthExpression;
+    ":nth-of-type": NthExpression;
+    ":nth-last-child": NthExpression;
+    ":nth-last-of-type": NthExpression;
+    ":where": CssSelector;
 }
 /**
  * The `IParameterizedPseudoElement` interface maps names of pseudo elements that require parameters
@@ -409,7 +418,7 @@ export interface IParameterizedPseudoClass {
  */
 export interface IParameterizedPseudoElement {
     "::part": string;
-    "::slotted": string;
+    "::slotted": CssSelector;
 }
 /**
  * The `IParameterizedPseudoEntity` interface combines [[IParameterizedPseudoClass]] and
@@ -418,14 +427,215 @@ export interface IParameterizedPseudoElement {
 export interface IParameterizedPseudoEntity extends IParameterizedPseudoClass, IParameterizedPseudoElement {
 }
 /**
- * Type for a single selector token that can be used as an argument to the [[selector]] function
+ * Represents an invocation of a parameterized pseudo entity with corresponding parameter.
  */
-export declare type SelectorItem = string | SelectorCombinator | IRuleWithSelector | IRawProxy | ISelectorProxy;
+export interface IParameterizedPseudoEntityFunc<T extends keyof IParameterizedPseudoEntity> extends ICssFuncObject {
+    fn: T;
+    p: IParameterizedPseudoEntity[T];
+}
+/**
+ * Enumeration for operations defining the behavior of attribute selector.
+ */
+export declare const enum AttrComparisonOperation {
+    Equal = "=",
+    ContainsWord = "~=",
+    StartsWithAndHyphen = "|=",
+    StartsWith = "^=",
+    EndsWith = "$=",
+    Contains = "*="
+}
+/**
+ * Represents one or more attribute selectors, which can be either a string or an [[AttrsDef]]
+ * object.
+ */
+export interface IAttrSelectorFunc extends ICssFuncObject {
+    fn: "attr-sel";
+    /**
+     * Attribute name.
+     */
+    name: string;
+    /**
+     * Value to which the attribute value is compared. If not specified, the selector only looks
+     * for the presence of the attribute.
+     */
+    val?: string | boolean | number;
+    /** Namespace of the attribute */
+    ns?: string;
+    /**
+     * Operation that defines the attribute value comparison behavior. The default value is
+     * [[AttrSelectorOperation.Equal]].
+     */
+    op?: AttrComparisonOperation;
+    /**
+     * Flag indicating whether or not attribute value comparison is case-sensitive. The default
+     * value is `false`; that is, the comparison is case-sensitive.
+     */
+    ci?: boolean;
+}
+export interface ISelectorFunc extends ICssFuncObject {
+    fn: "sel";
+    items: CssSelector[];
+}
+/**
+ * Provides means to build complex selectors from multiple selector items of all possible kinds
+ * including tags, classess, IDs, attributes, pseudo classes and pseudo elements combined with
+ * CSS combinators.
+ */
+export interface ISelectorBuilder extends ISelectorFunc {
+    /**
+     * Adds one or more selector items to immediately follow the existing selector and each other.
+     * All items are concatenated and attached to the existing selector without any combinator.
+     * @param items List of selector items to be added
+     */
+    and(...items: CssSelector[]): this;
+    /**
+     * Adds one or more selector items to the existing selector as a list of selectors. All items
+     * are  concatenated and attached to the existing selector using the `","` combinator.
+     * @param items List of selector items to be added
+     */
+    or(...items: CssSelector[]): this;
+    /**
+     * Adds one or more selector items to the existing selector as consecutive immediate children.
+     * All items are concatenated and attached to the existing selector using the `">"` combinator.
+     * @param items List of selector items to be added
+     */
+    child(...items: CssSelector[]): this;
+    /**
+     * Adds one or more selector items to the existing selector as consecutive descendants.
+     * All items are concatenated and attached to the existing selector using the `" "` combinator.
+     * @param items List of selector items to be added
+     */
+    desc(...items: CssSelector[]): this;
+    /**
+     * Adds one or more selector items to the existing selector as consecutive general siblings.
+     * All items are concatenated and attached to the existing selector using the `"~"` combinator.
+     * @param items List of selector items to be added
+     */
+    sib(...items: CssSelector[]): this;
+    /**
+     * Adds one or more selector items to the existing selector as consecutive adjacent siblings.
+     * All items are concatenated and attached to the existing selector using the `"+"` combinator.
+     * @param items List of selector items to be added
+     */
+    adj(...items: CssSelector[]): this;
+    /**
+     * Adds a parameterised pseudo class or element with parameters
+     * @param entity Name of the parameterised pseudo class or element
+     * @param param Parameter for the pseudo entity
+     */
+    pseudo<T extends keyof IParameterizedPseudoEntity>(entity: T, param: IParameterizedPseudoEntity[T]): this;
+    /**
+     * Adds one or more attribute selector items to the existing selector. All items are
+     * concatenated and attached to the existing selector without any combinator.
+     * @param name Attribute name.
+     * @param val Optinal attribute value
+     * @param op Attrbute comparison operation
+     * @param ci Flag indicating whether attribute comparison is case insensitive
+     */
+    attr(name: string, val?: string | boolean | number, op?: AttrComparisonOperation, ci?: boolean): this;
+    /**
+     * Adds the `":is"` pseudo class to immediately follow the existing selector. If multiple
+     * items are specified, they are interpreted as a list; that is, they are combined using
+     * the `","` combinator.
+     * @param items List of selector items to be added
+     */
+    is(...items: CssSelector[]): this;
+    /**
+     * Adds the `":where"` pseudo class to immediately follow the existing selector. If multiple
+     * items are specified, they are interpreted as a list; that is, they are combined using
+     * the `","` combinator.
+     * @param items List of selector items to be added
+     */
+    where(...items: CssSelector[]): this;
+    /**
+     * Adds the `":not"` pseudo class to immediately follow the existing selector. If multiple
+     * items are specified, they are interpreted as a list; that is, they are combined using
+     * the `","` combinator.
+     * @param items List of selector items to be added
+     */
+    not(...items: CssSelector[]): this;
+    /**
+     * Adds the `":has"` pseudo class to immediately follow the existing selector. If multiple
+     * items are specified, they are interpreted as a list; that is, they are combined using
+     * the `","` combinator.
+     *
+     * **Example:**
+     *
+     * ```typescript
+     * class MyStyles extends css.StyleDefinition
+     * {
+     *     c1 = css.$class({...})
+     *     c2 = css.$class({...})
+     *
+     *     // produces css: section:has(.c1, .c2) {...}
+     *     s1 = css.$style( css.sel("section").has( this.c1, this.c2), {...})
+     * }
+     * ```
+     * @param items List of selector items to be added
+     */
+    has(...items: CssSelector[]): this;
+    /**
+     * Adds the `":has"` pseudo class with partial selector that starts with the given combinator.
+     * If multiple items are specified, they are concatenated using the given combinator. A
+     * special value `""` (empty string) of the `combinator` parameter allows to concatenate the
+     * items without any combinator.
+     *
+     * **Example:**
+     *
+     * ```typescript
+     * class MyStyles extends css.StyleDefinition
+     * {
+     *     c1 = css.$class({...})
+     *     c2 = css.$class({...})
+     *
+     *     // produces css: section:has(> .c1 > .c2) {...}
+     *     s1 = css.$style( css.sel("section").has( ">", this.c1, this.c2), {...})
+     *
+     *     // produces css: section:has(.c1.c2) {...}
+     *     s1 = css.$style( css.sel("section").has( "", this.c1, this.c2), {...})
+     * }
+     * ```
+     * @param combinator Combinator to use to concatenate the items and to attach them to the
+     * existing selector.
+     * @param items List of selector items to be added
+     */
+    has(combinator: SelectorCombinator | "", ...items: CssSelector[]): this;
+    /** Adds the `":nth-child"` pseudo class with the given parameters. */
+    nthChild(nthExpr: NthExpression): this;
+    /** Adds the `":nth-child"` pseudo class with the given parameters. */
+    nthChild(a: number, b: number): this;
+    /** Adds the `":nth-last-child"` pseudo class with the given parameters. */
+    nthLastChild(nthExpr: NthExpression): this;
+    /** Adds the `":nth-last-child"` pseudo class with the given parameters. */
+    nthLastChild(a: number, b: number): this;
+    /** Adds the `":nth-of-type"` pseudo class with the given parameters. */
+    nthType(nthExpr: NthExpression): this;
+    /** Adds the `":nth-of-type"` pseudo class with the given parameters. */
+    nthType(a: number, b: number): this;
+    /** Adds the `":nth-last-of-type"` pseudo class with the given parameters. */
+    nthLastType(nthExpr: NthExpression): this;
+    /** Adds the `":nth-last-of-type"` pseudo class with the given parameters. */
+    nthLastType(a: number, b: number): this;
+    /** Adds the `":dir"` pseudo class with the given direction. */
+    dir(direction: Direction): this;
+    /** Adds the `":lang"` pseudo class with the given direction. */
+    lang(langCode: string): this;
+    /** Adds the `"::part"` pseudo element with the given parameter. */
+    part(partName: string): this;
+    /** Adds the `"::slotted"` pseudo element with the given selector. */
+    slotted(...items: CssSelector[]): this;
+}
+/**
+ * Type for a single selector item that can be used as a parameter wherever selectors are used,
+ * e.g. as arguments to the [[selector]] and [[sel]] functions or in [[CombinedStyleset]] nested
+ * rules.
+ */
+export declare type SelectorItem = ElementTagName | PseudoEntity | IRuleWithSelector | ISelectorProxy | ISelectorFunc | IAttrSelectorFunc | IParameterizedPseudoEntityFunc<any> | SelectorCombinator | IRawProxy | string;
 /**
  * Type for a CSS selector. This type is used to produce arbitrary complex selectors used by the
- * [[$style]] function.
+ * [[$style]] function. If array is specified, all items are converted to strings and concatenated.
  */
-export declare type CssSelector = OneOrMany<SelectorItem>;
+export declare type CssSelector = SelectorItem | SelectorItem[];
 /**
  * The IUrlFunc interface represents an invocation of the CSS `url()` function. It is returned from
  * the [[url]] function.

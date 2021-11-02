@@ -1,5 +1,5 @@
-import { CssSelector, PagePseudoClass, OneOrMany } from "./CoreTypes";
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule, IStyleDefinition, CombinedClassStyleset, ElementTagName, IAttrRule, AttrsDef } from "./RuleTypes";
+import { CssSelector, PagePseudoClass, OneOrMany, ElementTagName } from "./CoreTypes";
+import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule, IStyleDefinition, CombinedClassStyleset } from "./RuleTypes";
 import { MediaStatement, SupportsStatement } from "./MediaTypes";
 import { ExtendedFontFace } from "./FontTypes";
 import { ExtendedCounterStyleset } from "./CounterTypes";
@@ -237,56 +237,6 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * @returns `IStyleRule` object representing the tag rule.
      */
     protected $tag(tag: "*" | OneOrMany<ElementTagName>, styleset: CombinedStyleset): IStyleRule;
-    /**
-     * Creates a new attreibute selector rule for the given HTML or SVG element tags. The `tag`
-     * parameter specifies either an element name or an asterisk symbol (`"*"`) can be specified
-     * to target all elements.
-     *
-     * The attrs parameter specifies one or more attribute definition. Each definition can be
-     * either a string or an `AttrDef` object. If it is a string, then the attrubute selector
-     * checks for the existance of the attribute. If it is an `AttrDef` object, then the properties
-     * of this object are attribute name and the values are parameters defining the comparison
-     * options for the attributes.
-     *
-     * **Examples:**
-     *
-     * ```typescript
-     * class MyStyles extends css.StyleDefinition
-     * {
-     *     // checking for presence of the "title" attribute
-     *     // p[title]
-     *     p1 = this.$attr( "p", "title", {})
-     *
-     *     // checking that the "title" attribute's value is exactly "hello"
-     *     // p[title="hello"]
-     *     p1 = this.$attr( "p", { title: "hello" ), {})
-     *
-     *     // checking that the "title" attribute's value contains "hello" while perfomring case-
-     *     // insensitive comparison.
-     *     // p[title*="hello" i]
-     *     p1 = this.$attr( "p", {
-     *         title: { value: "hello", op: AttrSelectorOper.Contains, ci: true}
-     *     }, {})
-     *
-     *     // combining multiple attribute selectors.
-     *     // p[href][image=""image/png][titel*="hello" i]
-     *     p1 = this.$attr( "p", [
-     *         "href",
-     *         {
-     *             iamge: "",
-     *             title: { value: "hello", op: AttrSelectorOper.Contains, ci: true}
-     *         }
-     *     ], {})
-     * }
-     * ```
-     *
-     * @param tag Element name
-     * @param attrs One or more attribute definitions. Each definition can be either a string or
-     * an * `AttrDef` object.
-     * @param styleset Styleset that defines style properties.
-     * @returns `IAttrRule` object representing the attribute selector rule.
-     */
-    protected $attr(tag: ElementTagName | IClassRule | IIDRule, attrs: string | AttrsDef | (string | AttrsDef)[], styleset?: CombinedStyleset): IAttrRule;
     /**
      * Creates a new style rule with an arbitrary complex selector. Selectors can be specified as
      * one or array of [[SelectorItem]] objects where each `SelectorItem` is one of the following
