@@ -1,11 +1,11 @@
-import { SelectorItem, ISelectorProxy, IRawProxy, Extended, IUrlFunc, ICursorFunc, IStringProxy, SelectorCombinator, CssSelector, ISelectorBuilder, IParameterizedPseudoEntity } from "./CoreTypes";
+import { CssSelector, ISelectorProxy, IRawProxy, Extended, IUrlFunc, ICursorFunc, IStringProxy, ISelectorBuilder } from "./CoreTypes";
 import { ICounterRule, IIDRule, IVarRule } from "./RuleTypes";
 import { AttrTypeKeyword, AttrUnitKeyword, ExtendedVarValue, ListStyleType_StyleType } from "./StyleTypes";
 /**
  * Returns a string representation of a selector. This function is a tag function and must be
  * invoked with the template string without parentheses. This function can be used wherever the
- * [[CssSelector]] or [[SelectorItem]] types are allowed. The parameters embedded into the string
- * must conform to the [[SelectorItem]] type.
+ * [[CssSelector]] types are allowed. The parameters embedded into the string
+ * must conform to the [[CssSelector]] type.
  *
  * **Example:**
  *
@@ -21,18 +21,30 @@ import { AttrTypeKeyword, AttrUnitKeyword, ExtendedVarValue, ListStyleType_Style
  * }
  * ```
  */
-export declare const selector: (parts: TemplateStringsArray, ...params: SelectorItem[]) => ISelectorProxy;
+export declare const selector: (parts: TemplateStringsArray, ...params: CssSelector[]) => ISelectorProxy;
 /**
  * Creates selector builder object that provides means to build complex selectors from multiple
  * selector items of all possible kinds including tags, classess, IDs, attributes, pseudo classes
- * and pseudo elements combined with CSS combinators.
+ * and pseudo elements combined with CSS combinators. This function returns the [[ISelectorBuilder]]
+ * interface, which has methods and properties for all selector items.
+ *
+ * **Example:**
+ *
+ * ```typescript
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     cls = this.$class({...})
+ *     myID = this.$id({...})
+ *
+ *     // produces CSS: label.cls1[data-item="myID"]:hover {...}
+ *     s1 = this.$style( css.sel("label").and(this.cls1)).attr("for", this.myID).hover, {...})
+ * }
+ * ```
  * @param items List of selector items to initialize the complex selector. If multiple items are
  * specified, they are treated as list; that is, they are combined with the `","` combinator.
  * @returns
  */
-export declare function sel(...items: CssSelector[]): ISelectorBuilder;
-export declare function sel(combinator: SelectorCombinator, ...items: CssSelector[]): ISelectorBuilder;
-export declare function sel<T extends keyof IParameterizedPseudoEntity>(entity: T, param: IParameterizedPseudoEntity[T]): ISelectorBuilder;
+export declare const sel: (...items: CssSelector[]) => ISelectorBuilder;
 /**
  * The `raw` function allows specifying arbitrary text for properties whose type normally doesn't
  * allow strings.This function is a tag function and must be invoked with the template string

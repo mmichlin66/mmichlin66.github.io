@@ -34,7 +34,7 @@ class MyStyles extends css.StyleDefinition
     // all elements that have the title attribute, which starts with "https://"
     // will be orange
     byTitleStart = this.$style(
-        css.sel("p").attr( "title", "https://", css.AttrComparisonOperation.StartsWith),
+        css.sel("p").attr( "title", "^=", "https://"),
         { backgroundColor: "orange" }
     )
 

@@ -70,7 +70,7 @@ class MyComponent extends mim.Component
 			{new FilteredImage( "sepia", styles.sepia)}
 			{new FilteredImage( "blur", styles.blur)}
 			{new FilteredImage( "hue-rotate", styles.hueRotate)}
-			{new FilteredImage( "drop-shadows", styles.dropShadow)}
+			{new FilteredImage( "drop-shadow", styles.dropShadow)}
 		</div>
 	}
 }

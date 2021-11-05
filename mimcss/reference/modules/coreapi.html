@@ -75,7 +75,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#counters" class="tsd-kind-icon">counters</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#cursor" class="tsd-kind-icon">cursor</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#raw" class="tsd-kind-icon">raw</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="coreapi.html#sel" class="tsd-kind-icon">sel</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#sel" class="tsd-kind-icon">sel</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#selector" class="tsd-kind-icon">selector</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="coreapi.html#url" class="tsd-kind-icon">url</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="coreapi.html#usevar" class="tsd-kind-icon">usevar</a></li>
@@ -290,13 +290,11 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="sel" class="tsd-anchor"></a>
-					<h3>sel</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagConst">Const</span> sel</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">sel<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><a href="coretypes.html#cssselector" class="tsd-signature-type" data-tsd-kind="Type alias">CssSelector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iselectorbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorBuilder</a></li>
-						<li class="tsd-signature tsd-kind-icon">sel<span class="tsd-signature-symbol">(</span>combinator<span class="tsd-signature-symbol">: </span><a href="coretypes.html#selectorcombinator" class="tsd-signature-type" data-tsd-kind="Type alias">SelectorCombinator</a>, <span class="tsd-signature-symbol">...</span>items<span class="tsd-signature-symbol">: </span><a href="coretypes.html#cssselector" class="tsd-signature-type" data-tsd-kind="Type alias">CssSelector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iselectorbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorBuilder</a></li>
-						<li class="tsd-signature tsd-kind-icon">sel&lt;T&gt;<span class="tsd-signature-symbol">(</span>entity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, param<span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iparameterizedpseudoentity.html" class="tsd-signature-type" data-tsd-kind="Interface">IParameterizedPseudoEntity</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iselectorbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorBuilder</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -306,8 +304,19 @@
 								<div class="lead">
 									<p>Creates selector builder object that provides means to build complex selectors from multiple
 										selector items of all possible kinds including tags, classess, IDs, attributes, pseudo classes
-									and pseudo elements combined with CSS combinators.</p>
+										and pseudo elements combined with CSS combinators. This function returns the <a href="../interfaces/coretypes.iselectorbuilder.html">ISelectorBuilder</a>
+									interface, which has methods and properties for all selector items.</p>
 								</div>
+								<p><strong>Example:</strong></p>
+								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
+<span style="color: #000000">{</span>
+<span style="color: #000000">    </span><span style="color: #001080">cls</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$class</span><span style="color: #000000">({...})</span>
+<span style="color: #000000">    </span><span style="color: #001080">myID</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$id</span><span style="color: #000000">({...})</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">// produces CSS: label.cls1[data-item=&quot;myID&quot;]:hover {...}</span>
+<span style="color: #000000">    </span><span style="color: #001080">s1</span><span style="color: #000000"> = </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #795E26">$style</span><span style="color: #000000">( </span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">sel</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;label&quot;</span><span style="color: #000000">).</span><span style="color: #795E26">and</span><span style="color: #000000">(</span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">cls1</span><span style="color: #000000">)).</span><span style="color: #795E26">attr</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;for&quot;</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span><span style="color: #000000">.</span><span style="color: #001080">myID</span><span style="color: #000000">).</span><span style="color: #001080">hover</span><span style="color: #000000">, {...})</span>
+<span style="color: #000000">}</span>
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -321,47 +330,13 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.iselectorbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorBuilder</a></h4>
 						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>combinator: <a href="coretypes.html#selectorcombinator" class="tsd-signature-type" data-tsd-kind="Type alias">SelectorCombinator</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>items: <a href="coretypes.html#cssselector" class="tsd-signature-type" data-tsd-kind="Type alias">CssSelector</a><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.iselectorbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorBuilder</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">keyof </span><a href="../interfaces/coretypes.iparameterizedpseudoentity.html" class="tsd-signature-type" data-tsd-kind="Interface">IParameterizedPseudoEntity</a></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>entity: <span class="tsd-signature-type">T</span></h5>
-								</li>
-								<li>
-									<h5>param: <a href="../interfaces/coretypes.iparameterizedpseudoentity.html" class="tsd-signature-type" data-tsd-kind="Interface">IParameterizedPseudoEntity</a><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.iselectorbuilder.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorBuilder</a></h4>
-						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="selector" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> selector</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">selector<span class="tsd-signature-symbol">(</span>parts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TemplateStringsArray</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="coretypes.html#selectoritem" class="tsd-signature-type" data-tsd-kind="Type alias">SelectorItem</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iselectorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorProxy</a></li>
+						<li class="tsd-signature tsd-kind-icon">selector<span class="tsd-signature-symbol">(</span>parts<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TemplateStringsArray</span>, <span class="tsd-signature-symbol">...</span>params<span class="tsd-signature-symbol">: </span><a href="coretypes.html#cssselector" class="tsd-signature-type" data-tsd-kind="Type alias">CssSelector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/coretypes.iselectorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorProxy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -371,8 +346,8 @@
 								<div class="lead">
 									<p>Returns a string representation of a selector. This function is a tag function and must be
 										invoked with the template string without parentheses. This function can be used wherever the
-										<a href="coretypes.html#cssselector">CssSelector</a> or <a href="coretypes.html#selectoritem">SelectorItem</a> types are allowed. The parameters embedded into the string
-									must conform to the <a href="coretypes.html#selectoritem">SelectorItem</a> type.</p>
+										<a href="coretypes.html#cssselector">CssSelector</a> types are allowed. The parameters embedded into the string
+									must conform to the <a href="coretypes.html#cssselector">CssSelector</a> type.</p>
 								</div>
 								<p><strong>Example:</strong></p>
 								<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MyStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span>
@@ -392,7 +367,7 @@
 									<h5>parts: <span class="tsd-signature-type">TemplateStringsArray</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="coretypes.html#selectoritem" class="tsd-signature-type" data-tsd-kind="Type alias">SelectorItem</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>params: <a href="coretypes.html#cssselector" class="tsd-signature-type" data-tsd-kind="Type alias">CssSelector</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coretypes.iselectorproxy.html" class="tsd-signature-type" data-tsd-kind="Interface">ISelectorProxy</a></h4>
@@ -566,7 +541,7 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="coreapi.html#raw" class="tsd-kind-icon">raw</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="coreapi.html#sel" class="tsd-kind-icon">sel</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
