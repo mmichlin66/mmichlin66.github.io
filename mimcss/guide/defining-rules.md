@@ -268,7 +268,3 @@ Properties can refer to other properties defined in the same class using the `th
 
 Depending on the function used to initialize a property, it has a type that may allow some actions on the property value after the style definition has been activated (and thus there is an instance of the style definition class). For example, all style properties have a method `setValue`, which allows setting a value of a CSS property at run-time. You can also create methods in the style definition class that manipulate property values. This can be useful if you want to change values of multiple properties at once.
 
-
-
-The majority of CSS rules require specifying values for the style properties and that's what the next unit will cover.
-

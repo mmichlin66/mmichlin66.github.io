@@ -1,6 +1,6 @@
 ---
 layout: mimcss-guide
-unit: 2
+unit: 3
 title: "Mimcss Guide: Defining Styles"
 description: "Mimcss uses the full power of the TypeScript typing system to define style property values in a type-safe and convenient ways."
 ---
@@ -8,8 +8,7 @@ description: "Mimcss uses the full power of the TypeScript typing system to defi
 # Mimcss Guide: Defining Styles
 
 * [Styleset](#styleset)
-* [Styleset Special Properties](#styleset-special-properties)
-* [Extended Styleset](#extended-styleset)
+* [Combined Styleset](#combined-styleset)
 * [Reusing Styles](#reusing-styles)
 * [Dependent Styles](#dependent-styles)
 * [Pseudo Classes and Pseudo Elements](#pseudo-classes-and-pseudo-elements)
@@ -56,7 +55,31 @@ class MyStyles extends css.StyleDefinition
 
 Mimcss strives to avoid defining `string` as property type, especially for those properties that have a lot of keyword values such as `justify-items`, `cursor`, `list-style-type`, `border-style`, etc. If `string` is among the possible property types, then first, the autocomplete feature doesn't work, and second, misspellings are not detected at compile time. Ultimately, the decision whether or not to have `string` for a property type is a trade-off between the above considerations and the developer's convenience.
 
-The `Styleset` type allows specifying custom CSS properties using the special `"--"` property, which will be explained in the [Custom Properties](custom-properties.html) unit.
+### Custom CSS Properties
+The `Styleset` type has a special `"--"` property for specifying custom CSS properties. This allows defining or re-defining the custom CSS properties under the specific rule. The `"--"` property takes an array of tuples where the first parameter refers to a custom CSS property previously defined using the `$var()` method. The second element of the tuple provides the value for the custom property.
+
+```tsx
+class MyStyles extends css.StyleDefinition
+{
+    // Define custom CSS property on the global level (under `:root`)
+    specialColor = this.$var( "color", "blue")
+
+    // Define CSS class and re-define the custom CSS property under it
+    // with a new value
+    specialContainer = this.$class({
+         "--": [ [this.specialColor, "green"] ]
+    })
+
+    // Use the custom CSS property to define style property value. The actual
+    // color value will be different depending whether the element with the
+    // `special` class is outside or inside an element with the `specialContainer`
+    // CSS class
+    special = this.$class({ color: this.specialColor })
+}
+```
+
+Custom CSS properties will be explained in more details in the [Custom Properties](custom-properties.html) unit.
+
 
 ### Specifying !important flag
 CSS allows adding the `!important` flag to any style property to increase its specificity. For many style properties, Mimcss doesn't include the `string` type; however, for any property, Mimcss allows specifying an object with a single property `"!"`, which contains the property value.
@@ -81,7 +104,6 @@ The functions that create style rules - such as `$style`, `$class` and `$id` - a
 These features are discussed in details in the following sections.
 
 ### Reusing Styles
-
 With CSS pre-processors, the idea of a style rule re-using other rules (a.k.a. style extending/composing/inheriting) became very popular. Mimcss also has this capability and it uses the TypeScript's type-safety features to eliminate errors. Here is an example:
 
 ```tsx
@@ -93,7 +115,8 @@ class MyStyles extends css.StyleDefinition
     })
 
     // extend the vbox class
-    sidebar = this.$class({ "+": this.vbox,
+    sidebar = this.$class({
+        "+": this.vbox,
         position: "absolute",
         width: css.em(15),
         height: css.em(50)
@@ -104,7 +127,8 @@ class MyStyles extends css.StyleDefinition
     })
 
     // extend two clases: sidebar and standout
-    rightbar = this.$class({ "+": [this.sidebar, this.standout],
+    rightbar = this.$class({
+        "+": [this.sidebar, this.standout],
         width: css.em(10),
         left: css.em(1)
     })
