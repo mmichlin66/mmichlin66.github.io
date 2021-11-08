@@ -171,7 +171,7 @@ export declare type CssColorSeparation = number | string | CssPercent;
  * that returns this interface wherever [[CssColor]] is accepted.
  */
 export interface ICssColorFunc extends ICssFuncObject {
-    fn: "rgb" | "hsl" | "lab" | "lch" | "color-mix" | "color-contrast";
+    fn: "rgb" | "hsl" | "lab" | "lch" | "color-mix" | "color-contrast" | "alpha";
 }
 /**
  * Type for CSS color. Color can be represented using the following types:
@@ -340,5 +340,14 @@ export interface IColorMixBuilder extends IColorMixFunc {
      * @param p Percentage of the first color to include in the mix
      */
     in(cs: Extended<ColorSpace>): this;
+}
+/**
+ * Represents an invocation of the [[alpha]] function. Developers can use this structure wherever
+ * CssColor is accepted.
+ */
+export interface IAlphaFunc extends ICssColorFunc {
+    fn: "alpha";
+    c: number | keyof INamedColors;
+    a: number;
 }
 //# sourceMappingURL=ColorTypes.d.ts.map

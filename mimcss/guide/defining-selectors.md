@@ -11,6 +11,7 @@ description: "Mimcss uses the full power of the TypeScript typing system to defi
 * [Using Strings](#using-strings)
 * [Using `selector` Function](#using-selector-function)
 * [Using `sel` Function](#using-sel-function)
+* [Using Arrays](#using-arrays)
 
 ## CSS selectors
 CSS selectors range from very simple to rather complex, and Mimcss provides several means to define them.
@@ -184,7 +185,21 @@ When the properties and methods are invoked, the corresponding items are added t
     css.sel("p").and(this.cls1).nthOfType(2,1);
     ```
 
+### Using Arrays
+A selector can be represented by an array where each item is a selector itself - that is, object of `CssSelector` type. This is a simple way of composing compound selectors by concatenating simpler selectors. If you want to insert any combinators between the selectors, you need to add the combinators as items in the array:
 
+```typescript
+// produces CSS: nav.cls1 > a
+["nav", this.cls1, ">", "a"];
+```
 
+Since an array of selectors is a selector, arrays can be embedded in arrays with arbitrary levels of nesting. For example the array in the following example creates selector identical to that from the previous example:
+
+```typescript
+// produces CSS: nav.cls1 > a
+["nav", [this.cls1, [">", "a"]]];
+```
+
+Arrays are sometimes helpful when creating selectors manually; however, they are most useful when creating selectors programmatically.
 
 

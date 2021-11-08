@@ -439,7 +439,7 @@ export interface IStyleDefinitionClass<T extends IStyleDefinition<P> = any, P ex
  */
 export interface IGroupRule<T extends IStyleDefinition = any> extends IRule {
     readonly condition: string;
-    readonly definition: T;
+    readonly sd: T;
     /** CSSOM grouping rule */
     readonly cssRule: CSSGroupingRule | null;
 }
