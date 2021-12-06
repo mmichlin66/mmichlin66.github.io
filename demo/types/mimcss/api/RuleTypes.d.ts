@@ -1,131 +1,8 @@
-import { ICustomVar, PseudoEntity, PagePseudoClass, IParameterizedPseudoEntity, DependentRuleCombinator, IConstant, IRuleWithSelector, CssSelector } from "./CoreTypes";
-import { ExtendedBaseStyleset, Styleset, VarTemplateName, VarValue, ExtendedVarValue } from "./StyleTypes";
+import { ICustomVar, PseudoEntity, PagePseudoClass, IParameterizedPseudoEntity, DependentRuleCombinator, IConstant, IRuleWithSelector } from "./CoreTypes";
+import { ExtendedIStyleset, VarTemplateName, VarValue, ExtendedVarValue, AnimationStyleset, IStyleset } from "./Stylesets";
 /**
- * The `CombinedStyleset` type extends the Styleset type with certain properties that provide
- * additional meaning to the styleset and allow building dependent style rules:
- * - The `"+"` property specifies one or more parent style rules. This allows specifying
- *   parent rules using a convenient style-property-like notation.
- * - Properties with pseudo class names (e.g. `:hover`) or pseudo element names (e.g. `::after`).
- *   These properties define a styleset that will be assigned to the selector obtained by using
- *   the original styleset's owner followed by the given pseudo class or pseudo element.
- * - Properties with names of parameterized pseudo classes (e.g. `:nth-child`) or parameterized
- *   pseudo elements (e.g. `::slotted`). These properties contain a tuple, where the first
- *   element is the parameter for the selector and the second element is the styleset.
- *   These properties define a styleset that will be assigned to the selector obtained by using
- *   the original styleset's owner followed by the given pseudo class or pseudo element.
- * - Properties with the ampersand symbol (`&`) that contain arrays of two-element tuples each
- *   defining a selector and a style corresponding to this selector. Selectors can use the
- *   ampersand symbol to refer to the parent style selector. If the ampersand symbol is not used,
- *   the selector will be simply appended to the parent selector.
- *
- * Functions that return style rules (e.g. [[$class]]) accept the `CombinedStyleset` as a parameter,
- * for example:
- *
- * ```typescript
- * class MyStyles extends css.StyleDefinition
- * {
- *     class1 = this.$class({})
- *     class2 = this.$class({
- *         backgroundColor: "white",
- *         ":hover" : { backgroundColor: "grey" },
- *         "&": [
- *             [ "li > &", { backgroundColor: "yellow" } ],
- *             [ this.class1, { backgroundColor: "orange" } ]
- *         ]
- *     })
- * }
- * ```
- *
- * This will translate to the following CSS (in reality, class names are auto-generated):
- *
- * ```css
- * .class2 { backgroundColor: white; }
- * .class2:hover { backgroundColor: grey; }
- * li > .class2 { backgroundColor: yellow; }
- * .class2.class1 { backgroundColor: orange; }
- * ```
+ * The IRule interface is a base interface that is implemented by all rules.
  */
-export declare type CombinedStyleset = Styleset & {
-    "+"?: IStyleRule | IStyleRule[];
-} & {
-    [K in PseudoEntity]?: CombinedStyleset;
-} & {
-    [K in keyof IParameterizedPseudoEntity]?: [IParameterizedPseudoEntity[K], CombinedStyleset][];
-} & {
-    [K in DependentRuleCombinator]?: [CssSelector, CombinedStyleset][];
-};
-/**
- * The `CombinedClassStyleset` type extends the CombinedStyleset type with the "++" property, which
- * allows combining multiple class rules. Note that the "+" (single plus) property allows deriving
- * from any base style rules (not necessarily classes) and the style properties from the base rules
- * are simply copied to the new rule. Additionally, even if class rules were among the base rules,
- * the names of the base classes are lost.
- *
- * The "++" (double plus) property is different and it only applies to class rules and only allows
- * deriving from class rules. The style properties from the base classes are not copied to the new
- * rule; instead, the name of the new class becomes a concatenation of the new rule name and the
- * names of all base classes.
- *
- * ```typescript
- * class MyStyles extends css.StyleDefinition
- * {
- *     redFG = this.$class({ color: "red" })
- *     whiteBG = this.$class({ backgroundColor: "white" })
- *
- *     emphasized = this.$class({
- *         "++": [this.redFG, this.whiteBG],
- *         fontWeight: 700
- *     })
- * }
- * ```
- *
- * This will translate to the following CSS (in reality, class names are auto-generated):
- *
- * ```css
- * .redFG { color: red; }
- * .whiteBG { backgroundColor: white; }
- * .emphasized.redFG.whiteBG { fontWeight: 700; }
- * ```
- *
- * Note that when the MyStyles is activated and the emphasized property is applied to an element,
- * the class name will be not just "emphasized", but "emphasized redFG whiteBG". That is, the
- * following rendering function
- *
- * ```typescript
- * let styles = css.activate(MyStyles);
- * render()
- * {
- *     return <div className={styles.emphasized.name}>Important stuff</div>
- * }
- * ```
- *
- * will generate the following HTML:
- *
- * ```html
- * <div className="emphasized redFG whiteBG">Important stuff</div>
-```
- */
-export declare type CombinedClassStyleset = CombinedStyleset & {
-    "++"?: ParentClassType | ParentClassType[];
-};
-/**
- * Represents types that can be used to inherit from an already defined CSS class. This type is
- * used in the `"++"` property of the [[CombinedClassStyleset]] type, whcih allows CSS classes
- * to include definitions of other CSS classes.
- */
-export declare type ParentClassType = string | IClassRule | IClassNameRule;
-/**
- * The AnimationStyleset type defines an object containing style properties for an animation frame.
- * Stylesets for keyframes allow custom properties (via "--") but don't allow dependent rules
- * (because dependent rules are actually separate CSS rules). Animation styleset can extend other
- * style rules; however, any dependent rules will be ignored.
- */
-export declare type AnimationStyleset = Styleset & {
-    "+"?: IStyleRule | IStyleRule[];
-};
-/**
-* The IRule interface is a base interface that is implemented by all rules.
-*/
 export interface IRule {
     /** CSSOM rule */
     readonly cssRule: CSSRule | null;
@@ -177,7 +54,7 @@ export interface IStyleRule extends IRule, IRuleWithSelector {
      * @param schedulerType ID of a registered scheduler type that is used to write the property
      * value to the DOM. If undefined, the current default scheduler will be used.
      */
-    setProp<K extends keyof ExtendedBaseStyleset>(name: K, value: ExtendedBaseStyleset[K], important?: boolean, schedulerType?: number): void;
+    setProp<K extends keyof IStyleset>(name: K, value: ExtendedIStyleset[K], important?: boolean, schedulerType?: number): void;
     /**
      * Adds/replaces/removes the value of the given custmom CSS property in this rule.
      * @param customVar IVarRule object defining a custom CSS property.
@@ -264,8 +141,8 @@ export interface IAnimationFrameRule extends IStyleRule {
     readonly cssKeyframeRule: CSSKeyframeRule;
 }
 /**
- * The IVarRule interface represents a CSS custom property definition.
- * Objects implementing this interface are returned from the [[$var]] function.
+ * The IVarRule interface represents a CSS custom property definition. Objects implementing this
+ * interface are returned from the [[$var]] and [[$property]] function.
  */
 export interface IVarRule<K extends VarTemplateName = any> extends INamedEntity, ICustomVar<VarValue<K>> {
     /**
@@ -534,5 +411,20 @@ export declare const enum NameGenerationMethod {
      * ```
      */
     Scoped = 3
+}
+/**
+ * The ICssSerializer interface allows adding style definition classes and objects
+ * and serializing them to a single string. This can be used for server-side rendering when
+ * the resultant string can be set as the content of a `<style>` element.
+ */
+export interface ICssSerializer {
+    /**
+     * Adds style definition class or instance.
+     */
+    add(instOrClass: IStyleDefinition | IStyleDefinitionClass): void;
+    /**
+     * Returns concatenated string representation of all CSS rules added to the context.
+     */
+    serialize(): string;
 }
 //# sourceMappingURL=RuleTypes.d.ts.map

@@ -1,6 +1,6 @@
 import { IConstant, IGenericProxy, IRawProxy } from "./CoreTypes";
 import { CssAspectRatio, CssNumber, CssLength, CssResolution } from "./NumericTypes";
-import { Styleset } from "./StyleTypes";
+import { Styleset } from "./Stylesets";
 /** Possible media types */
 export declare type MediaType = "all" | "print" | "screen" | "speech";
 /**

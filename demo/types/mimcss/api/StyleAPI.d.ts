@@ -1,6 +1,6 @@
-import { IStyleDefinitionClass, IStyleDefinition } from "./RuleTypes";
+import { IStyleDefinitionClass, IStyleDefinition, ICssSerializer } from "./RuleTypes";
 import { ExtendedMediaFeatureset, IMediaQueryProxy, ISupportsQueryProxy, MediaStatement, SupportsStatement } from "./MediaTypes";
-import { Styleset, ExtendedBaseStyleset, StringStyleset, IStyleset, ICssSerializer } from "./StyleTypes";
+import { Styleset, ExtendedIStyleset, StringStyleset, IStyleset } from "./Stylesets";
 /**
  * Registers the given function to be used for converting values of the given style property to
  * string. The `registerStyleProperty` function must be used after adding the property to the
@@ -19,7 +19,7 @@ export declare const registerStyleProperty: (name: string, toStringFunc: (v: any
  * to a CSS compliant string.
  * @param stylePropValue Value to convert.
  */
-export declare const getStylePropValue: <K extends keyof IStyleset>(stylePropName: K, stylePropValue: ExtendedBaseStyleset[K]) => string;
+export declare const getStylePropValue: <K extends keyof IStyleset>(stylePropName: K, stylePropValue: ExtendedIStyleset[K]) => string;
 /**
  * Sets values of the style properties from the given Styleset object to the `style` attribute
  * of the given HTML element.
@@ -67,7 +67,7 @@ declare global {
          * @param schedulerType Scheduler identifier. If omitted, the current default scheduler
          * will be used.
          */
-        setStyleProp<K extends keyof IStyleset>(name: K, value: ExtendedBaseStyleset[K], schedulerType?: number): void;
+        setStyleProp<K extends keyof IStyleset>(name: K, value: ExtendedIStyleset[K], schedulerType?: number): void;
         /**
          * Merges or replaces the element's styles with the given styleset.
          * @param styleset Styleset to set or replace

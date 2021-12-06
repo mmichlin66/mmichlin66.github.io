@@ -1,8 +1,9 @@
 import { CssImage, Extended, ExtentKeyword } from "./CoreTypes";
 import { CssAngle, CssLength, CssNumber, CssPercent, CssPoint } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
-import { GradientStopOrHint, ShapeRadius, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, TimingFunctionJumpTerm, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IStepsFunc, ICubicBezierFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder, ICrossFadeBuilder, ICrossFadeFunc, IImageSetFunc, ImageSetItem } from "./ShapeTypes";
+import { GradientStopOrHint, ShapeRadius, IMinMaxFunc, IPathBuilder, IRepeatFunc, IGridSpanFunc, FillRule, ICircleBuilder, IEllipseBuilder, IInsetBuilder, IPolygonBuilder, IRayFunc, IPercentFilterFunc, IBlurFunc, IDropShadowFunc, IHueRotateFunc, IMatrixFunc, IMatrix3dFunc, IPerspectiveFunc, IRotateFunc, IRotate3dFunc, IScale1dFunc, IScaleFunc, IScale3dFunc, ISkewFunc, ISkew1dFunc, ITranslate1dFunc, ITranslate3dFunc, ITranslateFunc, ILinearGradientBuilder, IRadialGradientBuilder, IConicGradientBuilder, ICrossFadeBuilder, ICrossFadeFunc, IImageSetFunc, ImageSetItem, IPaintWorklets, IPaintFunc } from "./ShapeTypes";
 import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
+import { MappedSyntaxTypes } from "./Stylesets";
 /**
  * Function returning the ILinearGradientBuilder interface representing the `linear-gradient` CSS functions.
  *
@@ -77,11 +78,35 @@ export declare function crossFade(old: [Extended<CssImage>, Extended<CssImage>, 
  */
 export declare function crossFade(...images: (Extended<CssImage> | [Extended<CssImage>, Extended<CssPercent>])[]): ICrossFadeBuilder;
 /**
- * Returns an ImageProxy function representing the `cross-fade()` CSS function.
+ * Returns an IImageSetFunc object representing the `image-set()` CSS function.
+ *
+ * @param items One or more items specifying an image and optionally image type and resolution.
+ * @returns
  *
  * @category Image
  */
 export declare const imageSet: (...items: ImageSetItem[]) => IImageSetFunc;
+/**
+ * Registers a paint worklet with the given name, optional argument syntax and optional URL of
+ * the worklet module. The worklet name should have been added to the [[IPaintWorklets]] interface
+ * using the module augmentation technique. Although it is possible to use paint worklets without
+ * adding them to the [[IPaintWorklets]] interface, this will prevent Mimcss from enforcing the
+ * types of arguments when the [[paint]] function is invoked.
+ * @param name Worklet name
+ * @param syntax Tuple containing syntax definitions for worklet arguments.
+ * @param url URL to the worklet module. If specified, the module will be automatically added.
+ */
+export declare const registerPaintWorklet: <K extends string | number>(name: K, syntax?: IPaintWorklets[K], url?: string | undefined) => Promise<void>;
+/**
+ * Returns the IPaintFunc object describing an invocation of the `paint()` CSS function.
+ *
+ * @param name Paint worklet name.
+ * @param args Parameters to be passed to the paint worklet.
+ *
+ * @category Image
+ *
+ * @ts-expect-error: Erroneously reports TS2370 although the rest's type is an array (a tuple) */
+export declare const paint: <K extends string | number>(name: K, ...args: MappedSyntaxTypes<IPaintWorklets[K]>) => IPaintFunc;
 /**
  * Returns an [[IPercentFilterFunc]] object representing the `brightness()` CSS function.
  *
@@ -533,16 +558,4 @@ export declare const repeat: (count: Extended<CssNumber> | "auto-fill" | "auto-f
  * @category Grid
  */
 export declare const span: (p1: Extended<GridLineCountOrName>, p2?: Extended<GridLineCountOrName>) => IGridSpanFunc;
-/**
- * Returns a function representing an invocation of the CSS `steps()` function.
- *
- * @category Transition and Animation
- */
-export declare const steps: (n: Extended<number>, j?: TimingFunctionJumpTerm | undefined) => IStepsFunc;
-/**
- * Returns a function representing an invocation of the CSS `cubic-bezier()` function.
- *
- * @category Transition and Animation
- */
-export declare const cubicBezier: (n1: Extended<number>, n2: Extended<number>, n3: Extended<number>, n4: Extended<number>) => ICubicBezierFunc;
 //# sourceMappingURL=ShapeAPI.d.ts.map

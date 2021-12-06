@@ -266,18 +266,18 @@ export declare const hz: (n: number) => IFrequencyProxy;
  */
 export declare const khz: (n: number) => IFrequencyProxy;
 /**
- * Returns an `IFitContentProxy` function representing the `fit-content()` CSS function
+ * Returns an [[IFitContentProxy]] function representing the `fit-content()` CSS function
  * ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content())).
  */
-export declare function fitContent(size: Extended<CssLength>): IFitContentProxy;
+export declare const fitContent: (size: Extended<CssLength>) => IFitContentProxy;
 /**
- * Returns an `IAspectRatioProxy` function representing the `<ratio>` CSS type.
+ * Returns an [[IAspectRatioProxy]] function representing the `<ratio>` CSS type.
  */
-export declare function ratio(w: CssNumber, h?: CssNumber): IAspectRatioProxy;
+export declare const ratio: (w: CssNumber, h?: CssNumber | undefined) => IAspectRatioProxy;
 /**
- * Returns an `IRectProxy` function representing the `rect()` CSS function used for the `clip`
+ * Returns an [[IRectProxy]] function representing the `rect()` CSS function used for the `clip`
  * style property.
  * @deprecated The CSS `clip` property and `rect()` function are deprecated.
  */
-export declare function rect(top: CssLength, right: CssLength, bottom: CssLength, left: CssLength): IRectProxy;
+export declare const rect: (top: CssLength, right: CssLength, bottom: CssLength, left: CssLength) => IRectProxy;
 //# sourceMappingURL=NumericAPI.d.ts.map

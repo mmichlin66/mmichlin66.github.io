@@ -329,9 +329,6 @@ export interface IAspectRatioProxy extends IGenericProxy<"aspect-ratio"> {
  *     // using the `ratio()` function
  *     class2 = this.$class( {aspectRatio: css.ratio( 4, 3)})
  *
- *     // using two numeric values
- *     class3 = this.$class( {aspectRatio: [4, 3]})
- *
  *     // using a single number
  *     mediaRule1 = this.$media( {aspectRatio: 1.33}, ...)
  *
@@ -341,7 +338,7 @@ export interface IAspectRatioProxy extends IGenericProxy<"aspect-ratio"> {
  * }
  * ```
  */
-export declare type CssAspectRatio = OneOrPair<CssNumber> | IAspectRatioProxy | "1/1" | "4/3" | "16/9" | "185/100" | "239/100";
+export declare type CssAspectRatio = CssNumber | IAspectRatioProxy | "1/1" | "4/3" | "16/9" | "185/100" | "239/100";
 /**
  * The `IRectProxy` interface represents an invocation of the [[rect]] function used for the `clip`
  * style property.

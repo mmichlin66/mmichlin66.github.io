@@ -1,9 +1,9 @@
-import { CssSelector, PagePseudoClass, OneOrMany, ElementTagName } from "./CoreTypes";
-import { CombinedStyleset, IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule, IStyleDefinition, CombinedClassStyleset } from "./RuleTypes";
+import { CssSelector, PagePseudoClass, OneOrMany, ElementTagName, ExtendedProp } from "./CoreTypes";
+import { IStyleRule, IClassRule, IIDRule, AnimationFrame, IAnimationRule, IVarRule, ICounterRule, IGridLineRule, IGridAreaRule, IImportRule, IFontFaceRule, INamespaceRule, IPageRule, IStyleDefinitionClass, ISupportsRule, IMediaRule, IClassNameRule, IConstRule, ClassPropType, NameGenerationMethod, ICounterStyleRule, IStyleDefinition } from "./RuleTypes";
 import { MediaStatement, SupportsStatement } from "./MediaTypes";
 import { ExtendedFontFace } from "./FontTypes";
 import { ExtendedCounterStyleset } from "./CounterTypes";
-import { Styleset, VarTemplateName, ExtendedVarValue } from "./StyleTypes";
+import { Styleset, VarTemplateName, ExtendedVarValue, CombinedStyleset, CombinedClassStyleset, ISyntaxTypeStyleset } from "./Stylesets";
 /**
  * The `StyleDefinition` class is a base for all classes that contain defininitions of CSS rules.
  * Style definition classes are regular TypeScript classes and as such can have any fields and
@@ -35,7 +35,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
     /**
      * Style definition instances are created directly only by the *styled components* - that is,
      * components that use different styles for each instance. Otherwise, style definition
-     * instances are created when either the [[$use]] or [[activate]] function is called.
+     * instances are created when either the [[$use]] method or [[activate]] function is called.
      * @param parent Reference to the parent style definition class
      */
     constructor(parent?: P);
@@ -345,7 +345,7 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * ```
      *
      * @param template Either a name of a style property (in camel-case) or a name of the property from
-     * the [[IVarTemplateStyleset]] interface. The type corresponding to that property defines the type
+     * the [[IVarTemplateStyleset]] interface. The type corresponding to this property defines the type
      * of the second parameter.
      * @param value The value assigned to the property.
      * @param nameOverride String or another `IVarRule` object that determines the name of the
@@ -356,6 +356,87 @@ export declare abstract class StyleDefinition<P extends StyleDefinition = any> i
      * style properties or function parameters is substituted by the `var()` CSS function invocation.
      */
     $var<K extends VarTemplateName>(template: K, value?: ExtendedVarValue<K>, nameOverride?: string | IVarRule<K>): IVarRule<K>;
+    /**
+     * Creates new `@property` rule. The property name will be created when the rule is processed
+     * as part of the style definition class. The name can be also overridden by providing either
+     * an explicit name or another custom variable rule.
+     *
+     * This variant allows specifying syntax as one of predefined syntax items such as `<number>`
+     * or `<color>` optionally accompanied with the multipliers `"#"` or `"+". The type of initial
+     * value as well as the type that can be passed to the `setValue` method of the returned
+     * [[IVarValue]] interface will be enforced according to the syntax specified.
+     *
+     * **Example:**
+     *
+     * ```typescript
+     * class MyStyles extends css.StyleDefinition
+     * {
+     *     // define and use custom CSS property
+     *     importantTextColor = this.$property( "<color>", "red", false)
+     *     important = this.$class({
+     *         color: this.importantTextColor
+     *     })
+     *
+     *     // use different value for the custom property under another CSS class
+     *     special = this.$class({
+     *         "+": this.important,
+     *         "--": [ [this.importantTextColor, "maroon"] ]
+     *     })
+     * }
+     * ```
+     *
+     * @param syntax Name of the property from the [[ISyntaxTypeStyleset]] interface. The type
+     * corresponding to this property defines the type of the initial value parameter.
+     * @param initValue The value to be used as initial value of the property.
+     * @param inherits Flag indicating whether the custom property registration inherits by default.
+     * @param nameOverride String or another `IVarRule` object that determines the name of the
+     * custom property. If this optional parameter is defined, the name will override the Mimcss name
+     * assignment mechanism. This might be useful if there is a need for the name to match a name of
+     * existing property.
+     * @returns The `IVarRule` object that represents the `@property` rule. Any usage of this object in
+     * style properties or function parameters is substituted by the `var()` CSS function invocation.
+     */
+    $property<K extends keyof ISyntaxTypeStyleset>(syntax: K, initValue: ExtendedVarValue<K>, inherits: boolean, nameOverride?: string | IVarRule<K>): IVarRule<K>;
+    /**
+     * Creates new `@property` rule. The property name will be created when the rule is processed
+     * as part of the style definition class. The name can be also overridden by providing either
+     * an explicit name or another custom variable rule.
+     *
+     * This variant allows specifying arbitrary syntax and the developers are responsible to
+     * provide correct syntax. The type of initial value as well as the type that can be passed to
+     * the `setValue` method of the returned [[IVarValue]] interface are limited to string. The
+     * developers are responsible to pass values that conform to the specified syntax.
+     *
+     * **Example:**
+     *
+     * ```typescript
+     * class MyStyles extends css.StyleDefinition
+     * {
+     *     // define and use custom CSS property
+     *     importantTextColor = this.$property( "<color>", "red", false)
+     *     important = this.$class({
+     *         color: this.importantTextColor
+     *     })
+     *
+     *     // use different value for the custom property under another CSS class
+     *     special = this.$class({
+     *         "+": this.important,
+     *         "--": [ [this.importantTextColor, "maroon"] ]
+     *     })
+     * }
+     * ```
+     *
+     * @param syntax Single-element tuple containing the syntax string.
+     * @param initValue The value to be used as initial value of the property.
+     * @param inherits Flag indicating whether the custom property registration inherits by default.
+     * @param nameOverride String or another `IVarRule` object that determines the name of the
+     * custom property. If this optional parameter is defined, the name will override the Mimcss name
+     * assignment mechanism. This might be useful if there is a need for the name to match a name of
+     * existing property.
+     * @returns The `IVarRule` object that represents the `@property` rule. Any usage of this object in
+     * style properties or function parameters is substituted by the `var()` CSS function invocation.
+     */
+    $property(syntax: [string], initValue: ExtendedProp<string>, inherits: boolean, nameOverride?: string | IVarRule<"*">): IVarRule<"*">;
     /**
      * Creates a "constant" that can be used anywhere the type defined by the `template` parameter can
      * be used. They are called constants, because they provide a convenient and lightweight way of
@@ -764,6 +845,9 @@ export declare const chooseClass: (...classProps: ClassPropType[]) => string | n
  * most recent value set. Thus when a rule in the base class's constructor uses a virtualized
  * rule, the first rule will see the overridden value of the rule when accessed in the
  * post-constructor code.
+ *
+ * @deprecated This decorator is deprecated as  all rules defined in style definition classes are
+ * always virtualized.
  */
 export declare const virtual: (target: any, name: string) => void;
 /**
@@ -774,7 +858,6 @@ export declare const virtual: (target: any, name: string) => void;
  * @typeparam P Parent style definition class. Parent of a top-level class is null.
  */
 export declare abstract class ThemeDefinition<P extends StyleDefinition = any> extends StyleDefinition<P> {
-    constructor(parent?: P);
 }
 /**
  * Activates the given style definition class or instance and inserts all its rules into DOM. If

@@ -1,492 +1,62 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RuleAPI | Mimcss Reference</title>
-	<meta name="description" content="Documentation for Mimcss Reference">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../assets/css/main.css">
-	<script async src="../assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="../index.html" class="title">Mimcss Reference</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="../index.html">Mimcss Reference</a>
-				</li>
-				<li>
-					<a href="ruleapi.html">RuleAPI</a>
-				</li>
-			</ul>
-			<h1>Module RuleAPI</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Classes</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/ruleapi.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/ruleapi.themedefinition.html" class="tsd-kind-icon">Theme<wbr>Definition</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="ruleapi.html#activate" class="tsd-kind-icon">activate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#classes" class="tsd-kind-icon">classes</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#getactivetheme" class="tsd-kind-icon">get<wbr>Active<wbr>Theme</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="activate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> activate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">activate&lt;T&gt;<span class="tsd-signature-symbol">(</span>instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Activates the given style definition class or instance and inserts all its rules into DOM. If
-										the input object is not an instance but a class, which is not yet associated with an instance,
-										the instance is first created and processed. Note that each style definition instance maintains
-										a reference counter of how many times it was activated and deactivated. The rules are inserted
-									into DOM only upon first activation.</p>
-								</div>
-							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-								</li>
-							</ul>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>instOrClass: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="chooseclass" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> choose<wbr>Class</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">choose<wbr>Class<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>classProps<span class="tsd-signature-symbol">: </span><a href="ruletypes.html#classproptype" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Chooses the first non-null name from the given list of classes.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classProps: <a href="ruletypes.html#classproptype" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4>
-							<p>The first non-empty class name from the input array or null if all inputs are empty.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="classes" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> classes</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">classes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>classProps<span class="tsd-signature-symbol">: </span><a href="ruletypes.html#classproptype" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Concatenates the names of the given classes into a single string that can be assigned to a
-									<code>class</code> property of an HTML element.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classProps: <a href="ruletypes.html#classproptype" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Variable argument list of either class names or class rule objects.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-							<p>The string that combines all class names (separated with space) from the input array.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="confignamegeneration" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> config<wbr>Name<wbr>Generation</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">config<wbr>Name<wbr>Generation<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-signature-type" data-tsd-kind="Enumeration">NameGenerationMethod</a>, prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Sets the method uses to generate names of CSS entities. If yes, the names will be created by
-										appending a unique number to the given prefix. If the prefix is not specified, the standard
-									prefix &quot;n&quot; will be used.</p>
-								</div>
-								<p>By default the development version of the library (mimcss.dev.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#uniquescoped">UniqueScoped</a>
-									method and the production version (mimcss.js) uses the <a href="../enums/ruletypes.namegenerationmethod.html#optimized">Optimized</a> method. This function can
-									be called to switch to the alternative method of name generation in either the development or
-								the production builds.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>method: <a href="../enums/ruletypes.namegenerationmethod.html" class="tsd-signature-type" data-tsd-kind="Enumeration">NameGenerationMethod</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Indicates what method to use.</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional string that will serve as a prefix to which unique numbers will be added
-											to generate optimized names. Ignored if the <code>method</code> parameter is anything other than
-										<a href="../enums/ruletypes.namegenerationmethod.html#optimized">NameGenerationMethod.Optimized</a>.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="deactivate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> deactivate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">deactivate<span class="tsd-signature-symbol">(</span>instance<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Deactivates the given style definition instance by removing its rules from DOM. Note that each
-										style definition instance maintains a reference counter of how many times it was activated and
-									deactivated. The rules are removed from DOM only when this reference counter goes down to 0.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>instance: <a href="../interfaces/ruletypes.istyledefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="embedded" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> embedded</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">embedded<span class="tsd-signature-symbol">(</span>category<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Decorator function for style definition classes that will be embedded into an embedding
-										container for the given category. All style definitions for a given category will be activated
-									and deactivated together and their rules will be inserted into a single <code>&lt;style&gt;</code> element.</p>
-								</div>
-								<p><strong>Example:</strong></p>
-								<pre><code class="language-typescript"><span style="color: #000000">@</span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">embedded</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;widgets&quot;</span><span style="color: #000000">)</span>
-<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">FirstWidgetStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> {...}</span>
-
-<span style="color: #000000">@</span><span style="color: #001080">css</span><span style="color: #000000">.</span><span style="color: #795E26">embedded</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;widgets&quot;</span><span style="color: #000000">)</span>
-<span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">SecondWidgetStyles</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">css</span><span style="color: #000000">.</span><span style="color: #267F99">StyleDefinition</span><span style="color: #000000"> {...}</span>
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>RuleAPI | Mimcss Reference - v0.11.7</title><meta name="description" content="Documentation for Mimcss Reference - v0.11.7"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script async src="../assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base=".."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">Mimcss Reference - v0.11.7</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><ul class="tsd-breadcrumb"><li><a href="../index.html">Mimcss Reference - v0.11.7</a></li><li><a href="RuleAPI.html">RuleAPI</a></li></ul><h1>Module RuleAPI</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><section class="tsd-panel-group tsd-index-group"><h2>Index</h2><section class="tsd-panel tsd-index-panel"><div class="tsd-index-content"><section class="tsd-index-section "><h3>Classes</h3><ul class="tsd-index-list"><li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/RuleAPI.StyleDefinition.html" class="tsd-kind-icon">Style<wbr/>Definition</a></li><li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/RuleAPI.ThemeDefinition.html" class="tsd-kind-icon">Theme<wbr/>Definition</a></li></ul></section><section class="tsd-index-section "><h3>Functions</h3><ul class="tsd-index-list"><li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="RuleAPI.html#activate" class="tsd-kind-icon">activate</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#chooseClass" class="tsd-kind-icon">choose<wbr/>Class</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#classes" class="tsd-kind-icon">classes</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#configNameGeneration" class="tsd-kind-icon">config<wbr/>Name<wbr/>Generation</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#deactivate" class="tsd-kind-icon">deactivate</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#embedded" class="tsd-kind-icon">embedded</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#getActiveTheme" class="tsd-kind-icon">get<wbr/>Active<wbr/>Theme</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#virtual" class="tsd-kind-icon">virtual</a></li></ul></section></div></section></section><section class="tsd-panel-group tsd-member-group "><h2>Functions</h2><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a id="activate" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> activate</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><li class="tsd-signature tsd-kind-icon">activate<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>instOrClass<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/RuleTypes.IStyleDefinitionClass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Activates the given style definition class or instance and inserts all its rules into DOM. If
+the input object is not an instance but a class, which is not yet associated with an instance,
+the instance is first created and processed. Note that each style definition instance maintains
+a reference counter of how many times it was activated and deactivated. The rules are inserted
+into DOM only upon first activation.</p>
+</div></div><h4 class="tsd-type-parameters-title">Type parameters</h4><ul class="tsd-type-parameters"><li><h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/RuleTypes.IStyleDefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>instOrClass: <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/RuleTypes.IStyleDefinitionClass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5></li><li><h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type" data-tsd-kind="Type parameter">T</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module"><a id="chooseClass" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> choose<wbr/>Class</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module"><li class="tsd-signature tsd-kind-icon">choose<wbr/>Class<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>classProps<span class="tsd-signature-symbol">: </span><a href="RuleTypes.html#ClassPropType" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Chooses the first non-null name from the given list of classes.</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classProps: <a href="RuleTypes.html#ClassPropType" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4><div><p>The first non-empty class name from the input array or null if all inputs are empty.</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module"><a id="classes" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> classes</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module"><li class="tsd-signature tsd-kind-icon">classes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>classProps<span class="tsd-signature-symbol">: </span><a href="RuleTypes.html#ClassPropType" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Concatenates the names of the given classes into a single string that can be assigned to a
+<code>class</code> property of an HTML element.</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>classProps: <a href="RuleTypes.html#ClassPropType" class="tsd-signature-type" data-tsd-kind="Type alias">ClassPropType</a><span class="tsd-signature-symbol">[]</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Variable argument list of either class names or class rule objects.</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><div><p>The string that combines all class names (separated with space) from the input array.</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module"><a id="configNameGeneration" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> config<wbr/>Name<wbr/>Generation</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module"><li class="tsd-signature tsd-kind-icon">config<wbr/>Name<wbr/>Generation<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><a href="../enums/RuleTypes.NameGenerationMethod.html" class="tsd-signature-type" data-tsd-kind="Enumeration">NameGenerationMethod</a>, prefix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Sets the method uses to generate names of CSS entities. If yes, the names will be created by
+appending a unique number to the given prefix. If the prefix is not specified, the standard
+prefix &quot;n&quot; will be used.</p>
+</div><div><p>By default the development version of the library (mimcss.dev.js) uses the <a href="../enums/RuleTypes.NameGenerationMethod.html#UniqueScoped">UniqueScoped</a>
+method and the production version (mimcss.js) uses the <a href="../enums/RuleTypes.NameGenerationMethod.html#Optimized">Optimized</a> method. This function can
+be called to switch to the alternative method of name generation in either the development or
+the production builds.</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>method: <a href="../enums/RuleTypes.NameGenerationMethod.html" class="tsd-signature-type" data-tsd-kind="Enumeration">NameGenerationMethod</a></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Indicates what method to use.</p>
+</div></div></li><li><h5><span class="tsd-flag ts-flagOptional">Optional</span> prefix: <span class="tsd-signature-type">string</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Optional string that will serve as a prefix to which unique numbers will be added
+to generate optimized names. Ignored if the <code>method</code> parameter is anything other than
+<a href="../enums/RuleTypes.NameGenerationMethod.html#Optimized">NameGenerationMethod.Optimized</a>.</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module"><a id="deactivate" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> deactivate</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module"><li class="tsd-signature tsd-kind-icon">deactivate<span class="tsd-signature-symbol">(</span>instance<span class="tsd-signature-symbol">: </span><a href="../interfaces/RuleTypes.IStyleDefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span>, schedulerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Deactivates the given style definition instance by removing its rules from DOM. Note that each
+style definition instance maintains a reference counter of how many times it was activated and
+deactivated. The rules are removed from DOM only when this reference counter goes down to 0.</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>instance: <a href="../interfaces/RuleTypes.IStyleDefinition.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5></li><li><h5><span class="tsd-flag ts-flagOptional">Optional</span> schedulerType: <span class="tsd-signature-type">number</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module"><a id="embedded" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> embedded</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module"><li class="tsd-signature tsd-kind-icon">embedded<span class="tsd-signature-symbol">(</span>category<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ClassDecorator</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Decorator function for style definition classes that will be embedded into an embedding
+container for the given category. All style definitions for a given category will be activated
+and deactivated together and their rules will be inserted into a single <code>&lt;style&gt;</code> element.</p>
+</div><div><p><strong>Example:</strong></p>
+<pre><code class="language-typescript"><span class="hl-1">@</span><span class="hl-4">css</span><span class="hl-1">.</span><span class="hl-5">embedded</span><span class="hl-1">(</span><span class="hl-7">&quot;widgets&quot;</span><span class="hl-1">)</span><br/><span class="hl-0">class</span><span class="hl-1"> </span><span class="hl-2">FirstWidgetStyles</span><span class="hl-1"> </span><span class="hl-0">extends</span><span class="hl-1"> </span><span class="hl-2">css</span><span class="hl-1">.</span><span class="hl-2">StyleDefinition</span><span class="hl-1"> {...}</span><br/><br/><span class="hl-1">@</span><span class="hl-4">css</span><span class="hl-1">.</span><span class="hl-5">embedded</span><span class="hl-1">(</span><span class="hl-7">&quot;widgets&quot;</span><span class="hl-1">)</span><br/><span class="hl-0">class</span><span class="hl-1"> </span><span class="hl-2">SecondWidgetStyles</span><span class="hl-1"> </span><span class="hl-0">extends</span><span class="hl-1"> </span><span class="hl-2">css</span><span class="hl-1">.</span><span class="hl-2">StyleDefinition</span><span class="hl-1"> {...}</span>
 </code></pre>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>category: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="getactivetheme" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Active<wbr>Theme</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Active<wbr>Theme<span class="tsd-signature-symbol">(</span>themeClass<span class="tsd-signature-symbol">: </span><a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the theme definition object, which is currently active for the given theme declaration
-									class.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>themeClass: <a href="../interfaces/ruletypes.istyledefinitionclass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Theme declaration class</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/ruleapi.themedefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Theme instance, which is currently active for the given theme class or undefined
-							if no instance is currently active.</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="virtual" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> virtual</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">virtual<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Decorator that should be applied to a rule if it is defined and used in the same style
-										definition class but then is overridden in a derived style definition class. The problem
-										this solves is this: when a rule is defined in a base class and then overridden in a derived
-										class, when an instance of the derived class is created, the rules that are created in the
-										base and derived classes see different values of the rule. Since our rules are defined as
-										part of the constructor, the base class constructor&#39;s code only sees the value assigned in that
-									code. If another rule in the base class uses this first rule, this value is remembered.</p>
-								</div>
-								<p>The <code>@virtual</code> decorator creates a Proxy object for the rule with the handler that keeps the
-									most recent value set. Thus when a rule in the base class&#39;s constructor uses a virtualized
-									rule, the first rule will see the overridden value of the rule when accessed in the
-								post-constructor code.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>target: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="../index.html">Modules</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="colorapi.html">ColorAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="colortypes.html">Color<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="coreapi.html">CoreAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="coretypes.html">Core<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="countertypes.html">Counter<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="fonttypes.html">Font<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="mediatypes.html">Media<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="numericapi.html">NumericAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="numerictypes.html">Numeric<wbr>Types</a>
-					</li>
-					<li class="current tsd-kind-module">
-						<a href="ruleapi.html">RuleAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="ruletypes.html">Rule<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="schedulingapi.html">SchedulingAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="schedulingtypes.html">Scheduling<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="shapeapi.html">ShapeAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="shapetypes.html">Shape<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="styleapi.html">StyleAPI</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="styletypes.html">Style<wbr>Types</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/ruleapi.styledefinition.html" class="tsd-kind-icon">Style<wbr>Definition</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../classes/ruleapi.themedefinition.html" class="tsd-kind-icon">Theme<wbr>Definition</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="ruleapi.html#activate" class="tsd-kind-icon">activate</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#chooseclass" class="tsd-kind-icon">choose<wbr>Class</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#classes" class="tsd-kind-icon">classes</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#confignamegeneration" class="tsd-kind-icon">config<wbr>Name<wbr>Generation</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#deactivate" class="tsd-kind-icon">deactivate</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#embedded" class="tsd-kind-icon">embedded</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#getactivetheme" class="tsd-kind-icon">get<wbr>Active<wbr>Theme</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="ruleapi.html#virtual" class="tsd-kind-icon">virtual</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="../assets/js/main.js"></script>
-</body>
-</html>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>category: <span class="tsd-signature-type">string</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ClassDecorator</span></h4></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module"><a id="getActiveTheme" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr/>Active<wbr/>Theme</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module"><li class="tsd-signature tsd-kind-icon">get<wbr/>Active<wbr/>Theme<span class="tsd-signature-symbol">(</span>themeClass<span class="tsd-signature-symbol">: </span><a href="../interfaces/RuleTypes.IStyleDefinitionClass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/RuleAPI.ThemeDefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/RuleAPI.ThemeDefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Returns the theme definition object, which is currently active for the given theme declaration
+class.</p>
+</div></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>themeClass: <a href="../interfaces/RuleTypes.IStyleDefinitionClass.html" class="tsd-signature-type" data-tsd-kind="Interface">IStyleDefinitionClass</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/RuleAPI.ThemeDefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Theme declaration class</p>
+</div></div></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/RuleAPI.ThemeDefinition.html" class="tsd-signature-type" data-tsd-kind="Class">ThemeDefinition</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><div><p>Theme instance, which is currently active for the given theme class or undefined
+if no instance is currently active.</p>
+</div></li></ul></section><section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module"><a id="virtual" class="tsd-anchor"></a><h3><span class="tsd-flag ts-flagConst">Const</span> virtual</h3><ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module"><li class="tsd-signature tsd-kind-icon">virtual<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li></ul><ul class="tsd-descriptions"><li class="tsd-description"><div class="tsd-comment tsd-typography"><div class="lead">
+<p>Decorator that should be applied to a rule if it is defined and used in the same style
+definition class but then is overridden in a derived style definition class. The problem
+this solves is this: when a rule is defined in a base class and then overridden in a derived
+class, when an instance of the derived class is created, the rules that are created in the
+base and derived classes see different values of the rule. Since our rules are defined as
+part of the constructor, the base class constructor&#39;s code only sees the value assigned in that
+code. If another rule in the base class uses this first rule, this value is remembered.</p>
+</div><div><p>The <code>@virtual</code> decorator creates a Proxy object for the rule with the handler that keeps the
+most recent value set. Thus when a rule in the base class&#39;s constructor uses a virtualized
+rule, the first rule will see the overridden value of the rule when accessed in the
+post-constructor code.</p>
+</div><dl class="tsd-comment-tags"><dt>deprecated</dt><dd><p>This decorator is deprecated as  all rules defined in style definition classes are
+always virtualized.</p>
+</dd></dl></div><h4 class="tsd-parameters-title">Parameters</h4><ul class="tsd-parameters"><li><h5>target: <span class="tsd-signature-type">any</span></h5></li><li><h5>name: <span class="tsd-signature-type">string</span></h5></li></ul><h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></section></section></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class=""><a href="../index.html">Modules</a></li><li class=" tsd-kind-module"><a href="ColorAPI.html">ColorAPI</a></li><li class=" tsd-kind-module"><a href="ColorTypes.html">Color<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="CoreAPI.html">CoreAPI</a></li><li class=" tsd-kind-module"><a href="CoreTypes.html">Core<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="CounterTypes.html">Counter<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="FontTypes.html">Font<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="MediaTypes.html">Media<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="NumericAPI.html">NumericAPI</a></li><li class=" tsd-kind-module"><a href="NumericTypes.html">Numeric<wbr/>Types</a></li><li class="current tsd-kind-module"><a href="RuleAPI.html">RuleAPI</a></li><li class=" tsd-kind-module"><a href="RuleTypes.html">Rule<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="SchedulingAPI.html">SchedulingAPI</a></li><li class=" tsd-kind-module"><a href="SchedulingTypes.html">Scheduling<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="ShapeAPI.html">ShapeAPI</a></li><li class=" tsd-kind-module"><a href="ShapeTypes.html">Shape<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="StyleAPI.html">StyleAPI</a></li><li class=" tsd-kind-module"><a href="StyleTypes.html">Style<wbr/>Types</a></li><li class=" tsd-kind-module"><a href="Stylesets.html">Stylesets</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/RuleAPI.StyleDefinition.html" class="tsd-kind-icon">Style<wbr/>Definition</a></li><li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/RuleAPI.ThemeDefinition.html" class="tsd-kind-icon">Theme<wbr/>Definition</a></li><li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="RuleAPI.html#activate" class="tsd-kind-icon">activate</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#chooseClass" class="tsd-kind-icon">choose<wbr/>Class</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#classes" class="tsd-kind-icon">classes</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#configNameGeneration" class="tsd-kind-icon">config<wbr/>Name<wbr/>Generation</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#deactivate" class="tsd-kind-icon">deactivate</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#embedded" class="tsd-kind-icon">embedded</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#getActiveTheme" class="tsd-kind-icon">get<wbr/>Active<wbr/>Theme</a></li><li class="tsd-kind-function tsd-parent-kind-module"><a href="RuleAPI.html#virtual" class="tsd-kind-icon">virtual</a></li></ul></nav></div></div></div><footer class=""><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li><li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li><li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li><li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li><li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li><li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="overlay"></div><script src="../assets/main.js"></script></body></html>

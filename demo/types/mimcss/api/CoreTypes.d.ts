@@ -156,6 +156,40 @@ export declare type ImportantProp<T> = {
     "!": Extended<T> | Global_StyleType;
 };
 /**
+ * Type that allows specifying multiple values of a given type using an object with a single "[]"
+ * property. This type is used to include multiple occurrencies of the same style property in a
+ * styleset. This is useful when targeting advanced features not yet supported in all browsers and
+ * providing a fallback, which is supported everywhere.
+ *
+ * **Example**
+ * ```typescript
+ * class MyStyles extends StyleDefinition
+ * {
+ *     cls1 = this.$class({
+ *         backgroundImage: {"[]": [
+ *             // first, specify a static image (supported everywhere)
+ *             url("image.png"),
+ *             // second, use paint worklet (not supported everywhere yet)
+ *             paint("myPaintWorklet"),
+ *         ]}
+ *     })
+ * }
+ * ```
+ *
+ * This will produce the following CSS:
+ *
+ * ```css
+ * .cls1 {
+ *     backgroundImage: url("image.png");
+ *     backgroundImage: paint("myPaintWorklet");
+ * }
+ * ```
+ *
+ */
+export declare type MultiProp<T> = {
+    "[]": (Extended<T> | ImportantProp<T> | Global_StyleType)[];
+};
+/**
  * The ExtendedProp extends the given generic type with the following elements:
  * - [[ICustomVar]] interface that allows using a CSS custom property rule value.
  * - [[IConstant]] interface that allows using a constant rule value.
@@ -167,7 +201,7 @@ export declare type ImportantProp<T> = {
  *  Developers don't usually use this type directly - it is used by Mimcss to define types
  * of properties in the [[Styleset]] interface.
  */
-export declare type ExtendedProp<T> = Extended<T> | ImportantProp<T> | Global_StyleType;
+export declare type ExtendedProp<T> = Extended<T> | ImportantProp<T> | MultiProp<T> | Global_StyleType;
 /**
  * Type for pair-like properties that can have 1 or 2 values of the given type. This type is used
  * for style properties that can specify values for two dimensions (x and y), but also allow for a
@@ -1090,6 +1124,42 @@ export interface ISelectorBuilder extends ISelectorFunc {
  */
 export declare type CssSelector = ElementTagName | PseudoEntity | IRuleWithSelector | ISelectorProxy | ISelectorFunc | IAttrSelectorFunc | IParameterizedPseudoEntityFunc<any> | SelectorCombinator | IRawProxy | string | CssSelector[];
 /**
+ * Type for simple animation timing functions - those that don't have parameters
+ *
+ */
+export declare type TimingFunctionKeywords = "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out" | "step-start" | "step-end";
+/** Type for step animation timing function jump-term */
+export declare type TimingFunctionJumpTerm = "jump-start" | "jump-end" | "jump-none" | "jump-both" | "start" | "end";
+/**
+ * The IStepsFunc interface represents an invocation of the CSS `steps()` function. It is returned
+ * from the [[steps]] function.
+ * @category Transition and Animation
+ */
+export interface IStepsFunc extends ICssFuncObject {
+    fn: "steps";
+    /** Number of stops */
+    n: Extended<number>;
+    /** Jump term */
+    j?: TimingFunctionJumpTerm;
+}
+/**
+ * The ICubicBezierFunc interface represents an invocation of the CSS `cubic-bezier()` function.
+ * It is returned from the [[cubicBezier]] function.
+ * @category Transition and Animation
+ */
+export interface ICubicBezierFunc extends ICssFuncObject {
+    fn: "cubic-bezier";
+    n1: Extended<number>;
+    n2: Extended<number>;
+    n3: Extended<number>;
+    n4: Extended<number>;
+}
+/**
+ * Type for single animation timing function
+ *
+ */
+export declare type TimingFunction = TimingFunctionKeywords | IStepsFunc | ICubicBezierFunc;
+/**
  * The IUrlFunc interface represents an invocation of the CSS `url()` function. It is returned from
  * the [[url]] function.
  */
@@ -1121,7 +1191,7 @@ export declare type ExtentKeyword = "closest-corner" | "closest-side" | "farthes
  * used whereever gradients are used.
  */
 export interface ICssImageFunc extends ICssFuncObject {
-    fn: "linear-gradient" | "radial-gradient" | "conic-gradient" | "cross-fade" | "image-set";
+    fn: "linear-gradient" | "radial-gradient" | "conic-gradient" | "cross-fade" | "image-set" | "paint";
 }
 /**
  * The CssImage type represents a type used for CSS properties that accept the `<image>` type.

@@ -2,6 +2,7 @@ import { CssImage, Extended, ExtentKeyword, ICssFuncObject, ICssImageFunc } from
 import { BorderRadius, CssAngle, CssLength, CssNumber, CssPercent, CssPoint, CssPosition, IResolutionProxy } from "./NumericTypes";
 import { CssColor } from "./ColorTypes";
 import { GridLineCountOrName, GridTrack, GridTrackSize } from "./StyleTypes";
+import { SyntaxKey } from "./Stylesets";
 /**
  * Type representing either color stop or color hint for the `<gradient>` CSS functions. Color
  * stop is represented by either a simple color value or a two-to-three element tuple. In this
@@ -296,6 +297,59 @@ export interface IImageSetFunc extends ICssImageFunc {
     fn: "image-set";
     /** Array of image specifications */
     items: ImageSetItem[];
+}
+/**
+ * Maps names of paint worklets to tuple types defining the arguments that are passed to the
+ * [[paint]] function. This interface is intended to be extended using the module augmentation
+ * technique. After a worklet is defined as part of this interface, it also has to be registered
+ * using the [[registerPaintWorklet]] function.
+ *
+ * **Example**
+ *
+ * ```typescript
+ * // Add our worklet to the IPaintWorkletArgs interface
+ * declare module "mimcss"
+ * {
+ *     interface IPaintWorkletArgs
+ *     {
+ *         myPaintWorklet: ["<color>", "<length>"]
+ *     }
+ * }
+ *
+ * // Register our worklet
+ * css.registerPaintWorklet( "myPaintWorklet", ["<color>", "<length>"], "my-paint-worklet.js");
+ *
+ * // Use our worklet
+ * class MyStyles extends css.StyleDefinition
+ * {
+ *     painted1 = this.$class({
+ *         // pass color "red" and length "20px"
+ *         backgroundImage: css.paint( "myPaintWorklet", "red", 20)
+ *     })
+ *
+ *     painted1 = this.$class({
+ *         // pass color "blue" and length "1inch"
+ *         backgroundImage: css.paint( "myPaintWorklet", "red", css.inch(1))
+ *     })
+ * }
+ * ```
+ *
+ */
+export interface IPaintWorklets {
+    [P: string]: SyntaxKey[];
+}
+/**
+ * Represents an invocation of the `paint()` CSS function. It can be directly assigned to
+ * a suitable style property (e.g. `background-image`). Objects implementing this interface can be
+ * used wherever the CSS `<image>` type is used.
+ * @category Image
+ */
+export interface IPaintFunc extends ICssImageFunc {
+    fn: "paint";
+    /** Name of the paint worklet */
+    name: string;
+    /** Array of arguments */
+    args: string[];
 }
 /**
  * The PercentFilterNames type represents the names of the percentage-based filter functions.
@@ -751,31 +805,5 @@ export interface IGridSpanFunc extends ICssFuncObject {
     p1: Extended<GridLineCountOrName>;
     /** Second span argument */
     p2?: Extended<GridLineCountOrName>;
-}
-/** Type for step animation timing function jump-term */
-export declare type TimingFunctionJumpTerm = "jump-start" | "jump-end" | "jump-none" | "jump-both" | "start" | "end";
-/**
- * The IStepsFunc interface represents an invocation of the CSS `steps()` function. It is returned
- * from the [[steps]] function.
- * @category Transition and Animation
- */
-export interface IStepsFunc extends ICssFuncObject {
-    fn: "steps";
-    /** Number of stops */
-    n: Extended<number>;
-    /** Jump term */
-    j?: TimingFunctionJumpTerm;
-}
-/**
- * The ICubicBezierFunc interface represents an invocation of the CSS `cubic-bezier()` function.
- * It is returned from the [[cubicBezier]] function.
- * @category Transition and Animation
- */
-export interface ICubicBezierFunc extends ICssFuncObject {
-    fn: "cubic-bezier";
-    n1: Extended<number>;
-    n2: Extended<number>;
-    n3: Extended<number>;
-    n4: Extended<number>;
 }
 //# sourceMappingURL=ShapeTypes.d.ts.map
